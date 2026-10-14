@@ -1,0 +1,35 @@
+{
+  "issues": [],
+  "warnings": [
+    "Node 'file:CHANGELOG' has no edges (orphan)",
+    "Node 'file:manifest.mf' has no edges (orphan)",
+    "Node 'file:META' has no edges (orphan)",
+    "Node 'file:src/jx/test/TestDomain.java' has no edges (orphan)",
+    "Node 'file:src/jx/test/TestDomainPortal.java' has no edges (orphan)",
+    "Node 'file:src/test/nfs/package.bluej' has no edges (orphan)",
+    "Node 'function:src/test/portal/perf/ListObject.java:ListObject:6' has no edges (orphan)",
+    "Node 'file:src/test/portal/perf/NullObject.java' has no edges (orphan)",
+    "Node 'file:src/test/portal/perf/TestObject.java' has no edges (orphan)"
+  ],
+  "stats": {
+    "totalNodes": 368,
+    "totalEdges": 584,
+    "totalLayers": 7,
+    "tourSteps": 11,
+    "nodeTypes": {
+      "config": 1,
+      "file": 71,
+      "document": 1,
+      "function": 226,
+      "class": 69
+    },
+    "edgeTypes": {
+      "contains": 294,
+      "exports": 240,
+      "calls": 47,
+      "implements": 1,
+      "configures": 1,
+      "documents": 1
+    }
+  }
+}

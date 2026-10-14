@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 0001: HTTP Server Fundamentals</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lesson 0001: HTTP Server Fundamentals</h1>
+        <p><small>Mission: <a href="../MISSION.md">HTTP Servers</a> | Lesson: 0001</small></p>
+    </header>
+
+    <section>
+        <h2>Learning Goal</h2>
+        <p>By the end of this lesson, you will understand what an HTTP server does, its core responsibilities, and see how the JX implementation maps to these concepts.</p>
+        <div class="callout">
+            <strong>Tangible Win:</strong> Be able to trace the flow of an HTTP request through <code>WebServer.java</code> and explain each step.
+        </div>
+    </section>
+
+    <section>
+        <h2>What is an HTTP Server?</h2>
+        <p>An HTTP server (web server) listens for incoming TCP connections, reads HTTP requests, and sends back HTTP responses. At its most basic, it must:</p>
+        <ol>
+            <li><strong>Listen</strong> - Bind to a port (typically 80 for HTTP) and accept connections</li>
+            <li><strong>Parse</strong> - Read and interpret HTTP request messages</li>
+            <li><strong>Route/Process</strong> - Determine what content to serve based on the request</li>
+            <li><strong>Respond</strong> - Send a properly formatted HTTP response</li>
+            <li><strong>Close</strong> - Clean up the connection</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Looking at the JX Implementation</h2>
+        <p>Our codebase has a simple HTTP server. Let's examine the key files.</p>
+
+        <h3>WebServer.java - The Server Loop</h3>
+        <p><a href="../../src/test/net/WebServer.java">View full file</a></p>
+        <pre><code>// Key parts from WebServer.java
+ServerSocket ssock = new ServerSocket(port);
+while (true) {
+    final Socket sock = ssock.accept();
+    if (opt_threads)
+        startWorkerThread(sock);
+    else
+        startWorkerDomain(sock);
+}</code></pre>
+        <p>This shows the classic accept loop: block until a connection arrives, then hand it off to a worker.</p>
+
+        <h3>TCPWebWorker.java - Handling Requests</h3>
+        <p><a href="../../src/test/net/TCPWebWorker.java">View full file</a></p>
+        <pre><code>// Parse the request
+String file = parse(requestStream);
+// ... determine response based on file
+byte[] data = index.getBytes();
+ostream.write(constructHeader(file, data.length).getBytes());
+ostream.write(data);
+ostream.flush();
+sock.close();</code></pre>
+        <p>The worker reads the request, parses out the requested file, builds a response with headers + body, then closes the connection.</p>
+    </section>
+
+    <section>
+        <h2>Try to Trace Through</h2>
+        <p>Take a moment to mentally trace what happens when a browser requests <code>http://localhost/index.html</code>:</p>
+        <ol>
+            <li>Browser opens TCP connection to port 80</li>
+            <li><code>ssock.accept()</code> returns with the socket</li>
+            <li>Worker (thread or domain) is started</li>
+            <li><code>parse()</code> reads HTTP request lines, extracts "index.html" (or "index.html" from "/")</li>
+            <li><code>constructHeader()</code> builds "HTTP/1.0 200 OK..." with Content-Type and Content-Length</li>
+            <li>Both header and body bytes are written to socket</li>
+            <li>Connection is closed</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Key Concepts to Remember</h2>
+        <ul>
+            <li><strong>TCP is the transport</strong> - HTTP runs on top of TCP. Sockets give you a byte stream.</li>
+            <li><strong>HTTP is text-based (for 1.x)</strong> - Requests and responses are readable strings with headers followed by body.</li>
+            <li><strong>Stateless by default</strong> - Each request is independent; no built-in session state.</li>
+            <li><strong>Concurrency matters</strong> - This implementation supports both threads and JX domains. Different models, same protocol.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Quick Check</h2>
+        <p>Before moving on, answer these mentally: What does <code>ServerSocket.accept()</code> do? What information does the HTTP header need at minimum to be valid for a simple response?</p>
+    </section>
+
+    <div class="callout info">
+        <strong>Primary Source:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">MDN - HTTP Overview</a><br>
+        <strong>Reminder:</strong> Ask your teacher (the agent) if anything is unclear or if you want to dig deeper into any of these concepts.
+    </div>
+
+    <footer class="footer-note">
+        <p>Next lesson: <a href="0002-http-request-structure.html">0002: HTTP Request Structure</a> (coming soon)</p>
+        <p>Related reference: <a href="../reference/">Reference docs</a> (to be created)</p>
+    </footer>
+</body>
+</html>

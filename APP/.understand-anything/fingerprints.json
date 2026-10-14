@@ -1,0 +1,6039 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "f4d3a39f3988209b02c21baf98fc0c23f390bbea",
+  "generatedAt": "2026-10-14T20:20:08.981Z",
+  "files": {
+    "build.xml": {
+      "filePath": "build.xml",
+      "contentHash": "50676c3099753c73afcc245b934f7b6f371c00df8910ea357c8f83692c5be53b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 74,
+      "hasStructuralAnalysis": false
+    },
+    "CHANGELOG": {
+      "filePath": "CHANGELOG",
+      "contentHash": "14bbe2c02b741182e8781ec08552be9ad31ca0cb5c45657739b3ad810a0b5c9f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 86,
+      "hasStructuralAnalysis": false
+    },
+    "manifest.mf": {
+      "filePath": "manifest.mf",
+      "contentHash": "aba13eb4e4d2c16f718c4db49e8fd5812a0064e0b12c52e147979240abd019a0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "META": {
+      "filePath": "META",
+      "contentHash": "2c692e46d9d86c406312a14397d0dfc68e6a459ec3327b75dc1049b49f701dc2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": false
+    },
+    "README.rst": {
+      "filePath": "README.rst",
+      "contentHash": "a4e606a46c0d5c46030346a6a7a1acf32b8ffc08878f66bd46c40fbeab767186",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": false
+    },
+    "src/AI/AI.java": {
+      "filePath": "src/AI/AI.java",
+      "contentHash": "f03119440894aa7047b519361ba81fdd62ce6580c9d409dee16c90901b6966d7",
+      "functions": [
+        {
+          "name": "AI",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 65
+        },
+        {
+          "name": "start",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "getIO",
+          "params": [],
+          "returnType": "AIIO",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 18
+        }
+      ],
+      "classes": [
+        {
+          "name": "AI",
+          "methods": [
+            "AI",
+            "start",
+            "getIO",
+            "init",
+            "main"
+          ],
+          "properties": [
+            "IO",
+            "log",
+            "logThread",
+            "monitors"
+          ],
+          "exported": true,
+          "lineCount": 135
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "java.net.ServerSocket",
+          "specifiers": [
+            "ServerSocket"
+          ]
+        },
+        {
+          "source": "java.net.Socket",
+          "specifiers": [
+            "Socket"
+          ]
+        },
+        {
+          "source": "java.util.logging.Level",
+          "specifiers": [
+            "Level"
+          ]
+        },
+        {
+          "source": "java.util.logging.Logger",
+          "specifiers": [
+            "Logger"
+          ]
+        },
+        {
+          "source": "jx.devices.pci.PCIAccess",
+          "specifiers": [
+            "PCIAccess"
+          ]
+        },
+        {
+          "source": "jx.devices.pci.PCICodes",
+          "specifiers": [
+            "PCICodes"
+          ]
+        },
+        {
+          "source": "jx.devices.pci.PCIDevice",
+          "specifiers": [
+            "PCIDevice"
+          ]
+        },
+        {
+          "source": "jx.netmanager.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.InitialNaming",
+          "specifiers": [
+            "InitialNaming"
+          ]
+        },
+        {
+          "source": "jx.zero.Naming",
+          "specifiers": [
+            "Naming"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugChannel",
+          "specifiers": [
+            "DebugChannel"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugOutputStream",
+          "specifiers": [
+            "DebugOutputStream"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugPrintStream",
+          "specifiers": [
+            "DebugPrintStream"
+          ]
+        },
+        {
+          "source": "org.jnode.driver.block.usb.storage.scsi.USBStorageMount",
+          "specifiers": [
+            "USBStorageMount"
+          ]
+        },
+        {
+          "source": "org.jnode.driver.bus.usb.USBHubMonitor",
+          "specifiers": [
+            "USBHubMonitor"
+          ]
+        },
+        {
+          "source": "org.jnode.driver.bus.usb.uhci.UHCIDriver",
+          "specifiers": [
+            "UHCIDriver"
+          ]
+        },
+        {
+          "source": "test.fs.MediaChangeTest",
+          "specifiers": [
+            "MediaChangeTest"
+          ]
+        },
+        {
+          "source": "test.fs.LargeFileTest",
+          "specifiers": [
+            "LargeFileTest"
+          ]
+        },
+        {
+          "source": "test.fs.USBMassStorageTest",
+          "specifiers": [
+            "USBMassStorageTest"
+          ]
+        },
+        {
+          "source": "test.net.TCPWebWorker",
+          "specifiers": [
+            "TCPWebWorker"
+          ]
+        },
+        {
+          "source": "test.net.WebServer",
+          "specifiers": [
+            "WebServer"
+          ]
+        }
+      ],
+      "exports": [
+        "AI",
+        "start",
+        "getIO",
+        "init",
+        "main",
+        "AI"
+      ],
+      "totalLines": 171,
+      "hasStructuralAnalysis": true
+    },
+    "src/AI/AIIO.java": {
+      "filePath": "src/AI/AIIO.java",
+      "contentHash": "51cd33d32e89e109f87705c327384d1191d59af4fe00537042c1d39190e00fe9",
+      "functions": [
+        {
+          "name": "AIIO",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "start",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "getMemory",
+          "params": [],
+          "returnType": "AIMemory",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getOut",
+          "params": [],
+          "returnType": "DebugOutputStream",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "AIIO",
+          "methods": [
+            "AIIO",
+            "start",
+            "getMemory",
+            "getOut"
+          ],
+          "properties": [
+            "mem",
+            "inp",
+            "out",
+            "inpThread",
+            "outThread",
+            "ports",
+            "depHandle"
+          ],
+          "exported": true,
+          "lineCount": 39
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.devices.pci.PCIAccess",
+          "specifiers": [
+            "PCIAccess"
+          ]
+        },
+        {
+          "source": "jx.devices.pci.PCIGod",
+          "specifiers": [
+            "PCIGod"
+          ]
+        },
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Naming",
+          "specifiers": [
+            "Naming"
+          ]
+        },
+        {
+          "source": "jx.zero.Ports",
+          "specifiers": [
+            "Ports"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugOutputStream",
+          "specifiers": [
+            "DebugOutputStream"
+          ]
+        }
+      ],
+      "exports": [
+        "AIIO",
+        "start",
+        "getMemory",
+        "getOut",
+        "AIIO"
+      ],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/init/Main.java": {
+      "filePath": "src/jx/init/Main.java",
+      "contentHash": "a3e7eafc25166f113da9a30839d6d185642fc071290390263a2089f89fa080bb",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 83
+        },
+        {
+          "name": "installGlobal",
+          "params": [
+            "globalSpec"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 36
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "init",
+            "main",
+            "installGlobal"
+          ],
+          "properties": [
+            "debug",
+            "javascheduler",
+            "initNaming"
+          ],
+          "exported": true,
+          "lineCount": 152
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.bootrc",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "main",
+        "Main"
+      ],
+      "totalLines": 160,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/init/MultiComponentStart.java": {
+      "filePath": "src/jx/init/MultiComponentStart.java",
+      "contentHash": "7cb39dccfcbc9bf71014dcfbe2383be02422d072255f86b9ac3d93992db3e442",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args",
+            "objectArgs"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 63
+        }
+      ],
+      "classes": [
+        {
+          "name": "MultiComponentStart",
+          "methods": [
+            "init"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 78
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.util.Vector",
+          "specifiers": [
+            "Vector"
+          ]
+        },
+        {
+          "source": "jx.bootrc.ComponentSpec",
+          "specifiers": [
+            "ComponentSpec"
+          ]
+        },
+        {
+          "source": "jx.bootrc.NameNotFoundException",
+          "specifiers": [
+            "NameNotFoundException"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "MultiComponentStart"
+      ],
+      "totalLines": 89,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/test/Test1.java": {
+      "filePath": "src/jx/test/Test1.java",
+      "contentHash": "adcb3d2bb1ef2ac6d6e6f428c939d23c63ac85b29e0e6dd1598b69700c7dba12",
+      "functions": [
+        {
+          "name": "m",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "n",
+          "params": [],
+          "returnType": "int",
+          "exported": false,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "Test1",
+          "methods": [
+            "m"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "XYZ",
+          "methods": [
+            "m",
+            "n"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Portal",
+          "specifiers": [
+            "Portal"
+          ]
+        }
+      ],
+      "exports": [
+        "Test1"
+      ],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/test/TestDomain.java": {
+      "filePath": "src/jx/test/TestDomain.java",
+      "contentHash": "73b3305e6b61ecee3cf3502ce9f97015274d0c08491f4b051f7afdfaa6cf4424",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TestDomain",
+          "methods": [
+            "test"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Portal",
+          "specifiers": [
+            "Portal"
+          ]
+        }
+      ],
+      "exports": [
+        "TestDomain"
+      ],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/test/TestDomainPortal.java": {
+      "filePath": "src/jx/test/TestDomainPortal.java",
+      "contentHash": "9bb1c5e51225509156145dad2bb2e6d5526cf51f9ee0c58ba011c65bfd719388",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TestDomainPortal",
+          "methods": [
+            "fooMethod"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "TestDomainPortal"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/cpustate/Main.java": {
+      "filePath": "src/test/cpustate/Main.java",
+      "contentHash": "697df54c2c9696794fd1849071958ae708bdda476323590ddf7a74d86cc96e34",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 23
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "Main"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/cpustate/MultiDomain.java": {
+      "filePath": "src/test/cpustate/MultiDomain.java",
+      "contentHash": "c282c46b7556a861170ecc4432a29b6d6fd5d586bb66ffaecbe4f46839e0b10d",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "DomainB",
+          "params": [
+            "args"
+          ],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "init",
+          "params": [
+            "c"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "unblock",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyService",
+          "methods": [
+            "init",
+            "unblock"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "DomainA",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "DomainB",
+          "methods": [
+            "main",
+            "DomainB",
+            "init",
+            "unblock"
+          ],
+          "properties": [
+            "cpuManager",
+            "thread"
+          ],
+          "exported": false,
+          "lineCount": 24
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "main",
+        "init",
+        "unblock"
+      ],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/debug/Monitor.java": {
+      "filePath": "src/test/debug/Monitor.java",
+      "contentHash": "2d2bb3eaab5b7f09599105ccd7e4e5f90e418c0d7a00aae97d37c1fb61ed2239",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [
+        {
+          "name": "Monitor",
+          "methods": [
+            "init"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 21
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "Monitor"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/BioRAMDomain.java": {
+      "filePath": "src/test/fs/BioRAMDomain.java",
+      "contentHash": "8911c6799b59a9969a554b10dfafa7b3728c1f3a91d90c4530ffccb1e2c42c06",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "BioRAMDomain",
+          "params": [
+            "naming",
+            "name"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "BioRAMDomain",
+          "methods": [
+            "main",
+            "init",
+            "BioRAMDomain"
+          ],
+          "properties": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.bio.ram.BlockIORAM",
+          "specifiers": [
+            "BlockIORAM"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "init",
+        "BioRAMDomain"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/CreateRemove.java": {
+      "filePath": "src/test/fs/CreateRemove.java",
+      "contentHash": "412f9e2a6460ee9a7b8881da0e791cf909ab8c8841654b236e3f73b6024cb5ec",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "dotest",
+          "params": [
+            "fs"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "CreateRemove",
+          "methods": [
+            "main",
+            "dotest"
+          ],
+          "properties": [
+            "MAXBUFFERSIZE"
+          ],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.fs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "CreateRemove"
+      ],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/EmulDiskDomain.java": {
+      "filePath": "src/test/fs/EmulDiskDomain.java",
+      "contentHash": "376641d46d15649fae121b83e335e691a877f3aafb53079c7734be39732535c9",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "classes": [
+        {
+          "name": "EmulDiskDomain",
+          "methods": [
+            "main",
+            "init"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 45
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.devices.bio.BlockIO",
+          "specifiers": [
+            "BlockIO"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugPrintStream",
+          "specifiers": [
+            "DebugPrintStream"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugOutputStream",
+          "specifiers": [
+            "DebugOutputStream"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "init",
+        "EmulDiskDomain"
+      ],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/FileTreeWalk.java": {
+      "filePath": "src/test/fs/FileTreeWalk.java",
+      "contentHash": "900d73ad9520ed849ef69bb189b7c212af0bdd646472e90a9bbfee2b781b9015",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "FileTreeWalk",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "printDir",
+          "params": [
+            "space",
+            "dirInode"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 34
+        }
+      ],
+      "classes": [
+        {
+          "name": "FileTreeWalk",
+          "methods": [
+            "init",
+            "FileTreeWalk",
+            "printDir"
+          ],
+          "properties": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 67
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.fs.FS",
+          "specifiers": [
+            "FS"
+          ]
+        },
+        {
+          "source": "jx.fs.Node",
+          "specifiers": [
+            "Node"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "FileTreeWalk",
+        "FileTreeWalk"
+      ],
+      "totalLines": 75,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/IDEDomain.java": {
+      "filePath": "src/test/fs/IDEDomain.java",
+      "contentHash": "f42ac491fcd6cd25a4675621ccf5e30218a9a8a7f77b052eaf83fc275e8d3989",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "classes": [
+        {
+          "name": "IDEDomain",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "bioide.IDEDeviceImpl",
+          "specifiers": [
+            "IDEDeviceImpl"
+          ]
+        },
+        {
+          "source": "bioide.Drive",
+          "specifiers": [
+            "Drive"
+          ]
+        },
+        {
+          "source": "bioide.PartitionEntry",
+          "specifiers": [
+            "PartitionEntry"
+          ]
+        },
+        {
+          "source": "jx.devices.bio.BlockIO",
+          "specifiers": [
+            "BlockIO"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "IDEDomain"
+      ],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/IOZONE.java": {
+      "filePath": "src/test/fs/IOZONE.java",
+      "contentHash": "9d23bc28fcef7722d2aeb7b7611677427157d82b0bac0773f250175687626cdd",
+      "functions": [
+        {
+          "name": "IOZONE",
+          "params": [
+            "fs",
+            "minFileSizeKB",
+            "maxFileSizeKB",
+            "minRecSizeB",
+            "maxRecSizeB"
+          ],
+          "exported": true,
+          "lineCount": 74
+        },
+        {
+          "name": "alignString",
+          "params": [
+            "value",
+            "length"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "autoTest",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 62
+        },
+        {
+          "name": "begin",
+          "params": [
+            "kilobytes",
+            "reclen"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "readPerfTest",
+          "params": [
+            "kilo",
+            "reclen"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 86
+        },
+        {
+          "name": "writePerfTest",
+          "params": [
+            "kilo",
+            "reclen"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 54
+        },
+        {
+          "name": "storeValue",
+          "params": [
+            "value"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 18
+        },
+        {
+          "name": "dumpBinary",
+          "params": [
+            "name"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "dumpReport",
+          "params": [
+            "who"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 38
+        },
+        {
+          "name": "dumpExcel",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 46
+        }
+      ],
+      "classes": [
+        {
+          "name": "IOZONE",
+          "methods": [
+            "IOZONE",
+            "alignString",
+            "autoTest",
+            "begin",
+            "readPerfTest",
+            "writePerfTest",
+            "storeValue",
+            "dumpBinary",
+            "dumpReport",
+            "dumpExcel"
+          ],
+          "properties": [
+            "fs",
+            "MAX_X",
+            "MAX_Y",
+            "KILOBYTES_START",
+            "KILOBYTES_END",
+            "RECLEN_START",
+            "RECLEN_END",
+            "MULTIPLIER",
+            "CROSSOVER",
+            "LARGE_REC",
+            "MINIMAL_MICROS",
+            "current_x",
+            "current_y",
+            "max_x",
+            "max_y",
+            "report_array",
+            "cancel_store",
+            "buffer",
+            "profiler",
+            "sample",
+            "cpuManager",
+            "clock",
+            "starttimec",
+            "endtimec",
+            "diff",
+            "outputThroughput",
+            "output",
+            "doDumpBinary",
+            "rereadtime",
+            "nreread"
+          ],
+          "exported": true,
+          "lineCount": 489
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        },
+        {
+          "source": "jx.fs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.fs.FSException",
+          "specifiers": [
+            "FSException"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.memory",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.formats",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "IOZONE",
+        "IOZONE"
+      ],
+      "totalLines": 508,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/MyBigNumber.java": {
+      "filePath": "src/test/fs/MyBigNumber.java",
+      "contentHash": "58a6b08ebb70a678f73de912ab572a5784891394245f4f215bab2669f719f4ee",
+      "functions": [
+        {
+          "name": "MyBigNumber",
+          "params": [
+            "n"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "MyBigNumber",
+          "params": [
+            "n"
+          ],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "mul",
+          "params": [
+            "n"
+          ],
+          "returnType": "MyBigNumber",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "mul",
+          "params": [
+            "n",
+            "e"
+          ],
+          "returnType": "MyBigNumber",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "mul",
+          "params": [
+            "n"
+          ],
+          "returnType": "MyBigNumber",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "div",
+          "params": [
+            "n"
+          ],
+          "returnType": "MyBigNumber",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "div",
+          "params": [
+            "n"
+          ],
+          "returnType": "MyBigNumber",
+          "exported": false,
+          "lineCount": 21
+        },
+        {
+          "name": "add",
+          "params": [
+            "n"
+          ],
+          "returnType": "MyBigNumber",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "toInt",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyBigNumber",
+          "methods": [
+            "MyBigNumber",
+            "MyBigNumber",
+            "mul",
+            "mul",
+            "mul",
+            "div",
+            "div",
+            "add",
+            "toString",
+            "toInt"
+          ],
+          "properties": [
+            "v"
+          ],
+          "exported": false,
+          "lineCount": 100
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "toString",
+        "toInt"
+      ],
+      "totalLines": 106,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/ReadDisk.java": {
+      "filePath": "src/test/fs/ReadDisk.java",
+      "contentHash": "9d96f5dc919ac7ed0146b8c29b9a9e1ca0d773242e56562f2a970e54b264b237",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 58
+        }
+      ],
+      "classes": [
+        {
+          "name": "ReadDisk",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 60
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.devices.bio.BlockIO",
+          "specifiers": [
+            "BlockIO"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "ReadDisk"
+      ],
+      "totalLines": 66,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/ReRead.java": {
+      "filePath": "src/test/fs/ReRead.java",
+      "contentHash": "70a0d092ba9511c192d4e5eec0072220d6ee2f13cd3abecac5b97ab59a9fc639",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "ReRead",
+          "params": [
+            "fs"
+          ],
+          "exported": true,
+          "lineCount": 70
+        }
+      ],
+      "classes": [
+        {
+          "name": "ReRead",
+          "methods": [
+            "main",
+            "ReRead"
+          ],
+          "properties": [
+            "MAXBUFFERSIZE"
+          ],
+          "exported": true,
+          "lineCount": 79
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        },
+        {
+          "source": "jx.fs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "ReRead",
+        "ReRead"
+      ],
+      "totalLines": 91,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/fs/Shell.java": {
+      "filePath": "src/test/fs/Shell.java",
+      "contentHash": "a3e86eb3679623311cd184e37238da01d8115f7bbfa0ef9096dbe1595d1c757a",
+      "functions": [
+        {
+          "name": "Parser",
+          "params": [
+            "zeile"
+          ],
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "isValid",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getKommando",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getArgumente",
+          "params": [],
+          "returnType": "String[]",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "Shell",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 46
+        },
+        {
+          "name": "mainLoop",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 194
+        },
+        {
+          "name": "cd",
+          "params": [
+            "path"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "ls",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "ll",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "mkdir",
+          "params": [
+            "name",
+            "mode"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "rmdir",
+          "params": [
+            "name"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "create",
+          "params": [
+            "name",
+            "mode"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "unlink",
+          "params": [
+            "name"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "read",
+          "params": [
+            "name",
+            "off",
+            "len"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 36
+        },
+        {
+          "name": "write",
+          "params": [
+            "name",
+            "off",
+            "len"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "rename",
+          "params": [
+            "path",
+            "pathneu"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "symlink",
+          "params": [
+            "path",
+            "pathneu"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "mount",
+          "params": [
+            "fs_name",
+            "dev_name",
+            "path"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "unmount",
+          "params": [
+            "dev_name"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 12
+        }
+      ],
+      "classes": [
+        {
+          "name": "Parser",
+          "methods": [
+            "Parser",
+            "isValid",
+            "getKommando",
+            "getArgumente"
+          ],
+          "properties": [
+            "kommando",
+            "argv",
+            "argc"
+          ],
+          "exported": true,
+          "lineCount": 42
+        },
+        {
+          "name": "Shell",
+          "methods": [
+            "Shell",
+            "mainLoop",
+            "cd",
+            "ls",
+            "ll",
+            "mkdir",
+            "rmdir",
+            "create",
+            "unlink",
+            "read",
+            "write",
+            "rename",
+            "symlink",
+            "mount",
+            "unmount"
+          ],
+          "properties": [
+            "filesystem",
+            "fs",
+            "in",
+            "mountPartitions",
+            "uout"
+          ],
+          "exported": true,
+          "lineCount": 443
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.DataInputStream",
+          "specifiers": [
+            "DataInputStream"
+          ]
+        },
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "java.io.PrintStream",
+          "specifiers": [
+            "PrintStream"
+          ]
+        },
+        {
+          "source": "java.util.Hashtable",
+          "specifiers": [
+            "Hashtable"
+          ]
+        },
+        {
+          "source": "jx.devices.bio.BlockIO",
+          "specifiers": [
+            "BlockIO"
+          ]
+        },
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugPrintStream",
+          "specifiers": [
+            "DebugPrintStream"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugOutputStream",
+          "specifiers": [
+            "DebugOutputStream"
+          ]
+        },
+        {
+          "source": "jx.fs.FS",
+          "specifiers": [
+            "FS"
+          ]
+        },
+        {
+          "source": "jx.fs.FileSystem",
+          "specifiers": [
+            "FileSystem"
+          ]
+        },
+        {
+          "source": "jx.fs.InodeImpl",
+          "specifiers": [
+            "InodeImpl"
+          ]
+        },
+        {
+          "source": "jx.fs.FSException",
+          "specifiers": [
+            "FSException"
+          ]
+        }
+      ],
+      "exports": [
+        "Parser",
+        "isValid",
+        "getKommando",
+        "getArgumente",
+        "Shell",
+        "Shell"
+      ],
+      "totalLines": 514,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/gc/Cycle.java": {
+      "filePath": "src/test/gc/Cycle.java",
+      "contentHash": "1189a901aae46ab5dbf31e04ffec641380d70346efd2c4f70b77f59a21b82b93",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Cycle",
+          "params": [
+            "args"
+          ],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "classes": [
+        {
+          "name": "Cycle",
+          "methods": [
+            "main",
+            "Cycle"
+          ],
+          "properties": [
+            "y0",
+            "y"
+          ],
+          "exported": true,
+          "lineCount": 52
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "Cycle",
+        "Cycle"
+      ],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/gc/Main.java": {
+      "filePath": "src/test/gc/Main.java",
+      "contentHash": "fb54ea711577abc6b72153c4cdc9a47ed5b62cc6992cf601c48f489bac08235d",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "work0",
+          "params": [
+            "x0",
+            "x1"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "work1",
+          "params": [
+            "x0",
+            "a1",
+            "a2",
+            "a3",
+            "a4",
+            "a5",
+            "x1"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "work",
+          "params": [
+            "x0"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "w0",
+          "params": [
+            "x0",
+            "x1"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "w1",
+          "params": [
+            "x0",
+            "a1",
+            "a2",
+            "a3",
+            "a4",
+            "a5",
+            "x1"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "w",
+          "params": [
+            "x0"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "X",
+          "methods": [],
+          "properties": [
+            "a",
+            "b",
+            "c",
+            "x"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "Main",
+          "methods": [
+            "main",
+            "init",
+            "work0",
+            "work1",
+            "work",
+            "w0",
+            "w1",
+            "w"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 84
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "init",
+        "work0",
+        "work1",
+        "work",
+        "w0",
+        "w1",
+        "w",
+        "Main"
+      ],
+      "totalLines": 96,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/ide/IDEDomain.java": {
+      "filePath": "src/test/ide/IDEDomain.java",
+      "contentHash": "e1c5d610a45f0629ee394f7e2cfa7c7d0a32780ced9edf2ca5b2b8e5426fca4d",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "IDEDomain",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [
+        {
+          "name": "IDEDomain",
+          "methods": [
+            "init",
+            "IDEDomain"
+          ],
+          "properties": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "bioide.IDEDeviceImpl",
+          "specifiers": [
+            "IDEDeviceImpl"
+          ]
+        },
+        {
+          "source": "bioide.Drive",
+          "specifiers": [
+            "Drive"
+          ]
+        },
+        {
+          "source": "bioide.PartitionEntry",
+          "specifiers": [
+            "PartitionEntry"
+          ]
+        },
+        {
+          "source": "jx.devices.bio.BlockIO",
+          "specifiers": [
+            "BlockIO"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugPrintStream",
+          "specifiers": [
+            "DebugPrintStream"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugOutputStream",
+          "specifiers": [
+            "DebugOutputStream"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "IDEDomain"
+      ],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/ide/Main.java": {
+      "filePath": "src/test/ide/Main.java",
+      "contentHash": "b6f236f109263058395772614d02fa2995ed517b5f5a712f98b6cf9fa8bb9804",
+      "functions": [
+        {
+          "name": "commonTest",
+          "params": [
+            "naming",
+            "bio",
+            "readOnly"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 39
+        },
+        {
+          "name": "throughput",
+          "params": [
+            "bio",
+            "memoryManager",
+            "nsec"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "commonTest",
+            "throughput",
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 72
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "bioide.IDEDeviceImpl",
+          "specifiers": [
+            "IDEDeviceImpl"
+          ]
+        },
+        {
+          "source": "bioide.Drive",
+          "specifiers": [
+            "Drive"
+          ]
+        },
+        {
+          "source": "bioide.Partition",
+          "specifiers": [
+            "Partition"
+          ]
+        },
+        {
+          "source": "jx.devices.bio.BlockIO",
+          "specifiers": [
+            "BlockIO"
+          ]
+        }
+      ],
+      "exports": [
+        "commonTest",
+        "main",
+        "Main"
+      ],
+      "totalLines": 83,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/memobj/Main.java": {
+      "filePath": "src/test/memobj/Main.java",
+      "contentHash": "48890483730b1f8f57012a99fea3aa0f8adfb0aab68c421f65b3726c9dd072ee",
+      "functions": [
+        {
+          "name": "testMemory",
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 51
+        },
+        {
+          "name": "test8Bit",
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "test8BitConst",
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "test16Bit",
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 18
+        },
+        {
+          "name": "test16BitLE",
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "test32BitConst",
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "test32Bit",
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 17
+        },
+        {
+          "name": "testSet",
+          "params": [
+            "mem"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "testSpeed",
+          "params": [
+            "memMgr"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "testRevoke",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "testCreateSpeed",
+          "params": [
+            "naming",
+            "ntries"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "testRevokeSpeed",
+          "params": [
+            "naming",
+            "ntries"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 18
+        },
+        {
+          "name": "testSplitSpeed",
+          "params": [
+            "naming",
+            "ntries"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 20
+        },
+        {
+          "name": "testSplit",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "testMap",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "testMapSpeed",
+          "params": [
+            "naming",
+            "ntries",
+            "ntries2"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 70
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 58
+        },
+        {
+          "name": "testGC",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "MemServerImpl",
+          "params": [
+            "memMgr"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "getMemory",
+          "params": [],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "gc",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "gcMem",
+          "params": [
+            "svr"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyMap",
+          "methods": [],
+          "properties": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "Main",
+          "methods": [
+            "testMemory",
+            "test8Bit",
+            "test8BitConst",
+            "test16Bit",
+            "test16BitLE",
+            "test32BitConst",
+            "test32Bit",
+            "testSet",
+            "testSpeed",
+            "testRevoke",
+            "testCreateSpeed",
+            "testRevokeSpeed",
+            "testSplitSpeed",
+            "testSplit",
+            "testMap",
+            "testMapSpeed",
+            "main",
+            "testGC"
+          ],
+          "properties": [
+            "doTiming"
+          ],
+          "exported": true,
+          "lineCount": 440
+        },
+        {
+          "name": "MemServer",
+          "methods": [
+            "getMemory",
+            "gc"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "MemServerImpl",
+          "methods": [
+            "MemServerImpl",
+            "getMemory",
+            "gc"
+          ],
+          "properties": [
+            "memMgr"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "ClientDomain",
+          "methods": [
+            "gcMem",
+            "init"
+          ],
+          "properties": [
+            "m"
+          ],
+          "exported": false,
+          "lineCount": 24
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.Dump",
+          "specifiers": [
+            "Dump"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "Main",
+        "getMemory",
+        "gc",
+        "gcMem",
+        "init"
+      ],
+      "totalLines": 499,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/nfs/LoadGenerator.java": {
+      "filePath": "src/test/nfs/LoadGenerator.java",
+      "contentHash": "9deff64ae22a022d5329783f054fca20cd6a0ce1609658d1404b84e705405172",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "LoadGenerator",
+          "params": [],
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "LoadGenerator",
+          "methods": [
+            "init",
+            "LoadGenerator",
+            "run"
+          ],
+          "properties": [
+            "cpuManager",
+            "ende"
+          ],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "LoadGenerator",
+        "run",
+        "LoadGenerator"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/nfs/Main.java": {
+      "filePath": "src/test/nfs/Main.java",
+      "contentHash": "3c439cbe1fb48ddfb6e81c5fe6a07d61936f808adf13a9c7f722ce166eb281bd",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [],
+          "properties": [
+            "RPC_LOCALPORT",
+            "testClient",
+            "EXT2FS_BLOCKSIZE"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "Main"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/nfs/MountProc_Skel.java": {
+      "filePath": "src/test/nfs/MountProc_Skel.java",
+      "contentHash": "6bc460450ae06e3057111bd3405b1cd82b0dd180b69ed17f14ab59a469a7beb6",
+      "functions": [
+        {
+          "name": "MountProc_Skel",
+          "params": [
+            "rpc",
+            "mountPort",
+            "mountImpl"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "MountProc_Skel",
+          "methods": [
+            "MountProc_Skel"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountProc_Impl",
+          "specifiers": [
+            "MountProc_Impl"
+          ]
+        }
+      ],
+      "exports": [
+        "MountProc_Skel",
+        "MountProc_Skel"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/nfs/MountProc_Stub.java": {
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "contentHash": "b802aebc23d553482d14f2be2eed61a4f5ec11ee43c4c0aa041a7f3dd6f62b2a",
+      "functions": [
+        {
+          "name": "MountProc_Stub",
+          "params": [
+            "rpc",
+            "rpcHost"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "nullproc",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "mnt",
+          "params": [
+            "d"
+          ],
+          "returnType": "FHStatus",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "dump",
+          "params": [],
+          "returnType": "MountList",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "umnt",
+          "params": [
+            "d"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "umntall",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "export",
+          "params": [],
+          "returnType": "Exports",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "MountProc_Stub",
+          "methods": [
+            "MountProc_Stub",
+            "nullproc",
+            "mnt",
+            "dump",
+            "umnt",
+            "umntall",
+            "export"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.Exports",
+          "specifiers": [
+            "Exports"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.FHStatus",
+          "specifiers": [
+            "FHStatus"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountList",
+          "specifiers": [
+            "MountList"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountProc",
+          "specifiers": [
+            "MountProc"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.DirPath",
+          "specifiers": [
+            "DirPath"
+          ]
+        }
+      ],
+      "exports": [
+        "MountProc_Stub",
+        "nullproc",
+        "mnt",
+        "dump",
+        "umnt",
+        "umntall",
+        "export",
+        "MountProc_Stub"
+      ],
+      "totalLines": 51,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/nfs/NFSClient.java": {
+      "filePath": "src/test/nfs/NFSClient.java",
+      "contentHash": "e4289d89844295cf40a5d537d414b6880ffe69310307400163505d60df456af9",
+      "functions": [
+        {
+          "name": "NFSClient",
+          "params": [
+            "rpcHost"
+          ],
+          "exported": true,
+          "lineCount": 45
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSClient",
+          "methods": [
+            "NFSClient"
+          ],
+          "properties": [
+            "RPC_LOCALPORT",
+            "EXT2FS_BLOCKSIZE"
+          ],
+          "exported": true,
+          "lineCount": 50
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpc",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.AttrStat",
+          "specifiers": [
+            "AttrStat"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.AttrStatOK",
+          "specifiers": [
+            "AttrStatOK"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.DirPath",
+          "specifiers": [
+            "DirPath"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.FAttr",
+          "specifiers": [
+            "FAttr"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.FHandle",
+          "specifiers": [
+            "FHandle"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc",
+          "specifiers": [
+            "NFSProc"
+          ]
+        }
+      ],
+      "exports": [
+        "NFSClient"
+      ],
+      "totalLines": 68,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/nfs/NFSDomain.java": {
+      "filePath": "src/test/nfs/NFSDomain.java",
+      "contentHash": "d467007828a3c5e296e9bed93e27de0db564a308a493b152848232bf136a85c5",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "NFSDomain",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "exported": true,
+          "lineCount": 43
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSDomain",
+          "methods": [
+            "init",
+            "main",
+            "NFSDomain"
+          ],
+          "properties": [
+            "RPC_LOCALPORT",
+            "EXT2FS_BLOCKSIZE"
+          ],
+          "exported": true,
+          "lineCount": 60
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.fs.FS",
+          "specifiers": [
+            "FS"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPCInitException",
+          "specifiers": [
+            "RPCInitException"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.bind2",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountProc",
+          "specifiers": [
+            "MountProc"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountProc_Impl",
+          "specifiers": [
+            "MountProc_Impl"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc",
+          "specifiers": [
+            "NFSProc"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc_Impl",
+          "specifiers": [
+            "NFSProc_Impl"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "main",
+        "NFSDomain"
+      ],
+      "totalLines": 78,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/nfs/NFSProc_Skel.java": {
+      "filePath": "src/test/nfs/NFSProc_Skel.java",
+      "contentHash": "440166f9358e7f20c3b07f4df72e6099c7fc8b45bf50847a6ee359fece822084",
+      "functions": [
+        {
+          "name": "NFSProc_Skel",
+          "params": [
+            "rpc",
+            "nfsPort",
+            "nfsImpl"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSProc_Skel",
+          "methods": [
+            "NFSProc_Skel"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc_Impl",
+          "specifiers": [
+            "NFSProc_Impl"
+          ]
+        }
+      ],
+      "exports": [
+        "NFSProc_Skel",
+        "NFSProc_Skel"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/nfs/NFSProc_Stub.java": {
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "contentHash": "b25c1ecbacd47a11fbc0c3e882882eb463b19382e915004e346be9f1fed75b72",
+      "functions": [
+        {
+          "name": "NFSProc_Stub",
+          "params": [
+            "rpc",
+            "rpcHost"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "setAuth",
+          "params": [
+            "a",
+            "ct"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "nullproc",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getattr",
+          "params": [
+            "a"
+          ],
+          "returnType": "AttrStat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "setattr",
+          "params": [
+            "file",
+            "attributes"
+          ],
+          "returnType": "AttrStat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "root",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "lookup",
+          "params": [
+            "dir",
+            "name"
+          ],
+          "returnType": "DirOpRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "readlink",
+          "params": [
+            "a"
+          ],
+          "returnType": "ReadLinkRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "read",
+          "params": [
+            "file",
+            "offset",
+            "count",
+            "totalcount"
+          ],
+          "returnType": "ReadRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "writeCache",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "write",
+          "params": [
+            "file",
+            "beginoffset",
+            "offset",
+            "totalcount",
+            "data"
+          ],
+          "returnType": "AttrStat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "create",
+          "params": [
+            "dir",
+            "name",
+            "attributes"
+          ],
+          "returnType": "DirOpRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "remove",
+          "params": [
+            "dir",
+            "name"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "rename",
+          "params": [
+            "fromDir",
+            "fromName",
+            "toDir",
+            "toName"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "link",
+          "params": [
+            "from",
+            "toDir",
+            "toName"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "symlink",
+          "params": [
+            "fromDir",
+            "fromName",
+            "to",
+            "attributes"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "mkdir",
+          "params": [
+            "dir",
+            "name",
+            "attributes"
+          ],
+          "returnType": "DirOpRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "rmdir",
+          "params": [
+            "dir",
+            "name"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "readdir",
+          "params": [
+            "dir",
+            "cookie",
+            "count"
+          ],
+          "returnType": "ReadDirRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "statfs",
+          "params": [
+            "dir"
+          ],
+          "returnType": "StatFSRes",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSProc_Stub",
+          "methods": [
+            "NFSProc_Stub",
+            "setAuth",
+            "nullproc",
+            "getattr",
+            "setattr",
+            "root",
+            "lookup",
+            "readlink",
+            "read",
+            "writeCache",
+            "write",
+            "create",
+            "remove",
+            "rename",
+            "link",
+            "symlink",
+            "mkdir",
+            "rmdir",
+            "readdir",
+            "statfs"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 100
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.rpc.Auth",
+          "specifiers": [
+            "Auth"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.AttrStat",
+          "specifiers": [
+            "AttrStat"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.DirOpRes",
+          "specifiers": [
+            "DirOpRes"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.DirPath",
+          "specifiers": [
+            "DirPath"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.FHandle",
+          "specifiers": [
+            "FHandle"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSCookie",
+          "specifiers": [
+            "NFSCookie"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSData",
+          "specifiers": [
+            "NFSData"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc",
+          "specifiers": [
+            "NFSProc"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.Name",
+          "specifiers": [
+            "Name"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.ReadDirRes",
+          "specifiers": [
+            "ReadDirRes"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.ReadLinkRes",
+          "specifiers": [
+            "ReadLinkRes"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.ReadRes",
+          "specifiers": [
+            "ReadRes"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.SAttr",
+          "specifiers": [
+            "SAttr"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.Stat",
+          "specifiers": [
+            "Stat"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.StatFSRes",
+          "specifiers": [
+            "StatFSRes"
+          ]
+        }
+      ],
+      "exports": [
+        "NFSProc_Stub",
+        "nullproc",
+        "getattr",
+        "setattr",
+        "root",
+        "lookup",
+        "readlink",
+        "read",
+        "writeCache",
+        "write",
+        "create",
+        "remove",
+        "rename",
+        "link",
+        "symlink",
+        "mkdir",
+        "rmdir",
+        "readdir",
+        "statfs",
+        "NFSProc_Stub"
+      ],
+      "totalLines": 125,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/nfs/package.bluej": {
+      "filePath": "src/test/nfs/package.bluej",
+      "contentHash": "2943d5abd03369a8b27824bd1dad4ee57477d8e6f9b9eb5baa72cdd92bba2767",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 106,
+      "hasStructuralAnalysis": false
+    },
+    "src/test/nfs/RPCBind_Skel.java": {
+      "filePath": "src/test/nfs/RPCBind_Skel.java",
+      "contentHash": "ae536f84fae38f3a3aa30455fe67b9182cb607def25846204380da6fbc01ce07",
+      "functions": [
+        {
+          "name": "RPCBind_Skel",
+          "params": [
+            "rpc",
+            "i",
+            "bind"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "RPCBind_Skel",
+          "methods": [
+            "RPCBind_Skel"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.bind2.RPCBind_Impl",
+          "specifiers": [
+            "RPCBind_Impl"
+          ]
+        }
+      ],
+      "exports": [
+        "RPCBind_Skel",
+        "RPCBind_Skel"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/CallerDomain.java": {
+      "filePath": "src/test/portal/CallerDomain.java",
+      "contentHash": "68a029435ab9026e4d4374b6612352e0dd48cdfd1c125bc8d9e37b31c43c3c84",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "CallerDomain",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "classes": [
+        {
+          "name": "CallerDomain",
+          "methods": [
+            "init",
+            "CallerDomain"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.scheduler",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.scheduler",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "CallerDomain",
+        "CallerDomain"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/CallerHLS.java": {
+      "filePath": "src/test/portal/CallerHLS.java",
+      "contentHash": "ea0f116d06bc3acb9de64043ce581041afe14aea5cb5f1a62ee92161f3edc63d",
+      "functions": [
+        {
+          "name": "CallerHLS",
+          "params": [],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "registered",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "Scheduler_interrupted",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Scheduler_preempted",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "interrupted",
+          "params": [
+            "Thread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "preempted",
+          "params": [
+            "Thread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "yielded",
+          "params": [
+            "newThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "unblocked",
+          "params": [
+            "Thread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "created",
+          "params": [
+            "newThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "switchedTo",
+          "params": [
+            "Thread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "blockedInPortalCall",
+          "params": [
+            "Thread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "portalCalled",
+          "params": [
+            "Thread"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "blockedInService",
+          "params": [
+            "Thread",
+            "PortalThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "serviceCalled",
+          "params": [
+            "Thread",
+            "PortalThread"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "startGCThread",
+          "params": [
+            "interruptedThread",
+            "GCthread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "unblockedGCThread",
+          "params": [
+            "GCthread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "destroyedGCThread",
+          "params": [
+            "GCthread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "activated",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "dump",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "CallerHLS",
+          "methods": [
+            "CallerHLS",
+            "registered",
+            "Scheduler_interrupted",
+            "Scheduler_preempted",
+            "interrupted",
+            "preempted",
+            "yielded",
+            "unblocked",
+            "created",
+            "switchedTo",
+            "blockedInPortalCall",
+            "portalCalled",
+            "blockedInService",
+            "serviceCalled",
+            "startGCThread",
+            "unblockedGCThread",
+            "destroyedGCThread",
+            "activated",
+            "toString",
+            "dump"
+          ],
+          "properties": [
+            "naming",
+            "cpuManager",
+            "SMPcpuManager",
+            "HLschedulerSupport",
+            "out",
+            "runnables",
+            "MyCPU",
+            "anzSchedInterrupted",
+            "anzSchedPreempted",
+            "yielded",
+            "DomainName",
+            "instNr",
+            "debug",
+            "GCThread",
+            "caller",
+            "portal"
+          ],
+          "exported": true,
+          "lineCount": 185
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.scheduler",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.scheduler",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "DomainName",
+        "CallerHLS",
+        "registered",
+        "Scheduler_interrupted",
+        "Scheduler_preempted",
+        "interrupted",
+        "preempted",
+        "yielded",
+        "unblocked",
+        "created",
+        "switchedTo",
+        "blockedInPortalCall",
+        "portalCalled",
+        "blockedInService",
+        "serviceCalled",
+        "startGCThread",
+        "unblockedGCThread",
+        "destroyedGCThread",
+        "activated",
+        "toString",
+        "dump",
+        "CallerHLS"
+      ],
+      "totalLines": 195,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/Daddy.java": {
+      "filePath": "src/test/portal/Daddy.java",
+      "contentHash": "e505930dd21eb565d3b5d7d1c9bae84c0c52fa886893ea40ed07ec59c19b66f5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Daddy",
+          "methods": [
+            "longRunning",
+            "inc",
+            "getCount"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Portal",
+          "specifiers": [
+            "Portal"
+          ]
+        }
+      ],
+      "exports": [
+        "Daddy"
+      ],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/DaddyImpl.java": {
+      "filePath": "src/test/portal/DaddyImpl.java",
+      "contentHash": "625ec623b36bb15cc75f659cd511f1422d098d966d1a2f2c451c68166bff41f0",
+      "functions": [
+        {
+          "name": "DaddyImpl",
+          "params": [
+            "cpuManager"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "longRunning",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "inc",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getCount",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "DaddyImpl",
+          "methods": [
+            "DaddyImpl",
+            "longRunning",
+            "inc",
+            "getCount"
+          ],
+          "properties": [
+            "count",
+            "cpuManager",
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "longRunning",
+        "inc",
+        "getCount",
+        "DaddyImpl"
+      ],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/GCTest.java": {
+      "filePath": "src/test/portal/GCTest.java",
+      "contentHash": "f95642daf73a3de4ed0dd9b037a18cdb72b404ad8bf2fe86b2f91bdda774feca",
+      "functions": [
+        {
+          "name": "longRunning",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "inc",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getCount",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 23
+        }
+      ],
+      "classes": [
+        {
+          "name": "GCDaddy",
+          "methods": [
+            "longRunning",
+            "inc",
+            "getCount"
+          ],
+          "properties": [
+            "c"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "GCTest",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 26
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "longRunning",
+        "inc",
+        "getCount",
+        "main",
+        "GCTest"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/HansService.java": {
+      "filePath": "src/test/portal/HansService.java",
+      "contentHash": "34b5e505432f685c9d322286cee787c2bafeeeb91e30f599e67727e41036b236",
+      "functions": [],
+      "classes": [
+        {
+          "name": "HansService",
+          "methods": [
+            "test"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "HansService"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/HansServiceImpl.java": {
+      "filePath": "src/test/portal/HansServiceImpl.java",
+      "contentHash": "460492da6c00fae9e02d8a4711ba18f4d2d91329c6ab8672fb984b9891f80f5e",
+      "functions": [
+        {
+          "name": "HansServiceImpl",
+          "params": [
+            "daddy"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "test",
+          "params": [
+            "str"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "HansServiceImpl",
+          "methods": [
+            "HansServiceImpl",
+            "test"
+          ],
+          "properties": [
+            "daddy"
+          ],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "test",
+        "HansServiceImpl"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/Main.java": {
+      "filePath": "src/test/portal/Main.java",
+      "contentHash": "284741d7adcc018344f4f1ffabe12e33f2dc1ebf4af83b1d4d02170b8b431b00",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 93
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.scheduler",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.scheduler",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "Main"
+      ],
+      "totalLines": 102,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/MainAlice.java": {
+      "filePath": "src/test/portal/MainAlice.java",
+      "contentHash": "52d7ef7c5bd2b0df1001570fd500e421a221410250465c8d17f0a032275f7c67",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "classes": [
+        {
+          "name": "MainAlice",
+          "methods": [
+            "init"
+          ],
+          "properties": [
+            "ncalls"
+          ],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "MainAlice"
+      ],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/MainHans.java": {
+      "filePath": "src/test/portal/MainHans.java",
+      "contentHash": "bd5edecb6623264dba9cfc1ff4a7662fd8a4df1c83e20944fb22fcec53fd5a51",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 38
+        }
+      ],
+      "classes": [
+        {
+          "name": "MainHans",
+          "methods": [
+            "init"
+          ],
+          "properties": [
+            "ncalls"
+          ],
+          "exported": true,
+          "lineCount": 42
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "MainHans"
+      ],
+      "totalLines": 49,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/perf/ListObject.java": {
+      "filePath": "src/test/portal/perf/ListObject.java",
+      "contentHash": "d9d43ab1b2411820ae6d6ffbe3ac63ae95f71f91466e32d5eb0a789d4b0bd70a",
+      "functions": [
+        {
+          "name": "ListObject",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "ListObject",
+          "params": [
+            "n"
+          ],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "ListObject",
+          "methods": [
+            "ListObject",
+            "ListObject"
+          ],
+          "properties": [
+            "next"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ListObject"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/perf/NullObject.java": {
+      "filePath": "src/test/portal/perf/NullObject.java",
+      "contentHash": "f32e7e0d5eb77b23e4b8f6926b3460c2700523f4eac08cd29fa943d212d71315",
+      "functions": [],
+      "classes": [
+        {
+          "name": "NullObject",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "NullObject"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/perf/PortalPerf.java": {
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "contentHash": "1e11fbb27a1c50fc18b08e84a62018f2adeae3f81e807c65eca7463c01eb262e",
+      "functions": [
+        {
+          "name": "m",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "finalm",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "staticm",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "PortalPerf",
+          "params": [
+            "fstest"
+          ],
+          "exported": true,
+          "lineCount": 200
+        }
+      ],
+      "classes": [
+        {
+          "name": "Test",
+          "methods": [
+            "m",
+            "finalm",
+            "staticm"
+          ],
+          "properties": [
+            "a"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "PortalPerf",
+          "methods": [
+            "main",
+            "PortalPerf"
+          ],
+          "properties": [
+            "EMPTY_ITERATIONS",
+            "VCALL_ITERATIONS",
+            "EVENT_ITERATIONS",
+            "PORTAL_ITERATIONS",
+            "PORTAL_ONEINT_ITERATIONS",
+            "NEW_ITERATIONS",
+            "COPY_ITERATIONS",
+            "doGC",
+            "measureEventLogging"
+          ],
+          "exported": true,
+          "lineCount": 220
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.fs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.secmgr",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "m",
+        "finalm",
+        "staticm",
+        "EMPTY_ITERATIONS",
+        "VCALL_ITERATIONS",
+        "EVENT_ITERATIONS",
+        "PORTAL_ITERATIONS",
+        "PORTAL_ONEINT_ITERATIONS",
+        "NEW_ITERATIONS",
+        "COPY_ITERATIONS",
+        "doGC",
+        "measureEventLogging",
+        "main",
+        "PortalPerf"
+      ],
+      "totalLines": 237,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/perf/TargetDomain_Impl.java": {
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "contentHash": "d8b18dad5f58bf88e92446206de6694915b20b2214f30b8b6c08289c117bbf10",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "TargetDomain_Impl",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "noparam",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "intparam",
+          "params": [
+            "p"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "test",
+          "params": [
+            "o",
+            "v"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "objparam",
+          "params": [
+            "p"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "listparam",
+          "params": [
+            "p"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "arrparam",
+          "params": [
+            "p"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "gc",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "TargetDomain_Impl",
+          "methods": [
+            "init",
+            "TargetDomain_Impl",
+            "noparam",
+            "intparam",
+            "test",
+            "objparam",
+            "listparam",
+            "arrparam",
+            "gc"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 32
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "TargetDomain_Impl",
+        "noparam",
+        "intparam",
+        "test",
+        "objparam",
+        "listparam",
+        "arrparam",
+        "gc",
+        "TargetDomain_Impl"
+      ],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/perf/TargetDomain.java": {
+      "filePath": "src/test/portal/perf/TargetDomain.java",
+      "contentHash": "ece951d9edfd1ac069c10fcc391e30e1eca8ab433a17aeab47ea06b5534e3107",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TargetDomain",
+          "methods": [
+            "noparam",
+            "intparam",
+            "objparam",
+            "listparam",
+            "arrparam",
+            "test",
+            "gc"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Portal",
+          "specifiers": [
+            "Portal"
+          ]
+        }
+      ],
+      "exports": [
+        "TargetDomain"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/perf/TestObject.java": {
+      "filePath": "src/test/portal/perf/TestObject.java",
+      "contentHash": "3dc97f94d3a028e450517ae29685ab6fd9cd86da1da8dbf1b7d53abf64554162",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TestObject",
+          "methods": [
+            "m"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Portal",
+          "specifiers": [
+            "Portal"
+          ]
+        }
+      ],
+      "exports": [
+        "TestObject"
+      ],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/scale/Acceptor.java": {
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "contentHash": "06ed8794bef7554dfafc3c3b45a30a8637db23c188072faeb77100b3379eea57",
+      "functions": [
+        {
+          "name": "read",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "write",
+          "params": [
+            "c"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "MyNaming",
+          "params": [
+            "baseNaming"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "registerPortal",
+          "params": [
+            "portal",
+            "name"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "lookup",
+          "params": [
+            "name"
+          ],
+          "returnType": "Portal",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "lookupOrWait",
+          "params": [
+            "depName"
+          ],
+          "returnType": "Portal",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 43
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyConnection",
+          "methods": [
+            "read",
+            "write"
+          ],
+          "properties": [
+            "c",
+            "i"
+          ],
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "MyNaming",
+          "methods": [
+            "MyNaming",
+            "registerPortal",
+            "lookup",
+            "lookupOrWait"
+          ],
+          "properties": [
+            "baseNaming"
+          ],
+          "exported": false,
+          "lineCount": 21
+        },
+        {
+          "name": "Acceptor",
+          "methods": [
+            "init",
+            "main"
+          ],
+          "properties": [
+            "N_DOMAINS",
+            "verbose"
+          ],
+          "exported": true,
+          "lineCount": 54
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "read",
+        "write",
+        "registerPortal",
+        "lookup",
+        "lookupOrWait",
+        "N_DOMAINS",
+        "verbose",
+        "init",
+        "main",
+        "Acceptor"
+      ],
+      "totalLines": 98,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/scale/Connection.java": {
+      "filePath": "src/test/portal/scale/Connection.java",
+      "contentHash": "e8d6b81c266045d80c4fde600229ac4e7c29f69a69960e4d6841c4b82352ab2d",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Connection",
+          "methods": [
+            "read",
+            "write"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "Connection"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/scale/CreateSpeed.java": {
+      "filePath": "src/test/portal/scale/CreateSpeed.java",
+      "contentHash": "622f9df70354b843a07b70ab4217e8e62e07dc11c8d28bc13d19d9513f5a73f4",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 46
+        }
+      ],
+      "classes": [
+        {
+          "name": "CreateSpeed",
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "N_DOMAINS",
+            "verbose"
+          ],
+          "exported": true,
+          "lineCount": 53
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "N_DOMAINS",
+        "verbose",
+        "main",
+        "CreateSpeed"
+      ],
+      "totalLines": 58,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/scale/DomainExhauster.java": {
+      "filePath": "src/test/portal/scale/DomainExhauster.java",
+      "contentHash": "bbfbefc745985900d9073ffd7da631b751e9670ad9109533a146629200c36455",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 40
+        }
+      ],
+      "classes": [
+        {
+          "name": "DomainExhauster",
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "N_DOMAINS",
+            "verbose"
+          ],
+          "exported": true,
+          "lineCount": 46
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "N_DOMAINS",
+        "verbose",
+        "main",
+        "DomainExhauster"
+      ],
+      "totalLines": 51,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/scale/MiniDomain.java": {
+      "filePath": "src/test/portal/scale/MiniDomain.java",
+      "contentHash": "80f8b541f375b41adcf0a48336149df51e9f16e5b7efa9b7d80776589607a51a",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "MiniDomain",
+          "methods": [
+            "init"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/scale/MiniDomainSilent.java": {
+      "filePath": "src/test/portal/scale/MiniDomainSilent.java",
+      "contentHash": "e581f446fe028a42d39a34e16e316c196f9d89c04972867e62203916fc4eedaa",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "MiniDomainSilent",
+          "methods": [
+            "init"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/scale/ServletDomain.java": {
+      "filePath": "src/test/portal/scale/ServletDomain.java",
+      "contentHash": "015f6c71df1a63651067be83028a78c6ff255d92462d73653d99c4a78c27b5fd",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args",
+            "portals"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServletDomain",
+          "methods": [
+            "init"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 22
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "test.portal",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "ServletDomain"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/ServiceDomain.java": {
+      "filePath": "src/test/portal/ServiceDomain.java",
+      "contentHash": "c40ef8bfbf530db7c75de875fb33a1a27371f517cad716f40b5a6c1d321502f5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ServiceDomain",
+          "methods": [
+            "do_service1",
+            "do_service2"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Portal",
+          "specifiers": [
+            "Portal"
+          ]
+        }
+      ],
+      "exports": [
+        "ServiceDomain"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/ServiceDomainImpl1.java": {
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "contentHash": "1903bf86dc91633c46c77a25976e00fa9e3ef8aed0066bb02bc44cb699dda3ad",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "ServiceDomainImpl1",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "lookup",
+          "params": [
+            "name"
+          ],
+          "returnType": "Portal",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "do_service1",
+          "params": [
+            "i"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "do_service2",
+          "params": [
+            "i"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "dump",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceDomainImpl1",
+          "methods": [
+            "init",
+            "ServiceDomainImpl1",
+            "lookup",
+            "do_service1",
+            "do_service2",
+            "dump",
+            "destroy"
+          ],
+          "properties": [
+            "SMPcpuManager"
+          ],
+          "exported": true,
+          "lineCount": 49
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "ServiceDomainImpl1",
+        "lookup",
+        "do_service1",
+        "do_service2",
+        "dump",
+        "destroy",
+        "ServiceDomainImpl1"
+      ],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/ServiceDomainImpl2.java": {
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "contentHash": "b4787b623fa8fd0a789675cead93a42c75a5bd084edce2292dea5ac4daaf60d1",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "ServiceDomainImpl2",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 46
+        },
+        {
+          "name": "lookup",
+          "params": [
+            "name"
+          ],
+          "returnType": "Portal",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "do_service1",
+          "params": [
+            "i"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "do_service2",
+          "params": [
+            "i"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "dump",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceDomainImpl2",
+          "methods": [
+            "init",
+            "ServiceDomainImpl2",
+            "lookup",
+            "do_service1",
+            "do_service2",
+            "dump",
+            "destroy"
+          ],
+          "properties": [
+            "SMPcpuManager"
+          ],
+          "exported": true,
+          "lineCount": 80
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "ServiceDomainImpl2",
+        "lookup",
+        "do_service1",
+        "do_service2",
+        "dump",
+        "destroy",
+        "ServiceDomainImpl2"
+      ],
+      "totalLines": 87,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/ServiceHLS.java": {
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "contentHash": "9792fb7f95a40f5aa2892f2d526326327d7dc8e51eefdafb066c28b20eed7a41",
+      "functions": [
+        {
+          "name": "ServiceHLS",
+          "params": [],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "registered",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "Scheduler_interrupted",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Scheduler_preempted",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "interrupted",
+          "params": [
+            "newThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "preempted",
+          "params": [
+            "newThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "yielded",
+          "params": [
+            "newThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "unblocked",
+          "params": [
+            "newThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "created",
+          "params": [
+            "newThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "switchedTo",
+          "params": [
+            "Thread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "blockedInPortalCall",
+          "params": [
+            "Thread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "portalCalled",
+          "params": [
+            "Thread"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "blockedInService",
+          "params": [
+            "Thread",
+            "PortalThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "serviceCalled",
+          "params": [
+            "Thread",
+            "PortalThread"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "startGCThread",
+          "params": [
+            "interruptedThread",
+            "GCThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "unblockedGCThread",
+          "params": [
+            "GCThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "destroyedGCThread",
+          "params": [
+            "GCThread"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "activated",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "dump",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceHLS",
+          "methods": [
+            "ServiceHLS",
+            "registered",
+            "Scheduler_interrupted",
+            "Scheduler_preempted",
+            "interrupted",
+            "preempted",
+            "yielded",
+            "unblocked",
+            "created",
+            "switchedTo",
+            "blockedInPortalCall",
+            "portalCalled",
+            "blockedInService",
+            "serviceCalled",
+            "startGCThread",
+            "unblockedGCThread",
+            "destroyedGCThread",
+            "activated",
+            "toString",
+            "dump"
+          ],
+          "properties": [
+            "naming",
+            "cpuManager",
+            "SMPcpuManager",
+            "HLschedulerSupport",
+            "out",
+            "runnables",
+            "DomainName",
+            "instNr",
+            "debug",
+            "dummy",
+            "uninterruptable",
+            "unINTthread"
+          ],
+          "exported": true,
+          "lineCount": 160
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.scheduler",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.scheduler",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "DomainName",
+        "ServiceHLS",
+        "registered",
+        "Scheduler_interrupted",
+        "Scheduler_preempted",
+        "interrupted",
+        "preempted",
+        "yielded",
+        "unblocked",
+        "created",
+        "switchedTo",
+        "blockedInPortalCall",
+        "portalCalled",
+        "blockedInService",
+        "serviceCalled",
+        "startGCThread",
+        "unblockedGCThread",
+        "destroyedGCThread",
+        "activated",
+        "toString",
+        "dump",
+        "ServiceHLS"
+      ],
+      "totalLines": 170,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/SimpleTest.java": {
+      "filePath": "src/test/portal/SimpleTest.java",
+      "contentHash": "4c018e7cd7ee2fbb8499cb341fe8d536ac7ba69256a91115aff862deffac6521",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 23
+        }
+      ],
+      "classes": [
+        {
+          "name": "SimpleTest",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 26
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "SimpleTest"
+      ],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/portal/timeslicing/Simple.java": {
+      "filePath": "src/test/portal/timeslicing/Simple.java",
+      "contentHash": "8b2040ac445ee6ea724dd8b8b4b2c7ee7aebeec8c853f849f77e10d530efc674",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Simple",
+          "params": [],
+          "exported": true,
+          "lineCount": 37
+        }
+      ],
+      "classes": [
+        {
+          "name": "Simple",
+          "methods": [
+            "init",
+            "Simple"
+          ],
+          "properties": [
+            "EMPTY_ITERATIONS",
+            "VCALL_ITERATIONS",
+            "EVENT_ITERATIONS",
+            "PORTAL_ITERATIONS",
+            "PORTAL_ONEINT_ITERATIONS",
+            "NEW_ITERATIONS"
+          ],
+          "exported": true,
+          "lineCount": 51
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "EMPTY_ITERATIONS",
+        "VCALL_ITERATIONS",
+        "EVENT_ITERATIONS",
+        "PORTAL_ITERATIONS",
+        "PORTAL_ONEINT_ITERATIONS",
+        "NEW_ITERATIONS",
+        "init",
+        "Simple"
+      ],
+      "totalLines": 59,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/termination/Main.java": {
+      "filePath": "src/test/termination/Main.java",
+      "contentHash": "d444f5bfc59ff27fe18c5a8b404bd1de3f7422eb728aae4a0f6bd40b04acff5f",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "createDomains",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "createDomains2",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 28
+        },
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "main",
+            "createDomains",
+            "createDomains2"
+          ],
+          "properties": [
+            "memMgr",
+            "naming",
+            "dm"
+          ],
+          "exported": true,
+          "lineCount": 89
+        },
+        {
+          "name": "ChildDomain",
+          "methods": [
+            "init"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "Main",
+        "init"
+      ],
+      "totalLines": 102,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/termination/TermIO.java": {
+      "filePath": "src/test/termination/TermIO.java",
+      "contentHash": "9d9707c169718dd209c8419c7000f7f401ffd645bbfd9eb8e9ee1d1b9f454dc8",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "classes": [
+        {
+          "name": "TermIO",
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "memMgr",
+            "naming",
+            "dm"
+          ],
+          "exported": true,
+          "lineCount": 34
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "TermIO"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/timer/Main.java": {
+      "filePath": "src/test/timer/Main.java",
+      "contentHash": "9a31071abb7d731735393b90ece1ff076bf98da314ad51424b507df7b8d09749",
+      "functions": [
+        {
+          "name": "timer",
+          "params": [
+            "arg"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyTimer",
+          "methods": [
+            "timer"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "Main",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.timer",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "timer",
+        "main",
+        "Main"
+      ],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/timer/StartTimer.java": {
+      "filePath": "src/test/timer/StartTimer.java",
+      "contentHash": "6a50a7c63e4ecb701b114361ea4586b4c5ac659e7fa47e04367b5883ffa692dc",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartTimer",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.timer",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.timerpc.TimerManagerImpl",
+          "specifiers": [
+            "TimerManagerImpl"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "StartTimer"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

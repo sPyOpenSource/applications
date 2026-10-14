@@ -1,0 +1,528 @@
+{
+  "name": "testOS",
+  "description": "A Java OS application from the Java OS project: a NetBeans/Ant project of test and demonstration applications (filesystem, networking, NFS, portal domains, timer, GC, IDE) that run on the JX/JNode microkernel OS. It requires the os, compiler, and jcore libraries.",
+  "languages": [
+    "java",
+    "markdown",
+    "xml"
+  ],
+  "frameworks": [],
+  "files": [
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "CHANGELOG",
+      "language": "unknown",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "manifest.mf",
+      "language": "mf",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "META",
+      "language": "unknown",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "README.rst",
+      "language": "markdown",
+      "sizeLines": 12,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/AI/AI.java",
+      "language": "java",
+      "sizeLines": 170,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/AI/AIIO.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/init/Main.java",
+      "language": "java",
+      "sizeLines": 159,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/init/MultiComponentStart.java",
+      "language": "java",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/test/Test1.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/test/TestDomain.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/test/TestDomainPortal.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/cpustate/Main.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/cpustate/MultiDomain.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/debug/Monitor.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/BioRAMDomain.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/CreateRemove.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/EmulDiskDomain.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/FileTreeWalk.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/IDEDomain.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/IOZONE.java",
+      "language": "java",
+      "sizeLines": 507,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/MyBigNumber.java",
+      "language": "java",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/ReadDisk.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/ReRead.java",
+      "language": "java",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/Shell.java",
+      "language": "java",
+      "sizeLines": 513,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/gc/Cycle.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/gc/Main.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/ide/IDEDomain.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/ide/Main.java",
+      "language": "java",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/memobj/Main.java",
+      "language": "java",
+      "sizeLines": 498,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/LoadGenerator.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/Main.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/MountProc_Skel.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/MountProc_Stub.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/NFSClient.java",
+      "language": "java",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/NFSDomain.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/NFSProc_Skel.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/NFSProc_Stub.java",
+      "language": "java",
+      "sizeLines": 124,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/package.bluej",
+      "language": "bluej",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/RPCBind_Skel.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/CallerDomain.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/CallerHLS.java",
+      "language": "java",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/Daddy.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/DaddyImpl.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/GCTest.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/HansService.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/HansServiceImpl.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/Main.java",
+      "language": "java",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/MainAlice.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/MainHans.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/ListObject.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/NullObject.java",
+      "language": "java",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/PortalPerf.java",
+      "language": "java",
+      "sizeLines": 236,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/TargetDomain_Impl.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/TargetDomain.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/TestObject.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/Acceptor.java",
+      "language": "java",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/Connection.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/CreateSpeed.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/DomainExhauster.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/MiniDomain.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/MiniDomainSilent.java",
+      "language": "java",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/ServletDomain.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/ServiceDomain.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/ServiceDomainImpl1.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/ServiceDomainImpl2.java",
+      "language": "java",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/ServiceHLS.java",
+      "language": "java",
+      "sizeLines": 169,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/SimpleTest.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/timeslicing/Simple.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/termination/Main.java",
+      "language": "java",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/termination/TermIO.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/timer/Main.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/timer/StartTimer.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 73,
+  "filteredByIgnore": 187,
+  "estimatedComplexity": "moderate",
+  "importMap": {
+    "build.xml": [],
+    "CHANGELOG": [],
+    "manifest.mf": [],
+    "META": [],
+    "README.rst": [],
+    "src/AI/AI.java": [],
+    "src/AI/AIIO.java": [],
+    "src/jx/init/Main.java": [],
+    "src/jx/init/MultiComponentStart.java": [],
+    "src/jx/test/Test1.java": [],
+    "src/jx/test/TestDomain.java": [],
+    "src/jx/test/TestDomainPortal.java": [],
+    "src/test/cpustate/Main.java": [],
+    "src/test/cpustate/MultiDomain.java": [],
+    "src/test/debug/Monitor.java": [],
+    "src/test/fs/BioRAMDomain.java": [],
+    "src/test/fs/CreateRemove.java": [],
+    "src/test/fs/EmulDiskDomain.java": [],
+    "src/test/fs/FileTreeWalk.java": [],
+    "src/test/fs/IDEDomain.java": [],
+    "src/test/fs/IOZONE.java": [],
+    "src/test/fs/MyBigNumber.java": [],
+    "src/test/fs/ReadDisk.java": [],
+    "src/test/fs/ReRead.java": [],
+    "src/test/fs/Shell.java": [],
+    "src/test/gc/Cycle.java": [],
+    "src/test/gc/Main.java": [],
+    "src/test/ide/IDEDomain.java": [],
+    "src/test/ide/Main.java": [],
+    "src/test/memobj/Main.java": [],
+    "src/test/nfs/LoadGenerator.java": [],
+    "src/test/nfs/Main.java": [],
+    "src/test/nfs/MountProc_Skel.java": [],
+    "src/test/nfs/MountProc_Stub.java": [],
+    "src/test/nfs/NFSClient.java": [],
+    "src/test/nfs/NFSDomain.java": [],
+    "src/test/nfs/NFSProc_Skel.java": [],
+    "src/test/nfs/NFSProc_Stub.java": [],
+    "src/test/nfs/package.bluej": [],
+    "src/test/nfs/RPCBind_Skel.java": [],
+    "src/test/portal/CallerDomain.java": [],
+    "src/test/portal/CallerHLS.java": [],
+    "src/test/portal/Daddy.java": [],
+    "src/test/portal/DaddyImpl.java": [],
+    "src/test/portal/GCTest.java": [],
+    "src/test/portal/HansService.java": [],
+    "src/test/portal/HansServiceImpl.java": [],
+    "src/test/portal/Main.java": [],
+    "src/test/portal/MainAlice.java": [],
+    "src/test/portal/MainHans.java": [],
+    "src/test/portal/perf/ListObject.java": [],
+    "src/test/portal/perf/NullObject.java": [],
+    "src/test/portal/perf/PortalPerf.java": [],
+    "src/test/portal/perf/TargetDomain_Impl.java": [],
+    "src/test/portal/perf/TargetDomain.java": [],
+    "src/test/portal/perf/TestObject.java": [],
+    "src/test/portal/scale/Acceptor.java": [],
+    "src/test/portal/scale/Connection.java": [],
+    "src/test/portal/scale/CreateSpeed.java": [],
+    "src/test/portal/scale/DomainExhauster.java": [],
+    "src/test/portal/scale/MiniDomain.java": [],
+    "src/test/portal/scale/MiniDomainSilent.java": [],
+    "src/test/portal/scale/ServletDomain.java": [],
+    "src/test/portal/ServiceDomain.java": [],
+    "src/test/portal/ServiceDomainImpl1.java": [],
+    "src/test/portal/ServiceDomainImpl2.java": [],
+    "src/test/portal/ServiceHLS.java": [],
+    "src/test/portal/SimpleTest.java": [],
+    "src/test/portal/timeslicing/Simple.java": [],
+    "src/test/termination/Main.java": [],
+    "src/test/termination/TermIO.java": [],
+    "src/test/timer/Main.java": [],
+    "src/test/timer/StartTimer.java": []
+  }
+}

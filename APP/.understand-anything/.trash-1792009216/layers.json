@@ -1,0 +1,124 @@
+[
+  {
+    "id": "layer:project-build",
+    "name": "Project & Build",
+    "description": "Root-level build script, project metadata (META/manifest), changelog, and README that describe and drive the testOS application package.",
+    "nodeIds": [
+      "config:build.xml",
+      "document:README.rst",
+      "file:CHANGELOG",
+      "file:META",
+      "file:manifest.mf"
+    ]
+  },
+  {
+    "id": "layer:system-core-boot",
+    "name": "System Core & Boot",
+    "description": "Core AI component and the JX init/boot entry points that start the OS application and its multi-component domains.",
+    "nodeIds": [
+      "file:src/AI/AI.java",
+      "file:src/AI/AIIO.java",
+      "file:src/jx/init/Main.java",
+      "file:src/jx/init/MultiComponentStart.java"
+    ]
+  },
+  {
+    "id": "layer:test-harness",
+    "name": "Test Harness & Bootstrap",
+    "description": "Minimal JX domain test scaffolding used to validate the runtime's domain-portal bootstrap.",
+    "nodeIds": [
+      "file:src/jx/test/Test1.java",
+      "file:src/jx/test/TestDomain.java",
+      "file:src/jx/test/TestDomainPortal.java"
+    ]
+  },
+  {
+    "id": "layer:filesystem-ide",
+    "name": "Filesystem & IDE",
+    "description": "Filesystem stress/demo programs (IOZONE, shell, large-file, disk emulation, tree walk) and the IDE device domain test.",
+    "nodeIds": [
+      "file:src/test/fs/BioRAMDomain.java",
+      "file:src/test/fs/CreateRemove.java",
+      "file:src/test/fs/EmulDiskDomain.java",
+      "file:src/test/fs/FileTreeWalk.java",
+      "file:src/test/fs/IDEDomain.java",
+      "file:src/test/fs/IOZONE.java",
+      "file:src/test/fs/MyBigNumber.java",
+      "file:src/test/fs/ReRead.java",
+      "file:src/test/fs/ReadDisk.java",
+      "file:src/test/fs/Shell.java",
+      "file:src/test/ide/IDEDomain.java",
+      "file:src/test/ide/Main.java"
+    ]
+  },
+  {
+    "id": "layer:networking-nfs",
+    "name": "Networking & NFS",
+    "description": "NFS client/domain and RPC stub/skeleton programs that exercise the OS network stack via the NFS protocol.",
+    "nodeIds": [
+      "file:src/test/nfs/LoadGenerator.java",
+      "file:src/test/nfs/Main.java",
+      "file:src/test/nfs/MountProc_Skel.java",
+      "file:src/test/nfs/MountProc_Stub.java",
+      "file:src/test/nfs/NFSClient.java",
+      "file:src/test/nfs/NFSDomain.java",
+      "file:src/test/nfs/NFSProc_Skel.java",
+      "file:src/test/nfs/NFSProc_Stub.java",
+      "file:src/test/nfs/RPCBind_Skel.java",
+      "file:src/test/nfs/package.bluej"
+    ]
+  },
+  {
+    "id": "layer:portal-domain-services",
+    "name": "Portal & Domain Services",
+    "description": "Domain/portal test suite covering caller/service domains, scalability, performance, and timeslicing experiments.",
+    "nodeIds": [
+      "file:src/test/portal/CallerDomain.java",
+      "file:src/test/portal/CallerHLS.java",
+      "file:src/test/portal/Daddy.java",
+      "file:src/test/portal/DaddyImpl.java",
+      "file:src/test/portal/GCTest.java",
+      "file:src/test/portal/HansService.java",
+      "file:src/test/portal/HansServiceImpl.java",
+      "file:src/test/portal/Main.java",
+      "file:src/test/portal/MainAlice.java",
+      "file:src/test/portal/MainHans.java",
+      "file:src/test/portal/ServiceDomain.java",
+      "file:src/test/portal/ServiceDomainImpl1.java",
+      "file:src/test/portal/ServiceDomainImpl2.java",
+      "file:src/test/portal/ServiceHLS.java",
+      "file:src/test/portal/SimpleTest.java",
+      "file:src/test/portal/perf/ListObject.java",
+      "file:src/test/portal/perf/NullObject.java",
+      "file:src/test/portal/perf/PortalPerf.java",
+      "file:src/test/portal/perf/TargetDomain.java",
+      "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "file:src/test/portal/perf/TestObject.java",
+      "file:src/test/portal/scale/Acceptor.java",
+      "file:src/test/portal/scale/Connection.java",
+      "file:src/test/portal/scale/CreateSpeed.java",
+      "file:src/test/portal/scale/DomainExhauster.java",
+      "file:src/test/portal/scale/MiniDomain.java",
+      "file:src/test/portal/scale/MiniDomainSilent.java",
+      "file:src/test/portal/scale/ServletDomain.java",
+      "file:src/test/portal/timeslicing/Simple.java"
+    ]
+  },
+  {
+    "id": "layer:runtime-services-diagnostics",
+    "name": "Runtime Services & Diagnostics",
+    "description": "System-service tests for GC, timers, termination, CPU state, memory objects, and the debug monitor.",
+    "nodeIds": [
+      "file:src/test/cpustate/Main.java",
+      "file:src/test/cpustate/MultiDomain.java",
+      "file:src/test/debug/Monitor.java",
+      "file:src/test/gc/Cycle.java",
+      "file:src/test/gc/Main.java",
+      "file:src/test/memobj/Main.java",
+      "file:src/test/termination/Main.java",
+      "file:src/test/termination/TermIO.java",
+      "file:src/test/timer/Main.java",
+      "file:src/test/timer/StartTimer.java"
+    ]
+  }
+]

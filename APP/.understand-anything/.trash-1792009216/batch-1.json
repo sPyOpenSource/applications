@@ -1,0 +1,2400 @@
+{
+  "nodes": [
+    {
+      "id": "config:build.xml",
+      "type": "config",
+      "name": "build.xml",
+      "filePath": "build.xml",
+      "summary": "Ant build script for the testOS NetBeans project; imports nbproject/build-impl.xml and defines the default build target.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "ant",
+        "netbeans"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:CHANGELOG",
+      "type": "file",
+      "name": "CHANGELOG",
+      "filePath": "CHANGELOG",
+      "summary": "Version history of the Java OS application, listing features and fixes from v1.0 (initial AI) through v1.24 (JVM and NFS fixes).",
+      "tags": [
+        "documentation",
+        "changelog",
+        "release-notes",
+        "history"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:manifest.mf",
+      "type": "file",
+      "name": "manifest.mf",
+      "filePath": "manifest.mf",
+      "summary": "JAR manifest declaring Manifest-Version 1.0; the Main-Class entry is injected automatically at build time.",
+      "tags": [
+        "configuration",
+        "manifest",
+        "packaging",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:META",
+      "type": "file",
+      "name": "META",
+      "filePath": "META",
+      "summary": "Build metadata declaring required libraries (zero, jdk0, ai), the subdirectory list, and the library name init2.",
+      "tags": [
+        "build-system",
+        "metadata",
+        "configuration",
+        "descriptor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.rst",
+      "type": "document",
+      "name": "README.rst",
+      "filePath": "README.rst",
+      "summary": "Minimal project README describing the Java OS Application, how to clone the source, and that it is a NetBeans project requiring os, compiler, and jcore.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "build"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/AI/AI.java",
+      "type": "file",
+      "name": "AI.java",
+      "filePath": "src/AI/AI.java",
+      "summary": "Main AI domain of the application; wires debug output, AIIO/AILogic, net init, a WebWorker TCP server, and PCI/USB monitors, then starts on init.",
+      "tags": [
+        "entry-point",
+        "ai",
+        "domain",
+        "boot",
+        "networking"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/AI/AIIO.java",
+      "type": "file",
+      "name": "AIIO.java",
+      "filePath": "src/AI/AIIO.java",
+      "summary": "AI IO domain that sets up PCIGod, AIMemory, AIInput/AIOutput portals and spawns the input/output threads.",
+      "tags": [
+        "ai",
+        "io",
+        "domain",
+        "portal",
+        "init"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/jx/init/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/jx/init/Main.java",
+      "summary": "System initialization entry point that reads the BootRC2 boot configuration, installs global components, and creates domains via DomainStarter.",
+      "tags": [
+        "entry-point",
+        "boot",
+        "init",
+        "domain",
+        "configuration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/jx/init/MultiComponentStart.java",
+      "type": "file",
+      "name": "MultiComponentStart.java",
+      "filePath": "src/jx/init/MultiComponentStart.java",
+      "summary": "Init domain that starts multiple components in a domain by reflectively instantiating classes and invoking their init methods on new CPU states.",
+      "tags": [
+        "init",
+        "domain",
+        "boot",
+        "component",
+        "multithreading"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/jx/test/Test1.java",
+      "type": "file",
+      "name": "Test1.java",
+      "filePath": "src/jx/test/Test1.java",
+      "summary": "Small portal test: the Portal interface Test1 plus helper class XYZ used to exercise portal invocations.",
+      "tags": [
+        "test",
+        "portal",
+        "interface",
+        "stub"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/jx/test/TestDomain.java",
+      "type": "file",
+      "name": "TestDomain.java",
+      "filePath": "src/jx/test/TestDomain.java",
+      "summary": "Test portal interface TestDomain extending Portal with a single test method.",
+      "tags": [
+        "test",
+        "portal",
+        "interface",
+        "stub"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/jx/test/TestDomainPortal.java",
+      "type": "file",
+      "name": "TestDomainPortal.java",
+      "filePath": "src/jx/test/TestDomainPortal.java",
+      "summary": "Test portal interface TestDomainPortal extending Portal with a fooMethod stub.",
+      "tags": [
+        "test",
+        "portal",
+        "interface",
+        "stub"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/cpustate/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/cpustate/Main.java",
+      "summary": "Test exercising CPUState block/unblock scheduling between two threads while printing marker characters.",
+      "tags": [
+        "test",
+        "cpustate",
+        "scheduling",
+        "threads"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/cpustate/MultiDomain.java",
+      "type": "file",
+      "name": "MultiDomain.java",
+      "filePath": "src/test/cpustate/MultiDomain.java",
+      "summary": "Multi-domain CPU-state test where a service portal (MyService) and DomainB block/unblock a thread across domain boundaries.",
+      "tags": [
+        "test",
+        "cpustate",
+        "domain",
+        "portal",
+        "scheduling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/debug/Monitor.java",
+      "type": "file",
+      "name": "Monitor.java",
+      "filePath": "src/test/debug/Monitor.java",
+      "summary": "Registers a debug monitor command with the debug support service that prints a fixed diagnostic message.",
+      "tags": [
+        "test",
+        "debug",
+        "monitor",
+        "command"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/fs/BioRAMDomain.java",
+      "type": "file",
+      "name": "BioRAMDomain.java",
+      "filePath": "src/test/fs/BioRAMDomain.java",
+      "summary": "Test domain that instantiates a BlockIORAM and registers it as a portal for filesystem-backed RAM disk testing.",
+      "tags": [
+        "test",
+        "filesystem",
+        "blockio",
+        "ram-disk",
+        "domain"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/fs/CreateRemove.java",
+      "type": "file",
+      "name": "CreateRemove.java",
+      "filePath": "src/test/fs/CreateRemove.java",
+      "summary": "Filesystem test that creates and removes files on a RAM-backed filesystem via create/lookup/release operations.",
+      "tags": [
+        "test",
+        "filesystem",
+        "create",
+        "remove"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/fs/EmulDiskDomain.java",
+      "type": "file",
+      "name": "EmulDiskDomain.java",
+      "filePath": "src/test/fs/EmulDiskDomain.java",
+      "summary": "Test domain that provides an emulated disk (BioEmu) via a BlockIO portal for filesystem tests.",
+      "tags": [
+        "test",
+        "filesystem",
+        "blockio",
+        "emulation",
+        "domain"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/fs/FileTreeWalk.java",
+      "type": "file",
+      "name": "FileTreeWalk.java",
+      "filePath": "src/test/fs/FileTreeWalk.java",
+      "summary": "Recursively walks a filesystem from the current directory and prints each entry's type, size, and symlink target.",
+      "tags": [
+        "test",
+        "filesystem",
+        "tree-walk",
+        "recursion"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/fs/IDEDomain.java",
+      "type": "file",
+      "name": "IDEDomain.java",
+      "filePath": "src/test/fs/IDEDomain.java",
+      "summary": "Test domain that enumerates IDE drives and partitions and registers an IDE device portal.",
+      "tags": [
+        "test",
+        "ide",
+        "block-device",
+        "drives",
+        "domain"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/fs/IOZONE.java",
+      "type": "file",
+      "name": "IOZONE.java",
+      "filePath": "src/test/fs/IOZONE.java",
+      "summary": "Port of the IOzone disk benchmark that measures read/write throughput across file and record sizes and dumps text, binary, and Excel-style reports.",
+      "tags": [
+        "benchmark",
+        "filesystem",
+        "performance",
+        "io",
+        "reporting"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/test/fs/MyBigNumber.java",
+      "type": "file",
+      "name": "MyBigNumber.java",
+      "filePath": "src/test/fs/MyBigNumber.java",
+      "summary": "Arbitrary-precision integer helper (mutable digit-array arithmetic) used to compute IO throughput without overflow.",
+      "tags": [
+        "utility",
+        "math",
+        "bignumber",
+        "arithmetic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/fs/ReadDisk.java",
+      "type": "file",
+      "name": "ReadDisk.java",
+      "filePath": "src/test/fs/ReadDisk.java",
+      "summary": "Reads raw sectors from a BlockIO disk device and measures read throughput using CycleTime and MyBigNumber.",
+      "tags": [
+        "test",
+        "filesystem",
+        "blockio",
+        "read",
+        "performance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/fs/ReRead.java",
+      "type": "file",
+      "name": "ReRead.java",
+      "filePath": "src/test/fs/ReRead.java",
+      "summary": "Filesystem cache test that writes a file and repeatedly re-reads it, timing reads and sampling the profiler.",
+      "tags": [
+        "test",
+        "filesystem",
+        "cache",
+        "read",
+        "performance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/fs/Shell.java",
+      "type": "file",
+      "name": "Shell.java",
+      "filePath": "src/test/fs/Shell.java",
+      "summary": "Interactive filesystem shell (cd/ls/ll/mkdir/rmdir/create/read/write/rename/symlink/mount) with a command parser for exercising the VFS.",
+      "tags": [
+        "shell",
+        "filesystem",
+        "cli",
+        "parser",
+        "command"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/AI/AI.java:AI",
+      "type": "function",
+      "name": "AI",
+      "filePath": "src/AI/AI.java",
+      "lineRange": [
+        48,
+        112
+      ],
+      "summary": "Constructs the AI domain, wiring debug output, AIIO/AILogic, network init, the WebWorker server, and PCI/USB monitors.",
+      "tags": [
+        "constructor",
+        "ai",
+        "domain",
+        "boot"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/AI/AI.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/AI/AI.java",
+      "lineRange": [
+        114,
+        140
+      ],
+      "summary": "Starts the AI: begins the log thread and IO subsystem, then launches USBMassStorageTest.",
+      "tags": [
+        "start",
+        "boot",
+        "threads",
+        "io"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/AI/AI.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/AI/AI.java",
+      "lineRange": [
+        152,
+        169
+      ],
+      "summary": "Entry main that sets up debug streams and calls init to start the AI.",
+      "tags": [
+        "entry-point",
+        "main",
+        "boot"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/AI/AI.java:AI",
+      "type": "class",
+      "name": "AI",
+      "filePath": "src/AI/AI.java",
+      "lineRange": [
+        36,
+        170
+      ],
+      "summary": "Core AI application class managing IO, logging, monitor threads, and startup.",
+      "tags": [
+        "ai",
+        "domain",
+        "boot",
+        "controller"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/AI/AIIO.java:AIIO",
+      "type": "function",
+      "name": "AIIO",
+      "filePath": "src/AI/AIIO.java",
+      "lineRange": [
+        23,
+        37
+      ],
+      "summary": "Sets up PCIGod and AIMemory, registers the AI portal, and creates AIInput/AIOutput plus their threads.",
+      "tags": [
+        "constructor",
+        "ai",
+        "io",
+        "portal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/AI/AIIO.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/AI/AIIO.java",
+      "lineRange": [
+        39,
+        44
+      ],
+      "summary": "Starts the input and output threads and imports backup memory.",
+      "tags": [
+        "start",
+        "threads",
+        "io"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/AI/AIIO.java:AIIO",
+      "type": "class",
+      "name": "AIIO",
+      "filePath": "src/AI/AIIO.java",
+      "lineRange": [
+        15,
+        53
+      ],
+      "summary": "AI IO domain providing memory and streams to the AI logic.",
+      "tags": [
+        "ai",
+        "io",
+        "domain",
+        "portal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/jx/init/Main.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/jx/init/Main.java",
+      "lineRange": [
+        22,
+        104
+      ],
+      "summary": "Reads the BootRC2 boot configuration, installs global components, and creates domains via DomainStarter.",
+      "tags": [
+        "entry-point",
+        "boot",
+        "domain",
+        "init"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/jx/init/Main.java:installGlobal",
+      "type": "function",
+      "name": "installGlobal",
+      "filePath": "src/jx/init/Main.java",
+      "lineRange": [
+        106,
+        141
+      ],
+      "summary": "Registers a global component: loads its class, executes constructors, instantiates it, and registers it in the initial naming registry.",
+      "tags": [
+        "init",
+        "component",
+        "naming",
+        "bootstrap"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/jx/init/Main.java:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/jx/init/Main.java",
+      "lineRange": [
+        8,
+        159
+      ],
+      "summary": "System bootstrap class that installs globals and starts domains from boot specs.",
+      "tags": [
+        "entry-point",
+        "boot",
+        "init",
+        "bootstrap"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/jx/init/MultiComponentStart.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/jx/init/MultiComponentStart.java",
+      "lineRange": [
+        25,
+        87
+      ],
+      "summary": "Init domain entry that reads component specs, resolves init methods by name/signature, and starts each component on its own CPU state.",
+      "tags": [
+        "init",
+        "domain",
+        "component",
+        "multithreading"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/jx/init/MultiComponentStart.java:MultiComponentStart",
+      "type": "class",
+      "name": "MultiComponentStart",
+      "filePath": "src/jx/init/MultiComponentStart.java",
+      "lineRange": [
+        11,
+        88
+      ],
+      "summary": "Init domain for launching multiple components reflectively on new threads.",
+      "tags": [
+        "init",
+        "domain",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/jx/test/Test1.java:XYZ",
+      "type": "class",
+      "name": "XYZ",
+      "filePath": "src/jx/test/Test1.java",
+      "lineRange": [
+        9,
+        18
+      ],
+      "summary": "Helper class with static methods m/n used in portal tests.",
+      "tags": [
+        "test",
+        "helper",
+        "stub"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/cpustate/Main.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/cpustate/Main.java",
+      "lineRange": [
+        9,
+        31
+      ],
+      "summary": "Spawns a thread that repeatedly unblocks a blocked CPU state while the main thread blocks, testing scheduler handoff.",
+      "tags": [
+        "test",
+        "cpustate",
+        "scheduling",
+        "threads"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/cpustate/Main.java:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/test/cpustate/Main.java",
+      "lineRange": [
+        8,
+        32
+      ],
+      "summary": "CPU-state block/unblock scheduler test.",
+      "tags": [
+        "test",
+        "cpustate",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/cpustate/MultiDomain.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/cpustate/MultiDomain.java",
+      "lineRange": [
+        16,
+        42
+      ],
+      "summary": "DomainA main that connects to the CPU manager, waits for the service portal, and exercises block/unblock on a worker thread.",
+      "tags": [
+        "test",
+        "domain",
+        "cpustate",
+        "portal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/cpustate/MultiDomain.java:MyService",
+      "type": "class",
+      "name": "MyService",
+      "filePath": "src/test/cpustate/MultiDomain.java",
+      "lineRange": [
+        10,
+        13
+      ],
+      "summary": "Portal interface exposing init/unblock to coordinate CPU states across domains.",
+      "tags": [
+        "test",
+        "portal",
+        "interface",
+        "cpustate"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/cpustate/MultiDomain.java:DomainA",
+      "type": "class",
+      "name": "DomainA",
+      "filePath": "src/test/cpustate/MultiDomain.java",
+      "lineRange": [
+        15,
+        43
+      ],
+      "summary": "Test domain that drives the cross-domain CPU scheduling scenario.",
+      "tags": [
+        "test",
+        "domain",
+        "cpustate"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/cpustate/MultiDomain.java:DomainB",
+      "type": "class",
+      "name": "DomainB",
+      "filePath": "src/test/cpustate/MultiDomain.java",
+      "lineRange": [
+        45,
+        68
+      ],
+      "summary": "Domain implementing MyService that registers itself as a portal and unblocks waiting CPU states.",
+      "tags": [
+        "test",
+        "domain",
+        "portal",
+        "cpustate"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/debug/Monitor.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/debug/Monitor.java",
+      "lineRange": [
+        7,
+        25
+      ],
+      "summary": "Init domain that registers a MonitorCommand with the debug support service.",
+      "tags": [
+        "test",
+        "debug",
+        "monitor",
+        "command"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/debug/Monitor.java:Monitor",
+      "type": "class",
+      "name": "Monitor",
+      "filePath": "src/test/debug/Monitor.java",
+      "lineRange": [
+        6,
+        26
+      ],
+      "summary": "Debug monitor test domain registering a custom command.",
+      "tags": [
+        "test",
+        "debug",
+        "monitor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/BioRAMDomain.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/fs/BioRAMDomain.java",
+      "lineRange": [
+        9,
+        15
+      ],
+      "summary": "Standalone main that creates a BioRAMDomain for testing.",
+      "tags": [
+        "test",
+        "main",
+        "filesystem"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/BioRAMDomain.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/fs/BioRAMDomain.java",
+      "lineRange": [
+        17,
+        25
+      ],
+      "summary": "Init domain creating a BioRAMDomain backed by a BlockIORAM portal.",
+      "tags": [
+        "test",
+        "filesystem",
+        "init",
+        "domain"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/fs/BioRAMDomain.java:BioRAMDomain",
+      "type": "class",
+      "name": "BioRAMDomain",
+      "filePath": "src/test/fs/BioRAMDomain.java",
+      "lineRange": [
+        6,
+        33
+      ],
+      "summary": "Domain that creates and registers a BlockIORAM as a portal.",
+      "tags": [
+        "test",
+        "filesystem",
+        "blockio",
+        "ram-disk"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/CreateRemove.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/fs/CreateRemove.java",
+      "lineRange": [
+        16,
+        32
+      ],
+      "summary": "Creates two files on a RAM filesystem, looks them up, and releases them to test create/remove.",
+      "tags": [
+        "test",
+        "filesystem",
+        "create",
+        "remove"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/fs/CreateRemove.java:CreateRemove",
+      "type": "class",
+      "name": "CreateRemove",
+      "filePath": "src/test/fs/CreateRemove.java",
+      "lineRange": [
+        13,
+        40
+      ],
+      "summary": "Filesystem create/remove test.",
+      "tags": [
+        "test",
+        "filesystem",
+        "create"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/EmulDiskDomain.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/fs/EmulDiskDomain.java",
+      "lineRange": [
+        11,
+        19
+      ],
+      "summary": "Standalone main that creates and registers an emulated disk.",
+      "tags": [
+        "test",
+        "main",
+        "filesystem"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/EmulDiskDomain.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/fs/EmulDiskDomain.java",
+      "lineRange": [
+        21,
+        36
+      ],
+      "summary": "Init domain creating an emulated disk BioEmu and registering it plus a BlockIO portal.",
+      "tags": [
+        "test",
+        "filesystem",
+        "blockio",
+        "init",
+        "domain"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/fs/EmulDiskDomain.java:EmulDiskDomain",
+      "type": "class",
+      "name": "EmulDiskDomain",
+      "filePath": "src/test/fs/EmulDiskDomain.java",
+      "lineRange": [
+        9,
+        53
+      ],
+      "summary": "Domain providing an emulated BlockIO disk for filesystem tests.",
+      "tags": [
+        "test",
+        "filesystem",
+        "blockio",
+        "emulation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/FileTreeWalk.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/fs/FileTreeWalk.java",
+      "lineRange": [
+        12,
+        23
+      ],
+      "summary": "Init domain that sets up a FileTreeWalk over the default filesystem.",
+      "tags": [
+        "test",
+        "filesystem",
+        "init",
+        "domain"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/FileTreeWalk.java:FileTreeWalk",
+      "type": "function",
+      "name": "FileTreeWalk",
+      "filePath": "src/test/fs/FileTreeWalk.java",
+      "lineRange": [
+        25,
+        37
+      ],
+      "summary": "Constructor that looks up the filesystem service and walks the tree from the current directory.",
+      "tags": [
+        "constructor",
+        "filesystem",
+        "tree-walk"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/FileTreeWalk.java:printDir",
+      "type": "function",
+      "name": "printDir",
+      "filePath": "src/test/fs/FileTreeWalk.java",
+      "lineRange": [
+        39,
+        72
+      ],
+      "summary": "Recursively prints a directory's entries with type flags, size, and symlink targets.",
+      "tags": [
+        "filesystem",
+        "tree-walk",
+        "recursion",
+        "print"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/fs/FileTreeWalk.java:FileTreeWalk",
+      "type": "class",
+      "name": "FileTreeWalk",
+      "filePath": "src/test/fs/FileTreeWalk.java",
+      "lineRange": [
+        8,
+        74
+      ],
+      "summary": "Recursive filesystem tree printer.",
+      "tags": [
+        "test",
+        "filesystem",
+        "tree-walk"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/IDEDomain.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/fs/IDEDomain.java",
+      "lineRange": [
+        11,
+        35
+      ],
+      "summary": "Enumerates IDE drives and partitions and registers an IDE device portal.",
+      "tags": [
+        "test",
+        "ide",
+        "block-device",
+        "portal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/fs/IDEDomain.java:IDEDomain",
+      "type": "class",
+      "name": "IDEDomain",
+      "filePath": "src/test/fs/IDEDomain.java",
+      "lineRange": [
+        9,
+        36
+      ],
+      "summary": "IDE drive enumeration test domain.",
+      "tags": [
+        "test",
+        "ide",
+        "block-device"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/IOZONE.java:IOZONE",
+      "type": "function",
+      "name": "IOZONE",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        71,
+        144
+      ],
+      "summary": "Benchmark driver constructor: looks up the filesystem, allocates the buffer, and runs autoTest.",
+      "tags": [
+        "benchmark",
+        "constructor",
+        "filesystem",
+        "io"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/test/fs/IOZONE.java:autoTest",
+      "type": "function",
+      "name": "autoTest",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        154,
+        215
+      ],
+      "summary": "Iterates the file/record-size grid, driving write/read perf tests and collecting profiler samples.",
+      "tags": [
+        "benchmark",
+        "performance",
+        "io"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/test/fs/IOZONE.java:begin",
+      "type": "function",
+      "name": "begin",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        217,
+        229
+      ],
+      "summary": "Runs one benchmark cell by launching the write and read performance tests.",
+      "tags": [
+        "benchmark",
+        "performance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/IOZONE.java:readPerfTest",
+      "type": "function",
+      "name": "readPerfTest",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        231,
+        316
+      ],
+      "summary": "Measures file read throughput for a given size and record length using CycleTime and MyBigNumber.",
+      "tags": [
+        "benchmark",
+        "read",
+        "performance",
+        "io"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/test/fs/IOZONE.java:writePerfTest",
+      "type": "function",
+      "name": "writePerfTest",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        318,
+        371
+      ],
+      "summary": "Measures file write throughput for a given size and record length.",
+      "tags": [
+        "benchmark",
+        "write",
+        "performance",
+        "io"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/test/fs/IOZONE.java:storeValue",
+      "type": "function",
+      "name": "storeValue",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        373,
+        390
+      ],
+      "summary": "Stores a throughput result into the report matrix and prints it.",
+      "tags": [
+        "benchmark",
+        "result",
+        "report"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/IOZONE.java:dumpBinary",
+      "type": "function",
+      "name": "dumpBinary",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        393,
+        411
+      ],
+      "summary": "Serializes the report matrix to a little-endian binary blob and sends it to the debug service.",
+      "tags": [
+        "benchmark",
+        "serialization",
+        "report",
+        "binary"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/IOZONE.java:dumpReport",
+      "type": "function",
+      "name": "dumpReport",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        418,
+        455
+      ],
+      "summary": "Formats and prints the throughput report matrix to the debug output.",
+      "tags": [
+        "benchmark",
+        "report",
+        "formatting"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/IOZONE.java:dumpExcel",
+      "type": "function",
+      "name": "dumpExcel",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        461,
+        506
+      ],
+      "summary": "Emits the benchmark results in an Excel/table-compatible textual layout.",
+      "tags": [
+        "benchmark",
+        "report",
+        "excel",
+        "formatting"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/fs/IOZONE.java:IOZONE",
+      "type": "class",
+      "name": "IOZONE",
+      "filePath": "src/test/fs/IOZONE.java",
+      "lineRange": [
+        19,
+        507
+      ],
+      "summary": "IOzone-style disk read/write benchmark harness.",
+      "tags": [
+        "benchmark",
+        "filesystem",
+        "performance",
+        "io"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/test/fs/MyBigNumber.java:mul",
+      "type": "function",
+      "name": "mul",
+      "filePath": "src/test/fs/MyBigNumber.java",
+      "lineRange": [
+        33,
+        45
+      ],
+      "summary": "Multiplies two big numbers (with exponent) producing a new MyBigNumber.",
+      "tags": [
+        "math",
+        "bignumber",
+        "multiply"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/MyBigNumber.java:div",
+      "type": "function",
+      "name": "div",
+      "filePath": "src/test/fs/MyBigNumber.java",
+      "lineRange": [
+        58,
+        78
+      ],
+      "summary": "Divides this big number by another using long division on digit arrays.",
+      "tags": [
+        "math",
+        "bignumber",
+        "divide"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/MyBigNumber.java:toString",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/test/fs/MyBigNumber.java",
+      "lineRange": [
+        85,
+        93
+      ],
+      "summary": "Converts the big number to its decimal string representation.",
+      "tags": [
+        "math",
+        "bignumber",
+        "formatting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/MyBigNumber.java:toInt",
+      "type": "function",
+      "name": "toInt",
+      "filePath": "src/test/fs/MyBigNumber.java",
+      "lineRange": [
+        95,
+        103
+      ],
+      "summary": "Converts the big number to an int, saturating on overflow.",
+      "tags": [
+        "math",
+        "bignumber",
+        "conversion"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/fs/MyBigNumber.java:MyBigNumber",
+      "type": "class",
+      "name": "MyBigNumber",
+      "filePath": "src/test/fs/MyBigNumber.java",
+      "lineRange": [
+        6,
+        105
+      ],
+      "summary": "Arbitrary-precision integer implemented with a digit array.",
+      "tags": [
+        "utility",
+        "math",
+        "bignumber"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/ReadDisk.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/fs/ReadDisk.java",
+      "lineRange": [
+        7,
+        64
+      ],
+      "summary": "Waits for a BlockIO disk portal, reads sectors, and measures read throughput with CycleTime.",
+      "tags": [
+        "test",
+        "blockio",
+        "read",
+        "performance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/fs/ReadDisk.java:ReadDisk",
+      "type": "class",
+      "name": "ReadDisk",
+      "filePath": "src/test/fs/ReadDisk.java",
+      "lineRange": [
+        6,
+        65
+      ],
+      "summary": "Raw disk read throughput test.",
+      "tags": [
+        "test",
+        "blockio",
+        "read"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/ReRead.java:ReRead",
+      "type": "function",
+      "name": "ReRead",
+      "filePath": "src/test/fs/ReRead.java",
+      "lineRange": [
+        20,
+        89
+      ],
+      "summary": "Writes a file then repeatedly re-reads it, timing reads and profiling cache behavior.",
+      "tags": [
+        "test",
+        "filesystem",
+        "cache",
+        "performance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/fs/ReRead.java:ReRead",
+      "type": "class",
+      "name": "ReRead",
+      "filePath": "src/test/fs/ReRead.java",
+      "lineRange": [
+        12,
+        90
+      ],
+      "summary": "File re-read/cache performance test.",
+      "tags": [
+        "test",
+        "filesystem",
+        "cache"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/Shell.java:Parser",
+      "type": "function",
+      "name": "Parser",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        26,
+        47
+      ],
+      "summary": "Parses a command line into a command word and argument list.",
+      "tags": [
+        "shell",
+        "parser",
+        "command"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/Shell.java:Shell",
+      "type": "function",
+      "name": "Shell",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        79,
+        124
+      ],
+      "summary": "Constructor: sets up streams, looks up the filesystem, mounts the root partition, and enters the main loop.",
+      "tags": [
+        "shell",
+        "constructor",
+        "filesystem"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/Shell.java:mainLoop",
+      "type": "function",
+      "name": "mainLoop",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        132,
+        325
+      ],
+      "summary": "Reads and dispatches shell commands (cd, ls, ll, mkdir, rm, create, read, write, rename, symlink, mount, unmount).",
+      "tags": [
+        "shell",
+        "cli",
+        "dispatch",
+        "command"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/test/fs/Shell.java:ls",
+      "type": "function",
+      "name": "ls",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        331,
+        340
+      ],
+      "summary": "Lists names in the current directory.",
+      "tags": [
+        "shell",
+        "ls",
+        "filesystem"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/Shell.java:ll",
+      "type": "function",
+      "name": "ll",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        342,
+        370
+      ],
+      "summary": "Long-listing of directory entries with type and size.",
+      "tags": [
+        "shell",
+        "ls",
+        "filesystem"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/Shell.java:read",
+      "type": "function",
+      "name": "read",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        404,
+        439
+      ],
+      "summary": "Reads a range of bytes from a file and prints them.",
+      "tags": [
+        "shell",
+        "read",
+        "filesystem"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/Shell.java:write",
+      "type": "function",
+      "name": "write",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        441,
+        459
+      ],
+      "summary": "Writes bytes to a file at an offset.",
+      "tags": [
+        "shell",
+        "write",
+        "filesystem"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/fs/Shell.java:mount",
+      "type": "function",
+      "name": "mount",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        477,
+        499
+      ],
+      "summary": "Mounts a filesystem instance onto a path by instantiating its class.",
+      "tags": [
+        "shell",
+        "mount",
+        "filesystem"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/fs/Shell.java:unmount",
+      "type": "function",
+      "name": "unmount",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        501,
+        512
+      ],
+      "summary": "Unmounts a previously mounted filesystem device.",
+      "tags": [
+        "shell",
+        "unmount",
+        "filesystem"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/fs/Shell.java:Parser",
+      "type": "class",
+      "name": "Parser",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        21,
+        62
+      ],
+      "summary": "Command-line parser holding kommando/argv/argc.",
+      "tags": [
+        "shell",
+        "parser",
+        "command"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/fs/Shell.java:Shell",
+      "type": "class",
+      "name": "Shell",
+      "filePath": "src/test/fs/Shell.java",
+      "lineRange": [
+        71,
+        513
+      ],
+      "summary": "Interactive filesystem shell implementing the VFS commands.",
+      "tags": [
+        "shell",
+        "cli",
+        "filesystem"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/AI/AI.java",
+      "target": "function:src/AI/AI.java:AI",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/AI/AI.java",
+      "target": "function:src/AI/AI.java:AI",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/AI/AI.java",
+      "target": "function:src/AI/AI.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/AI/AI.java",
+      "target": "function:src/AI/AI.java:start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/AI/AI.java",
+      "target": "function:src/AI/AI.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/AI/AI.java",
+      "target": "function:src/AI/AI.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/AI/AI.java",
+      "target": "class:src/AI/AI.java:AI",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/AI/AI.java",
+      "target": "class:src/AI/AI.java:AI",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/AI/AIIO.java",
+      "target": "function:src/AI/AIIO.java:AIIO",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/AI/AIIO.java",
+      "target": "function:src/AI/AIIO.java:AIIO",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/AI/AIIO.java",
+      "target": "function:src/AI/AIIO.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/AI/AIIO.java",
+      "target": "function:src/AI/AIIO.java:start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/AI/AIIO.java",
+      "target": "class:src/AI/AIIO.java:AIIO",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/AI/AIIO.java",
+      "target": "class:src/AI/AIIO.java:AIIO",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/init/Main.java",
+      "target": "function:src/jx/init/Main.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/init/Main.java",
+      "target": "function:src/jx/init/Main.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/init/Main.java",
+      "target": "function:src/jx/init/Main.java:installGlobal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/init/Main.java",
+      "target": "class:src/jx/init/Main.java:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/init/Main.java",
+      "target": "class:src/jx/init/Main.java:Main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/init/MultiComponentStart.java",
+      "target": "function:src/jx/init/MultiComponentStart.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/init/MultiComponentStart.java",
+      "target": "function:src/jx/init/MultiComponentStart.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/init/MultiComponentStart.java",
+      "target": "class:src/jx/init/MultiComponentStart.java:MultiComponentStart",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/init/MultiComponentStart.java",
+      "target": "class:src/jx/init/MultiComponentStart.java:MultiComponentStart",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/test/Test1.java",
+      "target": "class:src/jx/test/Test1.java:XYZ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/cpustate/Main.java",
+      "target": "function:src/test/cpustate/Main.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/cpustate/Main.java",
+      "target": "function:src/test/cpustate/Main.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/cpustate/Main.java",
+      "target": "class:src/test/cpustate/Main.java:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/cpustate/Main.java",
+      "target": "class:src/test/cpustate/Main.java:Main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/cpustate/MultiDomain.java",
+      "target": "function:src/test/cpustate/MultiDomain.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/cpustate/MultiDomain.java",
+      "target": "function:src/test/cpustate/MultiDomain.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/cpustate/MultiDomain.java",
+      "target": "class:src/test/cpustate/MultiDomain.java:MyService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/cpustate/MultiDomain.java",
+      "target": "class:src/test/cpustate/MultiDomain.java:DomainA",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/cpustate/MultiDomain.java",
+      "target": "class:src/test/cpustate/MultiDomain.java:DomainB",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/debug/Monitor.java",
+      "target": "function:src/test/debug/Monitor.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/debug/Monitor.java",
+      "target": "function:src/test/debug/Monitor.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/debug/Monitor.java",
+      "target": "class:src/test/debug/Monitor.java:Monitor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/debug/Monitor.java",
+      "target": "class:src/test/debug/Monitor.java:Monitor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/BioRAMDomain.java",
+      "target": "function:src/test/fs/BioRAMDomain.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/BioRAMDomain.java",
+      "target": "function:src/test/fs/BioRAMDomain.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/BioRAMDomain.java",
+      "target": "function:src/test/fs/BioRAMDomain.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/BioRAMDomain.java",
+      "target": "function:src/test/fs/BioRAMDomain.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/BioRAMDomain.java",
+      "target": "class:src/test/fs/BioRAMDomain.java:BioRAMDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/BioRAMDomain.java",
+      "target": "class:src/test/fs/BioRAMDomain.java:BioRAMDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/CreateRemove.java",
+      "target": "function:src/test/fs/CreateRemove.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/CreateRemove.java",
+      "target": "function:src/test/fs/CreateRemove.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/CreateRemove.java",
+      "target": "class:src/test/fs/CreateRemove.java:CreateRemove",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/CreateRemove.java",
+      "target": "class:src/test/fs/CreateRemove.java:CreateRemove",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/EmulDiskDomain.java",
+      "target": "function:src/test/fs/EmulDiskDomain.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/EmulDiskDomain.java",
+      "target": "function:src/test/fs/EmulDiskDomain.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/EmulDiskDomain.java",
+      "target": "function:src/test/fs/EmulDiskDomain.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/EmulDiskDomain.java",
+      "target": "function:src/test/fs/EmulDiskDomain.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/EmulDiskDomain.java",
+      "target": "class:src/test/fs/EmulDiskDomain.java:EmulDiskDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/EmulDiskDomain.java",
+      "target": "class:src/test/fs/EmulDiskDomain.java:EmulDiskDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/FileTreeWalk.java",
+      "target": "function:src/test/fs/FileTreeWalk.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/FileTreeWalk.java",
+      "target": "function:src/test/fs/FileTreeWalk.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/FileTreeWalk.java",
+      "target": "function:src/test/fs/FileTreeWalk.java:FileTreeWalk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/FileTreeWalk.java",
+      "target": "function:src/test/fs/FileTreeWalk.java:FileTreeWalk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/FileTreeWalk.java",
+      "target": "function:src/test/fs/FileTreeWalk.java:printDir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/FileTreeWalk.java",
+      "target": "class:src/test/fs/FileTreeWalk.java:FileTreeWalk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/FileTreeWalk.java",
+      "target": "class:src/test/fs/FileTreeWalk.java:FileTreeWalk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/IDEDomain.java",
+      "target": "function:src/test/fs/IDEDomain.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IDEDomain.java",
+      "target": "function:src/test/fs/IDEDomain.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/IDEDomain.java",
+      "target": "class:src/test/fs/IDEDomain.java:IDEDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IDEDomain.java",
+      "target": "class:src/test/fs/IDEDomain.java:IDEDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:IOZONE",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:IOZONE",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:autoTest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:begin",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:readPerfTest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:writePerfTest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:storeValue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:dumpBinary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:dumpReport",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "function:src/test/fs/IOZONE.java:dumpExcel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "class:src/test/fs/IOZONE.java:IOZONE",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/IOZONE.java",
+      "target": "class:src/test/fs/IOZONE.java:IOZONE",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/MyBigNumber.java",
+      "target": "function:src/test/fs/MyBigNumber.java:mul",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/MyBigNumber.java",
+      "target": "function:src/test/fs/MyBigNumber.java:div",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/MyBigNumber.java",
+      "target": "function:src/test/fs/MyBigNumber.java:toString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/MyBigNumber.java",
+      "target": "function:src/test/fs/MyBigNumber.java:toString",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/MyBigNumber.java",
+      "target": "function:src/test/fs/MyBigNumber.java:toInt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/MyBigNumber.java",
+      "target": "function:src/test/fs/MyBigNumber.java:toInt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/MyBigNumber.java",
+      "target": "class:src/test/fs/MyBigNumber.java:MyBigNumber",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/ReadDisk.java",
+      "target": "function:src/test/fs/ReadDisk.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/ReadDisk.java",
+      "target": "function:src/test/fs/ReadDisk.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/ReadDisk.java",
+      "target": "class:src/test/fs/ReadDisk.java:ReadDisk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/ReadDisk.java",
+      "target": "class:src/test/fs/ReadDisk.java:ReadDisk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/ReRead.java",
+      "target": "function:src/test/fs/ReRead.java:ReRead",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/ReRead.java",
+      "target": "function:src/test/fs/ReRead.java:ReRead",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/ReRead.java",
+      "target": "class:src/test/fs/ReRead.java:ReRead",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/ReRead.java",
+      "target": "class:src/test/fs/ReRead.java:ReRead",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:Parser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:Parser",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:Shell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:Shell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:mainLoop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:ls",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:ll",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:write",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:mount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "function:src/test/fs/Shell.java:unmount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "class:src/test/fs/Shell.java:Parser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "class:src/test/fs/Shell.java:Shell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/fs/Shell.java",
+      "target": "class:src/test/fs/Shell.java:Shell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/jx/init/Main.java:main",
+      "target": "function:src/jx/init/Main.java:installGlobal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/FileTreeWalk.java:init",
+      "target": "function:src/test/fs/FileTreeWalk.java:FileTreeWalk",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/FileTreeWalk.java:FileTreeWalk",
+      "target": "function:src/test/fs/FileTreeWalk.java:printDir",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:IOZONE",
+      "target": "function:src/test/fs/IOZONE.java:autoTest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:IOZONE",
+      "target": "function:src/test/fs/IOZONE.java:dumpBinary",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:autoTest",
+      "target": "function:src/test/fs/IOZONE.java:storeValue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:autoTest",
+      "target": "function:src/test/fs/IOZONE.java:begin",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:begin",
+      "target": "function:src/test/fs/IOZONE.java:storeValue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:begin",
+      "target": "function:src/test/fs/IOZONE.java:writePerfTest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:begin",
+      "target": "function:src/test/fs/IOZONE.java:readPerfTest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:readPerfTest",
+      "target": "function:src/test/fs/IOZONE.java:storeValue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:writePerfTest",
+      "target": "function:src/test/fs/IOZONE.java:storeValue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/IOZONE.java:dumpExcel",
+      "target": "function:src/test/fs/IOZONE.java:dumpReport",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/Shell.java:Shell",
+      "target": "function:src/test/fs/Shell.java:mainLoop",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/Shell.java:mainLoop",
+      "target": "function:src/test/fs/Shell.java:ls",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/Shell.java:mainLoop",
+      "target": "function:src/test/fs/Shell.java:ll",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/Shell.java:mainLoop",
+      "target": "function:src/test/fs/Shell.java:read",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/Shell.java:mainLoop",
+      "target": "function:src/test/fs/Shell.java:write",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/Shell.java:mainLoop",
+      "target": "function:src/test/fs/Shell.java:mount",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/fs/Shell.java:mainLoop",
+      "target": "function:src/test/fs/Shell.java:unmount",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/test/cpustate/MultiDomain.java:DomainB",
+      "target": "class:src/test/cpustate/MultiDomain.java:MyService",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "config:build.xml",
+      "target": "file:src/jx/init/Main.java",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:README.rst",
+      "target": "file:src/jx/init/Main.java",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

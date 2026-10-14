@@ -1,0 +1,13 @@
+Found 3 batch files (3 logical batches, 0 multi-part):
+  batch-1.json: 90 nodes, 128 edges
+  batch-2.json: 162 nodes, 279 edges
+  batch-3.json: 116 nodes, 182 edges
+
+Input: 368 nodes, 589 edges
+
+Output: 368 nodes, 584 edges
+
+Imports edge recovery:
+  Recovered 0 `imports` edges from importMap (73 entries scanned)
+
+Written to /Users/xuyi/Source/OS/armOS/lib/jcore/test/APP/.understand-anything/intermediate/assembled-graph.json (274 KB)

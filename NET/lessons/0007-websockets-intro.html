@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 0007: WebSockets Introduction</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lesson 0007: WebSockets Introduction</h1>
+        <p><small>Mission: <a href="../MISSION.md">HTTP Servers</a> | Lesson: 0007</small></p>
+    </header>
+
+    <section>
+        <h2>Learning Goal</h2>
+        <p>Understand what WebSockets are, how they differ from HTTP, and what the codebase currently does (and doesn't do) with WebSocket upgrade requests.</p>
+        <div class="callout">
+            <strong>Tangible Win:</strong> Explain the WebSocket handshake, why it's needed, and identify the placeholder in this server's parsing logic.
+        </div>
+    </section>
+
+    <section>
+        <h2>What Are WebSockets?</h2>
+        <p>WebSockets provide full-duplex, bidirectional communication over a single TCP connection. Unlike HTTP's request-response pattern, after establishing a WebSocket connection:</p>
+        <ul>
+            <li>Either side can send messages at any time (no need to wait for a request)</li>
+            <li>Communication is persistent - the connection stays open</li>
+            <li>Lower overhead than repeatedly polling via HTTP</li>
+            <li>Great for real-time apps (chat, games, live updates)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>How Do WebSockets Work? The Handshake</h2>
+        <p>WebSockets start as an HTTP request - this is called the "upgrade" handshake. The client sends an HTTP GET request with special headers:</p>
+        <pre><code>GET /chat HTTP/1.1
+Host: server.example.com
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
+Sec-WebSocket-Version: 13</code></pre>
+        <p>The server must respond with a 101 Switching Protocols status if it accepts:</p>
+        <pre><code>HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=</code></pre>
+        <p>After this, the connection is upgraded from HTTP to the WebSocket protocol - both sides can now send frames.</p>
+    </section>
+
+    <section>
+        <h2>What Does This Codebase Do?</h2>
+        <p>Looking at <a href="../../src/test/net/TCPWebWorker.java#140-145">TCPWebWorker.parse()</a>:</p>
+        <pre><code>case "Content-length:":
+    contentsLength = Integer.parseInt(tokenizer.nextToken());
+    break;
+case "Sec-WebSocket-Key:":
+default:
+    break;</code></pre>
+        <p>The server <strong>detects</strong> the <code>Sec-WebSocket-Key</code> header (it doesn't ignore it entirely - it's in the switch), but it does nothing with it. It just falls to default and continues. It never generates the required <code>Sec-WebSocket-Accept</code> response or performs the protocol upgrade.</p>
+        <p>In other words: this is a <strong>placeholder/detection point</strong>, not a working WebSocket implementation.</p>
+    </section>
+
+    <section>
+        <h2>HTTP vs WebSockets: Key Differences</h2>
+        <table>
+            <tr><th>Aspect</th><th>HTTP</th><th>WebSockets</th></tr>
+            <tr><td>Communication</td><td>Request-Response (unidirectional per request)</td><td>Full-duplex (bidirectional anytime)</td></tr>
+            <tr><td>Connection</td><td>Short-lived (often closed after response)</td><td>Persistent, long-lived</td></tr>
+            <tr><td>Overhead</td><td>Headers sent with each request</td><td>Once after handshake, much lighter frames</td></tr>
+            <tr><td>Starting Point</td><td>Always HTTP</td><td>HTTP upgrade handshake</td></tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Why Detect But Not Implement?</h2>
+        <p>This is common in minimal server implementations - they focus on core HTTP serving and leave WebSocket support as a future extension. To properly implement WebSockets, you'd need to:</p>
+        <ol>
+            <li>Detect the Upgrade: websocket header</li>
+            <li>Validate Sec-WebSocket-Version (must be 13)</li>
+            <li>Compute Sec-WebSocket-Accept from Sec-WebSocket-Key + magic GUID</li>
+            <li>Send 101 Switching Protocols response with correct headers</li>
+            <li>Switch to WebSocket frame protocol (framing is binary-based, not line-based)</li>
+        </ol>
+        <p>That's significantly more complex than simple HTTP request parsing.</p>
+    </section>
+
+    <div class="callout info">
+        <strong>Primary Source:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">MDN - WebSockets API</a><br>
+        <strong>Also Recommended:</strong> <a href="https://datatracker.ietf.org/doc/html/rfc6455">RFC 6455 - The WebSocket Protocol</a><br>
+        <strong>Reminder:</strong> Ask your teacher (the agent) if anything is unclear.
+    </div>
+
+    <footer class="footer-note">
+        <p>Previous: <a href="0006-sockets-and-tcp-basics.html">0006: Sockets and TCP Basics</a></p>
+        <p>Next lesson: Ask what you want to learn about WebSockets - the handshake details, frame protocol, or implementation?</p>
+    </footer>
+</body>
+</html>

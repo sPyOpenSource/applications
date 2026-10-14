@@ -1,0 +1,111 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview",
+    "description": "Begin with README.rst to understand what this project is: a Java OS application that is part of the larger Java OS project. It explains that this is a NetBeans project requiring the os, compiler, and jcore libraries, and how to obtain the source.",
+    "nodeIds": [
+      "document:README.rst"
+    ]
+  },
+  {
+    "order": 2,
+    "title": "Build & Packaging",
+    "description": "The Ant build script and NetBeans project metadata describe how the testOS library is compiled and packaged. META declares the library name (init2) and its subdirectories, while manifest.mf supplies the JAR manifest. Together they define the build contract for the whole application.",
+    "nodeIds": [
+      "config:build.xml",
+      "file:META",
+      "file:manifest.mf"
+    ],
+    "languageLesson": "Java OS packages are built with Ant (build.xml imports nbproject/build-impl.xml). The META file is a build descriptor listing NEEDLIBS and SUBDIRS rather than a standard Maven/Gradle manifest."
+  },
+  {
+    "order": 3,
+    "title": "Boot & Initialization",
+    "description": "The JX init package is the runtime entry point. Main.java starts the OS application, and MultiComponentStart.java launches multiple components (domains) in order \u2014 this is where the microkernel hands control to this application bundle.",
+    "nodeIds": [
+      "file:src/jx/init/Main.java",
+      "file:src/jx/init/MultiComponentStart.java"
+    ]
+  },
+  {
+    "order": 4,
+    "title": "AI Core Component",
+    "description": "The AI package provides the core artificial-intelligence component: AI.java implements the domain logic and AIIO.java handles its input/output. It is the only non-test functional component in the source set and shows how a JX domain is structured with portal interfaces.",
+    "nodeIds": [
+      "file:src/AI/AI.java",
+      "file:src/AI/AIIO.java"
+    ]
+  },
+  {
+    "order": 5,
+    "title": "Domain Portal Test Harness",
+    "description": "Under src/jx/test live minimal scaffolding classes that demonstrate the JX domain-portal model. TestDomainPortal.java, TestDomain.java, and Test1.java are tiny examples used to validate that domains can be constructed and wired before the larger subsystem tests run.",
+    "nodeIds": [
+      "file:src/jx/test/TestDomainPortal.java",
+      "file:src/jx/test/TestDomain.java",
+      "file:src/jx/test/Test1.java"
+    ]
+  },
+  {
+    "order": 6,
+    "title": "Portal & Domain Services",
+    "description": "The portal test suite exercises the JX portal mechanism, where services live in their own protection domains and are invoked through generated proxies. Main.java drives the scenario, while ServiceHLS and CallerHLS model a service domain and its caller using high-level stubs.",
+    "nodeIds": [
+      "file:src/test/portal/Main.java",
+      "file:src/test/portal/ServiceHLS.java",
+      "file:src/test/portal/CallerHLS.java"
+    ],
+    "languageLesson": "A 'domain' is a JX protection/isolation unit (like a process), and a 'portal' is the typed communication interface between domains. Services are ordinary objects that the OS wraps in portal proxies at construction time."
+  },
+  {
+    "order": 7,
+    "title": "Portal Performance & Scalability",
+    "description": "Building on the portal model, these programs stress it. PortalPerf.java measures per-call overhead, while Acceptor and CreateSpeed from the scale package benchmark domain creation and connection acceptance rates \u2014 quantifying the cost of the isolation the OS provides.",
+    "nodeIds": [
+      "file:src/test/portal/perf/PortalPerf.java",
+      "file:src/test/portal/scale/Acceptor.java",
+      "file:src/test/portal/scale/CreateSpeed.java"
+    ]
+  },
+  {
+    "order": 8,
+    "title": "Filesystem Subsystem",
+    "description": "The filesystem tests exercise block devices, disk emulation, and file APIs. IOZONE is a port of the classic filesystem benchmark, Shell provides an interactive command loop, and FileTreeWalk demonstrates recursive directory traversal through the JX filesystem interfaces.",
+    "nodeIds": [
+      "file:src/test/fs/IOZONE.java",
+      "file:src/test/fs/Shell.java",
+      "file:src/test/fs/FileTreeWalk.java"
+    ]
+  },
+  {
+    "order": 9,
+    "title": "Networking & NFS",
+    "description": "This subsystem demonstrates network communication by implementing an NFS client on top of the OS network stack. NFSClient drives the protocol, NFSDomain exposes it as a domain, and Main wires up the RPC mount/NFS stubs and skeletons used to marshal calls.",
+    "nodeIds": [
+      "file:src/test/nfs/NFSClient.java",
+      "file:src/test/nfs/NFSDomain.java",
+      "file:src/test/nfs/Main.java"
+    ],
+    "languageLesson": "The *_Stub and *_Skel classes are classic RPC (remote-procedure-call) client stubs and server skeletons that serialize arguments and results across a domain/network boundary."
+  },
+  {
+    "order": 10,
+    "title": "Runtime Services & Diagnostics",
+    "description": "The remaining tests cover core kernel services: garbage collection, timers, domain termination, CPU-state inspection, memory objects, and the debug monitor. They rely on the jx.zero runtime and show how applications observe and control low-level OS behaviour.",
+    "nodeIds": [
+      "file:src/test/gc/Main.java",
+      "file:src/test/timer/Main.java",
+      "file:src/test/termination/Main.java",
+      "file:src/test/memobj/Main.java",
+      "file:src/test/debug/Monitor.java"
+    ]
+  },
+  {
+    "order": 11,
+    "title": "Change Log & Project History",
+    "description": "Finally, the CHANGELOG records the evolution of the applications repository. Reading it after the code shows how the test programs and the AI component have changed over time, and gives context for the current structure you just toured.",
+    "nodeIds": [
+      "file:CHANGELOG"
+    ]
+  }
+]

@@ -1,0 +1,947 @@
+{
+  "fileNodes": [
+    {
+      "id": "config:build.xml",
+      "type": "config",
+      "name": "build.xml",
+      "filePath": "build.xml",
+      "summary": "Ant build script for the testOS NetBeans project; imports nbproject/build-impl.xml and defines the default build target.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "ant",
+        "netbeans"
+      ]
+    },
+    {
+      "id": "file:CHANGELOG",
+      "type": "file",
+      "name": "CHANGELOG",
+      "filePath": "CHANGELOG",
+      "summary": "Version history of the Java OS application, listing features and fixes from v1.0 (initial AI) through v1.24 (JVM and NFS fixes).",
+      "tags": [
+        "documentation",
+        "changelog",
+        "release-notes",
+        "history"
+      ]
+    },
+    {
+      "id": "file:manifest.mf",
+      "type": "file",
+      "name": "manifest.mf",
+      "filePath": "manifest.mf",
+      "summary": "JAR manifest declaring Manifest-Version 1.0; the Main-Class entry is injected automatically at build time.",
+      "tags": [
+        "configuration",
+        "manifest",
+        "packaging",
+        "build-system"
+      ]
+    },
+    {
+      "id": "file:META",
+      "type": "file",
+      "name": "META",
+      "filePath": "META",
+      "summary": "Build metadata declaring required libraries (zero, jdk0, ai), the subdirectory list, and the library name init2.",
+      "tags": [
+        "build-system",
+        "metadata",
+        "configuration",
+        "descriptor"
+      ]
+    },
+    {
+      "id": "document:README.rst",
+      "type": "document",
+      "name": "README.rst",
+      "filePath": "README.rst",
+      "summary": "Minimal project README describing the Java OS Application, how to clone the source, and that it is a NetBeans project requiring os, compiler, and jcore.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "build"
+      ]
+    },
+    {
+      "id": "file:src/AI/AI.java",
+      "type": "file",
+      "name": "AI.java",
+      "filePath": "src/AI/AI.java",
+      "summary": "Main AI domain of the application; wires debug output, AIIO/AILogic, net init, a WebWorker TCP server, and PCI/USB monitors, then starts on init.",
+      "tags": [
+        "entry-point",
+        "ai",
+        "domain",
+        "boot",
+        "networking"
+      ]
+    },
+    {
+      "id": "file:src/AI/AIIO.java",
+      "type": "file",
+      "name": "AIIO.java",
+      "filePath": "src/AI/AIIO.java",
+      "summary": "AI IO domain that sets up PCIGod, AIMemory, AIInput/AIOutput portals and spawns the input/output threads.",
+      "tags": [
+        "ai",
+        "io",
+        "domain",
+        "portal",
+        "init"
+      ]
+    },
+    {
+      "id": "file:src/jx/init/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/jx/init/Main.java",
+      "summary": "System initialization entry point that reads the BootRC2 boot configuration, installs global components, and creates domains via DomainStarter.",
+      "tags": [
+        "entry-point",
+        "boot",
+        "init",
+        "domain",
+        "configuration"
+      ]
+    },
+    {
+      "id": "file:src/jx/init/MultiComponentStart.java",
+      "type": "file",
+      "name": "MultiComponentStart.java",
+      "filePath": "src/jx/init/MultiComponentStart.java",
+      "summary": "Init domain that starts multiple components in a domain by reflectively instantiating classes and invoking their init methods on new CPU states.",
+      "tags": [
+        "init",
+        "domain",
+        "boot",
+        "component",
+        "multithreading"
+      ]
+    },
+    {
+      "id": "file:src/jx/test/Test1.java",
+      "type": "file",
+      "name": "Test1.java",
+      "filePath": "src/jx/test/Test1.java",
+      "summary": "Small portal test: the Portal interface Test1 plus helper class XYZ used to exercise portal invocations.",
+      "tags": [
+        "test",
+        "portal",
+        "interface",
+        "stub"
+      ]
+    },
+    {
+      "id": "file:src/jx/test/TestDomain.java",
+      "type": "file",
+      "name": "TestDomain.java",
+      "filePath": "src/jx/test/TestDomain.java",
+      "summary": "Test portal interface TestDomain extending Portal with a single test method.",
+      "tags": [
+        "test",
+        "portal",
+        "interface",
+        "stub"
+      ]
+    },
+    {
+      "id": "file:src/jx/test/TestDomainPortal.java",
+      "type": "file",
+      "name": "TestDomainPortal.java",
+      "filePath": "src/jx/test/TestDomainPortal.java",
+      "summary": "Test portal interface TestDomainPortal extending Portal with a fooMethod stub.",
+      "tags": [
+        "test",
+        "portal",
+        "interface",
+        "stub"
+      ]
+    },
+    {
+      "id": "file:src/test/cpustate/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/cpustate/Main.java",
+      "summary": "Test exercising CPUState block/unblock scheduling between two threads while printing marker characters.",
+      "tags": [
+        "test",
+        "cpustate",
+        "scheduling",
+        "threads"
+      ]
+    },
+    {
+      "id": "file:src/test/cpustate/MultiDomain.java",
+      "type": "file",
+      "name": "MultiDomain.java",
+      "filePath": "src/test/cpustate/MultiDomain.java",
+      "summary": "Multi-domain CPU-state test where a service portal (MyService) and DomainB block/unblock a thread across domain boundaries.",
+      "tags": [
+        "test",
+        "cpustate",
+        "domain",
+        "portal",
+        "scheduling"
+      ]
+    },
+    {
+      "id": "file:src/test/debug/Monitor.java",
+      "type": "file",
+      "name": "Monitor.java",
+      "filePath": "src/test/debug/Monitor.java",
+      "summary": "Registers a debug monitor command with the debug support service that prints a fixed diagnostic message.",
+      "tags": [
+        "test",
+        "debug",
+        "monitor",
+        "command"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/BioRAMDomain.java",
+      "type": "file",
+      "name": "BioRAMDomain.java",
+      "filePath": "src/test/fs/BioRAMDomain.java",
+      "summary": "Test domain that instantiates a BlockIORAM and registers it as a portal for filesystem-backed RAM disk testing.",
+      "tags": [
+        "test",
+        "filesystem",
+        "blockio",
+        "ram-disk",
+        "domain"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/CreateRemove.java",
+      "type": "file",
+      "name": "CreateRemove.java",
+      "filePath": "src/test/fs/CreateRemove.java",
+      "summary": "Filesystem test that creates and removes files on a RAM-backed filesystem via create/lookup/release operations.",
+      "tags": [
+        "test",
+        "filesystem",
+        "create",
+        "remove"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/EmulDiskDomain.java",
+      "type": "file",
+      "name": "EmulDiskDomain.java",
+      "filePath": "src/test/fs/EmulDiskDomain.java",
+      "summary": "Test domain that provides an emulated disk (BioEmu) via a BlockIO portal for filesystem tests.",
+      "tags": [
+        "test",
+        "filesystem",
+        "blockio",
+        "emulation",
+        "domain"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/FileTreeWalk.java",
+      "type": "file",
+      "name": "FileTreeWalk.java",
+      "filePath": "src/test/fs/FileTreeWalk.java",
+      "summary": "Recursively walks a filesystem from the current directory and prints each entry's type, size, and symlink target.",
+      "tags": [
+        "test",
+        "filesystem",
+        "tree-walk",
+        "recursion"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/IDEDomain.java",
+      "type": "file",
+      "name": "IDEDomain.java",
+      "filePath": "src/test/fs/IDEDomain.java",
+      "summary": "Test domain that enumerates IDE drives and partitions and registers an IDE device portal.",
+      "tags": [
+        "test",
+        "ide",
+        "block-device",
+        "drives",
+        "domain"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/IOZONE.java",
+      "type": "file",
+      "name": "IOZONE.java",
+      "filePath": "src/test/fs/IOZONE.java",
+      "summary": "Port of the IOzone disk benchmark that measures read/write throughput across file and record sizes and dumps text, binary, and Excel-style reports.",
+      "tags": [
+        "benchmark",
+        "filesystem",
+        "performance",
+        "io",
+        "reporting"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/MyBigNumber.java",
+      "type": "file",
+      "name": "MyBigNumber.java",
+      "filePath": "src/test/fs/MyBigNumber.java",
+      "summary": "Arbitrary-precision integer helper (mutable digit-array arithmetic) used to compute IO throughput without overflow.",
+      "tags": [
+        "utility",
+        "math",
+        "bignumber",
+        "arithmetic"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/ReadDisk.java",
+      "type": "file",
+      "name": "ReadDisk.java",
+      "filePath": "src/test/fs/ReadDisk.java",
+      "summary": "Reads raw sectors from a BlockIO disk device and measures read throughput using CycleTime and MyBigNumber.",
+      "tags": [
+        "test",
+        "filesystem",
+        "blockio",
+        "read",
+        "performance"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/ReRead.java",
+      "type": "file",
+      "name": "ReRead.java",
+      "filePath": "src/test/fs/ReRead.java",
+      "summary": "Filesystem cache test that writes a file and repeatedly re-reads it, timing reads and sampling the profiler.",
+      "tags": [
+        "test",
+        "filesystem",
+        "cache",
+        "read",
+        "performance"
+      ]
+    },
+    {
+      "id": "file:src/test/fs/Shell.java",
+      "type": "file",
+      "name": "Shell.java",
+      "filePath": "src/test/fs/Shell.java",
+      "summary": "Interactive filesystem shell (cd/ls/ll/mkdir/rmdir/create/read/write/rename/symlink/mount) with a command parser for exercising the VFS.",
+      "tags": [
+        "shell",
+        "filesystem",
+        "cli",
+        "parser",
+        "command"
+      ]
+    },
+    {
+      "id": "file:src/test/gc/Cycle.java",
+      "type": "file",
+      "name": "Cycle.java",
+      "filePath": "src/test/gc/Cycle.java",
+      "summary": "GC cycle test that creates cyclic object structures to test garbage collection reachability.",
+      "tags": [
+        "gc",
+        "cycle",
+        "test"
+      ]
+    },
+    {
+      "id": "file:src/test/gc/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/gc/Main.java",
+      "summary": "GC stress test generating object graphs to exercise allocation and garbage collection behavior.",
+      "tags": [
+        "gc",
+        "stress",
+        "test"
+      ]
+    },
+    {
+      "id": "file:src/test/ide/IDEDomain.java",
+      "type": "file",
+      "name": "IDEDomain.java",
+      "filePath": "src/test/ide/IDEDomain.java",
+      "summary": "IDE test domain that initializes IDE-related components and sets up naming/ports.",
+      "tags": [
+        "ide",
+        "domain",
+        "test"
+      ]
+    },
+    {
+      "id": "file:src/test/ide/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/ide/Main.java",
+      "summary": "IDE block device I/O test exercising read/write operations on IDE partitions.",
+      "tags": [
+        "ide",
+        "io",
+        "test"
+      ]
+    },
+    {
+      "id": "file:src/test/memobj/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/memobj/Main.java",
+      "summary": "Memory object API test suite covering allocation, read/write, split, map, revoke, and performance timing.",
+      "tags": [
+        "memory",
+        "test",
+        "api"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/LoadGenerator.java",
+      "type": "file",
+      "name": "LoadGenerator.java",
+      "filePath": "src/test/nfs/LoadGenerator.java",
+      "summary": "Load generator thread that creates activity to stress test system components.",
+      "tags": [
+        "load",
+        "thread",
+        "test"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/nfs/Main.java",
+      "summary": "NFS test constants and configuration entry points for client/server tests.",
+      "tags": [
+        "nfs",
+        "test",
+        "config"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/MountProc_Skel.java",
+      "type": "file",
+      "name": "MountProc_Skel.java",
+      "filePath": "src/test/nfs/MountProc_Skel.java",
+      "summary": "Mount RPC skeleton that dispatches mount protocol calls to implementation.",
+      "tags": [
+        "nfs",
+        "rpc",
+        "mount"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/MountProc_Stub.java",
+      "type": "file",
+      "name": "MountProc_Stub.java",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "summary": "Mount RPC stub providing client-side method stubs (not implemented for test).",
+      "tags": [
+        "nfs",
+        "rpc",
+        "stub"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/NFSClient.java",
+      "type": "file",
+      "name": "NFSClient.java",
+      "filePath": "src/test/nfs/NFSClient.java",
+      "summary": "NFS client test that sets up RPC, mounts filesystem, and performs basic NFS operations.",
+      "tags": [
+        "nfs",
+        "client",
+        "test"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/NFSDomain.java",
+      "type": "file",
+      "name": "NFSDomain.java",
+      "filePath": "src/test/nfs/NFSDomain.java",
+      "summary": "NFS server domain that starts RPC services (mount, nfs, rpcbind) and registers portals.",
+      "tags": [
+        "nfs",
+        "server",
+        "domain"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/NFSProc_Skel.java",
+      "type": "file",
+      "name": "NFSProc_Skel.java",
+      "filePath": "src/test/nfs/NFSProc_Skel.java",
+      "summary": "NFS RPC skeleton dispatching NFS v2 procedure calls to implementation.",
+      "tags": [
+        "nfs",
+        "rpc",
+        "nfs-proc"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/NFSProc_Stub.java",
+      "type": "file",
+      "name": "NFSProc_Stub.java",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "summary": "NFS RPC stub with method stubs for all NFS v2 procedures (test client stub).",
+      "tags": [
+        "nfs",
+        "rpc",
+        "stub"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/test/nfs/package.bluej",
+      "summary": "BlueJ project configuration for the nfs test package.",
+      "tags": [
+        "bluej",
+        "config",
+        "project"
+      ]
+    },
+    {
+      "id": "file:src/test/nfs/RPCBind_Skel.java",
+      "type": "file",
+      "name": "RPCBind_Skel.java",
+      "filePath": "src/test/nfs/RPCBind_Skel.java",
+      "summary": "RPC portmapper skeleton dispatching portmap/bind requests.",
+      "tags": [
+        "nfs",
+        "rpc",
+        "portmap"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/CallerDomain.java",
+      "type": "file",
+      "name": "CallerDomain.java",
+      "filePath": "src/test/portal/CallerDomain.java",
+      "summary": "Portal caller domain that looks up service portals and invokes service methods.",
+      "tags": [
+        "portal",
+        "caller",
+        "domain"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/CallerHLS.java",
+      "type": "file",
+      "name": "CallerHLS.java",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "summary": "High-level scheduler test/caller exercising HLS interfaces and event callbacks.",
+      "tags": [
+        "portal",
+        "scheduler",
+        "hls"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/Daddy.java",
+      "type": "file",
+      "name": "Daddy.java",
+      "filePath": "src/test/portal/Daddy.java",
+      "summary": "Portal interface definition for Daddy service (simple test service).",
+      "tags": [
+        "portal",
+        "interface",
+        "service"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/DaddyImpl.java",
+      "type": "file",
+      "name": "DaddyImpl.java",
+      "filePath": "src/test/portal/DaddyImpl.java",
+      "summary": "Portal interface definition for Daddy service (simple test service).",
+      "tags": [
+        "portal",
+        "interface",
+        "service"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/GCTest.java",
+      "type": "file",
+      "name": "GCTest.java",
+      "filePath": "src/test/portal/GCTest.java",
+      "summary": "Test/demo code for GCTest.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/HansService.java",
+      "type": "file",
+      "name": "HansService.java",
+      "filePath": "src/test/portal/HansService.java",
+      "summary": "Test/demo code for HansService.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/HansServiceImpl.java",
+      "type": "file",
+      "name": "HansServiceImpl.java",
+      "filePath": "src/test/portal/HansServiceImpl.java",
+      "summary": "Test/demo code for HansServiceImpl.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/portal/Main.java",
+      "summary": "Test/demo code for Main.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/MainAlice.java",
+      "type": "file",
+      "name": "MainAlice.java",
+      "filePath": "src/test/portal/MainAlice.java",
+      "summary": "Test/demo code for MainAlice.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/MainHans.java",
+      "type": "file",
+      "name": "MainHans.java",
+      "filePath": "src/test/portal/MainHans.java",
+      "summary": "Test/demo code for MainHans.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/perf/ListObject.java",
+      "type": "file",
+      "name": "ListObject.java",
+      "filePath": "src/test/portal/perf/ListObject.java",
+      "summary": "Test support class ListObject.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/perf/NullObject.java",
+      "type": "file",
+      "name": "NullObject.java",
+      "filePath": "src/test/portal/perf/NullObject.java",
+      "summary": "Test support class NullObject.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/perf/PortalPerf.java",
+      "type": "file",
+      "name": "PortalPerf.java",
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "summary": "Performance benchmark for portal/domain communication mechanisms measuring method calls, event logging, object creation, and GC behavior in the JX/JNode microkernel environment.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "type": "file",
+      "name": "TargetDomain_Impl.java",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "summary": "Test support class TargetDomain_Impl.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/perf/TargetDomain.java",
+      "type": "file",
+      "name": "TargetDomain.java",
+      "filePath": "src/test/portal/perf/TargetDomain.java",
+      "summary": "Test support class TargetDomain.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/perf/TestObject.java",
+      "type": "file",
+      "name": "TestObject.java",
+      "filePath": "src/test/portal/perf/TestObject.java",
+      "summary": "Test support class TestObject.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/scale/Acceptor.java",
+      "type": "file",
+      "name": "Acceptor.java",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "summary": "Test harness that accepts connections and creates multiple servlet domains to test portal scalability and domain creation performance.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/scale/Connection.java",
+      "type": "file",
+      "name": "Connection.java",
+      "filePath": "src/test/portal/scale/Connection.java",
+      "summary": "Connection interface/implementation for portal scale testing with read/write operations.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/scale/CreateSpeed.java",
+      "type": "file",
+      "name": "CreateSpeed.java",
+      "filePath": "src/test/portal/scale/CreateSpeed.java",
+      "summary": "Measures domain creation speed and memory consumption for portal scaling benchmarks.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/scale/DomainExhauster.java",
+      "type": "file",
+      "name": "DomainExhauster.java",
+      "filePath": "src/test/portal/scale/DomainExhauster.java",
+      "summary": "Stress test that exhaustively creates domains to evaluate system limits and memory behavior.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/scale/MiniDomain.java",
+      "type": "file",
+      "name": "MiniDomain.java",
+      "filePath": "src/test/portal/scale/MiniDomain.java",
+      "summary": "Minimal domain implementation for portal scale testing, setting up debug output and basic portal lookups.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/scale/MiniDomainSilent.java",
+      "type": "file",
+      "name": "MiniDomainSilent.java",
+      "filePath": "src/test/portal/scale/MiniDomainSilent.java",
+      "summary": "Minimal domain implementation for portal scale testing, setting up debug output and basic portal lookups.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/scale/ServletDomain.java",
+      "type": "file",
+      "name": "ServletDomain.java",
+      "filePath": "src/test/portal/scale/ServletDomain.java",
+      "summary": "Servlet domain implementation that reads from connections and handles portal requests in scale tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/ServiceDomain.java",
+      "type": "file",
+      "name": "ServiceDomain.java",
+      "filePath": "src/test/portal/ServiceDomain.java",
+      "summary": "Service domain interface defining service methods for portal testing.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/ServiceDomainImpl1.java",
+      "type": "file",
+      "name": "ServiceDomainImpl1.java",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "summary": "Implementation of ServiceDomain providing service methods with portal registration and cross-domain calls.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/ServiceDomainImpl2.java",
+      "type": "file",
+      "name": "ServiceDomainImpl2.java",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "summary": "Implementation of ServiceDomain providing service methods with portal registration and cross-domain calls.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/ServiceHLS.java",
+      "type": "file",
+      "name": "ServiceHLS.java",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "summary": "High-level scheduler service implementation for portal testing with thread management and scheduling callbacks.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/SimpleTest.java",
+      "type": "file",
+      "name": "SimpleTest.java",
+      "filePath": "src/test/portal/SimpleTest.java",
+      "summary": "Simple portal functionality test creating domains and testing basic portal interactions.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ]
+    },
+    {
+      "id": "file:src/test/portal/timeslicing/Simple.java",
+      "type": "file",
+      "name": "Simple.java",
+      "filePath": "src/test/portal/timeslicing/Simple.java",
+      "summary": "Time slicing test domain creating multiple threads to test scheduler behavior.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ]
+    },
+    {
+      "id": "file:src/test/termination/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/termination/Main.java",
+      "summary": "Termination test main program creating and terminating domains to test domain lifecycle management.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "termination"
+      ]
+    },
+    {
+      "id": "file:src/test/termination/TermIO.java",
+      "type": "file",
+      "name": "TermIO.java",
+      "filePath": "src/test/termination/TermIO.java",
+      "summary": "Domain termination test with I/O operations to verify proper cleanup.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "termination"
+      ]
+    },
+    {
+      "id": "file:src/test/timer/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/timer/Main.java",
+      "summary": "Timer test Main.java demonstrating timer registration and callback functionality.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "timer"
+      ]
+    },
+    {
+      "id": "file:src/test/timer/StartTimer.java",
+      "type": "file",
+      "name": "StartTimer.java",
+      "filePath": "src/test/timer/StartTimer.java",
+      "summary": "Timer test StartTimer.java demonstrating timer registration and callback functionality.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "timer"
+      ]
+    }
+  ],
+  "importEdges": [],
+  "allEdges": [
+    {
+      "source": "config:build.xml",
+      "target": "file:src/jx/init/Main.java",
+      "type": "configures"
+    },
+    {
+      "source": "document:README.rst",
+      "target": "file:src/jx/init/Main.java",
+      "type": "documents"
+    }
+  ]
+}

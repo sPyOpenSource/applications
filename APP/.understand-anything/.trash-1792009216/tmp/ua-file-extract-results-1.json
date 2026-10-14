@@ -1,0 +1,4942 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 73,
+      "nonEmptyLines": 60,
+      "metrics": {}
+    },
+    {
+      "path": "CHANGELOG",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 85,
+      "nonEmptyLines": 61,
+      "metrics": {}
+    },
+    {
+      "path": "manifest.mf",
+      "language": "mf",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "META",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "README.rst",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 12,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/AI/AI.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 170,
+      "nonEmptyLines": 157,
+      "functions": [
+        {
+          "name": "AI",
+          "startLine": 48,
+          "endLine": 112,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "start",
+          "startLine": 114,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "getIO",
+          "startLine": 142,
+          "endLine": 144,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 146,
+          "endLine": 150,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 152,
+          "endLine": 169,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AI",
+          "startLine": 36,
+          "endLine": 170,
+          "methods": [
+            "AI",
+            "start",
+            "getIO",
+            "init",
+            "main"
+          ],
+          "properties": [
+            "IO",
+            "log",
+            "logThread",
+            "monitors"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AI",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "getIO",
+          "line": 142,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "AI",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AI",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 50
+        },
+        {
+          "caller": "AI",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 50
+        },
+        {
+          "caller": "AI",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 50
+        },
+        {
+          "caller": "AI",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 50
+        },
+        {
+          "caller": "AI",
+          "callee": "new AIIO",
+          "lineNumber": 51
+        },
+        {
+          "caller": "AI",
+          "callee": "new AILogic",
+          "lineNumber": 52
+        },
+        {
+          "caller": "AI",
+          "callee": "IO.getMemory",
+          "lineNumber": 52
+        },
+        {
+          "caller": "AI",
+          "callee": "NetInit.init",
+          "lineNumber": 53
+        },
+        {
+          "caller": "AI",
+          "callee": "IO.getMemory().getInitialNaming",
+          "lineNumber": 53
+        },
+        {
+          "caller": "AI",
+          "callee": "IO.getMemory",
+          "lineNumber": 53
+        },
+        {
+          "caller": "AI",
+          "callee": "new ServerSocket",
+          "lineNumber": 60
+        },
+        {
+          "caller": "AI",
+          "callee": "Debug.out.println",
+          "lineNumber": 62
+        },
+        {
+          "caller": "AI",
+          "callee": "Debug.out.println",
+          "lineNumber": 63
+        },
+        {
+          "caller": "AI",
+          "callee": "Debug.out.println",
+          "lineNumber": 67
+        },
+        {
+          "caller": "AI",
+          "callee": "ssock.accept",
+          "lineNumber": 69
+        },
+        {
+          "caller": "AI",
+          "callee": "Debug.out.println",
+          "lineNumber": 70
+        },
+        {
+          "caller": "AI",
+          "callee": "new Thread (\"WebWorker\"){\r\n                        @Override\r\n                        public void run() {\r\n                            try {\r\n                                TCPWebWorker.processRequest(sock, null);\r\n                            } catch(Exception e) {\r\n                                //throw new Error();\r\n                            }\r\n                        }\r\n                    }.start",
+          "lineNumber": 71
+        },
+        {
+          "caller": "AI",
+          "callee": "new Thread",
+          "lineNumber": 71
+        },
+        {
+          "caller": "run",
+          "callee": "TCPWebWorker.processRequest",
+          "lineNumber": 75
+        },
+        {
+          "caller": "AI",
+          "callee": "IO.getMemory().getInitialNaming().lookup",
+          "lineNumber": 89
+        },
+        {
+          "caller": "AI",
+          "callee": "IO.getMemory().getInitialNaming",
+          "lineNumber": 89
+        },
+        {
+          "caller": "AI",
+          "callee": "IO.getMemory",
+          "lineNumber": 89
+        },
+        {
+          "caller": "AI",
+          "callee": "pci.getNumberOfDevices",
+          "lineNumber": 90
+        },
+        {
+          "caller": "AI",
+          "callee": "pci.getDeviceAt",
+          "lineNumber": 91
+        },
+        {
+          "caller": "AI",
+          "callee": "PCICodes.lookupClass(dev.getClassCode()).startsWith",
+          "lineNumber": 92
+        },
+        {
+          "caller": "AI",
+          "callee": "PCICodes.lookupClass",
+          "lineNumber": 92
+        },
+        {
+          "caller": "AI",
+          "callee": "dev.getClassCode",
+          "lineNumber": 92
+        },
+        {
+          "caller": "AI",
+          "callee": "new UHCIDriver",
+          "lineNumber": 93
+        },
+        {
+          "caller": "AI",
+          "callee": "log.getSM",
+          "lineNumber": 93
+        },
+        {
+          "caller": "AI",
+          "callee": "new USBHubMonitor",
+          "lineNumber": 94
+        },
+        {
+          "caller": "AI",
+          "callee": "driver.getAPI",
+          "lineNumber": 94
+        },
+        {
+          "caller": "AI",
+          "callee": "log.getSM",
+          "lineNumber": 94
+        },
+        {
+          "caller": "AI",
+          "callee": "monitor.addAttachListener",
+          "lineNumber": 96
+        },
+        {
+          "caller": "AI",
+          "callee": "new USBStorageMount",
+          "lineNumber": 96
+        },
+        {
+          "caller": "AI",
+          "callee": "new Thread",
+          "lineNumber": 101
+        },
+        {
+          "caller": "AI",
+          "callee": "monitor.startMonitor",
+          "lineNumber": 108
+        },
+        {
+          "caller": "start",
+          "callee": "logThread.start",
+          "lineNumber": 116
+        },
+        {
+          "caller": "start",
+          "callee": "IO.start",
+          "lineNumber": 117
+        },
+        {
+          "caller": "start",
+          "callee": "new Thread(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                USBMassStorageTest.main(null);\r\n            }\r\n        }, \"USBMassStorageTest\").start",
+          "lineNumber": 119
+        },
+        {
+          "caller": "start",
+          "callee": "new Thread",
+          "lineNumber": 119
+        },
+        {
+          "caller": "start",
+          "callee": "new Runnable",
+          "lineNumber": 119
+        },
+        {
+          "caller": "run",
+          "callee": "USBMassStorageTest.main",
+          "lineNumber": 122
+        },
+        {
+          "caller": "start",
+          "callee": "System.out.println",
+          "lineNumber": 139
+        },
+        {
+          "caller": "init",
+          "callee": "new AI",
+          "lineNumber": 147
+        },
+        {
+          "caller": "init",
+          "callee": "instance.start",
+          "lineNumber": 148
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/AI/AIIO.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "AIIO",
+          "startLine": 23,
+          "endLine": 37,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "start",
+          "startLine": 39,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "getMemory",
+          "startLine": 46,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "getOut",
+          "startLine": 50,
+          "endLine": 52,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AIIO",
+          "startLine": 15,
+          "endLine": 53,
+          "methods": [
+            "AIIO",
+            "start",
+            "getMemory",
+            "getOut"
+          ],
+          "properties": [
+            "mem",
+            "inp",
+            "out",
+            "inpThread",
+            "outThread",
+            "ports",
+            "depHandle"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AIIO",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "getMemory",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "getOut",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "AIIO",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AIIO",
+          "callee": "naming.lookup",
+          "lineNumber": 24
+        },
+        {
+          "caller": "AIIO",
+          "callee": "new PCIGod",
+          "lineNumber": 25
+        },
+        {
+          "caller": "AIIO",
+          "callee": "new AIMemory",
+          "lineNumber": 28
+        },
+        {
+          "caller": "AIIO",
+          "callee": "mem.getInitialNaming().registerPortal",
+          "lineNumber": 30
+        },
+        {
+          "caller": "AIIO",
+          "callee": "mem.getInitialNaming",
+          "lineNumber": 30
+        },
+        {
+          "caller": "AIIO",
+          "callee": "mem.setLogPath",
+          "lineNumber": 31
+        },
+        {
+          "caller": "AIIO",
+          "callee": "new AIInput",
+          "lineNumber": 32
+        },
+        {
+          "caller": "AIIO",
+          "callee": "new AIOutput",
+          "lineNumber": 33
+        },
+        {
+          "caller": "AIIO",
+          "callee": "Debug.out.println",
+          "lineNumber": 34
+        },
+        {
+          "caller": "AIIO",
+          "callee": "new Thread",
+          "lineNumber": 35
+        },
+        {
+          "caller": "AIIO",
+          "callee": "new Thread",
+          "lineNumber": 36
+        },
+        {
+          "caller": "start",
+          "callee": "inpThread.start",
+          "lineNumber": 41
+        },
+        {
+          "caller": "start",
+          "callee": "outThread.start",
+          "lineNumber": 42
+        },
+        {
+          "caller": "start",
+          "callee": "mem.ImportBackup",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getOut",
+          "callee": "out.getOut",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/init/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 159,
+      "nonEmptyLines": 140,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 13,
+          "endLine": 20,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 22,
+          "endLine": 104,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "installGlobal",
+          "startLine": 106,
+          "endLine": 141,
+          "params": [
+            "globalSpec"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 8,
+          "endLine": 159,
+          "methods": [
+            "init",
+            "main",
+            "installGlobal"
+          ],
+          "properties": [
+            "debug",
+            "javascheduler",
+            "initNaming"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 14
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 14
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 15
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 17
+        },
+        {
+          "caller": "init",
+          "callee": "main",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "new Exception",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "bootFS.getFile",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "new Error",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "new BootRC2",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "installGlobal",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "p.getGlobalSpec",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "p.nextDomainSpec",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getString",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getInt",
+          "lineNumber": 49
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getString",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getString",
+          "lineNumber": 52
+        },
+        {
+          "caller": "main",
+          "callee": "new Error",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getInt",
+          "lineNumber": 81
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getInt",
+          "lineNumber": 84
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getInt",
+          "lineNumber": 85
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getInt",
+          "lineNumber": 86
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getString",
+          "lineNumber": 87
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getInt",
+          "lineNumber": 88
+        },
+        {
+          "caller": "main",
+          "callee": "new Error",
+          "lineNumber": 91
+        },
+        {
+          "caller": "main",
+          "callee": "domainSpec.getComponents",
+          "lineNumber": 94
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 101
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 103
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "Debug.out.println",
+          "lineNumber": 108
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "Debug.out.println",
+          "lineNumber": 109
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "Debug.out.println",
+          "lineNumber": 110
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 114
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "globalSpec.getString",
+          "lineNumber": 115
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "globalSpec.getString",
+          "lineNumber": 116
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "naming.lookup",
+          "lineNumber": 118
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "naming.lookup",
+          "lineNumber": 119
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "componentManager.load",
+          "lineNumber": 121
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "cpuManager.executeClassConstructors",
+          "lineNumber": 122
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "cpuManager.getClass",
+          "lineNumber": 123
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "new Error",
+          "lineNumber": 125
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "cl.newInstance",
+          "lineNumber": 126
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "Debug.out.println",
+          "lineNumber": 128
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "Debug.out.println",
+          "lineNumber": 129
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "Debug.out.println",
+          "lineNumber": 130
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "globalSpec.getString",
+          "lineNumber": 134
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "new jx.InitialNaming",
+          "lineNumber": 135
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "Debug.out.println",
+          "lineNumber": 137
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "Debug.out.println",
+          "lineNumber": 138
+        },
+        {
+          "caller": "installGlobal",
+          "callee": "Debug.out.println",
+          "lineNumber": 139
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/init/MultiComponentStart.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 25,
+          "endLine": 87,
+          "params": [
+            "naming",
+            "args",
+            "objectArgs"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MultiComponentStart",
+          "startLine": 11,
+          "endLine": 88,
+          "methods": [
+            "init"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "MultiComponentStart",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "write",
+          "callee": "Debug.out.print",
+          "lineNumber": 21
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 26
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 26
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 27
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 31
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "new Vector",
+          "lineNumber": 35
+        },
+        {
+          "caller": "init",
+          "callee": "component.getString",
+          "lineNumber": 38
+        },
+        {
+          "caller": "init",
+          "callee": "component.getString",
+          "lineNumber": 39
+        },
+        {
+          "caller": "init",
+          "callee": "component.getStringArray",
+          "lineNumber": 44
+        },
+        {
+          "caller": "init",
+          "callee": "new StartInfo",
+          "lineNumber": 46
+        },
+        {
+          "caller": "init",
+          "callee": "component.getStringArray",
+          "lineNumber": 51
+        },
+        {
+          "caller": "init",
+          "callee": "componentManager.setInheritThread",
+          "lineNumber": 53
+        },
+        {
+          "caller": "init",
+          "callee": "cpuManager.getClass",
+          "lineNumber": 57
+        },
+        {
+          "caller": "init",
+          "callee": "new Error",
+          "lineNumber": 59
+        },
+        {
+          "caller": "init",
+          "callee": "cl.getMethods",
+          "lineNumber": 61
+        },
+        {
+          "caller": "init",
+          "callee": "name.equals",
+          "lineNumber": 66
+        },
+        {
+          "caller": "init",
+          "callee": "method.getName",
+          "lineNumber": 66
+        },
+        {
+          "caller": "init",
+          "callee": "signature.equals",
+          "lineNumber": 66
+        },
+        {
+          "caller": "init",
+          "callee": "method.getSignature",
+          "lineNumber": 66
+        },
+        {
+          "caller": "init",
+          "callee": "new Error",
+          "lineNumber": 71
+        },
+        {
+          "caller": "init",
+          "callee": "start.addElement",
+          "lineNumber": 72
+        },
+        {
+          "caller": "init",
+          "callee": "start.size",
+          "lineNumber": 76
+        },
+        {
+          "caller": "init",
+          "callee": "start.elementAt",
+          "lineNumber": 77
+        },
+        {
+          "caller": "init",
+          "callee": "cpuManager.start",
+          "lineNumber": 78
+        },
+        {
+          "caller": "init",
+          "callee": "cpuManager.createCPUState",
+          "lineNumber": 78
+        },
+        {
+          "caller": "init",
+          "callee": "new ThreadEntry",
+          "lineNumber": 78
+        },
+        {
+          "caller": "run",
+          "callee": "cpuManager.setThreadName",
+          "lineNumber": 82
+        },
+        {
+          "caller": "run",
+          "callee": "info.method.invoke",
+          "lineNumber": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/test/Test1.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "m",
+          "startLine": 10,
+          "endLine": 10,
+          "params": []
+        },
+        {
+          "name": "n",
+          "startLine": 11,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Test1",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "m"
+          ],
+          "properties": []
+        },
+        {
+          "name": "XYZ",
+          "startLine": 9,
+          "endLine": 18,
+          "methods": [
+            "m",
+            "n"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Test1",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "n",
+          "callee": "new Object",
+          "lineNumber": 13
+        },
+        {
+          "caller": "n",
+          "callee": "m",
+          "lineNumber": 14
+        },
+        {
+          "caller": "n",
+          "callee": "o.toString",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/jx/test/TestDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "classes": [
+        {
+          "name": "TestDomain",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "test"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestDomain",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/test/TestDomainPortal.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 5,
+      "classes": [
+        {
+          "name": "TestDomainPortal",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "fooMethod"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestDomainPortal",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/cpustate/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 9,
+          "endLine": 31,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 8,
+          "endLine": 32,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 10
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.getCPUState",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "new Thread() {\n                @Override\n\t\tpublic void run() {\n\t\t    CPUState second = cpuManager.getCPUState();\n\t\t    for(;;) {\n\t\t\twhile(! cpuManager.unblock(first));\n\t\t\tDebug.out.print(\"1\");\n\t\t\tThread.yield();\n\t\t    }\n\t\t}\n\t    }.start",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "new Thread",
+          "lineNumber": 15
+        },
+        {
+          "caller": "run",
+          "callee": "cpuManager.getCPUState",
+          "lineNumber": 18
+        },
+        {
+          "caller": "run",
+          "callee": "cpuManager.unblock",
+          "lineNumber": 20
+        },
+        {
+          "caller": "run",
+          "callee": "Debug.out.print",
+          "lineNumber": 21
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.yield",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.block",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.print",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/cpustate/MultiDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 16,
+          "endLine": 42,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 49,
+          "endLine": 51,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "DomainB",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 59,
+          "endLine": 62,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "unblock",
+          "startLine": 64,
+          "endLine": 67,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyService",
+          "startLine": 10,
+          "endLine": 13,
+          "methods": [
+            "init",
+            "unblock"
+          ],
+          "properties": []
+        },
+        {
+          "name": "DomainA",
+          "startLine": 15,
+          "endLine": 43,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        },
+        {
+          "name": "DomainB",
+          "startLine": 45,
+          "endLine": 68,
+          "methods": [
+            "main",
+            "DomainB",
+            "init",
+            "unblock"
+          ],
+          "properties": [
+            "cpuManager",
+            "thread"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "unblock",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.getCPUState",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "new Thread() {\n                @Override\n\t\tpublic void run() {\n\t\t    CPUState second = cpuManager.getCPUState();\n\t\t    svc.init(first);\n\t\t    for(;;) {\n\t\t\twhile(! svc.unblock());\n\t\t\tDebug.out.print(\"1\");\n\t\t\tThread.yield();\n\t\t    }\n\t\t}\n\t    }.start",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "new Thread",
+          "lineNumber": 24
+        },
+        {
+          "caller": "run",
+          "callee": "cpuManager.getCPUState",
+          "lineNumber": 27
+        },
+        {
+          "caller": "run",
+          "callee": "svc.init",
+          "lineNumber": 28
+        },
+        {
+          "caller": "run",
+          "callee": "svc.unblock",
+          "lineNumber": 30
+        },
+        {
+          "caller": "run",
+          "callee": "Debug.out.print",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.yield",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.block",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.print",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "new DomainB",
+          "lineNumber": 50
+        },
+        {
+          "caller": "DomainB",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 54
+        },
+        {
+          "caller": "DomainB",
+          "callee": "naming.lookup",
+          "lineNumber": 55
+        },
+        {
+          "caller": "DomainB",
+          "callee": "naming.registerPortal",
+          "lineNumber": 56
+        },
+        {
+          "caller": "unblock",
+          "callee": "cpuManager.unblock",
+          "lineNumber": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 5,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/test/debug/Monitor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 7,
+          "endLine": 25,
+          "params": [
+            "naming",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Monitor",
+          "startLine": 6,
+          "endLine": 26,
+          "methods": [
+            "init"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "Monitor",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 9
+        },
+        {
+          "caller": "init",
+          "callee": "debugSupport.registerMonitorCommand",
+          "lineNumber": 13
+        },
+        {
+          "caller": "init",
+          "callee": "new MonitorCommand",
+          "lineNumber": 13
+        },
+        {
+          "caller": "execCommand",
+          "callee": "Debug.out.println",
+          "lineNumber": 16
+        },
+        {
+          "caller": "execCommand",
+          "callee": "Debug.out.println",
+          "lineNumber": 17
+        },
+        {
+          "caller": "execCommand",
+          "callee": "Debug.out.println",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/BioRAMDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 9,
+          "endLine": 15,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 17,
+          "endLine": 25,
+          "params": [
+            "naming",
+            "args"
+          ]
+        },
+        {
+          "name": "BioRAMDomain",
+          "startLine": 27,
+          "endLine": 32,
+          "params": [
+            "naming",
+            "name"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BioRAMDomain",
+          "startLine": 6,
+          "endLine": 33,
+          "methods": [
+            "main",
+            "init",
+            "BioRAMDomain"
+          ],
+          "properties": [
+            "naming"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "BioRAMDomain",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 10
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.setThreadName",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "new BioRAMDomain",
+          "lineNumber": 14
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 19
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 21
+        },
+        {
+          "caller": "init",
+          "callee": "new BioRAMDomain",
+          "lineNumber": 24
+        },
+        {
+          "caller": "BioRAMDomain",
+          "callee": "new BlockIORAM",
+          "lineNumber": 29
+        },
+        {
+          "caller": "BioRAMDomain",
+          "callee": "InitialNaming.getInitialNaming().registerPortal",
+          "lineNumber": 30
+        },
+        {
+          "caller": "BioRAMDomain",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 30
+        },
+        {
+          "caller": "BioRAMDomain",
+          "callee": "Debug.out.println",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/CreateRemove.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 16,
+          "endLine": 32,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "dotest",
+          "startLine": 35,
+          "endLine": 39,
+          "params": [
+            "fs"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CreateRemove",
+          "startLine": 13,
+          "endLine": 40,
+          "methods": [
+            "main",
+            "dotest"
+          ],
+          "properties": [
+            "MAXBUFFERSIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "CreateRemove",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.allocAligned",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "fs.create",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "fs.create",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "jfs.release",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 31
+        },
+        {
+          "caller": "dotest",
+          "callee": "fs.getRootNode",
+          "lineNumber": 36
+        },
+        {
+          "caller": "dotest",
+          "callee": "ino.create",
+          "lineNumber": 37
+        },
+        {
+          "caller": "dotest",
+          "callee": "ino.create",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/EmulDiskDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 11,
+          "endLine": 19,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 21,
+          "endLine": 36,
+          "params": [
+            "naming",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EmulDiskDomain",
+          "startLine": 9,
+          "endLine": 53,
+          "methods": [
+            "main",
+            "init"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "EmulDiskDomain",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "new BioEmu",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "naming.registerPortal",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 18
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 23
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 24
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 24
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 25
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 29
+        },
+        {
+          "caller": "init",
+          "callee": "new BioEmu",
+          "lineNumber": 30
+        },
+        {
+          "caller": "init",
+          "callee": "naming.registerPortal",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 34
+        },
+        {
+          "caller": "BioEmu",
+          "callee": "new Error",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getCapacity",
+          "callee": "disk.getCapacity",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getSectorSize",
+          "callee": "disk.getSectorSize",
+          "lineNumber": 45
+        },
+        {
+          "caller": "readSectors",
+          "callee": "disk.readSectors",
+          "lineNumber": 47
+        },
+        {
+          "caller": "writeSectors",
+          "callee": "disk.writeSectors",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/FileTreeWalk.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 61,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 12,
+          "endLine": 23,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "FileTreeWalk",
+          "startLine": 25,
+          "endLine": 37,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "printDir",
+          "startLine": 39,
+          "endLine": 72,
+          "params": [
+            "space",
+            "dirInode"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FileTreeWalk",
+          "startLine": 8,
+          "endLine": 74,
+          "methods": [
+            "init",
+            "FileTreeWalk",
+            "printDir"
+          ],
+          "properties": [
+            "naming"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "FileTreeWalk",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "FileTreeWalk",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 15
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 16
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 16
+        },
+        {
+          "caller": "init",
+          "callee": "new FileTreeWalk",
+          "lineNumber": 18
+        },
+        {
+          "caller": "init",
+          "callee": "new Error",
+          "lineNumber": 21
+        },
+        {
+          "caller": "FileTreeWalk",
+          "callee": "naming.lookup",
+          "lineNumber": 28
+        },
+        {
+          "caller": "FileTreeWalk",
+          "callee": "Debug.out.println",
+          "lineNumber": 31
+        },
+        {
+          "caller": "FileTreeWalk",
+          "callee": "printDir",
+          "lineNumber": 35
+        },
+        {
+          "caller": "FileTreeWalk",
+          "callee": "fs.getCwdNode",
+          "lineNumber": 35
+        },
+        {
+          "caller": "printDir",
+          "callee": "dirInode.readdirNames",
+          "lineNumber": 42
+        },
+        {
+          "caller": "printDir",
+          "callee": "dirInode.lookup",
+          "lineNumber": 47
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.print",
+          "lineNumber": 48
+        },
+        {
+          "caller": "printDir",
+          "callee": "inode.isDirectory",
+          "lineNumber": 49
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.print",
+          "lineNumber": 50
+        },
+        {
+          "caller": "printDir",
+          "callee": "inode.isFile",
+          "lineNumber": 51
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.print",
+          "lineNumber": 52
+        },
+        {
+          "caller": "printDir",
+          "callee": "inode.isSymlink",
+          "lineNumber": 53
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.print",
+          "lineNumber": 54
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.print",
+          "lineNumber": 55
+        },
+        {
+          "caller": "printDir",
+          "callee": "inode.getLength",
+          "lineNumber": 55
+        },
+        {
+          "caller": "printDir",
+          "callee": "inode.decUseCount",
+          "lineNumber": 56
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.print",
+          "lineNumber": 57
+        },
+        {
+          "caller": "printDir",
+          "callee": "inode.isSymlink",
+          "lineNumber": 58
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.print",
+          "lineNumber": 59
+        },
+        {
+          "caller": "printDir",
+          "callee": "inode.getSymlink",
+          "lineNumber": 59
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.println",
+          "lineNumber": 60
+        },
+        {
+          "caller": "printDir",
+          "callee": "dirInode.lookup",
+          "lineNumber": 64
+        },
+        {
+          "caller": "printDir",
+          "callee": "name.equals",
+          "lineNumber": 65
+        },
+        {
+          "caller": "printDir",
+          "callee": "name.equals",
+          "lineNumber": 65
+        },
+        {
+          "caller": "printDir",
+          "callee": "inode.isDirectory",
+          "lineNumber": 65
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.println",
+          "lineNumber": 66
+        },
+        {
+          "caller": "printDir",
+          "callee": "Debug.out.println",
+          "lineNumber": 67
+        },
+        {
+          "caller": "printDir",
+          "callee": "printDir",
+          "lineNumber": 68
+        },
+        {
+          "caller": "printDir",
+          "callee": "inode.decUseCount",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/IDEDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 11,
+          "endLine": 35,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "IDEDomain",
+          "startLine": 9,
+          "endLine": 36,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "IDEDomain",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "new IDEDeviceImpl",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "ide.getDrives",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "args[3].equals",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "drives[drive].getPartitions",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "naming.registerPortal",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/IOZONE.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 507,
+      "nonEmptyLines": 452,
+      "functions": [
+        {
+          "name": "IOZONE",
+          "startLine": 71,
+          "endLine": 144,
+          "params": [
+            "fs",
+            "minFileSizeKB",
+            "maxFileSizeKB",
+            "minRecSizeB",
+            "maxRecSizeB"
+          ]
+        },
+        {
+          "name": "alignString",
+          "startLine": 146,
+          "endLine": 152,
+          "params": [
+            "value",
+            "length"
+          ]
+        },
+        {
+          "name": "autoTest",
+          "startLine": 154,
+          "endLine": 215,
+          "params": []
+        },
+        {
+          "name": "begin",
+          "startLine": 217,
+          "endLine": 229,
+          "params": [
+            "kilobytes",
+            "reclen"
+          ]
+        },
+        {
+          "name": "readPerfTest",
+          "startLine": 231,
+          "endLine": 316,
+          "params": [
+            "kilo",
+            "reclen"
+          ]
+        },
+        {
+          "name": "writePerfTest",
+          "startLine": 318,
+          "endLine": 371,
+          "params": [
+            "kilo",
+            "reclen"
+          ]
+        },
+        {
+          "name": "storeValue",
+          "startLine": 373,
+          "endLine": 390,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "dumpBinary",
+          "startLine": 393,
+          "endLine": 411,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "dumpReport",
+          "startLine": 418,
+          "endLine": 455,
+          "params": [
+            "who"
+          ]
+        },
+        {
+          "name": "dumpExcel",
+          "startLine": 461,
+          "endLine": 506,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "IOZONE",
+          "startLine": 19,
+          "endLine": 507,
+          "methods": [
+            "IOZONE",
+            "alignString",
+            "autoTest",
+            "begin",
+            "readPerfTest",
+            "writePerfTest",
+            "storeValue",
+            "dumpBinary",
+            "dumpReport",
+            "dumpExcel"
+          ],
+          "properties": [
+            "fs",
+            "MAX_X",
+            "MAX_Y",
+            "KILOBYTES_START",
+            "KILOBYTES_END",
+            "RECLEN_START",
+            "RECLEN_END",
+            "MULTIPLIER",
+            "CROSSOVER",
+            "LARGE_REC",
+            "MINIMAL_MICROS",
+            "current_x",
+            "current_y",
+            "max_x",
+            "max_y",
+            "report_array",
+            "cancel_store",
+            "buffer",
+            "profiler",
+            "sample",
+            "cpuManager",
+            "clock",
+            "starttimec",
+            "endtimec",
+            "diff",
+            "outputThroughput",
+            "output",
+            "doDumpBinary",
+            "rereadtime",
+            "nreread"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "IOZONE",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "IOZONE",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 87
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 87
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 89
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 89
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "memMgr.allocAligned",
+          "lineNumber": 90
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "fs.create",
+          "lineNumber": 94
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "Debug.out.println",
+          "lineNumber": 96
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "Debug.out.println",
+          "lineNumber": 101
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "Debug.out.println",
+          "lineNumber": 102
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "Debug.out.println",
+          "lineNumber": 104
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "Debug.out.println",
+          "lineNumber": 105
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "Debug.out.println",
+          "lineNumber": 112
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "Debug.out.println",
+          "lineNumber": 114
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "Debug.out.println",
+          "lineNumber": 116
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "autoTest",
+          "lineNumber": 119
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "((CPUManager)InitialNaming.getInitialNaming().lookup(\"CPUManager\")).yield",
+          "lineNumber": 120
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 120
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 120
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "dumpBinary",
+          "lineNumber": 123
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "new Error",
+          "lineNumber": 125
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "Debug.out.println",
+          "lineNumber": 129
+        },
+        {
+          "caller": "alignString",
+          "callee": "new String",
+          "lineNumber": 147
+        },
+        {
+          "caller": "alignString",
+          "callee": "value.length",
+          "lineNumber": 148
+        },
+        {
+          "caller": "autoTest",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 165
+        },
+        {
+          "caller": "autoTest",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 165
+        },
+        {
+          "caller": "autoTest",
+          "callee": "profiler.startSampling",
+          "lineNumber": 166
+        },
+        {
+          "caller": "autoTest",
+          "callee": "storeValue",
+          "lineNumber": 192
+        },
+        {
+          "caller": "autoTest",
+          "callee": "storeValue",
+          "lineNumber": 193
+        },
+        {
+          "caller": "autoTest",
+          "callee": "storeValue",
+          "lineNumber": 195
+        },
+        {
+          "caller": "autoTest",
+          "callee": "begin",
+          "lineNumber": 207
+        },
+        {
+          "caller": "autoTest",
+          "callee": "profiler.stopSampling",
+          "lineNumber": 213
+        },
+        {
+          "caller": "begin",
+          "callee": "storeValue",
+          "lineNumber": 218
+        },
+        {
+          "caller": "begin",
+          "callee": "storeValue",
+          "lineNumber": 219
+        },
+        {
+          "caller": "begin",
+          "callee": "Debug.out.print",
+          "lineNumber": 222
+        },
+        {
+          "caller": "begin",
+          "callee": "alignString",
+          "lineNumber": 222
+        },
+        {
+          "caller": "begin",
+          "callee": "Integer.toString",
+          "lineNumber": 222
+        },
+        {
+          "caller": "begin",
+          "callee": "alignString",
+          "lineNumber": 222
+        },
+        {
+          "caller": "begin",
+          "callee": "Integer.toString",
+          "lineNumber": 222
+        },
+        {
+          "caller": "begin",
+          "callee": "writePerfTest",
+          "lineNumber": 225
+        },
+        {
+          "caller": "begin",
+          "callee": "readPerfTest",
+          "lineNumber": 226
+        },
+        {
+          "caller": "begin",
+          "callee": "Debug.out.println",
+          "lineNumber": 228
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "fs.lookup",
+          "lineNumber": 244
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 250
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "profiler.startSampling",
+          "lineNumber": 251
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "inode.read",
+          "lineNumber": 254
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "profiler.stopSampling",
+          "lineNumber": 257
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 258
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.subtract",
+          "lineNumber": 259
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 260
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.toNanoSec",
+          "lineNumber": 262
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "inode.decUseCount",
+          "lineNumber": 273
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new MyBigNumber",
+          "lineNumber": 288
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "(n0.mul(1024000)).div",
+          "lineNumber": 289
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "n0.mul",
+          "lineNumber": 289
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "n0.toInt",
+          "lineNumber": 290
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new MyBigNumber",
+          "lineNumber": 293
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "(n0.mul(1024)).div",
+          "lineNumber": 294
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "n0.mul",
+          "lineNumber": 294
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "n0.toInt",
+          "lineNumber": 297
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Debug.out.print",
+          "lineNumber": 306
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "alignString",
+          "lineNumber": 306
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 306
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "alignString",
+          "lineNumber": 306
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 306
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Debug.out.print",
+          "lineNumber": 308
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "alignString",
+          "lineNumber": 308
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 308
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "alignString",
+          "lineNumber": 308
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 308
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "storeValue",
+          "lineNumber": 310
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "storeValue",
+          "lineNumber": 311
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Debug.out.println",
+          "lineNumber": 314
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new Error",
+          "lineNumber": 314
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "fs.lookup",
+          "lineNumber": 331
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 335
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "inode.write",
+          "lineNumber": 338
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 340
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.subtract",
+          "lineNumber": 341
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 342
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "inode.decUseCount",
+          "lineNumber": 349
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Debug.out.print",
+          "lineNumber": 361
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "alignString",
+          "lineNumber": 361
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 361
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "alignString",
+          "lineNumber": 361
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 361
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Debug.out.print",
+          "lineNumber": 363
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "alignString",
+          "lineNumber": 363
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 363
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "alignString",
+          "lineNumber": 363
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 363
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "storeValue",
+          "lineNumber": 365
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "storeValue",
+          "lineNumber": 366
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new Error",
+          "lineNumber": 369
+        },
+        {
+          "caller": "storeValue",
+          "callee": "Debug.out.println",
+          "lineNumber": 383
+        },
+        {
+          "caller": "storeValue",
+          "callee": "Debug.out.println",
+          "lineNumber": 385
+        },
+        {
+          "caller": "storeValue",
+          "callee": "Debug.out.println",
+          "lineNumber": 387
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 394
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 394
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 395
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "new MemoryOutputStream",
+          "lineNumber": 396
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "new LittleEndianOutputStream",
+          "lineNumber": 397
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 398
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 399
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 400
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 401
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 405
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "new Error",
+          "lineNumber": 408
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 409
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 409
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "deb.sendBinary",
+          "lineNumber": 410
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "Debug.out.print",
+          "lineNumber": 423
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "Debug.out.print",
+          "lineNumber": 426
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "Debug.out.println",
+          "lineNumber": 429
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "Debug.out.print",
+          "lineNumber": 434
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "Debug.out.println",
+          "lineNumber": 440
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "Debug.out.print",
+          "lineNumber": 443
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "Debug.out.print",
+          "lineNumber": 446
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "Debug.out.println",
+          "lineNumber": 449
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "Debug.out.println",
+          "lineNumber": 463
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "Debug.out.println",
+          "lineNumber": 465
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 468
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "Debug.out.println",
+          "lineNumber": 469
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "Debug.out.println",
+          "lineNumber": 471
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 474
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "Debug.out.println",
+          "lineNumber": 475
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "Debug.out.println",
+          "lineNumber": 477
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 480
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "Debug.out.println",
+          "lineNumber": 481
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "Debug.out.println",
+          "lineNumber": 483
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 486
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "Debug.out.println",
+          "lineNumber": 487
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/MyBigNumber.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 105,
+      "nonEmptyLines": 93,
+      "functions": [
+        {
+          "name": "MyBigNumber",
+          "startLine": 9,
+          "endLine": 11,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "MyBigNumber",
+          "startLine": 12,
+          "endLine": 20,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "mul",
+          "startLine": 22,
+          "endLine": 31,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "mul",
+          "startLine": 33,
+          "endLine": 45,
+          "params": [
+            "n",
+            "e"
+          ]
+        },
+        {
+          "name": "mul",
+          "startLine": 47,
+          "endLine": 52,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "div",
+          "startLine": 54,
+          "endLine": 56,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "div",
+          "startLine": 58,
+          "endLine": 78,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 80,
+          "endLine": 82,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 85,
+          "endLine": 93,
+          "params": []
+        },
+        {
+          "name": "toInt",
+          "startLine": 95,
+          "endLine": 103,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyBigNumber",
+          "startLine": 6,
+          "endLine": 105,
+          "methods": [
+            "MyBigNumber",
+            "MyBigNumber",
+            "mul",
+            "mul",
+            "mul",
+            "div",
+            "div",
+            "add",
+            "toString",
+            "toInt"
+          ],
+          "properties": [
+            "v"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "toString",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "toInt",
+          "line": 95,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "mul",
+          "callee": "new MyBigNumber",
+          "lineNumber": 23
+        },
+        {
+          "caller": "mul",
+          "callee": "new MyBigNumber",
+          "lineNumber": 34
+        },
+        {
+          "caller": "mul",
+          "callee": "System.arraycopy",
+          "lineNumber": 42
+        },
+        {
+          "caller": "mul",
+          "callee": "n.mul",
+          "lineNumber": 49
+        },
+        {
+          "caller": "div",
+          "callee": "new MyBigNumber",
+          "lineNumber": 77
+        },
+        {
+          "caller": "add",
+          "callee": "new Error",
+          "lineNumber": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/ReadDisk.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 7,
+          "endLine": 64,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ReadDisk",
+          "startLine": 6,
+          "endLine": 65,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "ReadDisk",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 8
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 9
+        },
+        {
+          "caller": "main",
+          "callee": "bio.getCapacity",
+          "lineNumber": 10
+        },
+        {
+          "caller": "main",
+          "callee": "bio.getSectorSize",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "bio.readSectors",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "new CycleTime",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "new CycleTime",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "new CycleTime",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "clock.getCycles",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "bio.readSectors",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "clock.getCycles",
+          "lineNumber": 52
+        },
+        {
+          "caller": "main",
+          "callee": "clock.subtract",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "clock.toMilliSec",
+          "lineNumber": 54
+        },
+        {
+          "caller": "main",
+          "callee": "new MyBigNumber",
+          "lineNumber": 55
+        },
+        {
+          "caller": "main",
+          "callee": "n0.mul",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "n0.mul",
+          "lineNumber": 57
+        },
+        {
+          "caller": "main",
+          "callee": "n0.mul",
+          "lineNumber": 58
+        },
+        {
+          "caller": "main",
+          "callee": "n0.div",
+          "lineNumber": 59
+        },
+        {
+          "caller": "main",
+          "callee": "n0.div",
+          "lineNumber": 60
+        },
+        {
+          "caller": "main",
+          "callee": "n0.toInt",
+          "lineNumber": 61
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/ReRead.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 90,
+      "nonEmptyLines": 79,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 15,
+          "endLine": 18,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "ReRead",
+          "startLine": 20,
+          "endLine": 89,
+          "params": [
+            "fs"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ReRead",
+          "startLine": 12,
+          "endLine": 90,
+          "methods": [
+            "main",
+            "ReRead"
+          ],
+          "properties": [
+            "MAXBUFFERSIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "ReRead",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ReRead",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "new ReRead",
+          "lineNumber": 17
+        },
+        {
+          "caller": "ReRead",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 26
+        },
+        {
+          "caller": "ReRead",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 26
+        },
+        {
+          "caller": "ReRead",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ReRead",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ReRead",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 28
+        },
+        {
+          "caller": "ReRead",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 28
+        },
+        {
+          "caller": "ReRead",
+          "callee": "memMgr.allocAligned",
+          "lineNumber": 29
+        },
+        {
+          "caller": "ReRead",
+          "callee": "memMgr.allocAligned",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ReRead",
+          "callee": "fs.create",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ReRead",
+          "callee": "fs.lookup",
+          "lineNumber": 33
+        },
+        {
+          "caller": "ReRead",
+          "callee": "buffer1.set32",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ReRead",
+          "callee": "inode.write",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ReRead",
+          "callee": "inode.read",
+          "lineNumber": 38
+        },
+        {
+          "caller": "ReRead",
+          "callee": "buffer2.get32",
+          "lineNumber": 41
+        },
+        {
+          "caller": "ReRead",
+          "callee": "new Error",
+          "lineNumber": 41
+        },
+        {
+          "caller": "ReRead",
+          "callee": "inode.read",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ReRead",
+          "callee": "clock.getTicks_low",
+          "lineNumber": 46
+        },
+        {
+          "caller": "ReRead",
+          "callee": "inode.read",
+          "lineNumber": 47
+        },
+        {
+          "caller": "ReRead",
+          "callee": "clock.getTicks_low",
+          "lineNumber": 48
+        },
+        {
+          "caller": "ReRead",
+          "callee": "Debug.out.println",
+          "lineNumber": 49
+        },
+        {
+          "caller": "ReRead",
+          "callee": "Debug.out.println",
+          "lineNumber": 51
+        },
+        {
+          "caller": "ReRead",
+          "callee": "buffer2.copyToMemory",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ReRead",
+          "callee": "clock.getTicks_low",
+          "lineNumber": 53
+        },
+        {
+          "caller": "ReRead",
+          "callee": "buffer2.copyToMemory",
+          "lineNumber": 55
+        },
+        {
+          "caller": "ReRead",
+          "callee": "clock.getTicks_low",
+          "lineNumber": 57
+        },
+        {
+          "caller": "ReRead",
+          "callee": "Debug.out.println",
+          "lineNumber": 58
+        },
+        {
+          "caller": "ReRead",
+          "callee": "inode.read",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ReRead",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 68
+        },
+        {
+          "caller": "ReRead",
+          "callee": "profiler.startSampling",
+          "lineNumber": 69
+        },
+        {
+          "caller": "ReRead",
+          "callee": "inode.read",
+          "lineNumber": 72
+        },
+        {
+          "caller": "ReRead",
+          "callee": "profiler.stopSampling",
+          "lineNumber": 75
+        },
+        {
+          "caller": "ReRead",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 77
+        },
+        {
+          "caller": "ReRead",
+          "callee": "Debug.out.println",
+          "lineNumber": 81
+        },
+        {
+          "caller": "ReRead",
+          "callee": "Debug.out.println",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ReRead",
+          "callee": "profiler.shell",
+          "lineNumber": 85
+        },
+        {
+          "caller": "ReRead",
+          "callee": "Debug.out.println",
+          "lineNumber": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/fs/Shell.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 513,
+      "nonEmptyLines": 443,
+      "functions": [
+        {
+          "name": "Parser",
+          "startLine": 26,
+          "endLine": 47,
+          "params": [
+            "zeile"
+          ]
+        },
+        {
+          "name": "isValid",
+          "startLine": 49,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "getKommando",
+          "startLine": 53,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "getArgumente",
+          "startLine": 57,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "Shell",
+          "startLine": 79,
+          "endLine": 124,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "mainLoop",
+          "startLine": 132,
+          "endLine": 325,
+          "params": []
+        },
+        {
+          "name": "cd",
+          "startLine": 327,
+          "endLine": 329,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "ls",
+          "startLine": 331,
+          "endLine": 340,
+          "params": []
+        },
+        {
+          "name": "ll",
+          "startLine": 342,
+          "endLine": 370,
+          "params": []
+        },
+        {
+          "name": "mkdir",
+          "startLine": 372,
+          "endLine": 378,
+          "params": [
+            "name",
+            "mode"
+          ]
+        },
+        {
+          "name": "rmdir",
+          "startLine": 380,
+          "endLine": 386,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "create",
+          "startLine": 388,
+          "endLine": 394,
+          "params": [
+            "name",
+            "mode"
+          ]
+        },
+        {
+          "name": "unlink",
+          "startLine": 396,
+          "endLine": 402,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 404,
+          "endLine": 439,
+          "params": [
+            "name",
+            "off",
+            "len"
+          ]
+        },
+        {
+          "name": "write",
+          "startLine": 441,
+          "endLine": 459,
+          "params": [
+            "name",
+            "off",
+            "len"
+          ]
+        },
+        {
+          "name": "rename",
+          "startLine": 461,
+          "endLine": 467,
+          "params": [
+            "path",
+            "pathneu"
+          ]
+        },
+        {
+          "name": "symlink",
+          "startLine": 469,
+          "endLine": 475,
+          "params": [
+            "path",
+            "pathneu"
+          ]
+        },
+        {
+          "name": "mount",
+          "startLine": 477,
+          "endLine": 499,
+          "params": [
+            "fs_name",
+            "dev_name",
+            "path"
+          ]
+        },
+        {
+          "name": "unmount",
+          "startLine": 501,
+          "endLine": 512,
+          "params": [
+            "dev_name"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Parser",
+          "startLine": 21,
+          "endLine": 62,
+          "methods": [
+            "Parser",
+            "isValid",
+            "getKommando",
+            "getArgumente"
+          ],
+          "properties": [
+            "kommando",
+            "argv",
+            "argc"
+          ]
+        },
+        {
+          "name": "Shell",
+          "startLine": 71,
+          "endLine": 513,
+          "methods": [
+            "Shell",
+            "mainLoop",
+            "cd",
+            "ls",
+            "ll",
+            "mkdir",
+            "rmdir",
+            "create",
+            "unlink",
+            "read",
+            "write",
+            "rename",
+            "symlink",
+            "mount",
+            "unmount"
+          ],
+          "properties": [
+            "filesystem",
+            "fs",
+            "in",
+            "mountPartitions",
+            "uout"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Parser",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "isValid",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "getKommando",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "getArgumente",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "Shell",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "Shell",
+          "line": 71,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Parser",
+          "callee": "zeile.trim",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Parser",
+          "callee": "tmp.indexOf",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Parser",
+          "callee": "tmp.substring",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Parser",
+          "callee": "tmp.substring(cut).trim",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Parser",
+          "callee": "tmp.substring",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Parser",
+          "callee": "tmp.length",
+          "lineNumber": 37
+        },
+        {
+          "caller": "Parser",
+          "callee": "tmp.indexOf",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Parser",
+          "callee": "tmp.substring",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Parser",
+          "callee": "tmp.substring(cut).trim",
+          "lineNumber": 44
+        },
+        {
+          "caller": "Parser",
+          "callee": "tmp.substring",
+          "lineNumber": 44
+        },
+        {
+          "caller": "isValid",
+          "callee": "kommando.length",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getArgumente",
+          "callee": "System.arraycopy",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Shell",
+          "callee": "new DataInputStream",
+          "lineNumber": 82
+        },
+        {
+          "caller": "Shell",
+          "callee": "new Hashtable",
+          "lineNumber": 84
+        },
+        {
+          "caller": "Shell",
+          "callee": "naming.lookup",
+          "lineNumber": 86
+        },
+        {
+          "caller": "Shell",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Shell",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Shell",
+          "callee": "uout.println",
+          "lineNumber": 90
+        },
+        {
+          "caller": "Shell",
+          "callee": "Thread.yield",
+          "lineNumber": 94
+        },
+        {
+          "caller": "Shell",
+          "callee": "naming.lookup",
+          "lineNumber": 95
+        },
+        {
+          "caller": "Shell",
+          "callee": "out.println",
+          "lineNumber": 99
+        },
+        {
+          "caller": "Shell",
+          "callee": "idedevice.getCapacity",
+          "lineNumber": 99
+        },
+        {
+          "caller": "Shell",
+          "callee": "naming.lookup",
+          "lineNumber": 101
+        },
+        {
+          "caller": "Shell",
+          "callee": "naming.lookup",
+          "lineNumber": 104
+        },
+        {
+          "caller": "Shell",
+          "callee": "uout.println",
+          "lineNumber": 107
+        },
+        {
+          "caller": "Shell",
+          "callee": "uout.print",
+          "lineNumber": 108
+        },
+        {
+          "caller": "Shell",
+          "callee": "in.readLine",
+          "lineNumber": 110
+        },
+        {
+          "caller": "Shell",
+          "callee": "new Parser",
+          "lineNumber": 112
+        },
+        {
+          "caller": "Shell",
+          "callee": "parser.getKommando().equals",
+          "lineNumber": 114
+        },
+        {
+          "caller": "Shell",
+          "callee": "parser.getKommando",
+          "lineNumber": 114
+        },
+        {
+          "caller": "Shell",
+          "callee": "Debug.out.print",
+          "lineNumber": 115
+        },
+        {
+          "caller": "Shell",
+          "callee": "filesystem.build",
+          "lineNumber": 116
+        },
+        {
+          "caller": "Shell",
+          "callee": "Debug.out.print",
+          "lineNumber": 117
+        },
+        {
+          "caller": "Shell",
+          "callee": "fs.mountRoot",
+          "lineNumber": 120
+        },
+        {
+          "caller": "Shell",
+          "callee": "mountPartitions.put",
+          "lineNumber": 121
+        },
+        {
+          "caller": "Shell",
+          "callee": "mainLoop",
+          "lineNumber": 123
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "new String",
+          "lineNumber": 133
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 135
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.print",
+          "lineNumber": 138
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "fs.getCwdPath",
+          "lineNumber": 138
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "in.readLine",
+          "lineNumber": 141
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "new Parser",
+          "lineNumber": 143
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "parser.isValid",
+          "lineNumber": 144
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "parser.getKommando",
+          "lineNumber": 147
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "parser.getArgumente",
+          "lineNumber": 148
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 150
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 151
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 152
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 153
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 154
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 155
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 156
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 157
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 158
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 159
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 160
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 161
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 162
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 163
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 164
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 165
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 166
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 167
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 168
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 169
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 170
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 174
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 176
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "cd",
+          "lineNumber": 178
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 183
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "ls",
+          "lineNumber": 184
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 188
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "ll",
+          "lineNumber": 189
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 193
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 195
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "mkdir",
+          "lineNumber": 197
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 201
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 203
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "rmdir",
+          "lineNumber": 205
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 209
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 211
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "create",
+          "lineNumber": 213
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 217
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 219
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "unlink",
+          "lineNumber": 221
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 225
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 227
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "read",
+          "lineNumber": 229
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "Integer.parseInt",
+          "lineNumber": 229
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "Integer.parseInt",
+          "lineNumber": 229
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 233
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 235
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "write",
+          "lineNumber": 237
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "Integer.parseInt",
+          "lineNumber": 237
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "Integer.parseInt",
+          "lineNumber": 237
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 241
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 243
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "rename",
+          "lineNumber": 245
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 249
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 251
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "symlink",
+          "lineNumber": 253
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 257
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 259
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "filesystem.build",
+          "lineNumber": 262
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "Integer.parseInt",
+          "lineNumber": 262
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 267
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 269
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "mount",
+          "lineNumber": 271
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 275
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 277
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "unmount",
+          "lineNumber": 279
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 283
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 288
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 288
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 291
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 296
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 301
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 306
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "kommando.equals",
+          "lineNumber": 311
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 316
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "fs.cleanUp",
+          "lineNumber": 319
+        },
+        {
+          "caller": "mainLoop",
+          "callee": "uout.println",
+          "lineNumber": 321
+        },
+        {
+          "caller": "cd",
+          "callee": "fs.cd",
+          "lineNumber": 328
+        },
+        {
+          "caller": "ls",
+          "callee": "fs.getCwdNode().readdirNames",
+          "lineNumber": 334
+        },
+        {
+          "caller": "ls",
+          "callee": "fs.getCwdNode",
+          "lineNumber": 334
+        },
+        {
+          "caller": "ls",
+          "callee": "uout.println",
+          "lineNumber": 336
+        },
+        {
+          "caller": "ls",
+          "callee": "e.getMessage",
+          "lineNumber": 336
+        },
+        {
+          "caller": "ls",
+          "callee": "uout.println",
+          "lineNumber": 339
+        },
+        {
+          "caller": "ll",
+          "callee": "((InodeImpl)fs.getCwdNode()).readdirNames",
+          "lineNumber": 347
+        },
+        {
+          "caller": "ll",
+          "callee": "fs.getCwdNode",
+          "lineNumber": 347
+        },
+        {
+          "caller": "ll",
+          "callee": "uout.println",
+          "lineNumber": 349
+        },
+        {
+          "caller": "ll",
+          "callee": "e.getMessage",
+          "lineNumber": 349
+        },
+        {
+          "caller": "ll",
+          "callee": "uout.print",
+          "lineNumber": 354
+        },
+        {
+          "caller": "ll",
+          "callee": "((InodeImpl)fs.getCwdNode()).lookup",
+          "lineNumber": 356
+        },
+        {
+          "caller": "ll",
+          "callee": "fs.getCwdNode",
+          "lineNumber": 356
+        },
+        {
+          "caller": "ll",
+          "callee": "inode.isDirectory",
+          "lineNumber": 357
+        },
+        {
+          "caller": "ll",
+          "callee": "uout.print",
+          "lineNumber": 358
+        },
+        {
+          "caller": "ll",
+          "callee": "inode.isFile",
+          "lineNumber": 359
+        },
+        {
+          "caller": "ll",
+          "callee": "uout.print",
+          "lineNumber": 360
+        },
+        {
+          "caller": "ll",
+          "callee": "inode.isSymlink",
+          "lineNumber": 361
+        },
+        {
+          "caller": "ll",
+          "callee": "uout.print",
+          "lineNumber": 362
+        },
+        {
+          "caller": "ll",
+          "callee": "inode.getSymlink",
+          "lineNumber": 362
+        },
+        {
+          "caller": "ll",
+          "callee": "uout.println",
+          "lineNumber": 363
+        },
+        {
+          "caller": "ll",
+          "callee": "inode.getLength",
+          "lineNumber": 363
+        },
+        {
+          "caller": "ll",
+          "callee": "inode.decUseCount",
+          "lineNumber": 365
+        },
+        {
+          "caller": "ll",
+          "callee": "uout.println",
+          "lineNumber": 367
+        },
+        {
+          "caller": "mkdir",
+          "callee": "fs.mkdir",
+          "lineNumber": 374
+        },
+        {
+          "caller": "mkdir",
+          "callee": "uout.println",
+          "lineNumber": 376
+        },
+        {
+          "caller": "mkdir",
+          "callee": "e.getMessage",
+          "lineNumber": 376
+        },
+        {
+          "caller": "rmdir",
+          "callee": "fs.rmdir",
+          "lineNumber": 382
+        },
+        {
+          "caller": "rmdir",
+          "callee": "uout.println",
+          "lineNumber": 384
+        },
+        {
+          "caller": "rmdir",
+          "callee": "e.getMessage",
+          "lineNumber": 384
+        },
+        {
+          "caller": "create",
+          "callee": "fs.create",
+          "lineNumber": 390
+        },
+        {
+          "caller": "create",
+          "callee": "uout.println",
+          "lineNumber": 392
+        },
+        {
+          "caller": "create",
+          "callee": "e.getMessage",
+          "lineNumber": 392
+        },
+        {
+          "caller": "unlink",
+          "callee": "fs.unlink",
+          "lineNumber": 398
+        },
+        {
+          "caller": "unlink",
+          "callee": "uout.println",
+          "lineNumber": 400
+        },
+        {
+          "caller": "unlink",
+          "callee": "e.getMessage",
+          "lineNumber": 400
+        },
+        {
+          "caller": "rename",
+          "callee": "fs.rename",
+          "lineNumber": 463
+        },
+        {
+          "caller": "rename",
+          "callee": "uout.println",
+          "lineNumber": 465
+        },
+        {
+          "caller": "rename",
+          "callee": "e.getMessage",
+          "lineNumber": 465
+        },
+        {
+          "caller": "symlink",
+          "callee": "fs.symlink",
+          "lineNumber": 471
+        },
+        {
+          "caller": "symlink",
+          "callee": "uout.println",
+          "lineNumber": 473
+        },
+        {
+          "caller": "symlink",
+          "callee": "e.getMessage",
+          "lineNumber": 473
+        },
+        {
+          "caller": "mount",
+          "callee": "Class.forName",
+          "lineNumber": 481
+        },
+        {
+          "caller": "mount",
+          "callee": "the_class.newInstance",
+          "lineNumber": 482
+        },
+        {
+          "caller": "mount",
+          "callee": "Debug.out.println",
+          "lineNumber": 484
+        },
+        {
+          "caller": "mount",
+          "callee": "Debug.out.println",
+          "lineNumber": 487
+        },
+        {
+          "caller": "mount",
+          "callee": "Debug.out.println",
+          "lineNumber": 490
+        },
+        {
+          "caller": "mount",
+          "callee": "fs.mount",
+          "lineNumber": 494
+        },
+        {
+          "caller": "mount",
+          "callee": "mountPartitions.put",
+          "lineNumber": 495
+        },
+        {
+          "caller": "mount",
+          "callee": "uout.println",
+          "lineNumber": 497
+        },
+        {
+          "caller": "mount",
+          "callee": "e.getMessage",
+          "lineNumber": 497
+        },
+        {
+          "caller": "unmount",
+          "callee": "mountPartitions.get",
+          "lineNumber": 502
+        },
+        {
+          "caller": "unmount",
+          "callee": "Debug.out.println",
+          "lineNumber": 504
+        },
+        {
+          "caller": "unmount",
+          "callee": "fs.unmount",
+          "lineNumber": 508
+        },
+        {
+          "caller": "unmount",
+          "callee": "uout.println",
+          "lineNumber": 510
+        },
+        {
+          "caller": "unmount",
+          "callee": "e.getMessage",
+          "lineNumber": 510
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 19,
+        "classCount": 2
+      }
+    }
+  ]
+}

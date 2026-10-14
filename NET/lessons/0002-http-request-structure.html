@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 0002: HTTP Request Structure</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lesson 0002: HTTP Request Structure</h1>
+        <p><small>Mission: <a href="../MISSION.md">HTTP Servers</a> | Lesson: 0002</small></p>
+    </header>
+
+    <section>
+        <h2>Learning Goal</h2>
+        <p>Understand how HTTP requests are formatted and how the JX server parses them.</p>
+        <div class="callout">
+            <strong>Tangible Win:</strong> Be able to identify the parts of an HTTP request and explain how <code>TCPWebWorker.parse()</code> extracts the filename.
+        </div>
+    </section>
+
+    <section>
+        <h2>Anatomy of an HTTP Request</h2>
+        <p>A typical HTTP/1.1 GET request looks like this:</p>
+        <pre><code>GET /index.html HTTP/1.1
+Host: localhost:80
+User-Agent: curl/8.0.1
+Accept: */*
+
+</code></pre>
+        <p>Key parts:</p>
+        <ol>
+            <li><strong>Request Line</strong> - <code>METHOD URI HTTP/VERSION</code> (e.g., GET /index.html HTTP/1.1)</li>
+            <li><strong>Headers</strong> - Key-value pairs, one per line (Host, User-Agent, Accept...)</li>
+            <li><strong>Empty Line</strong> - CRLF that separates headers from body</li>
+            <li><strong>Body</strong> - Optional data (used by POST, PUT etc.)</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>How TCPWebWorker Parses Requests</h2>
+        <p>Looking at the <code>parse()</code> method in <a href="../../src/test/net/TCPWebWorker.java#70-120">TCPWebWorker.java</a>:</p>
+        <pre><code>while (! (line = fromClient.readLine()).equals("")) {
+    StringTokenizer tokenizer = new StringTokenizer(line, " ");
+    String tok = tokenizer.nextToken();
+    switch (tok) {
+        case "GET":
+            method = METHOD_GET;
+            fileName = tokenizer.nextToken(); // gets the URI
+            if (fileName.endsWith("/")) {
+                fileName = fileName + getProperty_DefaultFile();
+            } else {
+                fileName = fileName.substring(1); // strip leading /
+            }
+            break;
+        case "POST":
+            ...
+        case "Content-length:":
+            contentsLength = Integer.parseInt(tokenizer.nextToken());
+            break;
+        // ...
+    }
+}</code></pre>
+        <p>Observations:</p>
+        <ul>
+            <li>It reads lines until it hits an empty line (<code>""</code>)</li>
+            <li>For GET, it takes the second token as the URI/path</li>
+            <li>If URI ends with <code>/</code>, it appends <code>index.html</code> (default file)</li>
+            <li>Otherwise it strips the leading <code>/</code> to get the filename</li>
+            <li>It also captures <code>Content-length</code> if present</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Parsing in Detail</h2>
+        <p>For request <code>GET /index.html HTTP/1.1</code>:</p>
+        <table>
+            <tr><th>Step</th><th>What Happens</th></tr>
+            <tr><td>Read line</td><td>"GET /index.html HTTP/1.1"</td></tr>
+            <tr><td>Tokenize</td><td>["GET", "/index.html", "HTTP/1.1"]</td></tr>
+            <tr><td>method = METHOD_GET</td><td>tok is "GET"</td></tr>
+            <tr><td>fileName = "/index.html"</td><td>second token</td></tr>
+            <tr><td>Doesn't end with /</td><td>True - so fileName becomes "index.html" (substring(1))</td></tr>
+        </table>
+        <p>For request <code>GET / HTTP/1.1</code>, it becomes <code>index.html</code>.</p>
+    </section>
+
+    <section>
+        <h2>Limitations of This Parser</h2>
+        <p>The implementation is intentionally simple. Notice what's missing or simplified:</p>
+        <ul>
+            <li>No handling of HTTP/1.0 vs HTTP/1.1 differences (keeps-alive, etc.)</li>
+            <li>Doesn't parse query strings (<code>/file?param=value</code>) - would treat the whole thing as filename</li>
+            <li>Limited header handling (only looks for Content-length:)</li>
+            <li>No support for other methods beyond GET/POST detection</li>
+            <li>Case-sensitive in places? Header names can vary in case per spec</li>
+        </ul>
+        <p>This is fine for learning - it demonstrates the core idea clearly.</p>
+    </section>
+
+    <div class="callout info">
+        <strong>Primary Source:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#http_requests">MDN - HTTP Requests</a><br>
+        <strong>Reminder:</strong> Ask your teacher (the agent) if anything is unclear.
+    </div>
+
+    <footer class="footer-note">
+        <p>Previous: <a href="0001-http-server-fundamentals.html">0001: HTTP Server Fundamentals</a></p>
+        <p>Next: <a href="0003-http-response-structure.html">0003: HTTP Response Structure</a> (coming soon)</p>
+    </footer>
+</body>
+</html>

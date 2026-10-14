@@ -1,0 +1,17 @@
+# .understandignore — patterns for files/dirs to exclude from analysis
+# Syntax: same as .gitignore (globs, # comments, ! negation, trailing / for dirs)
+#
+# Built-in defaults (always excluded unless negated):
+#   node_modules/, .git/, dist/, build/, obj/, *.lock, *.min.js, etc.
+#
+
+# Scoped analysis: only src/ (per user request). Exclude the top-level test
+# programs and package definitions. Patterns are anchored with a leading "/"
+# so they do NOT match nested directories such as src/test/.
+/test/
+/packages/
+/nbproject/
+
+# Tooling / OS noise
+.understand-anything/
+.DS_Store

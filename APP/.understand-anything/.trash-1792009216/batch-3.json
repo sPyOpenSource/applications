@@ -1,0 +1,3104 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/test/portal/perf/ListObject.java",
+      "type": "file",
+      "name": "ListObject.java",
+      "filePath": "src/test/portal/perf/ListObject.java",
+      "summary": "Test support class ListObject.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/perf/ListObject.java:ListObject",
+      "type": "class",
+      "name": "ListObject",
+      "filePath": "src/test/portal/perf/ListObject.java",
+      "lineRange": [
+        3,
+        13
+      ],
+      "summary": "Class ListObject in ListObject.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/ListObject.java:ListObject",
+      "type": "function",
+      "name": "ListObject",
+      "filePath": "src/test/portal/perf/ListObject.java",
+      "lineRange": [
+        5,
+        5
+      ],
+      "summary": "Function ListObject in ListObject.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/ListObject.java:ListObject:6",
+      "type": "function",
+      "name": "ListObject",
+      "filePath": "src/test/portal/perf/ListObject.java",
+      "lineRange": [
+        6,
+        12
+      ],
+      "summary": "Function ListObject in ListObject.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/perf/NullObject.java",
+      "type": "file",
+      "name": "NullObject.java",
+      "filePath": "src/test/portal/perf/NullObject.java",
+      "summary": "Test support class NullObject.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/perf/PortalPerf.java",
+      "type": "file",
+      "name": "PortalPerf.java",
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "summary": "Performance benchmark for portal/domain communication mechanisms measuring method calls, event logging, object creation, and GC behavior in the JX/JNode microkernel environment.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/test/portal/perf/PortalPerf.java:Test",
+      "type": "class",
+      "name": "Test",
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "lineRange": [
+        10,
+        15
+      ],
+      "summary": "Class Test in PortalPerf.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/perf/PortalPerf.java:PortalPerf",
+      "type": "class",
+      "name": "PortalPerf",
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "lineRange": [
+        17,
+        236
+      ],
+      "summary": "Class PortalPerf in PortalPerf.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/test/portal/perf/PortalPerf.java:m",
+      "type": "function",
+      "name": "m",
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "lineRange": [
+        12,
+        12
+      ],
+      "summary": "Function m in PortalPerf.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/PortalPerf.java:finalm",
+      "type": "function",
+      "name": "finalm",
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "lineRange": [
+        13,
+        13
+      ],
+      "summary": "Function finalm in PortalPerf.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/PortalPerf.java:staticm",
+      "type": "function",
+      "name": "staticm",
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "lineRange": [
+        14,
+        14
+      ],
+      "summary": "Function staticm in PortalPerf.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/PortalPerf.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "lineRange": [
+        29,
+        34
+      ],
+      "summary": "Function main in PortalPerf.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/PortalPerf.java:PortalPerf",
+      "type": "function",
+      "name": "PortalPerf",
+      "filePath": "src/test/portal/perf/PortalPerf.java",
+      "lineRange": [
+        36,
+        235
+      ],
+      "summary": "Function PortalPerf in PortalPerf.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "type": "file",
+      "name": "TargetDomain_Impl.java",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "summary": "Test support class TargetDomain_Impl.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/perf/TargetDomain_Impl.java:TargetDomain_Impl",
+      "type": "class",
+      "name": "TargetDomain_Impl",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        6,
+        37
+      ],
+      "summary": "Class TargetDomain_Impl in TargetDomain_Impl.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/TargetDomain_Impl.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        8,
+        10
+      ],
+      "summary": "Function init in TargetDomain_Impl.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/TargetDomain_Impl.java:TargetDomain_Impl",
+      "type": "function",
+      "name": "TargetDomain_Impl",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        12,
+        18
+      ],
+      "summary": "Function TargetDomain_Impl in TargetDomain_Impl.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/TargetDomain_Impl.java:noparam",
+      "type": "function",
+      "name": "noparam",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        20,
+        20
+      ],
+      "summary": "Function noparam in TargetDomain_Impl.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/TargetDomain_Impl.java:intparam",
+      "type": "function",
+      "name": "intparam",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        22,
+        22
+      ],
+      "summary": "Function intparam in TargetDomain_Impl.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/TargetDomain_Impl.java:test",
+      "type": "function",
+      "name": "test",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        24,
+        27
+      ],
+      "summary": "Function test in TargetDomain_Impl.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/TargetDomain_Impl.java:objparam",
+      "type": "function",
+      "name": "objparam",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        29,
+        29
+      ],
+      "summary": "Function objparam in TargetDomain_Impl.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/TargetDomain_Impl.java:listparam",
+      "type": "function",
+      "name": "listparam",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        30,
+        30
+      ],
+      "summary": "Function listparam in TargetDomain_Impl.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/TargetDomain_Impl.java:arrparam",
+      "type": "function",
+      "name": "arrparam",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        31,
+        31
+      ],
+      "summary": "Function arrparam in TargetDomain_Impl.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/perf/TargetDomain_Impl.java:gc",
+      "type": "function",
+      "name": "gc",
+      "filePath": "src/test/portal/perf/TargetDomain_Impl.java",
+      "lineRange": [
+        32,
+        36
+      ],
+      "summary": "Function gc in TargetDomain_Impl.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/perf/TargetDomain.java",
+      "type": "file",
+      "name": "TargetDomain.java",
+      "filePath": "src/test/portal/perf/TargetDomain.java",
+      "summary": "Test support class TargetDomain.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/perf/TargetDomain.java:TargetDomain",
+      "type": "class",
+      "name": "TargetDomain",
+      "filePath": "src/test/portal/perf/TargetDomain.java",
+      "lineRange": [
+        5,
+        13
+      ],
+      "summary": "Class TargetDomain in TargetDomain.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/perf/TestObject.java",
+      "type": "file",
+      "name": "TestObject.java",
+      "filePath": "src/test/portal/perf/TestObject.java",
+      "summary": "Test support class TestObject.java used in portal performance and functionality tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "performance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/scale/Acceptor.java",
+      "type": "file",
+      "name": "Acceptor.java",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "summary": "Test harness that accepts connections and creates multiple servlet domains to test portal scalability and domain creation performance.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/scale/Acceptor.java:MyConnection",
+      "type": "class",
+      "name": "MyConnection",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        7,
+        20
+      ],
+      "summary": "Class MyConnection in Acceptor.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/scale/Acceptor.java:MyNaming",
+      "type": "class",
+      "name": "MyNaming",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        22,
+        42
+      ],
+      "summary": "Class MyNaming in Acceptor.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/scale/Acceptor.java:Acceptor",
+      "type": "class",
+      "name": "Acceptor",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        44,
+        97
+      ],
+      "summary": "Class Acceptor in Acceptor.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/portal/scale/Acceptor.java:read",
+      "type": "function",
+      "name": "read",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        11,
+        15
+      ],
+      "summary": "Function read in Acceptor.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/Acceptor.java:write",
+      "type": "function",
+      "name": "write",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        17,
+        19
+      ],
+      "summary": "Function write in Acceptor.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/Acceptor.java:registerPortal",
+      "type": "function",
+      "name": "registerPortal",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        28,
+        32
+      ],
+      "summary": "Function registerPortal in Acceptor.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/Acceptor.java:lookup",
+      "type": "function",
+      "name": "lookup",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        34,
+        38
+      ],
+      "summary": "Function lookup in Acceptor.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/Acceptor.java:lookupOrWait",
+      "type": "function",
+      "name": "lookupOrWait",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        40,
+        41
+      ],
+      "summary": "Function lookupOrWait in Acceptor.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/Acceptor.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        49,
+        52
+      ],
+      "summary": "Function init in Acceptor.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/Acceptor.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/portal/scale/Acceptor.java",
+      "lineRange": [
+        54,
+        96
+      ],
+      "summary": "Function main in Acceptor.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/portal/scale/Connection.java",
+      "type": "file",
+      "name": "Connection.java",
+      "filePath": "src/test/portal/scale/Connection.java",
+      "summary": "Connection interface/implementation for portal scale testing with read/write operations.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/scale/Connection.java:Connection",
+      "type": "class",
+      "name": "Connection",
+      "filePath": "src/test/portal/scale/Connection.java",
+      "lineRange": [
+        6,
+        9
+      ],
+      "summary": "Class Connection in Connection.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/scale/CreateSpeed.java",
+      "type": "file",
+      "name": "CreateSpeed.java",
+      "filePath": "src/test/portal/scale/CreateSpeed.java",
+      "summary": "Measures domain creation speed and memory consumption for portal scaling benchmarks.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/scale/CreateSpeed.java:CreateSpeed",
+      "type": "class",
+      "name": "CreateSpeed",
+      "filePath": "src/test/portal/scale/CreateSpeed.java",
+      "lineRange": [
+        5,
+        57
+      ],
+      "summary": "Class CreateSpeed in CreateSpeed.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/portal/scale/CreateSpeed.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/portal/scale/CreateSpeed.java",
+      "lineRange": [
+        11,
+        56
+      ],
+      "summary": "Function main in CreateSpeed.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/portal/scale/DomainExhauster.java",
+      "type": "file",
+      "name": "DomainExhauster.java",
+      "filePath": "src/test/portal/scale/DomainExhauster.java",
+      "summary": "Stress test that exhaustively creates domains to evaluate system limits and memory behavior.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/scale/DomainExhauster.java:DomainExhauster",
+      "type": "class",
+      "name": "DomainExhauster",
+      "filePath": "src/test/portal/scale/DomainExhauster.java",
+      "lineRange": [
+        5,
+        50
+      ],
+      "summary": "Class DomainExhauster in DomainExhauster.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/DomainExhauster.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/portal/scale/DomainExhauster.java",
+      "lineRange": [
+        10,
+        49
+      ],
+      "summary": "Function main in DomainExhauster.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/portal/scale/MiniDomain.java",
+      "type": "file",
+      "name": "MiniDomain.java",
+      "filePath": "src/test/portal/scale/MiniDomain.java",
+      "summary": "Minimal domain implementation for portal scale testing, setting up debug output and basic portal lookups.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/MiniDomain.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/scale/MiniDomain.java",
+      "lineRange": [
+        7,
+        12
+      ],
+      "summary": "Function init in MiniDomain.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/scale/MiniDomainSilent.java",
+      "type": "file",
+      "name": "MiniDomainSilent.java",
+      "filePath": "src/test/portal/scale/MiniDomainSilent.java",
+      "summary": "Minimal domain implementation for portal scale testing, setting up debug output and basic portal lookups.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/MiniDomainSilent.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/scale/MiniDomainSilent.java",
+      "lineRange": [
+        7,
+        11
+      ],
+      "summary": "Function init in MiniDomainSilent.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/scale/ServletDomain.java",
+      "type": "file",
+      "name": "ServletDomain.java",
+      "filePath": "src/test/portal/scale/ServletDomain.java",
+      "summary": "Servlet domain implementation that reads from connections and handles portal requests in scale tests.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "scaling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/scale/ServletDomain.java:ServletDomain",
+      "type": "class",
+      "name": "ServletDomain",
+      "filePath": "src/test/portal/scale/ServletDomain.java",
+      "lineRange": [
+        8,
+        29
+      ],
+      "summary": "Class ServletDomain in ServletDomain.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/scale/ServletDomain.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/scale/ServletDomain.java",
+      "lineRange": [
+        10,
+        28
+      ],
+      "summary": "Function init in ServletDomain.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/ServiceDomain.java",
+      "type": "file",
+      "name": "ServiceDomain.java",
+      "filePath": "src/test/portal/ServiceDomain.java",
+      "summary": "Service domain interface defining service methods for portal testing.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/ServiceDomain.java:ServiceDomain",
+      "type": "class",
+      "name": "ServiceDomain",
+      "filePath": "src/test/portal/ServiceDomain.java",
+      "lineRange": [
+        5,
+        8
+      ],
+      "summary": "Class ServiceDomain in ServiceDomain.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/ServiceDomainImpl1.java",
+      "type": "file",
+      "name": "ServiceDomainImpl1.java",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "summary": "Implementation of ServiceDomain providing service methods with portal registration and cross-domain calls.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/ServiceDomainImpl1.java:ServiceDomainImpl1",
+      "type": "class",
+      "name": "ServiceDomainImpl1",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "lineRange": [
+        6,
+        54
+      ],
+      "summary": "Class ServiceDomainImpl1 in ServiceDomainImpl1.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl1.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "lineRange": [
+        9,
+        13
+      ],
+      "summary": "Function init in ServiceDomainImpl1.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl1.java:ServiceDomainImpl1",
+      "type": "function",
+      "name": "ServiceDomainImpl1",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "lineRange": [
+        15,
+        23
+      ],
+      "summary": "Function ServiceDomainImpl1 in ServiceDomainImpl1.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl1.java:lookup",
+      "type": "function",
+      "name": "lookup",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "lineRange": [
+        25,
+        27
+      ],
+      "summary": "Function lookup in ServiceDomainImpl1.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl1.java:do_service1",
+      "type": "function",
+      "name": "do_service1",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "lineRange": [
+        29,
+        35
+      ],
+      "summary": "Function do_service1 in ServiceDomainImpl1.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl1.java:do_service2",
+      "type": "function",
+      "name": "do_service2",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "lineRange": [
+        36,
+        49
+      ],
+      "summary": "Function do_service2 in ServiceDomainImpl1.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl1.java:dump",
+      "type": "function",
+      "name": "dump",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "lineRange": [
+        51,
+        51
+      ],
+      "summary": "Function dump in ServiceDomainImpl1.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl1.java:destroy",
+      "type": "function",
+      "name": "destroy",
+      "filePath": "src/test/portal/ServiceDomainImpl1.java",
+      "lineRange": [
+        52,
+        52
+      ],
+      "summary": "Function destroy in ServiceDomainImpl1.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/ServiceDomainImpl2.java",
+      "type": "file",
+      "name": "ServiceDomainImpl2.java",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "summary": "Implementation of ServiceDomain providing service methods with portal registration and cross-domain calls.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/ServiceDomainImpl2.java:ServiceDomainImpl2",
+      "type": "class",
+      "name": "ServiceDomainImpl2",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "lineRange": [
+        6,
+        85
+      ],
+      "summary": "Class ServiceDomainImpl2 in ServiceDomainImpl2.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl2.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "lineRange": [
+        9,
+        13
+      ],
+      "summary": "Function init in ServiceDomainImpl2.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl2.java:ServiceDomainImpl2",
+      "type": "function",
+      "name": "ServiceDomainImpl2",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "lineRange": [
+        15,
+        60
+      ],
+      "summary": "Function ServiceDomainImpl2 in ServiceDomainImpl2.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl2.java:lookup",
+      "type": "function",
+      "name": "lookup",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "lineRange": [
+        62,
+        64
+      ],
+      "summary": "Function lookup in ServiceDomainImpl2.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl2.java:do_service1",
+      "type": "function",
+      "name": "do_service1",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "lineRange": [
+        66,
+        78
+      ],
+      "summary": "Function do_service1 in ServiceDomainImpl2.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl2.java:do_service2",
+      "type": "function",
+      "name": "do_service2",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "lineRange": [
+        79,
+        81
+      ],
+      "summary": "Function do_service2 in ServiceDomainImpl2.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl2.java:dump",
+      "type": "function",
+      "name": "dump",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "lineRange": [
+        83,
+        83
+      ],
+      "summary": "Function dump in ServiceDomainImpl2.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceDomainImpl2.java:destroy",
+      "type": "function",
+      "name": "destroy",
+      "filePath": "src/test/portal/ServiceDomainImpl2.java",
+      "lineRange": [
+        84,
+        84
+      ],
+      "summary": "Function destroy in ServiceDomainImpl2.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/ServiceHLS.java",
+      "type": "file",
+      "name": "ServiceHLS.java",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "summary": "High-level scheduler service implementation for portal testing with thread management and scheduling callbacks.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/ServiceHLS.java:ServiceHLS",
+      "type": "class",
+      "name": "ServiceHLS",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        9,
+        168
+      ],
+      "summary": "Class ServiceHLS in ServiceHLS.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:ServiceHLS",
+      "type": "function",
+      "name": "ServiceHLS",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        30,
+        41
+      ],
+      "summary": "Function ServiceHLS in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:registered",
+      "type": "function",
+      "name": "registered",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        43,
+        51
+      ],
+      "summary": "Function registered in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:Scheduler_interrupted",
+      "type": "function",
+      "name": "Scheduler_interrupted",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        53,
+        56
+      ],
+      "summary": "Function Scheduler_interrupted in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:Scheduler_preempted",
+      "type": "function",
+      "name": "Scheduler_preempted",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        58,
+        61
+      ],
+      "summary": "Function Scheduler_preempted in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:interrupted",
+      "type": "function",
+      "name": "interrupted",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        63,
+        66
+      ],
+      "summary": "Function interrupted in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:preempted",
+      "type": "function",
+      "name": "preempted",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        68,
+        77
+      ],
+      "summary": "Function preempted in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:yielded",
+      "type": "function",
+      "name": "yielded",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        79,
+        82
+      ],
+      "summary": "Function yielded in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:unblocked",
+      "type": "function",
+      "name": "unblocked",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        83,
+        86
+      ],
+      "summary": "Function unblocked in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:created",
+      "type": "function",
+      "name": "created",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        88,
+        92
+      ],
+      "summary": "Function created in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:switchedTo",
+      "type": "function",
+      "name": "switchedTo",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        94,
+        98
+      ],
+      "summary": "Function switchedTo in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:blockedInPortalCall",
+      "type": "function",
+      "name": "blockedInPortalCall",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        100,
+        102
+      ],
+      "summary": "Function blockedInPortalCall in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:portalCalled",
+      "type": "function",
+      "name": "portalCalled",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        104,
+        108
+      ],
+      "summary": "Function portalCalled in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:blockedInService",
+      "type": "function",
+      "name": "blockedInService",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        110,
+        112
+      ],
+      "summary": "Function blockedInService in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:serviceCalled",
+      "type": "function",
+      "name": "serviceCalled",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        114,
+        118
+      ],
+      "summary": "Function serviceCalled in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:startGCThread",
+      "type": "function",
+      "name": "startGCThread",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        120,
+        127
+      ],
+      "summary": "Function startGCThread in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:unblockedGCThread",
+      "type": "function",
+      "name": "unblockedGCThread",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        128,
+        134
+      ],
+      "summary": "Function unblockedGCThread in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:destroyedGCThread",
+      "type": "function",
+      "name": "destroyedGCThread",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        135,
+        139
+      ],
+      "summary": "Function destroyedGCThread in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:activated",
+      "type": "function",
+      "name": "activated",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        141,
+        158
+      ],
+      "summary": "Function activated in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:toString",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        160,
+        162
+      ],
+      "summary": "Function toString in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/ServiceHLS.java:dump",
+      "type": "function",
+      "name": "dump",
+      "filePath": "src/test/portal/ServiceHLS.java",
+      "lineRange": [
+        164,
+        166
+      ],
+      "summary": "Function dump in ServiceHLS.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/SimpleTest.java",
+      "type": "file",
+      "name": "SimpleTest.java",
+      "filePath": "src/test/portal/SimpleTest.java",
+      "summary": "Simple portal functionality test creating domains and testing basic portal interactions.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/SimpleTest.java:SimpleTest",
+      "type": "class",
+      "name": "SimpleTest",
+      "filePath": "src/test/portal/SimpleTest.java",
+      "lineRange": [
+        5,
+        30
+      ],
+      "summary": "Class SimpleTest in SimpleTest.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/SimpleTest.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/portal/SimpleTest.java",
+      "lineRange": [
+        7,
+        29
+      ],
+      "summary": "Function main in SimpleTest.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/timeslicing/Simple.java",
+      "type": "file",
+      "name": "Simple.java",
+      "filePath": "src/test/portal/timeslicing/Simple.java",
+      "summary": "Time slicing test domain creating multiple threads to test scheduler behavior.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/timeslicing/Simple.java:Simple",
+      "type": "class",
+      "name": "Simple",
+      "filePath": "src/test/portal/timeslicing/Simple.java",
+      "lineRange": [
+        8,
+        58
+      ],
+      "summary": "Class Simple in Simple.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/portal/timeslicing/Simple.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/timeslicing/Simple.java",
+      "lineRange": [
+        16,
+        19
+      ],
+      "summary": "Function init in Simple.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/timeslicing/Simple.java:Simple",
+      "type": "function",
+      "name": "Simple",
+      "filePath": "src/test/portal/timeslicing/Simple.java",
+      "lineRange": [
+        21,
+        57
+      ],
+      "summary": "Function Simple in Simple.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/termination/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/termination/Main.java",
+      "summary": "Termination test main program creating and terminating domains to test domain lifecycle management.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "termination"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/termination/Main.java:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/test/termination/Main.java",
+      "lineRange": [
+        6,
+        94
+      ],
+      "summary": "Class Main in Main.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/termination/Main.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/termination/Main.java",
+      "lineRange": [
+        11,
+        38
+      ],
+      "summary": "Function main in Main.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/termination/Main.java:createDomains",
+      "type": "function",
+      "name": "createDomains",
+      "filePath": "src/test/termination/Main.java",
+      "lineRange": [
+        40,
+        62
+      ],
+      "summary": "Function createDomains in Main.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/termination/Main.java:createDomains2",
+      "type": "function",
+      "name": "createDomains2",
+      "filePath": "src/test/termination/Main.java",
+      "lineRange": [
+        64,
+        91
+      ],
+      "summary": "Function createDomains2 in Main.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/termination/Main.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/termination/Main.java",
+      "lineRange": [
+        97,
+        100
+      ],
+      "summary": "Function init in Main.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/termination/TermIO.java",
+      "type": "file",
+      "name": "TermIO.java",
+      "filePath": "src/test/termination/TermIO.java",
+      "summary": "Domain termination test with I/O operations to verify proper cleanup.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "termination"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/termination/TermIO.java:TermIO",
+      "type": "class",
+      "name": "TermIO",
+      "filePath": "src/test/termination/TermIO.java",
+      "lineRange": [
+        5,
+        38
+      ],
+      "summary": "Class TermIO in TermIO.java for test domain implementation and portal operations.",
+      "tags": [
+        "class",
+        "test",
+        "jxos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/termination/TermIO.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/termination/TermIO.java",
+      "lineRange": [
+        10,
+        37
+      ],
+      "summary": "Function main in TermIO.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/timer/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/timer/Main.java",
+      "summary": "Timer test Main.java demonstrating timer registration and callback functionality.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "timer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/timer/Main.java:timer",
+      "type": "function",
+      "name": "timer",
+      "filePath": "src/test/timer/Main.java",
+      "lineRange": [
+        7,
+        9
+      ],
+      "summary": "Function timer in Main.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/timer/Main.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/timer/Main.java",
+      "lineRange": [
+        13,
+        17
+      ],
+      "summary": "Function main in Main.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/timer/StartTimer.java",
+      "type": "file",
+      "name": "StartTimer.java",
+      "filePath": "src/test/timer/StartTimer.java",
+      "summary": "Timer test StartTimer.java demonstrating timer registration and callback functionality.",
+      "tags": [
+        "test",
+        "jxos",
+        "portal",
+        "timer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/timer/StartTimer.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/timer/StartTimer.java",
+      "lineRange": [
+        8,
+        12
+      ],
+      "summary": "Function main in StartTimer.java implementing test logic for portal/domain operations.",
+      "tags": [
+        "function",
+        "test"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/test/portal/perf/ListObject.java",
+      "target": "class:src/test/portal/perf/ListObject.java:ListObject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/ListObject.java",
+      "target": "class:src/test/portal/perf/ListObject.java:ListObject",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/ListObject.java",
+      "target": "function:src/test/portal/perf/ListObject.java:ListObject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/ListObject.java",
+      "target": "function:src/test/portal/perf/ListObject.java:ListObject",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "class:src/test/portal/perf/PortalPerf.java:Test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "class:src/test/portal/perf/PortalPerf.java:PortalPerf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "class:src/test/portal/perf/PortalPerf.java:PortalPerf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:m",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:m",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:finalm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:finalm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:staticm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:staticm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:PortalPerf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/PortalPerf.java",
+      "target": "function:src/test/portal/perf/PortalPerf.java:PortalPerf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "class:src/test/portal/perf/TargetDomain_Impl.java:TargetDomain_Impl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "class:src/test/portal/perf/TargetDomain_Impl.java:TargetDomain_Impl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:TargetDomain_Impl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:TargetDomain_Impl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:noparam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:noparam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:intparam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:intparam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:test",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:objparam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:objparam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:listparam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:listparam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:arrparam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:arrparam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:gc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain_Impl.java",
+      "target": "function:src/test/portal/perf/TargetDomain_Impl.java:gc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain.java",
+      "target": "class:src/test/portal/perf/TargetDomain.java:TargetDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/perf/TargetDomain.java",
+      "target": "class:src/test/portal/perf/TargetDomain.java:TargetDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "class:src/test/portal/scale/Acceptor.java:MyConnection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "class:src/test/portal/scale/Acceptor.java:MyNaming",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "class:src/test/portal/scale/Acceptor.java:Acceptor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "class:src/test/portal/scale/Acceptor.java:Acceptor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:read",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:write",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:write",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:registerPortal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:registerPortal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:lookup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:lookup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:lookupOrWait",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:lookupOrWait",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Acceptor.java",
+      "target": "function:src/test/portal/scale/Acceptor.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/Connection.java",
+      "target": "class:src/test/portal/scale/Connection.java:Connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/Connection.java",
+      "target": "class:src/test/portal/scale/Connection.java:Connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/CreateSpeed.java",
+      "target": "class:src/test/portal/scale/CreateSpeed.java:CreateSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/CreateSpeed.java",
+      "target": "class:src/test/portal/scale/CreateSpeed.java:CreateSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/CreateSpeed.java",
+      "target": "function:src/test/portal/scale/CreateSpeed.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/CreateSpeed.java",
+      "target": "function:src/test/portal/scale/CreateSpeed.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/DomainExhauster.java",
+      "target": "class:src/test/portal/scale/DomainExhauster.java:DomainExhauster",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/DomainExhauster.java",
+      "target": "class:src/test/portal/scale/DomainExhauster.java:DomainExhauster",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/DomainExhauster.java",
+      "target": "function:src/test/portal/scale/DomainExhauster.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/DomainExhauster.java",
+      "target": "function:src/test/portal/scale/DomainExhauster.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/MiniDomain.java",
+      "target": "function:src/test/portal/scale/MiniDomain.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/MiniDomain.java",
+      "target": "function:src/test/portal/scale/MiniDomain.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/MiniDomainSilent.java",
+      "target": "function:src/test/portal/scale/MiniDomainSilent.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/MiniDomainSilent.java",
+      "target": "function:src/test/portal/scale/MiniDomainSilent.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/ServletDomain.java",
+      "target": "class:src/test/portal/scale/ServletDomain.java:ServletDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/ServletDomain.java",
+      "target": "class:src/test/portal/scale/ServletDomain.java:ServletDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/scale/ServletDomain.java",
+      "target": "function:src/test/portal/scale/ServletDomain.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/scale/ServletDomain.java",
+      "target": "function:src/test/portal/scale/ServletDomain.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomain.java",
+      "target": "class:src/test/portal/ServiceDomain.java:ServiceDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomain.java",
+      "target": "class:src/test/portal/ServiceDomain.java:ServiceDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "class:src/test/portal/ServiceDomainImpl1.java:ServiceDomainImpl1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "class:src/test/portal/ServiceDomainImpl1.java:ServiceDomainImpl1",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:ServiceDomainImpl1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:ServiceDomainImpl1",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:lookup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:lookup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:do_service1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:do_service1",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:do_service2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:do_service2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:dump",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:dump",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:destroy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl1.java",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:destroy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "class:src/test/portal/ServiceDomainImpl2.java:ServiceDomainImpl2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "class:src/test/portal/ServiceDomainImpl2.java:ServiceDomainImpl2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:ServiceDomainImpl2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:ServiceDomainImpl2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:lookup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:lookup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:do_service1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:do_service1",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:do_service2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:do_service2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:dump",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:dump",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:destroy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceDomainImpl2.java",
+      "target": "function:src/test/portal/ServiceDomainImpl2.java:destroy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "class:src/test/portal/ServiceHLS.java:ServiceHLS",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "class:src/test/portal/ServiceHLS.java:ServiceHLS",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:ServiceHLS",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:ServiceHLS",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:registered",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:registered",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:Scheduler_interrupted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:Scheduler_interrupted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:Scheduler_preempted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:Scheduler_preempted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:interrupted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:interrupted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:preempted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:preempted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:yielded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:yielded",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:unblocked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:unblocked",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:created",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:created",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:switchedTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:switchedTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:blockedInPortalCall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:blockedInPortalCall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:portalCalled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:portalCalled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:blockedInService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:blockedInService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:serviceCalled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:serviceCalled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:startGCThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:startGCThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:unblockedGCThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:unblockedGCThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:destroyedGCThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:destroyedGCThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:activated",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:activated",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:toString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:toString",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:dump",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/ServiceHLS.java",
+      "target": "function:src/test/portal/ServiceHLS.java:dump",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/SimpleTest.java",
+      "target": "class:src/test/portal/SimpleTest.java:SimpleTest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/SimpleTest.java",
+      "target": "class:src/test/portal/SimpleTest.java:SimpleTest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/SimpleTest.java",
+      "target": "function:src/test/portal/SimpleTest.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/SimpleTest.java",
+      "target": "function:src/test/portal/SimpleTest.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/timeslicing/Simple.java",
+      "target": "class:src/test/portal/timeslicing/Simple.java:Simple",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/timeslicing/Simple.java",
+      "target": "class:src/test/portal/timeslicing/Simple.java:Simple",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/timeslicing/Simple.java",
+      "target": "function:src/test/portal/timeslicing/Simple.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/timeslicing/Simple.java",
+      "target": "function:src/test/portal/timeslicing/Simple.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/timeslicing/Simple.java",
+      "target": "function:src/test/portal/timeslicing/Simple.java:Simple",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/timeslicing/Simple.java",
+      "target": "function:src/test/portal/timeslicing/Simple.java:Simple",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/termination/Main.java",
+      "target": "class:src/test/termination/Main.java:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/termination/Main.java",
+      "target": "class:src/test/termination/Main.java:Main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/termination/Main.java",
+      "target": "function:src/test/termination/Main.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/termination/Main.java",
+      "target": "function:src/test/termination/Main.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/termination/Main.java",
+      "target": "function:src/test/termination/Main.java:createDomains",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/termination/Main.java",
+      "target": "function:src/test/termination/Main.java:createDomains2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/termination/Main.java",
+      "target": "function:src/test/termination/Main.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/termination/Main.java",
+      "target": "function:src/test/termination/Main.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/termination/TermIO.java",
+      "target": "class:src/test/termination/TermIO.java:TermIO",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/termination/TermIO.java",
+      "target": "class:src/test/termination/TermIO.java:TermIO",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/termination/TermIO.java",
+      "target": "function:src/test/termination/TermIO.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/termination/TermIO.java",
+      "target": "function:src/test/termination/TermIO.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/timer/Main.java",
+      "target": "function:src/test/timer/Main.java:timer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/timer/Main.java",
+      "target": "function:src/test/timer/Main.java:timer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/timer/Main.java",
+      "target": "function:src/test/timer/Main.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/timer/Main.java",
+      "target": "function:src/test/timer/Main.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/timer/StartTimer.java",
+      "target": "function:src/test/timer/StartTimer.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/timer/StartTimer.java",
+      "target": "function:src/test/timer/StartTimer.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/portal/ServiceDomainImpl1.java:do_service1",
+      "target": "function:src/test/portal/ServiceDomainImpl1.java:do_service2",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/termination/Main.java:main",
+      "target": "function:src/test/termination/Main.java:createDomains",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/termination/Main.java:main",
+      "target": "function:src/test/termination/Main.java:createDomains2",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

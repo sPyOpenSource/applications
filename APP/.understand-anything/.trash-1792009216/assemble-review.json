@@ -1,0 +1,14 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 0,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "Merge report contained no 'Fixed' or 'Could not fix' sections \u2014 all batch output was well-formed.",
+    "5 dangling edges dropped by merge (targets were calls into external jx.*/java.* library symbols not present as nodes).",
+    "importMap was empty (all Java imports are external libraries), so no cross-batch import edges to add.",
+    "Self-check: 0 dangling edges remain, 0 self-referencing edges, 0 duplicate node IDs."
+  ]
+}

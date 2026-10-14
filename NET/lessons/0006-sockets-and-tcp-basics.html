@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 0006: Sockets and TCP Basics</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lesson 0006: Sockets and TCP Basics</h1>
+        <p><small>Mission: <a href="../MISSION.md">HTTP Servers</a> | Lesson: 0006</small></p>
+    </header>
+
+    <section>
+        <h2>Learning Goal</h2>
+        <p>Understand how TCP sockets enable communication and how they're used in this server.</p>
+        <div class="callout">
+            <strong>Tangible Win:</strong> Explain the socket lifecycle (bind/listen/accept/read/write/close) as seen in the code.
+        </div>
+    </section>
+
+    <section>
+        <h2>What is a Socket?</h2>
+        <p>A socket is an endpoint for network communication. In Java (and most systems), you have:</p>
+        <ul>
+            <li><strong>ServerSocket</strong> - Listens for incoming connections on a port</li>
+            <li><strong>Socket</strong> - Represents a connection to a client (or to a server when connecting out)</li>
+        </ul>
+        <p>Sockets provide bidirectional byte streams - you can read from and write to them.</p>
+    </section>
+
+    <section>
+        <h2>Socket Lifecycle in the Server</h2>
+        <p>From <a href="../../src/test/net/WebServer.java">WebServer.java</a>:</p>
+        <pre><code>// 1. Create ServerSocket bound to port
+ServerSocket ssock = new ServerSocket(port);
+
+// 2. Accept loop - blocks until client connects
+while (true) {
+    // accept() returns a new Socket for this client
+    final Socket sock = ssock.accept();
+    // 3. Hand off to worker for processing
+    ...
+}</code></pre>
+        <p>From <a href="../../src/test/net/TCPWebWorker.java">TCPWebWorker</a>:</p>
+        <pre><code>// 4. Get I/O streams from the connected socket
+OutputStream ostream = sock.getOutputStream();
+DataInputStream requestStream = new DataInputStream(sock.getInputStream());
+
+// 5. Read request, write response
+// ... parse reads from requestStream ...
+// ... write headers/body to ostream ...
+
+// 6. Close the connection
+ostream.flush();
+sock.close();</code></pre>
+    </section>
+
+    <section>
+        <h2>Key Methods Explained</h2>
+        <table>
+            <tr><th>Method</th><th>Purpose</th></tr>
+            <tr><td><code>new ServerSocket(port)</code></td><td>Binds to the specified port and starts listening</td></tr>
+            <tr><td><code>accept()</code></td><td>Blocks waiting for client. Returns a Socket when connection established</td></tr>
+            <tr><td><code>getInputStream()</code></td><td>Read bytes from client</td></tr>
+            <tr><td><code>getOutputStream()</code></td><td>Write bytes to client</td></tr>
+            <tr><td><code>close()</code></td><td>Closes the socket/connection</td></tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>TCP vs HTTP</h2>
+        <p>It's important to distinguish the layers:</p>
+        <ul>
+            <li><strong>TCP (Transport)</strong> - Reliable, ordered byte stream. Handles packet loss, retransmission, flow control. Connection-oriented.</li>
+            <li><strong>HTTP (Application)</strong> - Runs on top of TCP. Defines message format, semantics, methods, status codes.</li>
+        </ul>
+        <p>The server is using TCP sockets as the transport; HTTP is the protocol written onto those streams.</p>
+    </section>
+
+    <section>
+        <h2>Looking at a Simpler TCP Example</h2>
+        <p>For contrast, look at <a href="../../src/test/net/TCPWorker.java">TCPWorker.java</a> - it just echoes chars until it sees 'X':</p>
+        <pre><code>InputStream ips = sock.getInputStream();
+for (char c=0; true; c=(char)ips.read()) {
+    Debug.out.println("received: "+c);
+    if (c == 'X') {
+        DomainManager domainManager = (DomainManager) naming.lookup("DomainManager");
+        domainManager.terminateCaller();
+    }
+}</code></pre>
+        <p>This is even simpler - raw byte stream reading. The HTTP worker does structured parsing on top of the same raw stream.</p>
+    </section>
+
+    <section>
+        <h2>Blocking I/O</h2>
+        <p>All these socket operations are blocking:</p>
+        <ul>
+            <li><code>accept()</code> blocks until connection arrives</li>
+            <li><code>readLine()</code> / <code>read()</code> block until data arrives</li>
+            <li><code>write()</code> may block if buffer is full</li>
+        </ul>
+        <p>This is why each connection needs its own worker (thread or domain) - otherwise the server would block on one connection and not accept others.</p>
+    </section>
+
+    <div class="callout info">
+        <strong>Primary Source:</strong> <a href="https://beej.us/guide/bgnet/html/#what-is-a-socket">Beej's Guide - What is a socket?</a><br>
+        <strong>Reminder:</strong> Ask your teacher (the agent) if anything is unclear.
+    </div>
+
+    <footer class="footer-note">
+        <p>Previous: <a href="0005-serving-files.html">0005: Serving Files From Filesystem</a></p>
+        <p>Next lesson: Create your own by asking - what aspect of HTTP servers do you want to explore next?</p>
+    </footer>
+</body>
+</html>

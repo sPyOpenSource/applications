@@ -1,0 +1,3769 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 23,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/test/portal/perf/ListObject.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "ListObject",
+          "startLine": 5,
+          "endLine": 5,
+          "params": []
+        },
+        {
+          "name": "ListObject",
+          "startLine": 6,
+          "endLine": 12,
+          "params": [
+            "n"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ListObject",
+          "startLine": 3,
+          "endLine": 13,
+          "methods": [
+            "ListObject",
+            "ListObject"
+          ],
+          "properties": [
+            "next"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ListObject",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ListObject",
+          "callee": "new ListObject",
+          "lineNumber": 9
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/perf/NullObject.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 2,
+      "classes": [
+        {
+          "name": "NullObject",
+          "startLine": 3,
+          "endLine": 3,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NullObject",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/perf/PortalPerf.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 236,
+      "nonEmptyLines": 213,
+      "functions": [
+        {
+          "name": "m",
+          "startLine": 12,
+          "endLine": 12,
+          "params": []
+        },
+        {
+          "name": "finalm",
+          "startLine": 13,
+          "endLine": 13,
+          "params": []
+        },
+        {
+          "name": "staticm",
+          "startLine": 14,
+          "endLine": 14,
+          "params": []
+        },
+        {
+          "name": "main",
+          "startLine": 29,
+          "endLine": 34,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "PortalPerf",
+          "startLine": 36,
+          "endLine": 235,
+          "params": [
+            "fstest"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Test",
+          "startLine": 10,
+          "endLine": 15,
+          "methods": [
+            "m",
+            "finalm",
+            "staticm"
+          ],
+          "properties": [
+            "a"
+          ]
+        },
+        {
+          "name": "PortalPerf",
+          "startLine": 17,
+          "endLine": 236,
+          "methods": [
+            "main",
+            "PortalPerf"
+          ],
+          "properties": [
+            "EMPTY_ITERATIONS",
+            "VCALL_ITERATIONS",
+            "EVENT_ITERATIONS",
+            "PORTAL_ITERATIONS",
+            "PORTAL_ONEINT_ITERATIONS",
+            "NEW_ITERATIONS",
+            "COPY_ITERATIONS",
+            "doGC",
+            "measureEventLogging"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "m",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "finalm",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "staticm",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "EMPTY_ITERATIONS",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "VCALL_ITERATIONS",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "EVENT_ITERATIONS",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "PORTAL_ITERATIONS",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "PORTAL_ONEINT_ITERATIONS",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "NEW_ITERATIONS",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "COPY_ITERATIONS",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "doGC",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "measureEventLogging",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "PortalPerf",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new PortalPerf",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "new PortalPerf",
+          "lineNumber": 33
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 37
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "naming.lookup",
+          "lineNumber": 39
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "naming.lookup",
+          "lineNumber": 40
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "naming.lookup",
+          "lineNumber": 41
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "naming.lookup",
+          "lineNumber": 42
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 44
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 49
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 50
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "naming.lookup",
+          "lineNumber": 51
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new Error",
+          "lineNumber": 52
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "secmgr.addDomainAndPrincipal",
+          "lineNumber": 53
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 53
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new Principal_impl",
+          "lineNumber": 53
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.getCurrentDomain().clearTCBflag",
+          "lineNumber": 54
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 54
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Thread.yield",
+          "lineNumber": 56
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "naming.lookup",
+          "lineNumber": 57
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 59
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 61
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Thread.yield",
+          "lineNumber": 63
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "naming.lookup",
+          "lineNumber": 64
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 66
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new Test",
+          "lineNumber": 68
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 71
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 73
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 75
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 76
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 79
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "o.m",
+          "lineNumber": 82
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 83
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 84
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 87
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "o.finalm",
+          "lineNumber": 90
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 91
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 92
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 95
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "o.staticm",
+          "lineNumber": 98
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 99
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 100
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 103
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 107
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 108
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 111
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new Test",
+          "lineNumber": 114
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 115
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 116
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "cpuManager.createNewEvent",
+          "lineNumber": 118
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 121
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "cpuManager.recordEvent",
+          "lineNumber": 124
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 125
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 126
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 127
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "cpuManager.recordEvent",
+          "lineNumber": 130
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 132
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 135
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "FStargetDomain.openRootDirectoryRW",
+          "lineNumber": 137
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 139
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "profiler.startSampling",
+          "lineNumber": 140
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "d.getAttribute",
+          "lineNumber": 142
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "profiler.stopSampling",
+          "lineNumber": 143
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 144
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 145
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 146
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 148
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new TestObject",
+          "lineNumber": 149
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.gc",
+          "lineNumber": 154
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 154
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "targetDomain.gc",
+          "lineNumber": 155
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 157
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "targetDomain.noparam",
+          "lineNumber": 159
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 161
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 162
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new NullObject",
+          "lineNumber": 165
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.gc",
+          "lineNumber": 167
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 167
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "targetDomain.gc",
+          "lineNumber": 168
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 170
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "targetDomain.objparam",
+          "lineNumber": 172
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 174
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 175
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new CycleTime",
+          "lineNumber": 180
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new CycleTime",
+          "lineNumber": 181
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new CycleTime",
+          "lineNumber": 182
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new NullObject",
+          "lineNumber": 186
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.gc",
+          "lineNumber": 189
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 189
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "targetDomain.gc",
+          "lineNumber": 190
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getCycles",
+          "lineNumber": 192
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "targetDomain.arrparam",
+          "lineNumber": 196
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getCycles",
+          "lineNumber": 198
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.subtract",
+          "lineNumber": 199
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 200
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 200
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 203
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "new ListObject",
+          "lineNumber": 210
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.gc",
+          "lineNumber": 212
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 212
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "targetDomain.gc",
+          "lineNumber": 213
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getCycles",
+          "lineNumber": 215
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "targetDomain.listparam",
+          "lineNumber": 217
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.getCycles",
+          "lineNumber": 219
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.subtract",
+          "lineNumber": 220
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 222
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 224
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 226
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 228
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 230
+        },
+        {
+          "caller": "PortalPerf",
+          "callee": "Debug.out.println",
+          "lineNumber": 234
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/test/portal/perf/TargetDomain_Impl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 8,
+          "endLine": 10,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "TargetDomain_Impl",
+          "startLine": 12,
+          "endLine": 18,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "noparam",
+          "startLine": 20,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "intparam",
+          "startLine": 22,
+          "endLine": 22,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "test",
+          "startLine": 24,
+          "endLine": 27,
+          "params": [
+            "o",
+            "v"
+          ]
+        },
+        {
+          "name": "objparam",
+          "startLine": 29,
+          "endLine": 29,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "listparam",
+          "startLine": 30,
+          "endLine": 30,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "arrparam",
+          "startLine": 31,
+          "endLine": 31,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "gc",
+          "startLine": 32,
+          "endLine": 36,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TargetDomain_Impl",
+          "startLine": 6,
+          "endLine": 37,
+          "methods": [
+            "init",
+            "TargetDomain_Impl",
+            "noparam",
+            "intparam",
+            "test",
+            "objparam",
+            "listparam",
+            "arrparam",
+            "gc"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "TargetDomain_Impl",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "noparam",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "intparam",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "test",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "objparam",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "listparam",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "arrparam",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "gc",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "TargetDomain_Impl",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new TargetDomain_Impl",
+          "lineNumber": 9
+        },
+        {
+          "caller": "TargetDomain_Impl",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "TargetDomain_Impl",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "TargetDomain_Impl",
+          "callee": "naming.lookup",
+          "lineNumber": 13
+        },
+        {
+          "caller": "TargetDomain_Impl",
+          "callee": "Debug.out.println",
+          "lineNumber": 14
+        },
+        {
+          "caller": "TargetDomain_Impl",
+          "callee": "naming.registerPortal",
+          "lineNumber": 17
+        },
+        {
+          "caller": "gc",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 33
+        },
+        {
+          "caller": "gc",
+          "callee": "naming.lookup",
+          "lineNumber": 34
+        },
+        {
+          "caller": "gc",
+          "callee": "domainManager.gc",
+          "lineNumber": 35
+        },
+        {
+          "caller": "gc",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/perf/TargetDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 11,
+      "classes": [
+        {
+          "name": "TargetDomain",
+          "startLine": 5,
+          "endLine": 13,
+          "methods": [
+            "noparam",
+            "intparam",
+            "objparam",
+            "listparam",
+            "arrparam",
+            "test",
+            "gc"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TargetDomain",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/perf/TestObject.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "classes": [
+        {
+          "name": "TestObject",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "m"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestObject",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/scale/Acceptor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "read",
+          "startLine": 11,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "write",
+          "startLine": 17,
+          "endLine": 19,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "MyNaming",
+          "startLine": 24,
+          "endLine": 26,
+          "params": [
+            "baseNaming"
+          ]
+        },
+        {
+          "name": "registerPortal",
+          "startLine": 28,
+          "endLine": 32,
+          "params": [
+            "portal",
+            "name"
+          ]
+        },
+        {
+          "name": "lookup",
+          "startLine": 34,
+          "endLine": 38,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "lookupOrWait",
+          "startLine": 40,
+          "endLine": 41,
+          "params": [
+            "depName"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 49,
+          "endLine": 52,
+          "params": [
+            "naming",
+            "args"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 54,
+          "endLine": 96,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyConnection",
+          "startLine": 7,
+          "endLine": 20,
+          "methods": [
+            "read",
+            "write"
+          ],
+          "properties": [
+            "c",
+            "i"
+          ]
+        },
+        {
+          "name": "MyNaming",
+          "startLine": 22,
+          "endLine": 42,
+          "methods": [
+            "MyNaming",
+            "registerPortal",
+            "lookup",
+            "lookupOrWait"
+          ],
+          "properties": [
+            "baseNaming"
+          ]
+        },
+        {
+          "name": "Acceptor",
+          "startLine": 44,
+          "endLine": 97,
+          "methods": [
+            "init",
+            "main"
+          ],
+          "properties": [
+            "N_DOMAINS",
+            "verbose"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "read",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "registerPortal",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "lookup",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "lookupOrWait",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "N_DOMAINS",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "verbose",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "Acceptor",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "registerPortal",
+          "callee": "baseNaming.registerPortal",
+          "lineNumber": 31
+        },
+        {
+          "caller": "lookup",
+          "callee": "baseNaming.lookup",
+          "lineNumber": 37
+        },
+        {
+          "caller": "lookupOrWait",
+          "callee": "new Error",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 50
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 50
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 50
+        },
+        {
+          "caller": "init",
+          "callee": "Acceptor.main",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 55
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 65
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 66
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "new MyNaming",
+          "lineNumber": 70
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 73
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main",
+          "callee": "new MyConnection",
+          "lineNumber": 77
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 79
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 82
+        },
+        {
+          "caller": "main",
+          "callee": "domain[i].isTerminated",
+          "lineNumber": 85
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 85
+        },
+        {
+          "caller": "main",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 88
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 89
+        },
+        {
+          "caller": "main",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 90
+        },
+        {
+          "caller": "main",
+          "callee": "domainManager.gc",
+          "lineNumber": 91
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 93
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 94
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 95
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 8,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/test/portal/scale/Connection.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "Connection",
+          "startLine": 6,
+          "endLine": 9,
+          "methods": [
+            "read",
+            "write"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Connection",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/scale/CreateSpeed.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 11,
+          "endLine": 56,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CreateSpeed",
+          "startLine": 5,
+          "endLine": 57,
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "N_DOMAINS",
+            "verbose"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "N_DOMAINS",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "verbose",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "CreateSpeed",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "new CycleTime",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "new CycleTime",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "new CycleTime",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "clock.getCycles",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "clock.getCycles",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "clock.subtract",
+          "lineNumber": 54
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 55
+        },
+        {
+          "caller": "main",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/scale/DomainExhauster.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 43,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 10,
+          "endLine": 49,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DomainExhauster",
+          "startLine": 5,
+          "endLine": 50,
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "N_DOMAINS",
+            "verbose"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "N_DOMAINS",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "verbose",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "DomainExhauster",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/scale/MiniDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 7,
+          "endLine": 12,
+          "params": [
+            "naming",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MiniDomain",
+          "startLine": 6,
+          "endLine": 13,
+          "methods": [
+            "init"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 8
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 8
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 8
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 9
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 10
+        },
+        {
+          "caller": "init",
+          "callee": "cpuManager.yield",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/scale/MiniDomainSilent.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 10,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 7,
+          "endLine": 11,
+          "params": [
+            "naming",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MiniDomainSilent",
+          "startLine": 6,
+          "endLine": 12,
+          "methods": [
+            "init"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 8
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 8
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 8
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 9
+        },
+        {
+          "caller": "init",
+          "callee": "cpuManager.yield",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/scale/ServletDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 10,
+          "endLine": 28,
+          "params": [
+            "naming",
+            "args",
+            "portals"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServletDomain",
+          "startLine": 8,
+          "endLine": 29,
+          "methods": [
+            "init"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "ServletDomain",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "con.read",
+          "lineNumber": 20
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 26
+        },
+        {
+          "caller": "init",
+          "callee": "domainManager.terminateCaller",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/ServiceDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "classes": [
+        {
+          "name": "ServiceDomain",
+          "startLine": 5,
+          "endLine": 8,
+          "methods": [
+            "do_service1",
+            "do_service2"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ServiceDomain",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/ServiceDomainImpl1.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 9,
+          "endLine": 13,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "ServiceDomainImpl1",
+          "startLine": 15,
+          "endLine": 23,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "lookup",
+          "startLine": 25,
+          "endLine": 27,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "do_service1",
+          "startLine": 29,
+          "endLine": 35,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "do_service2",
+          "startLine": 36,
+          "endLine": 49,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "dump",
+          "startLine": 51,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "destroy",
+          "startLine": 52,
+          "endLine": 52,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceDomainImpl1",
+          "startLine": 6,
+          "endLine": 54,
+          "methods": [
+            "init",
+            "ServiceDomainImpl1",
+            "lookup",
+            "do_service1",
+            "do_service2",
+            "dump",
+            "destroy"
+          ],
+          "properties": [
+            "SMPcpuManager"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceDomainImpl1",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "lookup",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "do_service1",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "do_service2",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "dump",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "destroy",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceDomainImpl1",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 10
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "new ServiceDomainImpl1",
+          "lineNumber": 12
+        },
+        {
+          "caller": "ServiceDomainImpl1",
+          "callee": "naming.lookup",
+          "lineNumber": 16
+        },
+        {
+          "caller": "ServiceDomainImpl1",
+          "callee": "naming.lookup",
+          "lineNumber": 17
+        },
+        {
+          "caller": "ServiceDomainImpl1",
+          "callee": "Debug.out.println",
+          "lineNumber": 18
+        },
+        {
+          "caller": "ServiceDomainImpl1",
+          "callee": "naming.registerPortal",
+          "lineNumber": 22
+        },
+        {
+          "caller": "do_service1",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 30
+        },
+        {
+          "caller": "do_service1",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 30
+        },
+        {
+          "caller": "do_service1",
+          "callee": "Debug.out.println",
+          "lineNumber": 31
+        },
+        {
+          "caller": "do_service1",
+          "callee": "service.do_service1",
+          "lineNumber": 32
+        },
+        {
+          "caller": "do_service1",
+          "callee": "Debug.out.println",
+          "lineNumber": 33
+        },
+        {
+          "caller": "do_service1",
+          "callee": "do_service2",
+          "lineNumber": 34
+        },
+        {
+          "caller": "do_service2",
+          "callee": "Debug.out.println",
+          "lineNumber": 37
+        },
+        {
+          "caller": "do_service2",
+          "callee": "Debug.out.print",
+          "lineNumber": 44
+        },
+        {
+          "caller": "do_service2",
+          "callee": "Debug.out.println",
+          "lineNumber": 47
+        },
+        {
+          "caller": "dump",
+          "callee": "new Error",
+          "lineNumber": 51
+        },
+        {
+          "caller": "destroy",
+          "callee": "new Error",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/ServiceDomainImpl2.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 74,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 9,
+          "endLine": 13,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "ServiceDomainImpl2",
+          "startLine": 15,
+          "endLine": 60,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "lookup",
+          "startLine": 62,
+          "endLine": 64,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "do_service1",
+          "startLine": 66,
+          "endLine": 78,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "do_service2",
+          "startLine": 79,
+          "endLine": 81,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "dump",
+          "startLine": 83,
+          "endLine": 83,
+          "params": []
+        },
+        {
+          "name": "destroy",
+          "startLine": 84,
+          "endLine": 84,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceDomainImpl2",
+          "startLine": 6,
+          "endLine": 85,
+          "methods": [
+            "init",
+            "ServiceDomainImpl2",
+            "lookup",
+            "do_service1",
+            "do_service2",
+            "dump",
+            "destroy"
+          ],
+          "properties": [
+            "SMPcpuManager"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceDomainImpl2",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "lookup",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "do_service1",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "do_service2",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "dump",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "destroy",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceDomainImpl2",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 10
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "new ServiceDomainImpl2",
+          "lineNumber": 12
+        },
+        {
+          "caller": "ServiceDomainImpl2",
+          "callee": "Debug.out.println",
+          "lineNumber": 16
+        },
+        {
+          "caller": "ServiceDomainImpl2",
+          "callee": "naming.lookup",
+          "lineNumber": 17
+        },
+        {
+          "caller": "ServiceDomainImpl2",
+          "callee": "naming.lookup",
+          "lineNumber": 18
+        },
+        {
+          "caller": "ServiceDomainImpl2",
+          "callee": "naming.registerPortal",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ServiceDomainImpl2",
+          "callee": "new Thread(\"SrvDom2Thr2(p)\") {\n\t\tpublic void run() {\n\t\t    Integer dummy;\n\t\t    for (int j=0, i=0;;) {\n//\t\t\tfor (int a=0; a < 500; a ++);\n\t\t\tif (j++>100000) {\n\t\t\t    j=0; i++;\n//\t\t\t    for (int a=0; a < 50; a ++)\n//\t\t\t\tdummy = new Integer(42);   // waste memory\n\t\t\t    Debug.out.print(\"p\");\n\t\t\t} \n\t\t\tif (i==100) {\n\t\t\t    i = 0;\n\t\t\t    Thread.yield();\n\t\t\t}\n\t\t    }\t\t\n\t\t}\n\t    }.start",
+          "lineNumber": 25
+        },
+        {
+          "caller": "ServiceDomainImpl2",
+          "callee": "new Thread",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run",
+          "callee": "Debug.out.print",
+          "lineNumber": 34
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.yield",
+          "lineNumber": 38
+        },
+        {
+          "caller": "ServiceDomainImpl2",
+          "callee": "c.setThreadName",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ServiceDomainImpl2",
+          "callee": "Debug.out.print",
+          "lineNumber": 50
+        },
+        {
+          "caller": "ServiceDomainImpl2",
+          "callee": "Thread.yield",
+          "lineNumber": 57
+        },
+        {
+          "caller": "do_service1",
+          "callee": "Debug.out.print",
+          "lineNumber": 72
+        },
+        {
+          "caller": "do_service1",
+          "callee": "Debug.out.println",
+          "lineNumber": 76
+        },
+        {
+          "caller": "dump",
+          "callee": "new Error",
+          "lineNumber": 83
+        },
+        {
+          "caller": "destroy",
+          "callee": "new Error",
+          "lineNumber": 84
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/ServiceHLS.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 169,
+      "nonEmptyLines": 136,
+      "functions": [
+        {
+          "name": "ServiceHLS",
+          "startLine": 30,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "registered",
+          "startLine": 43,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "Scheduler_interrupted",
+          "startLine": 53,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "Scheduler_preempted",
+          "startLine": 58,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "interrupted",
+          "startLine": 63,
+          "endLine": 66,
+          "params": [
+            "newThread"
+          ]
+        },
+        {
+          "name": "preempted",
+          "startLine": 68,
+          "endLine": 77,
+          "params": [
+            "newThread"
+          ]
+        },
+        {
+          "name": "yielded",
+          "startLine": 79,
+          "endLine": 82,
+          "params": [
+            "newThread"
+          ]
+        },
+        {
+          "name": "unblocked",
+          "startLine": 83,
+          "endLine": 86,
+          "params": [
+            "newThread"
+          ]
+        },
+        {
+          "name": "created",
+          "startLine": 88,
+          "endLine": 92,
+          "params": [
+            "newThread"
+          ]
+        },
+        {
+          "name": "switchedTo",
+          "startLine": 94,
+          "endLine": 98,
+          "params": [
+            "Thread"
+          ]
+        },
+        {
+          "name": "blockedInPortalCall",
+          "startLine": 100,
+          "endLine": 102,
+          "params": [
+            "Thread"
+          ]
+        },
+        {
+          "name": "portalCalled",
+          "startLine": 104,
+          "endLine": 108,
+          "params": [
+            "Thread"
+          ]
+        },
+        {
+          "name": "blockedInService",
+          "startLine": 110,
+          "endLine": 112,
+          "params": [
+            "Thread",
+            "PortalThread"
+          ]
+        },
+        {
+          "name": "serviceCalled",
+          "startLine": 114,
+          "endLine": 118,
+          "params": [
+            "Thread",
+            "PortalThread"
+          ]
+        },
+        {
+          "name": "startGCThread",
+          "startLine": 120,
+          "endLine": 127,
+          "params": [
+            "interruptedThread",
+            "GCThread"
+          ]
+        },
+        {
+          "name": "unblockedGCThread",
+          "startLine": 128,
+          "endLine": 134,
+          "params": [
+            "GCThread"
+          ]
+        },
+        {
+          "name": "destroyedGCThread",
+          "startLine": 135,
+          "endLine": 139,
+          "params": [
+            "GCThread"
+          ]
+        },
+        {
+          "name": "activated",
+          "startLine": 141,
+          "endLine": 158,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 160,
+          "endLine": 162,
+          "params": []
+        },
+        {
+          "name": "dump",
+          "startLine": 164,
+          "endLine": 166,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServiceHLS",
+          "startLine": 9,
+          "endLine": 168,
+          "methods": [
+            "ServiceHLS",
+            "registered",
+            "Scheduler_interrupted",
+            "Scheduler_preempted",
+            "interrupted",
+            "preempted",
+            "yielded",
+            "unblocked",
+            "created",
+            "switchedTo",
+            "blockedInPortalCall",
+            "portalCalled",
+            "blockedInService",
+            "serviceCalled",
+            "startGCThread",
+            "unblockedGCThread",
+            "destroyedGCThread",
+            "activated",
+            "toString",
+            "dump"
+          ],
+          "properties": [
+            "naming",
+            "cpuManager",
+            "SMPcpuManager",
+            "HLschedulerSupport",
+            "out",
+            "runnables",
+            "DomainName",
+            "instNr",
+            "debug",
+            "dummy",
+            "uninterruptable",
+            "unINTthread"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DomainName",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceHLS",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "registered",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "Scheduler_interrupted",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "Scheduler_preempted",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "interrupted",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "preempted",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "yielded",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "unblocked",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "created",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "switchedTo",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "blockedInPortalCall",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "portalCalled",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "blockedInService",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "serviceCalled",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "startGCThread",
+          "line": 120,
+          "isDefault": false
+        },
+        {
+          "name": "unblockedGCThread",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "destroyedGCThread",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "activated",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "dump",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "ServiceHLS",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ServiceHLS",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ServiceHLS",
+          "callee": "naming.lookup",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ServiceHLS",
+          "callee": "naming.lookup",
+          "lineNumber": 33
+        },
+        {
+          "caller": "ServiceHLS",
+          "callee": "naming.lookup",
+          "lineNumber": 34
+        },
+        {
+          "caller": "ServiceHLS",
+          "callee": "naming.lookup",
+          "lineNumber": 36
+        },
+        {
+          "caller": "ServiceHLS",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ServiceHLS",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ServiceHLS",
+          "callee": "new ThreadList",
+          "lineNumber": 40
+        },
+        {
+          "caller": "registered",
+          "callee": "Debug.out.println",
+          "lineNumber": 44
+        },
+        {
+          "caller": "registered",
+          "callee": "SMPcpuManager.getMyCPU",
+          "lineNumber": 44
+        },
+        {
+          "caller": "interrupted",
+          "callee": "runnables.add",
+          "lineNumber": 65
+        },
+        {
+          "caller": "preempted",
+          "callee": "new Error",
+          "lineNumber": 72
+        },
+        {
+          "caller": "preempted",
+          "callee": "runnables.add",
+          "lineNumber": 76
+        },
+        {
+          "caller": "yielded",
+          "callee": "runnables.add",
+          "lineNumber": 81
+        },
+        {
+          "caller": "unblocked",
+          "callee": "runnables.add",
+          "lineNumber": 85
+        },
+        {
+          "caller": "created",
+          "callee": "Debug.out.println",
+          "lineNumber": 89
+        },
+        {
+          "caller": "created",
+          "callee": "runnables.add",
+          "lineNumber": 91
+        },
+        {
+          "caller": "switchedTo",
+          "callee": "Debug.out.println",
+          "lineNumber": 95
+        },
+        {
+          "caller": "switchedTo",
+          "callee": "HLschedulerSupport.activateThread",
+          "lineNumber": 96
+        },
+        {
+          "caller": "switchedTo",
+          "callee": "new Error",
+          "lineNumber": 97
+        },
+        {
+          "caller": "blockedInPortalCall",
+          "callee": "Debug.out.println",
+          "lineNumber": 101
+        },
+        {
+          "caller": "portalCalled",
+          "callee": "Debug.out.println",
+          "lineNumber": 105
+        },
+        {
+          "caller": "blockedInService",
+          "callee": "Debug.out.println",
+          "lineNumber": 111
+        },
+        {
+          "caller": "serviceCalled",
+          "callee": "Debug.out.println",
+          "lineNumber": 115
+        },
+        {
+          "caller": "startGCThread",
+          "callee": "runnables.add",
+          "lineNumber": 123
+        },
+        {
+          "caller": "startGCThread",
+          "callee": "HLschedulerSupport.activateThread",
+          "lineNumber": 126
+        },
+        {
+          "caller": "unblockedGCThread",
+          "callee": "new Error",
+          "lineNumber": 131
+        },
+        {
+          "caller": "activated",
+          "callee": "HLschedulerSupport.activateThread",
+          "lineNumber": 145
+        },
+        {
+          "caller": "activated",
+          "callee": "runnables.removeFirst",
+          "lineNumber": 147
+        },
+        {
+          "caller": "activated",
+          "callee": "Debug.out.println",
+          "lineNumber": 149
+        },
+        {
+          "caller": "activated",
+          "callee": "HLschedulerSupport.clearMyRunnableFlag",
+          "lineNumber": 150
+        },
+        {
+          "caller": "activated",
+          "callee": "HLschedulerSupport.yield",
+          "lineNumber": 151
+        },
+        {
+          "caller": "activated",
+          "callee": "new Error",
+          "lineNumber": 152
+        },
+        {
+          "caller": "activated",
+          "callee": "HLschedulerSupport.activateThread",
+          "lineNumber": 155
+        },
+        {
+          "caller": "activated",
+          "callee": "new Error",
+          "lineNumber": 157
+        },
+        {
+          "caller": "dump",
+          "callee": "Debug.out.println",
+          "lineNumber": 165
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 22,
+        "functionCount": 20,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/SimpleTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 7,
+          "endLine": 29,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SimpleTest",
+          "startLine": 5,
+          "endLine": 30,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "SimpleTest",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 8
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 10
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "new DaddyImpl",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "naming.registerPortal",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/timeslicing/Simple.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 16,
+          "endLine": 19,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "Simple",
+          "startLine": 21,
+          "endLine": 57,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Simple",
+          "startLine": 8,
+          "endLine": 58,
+          "methods": [
+            "init",
+            "Simple"
+          ],
+          "properties": [
+            "EMPTY_ITERATIONS",
+            "VCALL_ITERATIONS",
+            "EVENT_ITERATIONS",
+            "PORTAL_ITERATIONS",
+            "PORTAL_ONEINT_ITERATIONS",
+            "NEW_ITERATIONS"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "EMPTY_ITERATIONS",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "VCALL_ITERATIONS",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "EVENT_ITERATIONS",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "PORTAL_ITERATIONS",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "PORTAL_ONEINT_ITERATIONS",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "NEW_ITERATIONS",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "Simple",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 17
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 17
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 17
+        },
+        {
+          "caller": "init",
+          "callee": "new Simple",
+          "lineNumber": 18
+        },
+        {
+          "caller": "Simple",
+          "callee": "new Thread(\"thr1\") {\n\t    public void run(){\n\t\tint i=0;\n\t\twhile(true) {\n\t\t    if (((i++) % 1000)== 0)\n\t\t\tDebug.out.print(\"t\");\n\t\t    //Thread.yield();\n\t\t}\n\t    }\n\t}.start",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Simple",
+          "callee": "new Thread",
+          "lineNumber": 22
+        },
+        {
+          "caller": "run",
+          "callee": "Debug.out.print",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Simple",
+          "callee": "new Thread(\"thr2\") {\n\t    public void run(){\n\t\tint i=0;\n\t\twhile(true) {\n\t\t    if (((i++) % 1000)== 0)\n\t\t\tDebug.out.print(\"m\");\n    \t\t    //Thread.yield();\n\t\t}\n\t    }\n\t}.start",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Simple",
+          "callee": "new Thread",
+          "lineNumber": 33
+        },
+        {
+          "caller": "run",
+          "callee": "Debug.out.print",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Simple",
+          "callee": "Debug.out.println",
+          "lineNumber": 44
+        },
+        {
+          "caller": "Simple",
+          "callee": "Thread.yield",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Simple",
+          "callee": "Debug.out.print",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Simple",
+          "callee": "Debug.out.println",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/termination/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 79,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 11,
+          "endLine": 38,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "createDomains",
+          "startLine": 40,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "createDomains2",
+          "startLine": 64,
+          "endLine": 91,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 97,
+          "endLine": 100,
+          "params": [
+            "naming"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 6,
+          "endLine": 94,
+          "methods": [
+            "main",
+            "createDomains",
+            "createDomains2"
+          ],
+          "properties": [
+            "memMgr",
+            "naming",
+            "dm"
+          ]
+        },
+        {
+          "name": "ChildDomain",
+          "startLine": 96,
+          "endLine": 101,
+          "methods": [
+            "init"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 97,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new Error",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "dm.terminate",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "createDomains",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "createDomains2",
+          "lineNumber": 36
+        },
+        {
+          "caller": "createDomains",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 41
+        },
+        {
+          "caller": "createDomains",
+          "callee": "Debug.out.println",
+          "lineNumber": 42
+        },
+        {
+          "caller": "createDomains",
+          "callee": "Debug.out.println",
+          "lineNumber": 45
+        },
+        {
+          "caller": "createDomains",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 48
+        },
+        {
+          "caller": "createDomains",
+          "callee": "new Error",
+          "lineNumber": 53
+        },
+        {
+          "caller": "createDomains",
+          "callee": "dm.terminate",
+          "lineNumber": 56
+        },
+        {
+          "caller": "createDomains",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 58
+        },
+        {
+          "caller": "createDomains",
+          "callee": "Debug.out.println",
+          "lineNumber": 59
+        },
+        {
+          "caller": "createDomains",
+          "callee": "Debug.out.println",
+          "lineNumber": 60
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 65
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "Debug.out.println",
+          "lineNumber": 66
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "Debug.out.println",
+          "lineNumber": 70
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 74
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "new Error",
+          "lineNumber": 79
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "Thread.yield",
+          "lineNumber": 81
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "dm.terminate",
+          "lineNumber": 83
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "Debug.out.print",
+          "lineNumber": 85
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 87
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "Debug.out.println",
+          "lineNumber": 88
+        },
+        {
+          "caller": "createDomains2",
+          "callee": "Debug.out.println",
+          "lineNumber": 89
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 98
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 98
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 98
+        },
+        {
+          "caller": "init",
+          "callee": "Thread.yield",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/test/termination/TermIO.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 10,
+          "endLine": 37,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TermIO",
+          "startLine": 5,
+          "endLine": 38,
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "memMgr",
+            "naming",
+            "dm"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "TermIO",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "dm.terminate",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "bio.isTerminated",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/timer/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "timer",
+          "startLine": 7,
+          "endLine": 9,
+          "params": [
+            "arg"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 13,
+          "endLine": 17,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyTimer",
+          "startLine": 6,
+          "endLine": 10,
+          "methods": [
+            "timer"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Main",
+          "startLine": 12,
+          "endLine": 18,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "timer",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "timer",
+          "callee": "Debug.out.println",
+          "lineNumber": 8
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "timerManager.addMillisIntervalTimer",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "new MyTimer",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/test/timer/StartTimer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 8,
+          "endLine": 12,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartTimer",
+          "startLine": 7,
+          "endLine": 13,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "StartTimer",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new TimerManagerImpl",
+          "lineNumber": 9
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 10
+        },
+        {
+          "caller": "main",
+          "callee": "naming.registerPortal",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

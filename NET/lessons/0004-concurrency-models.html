@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 0004: Concurrency Models</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lesson 0004: Concurrency Models</h1>
+        <p><small>Mission: <a href="../MISSION.md">HTTP Servers</a> | Lesson: 0004</small></p>
+    </header>
+
+    <section>
+        <h2>Learning Goal</h2>
+        <p>Compare the two concurrency models used by this WebServer: thread-per-connection vs domain-per-connection.</p>
+        <div class="callout">
+            <strong>Tangible Win:</strong> Understand the difference between threads and JX domains in this context, and when each might be used.
+        </div>
+    </section>
+
+    <section>
+        <h2>Two Ways to Handle Connections</h2>
+        <p>Looking back at <a href="../../src/test/net/WebServer.java#100-140">WebServer.java</a>, when a connection arrives:</p>
+        <pre><code>if (opt_threads)
+    startWorkerThread(sock);
+else
+    startWorkerDomain(sock);</code></pre>
+
+        <p>This gives us two different concurrency strategies.</p>
+    </section>
+
+    <section>
+        <h2>Model 1: Thread-per-Connection</h2>
+        <pre><code>private void startWorkerThread(final Socket sock)  {
+    new Thread ("WebWorker"){
+        @Override
+        public void run() {
+            try {
+                TCPWebWorker.processRequest(sock, fs);
+            } catch(Exception e) {
+                //throw new Error();
+            }
+        }
+    }.start();
+}</code></pre>
+        <p>Each connection gets its own Java thread. The thread runs the request handling synchronously until done, then exits. This is a common pattern in many HTTP servers (especially simpler ones).</p>
+        <p><strong>Pros:</strong> Simple, familiar model. Easy to reason about request lifecycle.</p>
+        <p><strong>Cons:</strong> Threads have memory overhead; context switching costs; under high load, thread count grows linearly.</p>
+    </section>
+
+    <section>
+        <h2>Model 2: Domain-per-Connection (JX Specific)</h2>
+        <pre><code>private void startWorkerDomain(final Socket sock){
+    String domainName = "Servlet";
+    String mainLib = "init.jll";
+    String startClass = "test/net/TCPWebWorker";
+    String[] argv = new String[0];
+    Object[] portals = new Object [] { sock, fs };
+    boolean useChunkedGC = false;
+    int codesize = 10000;
+    if (useChunkedGC) {
+        int HeapInitialSize = 40000;
+        int HeapChunkSize = 10000;
+        int StartGCSize = 80000;
+        Domain domain = DomainStarter.createDomain(domainName, mainLib, startClass, (String)null, HeapInitialSize, HeapChunkSize, StartGCSize, argv, portals);
+    } else {
+        int HeapSize = 400000;
+        Domain domain = DomainStarter.createDomain(domainName, mainLib, startClass, HeapSize, codesize, argv, portals);
+    }
+}</code></pre>
+        <p>This creates a JX "Domain" - JX is a Java-based operating system where domains are isolated protection domains (similar conceptually to processes or isolated components). Each connection gets its own domain with its own heap and resources.</p>
+        <p><strong>Pros:</strong> Strong isolation between connections; faults in one domain don't necessarily affect others; resource accounting per domain is possible.</p>
+        <p><strong>Cons:</strong> More heavyweight than threads; domain creation has overhead; JX-specific concept.</p>
+    </section>
+
+    <section>
+        <h2>Same Worker Logic</h2>
+        <p>Notice both paths call into the same request handling logic:</p>
+        <ul>
+            <li>Thread path: calls <code>TCPWebWorker.processRequest(sock, fs)</code></li>
+            <li>Domain path: creates domain that starts <code>test/net/TCPWebWorker</code> with <code>init()</code>, which receives <code>sock</code> and <code>fs</code> as portals/objects, then calls <code>processRequest()</code></li>
+        </ul>
+        <p>Compare: in <a href="../../src/test/net/TCPWebWorker.java#30-45">TCPWebWorker</a>, the <code>init()</code> method (called when started as a domain) does:</p>
+        <pre><code>public static void init(Naming naming, String[] argv, Object[] objs)  throws Exception {
+    Debug.out = ...;
+    Socket s = (Socket) objs[0];
+    processRequest(s, (FS) objs[1]);
+    DomainManager domainManager = (DomainManager) naming.lookup("DomainManager");
+    domainManager.terminateCaller();	
+}</code></pre>
+        <p>This shows how the domain receives initial objects and cleans up by terminating itself when done.</p>
+    </section>
+
+    <section>
+        <h2>Real-World Context</h2>
+        <p>In modern web servers:</p>
+        <ul>
+            <li>Apache prefork/worker use processes/threads</li>
+            <li>NGINX uses an event loop (asynchronous, non-blocking) - very different model</li>
+            <li>Node.js uses event loop with single thread + async I/O</li>
+            <li>Go uses goroutines (lightweight threads)</li>
+        </ul>
+        <p>This codebase shows two classic models (thread-per-conn, process/domain-per-conn). It's educational to see both sharing the same protocol logic.</p>
+    </section>
+
+    <div class="callout info">
+        <strong>Primary Source:</strong> <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview#server-side_software">MDN - Server-side software</a><br>
+        <strong>Reminder:</strong> Ask your teacher (the agent) if anything is unclear.
+    </div>
+
+    <footer class="footer-note">
+        <p>Previous: <a href="0003-http-response-structure.html">0003: HTTP Response Structure</a></p>
+        <p>Next: <a href="0005-serving-files.html">0005: Serving Files From Filesystem</a> (coming soon)</p>
+    </footer>
+</body>
+</html>

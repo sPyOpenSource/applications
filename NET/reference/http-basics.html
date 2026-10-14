@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Server Quick Reference</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>HTTP Server Quick Reference</h1>
+    </header>
+
+    <section>
+        <h2>HTTP Request Format</h2>
+        <pre><code>METHOD URI HTTP/VERSION
+Header1: value1
+Header2: value2
+...
+[empty line]
+[body if present]</code></pre>
+        <p>Example:</p>
+        <pre><code>GET /index.html HTTP/1.1
+Host: localhost
+Accept: text/html</code></pre>
+    </section>
+
+    <section>
+        <h2>HTTP Response Format</h2>
+        <pre><code>HTTP/VERSION STATUS REASON
+Header1: value1
+Header2: value2
+...
+[empty line]
+[body]</code></pre>
+        <p>Example:</p>
+        <pre><code>HTTP/1.0 200 OK
+Content-Length: 1234
+Content-Type: text/html
+
+&lt;html&gt;...&lt;/html&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Common HTTP Methods</h2>
+        <table>
+            <tr><th>Method</th><th>Purpose</th></tr>
+            <tr><td>GET</td><td>Retrieve resource</td></tr>
+            <tr><td>POST</td><td>Submit data to server</td></tr>
+            <tr><td>PUT</td><td>Update/create resource</td></tr>
+            <tr><td>DELETE</td><td>Delete resource</td></tr>
+            <tr><td>HEAD</td><td>Like GET but no body</td></tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Common Status Codes</h2>
+        <table>
+            <tr><th>Code</th><th>Meaning</th></tr>
+            <tr><td>200</td><td>OK - Success</td></tr>
+            <tr><td>201</td><td>Created</td></tr>
+            <tr><td>301/302</td><td>Redirect</td></tr>
+            <tr><td>400</td><td>Bad Request</td></tr>
+            <tr><td>401</td><td>Unauthorized</td></tr>
+            <tr><td>404</td><td>Not Found</td></tr>
+            <tr><td>500</td><td>Internal Server Error</td></tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Socket Lifecycle (Server)</h2>
+        <ol>
+            <li><code>ServerSocket(port)</code> - Bind & listen</li>
+            <li><code>accept()</code> - Wait for connection → Socket</li>
+            <li><code>getInputStream()/getOutputStream()</code> - I/O</li>
+            <li>Process request/response</li>
+            <li><code>close()</code> - Cleanup</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Key Code Pointers</h2>
+        <table>
+            <tr><th>Concept</th><th>File:Line</th></tr>
+            <tr><td>Accept loop</td><td><a href="../../src/test/net/WebServer.java#100-140">WebServer.java:~100-140</a></td></tr>
+            <tr><td>Request parsing</td><td><a href="../../src/test/net/TCPWebWorker.java#70-120">TCPWebWorker.java:parse()</a></td></tr>
+            <tr><td>Response building</td><td><a href="../../src/test/net/TCPWebWorker.java#150-200">TCPWebWorker.java:constructHeader()</a></td></tr>
+            <tr><td>Thread model</td><td><a href="../../src/test/net/WebServer.java#140-165">WebServer.java:startWorkerThread()</a></td></tr>
+            <tr><td>Domain model</td><td><a href="../../src/test/net/WebServer.java#165-195">WebServer.java:startWorkerDomain()</a></td></tr>
+        </table>
+    </section>
+
+    <footer class="footer-note">
+        <p>Back to <a href="../lessons/0001-http-server-fundamentals.html">Lesson 0001</a></p>
+    </footer>
+</body>
+</html>

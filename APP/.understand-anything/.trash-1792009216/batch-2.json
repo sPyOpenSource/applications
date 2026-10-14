@@ -1,0 +1,4613 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/test/gc/Cycle.java",
+      "type": "file",
+      "name": "Cycle.java",
+      "filePath": "src/test/gc/Cycle.java",
+      "summary": "GC cycle test that creates cyclic object structures to test garbage collection reachability.",
+      "tags": [
+        "gc",
+        "cycle",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/gc/Cycle.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/gc/Cycle.java",
+      "lineRange": [
+        23,
+        25
+      ],
+      "summary": "main function in Cycle.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/gc/Cycle.java:Cycle",
+      "type": "function",
+      "name": "Cycle",
+      "filePath": "src/test/gc/Cycle.java",
+      "lineRange": [
+        27,
+        55
+      ],
+      "summary": "Cycle function in Cycle.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/gc/Cycle.java:Cycle",
+      "type": "class",
+      "name": "Cycle",
+      "filePath": "src/test/gc/Cycle.java",
+      "lineRange": [
+        5,
+        56
+      ],
+      "summary": "Cycle class in Cycle.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/gc/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/gc/Main.java",
+      "summary": "GC stress test generating object graphs to exercise allocation and garbage collection behavior.",
+      "tags": [
+        "gc",
+        "stress",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/gc/Main.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/gc/Main.java",
+      "lineRange": [
+        13,
+        40
+      ],
+      "summary": "main function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/gc/Main.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/gc/Main.java",
+      "lineRange": [
+        42,
+        48
+      ],
+      "summary": "init function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/gc/Main.java:work0",
+      "type": "function",
+      "name": "work0",
+      "filePath": "src/test/gc/Main.java",
+      "lineRange": [
+        50,
+        52
+      ],
+      "summary": "work0 function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/gc/Main.java:work1",
+      "type": "function",
+      "name": "work1",
+      "filePath": "src/test/gc/Main.java",
+      "lineRange": [
+        54,
+        61
+      ],
+      "summary": "work1 function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/gc/Main.java:work",
+      "type": "function",
+      "name": "work",
+      "filePath": "src/test/gc/Main.java",
+      "lineRange": [
+        63,
+        73
+      ],
+      "summary": "work function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/gc/Main.java:w0",
+      "type": "function",
+      "name": "w0",
+      "filePath": "src/test/gc/Main.java",
+      "lineRange": [
+        75,
+        77
+      ],
+      "summary": "w0 function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/gc/Main.java:w1",
+      "type": "function",
+      "name": "w1",
+      "filePath": "src/test/gc/Main.java",
+      "lineRange": [
+        79,
+        86
+      ],
+      "summary": "w1 function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/gc/Main.java:w",
+      "type": "function",
+      "name": "w",
+      "filePath": "src/test/gc/Main.java",
+      "lineRange": [
+        88,
+        94
+      ],
+      "summary": "w function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/gc/Main.java:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/test/gc/Main.java",
+      "lineRange": [
+        12,
+        95
+      ],
+      "summary": "Main class in Main.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/ide/IDEDomain.java",
+      "type": "file",
+      "name": "IDEDomain.java",
+      "filePath": "src/test/ide/IDEDomain.java",
+      "summary": "IDE test domain that initializes IDE-related components and sets up naming/ports.",
+      "tags": [
+        "ide",
+        "domain",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/ide/IDEDomain.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/ide/IDEDomain.java",
+      "lineRange": [
+        16,
+        23
+      ],
+      "summary": "init function in IDEDomain.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/ide/IDEDomain.java:IDEDomain",
+      "type": "function",
+      "name": "IDEDomain",
+      "filePath": "src/test/ide/IDEDomain.java",
+      "lineRange": [
+        25,
+        36
+      ],
+      "summary": "IDEDomain function in IDEDomain.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/ide/IDEDomain.java:IDEDomain",
+      "type": "class",
+      "name": "IDEDomain",
+      "filePath": "src/test/ide/IDEDomain.java",
+      "lineRange": [
+        13,
+        37
+      ],
+      "summary": "IDEDomain class in IDEDomain.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/ide/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/ide/Main.java",
+      "summary": "IDE block device I/O test exercising read/write operations on IDE partitions.",
+      "tags": [
+        "ide",
+        "io",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/ide/Main.java:commonTest",
+      "type": "function",
+      "name": "commonTest",
+      "filePath": "src/test/ide/Main.java",
+      "lineRange": [
+        13,
+        51
+      ],
+      "summary": "commonTest function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/ide/Main.java:throughput",
+      "type": "function",
+      "name": "throughput",
+      "filePath": "src/test/ide/Main.java",
+      "lineRange": [
+        56,
+        68
+      ],
+      "summary": "throughput function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/ide/Main.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/ide/Main.java",
+      "lineRange": [
+        70,
+        81
+      ],
+      "summary": "main function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/ide/Main.java:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/test/ide/Main.java",
+      "lineRange": [
+        11,
+        82
+      ],
+      "summary": "Main class in Main.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/memobj/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/memobj/Main.java",
+      "summary": "Memory object API test suite covering allocation, read/write, split, map, revoke, and performance timing.",
+      "tags": [
+        "memory",
+        "test",
+        "api"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testMemory",
+      "type": "function",
+      "name": "testMemory",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        17,
+        67
+      ],
+      "summary": "testMemory function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:test8Bit",
+      "type": "function",
+      "name": "test8Bit",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        69,
+        82
+      ],
+      "summary": "test8Bit function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:test8BitConst",
+      "type": "function",
+      "name": "test8BitConst",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        84,
+        93
+      ],
+      "summary": "test8BitConst function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:test16Bit",
+      "type": "function",
+      "name": "test16Bit",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        95,
+        112
+      ],
+      "summary": "test16Bit function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:test16BitLE",
+      "type": "function",
+      "name": "test16BitLE",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        114,
+        128
+      ],
+      "summary": "test16BitLE function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:test32BitConst",
+      "type": "function",
+      "name": "test32BitConst",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        130,
+        146
+      ],
+      "summary": "test32BitConst function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:test32Bit",
+      "type": "function",
+      "name": "test32Bit",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        148,
+        164
+      ],
+      "summary": "test32Bit function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testSet",
+      "type": "function",
+      "name": "testSet",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        166,
+        168
+      ],
+      "summary": "testSet function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testSpeed",
+      "type": "function",
+      "name": "testSpeed",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        171,
+        186
+      ],
+      "summary": "testSpeed function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testRevoke",
+      "type": "function",
+      "name": "testRevoke",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        188,
+        201
+      ],
+      "summary": "testRevoke function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testCreateSpeed",
+      "type": "function",
+      "name": "testCreateSpeed",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        203,
+        225
+      ],
+      "summary": "testCreateSpeed function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testRevokeSpeed",
+      "type": "function",
+      "name": "testRevokeSpeed",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        227,
+        244
+      ],
+      "summary": "testRevokeSpeed function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testSplitSpeed",
+      "type": "function",
+      "name": "testSplitSpeed",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        246,
+        265
+      ],
+      "summary": "testSplitSpeed function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testSplit",
+      "type": "function",
+      "name": "testSplit",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        267,
+        295
+      ],
+      "summary": "testSplit function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testMap",
+      "type": "function",
+      "name": "testMap",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        297,
+        312
+      ],
+      "summary": "testMap function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testMapSpeed",
+      "type": "function",
+      "name": "testMapSpeed",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        314,
+        383
+      ],
+      "summary": "testMapSpeed function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        385,
+        442
+      ],
+      "summary": "main function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:testGC",
+      "type": "function",
+      "name": "testGC",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        444,
+        449
+      ],
+      "summary": "testGC function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:MemServerImpl",
+      "type": "function",
+      "name": "MemServerImpl",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        461,
+        463
+      ],
+      "summary": "MemServerImpl function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:getMemory",
+      "type": "function",
+      "name": "getMemory",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        464,
+        466
+      ],
+      "summary": "getMemory function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:gc",
+      "type": "function",
+      "name": "gc",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        468,
+        471
+      ],
+      "summary": "gc function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:gcMem",
+      "type": "function",
+      "name": "gcMem",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        477,
+        482
+      ],
+      "summary": "gcMem function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/memobj/Main.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        484,
+        497
+      ],
+      "summary": "init function in Main.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/memobj/Main.java:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        13,
+        452
+      ],
+      "summary": "Main class in Main.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/memobj/Main.java:MemServer",
+      "type": "class",
+      "name": "MemServer",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        454,
+        457
+      ],
+      "summary": "MemServer class in Main.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/memobj/Main.java:MemServerImpl",
+      "type": "class",
+      "name": "MemServerImpl",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        459,
+        473
+      ],
+      "summary": "MemServerImpl class in Main.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/memobj/Main.java:ClientDomain",
+      "type": "class",
+      "name": "ClientDomain",
+      "filePath": "src/test/memobj/Main.java",
+      "lineRange": [
+        475,
+        498
+      ],
+      "summary": "ClientDomain class in Main.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/nfs/LoadGenerator.java",
+      "type": "file",
+      "name": "LoadGenerator.java",
+      "filePath": "src/test/nfs/LoadGenerator.java",
+      "summary": "Load generator thread that creates activity to stress test system components.",
+      "tags": [
+        "load",
+        "thread",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/LoadGenerator.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/nfs/LoadGenerator.java",
+      "lineRange": [
+        10,
+        16
+      ],
+      "summary": "init function in LoadGenerator.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/LoadGenerator.java:LoadGenerator",
+      "type": "function",
+      "name": "LoadGenerator",
+      "filePath": "src/test/nfs/LoadGenerator.java",
+      "lineRange": [
+        19,
+        35
+      ],
+      "summary": "LoadGenerator function in LoadGenerator.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/LoadGenerator.java:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "src/test/nfs/LoadGenerator.java",
+      "lineRange": [
+        37,
+        45
+      ],
+      "summary": "run function in LoadGenerator.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/nfs/LoadGenerator.java:LoadGenerator",
+      "type": "class",
+      "name": "LoadGenerator",
+      "filePath": "src/test/nfs/LoadGenerator.java",
+      "lineRange": [
+        6,
+        46
+      ],
+      "summary": "LoadGenerator class in LoadGenerator.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/nfs/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/nfs/Main.java",
+      "summary": "NFS test constants and configuration entry points for client/server tests.",
+      "tags": [
+        "nfs",
+        "test",
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/nfs/Main.java:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/test/nfs/Main.java",
+      "lineRange": [
+        3,
+        7
+      ],
+      "summary": "Main class in Main.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/nfs/MountProc_Skel.java",
+      "type": "file",
+      "name": "MountProc_Skel.java",
+      "filePath": "src/test/nfs/MountProc_Skel.java",
+      "summary": "Mount RPC skeleton that dispatches mount protocol calls to implementation.",
+      "tags": [
+        "nfs",
+        "rpc",
+        "mount"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/MountProc_Skel.java:MountProc_Skel",
+      "type": "function",
+      "name": "MountProc_Skel",
+      "filePath": "src/test/nfs/MountProc_Skel.java",
+      "lineRange": [
+        12,
+        13
+      ],
+      "summary": "MountProc_Skel function in MountProc_Skel.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/nfs/MountProc_Skel.java:MountProc_Skel",
+      "type": "class",
+      "name": "MountProc_Skel",
+      "filePath": "src/test/nfs/MountProc_Skel.java",
+      "lineRange": [
+        10,
+        15
+      ],
+      "summary": "MountProc_Skel class in MountProc_Skel.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/nfs/MountProc_Stub.java",
+      "type": "file",
+      "name": "MountProc_Stub.java",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "summary": "Mount RPC stub providing client-side method stubs (not implemented for test).",
+      "tags": [
+        "nfs",
+        "rpc",
+        "stub"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/MountProc_Stub.java:MountProc_Stub",
+      "type": "function",
+      "name": "MountProc_Stub",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "lineRange": [
+        17,
+        18
+      ],
+      "summary": "MountProc_Stub function in MountProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/MountProc_Stub.java:nullproc",
+      "type": "function",
+      "name": "nullproc",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "lineRange": [
+        20,
+        23
+      ],
+      "summary": "nullproc function in MountProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/MountProc_Stub.java:mnt",
+      "type": "function",
+      "name": "mnt",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "lineRange": [
+        25,
+        28
+      ],
+      "summary": "mnt function in MountProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/MountProc_Stub.java:dump",
+      "type": "function",
+      "name": "dump",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "lineRange": [
+        30,
+        33
+      ],
+      "summary": "dump function in MountProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/MountProc_Stub.java:umnt",
+      "type": "function",
+      "name": "umnt",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "lineRange": [
+        35,
+        38
+      ],
+      "summary": "umnt function in MountProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/MountProc_Stub.java:umntall",
+      "type": "function",
+      "name": "umntall",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "lineRange": [
+        40,
+        43
+      ],
+      "summary": "umntall function in MountProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/MountProc_Stub.java:export",
+      "type": "function",
+      "name": "export",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "lineRange": [
+        45,
+        48
+      ],
+      "summary": "export function in MountProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/nfs/MountProc_Stub.java:MountProc_Stub",
+      "type": "class",
+      "name": "MountProc_Stub",
+      "filePath": "src/test/nfs/MountProc_Stub.java",
+      "lineRange": [
+        15,
+        50
+      ],
+      "summary": "MountProc_Stub class in MountProc_Stub.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/nfs/NFSClient.java",
+      "type": "file",
+      "name": "NFSClient.java",
+      "filePath": "src/test/nfs/NFSClient.java",
+      "summary": "NFS client test that sets up RPC, mounts filesystem, and performs basic NFS operations.",
+      "tags": [
+        "nfs",
+        "client",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/nfs/NFSClient.java:NFSClient",
+      "type": "function",
+      "name": "NFSClient",
+      "filePath": "src/test/nfs/NFSClient.java",
+      "lineRange": [
+        22,
+        66
+      ],
+      "summary": "NFSClient function in NFSClient.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/nfs/NFSClient.java:NFSClient",
+      "type": "class",
+      "name": "NFSClient",
+      "filePath": "src/test/nfs/NFSClient.java",
+      "lineRange": [
+        18,
+        67
+      ],
+      "summary": "NFSClient class in NFSClient.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/nfs/NFSDomain.java",
+      "type": "file",
+      "name": "NFSDomain.java",
+      "filePath": "src/test/nfs/NFSDomain.java",
+      "summary": "NFS server domain that starts RPC services (mount, nfs, rpcbind) and registers portals.",
+      "tags": [
+        "nfs",
+        "server",
+        "domain"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/nfs/NFSDomain.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/nfs/NFSDomain.java",
+      "lineRange": [
+        22,
+        28
+      ],
+      "summary": "init function in NFSDomain.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSDomain.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/nfs/NFSDomain.java",
+      "lineRange": [
+        29,
+        32
+      ],
+      "summary": "main function in NFSDomain.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSDomain.java:NFSDomain",
+      "type": "function",
+      "name": "NFSDomain",
+      "filePath": "src/test/nfs/NFSDomain.java",
+      "lineRange": [
+        34,
+        76
+      ],
+      "summary": "NFSDomain function in NFSDomain.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/nfs/NFSDomain.java:NFSDomain",
+      "type": "class",
+      "name": "NFSDomain",
+      "filePath": "src/test/nfs/NFSDomain.java",
+      "lineRange": [
+        18,
+        77
+      ],
+      "summary": "NFSDomain class in NFSDomain.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/nfs/NFSProc_Skel.java",
+      "type": "file",
+      "name": "NFSProc_Skel.java",
+      "filePath": "src/test/nfs/NFSProc_Skel.java",
+      "summary": "NFS RPC skeleton dispatching NFS v2 procedure calls to implementation.",
+      "tags": [
+        "nfs",
+        "rpc",
+        "nfs-proc"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Skel.java:NFSProc_Skel",
+      "type": "function",
+      "name": "NFSProc_Skel",
+      "filePath": "src/test/nfs/NFSProc_Skel.java",
+      "lineRange": [
+        12,
+        13
+      ],
+      "summary": "NFSProc_Skel function in NFSProc_Skel.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/nfs/NFSProc_Skel.java:NFSProc_Skel",
+      "type": "class",
+      "name": "NFSProc_Skel",
+      "filePath": "src/test/nfs/NFSProc_Skel.java",
+      "lineRange": [
+        10,
+        15
+      ],
+      "summary": "NFSProc_Skel class in NFSProc_Skel.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/nfs/NFSProc_Stub.java",
+      "type": "file",
+      "name": "NFSProc_Stub.java",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "summary": "NFS RPC stub with method stubs for all NFS v2 procedures (test client stub).",
+      "tags": [
+        "nfs",
+        "rpc",
+        "stub"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:NFSProc_Stub",
+      "type": "function",
+      "name": "NFSProc_Stub",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        27,
+        28
+      ],
+      "summary": "NFSProc_Stub function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:setAuth",
+      "type": "function",
+      "name": "setAuth",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        30,
+        32
+      ],
+      "summary": "setAuth function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:nullproc",
+      "type": "function",
+      "name": "nullproc",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        34,
+        37
+      ],
+      "summary": "nullproc function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:getattr",
+      "type": "function",
+      "name": "getattr",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        39,
+        42
+      ],
+      "summary": "getattr function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:setattr",
+      "type": "function",
+      "name": "setattr",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        44,
+        47
+      ],
+      "summary": "setattr function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:root",
+      "type": "function",
+      "name": "root",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        49,
+        52
+      ],
+      "summary": "root function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:lookup",
+      "type": "function",
+      "name": "lookup",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        54,
+        57
+      ],
+      "summary": "lookup function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:readlink",
+      "type": "function",
+      "name": "readlink",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        59,
+        62
+      ],
+      "summary": "readlink function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:read",
+      "type": "function",
+      "name": "read",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        64,
+        67
+      ],
+      "summary": "read function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:writeCache",
+      "type": "function",
+      "name": "writeCache",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        69,
+        72
+      ],
+      "summary": "writeCache function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:write",
+      "type": "function",
+      "name": "write",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        74,
+        77
+      ],
+      "summary": "write function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:create",
+      "type": "function",
+      "name": "create",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        79,
+        82
+      ],
+      "summary": "create function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:remove",
+      "type": "function",
+      "name": "remove",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        84,
+        87
+      ],
+      "summary": "remove function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:rename",
+      "type": "function",
+      "name": "rename",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        89,
+        92
+      ],
+      "summary": "rename function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:link",
+      "type": "function",
+      "name": "link",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        94,
+        97
+      ],
+      "summary": "link function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:symlink",
+      "type": "function",
+      "name": "symlink",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        99,
+        102
+      ],
+      "summary": "symlink function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:mkdir",
+      "type": "function",
+      "name": "mkdir",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        104,
+        107
+      ],
+      "summary": "mkdir function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:rmdir",
+      "type": "function",
+      "name": "rmdir",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        109,
+        112
+      ],
+      "summary": "rmdir function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:readdir",
+      "type": "function",
+      "name": "readdir",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        114,
+        117
+      ],
+      "summary": "readdir function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/NFSProc_Stub.java:statfs",
+      "type": "function",
+      "name": "statfs",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        119,
+        122
+      ],
+      "summary": "statfs function in NFSProc_Stub.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/nfs/NFSProc_Stub.java:NFSProc_Stub",
+      "type": "class",
+      "name": "NFSProc_Stub",
+      "filePath": "src/test/nfs/NFSProc_Stub.java",
+      "lineRange": [
+        25,
+        124
+      ],
+      "summary": "NFSProc_Stub class in NFSProc_Stub.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/nfs/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/test/nfs/package.bluej",
+      "summary": "BlueJ project configuration for the nfs test package.",
+      "tags": [
+        "bluej",
+        "config",
+        "project"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/nfs/RPCBind_Skel.java",
+      "type": "file",
+      "name": "RPCBind_Skel.java",
+      "filePath": "src/test/nfs/RPCBind_Skel.java",
+      "summary": "RPC portmapper skeleton dispatching portmap/bind requests.",
+      "tags": [
+        "nfs",
+        "rpc",
+        "portmap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/nfs/RPCBind_Skel.java:RPCBind_Skel",
+      "type": "function",
+      "name": "RPCBind_Skel",
+      "filePath": "src/test/nfs/RPCBind_Skel.java",
+      "lineRange": [
+        16,
+        17
+      ],
+      "summary": "RPCBind_Skel function in RPCBind_Skel.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/nfs/RPCBind_Skel.java:RPCBind_Skel",
+      "type": "class",
+      "name": "RPCBind_Skel",
+      "filePath": "src/test/nfs/RPCBind_Skel.java",
+      "lineRange": [
+        14,
+        19
+      ],
+      "summary": "RPCBind_Skel class in RPCBind_Skel.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/CallerDomain.java",
+      "type": "file",
+      "name": "CallerDomain.java",
+      "filePath": "src/test/portal/CallerDomain.java",
+      "summary": "Portal caller domain that looks up service portals and invokes service methods.",
+      "tags": [
+        "portal",
+        "caller",
+        "domain"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerDomain.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/CallerDomain.java",
+      "lineRange": [
+        10,
+        14
+      ],
+      "summary": "init function in CallerDomain.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerDomain.java:CallerDomain",
+      "type": "function",
+      "name": "CallerDomain",
+      "filePath": "src/test/portal/CallerDomain.java",
+      "lineRange": [
+        16,
+        30
+      ],
+      "summary": "CallerDomain function in CallerDomain.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/CallerDomain.java:CallerDomain",
+      "type": "class",
+      "name": "CallerDomain",
+      "filePath": "src/test/portal/CallerDomain.java",
+      "lineRange": [
+        8,
+        32
+      ],
+      "summary": "CallerDomain class in CallerDomain.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/CallerHLS.java",
+      "type": "file",
+      "name": "CallerHLS.java",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "summary": "High-level scheduler test/caller exercising HLS interfaces and event callbacks.",
+      "tags": [
+        "portal",
+        "scheduler",
+        "hls"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:CallerHLS",
+      "type": "function",
+      "name": "CallerHLS",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        34,
+        45
+      ],
+      "summary": "CallerHLS function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:registered",
+      "type": "function",
+      "name": "registered",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        47,
+        55
+      ],
+      "summary": "registered function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:Scheduler_interrupted",
+      "type": "function",
+      "name": "Scheduler_interrupted",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        57,
+        60
+      ],
+      "summary": "Scheduler_interrupted function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:Scheduler_preempted",
+      "type": "function",
+      "name": "Scheduler_preempted",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        62,
+        65
+      ],
+      "summary": "Scheduler_preempted function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:interrupted",
+      "type": "function",
+      "name": "interrupted",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        67,
+        74
+      ],
+      "summary": "interrupted function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:preempted",
+      "type": "function",
+      "name": "preempted",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        76,
+        83
+      ],
+      "summary": "preempted function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:yielded",
+      "type": "function",
+      "name": "yielded",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        85,
+        88
+      ],
+      "summary": "yielded function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:unblocked",
+      "type": "function",
+      "name": "unblocked",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        89,
+        94
+      ],
+      "summary": "unblocked function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:created",
+      "type": "function",
+      "name": "created",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        96,
+        99
+      ],
+      "summary": "created function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:switchedTo",
+      "type": "function",
+      "name": "switchedTo",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        101,
+        106
+      ],
+      "summary": "switchedTo function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:blockedInPortalCall",
+      "type": "function",
+      "name": "blockedInPortalCall",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        108,
+        111
+      ],
+      "summary": "blockedInPortalCall function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:portalCalled",
+      "type": "function",
+      "name": "portalCalled",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        113,
+        118
+      ],
+      "summary": "portalCalled function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:blockedInService",
+      "type": "function",
+      "name": "blockedInService",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        120,
+        122
+      ],
+      "summary": "blockedInService function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:serviceCalled",
+      "type": "function",
+      "name": "serviceCalled",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        124,
+        130
+      ],
+      "summary": "serviceCalled function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:startGCThread",
+      "type": "function",
+      "name": "startGCThread",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        138,
+        146
+      ],
+      "summary": "startGCThread function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:unblockedGCThread",
+      "type": "function",
+      "name": "unblockedGCThread",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        147,
+        152
+      ],
+      "summary": "unblockedGCThread function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:destroyedGCThread",
+      "type": "function",
+      "name": "destroyedGCThread",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        153,
+        158
+      ],
+      "summary": "destroyedGCThread function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:activated",
+      "type": "function",
+      "name": "activated",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        160,
+        183
+      ],
+      "summary": "activated function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:toString",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        185,
+        187
+      ],
+      "summary": "toString function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/CallerHLS.java:dump",
+      "type": "function",
+      "name": "dump",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        189,
+        191
+      ],
+      "summary": "dump function in CallerHLS.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/CallerHLS.java:CallerHLS",
+      "type": "class",
+      "name": "CallerHLS",
+      "filePath": "src/test/portal/CallerHLS.java",
+      "lineRange": [
+        9,
+        193
+      ],
+      "summary": "CallerHLS class in CallerHLS.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/portal/Daddy.java",
+      "type": "file",
+      "name": "Daddy.java",
+      "filePath": "src/test/portal/Daddy.java",
+      "summary": "Portal interface definition for Daddy service (simple test service).",
+      "tags": [
+        "portal",
+        "interface",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/Daddy.java:Daddy",
+      "type": "class",
+      "name": "Daddy",
+      "filePath": "src/test/portal/Daddy.java",
+      "lineRange": [
+        3,
+        7
+      ],
+      "summary": "Daddy class in Daddy.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/DaddyImpl.java",
+      "type": "file",
+      "name": "DaddyImpl.java",
+      "filePath": "src/test/portal/DaddyImpl.java",
+      "summary": "Portal interface definition for Daddy service (simple test service).",
+      "tags": [
+        "portal",
+        "interface",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/DaddyImpl.java:DaddyImpl",
+      "type": "function",
+      "name": "DaddyImpl",
+      "filePath": "src/test/portal/DaddyImpl.java",
+      "lineRange": [
+        10,
+        12
+      ],
+      "summary": "DaddyImpl function in DaddyImpl.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/DaddyImpl.java:longRunning",
+      "type": "function",
+      "name": "longRunning",
+      "filePath": "src/test/portal/DaddyImpl.java",
+      "lineRange": [
+        14,
+        21
+      ],
+      "summary": "longRunning function in DaddyImpl.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/DaddyImpl.java:inc",
+      "type": "function",
+      "name": "inc",
+      "filePath": "src/test/portal/DaddyImpl.java",
+      "lineRange": [
+        23,
+        26
+      ],
+      "summary": "inc function in DaddyImpl.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/DaddyImpl.java:getCount",
+      "type": "function",
+      "name": "getCount",
+      "filePath": "src/test/portal/DaddyImpl.java",
+      "lineRange": [
+        28,
+        30
+      ],
+      "summary": "getCount function in DaddyImpl.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/DaddyImpl.java:DaddyImpl",
+      "type": "class",
+      "name": "DaddyImpl",
+      "filePath": "src/test/portal/DaddyImpl.java",
+      "lineRange": [
+        5,
+        31
+      ],
+      "summary": "DaddyImpl class in DaddyImpl.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/GCTest.java",
+      "type": "file",
+      "name": "GCTest.java",
+      "filePath": "src/test/portal/GCTest.java",
+      "summary": "Test/demo code for GCTest.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/GCTest.java:longRunning",
+      "type": "function",
+      "name": "longRunning",
+      "filePath": "src/test/portal/GCTest.java",
+      "lineRange": [
+        8,
+        9
+      ],
+      "summary": "longRunning function in GCTest.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/GCTest.java:inc",
+      "type": "function",
+      "name": "inc",
+      "filePath": "src/test/portal/GCTest.java",
+      "lineRange": [
+        11,
+        14
+      ],
+      "summary": "inc function in GCTest.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/GCTest.java:getCount",
+      "type": "function",
+      "name": "getCount",
+      "filePath": "src/test/portal/GCTest.java",
+      "lineRange": [
+        16,
+        18
+      ],
+      "summary": "getCount function in GCTest.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/GCTest.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/test/portal/GCTest.java",
+      "lineRange": [
+        23,
+        45
+      ],
+      "summary": "main function in GCTest.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/GCTest.java:GCDaddy",
+      "type": "class",
+      "name": "GCDaddy",
+      "filePath": "src/test/portal/GCTest.java",
+      "lineRange": [
+        5,
+        19
+      ],
+      "summary": "GCDaddy class in GCTest.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/GCTest.java:GCTest",
+      "type": "class",
+      "name": "GCTest",
+      "filePath": "src/test/portal/GCTest.java",
+      "lineRange": [
+        21,
+        46
+      ],
+      "summary": "GCTest class in GCTest.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/HansService.java",
+      "type": "file",
+      "name": "HansService.java",
+      "filePath": "src/test/portal/HansService.java",
+      "summary": "Test/demo code for HansService.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/HansService.java:HansService",
+      "type": "class",
+      "name": "HansService",
+      "filePath": "src/test/portal/HansService.java",
+      "lineRange": [
+        6,
+        8
+      ],
+      "summary": "HansService class in HansService.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/HansServiceImpl.java",
+      "type": "file",
+      "name": "HansServiceImpl.java",
+      "filePath": "src/test/portal/HansServiceImpl.java",
+      "summary": "Test/demo code for HansServiceImpl.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/HansServiceImpl.java:HansServiceImpl",
+      "type": "function",
+      "name": "HansServiceImpl",
+      "filePath": "src/test/portal/HansServiceImpl.java",
+      "lineRange": [
+        8,
+        10
+      ],
+      "summary": "HansServiceImpl function in HansServiceImpl.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/HansServiceImpl.java:test",
+      "type": "function",
+      "name": "test",
+      "filePath": "src/test/portal/HansServiceImpl.java",
+      "lineRange": [
+        11,
+        14
+      ],
+      "summary": "test function in HansServiceImpl.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/test/portal/HansServiceImpl.java:HansServiceImpl",
+      "type": "class",
+      "name": "HansServiceImpl",
+      "filePath": "src/test/portal/HansServiceImpl.java",
+      "lineRange": [
+        6,
+        15
+      ],
+      "summary": "HansServiceImpl class in HansServiceImpl.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/test/portal/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/test/portal/Main.java",
+      "summary": "Test/demo code for Main.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/Main.java:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/test/portal/Main.java",
+      "lineRange": [
+        9,
+        101
+      ],
+      "summary": "Main class in Main.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/portal/MainAlice.java",
+      "type": "file",
+      "name": "MainAlice.java",
+      "filePath": "src/test/portal/MainAlice.java",
+      "summary": "Test/demo code for MainAlice.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/MainAlice.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/MainAlice.java",
+      "lineRange": [
+        9,
+        35
+      ],
+      "summary": "init function in MainAlice.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/MainAlice.java:MainAlice",
+      "type": "class",
+      "name": "MainAlice",
+      "filePath": "src/test/portal/MainAlice.java",
+      "lineRange": [
+        6,
+        36
+      ],
+      "summary": "MainAlice class in MainAlice.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/test/portal/MainHans.java",
+      "type": "file",
+      "name": "MainHans.java",
+      "filePath": "src/test/portal/MainHans.java",
+      "summary": "Test/demo code for MainHans.java in src/test/portal.",
+      "tags": [
+        "test",
+        "demo",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/test/portal/MainHans.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/test/portal/MainHans.java",
+      "lineRange": [
+        10,
+        47
+      ],
+      "summary": "init function in MainHans.java performing test/demo operations.",
+      "tags": [
+        "function",
+        "method",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/test/portal/MainHans.java:MainHans",
+      "type": "class",
+      "name": "MainHans",
+      "filePath": "src/test/portal/MainHans.java",
+      "lineRange": [
+        7,
+        48
+      ],
+      "summary": "MainHans class in MainHans.java encapsulating test logic.",
+      "tags": [
+        "class",
+        "type",
+        "object"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/test/gc/Cycle.java",
+      "target": "function:src/test/gc/Cycle.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Cycle.java",
+      "target": "function:src/test/gc/Cycle.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Cycle.java",
+      "target": "function:src/test/gc/Cycle.java:Cycle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Cycle.java",
+      "target": "function:src/test/gc/Cycle.java:Cycle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Cycle.java",
+      "target": "class:src/test/gc/Cycle.java:Cycle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Cycle.java",
+      "target": "class:src/test/gc/Cycle.java:Cycle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:work0",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:work0",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:work1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:work1",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:work",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:work",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:w0",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:w0",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:w1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:w1",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:w",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "function:src/test/gc/Main.java:w",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "class:src/test/gc/Main.java:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/gc/Main.java",
+      "target": "class:src/test/gc/Main.java:Main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/ide/IDEDomain.java",
+      "target": "function:src/test/ide/IDEDomain.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/ide/IDEDomain.java",
+      "target": "function:src/test/ide/IDEDomain.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/ide/IDEDomain.java",
+      "target": "function:src/test/ide/IDEDomain.java:IDEDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/ide/IDEDomain.java",
+      "target": "function:src/test/ide/IDEDomain.java:IDEDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/ide/IDEDomain.java",
+      "target": "class:src/test/ide/IDEDomain.java:IDEDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/ide/IDEDomain.java",
+      "target": "class:src/test/ide/IDEDomain.java:IDEDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/ide/Main.java",
+      "target": "function:src/test/ide/Main.java:commonTest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/ide/Main.java",
+      "target": "function:src/test/ide/Main.java:commonTest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/ide/Main.java",
+      "target": "function:src/test/ide/Main.java:throughput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/ide/Main.java",
+      "target": "function:src/test/ide/Main.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/ide/Main.java",
+      "target": "function:src/test/ide/Main.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/ide/Main.java",
+      "target": "class:src/test/ide/Main.java:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/ide/Main.java",
+      "target": "class:src/test/ide/Main.java:Main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testMemory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:test8Bit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:test8BitConst",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:test16Bit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:test16BitLE",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:test32BitConst",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:test32Bit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testRevoke",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testCreateSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testRevokeSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testSplitSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testSplit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testMapSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:testGC",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:MemServerImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:getMemory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:getMemory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:gc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:gc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:gcMem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:gcMem",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "function:src/test/memobj/Main.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "class:src/test/memobj/Main.java:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "class:src/test/memobj/Main.java:Main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "class:src/test/memobj/Main.java:MemServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "class:src/test/memobj/Main.java:MemServerImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/memobj/Main.java",
+      "target": "class:src/test/memobj/Main.java:ClientDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/LoadGenerator.java",
+      "target": "function:src/test/nfs/LoadGenerator.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/LoadGenerator.java",
+      "target": "function:src/test/nfs/LoadGenerator.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/LoadGenerator.java",
+      "target": "function:src/test/nfs/LoadGenerator.java:LoadGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/LoadGenerator.java",
+      "target": "function:src/test/nfs/LoadGenerator.java:LoadGenerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/LoadGenerator.java",
+      "target": "function:src/test/nfs/LoadGenerator.java:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/LoadGenerator.java",
+      "target": "function:src/test/nfs/LoadGenerator.java:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/LoadGenerator.java",
+      "target": "class:src/test/nfs/LoadGenerator.java:LoadGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/LoadGenerator.java",
+      "target": "class:src/test/nfs/LoadGenerator.java:LoadGenerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/Main.java",
+      "target": "class:src/test/nfs/Main.java:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/Main.java",
+      "target": "class:src/test/nfs/Main.java:Main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Skel.java",
+      "target": "function:src/test/nfs/MountProc_Skel.java:MountProc_Skel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Skel.java",
+      "target": "function:src/test/nfs/MountProc_Skel.java:MountProc_Skel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Skel.java",
+      "target": "class:src/test/nfs/MountProc_Skel.java:MountProc_Skel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Skel.java",
+      "target": "class:src/test/nfs/MountProc_Skel.java:MountProc_Skel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:MountProc_Stub",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:MountProc_Stub",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:nullproc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:nullproc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:mnt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:mnt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:dump",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:dump",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:umnt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:umnt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:umntall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:umntall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:export",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "function:src/test/nfs/MountProc_Stub.java:export",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "class:src/test/nfs/MountProc_Stub.java:MountProc_Stub",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/MountProc_Stub.java",
+      "target": "class:src/test/nfs/MountProc_Stub.java:MountProc_Stub",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSClient.java",
+      "target": "function:src/test/nfs/NFSClient.java:NFSClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSClient.java",
+      "target": "function:src/test/nfs/NFSClient.java:NFSClient",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSClient.java",
+      "target": "class:src/test/nfs/NFSClient.java:NFSClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSClient.java",
+      "target": "class:src/test/nfs/NFSClient.java:NFSClient",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSDomain.java",
+      "target": "function:src/test/nfs/NFSDomain.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSDomain.java",
+      "target": "function:src/test/nfs/NFSDomain.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSDomain.java",
+      "target": "function:src/test/nfs/NFSDomain.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSDomain.java",
+      "target": "function:src/test/nfs/NFSDomain.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSDomain.java",
+      "target": "function:src/test/nfs/NFSDomain.java:NFSDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSDomain.java",
+      "target": "function:src/test/nfs/NFSDomain.java:NFSDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSDomain.java",
+      "target": "class:src/test/nfs/NFSDomain.java:NFSDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSDomain.java",
+      "target": "class:src/test/nfs/NFSDomain.java:NFSDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Skel.java",
+      "target": "function:src/test/nfs/NFSProc_Skel.java:NFSProc_Skel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Skel.java",
+      "target": "function:src/test/nfs/NFSProc_Skel.java:NFSProc_Skel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Skel.java",
+      "target": "class:src/test/nfs/NFSProc_Skel.java:NFSProc_Skel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Skel.java",
+      "target": "class:src/test/nfs/NFSProc_Skel.java:NFSProc_Skel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:NFSProc_Stub",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:NFSProc_Stub",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:setAuth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:nullproc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:nullproc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:getattr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:getattr",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:setattr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:setattr",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:root",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:root",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:lookup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:lookup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:readlink",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:readlink",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:read",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:writeCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:writeCache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:write",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:write",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:create",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:create",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:remove",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:remove",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:rename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:rename",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:link",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:link",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:symlink",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:symlink",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:mkdir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:mkdir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:rmdir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:rmdir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:readdir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:readdir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:statfs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "function:src/test/nfs/NFSProc_Stub.java:statfs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "class:src/test/nfs/NFSProc_Stub.java:NFSProc_Stub",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/NFSProc_Stub.java",
+      "target": "class:src/test/nfs/NFSProc_Stub.java:NFSProc_Stub",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/RPCBind_Skel.java",
+      "target": "function:src/test/nfs/RPCBind_Skel.java:RPCBind_Skel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/RPCBind_Skel.java",
+      "target": "function:src/test/nfs/RPCBind_Skel.java:RPCBind_Skel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/nfs/RPCBind_Skel.java",
+      "target": "class:src/test/nfs/RPCBind_Skel.java:RPCBind_Skel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/nfs/RPCBind_Skel.java",
+      "target": "class:src/test/nfs/RPCBind_Skel.java:RPCBind_Skel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerDomain.java",
+      "target": "function:src/test/portal/CallerDomain.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerDomain.java",
+      "target": "function:src/test/portal/CallerDomain.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerDomain.java",
+      "target": "function:src/test/portal/CallerDomain.java:CallerDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerDomain.java",
+      "target": "function:src/test/portal/CallerDomain.java:CallerDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerDomain.java",
+      "target": "class:src/test/portal/CallerDomain.java:CallerDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerDomain.java",
+      "target": "class:src/test/portal/CallerDomain.java:CallerDomain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:CallerHLS",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:CallerHLS",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:registered",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:registered",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:Scheduler_interrupted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:Scheduler_interrupted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:Scheduler_preempted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:Scheduler_preempted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:interrupted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:interrupted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:preempted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:preempted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:yielded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:yielded",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:unblocked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:unblocked",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:created",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:created",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:switchedTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:switchedTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:blockedInPortalCall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:blockedInPortalCall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:portalCalled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:portalCalled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:blockedInService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:blockedInService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:serviceCalled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:serviceCalled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:startGCThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:startGCThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:unblockedGCThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:unblockedGCThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:destroyedGCThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:destroyedGCThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:activated",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:activated",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:toString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:toString",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:dump",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "function:src/test/portal/CallerHLS.java:dump",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "class:src/test/portal/CallerHLS.java:CallerHLS",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/CallerHLS.java",
+      "target": "class:src/test/portal/CallerHLS.java:CallerHLS",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/Daddy.java",
+      "target": "class:src/test/portal/Daddy.java:Daddy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/Daddy.java",
+      "target": "class:src/test/portal/Daddy.java:Daddy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "function:src/test/portal/DaddyImpl.java:DaddyImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "function:src/test/portal/DaddyImpl.java:DaddyImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "function:src/test/portal/DaddyImpl.java:longRunning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "function:src/test/portal/DaddyImpl.java:longRunning",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "function:src/test/portal/DaddyImpl.java:inc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "function:src/test/portal/DaddyImpl.java:inc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "function:src/test/portal/DaddyImpl.java:getCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "function:src/test/portal/DaddyImpl.java:getCount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "class:src/test/portal/DaddyImpl.java:DaddyImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/DaddyImpl.java",
+      "target": "class:src/test/portal/DaddyImpl.java:DaddyImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "function:src/test/portal/GCTest.java:longRunning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "function:src/test/portal/GCTest.java:longRunning",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "function:src/test/portal/GCTest.java:inc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "function:src/test/portal/GCTest.java:inc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "function:src/test/portal/GCTest.java:getCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "function:src/test/portal/GCTest.java:getCount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "function:src/test/portal/GCTest.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "function:src/test/portal/GCTest.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "class:src/test/portal/GCTest.java:GCDaddy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "class:src/test/portal/GCTest.java:GCTest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/GCTest.java",
+      "target": "class:src/test/portal/GCTest.java:GCTest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/HansService.java",
+      "target": "class:src/test/portal/HansService.java:HansService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/HansService.java",
+      "target": "class:src/test/portal/HansService.java:HansService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/HansServiceImpl.java",
+      "target": "function:src/test/portal/HansServiceImpl.java:HansServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/HansServiceImpl.java",
+      "target": "function:src/test/portal/HansServiceImpl.java:HansServiceImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/HansServiceImpl.java",
+      "target": "function:src/test/portal/HansServiceImpl.java:test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/HansServiceImpl.java",
+      "target": "function:src/test/portal/HansServiceImpl.java:test",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/HansServiceImpl.java",
+      "target": "class:src/test/portal/HansServiceImpl.java:HansServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/HansServiceImpl.java",
+      "target": "class:src/test/portal/HansServiceImpl.java:HansServiceImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/Main.java",
+      "target": "class:src/test/portal/Main.java:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/Main.java",
+      "target": "class:src/test/portal/Main.java:Main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/MainAlice.java",
+      "target": "function:src/test/portal/MainAlice.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/MainAlice.java",
+      "target": "function:src/test/portal/MainAlice.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/MainAlice.java",
+      "target": "class:src/test/portal/MainAlice.java:MainAlice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/MainAlice.java",
+      "target": "class:src/test/portal/MainAlice.java:MainAlice",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/MainHans.java",
+      "target": "function:src/test/portal/MainHans.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/MainHans.java",
+      "target": "function:src/test/portal/MainHans.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/test/portal/MainHans.java",
+      "target": "class:src/test/portal/MainHans.java:MainHans",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/test/portal/MainHans.java",
+      "target": "class:src/test/portal/MainHans.java:MainHans",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/gc/Main.java:work0",
+      "target": "function:src/test/gc/Main.java:work1",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/gc/Main.java:work1",
+      "target": "function:src/test/gc/Main.java:work",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/gc/Main.java:w0",
+      "target": "function:src/test/gc/Main.java:w1",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/gc/Main.java:w1",
+      "target": "function:src/test/gc/Main.java:w",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/ide/Main.java:commonTest",
+      "target": "function:src/test/ide/Main.java:throughput",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/ide/Main.java:main",
+      "target": "function:src/test/ide/Main.java:commonTest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:testMemory",
+      "target": "function:src/test/memobj/Main.java:test8Bit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:testMemory",
+      "target": "function:src/test/memobj/Main.java:test8BitConst",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:testMemory",
+      "target": "function:src/test/memobj/Main.java:test16Bit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:testMemory",
+      "target": "function:src/test/memobj/Main.java:test16BitLE",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:testMemory",
+      "target": "function:src/test/memobj/Main.java:test32Bit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:testMemory",
+      "target": "function:src/test/memobj/Main.java:test32BitConst",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testMemory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testMap",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testMapSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testRevoke",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testCreateSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testRevokeSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testSplitSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testCreateSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testRevokeSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testSplitSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testMapSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testSpeed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testSplit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:main",
+      "target": "function:src/test/memobj/Main.java:testGC",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/memobj/Main.java:init",
+      "target": "function:src/test/memobj/Main.java:gcMem",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/test/portal/CallerHLS.java:activated",
+      "target": "function:src/test/portal/CallerHLS.java:toString",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

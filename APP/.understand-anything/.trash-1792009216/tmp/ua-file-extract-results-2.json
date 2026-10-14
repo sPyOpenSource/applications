@@ -1,0 +1,5043 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/test/gc/Cycle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "Cycle",
+          "startLine": 27,
+          "endLine": 55,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Cycle",
+          "startLine": 5,
+          "endLine": 56,
+          "methods": [
+            "main",
+            "Cycle"
+          ],
+          "properties": [
+            "y0",
+            "y"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Cycle",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "Cycle",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new Cycle",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Cycle",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Cycle",
+          "callee": "new X",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Cycle",
+          "callee": "new X",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Cycle",
+          "callee": "new Y",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/gc/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 13,
+          "endLine": 40,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 42,
+          "endLine": 48,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "work0",
+          "startLine": 50,
+          "endLine": 52,
+          "params": [
+            "x0",
+            "x1"
+          ]
+        },
+        {
+          "name": "work1",
+          "startLine": 54,
+          "endLine": 61,
+          "params": [
+            "x0",
+            "a1",
+            "a2",
+            "a3",
+            "a4",
+            "a5",
+            "x1"
+          ]
+        },
+        {
+          "name": "work",
+          "startLine": 63,
+          "endLine": 73,
+          "params": [
+            "x0"
+          ]
+        },
+        {
+          "name": "w0",
+          "startLine": 75,
+          "endLine": 77,
+          "params": [
+            "x0",
+            "x1"
+          ]
+        },
+        {
+          "name": "w1",
+          "startLine": 79,
+          "endLine": 86,
+          "params": [
+            "x0",
+            "a1",
+            "a2",
+            "a3",
+            "a4",
+            "a5",
+            "x1"
+          ]
+        },
+        {
+          "name": "w",
+          "startLine": 88,
+          "endLine": 94,
+          "params": [
+            "x0"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "X",
+          "startLine": 5,
+          "endLine": 10,
+          "methods": [],
+          "properties": [
+            "a",
+            "b",
+            "c",
+            "x"
+          ]
+        },
+        {
+          "name": "Main",
+          "startLine": 12,
+          "endLine": 95,
+          "methods": [
+            "main",
+            "init",
+            "work0",
+            "work1",
+            "work",
+            "w0",
+            "w1",
+            "w"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "work0",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "work1",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "work",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "w0",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "w1",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "w",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.createCPUState",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "new ThreadEntry",
+          "lineNumber": 16
+        },
+        {
+          "caller": "run",
+          "callee": "cpuManager.setThreadName",
+          "lineNumber": 20
+        },
+        {
+          "caller": "run",
+          "callee": "cpuManager.yield",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.start",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "new X",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "new X",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "new X",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.yield",
+          "lineNumber": 38
+        },
+        {
+          "caller": "init",
+          "callee": "new X",
+          "lineNumber": 44
+        },
+        {
+          "caller": "init",
+          "callee": "new Main().w0",
+          "lineNumber": 47
+        },
+        {
+          "caller": "init",
+          "callee": "new Main",
+          "lineNumber": 47
+        },
+        {
+          "caller": "init",
+          "callee": "new X",
+          "lineNumber": 47
+        },
+        {
+          "caller": "work0",
+          "callee": "work1",
+          "lineNumber": 51
+        },
+        {
+          "caller": "work1",
+          "callee": "new Object",
+          "lineNumber": 58
+        },
+        {
+          "caller": "work1",
+          "callee": "work",
+          "lineNumber": 60
+        },
+        {
+          "caller": "work",
+          "callee": "new X",
+          "lineNumber": 68
+        },
+        {
+          "caller": "work",
+          "callee": "new X",
+          "lineNumber": 69
+        },
+        {
+          "caller": "w0",
+          "callee": "w1",
+          "lineNumber": 76
+        },
+        {
+          "caller": "w1",
+          "callee": "new Object",
+          "lineNumber": 83
+        },
+        {
+          "caller": "w1",
+          "callee": "w",
+          "lineNumber": 85
+        },
+        {
+          "caller": "w",
+          "callee": "Main.work0",
+          "lineNumber": 92
+        },
+        {
+          "caller": "w",
+          "callee": "new X",
+          "lineNumber": 92
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 8,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/test/ide/IDEDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 16,
+          "endLine": 23,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "IDEDomain",
+          "startLine": 25,
+          "endLine": 36,
+          "params": [
+            "naming"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "IDEDomain",
+          "startLine": 13,
+          "endLine": 37,
+          "methods": [
+            "init",
+            "IDEDomain"
+          ],
+          "properties": [
+            "naming"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "IDEDomain",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 17
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 18
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 19
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 19
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "init",
+          "callee": "cpuManager.setThreadName",
+          "lineNumber": 21
+        },
+        {
+          "caller": "init",
+          "callee": "new IDEDomain",
+          "lineNumber": 22
+        },
+        {
+          "caller": "IDEDomain",
+          "callee": "new IDEDeviceImpl",
+          "lineNumber": 28
+        },
+        {
+          "caller": "IDEDomain",
+          "callee": "ide.getDrives",
+          "lineNumber": 29
+        },
+        {
+          "caller": "IDEDomain",
+          "callee": "drives[0].getPartitions",
+          "lineNumber": 30
+        },
+        {
+          "caller": "IDEDomain",
+          "callee": "naming.registerPortal",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/ide/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "commonTest",
+          "startLine": 13,
+          "endLine": 51,
+          "params": [
+            "naming",
+            "bio",
+            "readOnly"
+          ]
+        },
+        {
+          "name": "throughput",
+          "startLine": 56,
+          "endLine": 68,
+          "params": [
+            "bio",
+            "memoryManager",
+            "nsec"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 70,
+          "endLine": 81,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 11,
+          "endLine": 82,
+          "methods": [
+            "commonTest",
+            "throughput",
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "commonTest",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "commonTest",
+          "callee": "naming.lookup",
+          "lineNumber": 14
+        },
+        {
+          "caller": "commonTest",
+          "callee": "memoryManager.allocAligned",
+          "lineNumber": 15
+        },
+        {
+          "caller": "commonTest",
+          "callee": "Debug.out.println",
+          "lineNumber": 17
+        },
+        {
+          "caller": "commonTest",
+          "callee": "bio.getCapacity",
+          "lineNumber": 17
+        },
+        {
+          "caller": "commonTest",
+          "callee": "Debug.out.println",
+          "lineNumber": 19
+        },
+        {
+          "caller": "commonTest",
+          "callee": "bio.readSectors",
+          "lineNumber": 20
+        },
+        {
+          "caller": "commonTest",
+          "callee": "Dump.xdump",
+          "lineNumber": 22
+        },
+        {
+          "caller": "commonTest",
+          "callee": "buffer.size",
+          "lineNumber": 23
+        },
+        {
+          "caller": "commonTest",
+          "callee": "buffer.set8",
+          "lineNumber": 24
+        },
+        {
+          "caller": "commonTest",
+          "callee": "bio.writeSectors",
+          "lineNumber": 26
+        },
+        {
+          "caller": "commonTest",
+          "callee": "Debug.out.println",
+          "lineNumber": 27
+        },
+        {
+          "caller": "commonTest",
+          "callee": "buffer.size",
+          "lineNumber": 29
+        },
+        {
+          "caller": "commonTest",
+          "callee": "buffer.set8",
+          "lineNumber": 30
+        },
+        {
+          "caller": "commonTest",
+          "callee": "bio.readSectors",
+          "lineNumber": 32
+        },
+        {
+          "caller": "commonTest",
+          "callee": "Dump.xdump",
+          "lineNumber": 33
+        },
+        {
+          "caller": "commonTest",
+          "callee": "bio.getCapacity",
+          "lineNumber": 35
+        },
+        {
+          "caller": "commonTest",
+          "callee": "throughput",
+          "lineNumber": 38
+        },
+        {
+          "caller": "commonTest",
+          "callee": "Debug.out.println",
+          "lineNumber": 40
+        },
+        {
+          "caller": "commonTest",
+          "callee": "Debug.out.println",
+          "lineNumber": 43
+        },
+        {
+          "caller": "commonTest",
+          "callee": "bio.readSectors",
+          "lineNumber": 44
+        },
+        {
+          "caller": "commonTest",
+          "callee": "Debug.out.println",
+          "lineNumber": 47
+        },
+        {
+          "caller": "throughput",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 57
+        },
+        {
+          "caller": "throughput",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 57
+        },
+        {
+          "caller": "throughput",
+          "callee": "memoryManager.allocAligned",
+          "lineNumber": 58
+        },
+        {
+          "caller": "throughput",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 60
+        },
+        {
+          "caller": "throughput",
+          "callee": "bio.readSectors",
+          "lineNumber": 63
+        },
+        {
+          "caller": "throughput",
+          "callee": "clock.getTimeInMillis",
+          "lineNumber": 65
+        },
+        {
+          "caller": "throughput",
+          "callee": "Debug.out.println",
+          "lineNumber": 66
+        },
+        {
+          "caller": "throughput",
+          "callee": "Debug.out.println",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 71
+        },
+        {
+          "caller": "main",
+          "callee": "new IDEDeviceImpl",
+          "lineNumber": 73
+        },
+        {
+          "caller": "main",
+          "callee": "ide.getDrives",
+          "lineNumber": 74
+        },
+        {
+          "caller": "main",
+          "callee": "drives[0].getPartitions",
+          "lineNumber": 75
+        },
+        {
+          "caller": "main",
+          "callee": "commonTest",
+          "lineNumber": 80
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/memobj/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 498,
+      "nonEmptyLines": 435,
+      "functions": [
+        {
+          "name": "testMemory",
+          "startLine": 17,
+          "endLine": 67,
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ]
+        },
+        {
+          "name": "test8Bit",
+          "startLine": 69,
+          "endLine": 82,
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ]
+        },
+        {
+          "name": "test8BitConst",
+          "startLine": 84,
+          "endLine": 93,
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ]
+        },
+        {
+          "name": "test16Bit",
+          "startLine": 95,
+          "endLine": 112,
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ]
+        },
+        {
+          "name": "test16BitLE",
+          "startLine": 114,
+          "endLine": 128,
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ]
+        },
+        {
+          "name": "test32BitConst",
+          "startLine": 130,
+          "endLine": 146,
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ]
+        },
+        {
+          "name": "test32Bit",
+          "startLine": 148,
+          "endLine": 164,
+          "params": [
+            "memMgr",
+            "mem",
+            "size"
+          ]
+        },
+        {
+          "name": "testSet",
+          "startLine": 166,
+          "endLine": 168,
+          "params": [
+            "mem"
+          ]
+        },
+        {
+          "name": "testSpeed",
+          "startLine": 171,
+          "endLine": 186,
+          "params": [
+            "memMgr"
+          ]
+        },
+        {
+          "name": "testRevoke",
+          "startLine": 188,
+          "endLine": 201,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "testCreateSpeed",
+          "startLine": 203,
+          "endLine": 225,
+          "params": [
+            "naming",
+            "ntries"
+          ]
+        },
+        {
+          "name": "testRevokeSpeed",
+          "startLine": 227,
+          "endLine": 244,
+          "params": [
+            "naming",
+            "ntries"
+          ]
+        },
+        {
+          "name": "testSplitSpeed",
+          "startLine": 246,
+          "endLine": 265,
+          "params": [
+            "naming",
+            "ntries"
+          ]
+        },
+        {
+          "name": "testSplit",
+          "startLine": 267,
+          "endLine": 295,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "testMap",
+          "startLine": 297,
+          "endLine": 312,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "testMapSpeed",
+          "startLine": 314,
+          "endLine": 383,
+          "params": [
+            "naming",
+            "ntries",
+            "ntries2"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 385,
+          "endLine": 442,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "testGC",
+          "startLine": 444,
+          "endLine": 449,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "MemServerImpl",
+          "startLine": 461,
+          "endLine": 463,
+          "params": [
+            "memMgr"
+          ]
+        },
+        {
+          "name": "getMemory",
+          "startLine": 464,
+          "endLine": 466,
+          "params": []
+        },
+        {
+          "name": "gc",
+          "startLine": 468,
+          "endLine": 471,
+          "params": []
+        },
+        {
+          "name": "gcMem",
+          "startLine": 477,
+          "endLine": 482,
+          "params": [
+            "svr"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 484,
+          "endLine": 497,
+          "params": [
+            "naming",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyMap",
+          "startLine": 6,
+          "endLine": 11,
+          "methods": [],
+          "properties": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "Main",
+          "startLine": 13,
+          "endLine": 452,
+          "methods": [
+            "testMemory",
+            "test8Bit",
+            "test8BitConst",
+            "test16Bit",
+            "test16BitLE",
+            "test32BitConst",
+            "test32Bit",
+            "testSet",
+            "testSpeed",
+            "testRevoke",
+            "testCreateSpeed",
+            "testRevokeSpeed",
+            "testSplitSpeed",
+            "testSplit",
+            "testMap",
+            "testMapSpeed",
+            "main",
+            "testGC"
+          ],
+          "properties": [
+            "doTiming"
+          ]
+        },
+        {
+          "name": "MemServer",
+          "startLine": 454,
+          "endLine": 457,
+          "methods": [
+            "getMemory",
+            "gc"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MemServerImpl",
+          "startLine": 459,
+          "endLine": 473,
+          "methods": [
+            "MemServerImpl",
+            "getMemory",
+            "gc"
+          ],
+          "properties": [
+            "memMgr"
+          ]
+        },
+        {
+          "name": "ClientDomain",
+          "startLine": 475,
+          "endLine": 498,
+          "methods": [
+            "gcMem",
+            "init"
+          ],
+          "properties": [
+            "m"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 385,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "getMemory",
+          "line": 464,
+          "isDefault": false
+        },
+        {
+          "name": "gc",
+          "line": 468,
+          "isDefault": false
+        },
+        {
+          "name": "gcMem",
+          "line": 477,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 484,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "testMemory",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 21
+        },
+        {
+          "caller": "testMemory",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 21
+        },
+        {
+          "caller": "testMemory",
+          "callee": "jx.zero.timing.Control.startTiming",
+          "lineNumber": 22
+        },
+        {
+          "caller": "testMemory",
+          "callee": "mem.size",
+          "lineNumber": 25
+        },
+        {
+          "caller": "testMemory",
+          "callee": "new Error",
+          "lineNumber": 26
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Debug.out.println",
+          "lineNumber": 28
+        },
+        {
+          "caller": "testMemory",
+          "callee": "test8Bit",
+          "lineNumber": 30
+        },
+        {
+          "caller": "testMemory",
+          "callee": "test8BitConst",
+          "lineNumber": 31
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Debug.out.println",
+          "lineNumber": 32
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Dump.xdump",
+          "lineNumber": 33
+        },
+        {
+          "caller": "testMemory",
+          "callee": "test16Bit",
+          "lineNumber": 35
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Debug.out.println",
+          "lineNumber": 36
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Dump.xdump",
+          "lineNumber": 37
+        },
+        {
+          "caller": "testMemory",
+          "callee": "test16BitLE",
+          "lineNumber": 39
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Debug.out.println",
+          "lineNumber": 40
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Dump.xdump",
+          "lineNumber": 41
+        },
+        {
+          "caller": "testMemory",
+          "callee": "test32Bit",
+          "lineNumber": 43
+        },
+        {
+          "caller": "testMemory",
+          "callee": "test32BitConst",
+          "lineNumber": 44
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Debug.out.println",
+          "lineNumber": 45
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Dump.xdump",
+          "lineNumber": 46
+        },
+        {
+          "caller": "testMemory",
+          "callee": "mem.copyToByteArray",
+          "lineNumber": 50
+        },
+        {
+          "caller": "testMemory",
+          "callee": "mem.get8",
+          "lineNumber": 52
+        },
+        {
+          "caller": "testMemory",
+          "callee": "new Error",
+          "lineNumber": 53
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Debug.out.println",
+          "lineNumber": 56
+        },
+        {
+          "caller": "testMemory",
+          "callee": "mem.copyFromByteArray",
+          "lineNumber": 57
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Debug.out.println",
+          "lineNumber": 58
+        },
+        {
+          "caller": "testMemory",
+          "callee": "memMgr.alloc",
+          "lineNumber": 61
+        },
+        {
+          "caller": "testMemory",
+          "callee": "mem.copyToMemory",
+          "lineNumber": 62
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Debug.out.println",
+          "lineNumber": 63
+        },
+        {
+          "caller": "testMemory",
+          "callee": "Dump.xdump",
+          "lineNumber": 64
+        },
+        {
+          "caller": "testMemory",
+          "callee": "new Error",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test8Bit",
+          "callee": "mem.set8",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test8Bit",
+          "callee": "mem.get8",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test8Bit",
+          "callee": "new Error",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test8Bit",
+          "callee": "mem.set8",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test8Bit",
+          "callee": "mem.get8",
+          "lineNumber": 76
+        },
+        {
+          "caller": "test8Bit",
+          "callee": "Dump.xdump",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test8Bit",
+          "callee": "new Error",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test8BitConst",
+          "callee": "mem.set8",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test8BitConst",
+          "callee": "mem.get8",
+          "lineNumber": 87
+        },
+        {
+          "caller": "test8BitConst",
+          "callee": "Dump.xdump",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test8BitConst",
+          "callee": "new Error",
+          "lineNumber": 90
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "mem.set16",
+          "lineNumber": 97
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "mem.get16",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "new Error",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "mem.set16",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "mem.get16",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "new Error",
+          "lineNumber": 102
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "mem.get8",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "mem.get8",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "Debug.out.println",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "Dump.xdump",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test16Bit",
+          "callee": "new Error",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test16BitLE",
+          "callee": "mem.setLittleEndian16",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test16BitLE",
+          "callee": "mem.getLittleEndian16",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test16BitLE",
+          "callee": "new Error",
+          "lineNumber": 118
+        },
+        {
+          "caller": "test16BitLE",
+          "callee": "mem.get8",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test16BitLE",
+          "callee": "mem.get8",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test16BitLE",
+          "callee": "Debug.out.println",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test16BitLE",
+          "callee": "Dump.xdump",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test16BitLE",
+          "callee": "new Error",
+          "lineNumber": 125
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "mem.set32",
+          "lineNumber": 132
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "mem.get32",
+          "lineNumber": 133
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "new Error",
+          "lineNumber": 134
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "mem.get8",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "mem.get8",
+          "lineNumber": 137
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "mem.get8",
+          "lineNumber": 138
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "mem.get8",
+          "lineNumber": 139
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "Debug.out.println",
+          "lineNumber": 141
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "Dump.xdump",
+          "lineNumber": 142
+        },
+        {
+          "caller": "test32BitConst",
+          "callee": "new Error",
+          "lineNumber": 143
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "mem.set32",
+          "lineNumber": 150
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "mem.get32",
+          "lineNumber": 151
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "new Error",
+          "lineNumber": 152
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "mem.get8",
+          "lineNumber": 154
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "mem.get8",
+          "lineNumber": 155
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "mem.get8",
+          "lineNumber": 156
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "mem.get8",
+          "lineNumber": 157
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "Debug.out.println",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "Dump.xdump",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test32Bit",
+          "callee": "new Error",
+          "lineNumber": 161
+        },
+        {
+          "caller": "testSet",
+          "callee": "mem.set32",
+          "lineNumber": 167
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 172
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 172
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "memMgr.allocAligned",
+          "lineNumber": 173
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 174
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 175
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 176
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 177
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "mem.set32",
+          "lineNumber": 180
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 183
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 184
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 185
+        },
+        {
+          "caller": "testSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 185
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "naming.lookup",
+          "lineNumber": 189
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "naming.lookup",
+          "lineNumber": 190
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 191
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "mem.split3",
+          "lineNumber": 193
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "cpuManager.dump",
+          "lineNumber": 195
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "mem1.revoke",
+          "lineNumber": 196
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "cpuManager.dump",
+          "lineNumber": 197
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "Debug.out.println",
+          "lineNumber": 198
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "mem1.get8",
+          "lineNumber": 199
+        },
+        {
+          "caller": "testRevoke",
+          "callee": "Debug.out.println",
+          "lineNumber": 200
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 204
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 204
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 205
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 206
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 207
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "naming.lookup",
+          "lineNumber": 209
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "naming.lookup",
+          "lineNumber": 210
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 211
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 213
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 215
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 216
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 217
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 217
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 218
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "memoryManager.allocDeviceMemory",
+          "lineNumber": 220
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 222
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 223
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 224
+        },
+        {
+          "caller": "testCreateSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 224
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 228
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 228
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 229
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 230
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 231
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "naming.lookup",
+          "lineNumber": 233
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "naming.lookup",
+          "lineNumber": 234
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 235
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 237
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "mem.revoke",
+          "lineNumber": 239
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 241
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 242
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 243
+        },
+        {
+          "caller": "testRevokeSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 243
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 247
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 247
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 248
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 249
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 250
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "naming.lookup",
+          "lineNumber": 252
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "naming.lookup",
+          "lineNumber": 253
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 254
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 257
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "mem.split2",
+          "lineNumber": 259
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 262
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 263
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 264
+        },
+        {
+          "caller": "testSplitSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 264
+        },
+        {
+          "caller": "testSplit",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 268
+        },
+        {
+          "caller": "testSplit",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 268
+        },
+        {
+          "caller": "testSplit",
+          "callee": "naming.lookup",
+          "lineNumber": 269
+        },
+        {
+          "caller": "testSplit",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 270
+        },
+        {
+          "caller": "testSplit",
+          "callee": "mem.split2",
+          "lineNumber": 272
+        },
+        {
+          "caller": "testSplit",
+          "callee": "mem.set32",
+          "lineNumber": 278
+        },
+        {
+          "caller": "testSplit",
+          "callee": "Debug.out.println",
+          "lineNumber": 282
+        },
+        {
+          "caller": "testSplit",
+          "callee": "arr[0].set32",
+          "lineNumber": 287
+        },
+        {
+          "caller": "testSplit",
+          "callee": "arr[1].set32",
+          "lineNumber": 288
+        },
+        {
+          "caller": "testSplit",
+          "callee": "Debug.out.println",
+          "lineNumber": 292
+        },
+        {
+          "caller": "testSplit",
+          "callee": "Debug.out.println",
+          "lineNumber": 294
+        },
+        {
+          "caller": "testMap",
+          "callee": "naming.lookup",
+          "lineNumber": 298
+        },
+        {
+          "caller": "testMap",
+          "callee": "naming.lookup",
+          "lineNumber": 299
+        },
+        {
+          "caller": "testMap",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 300
+        },
+        {
+          "caller": "testMap",
+          "callee": "cpuManager.getClass",
+          "lineNumber": 301
+        },
+        {
+          "caller": "testMap",
+          "callee": "mem.map",
+          "lineNumber": 302
+        },
+        {
+          "caller": "testMap",
+          "callee": "Dump.xdump",
+          "lineNumber": 307
+        },
+        {
+          "caller": "testMap",
+          "callee": "Debug.out.println",
+          "lineNumber": 308
+        },
+        {
+          "caller": "testMap",
+          "callee": "Debug.out.println",
+          "lineNumber": 309
+        },
+        {
+          "caller": "testMap",
+          "callee": "Debug.out.println",
+          "lineNumber": 310
+        },
+        {
+          "caller": "testMap",
+          "callee": "Debug.out.println",
+          "lineNumber": 311
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 315
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 315
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 316
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 317
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "new CycleTime",
+          "lineNumber": 318
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "naming.lookup",
+          "lineNumber": 320
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "naming.lookup",
+          "lineNumber": 321
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 322
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "cpuManager.getClass",
+          "lineNumber": 323
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.map",
+          "lineNumber": 324
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 326
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 333
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 334
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 335
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 335
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 337
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 344
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 345
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 346
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 346
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 349
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.map",
+          "lineNumber": 351
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 353
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 354
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 355
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 355
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 358
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.setLittleEndian32",
+          "lineNumber": 360
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.setLittleEndian16",
+          "lineNumber": 361
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.setLittleEndian16",
+          "lineNumber": 362
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.setLittleEndian32",
+          "lineNumber": 363
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 365
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 366
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 367
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 367
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 371
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.getLittleEndian32",
+          "lineNumber": 373
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.getLittleEndian16",
+          "lineNumber": 374
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.getLittleEndian16",
+          "lineNumber": 375
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "mem.getLittleEndian32",
+          "lineNumber": 376
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.getCycles",
+          "lineNumber": 378
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.subtract",
+          "lineNumber": 379
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "Debug.out.println",
+          "lineNumber": 380
+        },
+        {
+          "caller": "testMapSpeed",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 380
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 386
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 387
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 388
+        },
+        {
+          "caller": "main",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 393
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 394
+        },
+        {
+          "caller": "main",
+          "callee": "testMemory",
+          "lineNumber": 395
+        },
+        {
+          "caller": "main",
+          "callee": "testMap",
+          "lineNumber": 398
+        },
+        {
+          "caller": "main",
+          "callee": "testMapSpeed",
+          "lineNumber": 401
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 401
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 401
+        },
+        {
+          "caller": "main",
+          "callee": "testRevoke",
+          "lineNumber": 404
+        },
+        {
+          "caller": "main",
+          "callee": "testCreateSpeed",
+          "lineNumber": 407
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 407
+        },
+        {
+          "caller": "main",
+          "callee": "testRevokeSpeed",
+          "lineNumber": 410
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 410
+        },
+        {
+          "caller": "main",
+          "callee": "testSplitSpeed",
+          "lineNumber": 413
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 413
+        },
+        {
+          "caller": "main",
+          "callee": "testCreateSpeed",
+          "lineNumber": 416
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 416
+        },
+        {
+          "caller": "main",
+          "callee": "testRevokeSpeed",
+          "lineNumber": 417
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 417
+        },
+        {
+          "caller": "main",
+          "callee": "testSplitSpeed",
+          "lineNumber": 418
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 418
+        },
+        {
+          "caller": "main",
+          "callee": "testSpeed",
+          "lineNumber": 419
+        },
+        {
+          "caller": "main",
+          "callee": "testMapSpeed",
+          "lineNumber": 420
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 420
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 420
+        },
+        {
+          "caller": "main",
+          "callee": "testSpeed",
+          "lineNumber": 423
+        },
+        {
+          "caller": "main",
+          "callee": "new MemServerImpl",
+          "lineNumber": 427
+        },
+        {
+          "caller": "main",
+          "callee": "naming.registerPortal",
+          "lineNumber": 428
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 429
+        },
+        {
+          "caller": "main",
+          "callee": "testSplit",
+          "lineNumber": 432
+        },
+        {
+          "caller": "main",
+          "callee": "testGC",
+          "lineNumber": 435
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 438
+        },
+        {
+          "caller": "testGC",
+          "callee": "naming.lookup",
+          "lineNumber": 445
+        },
+        {
+          "caller": "testGC",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 446
+        },
+        {
+          "caller": "testGC",
+          "callee": "new Object",
+          "lineNumber": 448
+        },
+        {
+          "caller": "getMemory",
+          "callee": "memMgr.alloc",
+          "lineNumber": 465
+        },
+        {
+          "caller": "gc",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 469
+        },
+        {
+          "caller": "gc",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 469
+        },
+        {
+          "caller": "gc",
+          "callee": "domainManager.gc",
+          "lineNumber": 470
+        },
+        {
+          "caller": "gc",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 470
+        },
+        {
+          "caller": "gcMem",
+          "callee": "svr.getMemory",
+          "lineNumber": 480
+        },
+        {
+          "caller": "init",
+          "callee": "new jx.zero.debug.DebugPrintStream",
+          "lineNumber": 485
+        },
+        {
+          "caller": "init",
+          "callee": "new jx.zero.debug.DebugOutputStream",
+          "lineNumber": 485
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 485
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 486
+        },
+        {
+          "caller": "init",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 487
+        },
+        {
+          "caller": "init",
+          "callee": "svr.getMemory",
+          "lineNumber": 489
+        },
+        {
+          "caller": "init",
+          "callee": "gcMem",
+          "lineNumber": 492
+        },
+        {
+          "caller": "init",
+          "callee": "domainManager.gc",
+          "lineNumber": 494
+        },
+        {
+          "caller": "init",
+          "callee": "domainManager.getCurrentDomain",
+          "lineNumber": 494
+        },
+        {
+          "caller": "init",
+          "callee": "svr.gc",
+          "lineNumber": 495
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 23,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "src/test/nfs/LoadGenerator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 10,
+          "endLine": 16,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "LoadGenerator",
+          "startLine": 19,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "run",
+          "startLine": 37,
+          "endLine": 45,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LoadGenerator",
+          "startLine": 6,
+          "endLine": 46,
+          "methods": [
+            "init",
+            "LoadGenerator",
+            "run"
+          ],
+          "properties": [
+            "cpuManager",
+            "ende"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "LoadGenerator",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "LoadGenerator",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 12
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 14
+        },
+        {
+          "caller": "init",
+          "callee": "new LoadGenerator",
+          "lineNumber": 15
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "Debug.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "cpuManager.sleep",
+          "lineNumber": 24
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "cpuManager.sleep",
+          "lineNumber": 26
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "(allMyThreads[thr++]=new Thread(this, \"Load\"+thr)).start",
+          "lineNumber": 28
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "new Thread",
+          "lineNumber": 28
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "Debug.out.println",
+          "lineNumber": 29
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "cpuManager.sleep",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "cpuManager.sleep",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/nfs/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 6,
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 3,
+          "endLine": 7,
+          "methods": [],
+          "properties": [
+            "RPC_LOCALPORT",
+            "testClient",
+            "EXT2FS_BLOCKSIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Main",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/nfs/MountProc_Skel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "MountProc_Skel",
+          "startLine": 12,
+          "endLine": 13,
+          "params": [
+            "rpc",
+            "mountPort",
+            "mountImpl"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MountProc_Skel",
+          "startLine": 10,
+          "endLine": 15,
+          "methods": [
+            "MountProc_Skel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MountProc_Skel",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "MountProc_Skel",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/nfs/MountProc_Stub.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "MountProc_Stub",
+          "startLine": 17,
+          "endLine": 18,
+          "params": [
+            "rpc",
+            "rpcHost"
+          ]
+        },
+        {
+          "name": "nullproc",
+          "startLine": 20,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "mnt",
+          "startLine": 25,
+          "endLine": 28,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "dump",
+          "startLine": 30,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "umnt",
+          "startLine": 35,
+          "endLine": 38,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "umntall",
+          "startLine": 40,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "export",
+          "startLine": 45,
+          "endLine": 48,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MountProc_Stub",
+          "startLine": 15,
+          "endLine": 50,
+          "methods": [
+            "MountProc_Stub",
+            "nullproc",
+            "mnt",
+            "dump",
+            "umnt",
+            "umntall",
+            "export"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MountProc_Stub",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "nullproc",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "mnt",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "dump",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "umnt",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "umntall",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "export",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "MountProc_Stub",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "nullproc",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 22
+        },
+        {
+          "caller": "mnt",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 27
+        },
+        {
+          "caller": "dump",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 32
+        },
+        {
+          "caller": "umnt",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 37
+        },
+        {
+          "caller": "umntall",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 42
+        },
+        {
+          "caller": "export",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/nfs/NFSClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "NFSClient",
+          "startLine": 22,
+          "endLine": 66,
+          "params": [
+            "rpcHost"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSClient",
+          "startLine": 18,
+          "endLine": 67,
+          "methods": [
+            "NFSClient"
+          ],
+          "properties": [
+            "RPC_LOCALPORT",
+            "EXT2FS_BLOCKSIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NFSClient",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NFSClient",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 23
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "naming.lookup",
+          "lineNumber": 24
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "naming.lookup",
+          "lineNumber": 25
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "naming.lookup",
+          "lineNumber": 28
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new RPC",
+          "lineNumber": 31
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new MountProc_Stub",
+          "lineNumber": 34
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "mount.mnt",
+          "lineNumber": 37
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new DirPath",
+          "lineNumber": 37
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new Error",
+          "lineNumber": 39
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new NFSProc_Stub",
+          "lineNumber": 46
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new AuthUnix",
+          "lineNumber": 47
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "netinstance.getLocalAddress().getHostName",
+          "lineNumber": 47
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "netinstance.getLocalAddress",
+          "lineNumber": 47
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new AuthNone",
+          "lineNumber": 48
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "((NFSProc_Stub)nfs).setAuth",
+          "lineNumber": 49
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "nfs.getattr",
+          "lineNumber": 52
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new Error",
+          "lineNumber": 54
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 58
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 59
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 60
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 61
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 62
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new Error",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/nfs/NFSDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 22,
+          "endLine": 28,
+          "params": [
+            "naming",
+            "args"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 29,
+          "endLine": 32,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "NFSDomain",
+          "startLine": 34,
+          "endLine": 76,
+          "params": [
+            "naming",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSDomain",
+          "startLine": 18,
+          "endLine": 77,
+          "methods": [
+            "init",
+            "main",
+            "NFSDomain"
+          ],
+          "properties": [
+            "RPC_LOCALPORT",
+            "EXT2FS_BLOCKSIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "NFSDomain",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 23
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 24
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 25
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 25
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 26
+        },
+        {
+          "caller": "init",
+          "callee": "new NFSDomain",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "new NFSDomain",
+          "lineNumber": 31
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "naming.lookup",
+          "lineNumber": 38
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "naming.lookup",
+          "lineNumber": 39
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 41
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new RPC",
+          "lineNumber": 43
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Error",
+          "lineNumber": 44
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 46
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Error",
+          "lineNumber": 47
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new NFSProc_Impl",
+          "lineNumber": 49
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new MountProc_Impl",
+          "lineNumber": 50
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new RPCBind_Impl",
+          "lineNumber": 53
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "bind.registerService",
+          "lineNumber": 56
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "bind.registerService",
+          "lineNumber": 57
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread(\"MountProc\") {\n\t\t    public void run() {\n\t\t\tnew MountProc_Skel(rpc, mountPort, mountImpl);\n\t\t    }\n\t\t}.start",
+          "lineNumber": 58
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread",
+          "lineNumber": 58
+        },
+        {
+          "caller": "run",
+          "callee": "new MountProc_Skel",
+          "lineNumber": 60
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread(\"NFSProc\") {\n\t\t    public void run() {\n\t\t\tnew NFSProc_Skel(rpc, nfsPort, nfsImpl);\n\t\t    }\n\t\t}.start",
+          "lineNumber": 63
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread",
+          "lineNumber": 63
+        },
+        {
+          "caller": "run",
+          "callee": "new NFSProc_Skel",
+          "lineNumber": 65
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread(\"RPCBind\") {\n\t\t    public void run() {\n\t\t\tnew RPCBind_Skel(rpc, 111, bind);\n\t\t    }\n\t\t}.start",
+          "lineNumber": 68
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread",
+          "lineNumber": 68
+        },
+        {
+          "caller": "run",
+          "callee": "new RPCBind_Skel",
+          "lineNumber": 70
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Error",
+          "lineNumber": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/nfs/NFSProc_Skel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "NFSProc_Skel",
+          "startLine": 12,
+          "endLine": 13,
+          "params": [
+            "rpc",
+            "nfsPort",
+            "nfsImpl"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSProc_Skel",
+          "startLine": 10,
+          "endLine": 15,
+          "methods": [
+            "NFSProc_Skel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NFSProc_Skel",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "NFSProc_Skel",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/nfs/NFSProc_Stub.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 124,
+      "nonEmptyLines": 101,
+      "functions": [
+        {
+          "name": "NFSProc_Stub",
+          "startLine": 27,
+          "endLine": 28,
+          "params": [
+            "rpc",
+            "rpcHost"
+          ]
+        },
+        {
+          "name": "setAuth",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "a",
+            "ct"
+          ]
+        },
+        {
+          "name": "nullproc",
+          "startLine": 34,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "getattr",
+          "startLine": 39,
+          "endLine": 42,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "setattr",
+          "startLine": 44,
+          "endLine": 47,
+          "params": [
+            "file",
+            "attributes"
+          ]
+        },
+        {
+          "name": "root",
+          "startLine": 49,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "lookup",
+          "startLine": 54,
+          "endLine": 57,
+          "params": [
+            "dir",
+            "name"
+          ]
+        },
+        {
+          "name": "readlink",
+          "startLine": 59,
+          "endLine": 62,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 64,
+          "endLine": 67,
+          "params": [
+            "file",
+            "offset",
+            "count",
+            "totalcount"
+          ]
+        },
+        {
+          "name": "writeCache",
+          "startLine": 69,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "write",
+          "startLine": 74,
+          "endLine": 77,
+          "params": [
+            "file",
+            "beginoffset",
+            "offset",
+            "totalcount",
+            "data"
+          ]
+        },
+        {
+          "name": "create",
+          "startLine": 79,
+          "endLine": 82,
+          "params": [
+            "dir",
+            "name",
+            "attributes"
+          ]
+        },
+        {
+          "name": "remove",
+          "startLine": 84,
+          "endLine": 87,
+          "params": [
+            "dir",
+            "name"
+          ]
+        },
+        {
+          "name": "rename",
+          "startLine": 89,
+          "endLine": 92,
+          "params": [
+            "fromDir",
+            "fromName",
+            "toDir",
+            "toName"
+          ]
+        },
+        {
+          "name": "link",
+          "startLine": 94,
+          "endLine": 97,
+          "params": [
+            "from",
+            "toDir",
+            "toName"
+          ]
+        },
+        {
+          "name": "symlink",
+          "startLine": 99,
+          "endLine": 102,
+          "params": [
+            "fromDir",
+            "fromName",
+            "to",
+            "attributes"
+          ]
+        },
+        {
+          "name": "mkdir",
+          "startLine": 104,
+          "endLine": 107,
+          "params": [
+            "dir",
+            "name",
+            "attributes"
+          ]
+        },
+        {
+          "name": "rmdir",
+          "startLine": 109,
+          "endLine": 112,
+          "params": [
+            "dir",
+            "name"
+          ]
+        },
+        {
+          "name": "readdir",
+          "startLine": 114,
+          "endLine": 117,
+          "params": [
+            "dir",
+            "cookie",
+            "count"
+          ]
+        },
+        {
+          "name": "statfs",
+          "startLine": 119,
+          "endLine": 122,
+          "params": [
+            "dir"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSProc_Stub",
+          "startLine": 25,
+          "endLine": 124,
+          "methods": [
+            "NFSProc_Stub",
+            "setAuth",
+            "nullproc",
+            "getattr",
+            "setattr",
+            "root",
+            "lookup",
+            "readlink",
+            "read",
+            "writeCache",
+            "write",
+            "create",
+            "remove",
+            "rename",
+            "link",
+            "symlink",
+            "mkdir",
+            "rmdir",
+            "readdir",
+            "statfs"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NFSProc_Stub",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "nullproc",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "getattr",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "setattr",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "root",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "lookup",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "readlink",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "writeCache",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "create",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "rename",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "link",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "symlink",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "mkdir",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "rmdir",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "readdir",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "statfs",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "NFSProc_Stub",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setAuth",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 31
+        },
+        {
+          "caller": "nullproc",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 36
+        },
+        {
+          "caller": "getattr",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 41
+        },
+        {
+          "caller": "setattr",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 46
+        },
+        {
+          "caller": "root",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 51
+        },
+        {
+          "caller": "lookup",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 56
+        },
+        {
+          "caller": "readlink",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 61
+        },
+        {
+          "caller": "read",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 66
+        },
+        {
+          "caller": "writeCache",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 71
+        },
+        {
+          "caller": "write",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 76
+        },
+        {
+          "caller": "create",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 81
+        },
+        {
+          "caller": "remove",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 86
+        },
+        {
+          "caller": "rename",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 91
+        },
+        {
+          "caller": "link",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 96
+        },
+        {
+          "caller": "symlink",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 101
+        },
+        {
+          "caller": "mkdir",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 106
+        },
+        {
+          "caller": "rmdir",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 111
+        },
+        {
+          "caller": "readdir",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 116
+        },
+        {
+          "caller": "statfs",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 121
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 20,
+        "functionCount": 20,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/nfs/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 105,
+      "nonEmptyLines": 105,
+      "metrics": {}
+    },
+    {
+      "path": "src/test/nfs/RPCBind_Skel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "RPCBind_Skel",
+          "startLine": 16,
+          "endLine": 17,
+          "params": [
+            "rpc",
+            "i",
+            "bind"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RPCBind_Skel",
+          "startLine": 14,
+          "endLine": 19,
+          "methods": [
+            "RPCBind_Skel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RPCBind_Skel",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "RPCBind_Skel",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/CallerDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 10,
+          "endLine": 14,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "CallerDomain",
+          "startLine": 16,
+          "endLine": 30,
+          "params": [
+            "naming"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CallerDomain",
+          "startLine": 8,
+          "endLine": 32,
+          "methods": [
+            "init",
+            "CallerDomain"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "CallerDomain",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "CallerDomain",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 12
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 12
+        },
+        {
+          "caller": "init",
+          "callee": "new CallerDomain",
+          "lineNumber": 13
+        },
+        {
+          "caller": "CallerDomain",
+          "callee": "naming.lookup",
+          "lineNumber": 18
+        },
+        {
+          "caller": "CallerDomain",
+          "callee": "Debug.out.println",
+          "lineNumber": 19
+        },
+        {
+          "caller": "CallerDomain",
+          "callee": "cpuManager.setThreadName",
+          "lineNumber": 21
+        },
+        {
+          "caller": "CallerDomain",
+          "callee": "naming.lookup",
+          "lineNumber": 23
+        },
+        {
+          "caller": "CallerDomain",
+          "callee": "Debug.out.println",
+          "lineNumber": 25
+        },
+        {
+          "caller": "CallerDomain",
+          "callee": "service.do_service1",
+          "lineNumber": 26
+        },
+        {
+          "caller": "CallerDomain",
+          "callee": "Debug.out.println",
+          "lineNumber": 27
+        },
+        {
+          "caller": "CallerDomain",
+          "callee": "service.do_service2",
+          "lineNumber": 28
+        },
+        {
+          "caller": "CallerDomain",
+          "callee": "Debug.out.println",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/CallerHLS.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 194,
+      "nonEmptyLines": 162,
+      "functions": [
+        {
+          "name": "CallerHLS",
+          "startLine": 34,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "registered",
+          "startLine": 47,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "Scheduler_interrupted",
+          "startLine": 57,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "Scheduler_preempted",
+          "startLine": 62,
+          "endLine": 65,
+          "params": []
+        },
+        {
+          "name": "interrupted",
+          "startLine": 67,
+          "endLine": 74,
+          "params": [
+            "Thread"
+          ]
+        },
+        {
+          "name": "preempted",
+          "startLine": 76,
+          "endLine": 83,
+          "params": [
+            "Thread"
+          ]
+        },
+        {
+          "name": "yielded",
+          "startLine": 85,
+          "endLine": 88,
+          "params": [
+            "newThread"
+          ]
+        },
+        {
+          "name": "unblocked",
+          "startLine": 89,
+          "endLine": 94,
+          "params": [
+            "Thread"
+          ]
+        },
+        {
+          "name": "created",
+          "startLine": 96,
+          "endLine": 99,
+          "params": [
+            "newThread"
+          ]
+        },
+        {
+          "name": "switchedTo",
+          "startLine": 101,
+          "endLine": 106,
+          "params": [
+            "Thread"
+          ]
+        },
+        {
+          "name": "blockedInPortalCall",
+          "startLine": 108,
+          "endLine": 111,
+          "params": [
+            "Thread"
+          ]
+        },
+        {
+          "name": "portalCalled",
+          "startLine": 113,
+          "endLine": 118,
+          "params": [
+            "Thread"
+          ]
+        },
+        {
+          "name": "blockedInService",
+          "startLine": 120,
+          "endLine": 122,
+          "params": [
+            "Thread",
+            "PortalThread"
+          ]
+        },
+        {
+          "name": "serviceCalled",
+          "startLine": 124,
+          "endLine": 130,
+          "params": [
+            "Thread",
+            "PortalThread"
+          ]
+        },
+        {
+          "name": "startGCThread",
+          "startLine": 138,
+          "endLine": 146,
+          "params": [
+            "interruptedThread",
+            "GCthread"
+          ]
+        },
+        {
+          "name": "unblockedGCThread",
+          "startLine": 147,
+          "endLine": 152,
+          "params": [
+            "GCthread"
+          ]
+        },
+        {
+          "name": "destroyedGCThread",
+          "startLine": 153,
+          "endLine": 158,
+          "params": [
+            "GCthread"
+          ]
+        },
+        {
+          "name": "activated",
+          "startLine": 160,
+          "endLine": 183,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 185,
+          "endLine": 187,
+          "params": []
+        },
+        {
+          "name": "dump",
+          "startLine": 189,
+          "endLine": 191,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CallerHLS",
+          "startLine": 9,
+          "endLine": 193,
+          "methods": [
+            "CallerHLS",
+            "registered",
+            "Scheduler_interrupted",
+            "Scheduler_preempted",
+            "interrupted",
+            "preempted",
+            "yielded",
+            "unblocked",
+            "created",
+            "switchedTo",
+            "blockedInPortalCall",
+            "portalCalled",
+            "blockedInService",
+            "serviceCalled",
+            "startGCThread",
+            "unblockedGCThread",
+            "destroyedGCThread",
+            "activated",
+            "toString",
+            "dump"
+          ],
+          "properties": [
+            "naming",
+            "cpuManager",
+            "SMPcpuManager",
+            "HLschedulerSupport",
+            "out",
+            "runnables",
+            "MyCPU",
+            "anzSchedInterrupted",
+            "anzSchedPreempted",
+            "yielded",
+            "DomainName",
+            "instNr",
+            "debug",
+            "GCThread",
+            "caller",
+            "portal"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DomainName",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "CallerHLS",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "registered",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "Scheduler_interrupted",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "Scheduler_preempted",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "interrupted",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "preempted",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "yielded",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "unblocked",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "created",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "switchedTo",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "blockedInPortalCall",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "portalCalled",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "blockedInService",
+          "line": 120,
+          "isDefault": false
+        },
+        {
+          "name": "serviceCalled",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "startGCThread",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "unblockedGCThread",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "destroyedGCThread",
+          "line": 153,
+          "isDefault": false
+        },
+        {
+          "name": "activated",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 185,
+          "isDefault": false
+        },
+        {
+          "name": "dump",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "CallerHLS",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CallerHLS",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 35
+        },
+        {
+          "caller": "CallerHLS",
+          "callee": "naming.lookup",
+          "lineNumber": 36
+        },
+        {
+          "caller": "CallerHLS",
+          "callee": "naming.lookup",
+          "lineNumber": 37
+        },
+        {
+          "caller": "CallerHLS",
+          "callee": "naming.lookup",
+          "lineNumber": 38
+        },
+        {
+          "caller": "CallerHLS",
+          "callee": "naming.lookup",
+          "lineNumber": 40
+        },
+        {
+          "caller": "CallerHLS",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 41
+        },
+        {
+          "caller": "CallerHLS",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 41
+        },
+        {
+          "caller": "CallerHLS",
+          "callee": "new ThreadList",
+          "lineNumber": 44
+        },
+        {
+          "caller": "registered",
+          "callee": "Debug.out.println",
+          "lineNumber": 48
+        },
+        {
+          "caller": "registered",
+          "callee": "SMPcpuManager.getMyCPU",
+          "lineNumber": 48
+        },
+        {
+          "caller": "registered",
+          "callee": "SMPcpuManager.getMyCPU",
+          "lineNumber": 49
+        },
+        {
+          "caller": "interrupted",
+          "callee": "Debug.out.println",
+          "lineNumber": 68
+        },
+        {
+          "caller": "interrupted",
+          "callee": "runnables.add",
+          "lineNumber": 73
+        },
+        {
+          "caller": "preempted",
+          "callee": "Debug.out.println",
+          "lineNumber": 77
+        },
+        {
+          "caller": "preempted",
+          "callee": "runnables.add",
+          "lineNumber": 82
+        },
+        {
+          "caller": "yielded",
+          "callee": "Debug.out.println",
+          "lineNumber": 86
+        },
+        {
+          "caller": "yielded",
+          "callee": "runnables.add",
+          "lineNumber": 87
+        },
+        {
+          "caller": "unblocked",
+          "callee": "Debug.out.println",
+          "lineNumber": 90
+        },
+        {
+          "caller": "unblocked",
+          "callee": "runnables.add",
+          "lineNumber": 93
+        },
+        {
+          "caller": "created",
+          "callee": "Debug.out.println",
+          "lineNumber": 97
+        },
+        {
+          "caller": "created",
+          "callee": "runnables.add",
+          "lineNumber": 98
+        },
+        {
+          "caller": "switchedTo",
+          "callee": "Debug.out.println",
+          "lineNumber": 103
+        },
+        {
+          "caller": "switchedTo",
+          "callee": "HLschedulerSupport.activateThread",
+          "lineNumber": 104
+        },
+        {
+          "caller": "switchedTo",
+          "callee": "new Error",
+          "lineNumber": 105
+        },
+        {
+          "caller": "blockedInPortalCall",
+          "callee": "Debug.out.println",
+          "lineNumber": 109
+        },
+        {
+          "caller": "portalCalled",
+          "callee": "Debug.out.println",
+          "lineNumber": 114
+        },
+        {
+          "caller": "blockedInService",
+          "callee": "Debug.out.println",
+          "lineNumber": 121
+        },
+        {
+          "caller": "serviceCalled",
+          "callee": "Debug.out.println",
+          "lineNumber": 125
+        },
+        {
+          "caller": "startGCThread",
+          "callee": "Debug.out.println",
+          "lineNumber": 139
+        },
+        {
+          "caller": "startGCThread",
+          "callee": "new Error",
+          "lineNumber": 141
+        },
+        {
+          "caller": "startGCThread",
+          "callee": "runnables.add",
+          "lineNumber": 143
+        },
+        {
+          "caller": "startGCThread",
+          "callee": "HLschedulerSupport.activateThread",
+          "lineNumber": 145
+        },
+        {
+          "caller": "unblockedGCThread",
+          "callee": "Debug.out.println",
+          "lineNumber": 148
+        },
+        {
+          "caller": "unblockedGCThread",
+          "callee": "new Error",
+          "lineNumber": 150
+        },
+        {
+          "caller": "destroyedGCThread",
+          "callee": "new Error",
+          "lineNumber": 156
+        },
+        {
+          "caller": "activated",
+          "callee": "Debug.out.println",
+          "lineNumber": 161
+        },
+        {
+          "caller": "activated",
+          "callee": "toString",
+          "lineNumber": 161
+        },
+        {
+          "caller": "activated",
+          "callee": "HLschedulerSupport.activateThread",
+          "lineNumber": 164
+        },
+        {
+          "caller": "activated",
+          "callee": "Debug.out.println",
+          "lineNumber": 167
+        },
+        {
+          "caller": "activated",
+          "callee": "HLschedulerSupport.activateService",
+          "lineNumber": 169
+        },
+        {
+          "caller": "activated",
+          "callee": "Debug.out.println",
+          "lineNumber": 170
+        },
+        {
+          "caller": "activated",
+          "callee": "runnables.removeFirst",
+          "lineNumber": 173
+        },
+        {
+          "caller": "activated",
+          "callee": "Debug.out.println",
+          "lineNumber": 175
+        },
+        {
+          "caller": "activated",
+          "callee": "HLschedulerSupport.clearMyRunnableFlag",
+          "lineNumber": 176
+        },
+        {
+          "caller": "activated",
+          "callee": "HLschedulerSupport.yield",
+          "lineNumber": 177
+        },
+        {
+          "caller": "activated",
+          "callee": "new Error",
+          "lineNumber": 178
+        },
+        {
+          "caller": "activated",
+          "callee": "HLschedulerSupport.activateThread",
+          "lineNumber": 181
+        },
+        {
+          "caller": "activated",
+          "callee": "new Error",
+          "lineNumber": 182
+        },
+        {
+          "caller": "dump",
+          "callee": "runnables.dump",
+          "lineNumber": 190
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 22,
+        "functionCount": 20,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/Daddy.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "Daddy",
+          "startLine": 3,
+          "endLine": 7,
+          "methods": [
+            "longRunning",
+            "inc",
+            "getCount"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Daddy",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/DaddyImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "DaddyImpl",
+          "startLine": 10,
+          "endLine": 12,
+          "params": [
+            "cpuManager"
+          ]
+        },
+        {
+          "name": "longRunning",
+          "startLine": 14,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "inc",
+          "startLine": 23,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "getCount",
+          "startLine": 28,
+          "endLine": 30,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DaddyImpl",
+          "startLine": 5,
+          "endLine": 31,
+          "methods": [
+            "DaddyImpl",
+            "longRunning",
+            "inc",
+            "getCount"
+          ],
+          "properties": [
+            "count",
+            "cpuManager",
+            "c"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "longRunning",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "inc",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "getCount",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "DaddyImpl",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "longRunning",
+          "callee": "cpuManager.assertInterruptEnabled",
+          "lineNumber": 15
+        },
+        {
+          "caller": "inc",
+          "callee": "cpuManager.assertInterruptEnabled",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/GCTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "longRunning",
+          "startLine": 8,
+          "endLine": 9,
+          "params": []
+        },
+        {
+          "name": "inc",
+          "startLine": 11,
+          "endLine": 14,
+          "params": []
+        },
+        {
+          "name": "getCount",
+          "startLine": 16,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "main",
+          "startLine": 23,
+          "endLine": 45,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GCDaddy",
+          "startLine": 5,
+          "endLine": 19,
+          "methods": [
+            "longRunning",
+            "inc",
+            "getCount"
+          ],
+          "properties": [
+            "c"
+          ]
+        },
+        {
+          "name": "GCTest",
+          "startLine": 21,
+          "endLine": 46,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "longRunning",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "inc",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "getCount",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "GCTest",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "new GCDaddy",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "naming.registerPortal",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/test/portal/HansService.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "classes": [
+        {
+          "name": "HansService",
+          "startLine": 6,
+          "endLine": 8,
+          "methods": [
+            "test"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "HansService",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/HansServiceImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "HansServiceImpl",
+          "startLine": 8,
+          "endLine": 10,
+          "params": [
+            "daddy"
+          ]
+        },
+        {
+          "name": "test",
+          "startLine": 11,
+          "endLine": 14,
+          "params": [
+            "str"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HansServiceImpl",
+          "startLine": 6,
+          "endLine": 15,
+          "methods": [
+            "HansServiceImpl",
+            "test"
+          ],
+          "properties": [
+            "daddy"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "test",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "HansServiceImpl",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test",
+          "callee": "Debug.out.println",
+          "lineNumber": 12
+        },
+        {
+          "caller": "test",
+          "callee": "Debug.out.println",
+          "lineNumber": 13
+        },
+        {
+          "caller": "test",
+          "callee": "daddy.getCount",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 84,
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 9,
+          "endLine": 101,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Main",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/MainAlice.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 9,
+          "endLine": 35,
+          "params": [
+            "naming"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MainAlice",
+          "startLine": 6,
+          "endLine": 36,
+          "methods": [
+            "init"
+          ],
+          "properties": [
+            "ncalls"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "MainAlice",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 10
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 10
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 10
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 13
+        },
+        {
+          "caller": "init",
+          "callee": "daddy.getCount",
+          "lineNumber": 17
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 19
+        },
+        {
+          "caller": "init",
+          "callee": "daddy.inc",
+          "lineNumber": 23
+        },
+        {
+          "caller": "init",
+          "callee": "daddy.getCount",
+          "lineNumber": 25
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 26
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 30
+        },
+        {
+          "caller": "init",
+          "callee": "Thread.yield",
+          "lineNumber": 30
+        },
+        {
+          "caller": "init",
+          "callee": "hanssvc.test",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/portal/MainHans.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 10,
+          "endLine": 47,
+          "params": [
+            "naming",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MainHans",
+          "startLine": 7,
+          "endLine": 48,
+          "methods": [
+            "init"
+          ],
+          "properties": [
+            "ncalls"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "MainHans",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "args[0].equals",
+          "lineNumber": 14
+        },
+        {
+          "caller": "init",
+          "callee": "new Thread() {\n\t\t    public void run() {\n\t\t\tfor(;;) {\n\t\t\t    int[] a = new int[100000];\n\t\t\t    Thread.yield();\n\t\t\t}\n\t\t    }\n\t\t}.start",
+          "lineNumber": 15
+        },
+        {
+          "caller": "init",
+          "callee": "new Thread",
+          "lineNumber": 15
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.yield",
+          "lineNumber": 19
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 26
+        },
+        {
+          "caller": "init",
+          "callee": "daddy.getCount",
+          "lineNumber": 30
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "daddy.inc",
+          "lineNumber": 39
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init",
+          "callee": "daddy.getCount",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init",
+          "callee": "new HansServiceImpl",
+          "lineNumber": 45
+        },
+        {
+          "caller": "init",
+          "callee": "naming.registerPortal",
+          "lineNumber": 46
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

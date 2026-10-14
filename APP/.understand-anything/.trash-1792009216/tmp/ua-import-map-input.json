@@ -1,0 +1,370 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/APP",
+  "files": [
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "fileCategory": "config"
+    },
+    {
+      "path": "CHANGELOG",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "manifest.mf",
+      "language": "mf",
+      "fileCategory": "code"
+    },
+    {
+      "path": "META",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "README.rst",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/AI/AI.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/AI/AIIO.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/init/Main.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/init/MultiComponentStart.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/test/Test1.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/test/TestDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/test/TestDomainPortal.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/cpustate/Main.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/cpustate/MultiDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/debug/Monitor.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/BioRAMDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/CreateRemove.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/EmulDiskDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/FileTreeWalk.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/IDEDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/IOZONE.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/MyBigNumber.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/ReadDisk.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/ReRead.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/fs/Shell.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/gc/Cycle.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/gc/Main.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/ide/IDEDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/ide/Main.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/memobj/Main.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/LoadGenerator.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/Main.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/MountProc_Skel.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/MountProc_Stub.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/NFSClient.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/NFSDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/NFSProc_Skel.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/NFSProc_Stub.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/nfs/RPCBind_Skel.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/CallerDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/CallerHLS.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/Daddy.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/DaddyImpl.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/GCTest.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/HansService.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/HansServiceImpl.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/Main.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/MainAlice.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/MainHans.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/ListObject.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/NullObject.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/PortalPerf.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/TargetDomain_Impl.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/TargetDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/perf/TestObject.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/Acceptor.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/Connection.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/CreateSpeed.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/DomainExhauster.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/MiniDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/MiniDomainSilent.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/scale/ServletDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/ServiceDomain.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/ServiceDomainImpl1.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/ServiceDomainImpl2.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/ServiceHLS.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/SimpleTest.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/portal/timeslicing/Simple.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/termination/Main.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/termination/TermIO.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/timer/Main.java",
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/test/timer/StartTimer.java",
+      "language": "java",
+      "fileCategory": "code"
+    }
+  ]
+}

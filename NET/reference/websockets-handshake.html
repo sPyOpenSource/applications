@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Handshake Quick Reference</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>WebSocket Handshake Quick Reference</h1>
+    </header>
+
+    <section>
+        <h2>Client Request (Upgrade)</h2>
+        <pre><code>GET /ws HTTP/1.1
+Host: example.com
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: base64(random-16-bytes)
+Sec-WebSocket-Version: 13
+[optional headers: Sec-WebSocket-Protocol, Sec-WebSocket-Extensions]</code></pre>
+    </section>
+
+    <section>
+        <h2>Server Response (101 Switching Protocols)</h2>
+        <pre><code>HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: SHA1(Sec-WebSocket-Key + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11") base64 encoded</code></pre>
+    </section>
+
+    <section>
+        <h2>Computing Sec-WebSocket-Accept (Conceptual)</h2>
+        <ol>
+            <li>Take the client's <code>Sec-WebSocket-Key</code> value</li>
+            <li>Concatenate with magic string: <code>258EAFA5-E914-47DA-95CA-C5AB0DC85B11</code></li>
+            <li>Compute SHA-1 hash of the result</li>
+            <li>Base64 encode the hash</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>After Handshake</h2>
+        <ul>
+            <li>Connection switches from HTTP to WebSocket protocol</li>
+            <li>Data is exchanged as frames (binary format), not HTTP messages</li>
+            <li>Each frame has opcode indicating text/binary/close/ping/pong</li>
+            <li>Masked frames from client to server (required); server frames unmasked</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Codebase Notes</h2>
+        <ul>
+            <li>TCPWebWorker.parse() detects <code>Sec-WebSocket-Key</code> header (line ~142)</li>
+            <li>But doesn't act on it - no 101 response, no frame handling</li>
+            <li>To implement, need to change response logic when upgrade requested</li>
+        </ul>
+    </section>
+
+    <footer class="footer-note">
+        <p>Back to <a href="../lessons/0007-websockets-intro.html">Lesson 0007</a></p>
+    </footer>
+</body>
+</html>

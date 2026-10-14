@@ -1,0 +1,79 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/test/Test1.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "m",
+          "startLine": 10,
+          "endLine": 10,
+          "params": []
+        },
+        {
+          "name": "n",
+          "startLine": 11,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Test1",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "m"
+          ],
+          "properties": []
+        },
+        {
+          "name": "XYZ",
+          "startLine": 9,
+          "endLine": 18,
+          "methods": [
+            "m",
+            "n"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Test1",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "n",
+          "callee": "new Object",
+          "lineNumber": 13
+        },
+        {
+          "caller": "n",
+          "callee": "m",
+          "lineNumber": 14
+        },
+        {
+          "caller": "n",
+          "callee": "o.toString",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    }
+  ]
+}
