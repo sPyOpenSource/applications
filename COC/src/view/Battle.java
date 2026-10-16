@@ -24,9 +24,6 @@ import model.Player;
 import assets.Assets;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.building.china.*;
-import cr0s.javara.entity.infantry.Barbarian;
-import cr0s.javara.entity.infantry.Wizard;
-import cr0s.javara.util.Pos;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
@@ -80,8 +77,8 @@ public class Battle extends Application {
     private AnchorPane attack(){
         AnchorPane root = defensivePlayer.getMap().getMapView();
 
-        Rectangle rectangle = new Rectangle(0, 635, 1000, 737-635);
-        rectangle.setFill(Color.rgb(0,0,0,0.4));
+        Rectangle rectangle = new Rectangle(0, 635, 1000, 737 - 635);
+        rectangle.setFill(Color.rgb(0, 0, 0, 0.4));
 
         Text capacity = new Text("Capacity : " + capacityInt.get());
         capacity.setId("text");
@@ -117,7 +114,7 @@ public class Battle extends Application {
         }
         icons.get(5).view.setEffect(shadow);
 
-        root.getChildren().addAll(rectangle, imageViewCapacity, capacity);
+        //root.getChildren().addAll(rectangle, imageViewCapacity, capacity);
         root.setOnMouseClicked(mouseEvent -> deploy(mouseEvent.getX(), mouseEvent.getY(), root, capacity));
         return root;
     }
