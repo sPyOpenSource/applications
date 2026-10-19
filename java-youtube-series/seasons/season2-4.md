@@ -135,7 +135,7 @@
 - **Key points:** extract methods, naming, single responsibility, JUnit 5 basics, assertions.
 - **Code:** 3 unit tests for TaskManager.
 
-## EP30 — Wrap-Up + Next Steps (Spring Boot Roadmap)
+## EP30 — Wrap-Up + Next Steps (Networking)
 - **Goal:** Celebrate; outline next learning path.
-- **Key points:** recap skills, Spring Boot, Maven/Gradle, Git, portfolio tips, community.
+- **Key points:** recap skills, Ant, Git, portfolio tips, community.
 - **Deliverable:** roadmap graphic + resource list.
