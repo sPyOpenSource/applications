@@ -41,7 +41,7 @@ public class Battle extends Application {
         this.attackingPlayer = attackingPlayer;
         this.defensivePlayer = defensivePlayer;
         this.players = players;
-        this.capacityInt = new AtomicInteger(attackingPlayer.getLevel() * 40);
+        this.capacityInt = new AtomicInteger(attackingPlayer.getLevel() * 0);
         players.remove(defensivePlayer);
     }
     
@@ -139,6 +139,8 @@ public class Battle extends Application {
         for (UnitIcon icon : icons) {
             if (capacityInt.get() < icon.cost && root.getChildren().contains(icon.view)) {
                 root.getChildren().remove(icon.view);
+            } else if(!root.getChildren().contains(icon.view)){
+                root.getChildren().add(icon.view);
             }
         }
     }

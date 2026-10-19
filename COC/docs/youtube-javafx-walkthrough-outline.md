@@ -29,8 +29,8 @@ Woven through episodes as callbacks, never given their own episode:
 
 ## Episode index
 
-1. This App Skips Its Own Login Screen
-2. Every Screen Is Its Own Application
+1. How to launch this App?
+2. Every Screen Is Its Own App
 3. The Model and the Missing Database
 4. Pixels vs Panes: Rendering the Map
 5. Attack, Animation, and the FX Thread
@@ -50,7 +50,7 @@ application lifecycle.
 `Scene`, and why `module-info` requires `javafx.controls`.
 
 **On-screen beats:**
-1. Run the app; observe it lands on `PlayerPanel`, not `LogIn`.
+1. Run the app; observe it lands on `PlayerPanel`, without `LogIn`.
 2. Inspect `LogInController.getPlayer("","")` and see it fabricate a `Player`
    (`src/controller/LogInController.java:21`).
 3. Walk `src/module-info.java` and read the `requires` lines.

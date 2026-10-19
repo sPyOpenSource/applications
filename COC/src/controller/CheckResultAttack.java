@@ -17,6 +17,7 @@ import cr0s.javara.render.map.Map;
 
 import assets.Assets;
 import java.util.ArrayList;
+import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CheckResultAttack extends Thread {
@@ -33,10 +34,12 @@ public class CheckResultAttack extends Thread {
         this.players = players;
         this.newView();
         this.mediaPlayer = mediaPlayer;
+        timer = System.nanoTime();
     }
 
     private final Map map;
     private final double firstSize;
+    private long timer;
     private final AnchorPane root;
     private final AtomicInteger capacityInt;
     private final Player attackingPlayer;
@@ -93,7 +96,7 @@ public class CheckResultAttack extends Thread {
                     e.printStackTrace();
                 }
                 break;
-            } else if (capacityInt.get() == 0 && map.getAttackingHeroes().isEmpty()){
+            } else if (System.nanoTime() - timer > 30000000000l){
                 if ((map.getBuildingsMap().size() / firstSize) < 0.15){
                     defensivePlayer.Win();
                     attackingPlayer.Lose();
@@ -147,10 +150,12 @@ public class CheckResultAttack extends Thread {
                 break;
             }
             try {
-                wait(1000);
+                wait(600);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            if(capacityInt.get() < attackingPlayer.getLevel() * 15)
+                capacityInt.addAndGet(2);
         }
     }
     
