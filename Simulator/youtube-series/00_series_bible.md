@@ -10,7 +10,7 @@
 - **Cadence:** Weekly drop, 5 episodes = Season 1. End each episode with a "next episode" hook and a downloadable checkpoint (Git tag).
 
 ## Visual Language
-- IDE: IntelliJ IDEA (dark theme, large font 16pt).
+- IDE: NetBean (dark theme, large font 16pt).
 - Terminal: zsh with prompt `emulator $`.
 - Overlays: big red "REGISTERS" box, memory hex dump panel, step counter.
 - Color code: registers = cyan, memory = green, opcodes = yellow, errors = red.

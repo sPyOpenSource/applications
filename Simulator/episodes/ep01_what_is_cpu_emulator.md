@@ -19,7 +19,7 @@ Tag for this episode: ep01
 Timestamps:
 0:00 What is an emulator?
 1:30 Real CPU vs emulated CPU
-3:00 Project setup (Maven + IntelliJ)
+3:00 Project setup (NetBean)
 4:45 The Cpu class skeleton
 6:00 What's next + exercise
 
