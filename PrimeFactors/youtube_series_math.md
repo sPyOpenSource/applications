@@ -25,35 +25,34 @@ Most people think math is memorizing formulas. This series treats math as a **la
 
 ---
 
-## 2. Season 1 — "Numbers & Patterns" (6 episodes)
-
+## 2. Season 1 — "Numbers & Patterns" (5 episodes)
 
 Episode 1: What is the defination of Prime Numbers?
 
-• The Core: What a prime number actually is and why the number 1 is strictly rejected.
-• The Story: We introduce prime numbers as the "solo artists" of the number world. You will learn the golden rule: a prime number has exactly two distinct divisors (1 and itself). We visually demonstrate why the number 2 is the ultimate oddball—it is the smallest prime and the only even prime in existence.
+Introduces prime numbers as the "solo artists" of the number world. While regular composite numbers can be broken down into a team effort of smaller factors (like a band), prime numbers stand entirely alone and cannot be split.
 
-Episode 2: The Sieve of Eratosthenes
+The core takeaways are:
+• The Golden Rule: A prime number is a whole number greater than 1 that has exactly two distinct divisors (1 and itself).
+• Why 1 is Rejected: The number 1 only has one divisor. Disqualifying 1 preserves the uniqueness of prime factorization (the unique "DNA profile" of every composite number).
+• The Ultimate Oddball: The number 2 is the smallest prime number and the only even prime in existence.
+• The Sieve of Eratosthenes: Instead of heavy math, an ancient Greek filtering method is used to cross out multiples of 2, 3, 5, and 7 on a 1-to-100 grid. Shaking this visual sieve leaves behind a perfect, clean list of the first 25 prime numbers.
 
-• The Core: How to hunt for prime numbers without losing your mind to heavy math.
-• The Story: We travel back to ancient Greece to build a giant visual "sieve" of numbers from 1 to 100. Step-by-step, we filter and cross out the multiples of 2, 3, 5, and 7. What is left caught in the mesh is a perfect, clean list of the first 25 prime numbers.
-
-Episode 3: The Building Blocks of the Natural Numbers
+Episode 2: The Building Blocks of the Natural Numbers
 
 • The Core: Prime factorization (how every number has its own secret DNA).
 • The Story: We show that prime numbers are the "chemical elements" of the math world. Every composite number (like 12, 50, or 99) is built by multiplying primes together. For example, 12 is always 2 × 2 × 3. We teach you how to break any number down to its unique mathematical DNA.
 
-Episode 4: The Infinite Hunt
+Episode 3: The Hunt of the Big Prime Numbers
 
 • The Core: How many primes are out there, and does the countdown ever stop?
 • The Story: As numbers stretch toward infinity, prime numbers become rarer and harder to find. But does the list ever run out? We explore the brilliant, elegant proof by the ancient mathematician Euclid, who proved over 2,000 years ago that prime numbers are infinite. The hunt literally never ends!
 
-Episode 5: Secret Agents of the Internet
+Episode 4: Secret Agents of the Internet
 
 • The Core: How prime numbers protect your text messages and online banking.
 • The Story: Why are scientists using supercomputers to look for massive prime numbers? Because they are the backbone of modern cryptography (RSA encryption). We explain, completely without complex formulas, how multiplying two massive primes creates a digital padlock that even the world's fastest hackers cannot crack.
 
-Episode 6: Patterns in the Chaos
+Episode 5: Patterns in the Chaos
 
 • The Core: Unsolved mysteries, the Riemann Hypothesis, and a one-million-dollar bounty.
 • The Story: We close the series by looking at the beautiful frustration of math. Primes appear scattered completely at random, yet they seem to follow a ghostly, hidden rhythm. We introduce the famous Riemann Hypothesis and the literal million-dollar prize waiting for the person who can finally decode the chaos.
