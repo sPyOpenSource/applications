@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.util.Duration;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -177,7 +178,12 @@ public class PandaAttack extends Thread {
                 break;
             }
 //            Platform.runLater(mediaPlayer::play);
+            Platform.runLater(() -> AttackEffects.flashImpact(root,
+                    building.getImageView().getX() + building.getImageView().getFitWidth() / 2,
+                    building.getImageView().getY() + building.getImageView().getFitHeight() / 2,
+                    Color.web("#FF4500")));
             building.setHp((int)(building.getHp() - (panda.getDamagePerSecond() * 1.25)));
+            Platform.runLater(() -> AttackEffects.pulse(building.getImageView()));
             try {
                 wait(1250);
             } catch (InterruptedException e) {
