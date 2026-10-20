@@ -29,7 +29,7 @@ Script (spoken word), timestamps, thumbnail concept, YouTube description, tags, 
 `checkpoints/ep01` .. `checkpoints/ep05` contain the exact code state at the end of each episode (compiles and runs). Use them to follow along or to recover if you get stuck.
 
 ## Final project
-`java-x86-emulator/` is the Season 1 finale project (Maven). Run with:
+`java-x86-emulator/` is the Season 1 finale project (Ant). Run with:
 ```
-mvn compile exec:java
+ant compile exec:java
 ```
