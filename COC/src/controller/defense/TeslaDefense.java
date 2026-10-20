@@ -6,6 +6,7 @@ import javafx.util.Duration;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -13,6 +14,7 @@ import javafx.scene.shape.Path;
 import cr0s.javara.render.map.Map;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.building.china.Tesla;
+import controller.attack.AttackEffects;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -22,17 +24,14 @@ public class TeslaDefense extends Thread {
         this.map = map;
         this.tesla = tesla;
         this.capacityInt = capacityInt;
-        circleImpact = new ImageView("assets/gif/tesla_attack.gif");
-        circleImpact.setFitHeight(25);
-        circleImpact.setFitWidth(42.5);
     }
 
     private final AnchorPane root;
     private final Map map;
     private final Tesla tesla;
     private final AtomicInteger capacityInt;
-    private final ImageView circleImpact;
-     
+    private ImageView beamNode;
+
     @Override
     public synchronized void run() {
         while (!tesla.isDead()) {
@@ -43,7 +42,7 @@ public class TeslaDefense extends Thread {
                 attack(hero);
         }
     }
-    
+
     private synchronized MobileEntity selectHero(){
         double width;
         MobileEntity hero = null;
@@ -68,17 +67,39 @@ public class TeslaDefense extends Thread {
         }
         return hero;
     }
-    
+
     private synchronized void attack(MobileEntity hero){
-        MoveTo moveTo = new MoveTo(tesla.getImageView().getX() + 37, tesla.getImageView().getY() + 18);
-        LineTo lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(),hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
-        while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX()-lineTo.getX(), 2)+ Math.pow(moveTo.getY()-lineTo.getY(), 2)) < tesla.getRange()){
+        while (hero.getHp() >= 0) {
             if (tesla.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
                 tesla.setDead();
                 break;
             }
-            ImageView finalCircleImpact = circleImpact;
+            double heroCx = hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX();
+            double heroCy = hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY();
+            double towerX = tesla.getImageView().getX() + 37;
+            double towerY = tesla.getImageView().getY() + 18;
+            double dist = Math.sqrt(Math.pow(towerX - heroCx, 2) + Math.pow(towerY - heroCy, 2));
+            if (dist >= tesla.getRange()) {
+                break;
+            }
+            if (!root.getChildren().contains(hero.getImageView())) {
+                try {
+                    wait(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                continue;
+            }
+
+            ImageView previousBeam = beamNode;
+            ImageView finalCircleImpact = new ImageView("assets/gif/tesla_attack.gif");
+            finalCircleImpact.setFitHeight(25);
+            finalCircleImpact.setFitWidth(42.5);
+            beamNode = finalCircleImpact;
             Platform.runLater(() -> {
+                if (previousBeam != null) {
+                    root.getChildren().remove(previousBeam);
+                }
                 root.getChildren().add(finalCircleImpact);
                 myNotify();
             });
@@ -87,8 +108,12 @@ public class TeslaDefense extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             if (root.getChildren().contains(hero.getImageView())) {
-                lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
+                MoveTo moveTo = new MoveTo(towerX, towerY);
+                LineTo lineTo = new LineTo(
+                        hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(),
+                        hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
                 Path path = new Path();
                 path.getElements().addAll(new MoveTo(moveTo.getX(), moveTo.getY()), lineTo);
                 PathTransition pathTransition = new PathTransition();
@@ -98,6 +123,10 @@ public class TeslaDefense extends Thread {
                 pathTransition.setNode(finalCircleImpact);
                 Platform.runLater(pathTransition::play);
                 hero.setHp(hero.getHp() - (tesla.getDamagePerSecond() * 2));
+                Platform.runLater(() -> AttackEffects.flashImpact(root,
+                        hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(),
+                        hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY(),
+                        Color.web("#00FFFF")));
                 try {
                     wait(500);
                 } catch (InterruptedException e) {
@@ -114,9 +143,11 @@ public class TeslaDefense extends Thread {
                 }
             }
         }
-        ImageView finalCircleImpact1 = circleImpact;
+        ImageView finalBeamNode = beamNode;
         Platform.runLater(() -> {
-            root.getChildren().remove(finalCircleImpact1);
+            if (finalBeamNode != null) {
+                root.getChildren().remove(finalBeamNode);
+            }
             myNotify();
         });
         try {
@@ -125,7 +156,7 @@ public class TeslaDefense extends Thread {
             e.printStackTrace();
         }
     }
-    
+
     public synchronized void myNotify(){
         notify();
     }
