@@ -404,18 +404,18 @@ public class AIPlayer extends Player {
             return new ArrayList<>();
         }
 
-        enemies = new ArrayList<>();
+        ArrayList<Player> enemyPlayers = new ArrayList<>();
 	for (Player p : world.getPlayers()) {
 	    if (p.isEnemyFor(this)) {
-		enemies.add(p);
+		enemyPlayers.add(p);
 	    }
 	}
 
-	if (enemies.isEmpty()) {
+	if (enemyPlayers.isEmpty()) {
 	    return new ArrayList<>();
 	}
 
-	return this.findClosestEnemy(center, enemies.get(0), 20000000);
+	return this.findClosestEnemy(center, enemyPlayers.get(0), 20000000);
     }
 
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
