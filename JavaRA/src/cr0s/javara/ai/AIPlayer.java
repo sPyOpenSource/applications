@@ -540,16 +540,27 @@ public class AIPlayer extends Player {
 	return target;
     }
 
-    private ArrayList<EntityBuilding> findEnemyConstructionYards() {
+    ArrayList<EntityBuilding> findEnemyConstructionYards() {
 	ArrayList<EntityBuilding> result = new ArrayList<>();
 
-	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) { 
-	    if (e.isDead() || !(e instanceof EntityConstructionYard) || (e.owner.isEnemyFor(this))) {
+	for (Player p : this.world.getPlayers()) {
+	    if (!p.isEnemyFor(this)) {
 		continue;
 	    }
 
-	    result.add((EntityBuilding) e);
-	}	
+	    for (Entity e : p.entities) {
+		if (e.isDead() || !(e instanceof EntityConstructionYard)) {
+		    continue;
+		}
+
+		EntityConstructionYard yard = (EntityConstructionYard) e;
+		if (yard.owner == null || !yard.owner.isEnemyFor(this)) {
+		    continue;
+		}
+
+		result.add(yard);
+	    }
+	}
 
 	return result;
     }
