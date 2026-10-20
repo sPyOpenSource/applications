@@ -1,5 +1,6 @@
 package view;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
@@ -11,6 +12,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import model.Player;
 import java.util.ArrayList;
@@ -59,14 +61,14 @@ public class PlayerPanel extends Application {
         attackView.setFitWidth(100);
         attackView.setFitHeight(100);
         attackView.setOnMouseClicked(mouseEvent -> {
+            attackView.setDisable(true);
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            new SearchOpponents(player, players, mediaPlayer).start(new Stage());
-            stage.close();
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                new SearchOpponents(player, players, mediaPlayer).start(new Stage());
+                stage.close();
+            });
+            pause.play();
         });
         root.getChildren().add(attackView);
         ImageView levelView;
@@ -171,63 +173,58 @@ public class PlayerPanel extends Application {
 
         infoDragon.setOnMouseClicked(mouseEvent -> {
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            mediaPlayerClick.stop();
-            infoPage.setImage(new Image("assets/png/dragon_info.png"));
-            infoText.setText(new Dragon(new Pos(0, 0)).toString());
-            exitInfo.setImage(new Image("assets/png/exit_info.png"));
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                mediaPlayerClick.stop();
+                infoPage.setImage(new Image("assets/png/dragon_info.png"));
+                infoText.setText(new Dragon(new Pos(0, 0)).toString());
+                exitInfo.setImage(new Image("assets/png/exit_info.png"));
+            });
+            pause.play();
         });
         infoBalloon.setOnMouseClicked(mouseEvent -> {
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            infoPage.setImage(new Image("assets/png/balloon_info.png"));
-            infoText.setText(new DefBalloon(0, 0).toString());
-            exitInfo.setImage(new Image("assets/png/exit_info.png"));
-            mediaPlayerClick.stop();
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                infoPage.setImage(new Image("assets/png/balloon_info.png"));
+                infoText.setText(new DefBalloon(0, 0).toString());
+                exitInfo.setImage(new Image("assets/png/exit_info.png"));
+                mediaPlayerClick.stop();
+            });
+            pause.play();
         });
         infoGoblin.setOnMouseClicked(mouseEvent -> {
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            infoPage.setImage(new Image("assets/png/goblin_info.png"));
-            infoText.setText(new GoblinBalloon(0, 0).toString());
-            exitInfo.setImage(new Image("assets/png/exit_info.png"));
-            mediaPlayerClick.stop();
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                infoPage.setImage(new Image("assets/png/goblin_info.png"));
+                infoText.setText(new GoblinBalloon(0, 0).toString());
+                exitInfo.setImage(new Image("assets/png/exit_info.png"));
+                mediaPlayerClick.stop();
+            });
+            pause.play();
         });
         infoArcher.setOnMouseClicked(mouseEvent -> {
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            infoPage.setImage(new Image("assets/png/archer_info.png"));
-            infoText.setText(new ArcherBalloon(0, 0).toString());
-            exitInfo.setImage(new Image("assets/png/exit_info.png"));
-            mediaPlayerClick.stop();
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                infoPage.setImage(new Image("assets/png/archer_info.png"));
+                infoText.setText(new ArcherBalloon(0, 0).toString());
+                exitInfo.setImage(new Image("assets/png/exit_info.png"));
+                mediaPlayerClick.stop();
+            });
+            pause.play();
         });
         exitInfo.setOnMouseClicked(mouseEvent -> {
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            infoPage.setImage(null);
-            infoText.setText(null);
-            exitInfo.setImage(null);
-            mediaPlayerClick.stop();
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                infoPage.setImage(null);
+                infoText.setText(null);
+                exitInfo.setImage(null);
+                mediaPlayerClick.stop();
+            });
+            pause.play();
         });
 
         return root;

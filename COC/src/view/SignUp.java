@@ -1,9 +1,11 @@
 package view;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
@@ -80,6 +82,7 @@ public class SignUp extends Application {
         vBox.getChildren().add(new MediaView(mediaPlayer));
 
         buttonSignUp.setOnMouseClicked(mouseEvent -> {
+            buttonSignUp.setDisable(true);
             try {
                 Map map;
                 if (textFieldID.getText().equals("") || textFieldPassword.getText().equals(""))
@@ -96,16 +99,15 @@ public class SignUp extends Application {
                     map = new MapLoader(4, "map4");
                 }
                 mediaPlayerClick.play();
-                try {
-                    Thread.sleep(300);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Player player = new Player(map, textFieldID.getText(), textFieldPassword.getText());
-                new SaveData(player).start();
-                new PlayerPanel(player,players).start(new Stage());
-                stage.close();
-                mediaPlayer.stop();
+                PauseTransition pause = new PauseTransition(Duration.millis(300));
+                pause.setOnFinished(e -> {
+                    Player player = new Player(map, textFieldID.getText(), textFieldPassword.getText());
+                    new SaveData(player).start();
+                    new PlayerPanel(player,players).start(new Stage());
+                    stage.close();
+                    mediaPlayer.stop();
+                });
+                pause.play();
             } catch (IdPlayerException | RuntimeException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText(e.getMessage());
@@ -116,15 +118,16 @@ public class SignUp extends Application {
         Button buttonLogin = new Button("Log In");
         buttonLogin.setEffect(shadow);
         buttonLogin.setOnMouseClicked(mouseEvent -> {
+            buttonSignUp.setDisable(true);
+            buttonLogin.setDisable(true);
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            new LogIn(players).start(new Stage());
-            stage.close();
-            mediaPlayer.stop();
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                new LogIn(players).start(new Stage());
+                stage.close();
+                mediaPlayer.stop();
+            });
+            pause.play();
         });
 
         HBox hBoxButton = new HBox(buttonLogin, buttonSignUp);
