@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -121,10 +122,19 @@ public class DefBalloonAttack extends Thread {
             transition.setNode(defBalloon.getImageView());
             transition.setAutoReverse(false);
             transition.setPath(path);
+            final EntityBuilding targetBuilding = building;
+            transition.setOnFinished(e -> {
+                if (!defBalloon.isDead()) {
+                    AttackEffects.flashImpact(root,
+                            targetBuilding.getImageView().getX() + targetBuilding.getImageView().getFitWidth() / 2,
+                            targetBuilding.getImageView().getY() + targetBuilding.getImageView().getFitHeight() / 2,
+                            Color.web("#FFD700"));
+                }
+            });
             Platform.runLater(transition::play);
             long startTime = System.currentTimeMillis();
             long elapsedTime = 0;
-            while (elapsedTime < (long) ((widthLowe / defBalloon.getMoveSpeed()) * 300)) {
+            while (elapsedTime < (long) ((widthLowe / defBalloon.getMoveSpeed()) * 400)) {
                 if (defBalloon.getHp() <= 0){
                     defBalloon.setDead();
                     Platform.runLater(() -> root.getChildren().remove(defBalloon.getImageView()));
@@ -160,6 +170,7 @@ public class DefBalloonAttack extends Thread {
                 break;
             }
             building.setHp(building.getHp() - defBalloon.getDamagePerSecond());
+            Platform.runLater(() -> AttackEffects.pulse(building.getImageView()));
             try {
                 wait(1000);
             } catch (InterruptedException e) {
