@@ -31,4 +31,42 @@ public class AIPlayerTest {
 
         assertTrue("thereIsNoMcv() should return true when no MCV exists", ai.thereIsNoMcv());
     }
+
+    @Test
+    public void thereIsNoMcvReturnsTrueWhenMcvIsDead() {
+        World world = new World("forest-path");
+        AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+
+        EntityMcv mcv = new EntityMcv(new Pos(0, 0));
+        mcv.owner = null;             // not yet assigned an owner
+        mcv.setDead();                // owner-null guard avoids touching World.root (null in tests)
+        ai.entities.add(mcv);
+
+        assertTrue("thereIsNoMcv() should return true when the only MCV is dead", ai.thereIsNoMcv());
+    }
+
+    @Test
+    public void thereIsNoMcvReturnsTrueWhenMcvOwnedByOtherPlayer() {
+        World world = new World("forest-path");
+        AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+        AIPlayer other = new AIPlayer(world, "EnemyAI", Alignment.SOVIET, Color.RED);
+
+        EntityMcv mcv = new EntityMcv(new Pos(0, 0));
+        mcv.owner = other;
+        ai.entities.add(mcv);
+
+        assertTrue("thereIsNoMcv() should return true when MCV is owned by another player", ai.thereIsNoMcv());
+    }
+
+    @Test
+    public void thereIsNoMcvReturnsTrueAndNoNpeWhenMcvHasNullOwner() {
+        World world = new World("forest-path");
+        AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+
+        EntityMcv mcv = new EntityMcv(new Pos(0, 0));
+        // owner intentionally left null (MCV not yet assigned an owner)
+        ai.entities.add(mcv);
+
+        assertTrue("thereIsNoMcv() should return true (and not NPE) when MCV owner is null", ai.thereIsNoMcv());
+    }
 }
