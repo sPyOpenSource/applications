@@ -122,6 +122,12 @@ public abstract class UnitAttack extends Thread {
         if (distanceToCenter < r) {
             return new double[]{x, y};
         }
+        if (Math.abs(cx - x) < 1e-9) {
+            double y1 = cy - r;
+            double y2 = cy + r;
+            return distance(x, y, cx, y1) < distance(x, y, cx, y2)
+                    ? new double[]{cx, y1} : new double[]{cx, y2};
+        }
         double m1 = (cy - y) / (cx - x);
         double intercept = y - m1 * x;
         double a = 1 + Math.pow(m1, 2);

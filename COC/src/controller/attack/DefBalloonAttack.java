@@ -180,7 +180,7 @@ public class DefBalloonAttack extends Thread {
         if (!defBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getImages().get(0));
+                root.getChildren().remove(building.getImageView());
                 myNotify();
             });
             try {

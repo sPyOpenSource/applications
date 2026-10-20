@@ -210,7 +210,7 @@ public class ArcherBalloonAttack extends Thread {
         if (!archerBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getImages().get(0));
+                root.getChildren().remove(building.getImageView());
                 myNotify();
             });
             try {
@@ -233,6 +233,11 @@ public class ArcherBalloonAttack extends Thread {
         double distanceToCenter = distance(x, y, cx, cy);
         if (distanceToCenter < r) {
             return new double[]{x, y};
+        } else if (Math.abs(cx - x) < 1e-9) {
+            double y1 = cy - r;
+            double y2 = cy + r;
+            return distance(x, y, cx, y1) < distance(x, y, cx, y2)
+                    ? new double[]{cx, y1} : new double[]{cx, y2};
         } else {
             double m1 = (cy - y) / (cx - x);
 

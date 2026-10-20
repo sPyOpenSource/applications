@@ -188,7 +188,7 @@ public class GoblinBalloonAttack extends Thread {
         if (!goblinBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getImages());
+                root.getChildren().remove(building.getImageView());
                 myNotify();
             });
             try {

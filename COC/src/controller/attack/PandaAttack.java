@@ -139,7 +139,7 @@ public class PandaAttack extends Thread {
             Platform.runLater(transition::play);
             long startTime = System.currentTimeMillis();
             long elapsedTime = 0;
-            while (elapsedTime < (long) ((widthLowe / panda.getMoveSpeed()) * 300)) {
+            while (elapsedTime < (long) ((widthLowe / panda.getMoveSpeed()) * 400)) {
                 if (panda.getHp() <= 0){
                     panda.setDead();
                     break;

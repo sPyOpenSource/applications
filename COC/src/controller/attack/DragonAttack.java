@@ -132,7 +132,7 @@ public class DragonAttack extends Thread {
             Platform.runLater(transition::play);
             long startTime = System.currentTimeMillis();
             long elapsedTime = 0;
-            while (elapsedTime < (long) ((widthLowe / dragon.getMoveSpeed()) * 300)) {
+            while (elapsedTime < (long) ((widthLowe / dragon.getMoveSpeed()) * 400)) {
                 if (dragon.getHp() <= 0){
                     dragon.setDead();
                     break;

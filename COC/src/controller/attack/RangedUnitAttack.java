@@ -140,7 +140,7 @@ public abstract class RangedUnitAttack extends UnitAttack {
         if (!unit.isDead()) {
             map.getBuildingsMap().remove(building);
             runOnFx(() -> {
-                root.getChildren().remove(building.getImages().get(0));
+                root.getChildren().remove(building.getImageView());
                 myNotify();
             });
             await();

@@ -44,7 +44,7 @@ public abstract class MeleeUnitAttack extends UnitAttack {
         runOnFx(transition::play);
         long start = System.currentTimeMillis();
         long elapsed = 0;
-        while (elapsed < (long) ((width / unit.getMoveSpeed()) * 300)) {
+        while (elapsed < (long) ((width / unit.getMoveSpeed()) * 400)) {
             if (unit.getHp() <= 0) {
                 unit.setDead();
                 break;
