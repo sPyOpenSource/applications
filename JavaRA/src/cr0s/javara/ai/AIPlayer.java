@@ -400,6 +400,10 @@ public class AIPlayer extends Player {
     }
 
     public ArrayList<EntityActor> findClosestEnemy(final Pos center) {
+        if (center == null) {
+            return new ArrayList<>();
+        }
+
         enemies = new ArrayList<>();
 	for (Player p : world.getPlayers()) {
 	    if (p.isEnemyFor(this)) {

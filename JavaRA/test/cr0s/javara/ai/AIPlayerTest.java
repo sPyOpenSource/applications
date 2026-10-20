@@ -80,7 +80,7 @@ public class AIPlayerTest {
     public void findEnemyConstructionYardsReturnsEnemyYardsOnly() {
         World world = new World("forest-path");
         AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
-        AIPlayer enemy = new AIPlayer(world, "EnemyAI", Alignment.ALLIES, Color.BLUE);
+        AIPlayer enemy = new AIPlayer(world, "EnemyAI", Alignment.ALLIED, Color.BLUE);
 
         Team aiTeam = new Team();
         Team enemyTeam = new Team();
@@ -116,5 +116,38 @@ public class AIPlayerTest {
             ai.findClosestEnemy(ai.getPlayerSpawnPoint());
 
         assertTrue("should return empty list when no enemies", result.isEmpty());
+    }
+
+    @Test
+    public void findClosestEnemyWithNullCenterAndEnemiesReturnsEmptyList() {
+        World world = new World("forest-path");
+        AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+        AIPlayer enemy = new AIPlayer(world, "EnemyAI", Alignment.ALLIED, Color.BLUE);
+
+        Team enemyTeam = new Team();
+        enemyTeam.addPlayer(enemy);
+        enemy.setTeam(enemyTeam);
+
+        Team aiTeam = new Team();
+        aiTeam.addPlayer(ai);
+        ai.setTeam(aiTeam);
+
+        world.addPlayer(ai);
+        world.addPlayer(enemy);
+
+        // enemies present, but center is null
+        ArrayList<EntityActor> result = ai.findClosestEnemy(null);
+
+        assertTrue("should return empty list when center is null", result.isEmpty());
+    }
+
+    @Test
+    public void findClosestEnemyWithEmptyPlayersReturnsEmptyList() {
+        World world = new World("forest-path");
+        AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+
+        ArrayList<EntityActor> result = ai.findClosestEnemy(ai.getPlayerSpawnPoint());
+
+        assertTrue("should return empty list when no players", result.isEmpty());
     }
 }
