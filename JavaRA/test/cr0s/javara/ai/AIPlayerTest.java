@@ -1,5 +1,6 @@
 package cr0s.javara.ai;
 
+import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.entity.vehicle.common.EntityMcv;
@@ -103,5 +104,17 @@ public class AIPlayerTest {
 
         assertEquals(1, result.size());
         assertEquals(enemyYard, result.get(0));
+    }
+
+    @Test
+    public void findClosestEnemyWithNoEnemiesReturnsEmptyList() {
+        World world = new World("forest-path");
+        AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+
+        // No other players added, so there are no enemies.
+        ArrayList<EntityActor> result =
+            ai.findClosestEnemy(ai.getPlayerSpawnPoint());
+
+        assertTrue("should return empty list when no enemies", result.isEmpty());
     }
 }

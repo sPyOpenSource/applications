@@ -406,6 +406,11 @@ public class AIPlayer extends Player {
 		enemies.add(p);
 	    }
 	}
+
+	if (enemies.isEmpty()) {
+	    return new ArrayList<>();
+	}
+
 	return this.findClosestEnemy(center, enemies.get(0), 20000000);
     }
 
