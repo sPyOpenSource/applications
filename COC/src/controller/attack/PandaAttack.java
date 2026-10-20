@@ -38,7 +38,8 @@ public class PandaAttack extends Thread {
         this.map = map;
         panda.setImageView(new ImageView(viewPandaL.getImage()));
         this.map.getAttackingHeroes().add(panda);
-        root.getChildren().add(new MediaView(mediaPlayerMove));
+        this.mediaViewMove = new MediaView(mediaPlayerMove);
+        root.getChildren().add(mediaViewMove);
         mediaPlayerMove.setVolume(0.2);
     }
     
@@ -51,6 +52,7 @@ public class PandaAttack extends Thread {
     private final Map map;
     String audioFilePathMove = assets.get("/assets/audio/not_path.mp3");
     MediaPlayer mediaPlayerMove = new MediaPlayer(new Media(audioFilePathMove));
+    private final MediaView mediaViewMove;
     private final AtomicInteger count = new AtomicInteger(0);
     
     @Override
@@ -77,7 +79,9 @@ public class PandaAttack extends Thread {
             }
             Platform.runLater(() -> {
                 root.getChildren().remove(panda.getImageView());
+                root.getChildren().remove(mediaViewMove);
                 mediaPlayer.stop();
+                mediaPlayerMove.stop();
                 myNotify();
             });
             try {
@@ -90,7 +94,7 @@ public class PandaAttack extends Thread {
     }
     
     private synchronized EntityBuilding moveToward(){
-        double widthLowe = 10000;
+        double widthLowe = Double.MAX_VALUE;
         double width;
         EntityBuilding building = null;
         for (Entity node : map.getBuildingsMap()){

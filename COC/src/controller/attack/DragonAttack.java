@@ -55,9 +55,10 @@ public class DragonAttack extends Thread {
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(10000);
             mediaPlayer.setVolume(0.3);
+            MediaView mediaViewFly = new MediaView(mediaPlayer);
+            MediaView mediaViewAttack = new MediaView(mediaPlayerAttack);
             Platform.runLater(() -> {
-                root.getChildren().addAll(new MediaView(mediaPlayer), new MediaView(mediaPlayerAttack));
-                root.getChildren().add(dragon.getImageView());
+                root.getChildren().addAll(mediaViewFly, mediaViewAttack, dragon.getImageView());
                 myNotify();
             });
             try {
@@ -73,7 +74,10 @@ public class DragonAttack extends Thread {
             }
             Platform.runLater(() -> {
                 root.getChildren().remove(dragon.getImageView());
+                root.getChildren().remove(mediaViewFly);
+                root.getChildren().remove(mediaViewAttack);
                 mediaPlayer.stop();
+                mediaPlayerAttack.stop();
                 myNotify();
             });
             try {
@@ -86,7 +90,7 @@ public class DragonAttack extends Thread {
     }
     
     private synchronized EntityBuilding moveToward(){
-        double widthLowe = 10000;
+        double widthLowe = Double.MAX_VALUE;
         double width;
         EntityBuilding building = null;
         for (Entity node : map.getBuildingsMap()){
