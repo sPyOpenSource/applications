@@ -46,12 +46,16 @@ Key mechanics:
   `DEBUG` threshold correctly rejects `TRACE` with no extra logic.
 - **One `ConsoleHandler` on the root logger** carrying `LogFormatter`. JUL's
   default root handlers are removed first, so nothing is printed twice.
-- **Ordering constraint.** JUL fixes a logger's parent when the logger is
-  created. `Log`'s static initialiser therefore runs `configure()` *before*
-  any `Log.of(...)` call can create a class logger — that is what makes
-  `-Djavara.log.level.cr0s.javara.ai=DEBUG` reach
-  `cr0s.javara.ai.BaseBuilder`. Nothing may create a
+- **Ordering.** JUL creates a logger's ancestor chain on demand and resolves
+  the effective level dynamically, so an override reaches the class loggers
+  beneath it whether they are created before or after `configure()`. `Log`'s
+  static initialiser still runs `configure()` *before* any `Log.of(...)` call
+  can create a class logger, so the console handler is in place before any
+  JavaRA class can log. Nothing outside `Log` may create a
   `java.util.logging.Logger` directly; always go through `Log`.
+- **Retention.** JUL holds loggers weakly, so `Log` keeps a strong reference
+  to every logger whose level it sets — otherwise a subtree override would be
+  silently reverted by the next garbage collection.
 
 ---
 
@@ -154,7 +158,7 @@ This plan was **executed end-to-end in a scratch copy** before it was
 committed, and the results are known to be good:
 
 - `Log.java`, `LogFormatter.java` and `LogTest.java` compile and the suite
-  reports `OK (91 tests)` (76 pre-existing + 15 new).
+  reports `OK (94 tests)` (76 pre-existing + 18 new).
 - All 50 call sites (31 prints + 19 stack traces) were migrated; the live
   call-site check reports nothing.
 - All 17 live `DEBUG_MODE` blocks were deleted, and each block body was
@@ -231,10 +235,12 @@ public class LogTest {
     private static class Attachment {
         final Logger logger;
         final RecordingHandler recorder;
+        final Level previousLevel;
 
-        Attachment(Logger logger, RecordingHandler recorder) {
+        Attachment(Logger logger, RecordingHandler recorder, Level previousLevel) {
             this.logger = logger;
             this.recorder = recorder;
+            this.previousLevel = previousLevel;
         }
     }
 
@@ -245,7 +251,7 @@ public class LogTest {
     public void tearDown() {
         for (Attachment attachment : this.attachments) {
             attachment.logger.removeHandler(attachment.recorder);
-            attachment.logger.setLevel(null);
+            attachment.logger.setLevel(attachment.previousLevel);
         }
         this.attachments.clear();
 
@@ -263,10 +269,11 @@ public class LogTest {
     /** Attaches a recorder to a fresh logger and returns it. */
     private RecordingHandler record(String loggerName) {
         Logger logger = Logger.getLogger(loggerName);
+        Level previousLevel = logger.getLevel();
         logger.setLevel(Level.ALL);
         RecordingHandler recorder = new RecordingHandler();
         logger.addHandler(recorder);
-        this.attachments.add(new Attachment(logger, recorder));
+        this.attachments.add(new Attachment(logger, recorder, previousLevel));
         return recorder;
     }
 
@@ -377,10 +384,11 @@ public class LogTest {
     /** Logs one message per level at the given threshold; returns the levels that got through. */
     private List<Level> publishedLevels(String loggerName, Level threshold) {
         Logger logger = Logger.getLogger(loggerName);
+        Level previousLevel = logger.getLevel();
         logger.setLevel(threshold);
         RecordingHandler recorder = new RecordingHandler();
         logger.addHandler(recorder);
-        this.attachments.add(new Attachment(logger, recorder));
+        this.attachments.add(new Attachment(logger, recorder, previousLevel));
 
         Log log = Log.of(loggerName);
         log.error("e");
@@ -428,14 +436,36 @@ public class LogTest {
 
     @Test
     public void testReconfiguringClearsAnOverrideThatIsNoLongerSet() {
-        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai", "TRACE");
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.testreset", "TRACE");
         Log.configure();
-        assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.ai").getLevel());
+        assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.testreset").getLevel());
 
-        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai");
+        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.testreset");
         Log.configure();
 
-        assertNull(Logger.getLogger("cr0s.javara.ai").getLevel());
+        assertNull(Logger.getLogger("cr0s.javara.testreset").getLevel());
+    }
+
+    @Test
+    public void testConcurrentConfigureLeavesExactlyOneHandler() throws InterruptedException {
+        Log.configure();
+
+        Thread[] workers = new Thread[8];
+        for (int i = 0; i < workers.length; i++) {
+            workers[i] = new Thread(() -> {
+                for (int round = 0; round < 20; round++) {
+                    Log.configure();
+                }
+            });
+        }
+        for (Thread worker : workers) {
+            worker.start();
+        }
+        for (Thread worker : workers) {
+            worker.join();
+        }
+
+        assertEquals(1, Logger.getLogger("").getHandlers().length);
     }
 
     @Test
@@ -444,6 +474,38 @@ public class LogTest {
         Log.configure();
 
         assertEquals(Level.INFO, Logger.getLogger("").getLevel());
+    }
+
+    @Test
+    public void testUnknownLevelNameIsReported() {
+        RecordingHandler recorder = record("cr0s.javara.util.Log");
+
+        System.setProperty(Log.LEVEL_PROPERTY, "DBG");
+        Log.configure();
+
+        assertEquals(1, recorder.records.size());
+        assertEquals(Level.WARNING, recorder.records.get(0).getLevel());
+        assertTrue(recorder.records.get(0).getMessage(),
+                recorder.records.get(0).getMessage().contains("Unknown log level 'DBG'"));
+    }
+
+    @Test
+    public void testMalformedPropertiesFileIsReportedAndSurvived() throws IOException {
+        File file = propertiesFile();
+        Assume.assumeFalse("a real " + Log.PROPERTIES_FILE + " is present in the working directory",
+                file.exists());
+        RecordingHandler recorder = record("cr0s.javara.util.Log");
+        try {
+            writeProperties("javara.log.level=bad\\uZZZZ\n");
+            Log.configure();
+
+            assertEquals(Level.INFO, Logger.getLogger("").getLevel());
+            assertEquals(1, recorder.records.size());
+            assertTrue(recorder.records.get(0).getMessage(),
+                    recorder.records.get(0).getMessage().contains("Malformed " + Log.PROPERTIES_FILE));
+        } finally {
+            file.delete();
+        }
     }
 
     @Test
@@ -486,6 +548,9 @@ public class LogTest {
         try (Writer writer = new FileWriter(Log.PROPERTIES_FILE)) {
             writer.write(content);
         }
+        // The file lives in the working directory; make sure it cannot outlive
+        // the run even if the JVM is killed between writing and deleting it.
+        propertiesFile().deleteOnExit();
     }
 }
 ```
@@ -615,6 +680,7 @@ Create `JavaRA/src/cr0s/javara/util/Log.java`:
 package cr0s.javara.util;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -660,8 +726,12 @@ public final class Log {
     /**
      * Reports problems with the logging configuration itself, such as a level
      * name that is not recognised.
+     *
+     * <p>It has its own handler and does not use its parent's, so that a
+     * configuration problem is reported whatever the configured threshold is:
+     * a threshold that is itself wrong must not be able to hide the fact.</p>
      */
-    private static final Log CONFIG_LOG = Log.of("cr0s.javara.util.Log");
+    private static final Logger CONFIG_LOG = createConfigLogger();
 
     /**
      * The loggers whose level this class has set.
@@ -672,6 +742,20 @@ public final class Log {
      * strong reference here keeps every applied override alive.</p>
      */
     private static final List<Logger> CONFIGURED_LOGGERS = new ArrayList<>();
+
+    /**
+     * Creates the logger used to report configuration problems.
+     */
+    private static Logger createConfigLogger() {
+        Logger logger = Logger.getLogger("cr0s.javara.util.Log");
+        logger.setUseParentHandlers(false);
+        logger.setLevel(Level.ALL);
+        ConsoleHandler handler = new ConsoleHandler();
+        handler.setFormatter(new LogFormatter());
+        handler.setLevel(Level.ALL);
+        logger.addHandler(handler);
+        return logger;
+    }
 
     private final Logger logger;
 
@@ -777,8 +861,13 @@ public final class Log {
         Properties properties = new Properties();
         try (InputStream in = new FileInputStream(PROPERTIES_FILE)) {
             properties.load(in);
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
             // No properties file in the working directory - the defaults apply.
+        } catch (IOException e) {
+            CONFIG_LOG.warning("Cannot read " + PROPERTIES_FILE + ": " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            // A malformed escape sequence; the defaults apply.
+            CONFIG_LOG.warning("Malformed " + PROPERTIES_FILE + ": " + e.getMessage());
         }
         for (String key : System.getProperties().stringPropertyNames()) {
             if (key.equals(LEVEL_PROPERTY) || key.startsWith(LEVEL_PROPERTY_PREFIX)) {
@@ -804,7 +893,7 @@ public final class Log {
             case "DEBUG": return Level.FINE;
             case "TRACE": return Level.FINER;
             default:
-                CONFIG_LOG.warn("Unknown log level '" + value + "' in " + source + "; using INFO");
+                CONFIG_LOG.warning("Unknown log level '" + value + "' in " + source + "; using INFO");
                 return Level.INFO;
         }
     }
@@ -848,7 +937,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (91 tests)` — the original 76 plus the 15 new `LogTest` methods.
+Expected: `OK (94 tests)` — the original 76 plus the 18 new `LogTest` methods.
 
 ### Step 7: Commit
 
@@ -883,11 +972,38 @@ Two smaller changes rode along: the timestamp zone is cached instead of being
 recomputed per line, and the timestamp format is pinned to `Locale.ROOT` so
 that the digits do not follow the platform locale.
 
-`LogTest` grew from 8 to 15 methods: the recording handlers are now detached
+### Step 9: Apply the second review round
+
+The re-review confirmed all five fixes and found four more. They are fixed in
+commit `d4e01f82`; the code blocks above already show the corrected code.
+
+1. **A configuration problem could be hidden by the threshold it reported
+   on.** The warning about an unrecognised level name went through the root
+   logger, so `-Djavara.log.level=ERROR` filtered it out — exactly the
+   "silently swallowed" case the fix was meant to remove. The configuration
+   logger now has its own `ConsoleHandler`, sets
+   `setUseParentHandlers(false)` and pins its level to `ALL`, so a
+   configuration problem is reported whatever the threshold is.
+2. **A malformed properties file broke `Log` entirely.** `Properties.load`
+   throws `IllegalArgumentException` for a bad `\u` escape, which escaped
+   `Log`'s static initialiser and turned every later use into an
+   `ExceptionInInitializerError`. The exception is now caught and reported,
+   and the defaults apply.
+3. **Two regressions were unguarded.** `LogTest` now asserts that concurrent
+   `configure()` calls leave exactly one handler on the root logger, and that
+   the unknown-level warning is actually published.
+4. **A stray `javara-log.properties` could survive a killed test run** and
+   silently change the logging of every later run. The test now registers the
+   file for deletion on exit, the file summary lists it in `.gitignore`, and
+   the tests that would be affected by a leftover file use a logger name that
+   no realistic configuration would mention.
+
+`LogTest` grew from 8 to 18 methods: the recording handlers are now detached
 again in `tearDown`, every level property is cleared there, and the missing
 behaviour is covered — `of(Class)`, the properties file, file-vs-system-property
 precedence, an unknown level name, the trailing line separator, reconfiguring,
-and a subtree override surviving a GC.
+a subtree override surviving a GC, concurrent configuration, and a malformed
+properties file.
 
 ---
 
@@ -1012,7 +1128,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (91 tests)`.
+Expected: `OK (94 tests)`.
 
 ### Step 5: Commit
 
@@ -1114,7 +1230,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (91 tests)`.
+Expected: `OK (94 tests)`.
 
 ### Step 4: Commit
 
@@ -1343,7 +1459,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (91 tests)`.
+Expected: `OK (94 tests)`.
 
 ### Step 8: Commit
 
@@ -1480,7 +1596,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (91 tests)`.
+Expected: `OK (94 tests)`.
 
 ---
 
@@ -1495,6 +1611,8 @@ Expected: `OK (91 tests)`.
 **Modified**
 
 - `JavaRA/src/module-info.java` — `requires transitive java.logging;`
+- `.gitignore` — ignore `javara-log.properties`, the optional runtime
+  configuration the facade reads from the working directory
 - `JavaRA/README.md` — "Debug output" section
 - 22 files — added `import cr0s.javara.util.Log;` and a `LOG` field
 - 22 files — migrated 31 `System.out`/`System.err` and 19 `printStackTrace()` sites
