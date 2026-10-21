@@ -3,10 +3,12 @@ package cr0s.javara.ai;
 import java.util.ArrayList;
 
 import cr0s.javara.ai.Squad.SquadType;
+import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.activities.Follow;
 import cr0s.javara.entity.actor.activity.activities.Move;
+import cr0s.javara.order.Order;
 import cr0s.javara.order.Target;
 
 public class Squad {
@@ -58,8 +60,25 @@ public class Squad {
     }
 
     public void update() {
-	if (this.isValid()) {
-	    this.fsm.update(this);
+	if (!this.isValid()) {
+	    return;
+	}
+
+	if (!this.targetIsValid()) {
+	    if (!this.units.isEmpty()) {
+		ArrayList<EntityActor> enemies = this.bot.findClosestEnemy(this.units.get(0).getPosition());
+		if (!enemies.isEmpty()) {
+		    this.setTarget(enemies.get(0));
+		}
+	    }
+	    return;
+	}
+
+	EntityActor tgt = (EntityActor) this.target.getTargetEntity();
+	for (EntityActor u : this.units) {
+	    if (u.isIdle() && u instanceof ICanAttack) {
+		u.resolveOrder(new Order("Attack", u, null, tgt));
+	    }
 	}
     }
 
@@ -73,10 +92,11 @@ public class Squad {
 
     public void setTarget(EntityActor tgt) {
 	this.target = new Target(tgt);
-        units.get(0).queueActivity(new Move((MobileEntity)units.get(0), tgt.getCellPosition()));
-        for(int i = 1; i < units.size(); i++){
-            units.get(i).queueActivity(new Follow(units.get(i), target, 3));
-        }
+	for (EntityActor u : this.units) {
+	    if (u instanceof ICanAttack) {
+		u.resolveOrder(new Order("Attack", u, null, tgt));
+	    }
+	}
     }
     
     public AIPlayer getBot() {
