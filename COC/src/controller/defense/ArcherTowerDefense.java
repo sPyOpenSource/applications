@@ -53,7 +53,7 @@ public class ArcherTowerDefense extends Thread {
                 }
             }
         }
-        if (map.getBuildingsMap().isEmpty() || archerTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
+        if (map.getBuildingsMap().isEmpty() || archerTower.getHp() <= 0) {
             archerTower.setDead();
         }
         if (!archerTower.isDead() && hero == null){
@@ -71,7 +71,7 @@ public class ArcherTowerDefense extends Thread {
         LineTo lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
         Circle circle = new Circle(archerTower.getImageView().getX()+48, archerTower.getImageView().getY()+20, 3);
         while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX()-lineTo.getX(), 2)+ Math.pow(moveTo.getY()-lineTo.getY(), 2)) < archerTower.getRange()) {
-            if (archerTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
+            if (archerTower.getHp() <= 0) {
                 archerTower.setDead();
                 break;
             }
