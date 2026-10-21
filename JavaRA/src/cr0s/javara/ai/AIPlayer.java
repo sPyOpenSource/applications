@@ -189,7 +189,7 @@ public class AIPlayer extends Player {
 	    for (Entry e : unitsCommonNamesMap.entrySet()) {
 		String[] names = ((String) e.getValue()).split(",");
 
-		this.buildingCommonNames.put((String) e.getKey(), names);
+		this.unitCommonNames.put((String) e.getKey(), names);
 	    }	 
 
 	    // Load building limits
@@ -406,6 +406,9 @@ public class AIPlayer extends Player {
 		enemies.add(p);
 	    }
 	}
+	if (enemies.isEmpty()) {
+	    return new ArrayList<>();
+	}
 	return this.findClosestEnemy(center, enemies.get(0), 20000000);
     }
 
@@ -502,6 +505,10 @@ public class AIPlayer extends Player {
 	    }
 	}
 
+	if (enemies.isEmpty()) {
+	    return new ArrayList<>();
+	}
+
 	Collections.sort(enemies, new Comparator<>() {
 	    @Override
 	    public int compare(Player p1, Player p2) {
@@ -544,7 +551,7 @@ public class AIPlayer extends Player {
 	ArrayList<EntityBuilding> result = new ArrayList<>();
 
 	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) { 
-	    if (e.isDead() || !(e instanceof EntityConstructionYard) || (e.owner.isEnemyFor(this))) {
+	    if (e.isDead() || !(e instanceof EntityConstructionYard) || !e.owner.isEnemyFor(this)) {
 		continue;
 	    }
 
@@ -635,15 +642,20 @@ public class AIPlayer extends Player {
 	int randomSquadSize = this.squadSize + World.random.nextInt(4);
 
 	if (this.unitsHangingAroundTheBase.size() >= randomSquadSize) {
-	    Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
-
+	    ArrayList<EntityActor> attackUnits = new ArrayList<>();
 	    for (EntityActor a : this.unitsHangingAroundTheBase) {
 		if (a instanceof ICanAttack) { // TODO: check is not aircraft
-		    attackForce.addUnit(a);
+		    attackUnits.add(a);
 		}
 	    }
 
-	    this.unitsHangingAroundTheBase.clear();
+	    if (!attackUnits.isEmpty()) {
+		Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
+		for (EntityActor a : attackUnits) {
+		    attackForce.addUnit(a);
+		}
+		this.unitsHangingAroundTheBase.clear();
+	    }
 	}
     }
 
@@ -656,6 +668,9 @@ public class AIPlayer extends Player {
 	    }
 
 	    EntityActor a = (EntityActor) e;
+	    if (a.owner != this) {
+		continue;
+	    }
 	    if (!this.activeUnits.contains(a)) {
 		newUnits.add(a);
 	    }
@@ -704,7 +719,17 @@ public class AIPlayer extends Player {
         ArrayList<EntityActor> a = chooseEnemyTarget();
         if(a.isEmpty()) return;
         if (squads.isEmpty()) return;
-        Squad s = squads.get(0);
+
+        Squad s = null;
+        for (Squad sq : squads) {
+            if (sq.getType() == SquadType.ASSAULT) {
+                s = sq;
+                break;
+            }
+        }
+        if (s == null) {
+            s = squads.get(0);
+        }
         s.setTarget(a.get(0));
         /*for(EntityActor b:s.getUnits()) {
             if(World.random.nextBoolean()) continue;
@@ -786,7 +811,7 @@ public class AIPlayer extends Player {
 		    buildables.add(name);
 		} else if ((this.getBase().isAlliedWarFactoryPresent || this.getBase().isSovietWarFactoryPresent)
 			&& this.getBase().getProductionQueue().neutralVehicles.containsKey(name)) {
-		    
+		    buildables.add(name);
 		}
 	    }
 
@@ -831,7 +856,7 @@ public class AIPlayer extends Player {
     }
 
     private boolean thereIsNoMcv() {
-	/*for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
+	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
 	    if (e.isDead() || !(e instanceof EntityMcv)) {
 		continue;
 	    }
@@ -842,7 +867,7 @@ public class AIPlayer extends Player {
 	    if (mcv.owner == this) {
 		return false;
 	    }
-	}*/
+	}
 
 	// No any our MCV is found
 	return true;

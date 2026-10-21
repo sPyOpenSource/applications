@@ -38,7 +38,7 @@ public class Squad {
     public void maintainCohesion() {  }
     
     public boolean isValid() {
-	return !this.units.isEmpty();
+	return !this.units.isEmpty() && this.units.stream().anyMatch(u -> !u.isDead());
     }
 
     public void removeDeadAndNotOwnUnits() {
