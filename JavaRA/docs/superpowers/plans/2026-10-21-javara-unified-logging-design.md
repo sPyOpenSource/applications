@@ -107,7 +107,6 @@ export MP="/Users/xuyi/opt/javafx-sdk-25.0.2/lib:/Users/xuyi/Source/Java/lib/sna
 export JUNIT=/Users/xuyi/Source/Java/JML/lib/junit-4.12.jar
 export HAMCREST=/Users/xuyi/Source/Java/lib/hamcrest-core-1.3.jar
 export JSON=/Users/xuyi/Source/Java/lib/json-20200518.jar
-export TESTS="test.LogTest test.PosTest test.PointsUtilTest test.RotationUtilTest test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest"
 ```
 
 Compile both modules:
@@ -122,8 +121,14 @@ Run the suite:
 
 ```bash
 $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
-    --add-modules test,junit -m junit/org.junit.runner.JUnitCore $TESTS
+    --add-modules test,junit -m junit/org.junit.runner.JUnitCore \
+    test.LogTest test.PosTest test.PointsUtilTest test.RotationUtilTest \
+    test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
+
+> **List the test classes explicitly.** zsh does not word-split an unquoted
+> variable, so `... JUnitCore $TESTS` passes the whole list as a single
+> argument and the runner reports `Could not find class: test.LogTest test.PosTest …`.
 
 Expected on a clean checkout: `OK (76 tests)`.
 
@@ -149,7 +154,7 @@ This plan was **executed end-to-end in a scratch copy** before it was
 committed, and the results are known to be good:
 
 - `Log.java`, `LogFormatter.java` and `LogTest.java` compile and the suite
-  reports `OK (84 tests)` (76 pre-existing + 8 new).
+  reports `OK (91 tests)` (76 pre-existing + 15 new).
 - All 50 call sites (31 prints + 19 stack traces) were migrated; the live
   call-site check reports nothing.
 - All 17 live `DEBUG_MODE` blocks were deleted, and each block body was
@@ -187,6 +192,10 @@ package test;
 import cr0s.javara.util.Log;
 import cr0s.javara.util.LogFormatter;
 import static org.junit.Assert.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -195,6 +204,7 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import org.junit.After;
+import org.junit.Assume;
 import org.junit.Test;
 
 public class LogTest {
@@ -217,13 +227,37 @@ public class LogTest {
         }
     }
 
+    /** A recorder together with the logger it is attached to, so both can be undone. */
+    private static class Attachment {
+        final Logger logger;
+        final RecordingHandler recorder;
+
+        Attachment(Logger logger, RecordingHandler recorder) {
+            this.logger = logger;
+            this.recorder = recorder;
+        }
+    }
+
+    /** The recorders attached by the current test, detached again in tearDown. */
+    private final List<Attachment> attachments = new ArrayList<>();
+
     @After
     public void tearDown() {
-        System.clearProperty("javara.log.level");
-        System.clearProperty("javara.log.level.cr0s.javara.ai");
+        for (Attachment attachment : this.attachments) {
+            attachment.logger.removeHandler(attachment.recorder);
+            attachment.logger.setLevel(null);
+        }
+        this.attachments.clear();
+
+        System.clearProperty(Log.LEVEL_PROPERTY);
+        for (String key : new ArrayList<>(System.getProperties().stringPropertyNames())) {
+            if (key.startsWith(Log.LEVEL_PROPERTY_PREFIX)) {
+                System.clearProperty(key);
+            }
+        }
+        // Rebuilds the configuration from the (now cleared) properties, which also
+        // drops any subtree override applied while the test was running.
         Log.configure();
-        // Drop the explicit level so the subtree inherits from the root again.
-        Logger.getLogger("cr0s.javara.ai").setLevel(null);
     }
 
     /** Attaches a recorder to a fresh logger and returns it. */
@@ -232,6 +266,7 @@ public class LogTest {
         logger.setLevel(Level.ALL);
         RecordingHandler recorder = new RecordingHandler();
         logger.addHandler(recorder);
+        this.attachments.add(new Attachment(logger, recorder));
         return recorder;
     }
 
@@ -255,6 +290,17 @@ public class LogTest {
     }
 
     @Test
+    public void testOfClassUsesTheFullyQualifiedClassName() {
+        RecordingHandler recorder = record(LogTest.class.getName());
+        Log log = Log.of(LogTest.class);
+
+        log.info("hello");
+
+        assertEquals(1, recorder.records.size());
+        assertEquals("hello", recorder.records.get(0).getMessage());
+    }
+
+    @Test
     public void testFormatShape() {
         LogRecord record = new LogRecord(Level.INFO, "Building ore refinery");
         record.setLoggerName("cr0s.javara.ai.BaseBuilder");
@@ -262,6 +308,16 @@ public class LogTest {
         String line = new LogFormatter().format(record);
 
         assertTrue(line, line.trim().matches("\\d{2}:\\d{2}:\\d{2}\\.\\d{3} INFO  \\[ai\\] Building ore refinery"));
+    }
+
+    @Test
+    public void testFormatEndsWithTheLineSeparator() {
+        LogRecord record = new LogRecord(Level.INFO, "done");
+        record.setLoggerName("cr0s.javara.ai.BaseBuilder");
+
+        String line = new LogFormatter().format(record);
+
+        assertTrue(line, line.endsWith(System.lineSeparator()));
     }
 
     @Test
@@ -274,11 +330,10 @@ public class LogTest {
         assertEquals("TRACE", LogFormatter.levelName(Level.FINER));
         assertEquals("TRACE", LogFormatter.levelName(Level.FINEST));
 
-        assertEquals(5, LogFormatter.levelName(Level.SEVERE).length());
-        assertEquals(5, LogFormatter.levelName(Level.WARNING).length());
-        assertEquals(5, LogFormatter.levelName(Level.INFO).length());
-        assertEquals(5, LogFormatter.levelName(Level.FINE).length());
-        assertEquals(5, LogFormatter.levelName(Level.FINER).length());
+        for (Level level : Arrays.asList(Level.SEVERE, Level.WARNING, Level.INFO,
+                                         Level.CONFIG, Level.FINE, Level.FINER, Level.FINEST)) {
+            assertEquals(level.getName(), 5, LogFormatter.levelName(level).length());
+        }
     }
 
     @Test
@@ -291,6 +346,9 @@ public class LogTest {
         assertEquals("ui",        LogFormatter.categoryOf("cr0s.javara.ui.GameSideBar"));
         assertEquals("Something", LogFormatter.categoryOf("com.example.Something"));
         assertEquals("Something", LogFormatter.categoryOf("Something"));
+        assertEquals("unknown",   LogFormatter.categoryOf(null));
+        assertEquals("unknown",   LogFormatter.categoryOf(""));
+        assertEquals("unknown",   LogFormatter.categoryOf("cr0s.javara."));
     }
 
     @Test
@@ -322,6 +380,7 @@ public class LogTest {
         logger.setLevel(threshold);
         RecordingHandler recorder = new RecordingHandler();
         logger.addHandler(recorder);
+        this.attachments.add(new Attachment(logger, recorder));
 
         Log log = Log.of(loggerName);
         log.error("e");
@@ -339,7 +398,7 @@ public class LogTest {
 
     @Test
     public void testPropertyWiringSetsGlobalThreshold() {
-        System.setProperty("javara.log.level", "DEBUG");
+        System.setProperty(Log.LEVEL_PROPERTY, "DEBUG");
         Log.configure();
 
         assertEquals(Level.FINE, Logger.getLogger("").getLevel());
@@ -347,14 +406,86 @@ public class LogTest {
 
     @Test
     public void testPropertyWiringOverridesSingleSubtree() {
-        System.setProperty("javara.log.level", "INFO");
-        System.setProperty("javara.log.level.cr0s.javara.ai", "TRACE");
+        System.setProperty(Log.LEVEL_PROPERTY, "INFO");
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai", "TRACE");
         Log.configure();
 
         assertEquals(Level.INFO,  Logger.getLogger("").getLevel());
         assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.ai").getLevel());
         assertTrue(Logger.getLogger("cr0s.javara.ai.BaseBuilder").isLoggable(Level.FINER));
         assertFalse(Logger.getLogger("cr0s.javara.render").isLoggable(Level.FINE));
+    }
+
+    @Test
+    public void testSubtreeOverrideSurvivesGarbageCollection() {
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.gc", "TRACE");
+        Log.configure();
+
+        System.gc();
+
+        assertTrue(Logger.getLogger("cr0s.javara.gc").isLoggable(Level.FINER));
+    }
+
+    @Test
+    public void testReconfiguringClearsAnOverrideThatIsNoLongerSet() {
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai", "TRACE");
+        Log.configure();
+        assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.ai").getLevel());
+
+        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai");
+        Log.configure();
+
+        assertNull(Logger.getLogger("cr0s.javara.ai").getLevel());
+    }
+
+    @Test
+    public void testUnknownLevelNameFallsBackToInfo() {
+        System.setProperty(Log.LEVEL_PROPERTY, "DBG");
+        Log.configure();
+
+        assertEquals(Level.INFO, Logger.getLogger("").getLevel());
+    }
+
+    @Test
+    public void testPropertiesFileIsRead() throws IOException {
+        File file = propertiesFile();
+        Assume.assumeFalse("a real " + Log.PROPERTIES_FILE + " is present in the working directory",
+                file.exists());
+        try {
+            writeProperties("javara.log.level=DEBUG\n");
+            Log.configure();
+
+            assertEquals(Level.FINE, Logger.getLogger("").getLevel());
+        } finally {
+            file.delete();
+        }
+    }
+
+    @Test
+    public void testSystemPropertyWinsOverThePropertiesFile() throws IOException {
+        File file = propertiesFile();
+        Assume.assumeFalse("a real " + Log.PROPERTIES_FILE + " is present in the working directory",
+                file.exists());
+        try {
+            writeProperties("javara.log.level=DEBUG\n");
+            System.setProperty(Log.LEVEL_PROPERTY, "INFO");
+            Log.configure();
+
+            assertEquals(Level.INFO, Logger.getLogger("").getLevel());
+        } finally {
+            file.delete();
+        }
+    }
+
+    /** The properties file the facade reads: it lives in the working directory. */
+    private File propertiesFile() {
+        return new File(Log.PROPERTIES_FILE);
+    }
+
+    private void writeProperties(String content) throws IOException {
+        try (Writer writer = new FileWriter(Log.PROPERTIES_FILE)) {
+            writer.write(content);
+        }
     }
 }
 ```
@@ -380,6 +511,7 @@ import java.io.StringWriter;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.logging.Formatter;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -400,7 +532,10 @@ public class LogFormatter extends Formatter {
     /** Category used when a logger name yields nothing usable. */
     public static final String UNKNOWN_CATEGORY = "unknown";
 
-    private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+    private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss.SSS", Locale.ROOT);
+
+    /** The zone the timestamps are rendered in, captured once at class load. */
+    private static final ZoneId ZONE = ZoneId.systemDefault();
 
     /**
      * Maps a JUL level onto the 5-character JavaRA level name.
@@ -450,7 +585,7 @@ public class LogFormatter extends Formatter {
     @Override
     public String format(LogRecord record) {
         StringBuilder out = new StringBuilder(128);
-        out.append(TIME_FORMAT.format(LocalTime.ofInstant(record.getInstant(), ZoneId.systemDefault())));
+        out.append(TIME_FORMAT.format(LocalTime.ofInstant(record.getInstant(), ZONE)));
         out.append(' ');
         out.append(levelName(record.getLevel()));
         out.append(" [");
@@ -482,6 +617,9 @@ package cr0s.javara.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.Properties;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
@@ -518,6 +656,22 @@ public final class Log {
 
     /** Optional properties file, read from the working directory. */
     public static final String PROPERTIES_FILE = "javara-log.properties";
+
+    /**
+     * Reports problems with the logging configuration itself, such as a level
+     * name that is not recognised.
+     */
+    private static final Log CONFIG_LOG = Log.of("cr0s.javara.util.Log");
+
+    /**
+     * The loggers whose level this class has set.
+     *
+     * <p>{@code java.util.logging.LogManager} holds loggers weakly, so a
+     * subtree logger that nothing else references can be garbage collected -
+     * taking its level with it and silently reverting the override. Holding a
+     * strong reference here keeps every applied override alive.</p>
+     */
+    private static final List<Logger> CONFIGURED_LOGGERS = new ArrayList<>();
 
     private final Logger logger;
 
@@ -571,19 +725,21 @@ public final class Log {
      * Installs the console handler and applies the configured levels.
      *
      * <p>Idempotent: calling it again re-reads the properties and rebuilds the
-     * same configuration. Must run before any {@link Logger} for a JavaRA
-     * class is created - JUL fixes a logger's parent at creation time, so a
-     * per-subtree override only reaches the class loggers underneath it if the
-     * subtree logger already exists. That is why the static initialiser below
-     * calls this method before any {@code Log.of(...)} call can run.</p>
+     * configuration, including clearing subtree overrides that are no longer
+     * configured.</p>
+     *
+     * <p>JUL creates a logger's ancestor chain on demand and resolves the
+     * effective level dynamically, so a per-subtree override reaches the class
+     * loggers underneath it whether they are created before or after this
+     * call. The static initialiser below still runs this method first, so that
+     * the console handler is in place before any JavaRA class can log.</p>
      */
-    public static void configure() {
+    public static synchronized void configure() {
         Properties properties = loadProperties();
 
         Logger root = Logger.getLogger("");
-        root.setLevel(levelOf(properties.getProperty(LEVEL_PROPERTY, "INFO")));
 
-        // Drop JUL's default handlers so nothing is printed twice.
+        // Replace the root logger's handlers so that nothing is printed twice.
         for (Handler handler : root.getHandlers()) {
             root.removeHandler(handler);
         }
@@ -591,6 +747,15 @@ public final class Log {
         handler.setFormatter(new LogFormatter());
         handler.setLevel(Level.ALL);
         root.addHandler(handler);
+
+        // The global threshold.
+        root.setLevel(levelOf(properties.getProperty(LEVEL_PROPERTY, "INFO"), LEVEL_PROPERTY));
+
+        // Clear the subtree overrides applied by an earlier configuration.
+        for (Logger configured : CONFIGURED_LOGGERS) {
+            configured.setLevel(null);
+        }
+        CONFIGURED_LOGGERS.clear();
 
         for (String key : properties.stringPropertyNames()) {
             if (!key.startsWith(LEVEL_PROPERTY_PREFIX)) {
@@ -600,7 +765,10 @@ public final class Log {
             if (loggerName.isEmpty()) {
                 continue;
             }
-            Logger.getLogger(loggerName).setLevel(levelOf(properties.getProperty(key)));
+            Logger target = Logger.getLogger(loggerName);
+            target.setLevel(levelOf(properties.getProperty(key), key));
+            // Keep it reachable: JUL would otherwise let it be collected.
+            CONFIGURED_LOGGERS.add(target);
         }
     }
 
@@ -620,18 +788,24 @@ public final class Log {
         return properties;
     }
 
-    /** Maps a JavaRA level name onto its JUL level. Unknown values fall back to INFO. */
-    private static Level levelOf(String value) {
+    /**
+     * Maps a JavaRA level name onto its JUL level. An unrecognised name is
+     * reported and falls back to INFO, so that a typo in a level property is
+     * visible instead of silently changing the verbosity.
+     */
+    private static Level levelOf(String value, String source) {
         if (value == null) {
             return Level.INFO;
         }
-        switch (value.trim().toUpperCase()) {
+        switch (value.trim().toUpperCase(Locale.ROOT)) {
             case "ERROR": return Level.SEVERE;
             case "WARN":  return Level.WARNING;
             case "INFO":  return Level.INFO;
             case "DEBUG": return Level.FINE;
             case "TRACE": return Level.FINER;
-            default:      return Level.INFO;
+            default:
+                CONFIG_LOG.warn("Unknown log level '" + value + "' in " + source + "; using INFO");
+                return Level.INFO;
         }
     }
 
@@ -669,10 +843,12 @@ rm -rf out/main out/test && mkdir -p out/main out/test
 $JDK/javac -d out/main --module-path "$MP" -nowarn $(find src -name '*.java')
 $JDK/javac -d out/test --module-path "$MP:out/main:$JUNIT:$HAMCREST:$JSON" -nowarn $(find test -name '*.java')
 $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
-    --add-modules test,junit -m junit/org.junit.runner.JUnitCore $TESTS
+    --add-modules test,junit -m junit/org.junit.runner.JUnitCore \
+    test.LogTest test.PosTest test.PointsUtilTest test.RotationUtilTest \
+    test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (84 tests)` — the original 76 plus the 8 new `LogTest` methods.
+Expected: `OK (91 tests)` — the original 76 plus the 15 new `LogTest` methods.
 
 ### Step 7: Commit
 
@@ -681,6 +857,37 @@ git add JavaRA/src/cr0s/javara/util/Log.java JavaRA/src/cr0s/javara/util/LogForm
         JavaRA/test/test/LogTest.java JavaRA/src/module-info.java
 git commit -m "feat: add unified Log facade and LogFormatter for JavaRA"
 ```
+
+### Step 8: Apply the review fixes
+
+The code review of this task found five real problems. They are fixed in
+commit `fd82a993`; the code blocks above already show the corrected code.
+
+1. **JUL holds loggers weakly.** A subtree logger whose level `Log` set could
+   be garbage collected, taking its level with it — so
+   `-Djavara.log.level.cr0s.javara.ai=TRACE` would silently revert after a GC.
+   `Log` now keeps a strong reference to every logger whose level it sets.
+2. **`configure()` was not thread-safe.** Two concurrent calls could leave two
+   `ConsoleHandler`s on the root logger and print every line twice. It is now
+   `synchronized`.
+3. **`configure()` could not undo a previous override.** It now resets the
+   subtree loggers it configured before applying the current properties, so it
+   really does rebuild the configuration.
+4. **The Javadoc's ordering rationale was wrong.** JUL creates a logger's
+   ancestor chain on demand and resolves the effective level dynamically, so an
+   override reaches class loggers created before *or* after `configure()`.
+5. **An unrecognised level name was swallowed.** It is now reported on the log
+   and falls back to `INFO`, so a typo in `-Djavara.log.level` is visible.
+
+Two smaller changes rode along: the timestamp zone is cached instead of being
+recomputed per line, and the timestamp format is pinned to `Locale.ROOT` so
+that the digits do not follow the platform locale.
+
+`LogTest` grew from 8 to 15 methods: the recording handlers are now detached
+again in `tearDown`, every level property is cleared there, and the missing
+behaviour is covered — `of(Class)`, the properties file, file-vs-system-property
+precedence, an unknown level name, the trailing line separator, reconfiguring,
+and a subtree override surviving a GC.
 
 ---
 
@@ -800,10 +1007,12 @@ rm -rf out/main out/test && mkdir -p out/main out/test
 $JDK/javac -d out/main --module-path "$MP" -nowarn $(find src -name '*.java')
 $JDK/javac -d out/test --module-path "$MP:out/main:$JUNIT:$HAMCREST:$JSON" -nowarn $(find test -name '*.java')
 $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
-    --add-modules test,junit -m junit/org.junit.runner.JUnitCore $TESTS
+    --add-modules test,junit -m junit/org.junit.runner.JUnitCore \
+    test.LogTest test.PosTest test.PointsUtilTest test.RotationUtilTest \
+    test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (84 tests)`.
+Expected: `OK (91 tests)`.
 
 ### Step 5: Commit
 
@@ -900,10 +1109,12 @@ rm -rf out/main out/test && mkdir -p out/main out/test
 $JDK/javac -d out/main --module-path "$MP" -nowarn $(find src -name '*.java')
 $JDK/javac -d out/test --module-path "$MP:out/main:$JUNIT:$HAMCREST:$JSON" -nowarn $(find test -name '*.java')
 $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
-    --add-modules test,junit -m junit/org.junit.runner.JUnitCore $TESTS
+    --add-modules test,junit -m junit/org.junit.runner.JUnitCore \
+    test.LogTest test.PosTest test.PointsUtilTest test.RotationUtilTest \
+    test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (84 tests)`.
+Expected: `OK (91 tests)`.
 
 ### Step 4: Commit
 
@@ -1127,10 +1338,12 @@ rm -rf out/main out/test && mkdir -p out/main out/test
 $JDK/javac -d out/main --module-path "$MP" -nowarn $(find src -name '*.java')
 $JDK/javac -d out/test --module-path "$MP:out/main:$JUNIT:$HAMCREST:$JSON" -nowarn $(find test -name '*.java')
 $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
-    --add-modules test,junit -m junit/org.junit.runner.JUnitCore $TESTS
+    --add-modules test,junit -m junit/org.junit.runner.JUnitCore \
+    test.LogTest test.PosTest test.PointsUtilTest test.RotationUtilTest \
+    test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (84 tests)`.
+Expected: `OK (91 tests)`.
 
 ### Step 8: Commit
 
@@ -1262,10 +1475,12 @@ rm -rf out/main out/test && mkdir -p out/main out/test
 $JDK/javac -d out/main --module-path "$MP" -nowarn $(find src -name '*.java')
 $JDK/javac -d out/test --module-path "$MP:out/main:$JUNIT:$HAMCREST:$JSON" -nowarn $(find test -name '*.java')
 $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
-    --add-modules test,junit -m junit/org.junit.runner.JUnitCore $TESTS
+    --add-modules test,junit -m junit/org.junit.runner.JUnitCore \
+    test.LogTest test.PosTest test.PointsUtilTest test.RotationUtilTest \
+    test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (84 tests)`.
+Expected: `OK (91 tests)`.
 
 ---
 
