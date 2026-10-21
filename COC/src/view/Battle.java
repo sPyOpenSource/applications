@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
 
+import util.DebugLog;
+
 public class Battle extends Application {
     private final Assets assets = new Assets();
     private final static DropShadow shadow = new DropShadow(10, Color.GOLD);
@@ -129,6 +131,8 @@ public class Battle extends Application {
                     && root.getChildren().contains(icon.view)) {
                 capacityInt.addAndGet(-icon.cost);
                 capacity.setText("Capacity : " + capacityInt.get());
+                DebugLog.trace("deploy", "Deployed unit at (" + x + "," + y
+                        + ") cost=" + icon.cost + " remainingCapacity=" + capacityInt.get());
                 icon.spawn.apply(x, y).start();
             }
         }
