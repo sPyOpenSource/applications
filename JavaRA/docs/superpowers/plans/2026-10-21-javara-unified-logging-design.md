@@ -46,6 +46,12 @@ Key mechanics:
   `DEBUG` threshold correctly rejects `TRACE` with no extra logic.
 - **One `ConsoleHandler` on the root logger** carrying `LogFormatter`. JUL's
   default root handlers are removed first, so nothing is printed twice.
+- **A second `ConsoleHandler` on the configuration logger.** It reports problems
+  with the logging configuration itself — an unrecognised level name, a
+  malformed properties file — and sets `setUseParentHandlers(false)` with its
+  level pinned to `ALL`, so that a configuration problem is reported whatever
+  the configured threshold is. An override on that logger's own name is
+  ignored, so it cannot be silenced from the outside.
 - **Ordering.** JUL creates a logger's ancestor chain on demand and resolves
   the effective level dynamically, so an override reaches the class loggers
   beneath it whether they are created before or after `configure()`. `Log`'s
@@ -158,7 +164,7 @@ This plan was **executed end-to-end in a scratch copy** before it was
 committed, and the results are known to be good:
 
 - `Log.java`, `LogFormatter.java` and `LogTest.java` compile and the suite
-  reports `OK (94 tests)` (76 pre-existing + 18 new).
+  reports `OK (95 tests)` (76 pre-existing + 19 new).
 - All 50 call sites (31 prints + 19 stack traces) were migrated; the live
   call-site check reports nothing.
 - All 17 live `DEBUG_MODE` blocks were deleted, and each block body was
@@ -203,6 +209,10 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -268,6 +278,10 @@ public class LogTest {
 
     /** Attaches a recorder to a fresh logger and returns it. */
     private RecordingHandler record(String loggerName) {
+        // Force Log's initialiser to run first, so that the level captured
+        // below is the settled one and is restored unchanged in tearDown.
+        Log.configure();
+
         Logger logger = Logger.getLogger(loggerName);
         Level previousLevel = logger.getLevel();
         logger.setLevel(Level.ALL);
@@ -436,36 +450,55 @@ public class LogTest {
 
     @Test
     public void testReconfiguringClearsAnOverrideThatIsNoLongerSet() {
-        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.testreset", "TRACE");
-        Log.configure();
-        assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.testreset").getLevel());
+        // A name no ambient configuration file could plausibly mention.
+        String loggerName = "cr0s.javara.testreset." + UUID.randomUUID();
 
-        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.testreset");
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + loggerName, "TRACE");
+        Log.configure();
+        assertEquals(Level.FINER, Logger.getLogger(loggerName).getLevel());
+
+        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + loggerName);
         Log.configure();
 
-        assertNull(Logger.getLogger("cr0s.javara.testreset").getLevel());
+        assertNull(Logger.getLogger(loggerName).getLevel());
     }
 
     @Test
     public void testConcurrentConfigureLeavesExactlyOneHandler() throws InterruptedException {
         Log.configure();
 
+        Logger root = Logger.getLogger("");
+        AtomicInteger highest = new AtomicInteger(0);
+        AtomicBoolean stop = new AtomicBoolean(false);
+
+        Thread watcher = new Thread(() -> {
+            while (true) {
+                highest.accumulateAndGet(root.getHandlers().length, Math::max);
+                if (stop.get()) {
+                    break;
+                }
+            }
+        });
+        watcher.setDaemon(true);
+        watcher.start();
+
         Thread[] workers = new Thread[8];
         for (int i = 0; i < workers.length; i++) {
             workers[i] = new Thread(() -> {
-                for (int round = 0; round < 20; round++) {
+                for (int round = 0; round < 200; round++) {
                     Log.configure();
                 }
             });
-        }
-        for (Thread worker : workers) {
-            worker.start();
+            workers[i].start();
         }
         for (Thread worker : workers) {
             worker.join();
         }
+        stop.set(true);
+        watcher.join();
 
-        assertEquals(1, Logger.getLogger("").getHandlers().length);
+        assertEquals(1, highest.get());
+        assertEquals(1, root.getHandlers().length);
     }
 
     @Test
@@ -477,16 +510,36 @@ public class LogTest {
     }
 
     @Test
-    public void testUnknownLevelNameIsReported() {
-        RecordingHandler recorder = record("cr0s.javara.util.Log");
+    public void testConfigurationWarningSurvivesAHighThreshold() {
+        RecordingHandler recorder = record("cr0s.javara.util.LogConfig");
 
-        System.setProperty(Log.LEVEL_PROPERTY, "DBG");
+        System.setProperty(Log.LEVEL_PROPERTY, "ERROR");
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai", "DBG");
         Log.configure();
 
         assertEquals(1, recorder.records.size());
         assertEquals(Level.WARNING, recorder.records.get(0).getLevel());
         assertTrue(recorder.records.get(0).getMessage(),
                 recorder.records.get(0).getMessage().contains("Unknown log level 'DBG'"));
+
+        Logger configLogger = Logger.getLogger("cr0s.javara.util.LogConfig");
+        assertFalse("the configuration logger must not use the root handler",
+                configLogger.getUseParentHandlers());
+        boolean hasConsoleHandler = false;
+        for (Handler handler : configLogger.getHandlers()) {
+            if (handler instanceof ConsoleHandler) {
+                hasConsoleHandler = true;
+            }
+        }
+        assertTrue("the configuration logger must have its own console handler", hasConsoleHandler);
+    }
+
+    @Test
+    public void testAnOverrideCannotSilenceTheConfigurationLogger() {
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.util.LogConfig", "ERROR");
+        Log.configure();
+
+        assertEquals(Level.ALL, Logger.getLogger("cr0s.javara.util.LogConfig").getLevel());
     }
 
     @Test
@@ -494,7 +547,7 @@ public class LogTest {
         File file = propertiesFile();
         Assume.assumeFalse("a real " + Log.PROPERTIES_FILE + " is present in the working directory",
                 file.exists());
-        RecordingHandler recorder = record("cr0s.javara.util.Log");
+        RecordingHandler recorder = record("cr0s.javara.util.LogConfig");
         try {
             writeProperties("javara.log.level=bad\\uZZZZ\n");
             Log.configure();
@@ -729,7 +782,9 @@ public final class Log {
      *
      * <p>It has its own handler and does not use its parent's, so that a
      * configuration problem is reported whatever the configured threshold is:
-     * a threshold that is itself wrong must not be able to hide the fact.</p>
+     * a threshold that is itself wrong must not be able to hide the fact. Its
+     * name is deliberately not a class name, so that it cannot be confused
+     * with — or reached through — {@link Log#of(Class)}.</p>
      */
     private static final Logger CONFIG_LOG = createConfigLogger();
 
@@ -747,7 +802,7 @@ public final class Log {
      * Creates the logger used to report configuration problems.
      */
     private static Logger createConfigLogger() {
-        Logger logger = Logger.getLogger("cr0s.javara.util.Log");
+        Logger logger = Logger.getLogger("cr0s.javara.util.LogConfig");
         logger.setUseParentHandlers(false);
         logger.setLevel(Level.ALL);
         ConsoleHandler handler = new ConsoleHandler();
@@ -841,6 +896,10 @@ public final class Log {
         }
         CONFIGURED_LOGGERS.clear();
 
+        // The configuration logger must keep reporting, whatever else is set.
+        CONFIG_LOG.setUseParentHandlers(false);
+        CONFIG_LOG.setLevel(Level.ALL);
+
         for (String key : properties.stringPropertyNames()) {
             if (!key.startsWith(LEVEL_PROPERTY_PREFIX)) {
                 continue;
@@ -850,6 +909,11 @@ public final class Log {
                 continue;
             }
             Logger target = Logger.getLogger(loggerName);
+            if (target == CONFIG_LOG) {
+                // An override must not be able to silence the reporting of
+                // configuration problems.
+                continue;
+            }
             target.setLevel(levelOf(properties.getProperty(key), key));
             // Keep it reachable: JUL would otherwise let it be collected.
             CONFIGURED_LOGGERS.add(target);
@@ -937,7 +1001,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (94 tests)` — the original 76 plus the 18 new `LogTest` methods.
+Expected: `OK (95 tests)` — the original 76 plus the 19 new `LogTest` methods.
 
 ### Step 7: Commit
 
@@ -1004,6 +1068,41 @@ behaviour is covered — `of(Class)`, the properties file, file-vs-system-proper
 precedence, an unknown level name, the trailing line separator, reconfiguring,
 a subtree override surviving a GC, concurrent configuration, and a malformed
 properties file.
+
+### Step 10: Apply the third review round
+
+A focused re-review of the four fixes above found three more problems and
+three smaller ones.
+
+1. **An override on the configuration logger's own name disabled it.** The
+   override loop applied `javara.log.level.cr0s.javara.util.Log=ERROR` to the
+   configuration logger itself, so a user could silence the reporting of
+   configuration problems. The loop now skips that logger, and `configure()`
+   re-asserts its level and `setUseParentHandlers(false)` after every reset.
+2. **The configuration logger's name collided with a class logger.** It was
+   `cr0s.javara.util.Log` — the name `Log.of(Log.class)` produces — so the
+   `ALL` pin leaked onto it. It is now `cr0s.javara.util.LogConfig`, which is
+   not a class name.
+3. **Two of the new tests did not guard their fixes.** The unknown-level test
+   used the *global* level, whose warning is published before the root
+   threshold is lowered, so it passed even with the fix reverted; it now uses
+   a subtree level with a high global threshold. The concurrency test only
+   checked the handler count *after* the workers had finished; a watcher
+   thread now samples it *while* they run, which detects the unsynchronised
+   variant reliably.
+4. **The configuration logger's own console handler was unguarded.** The test
+   now asserts that it has a `ConsoleHandler` of its own, so that a
+   configuration warning cannot end up going nowhere.
+5. **The recording helper could strip the configuration logger's level.** The
+   helper restores the level it found, but it captured the level before `Log`'s
+   initialiser had run. It now forces the initialiser to run first.
+6. **A leftover properties file could still break the suite.** The test that
+   clears an override now uses a logger name built from a UUID, which no
+   ambient configuration file could plausibly mention.
+
+`LogTest` grew from 18 to 19 methods. Each of the three substantive fixes is
+guarded by a test that fails when the fix is reverted; this was verified by
+mutating a copy of the source outside the repository.
 
 ---
 
@@ -1128,7 +1227,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (94 tests)`.
+Expected: `OK (95 tests)`.
 
 ### Step 5: Commit
 
@@ -1230,7 +1329,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (94 tests)`.
+Expected: `OK (95 tests)`.
 
 ### Step 4: Commit
 
@@ -1459,7 +1558,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (94 tests)`.
+Expected: `OK (95 tests)`.
 
 ### Step 8: Commit
 
@@ -1596,7 +1695,7 @@ $JDK/java --module-path "$MP:out/main:out/test:$JUNIT:$HAMCREST:$JSON" \
     test.AStarPathFinderTest test.UtilsTest test.ClassTest test.SoundManagerTest
 ```
 
-Expected: `OK (94 tests)`.
+Expected: `OK (95 tests)`.
 
 ---
 

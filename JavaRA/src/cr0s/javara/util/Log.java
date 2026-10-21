@@ -50,7 +50,9 @@ public final class Log {
      *
      * <p>It has its own handler and does not use its parent's, so that a
      * configuration problem is reported whatever the configured threshold is:
-     * a threshold that is itself wrong must not be able to hide the fact.</p>
+     * a threshold that is itself wrong must not be able to hide the fact. Its
+     * name is deliberately not a class name, so that it cannot be confused
+     * with — or reached through — {@link Log#of(Class)}.</p>
      */
     private static final Logger CONFIG_LOG = createConfigLogger();
 
@@ -68,7 +70,7 @@ public final class Log {
      * Creates the logger used to report configuration problems.
      */
     private static Logger createConfigLogger() {
-        Logger logger = Logger.getLogger("cr0s.javara.util.Log");
+        Logger logger = Logger.getLogger("cr0s.javara.util.LogConfig");
         logger.setUseParentHandlers(false);
         logger.setLevel(Level.ALL);
         ConsoleHandler handler = new ConsoleHandler();
@@ -162,6 +164,10 @@ public final class Log {
         }
         CONFIGURED_LOGGERS.clear();
 
+        // The configuration logger must keep reporting, whatever else is set.
+        CONFIG_LOG.setUseParentHandlers(false);
+        CONFIG_LOG.setLevel(Level.ALL);
+
         for (String key : properties.stringPropertyNames()) {
             if (!key.startsWith(LEVEL_PROPERTY_PREFIX)) {
                 continue;
@@ -171,6 +177,11 @@ public final class Log {
                 continue;
             }
             Logger target = Logger.getLogger(loggerName);
+            if (target == CONFIG_LOG) {
+                // An override must not be able to silence the reporting of
+                // configuration problems.
+                continue;
+            }
             target.setLevel(levelOf(properties.getProperty(key), key));
             // Keep it reachable: JUL would otherwise let it be collected.
             CONFIGURED_LOGGERS.add(target);

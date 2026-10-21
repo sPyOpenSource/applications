@@ -10,6 +10,10 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -75,6 +79,10 @@ public class LogTest {
 
     /** Attaches a recorder to a fresh logger and returns it. */
     private RecordingHandler record(String loggerName) {
+        // Force Log's initialiser to run first, so that the level captured
+        // below is the settled one and is restored unchanged in tearDown.
+        Log.configure();
+
         Logger logger = Logger.getLogger(loggerName);
         Level previousLevel = logger.getLevel();
         logger.setLevel(Level.ALL);
@@ -243,36 +251,55 @@ public class LogTest {
 
     @Test
     public void testReconfiguringClearsAnOverrideThatIsNoLongerSet() {
-        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.testreset", "TRACE");
-        Log.configure();
-        assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.testreset").getLevel());
+        // A name no ambient configuration file could plausibly mention.
+        String loggerName = "cr0s.javara.testreset." + UUID.randomUUID();
 
-        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.testreset");
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + loggerName, "TRACE");
+        Log.configure();
+        assertEquals(Level.FINER, Logger.getLogger(loggerName).getLevel());
+
+        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + loggerName);
         Log.configure();
 
-        assertNull(Logger.getLogger("cr0s.javara.testreset").getLevel());
+        assertNull(Logger.getLogger(loggerName).getLevel());
     }
 
     @Test
     public void testConcurrentConfigureLeavesExactlyOneHandler() throws InterruptedException {
         Log.configure();
 
+        Logger root = Logger.getLogger("");
+        AtomicInteger highest = new AtomicInteger(0);
+        AtomicBoolean stop = new AtomicBoolean(false);
+
+        Thread watcher = new Thread(() -> {
+            while (true) {
+                highest.accumulateAndGet(root.getHandlers().length, Math::max);
+                if (stop.get()) {
+                    break;
+                }
+            }
+        });
+        watcher.setDaemon(true);
+        watcher.start();
+
         Thread[] workers = new Thread[8];
         for (int i = 0; i < workers.length; i++) {
             workers[i] = new Thread(() -> {
-                for (int round = 0; round < 20; round++) {
+                for (int round = 0; round < 200; round++) {
                     Log.configure();
                 }
             });
-        }
-        for (Thread worker : workers) {
-            worker.start();
+            workers[i].start();
         }
         for (Thread worker : workers) {
             worker.join();
         }
+        stop.set(true);
+        watcher.join();
 
-        assertEquals(1, Logger.getLogger("").getHandlers().length);
+        assertEquals(1, highest.get());
+        assertEquals(1, root.getHandlers().length);
     }
 
     @Test
@@ -284,16 +311,36 @@ public class LogTest {
     }
 
     @Test
-    public void testUnknownLevelNameIsReported() {
-        RecordingHandler recorder = record("cr0s.javara.util.Log");
+    public void testConfigurationWarningSurvivesAHighThreshold() {
+        RecordingHandler recorder = record("cr0s.javara.util.LogConfig");
 
-        System.setProperty(Log.LEVEL_PROPERTY, "DBG");
+        System.setProperty(Log.LEVEL_PROPERTY, "ERROR");
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai", "DBG");
         Log.configure();
 
         assertEquals(1, recorder.records.size());
         assertEquals(Level.WARNING, recorder.records.get(0).getLevel());
         assertTrue(recorder.records.get(0).getMessage(),
                 recorder.records.get(0).getMessage().contains("Unknown log level 'DBG'"));
+
+        Logger configLogger = Logger.getLogger("cr0s.javara.util.LogConfig");
+        assertFalse("the configuration logger must not use the root handler",
+                configLogger.getUseParentHandlers());
+        boolean hasConsoleHandler = false;
+        for (Handler handler : configLogger.getHandlers()) {
+            if (handler instanceof ConsoleHandler) {
+                hasConsoleHandler = true;
+            }
+        }
+        assertTrue("the configuration logger must have its own console handler", hasConsoleHandler);
+    }
+
+    @Test
+    public void testAnOverrideCannotSilenceTheConfigurationLogger() {
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.util.LogConfig", "ERROR");
+        Log.configure();
+
+        assertEquals(Level.ALL, Logger.getLogger("cr0s.javara.util.LogConfig").getLevel());
     }
 
     @Test
@@ -301,7 +348,7 @@ public class LogTest {
         File file = propertiesFile();
         Assume.assumeFalse("a real " + Log.PROPERTIES_FILE + " is present in the working directory",
                 file.exists());
-        RecordingHandler recorder = record("cr0s.javara.util.Log");
+        RecordingHandler recorder = record("cr0s.javara.util.LogConfig");
         try {
             writeProperties("javara.log.level=bad\\uZZZZ\n");
             Log.configure();
