@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.logging.Formatter;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -25,7 +26,10 @@ public class LogFormatter extends Formatter {
     /** Category used when a logger name yields nothing usable. */
     public static final String UNKNOWN_CATEGORY = "unknown";
 
-    private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+    private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss.SSS", Locale.ROOT);
+
+    /** The zone the timestamps are rendered in, captured once at class load. */
+    private static final ZoneId ZONE = ZoneId.systemDefault();
 
     /**
      * Maps a JUL level onto the 5-character JavaRA level name.
@@ -75,7 +79,7 @@ public class LogFormatter extends Formatter {
     @Override
     public String format(LogRecord record) {
         StringBuilder out = new StringBuilder(128);
-        out.append(TIME_FORMAT.format(LocalTime.ofInstant(record.getInstant(), ZoneId.systemDefault())));
+        out.append(TIME_FORMAT.format(LocalTime.ofInstant(record.getInstant(), ZONE)));
         out.append(' ');
         out.append(levelName(record.getLevel()));
         out.append(" [");

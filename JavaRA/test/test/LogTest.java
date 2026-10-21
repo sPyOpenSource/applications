@@ -3,6 +3,10 @@ package test;
 import cr0s.javara.util.Log;
 import cr0s.javara.util.LogFormatter;
 import static org.junit.Assert.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import org.junit.After;
+import org.junit.Assume;
 import org.junit.Test;
 
 public class LogTest {
@@ -33,13 +38,37 @@ public class LogTest {
         }
     }
 
+    /** A recorder together with the logger it is attached to, so both can be undone. */
+    private static class Attachment {
+        final Logger logger;
+        final RecordingHandler recorder;
+
+        Attachment(Logger logger, RecordingHandler recorder) {
+            this.logger = logger;
+            this.recorder = recorder;
+        }
+    }
+
+    /** The recorders attached by the current test, detached again in tearDown. */
+    private final List<Attachment> attachments = new ArrayList<>();
+
     @After
     public void tearDown() {
-        System.clearProperty("javara.log.level");
-        System.clearProperty("javara.log.level.cr0s.javara.ai");
+        for (Attachment attachment : this.attachments) {
+            attachment.logger.removeHandler(attachment.recorder);
+            attachment.logger.setLevel(null);
+        }
+        this.attachments.clear();
+
+        System.clearProperty(Log.LEVEL_PROPERTY);
+        for (String key : new ArrayList<>(System.getProperties().stringPropertyNames())) {
+            if (key.startsWith(Log.LEVEL_PROPERTY_PREFIX)) {
+                System.clearProperty(key);
+            }
+        }
+        // Rebuilds the configuration from the (now cleared) properties, which also
+        // drops any subtree override applied while the test was running.
         Log.configure();
-        // Drop the explicit level so the subtree inherits from the root again.
-        Logger.getLogger("cr0s.javara.ai").setLevel(null);
     }
 
     /** Attaches a recorder to a fresh logger and returns it. */
@@ -48,6 +77,7 @@ public class LogTest {
         logger.setLevel(Level.ALL);
         RecordingHandler recorder = new RecordingHandler();
         logger.addHandler(recorder);
+        this.attachments.add(new Attachment(logger, recorder));
         return recorder;
     }
 
@@ -71,6 +101,17 @@ public class LogTest {
     }
 
     @Test
+    public void testOfClassUsesTheFullyQualifiedClassName() {
+        RecordingHandler recorder = record(LogTest.class.getName());
+        Log log = Log.of(LogTest.class);
+
+        log.info("hello");
+
+        assertEquals(1, recorder.records.size());
+        assertEquals("hello", recorder.records.get(0).getMessage());
+    }
+
+    @Test
     public void testFormatShape() {
         LogRecord record = new LogRecord(Level.INFO, "Building ore refinery");
         record.setLoggerName("cr0s.javara.ai.BaseBuilder");
@@ -78,6 +119,16 @@ public class LogTest {
         String line = new LogFormatter().format(record);
 
         assertTrue(line, line.trim().matches("\\d{2}:\\d{2}:\\d{2}\\.\\d{3} INFO  \\[ai\\] Building ore refinery"));
+    }
+
+    @Test
+    public void testFormatEndsWithTheLineSeparator() {
+        LogRecord record = new LogRecord(Level.INFO, "done");
+        record.setLoggerName("cr0s.javara.ai.BaseBuilder");
+
+        String line = new LogFormatter().format(record);
+
+        assertTrue(line, line.endsWith(System.lineSeparator()));
     }
 
     @Test
@@ -90,11 +141,10 @@ public class LogTest {
         assertEquals("TRACE", LogFormatter.levelName(Level.FINER));
         assertEquals("TRACE", LogFormatter.levelName(Level.FINEST));
 
-        assertEquals(5, LogFormatter.levelName(Level.SEVERE).length());
-        assertEquals(5, LogFormatter.levelName(Level.WARNING).length());
-        assertEquals(5, LogFormatter.levelName(Level.INFO).length());
-        assertEquals(5, LogFormatter.levelName(Level.FINE).length());
-        assertEquals(5, LogFormatter.levelName(Level.FINER).length());
+        for (Level level : Arrays.asList(Level.SEVERE, Level.WARNING, Level.INFO,
+                                         Level.CONFIG, Level.FINE, Level.FINER, Level.FINEST)) {
+            assertEquals(level.getName(), 5, LogFormatter.levelName(level).length());
+        }
     }
 
     @Test
@@ -107,6 +157,9 @@ public class LogTest {
         assertEquals("ui",        LogFormatter.categoryOf("cr0s.javara.ui.GameSideBar"));
         assertEquals("Something", LogFormatter.categoryOf("com.example.Something"));
         assertEquals("Something", LogFormatter.categoryOf("Something"));
+        assertEquals("unknown",   LogFormatter.categoryOf(null));
+        assertEquals("unknown",   LogFormatter.categoryOf(""));
+        assertEquals("unknown",   LogFormatter.categoryOf("cr0s.javara."));
     }
 
     @Test
@@ -138,6 +191,7 @@ public class LogTest {
         logger.setLevel(threshold);
         RecordingHandler recorder = new RecordingHandler();
         logger.addHandler(recorder);
+        this.attachments.add(new Attachment(logger, recorder));
 
         Log log = Log.of(loggerName);
         log.error("e");
@@ -155,7 +209,7 @@ public class LogTest {
 
     @Test
     public void testPropertyWiringSetsGlobalThreshold() {
-        System.setProperty("javara.log.level", "DEBUG");
+        System.setProperty(Log.LEVEL_PROPERTY, "DEBUG");
         Log.configure();
 
         assertEquals(Level.FINE, Logger.getLogger("").getLevel());
@@ -163,13 +217,85 @@ public class LogTest {
 
     @Test
     public void testPropertyWiringOverridesSingleSubtree() {
-        System.setProperty("javara.log.level", "INFO");
-        System.setProperty("javara.log.level.cr0s.javara.ai", "TRACE");
+        System.setProperty(Log.LEVEL_PROPERTY, "INFO");
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai", "TRACE");
         Log.configure();
 
         assertEquals(Level.INFO,  Logger.getLogger("").getLevel());
         assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.ai").getLevel());
         assertTrue(Logger.getLogger("cr0s.javara.ai.BaseBuilder").isLoggable(Level.FINER));
         assertFalse(Logger.getLogger("cr0s.javara.render").isLoggable(Level.FINE));
+    }
+
+    @Test
+    public void testSubtreeOverrideSurvivesGarbageCollection() {
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.gc", "TRACE");
+        Log.configure();
+
+        System.gc();
+
+        assertTrue(Logger.getLogger("cr0s.javara.gc").isLoggable(Level.FINER));
+    }
+
+    @Test
+    public void testReconfiguringClearsAnOverrideThatIsNoLongerSet() {
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai", "TRACE");
+        Log.configure();
+        assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.ai").getLevel());
+
+        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai");
+        Log.configure();
+
+        assertNull(Logger.getLogger("cr0s.javara.ai").getLevel());
+    }
+
+    @Test
+    public void testUnknownLevelNameFallsBackToInfo() {
+        System.setProperty(Log.LEVEL_PROPERTY, "DBG");
+        Log.configure();
+
+        assertEquals(Level.INFO, Logger.getLogger("").getLevel());
+    }
+
+    @Test
+    public void testPropertiesFileIsRead() throws IOException {
+        File file = propertiesFile();
+        Assume.assumeFalse("a real " + Log.PROPERTIES_FILE + " is present in the working directory",
+                file.exists());
+        try {
+            writeProperties("javara.log.level=DEBUG\n");
+            Log.configure();
+
+            assertEquals(Level.FINE, Logger.getLogger("").getLevel());
+        } finally {
+            file.delete();
+        }
+    }
+
+    @Test
+    public void testSystemPropertyWinsOverThePropertiesFile() throws IOException {
+        File file = propertiesFile();
+        Assume.assumeFalse("a real " + Log.PROPERTIES_FILE + " is present in the working directory",
+                file.exists());
+        try {
+            writeProperties("javara.log.level=DEBUG\n");
+            System.setProperty(Log.LEVEL_PROPERTY, "INFO");
+            Log.configure();
+
+            assertEquals(Level.INFO, Logger.getLogger("").getLevel());
+        } finally {
+            file.delete();
+        }
+    }
+
+    /** The properties file the facade reads: it lives in the working directory. */
+    private File propertiesFile() {
+        return new File(Log.PROPERTIES_FILE);
+    }
+
+    private void writeProperties(String content) throws IOException {
+        try (Writer writer = new FileWriter(Log.PROPERTIES_FILE)) {
+            writer.write(content);
+        }
     }
 }

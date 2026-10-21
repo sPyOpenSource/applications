@@ -3,6 +3,9 @@ package cr0s.javara.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.Properties;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
@@ -39,6 +42,22 @@ public final class Log {
 
     /** Optional properties file, read from the working directory. */
     public static final String PROPERTIES_FILE = "javara-log.properties";
+
+    /**
+     * Reports problems with the logging configuration itself, such as a level
+     * name that is not recognised.
+     */
+    private static final Log CONFIG_LOG = Log.of("cr0s.javara.util.Log");
+
+    /**
+     * The loggers whose level this class has set.
+     *
+     * <p>{@code java.util.logging.LogManager} holds loggers weakly, so a
+     * subtree logger that nothing else references can be garbage collected -
+     * taking its level with it and silently reverting the override. Holding a
+     * strong reference here keeps every applied override alive.</p>
+     */
+    private static final List<Logger> CONFIGURED_LOGGERS = new ArrayList<>();
 
     private final Logger logger;
 
@@ -92,19 +111,21 @@ public final class Log {
      * Installs the console handler and applies the configured levels.
      *
      * <p>Idempotent: calling it again re-reads the properties and rebuilds the
-     * same configuration. Must run before any {@link Logger} for a JavaRA
-     * class is created - JUL fixes a logger's parent at creation time, so a
-     * per-subtree override only reaches the class loggers underneath it if the
-     * subtree logger already exists. That is why the static initialiser below
-     * calls this method before any {@code Log.of(...)} call can run.</p>
+     * configuration, including clearing subtree overrides that are no longer
+     * configured.</p>
+     *
+     * <p>JUL creates a logger's ancestor chain on demand and resolves the
+     * effective level dynamically, so a per-subtree override reaches the class
+     * loggers underneath it whether they are created before or after this
+     * call. The static initialiser below still runs this method first, so that
+     * the console handler is in place before any JavaRA class can log.</p>
      */
-    public static void configure() {
+    public static synchronized void configure() {
         Properties properties = loadProperties();
 
         Logger root = Logger.getLogger("");
-        root.setLevel(levelOf(properties.getProperty(LEVEL_PROPERTY, "INFO")));
 
-        // Drop JUL's default handlers so nothing is printed twice.
+        // Replace the root logger's handlers so that nothing is printed twice.
         for (Handler handler : root.getHandlers()) {
             root.removeHandler(handler);
         }
@@ -112,6 +133,15 @@ public final class Log {
         handler.setFormatter(new LogFormatter());
         handler.setLevel(Level.ALL);
         root.addHandler(handler);
+
+        // The global threshold.
+        root.setLevel(levelOf(properties.getProperty(LEVEL_PROPERTY, "INFO"), LEVEL_PROPERTY));
+
+        // Clear the subtree overrides applied by an earlier configuration.
+        for (Logger configured : CONFIGURED_LOGGERS) {
+            configured.setLevel(null);
+        }
+        CONFIGURED_LOGGERS.clear();
 
         for (String key : properties.stringPropertyNames()) {
             if (!key.startsWith(LEVEL_PROPERTY_PREFIX)) {
@@ -121,7 +151,10 @@ public final class Log {
             if (loggerName.isEmpty()) {
                 continue;
             }
-            Logger.getLogger(loggerName).setLevel(levelOf(properties.getProperty(key)));
+            Logger target = Logger.getLogger(loggerName);
+            target.setLevel(levelOf(properties.getProperty(key), key));
+            // Keep it reachable: JUL would otherwise let it be collected.
+            CONFIGURED_LOGGERS.add(target);
         }
     }
 
@@ -141,18 +174,24 @@ public final class Log {
         return properties;
     }
 
-    /** Maps a JavaRA level name onto its JUL level. Unknown values fall back to INFO. */
-    private static Level levelOf(String value) {
+    /**
+     * Maps a JavaRA level name onto its JUL level. An unrecognised name is
+     * reported and falls back to INFO, so that a typo in a level property is
+     * visible instead of silently changing the verbosity.
+     */
+    private static Level levelOf(String value, String source) {
         if (value == null) {
             return Level.INFO;
         }
-        switch (value.trim().toUpperCase()) {
+        switch (value.trim().toUpperCase(Locale.ROOT)) {
             case "ERROR": return Level.SEVERE;
             case "WARN":  return Level.WARNING;
             case "INFO":  return Level.INFO;
             case "DEBUG": return Level.FINE;
             case "TRACE": return Level.FINER;
-            default:      return Level.INFO;
+            default:
+                CONFIG_LOG.warn("Unknown log level '" + value + "' in " + source + "; using INFO");
+                return Level.INFO;
         }
     }
 
