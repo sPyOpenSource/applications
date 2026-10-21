@@ -42,10 +42,12 @@ public class LogTest {
     private static class Attachment {
         final Logger logger;
         final RecordingHandler recorder;
+        final Level previousLevel;
 
-        Attachment(Logger logger, RecordingHandler recorder) {
+        Attachment(Logger logger, RecordingHandler recorder, Level previousLevel) {
             this.logger = logger;
             this.recorder = recorder;
+            this.previousLevel = previousLevel;
         }
     }
 
@@ -56,7 +58,7 @@ public class LogTest {
     public void tearDown() {
         for (Attachment attachment : this.attachments) {
             attachment.logger.removeHandler(attachment.recorder);
-            attachment.logger.setLevel(null);
+            attachment.logger.setLevel(attachment.previousLevel);
         }
         this.attachments.clear();
 
@@ -74,10 +76,11 @@ public class LogTest {
     /** Attaches a recorder to a fresh logger and returns it. */
     private RecordingHandler record(String loggerName) {
         Logger logger = Logger.getLogger(loggerName);
+        Level previousLevel = logger.getLevel();
         logger.setLevel(Level.ALL);
         RecordingHandler recorder = new RecordingHandler();
         logger.addHandler(recorder);
-        this.attachments.add(new Attachment(logger, recorder));
+        this.attachments.add(new Attachment(logger, recorder, previousLevel));
         return recorder;
     }
 
@@ -188,10 +191,11 @@ public class LogTest {
     /** Logs one message per level at the given threshold; returns the levels that got through. */
     private List<Level> publishedLevels(String loggerName, Level threshold) {
         Logger logger = Logger.getLogger(loggerName);
+        Level previousLevel = logger.getLevel();
         logger.setLevel(threshold);
         RecordingHandler recorder = new RecordingHandler();
         logger.addHandler(recorder);
-        this.attachments.add(new Attachment(logger, recorder));
+        this.attachments.add(new Attachment(logger, recorder, previousLevel));
 
         Log log = Log.of(loggerName);
         log.error("e");
@@ -239,14 +243,36 @@ public class LogTest {
 
     @Test
     public void testReconfiguringClearsAnOverrideThatIsNoLongerSet() {
-        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai", "TRACE");
+        System.setProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.testreset", "TRACE");
         Log.configure();
-        assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.ai").getLevel());
+        assertEquals(Level.FINER, Logger.getLogger("cr0s.javara.testreset").getLevel());
 
-        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.ai");
+        System.clearProperty(Log.LEVEL_PROPERTY_PREFIX + "cr0s.javara.testreset");
         Log.configure();
 
-        assertNull(Logger.getLogger("cr0s.javara.ai").getLevel());
+        assertNull(Logger.getLogger("cr0s.javara.testreset").getLevel());
+    }
+
+    @Test
+    public void testConcurrentConfigureLeavesExactlyOneHandler() throws InterruptedException {
+        Log.configure();
+
+        Thread[] workers = new Thread[8];
+        for (int i = 0; i < workers.length; i++) {
+            workers[i] = new Thread(() -> {
+                for (int round = 0; round < 20; round++) {
+                    Log.configure();
+                }
+            });
+        }
+        for (Thread worker : workers) {
+            worker.start();
+        }
+        for (Thread worker : workers) {
+            worker.join();
+        }
+
+        assertEquals(1, Logger.getLogger("").getHandlers().length);
     }
 
     @Test
@@ -255,6 +281,38 @@ public class LogTest {
         Log.configure();
 
         assertEquals(Level.INFO, Logger.getLogger("").getLevel());
+    }
+
+    @Test
+    public void testUnknownLevelNameIsReported() {
+        RecordingHandler recorder = record("cr0s.javara.util.Log");
+
+        System.setProperty(Log.LEVEL_PROPERTY, "DBG");
+        Log.configure();
+
+        assertEquals(1, recorder.records.size());
+        assertEquals(Level.WARNING, recorder.records.get(0).getLevel());
+        assertTrue(recorder.records.get(0).getMessage(),
+                recorder.records.get(0).getMessage().contains("Unknown log level 'DBG'"));
+    }
+
+    @Test
+    public void testMalformedPropertiesFileIsReportedAndSurvived() throws IOException {
+        File file = propertiesFile();
+        Assume.assumeFalse("a real " + Log.PROPERTIES_FILE + " is present in the working directory",
+                file.exists());
+        RecordingHandler recorder = record("cr0s.javara.util.Log");
+        try {
+            writeProperties("javara.log.level=bad\\uZZZZ\n");
+            Log.configure();
+
+            assertEquals(Level.INFO, Logger.getLogger("").getLevel());
+            assertEquals(1, recorder.records.size());
+            assertTrue(recorder.records.get(0).getMessage(),
+                    recorder.records.get(0).getMessage().contains("Malformed " + Log.PROPERTIES_FILE));
+        } finally {
+            file.delete();
+        }
     }
 
     @Test
@@ -297,5 +355,8 @@ public class LogTest {
         try (Writer writer = new FileWriter(Log.PROPERTIES_FILE)) {
             writer.write(content);
         }
+        // The file lives in the working directory; make sure it cannot outlive
+        // the run even if the JVM is killed between writing and deleting it.
+        propertiesFile().deleteOnExit();
     }
 }

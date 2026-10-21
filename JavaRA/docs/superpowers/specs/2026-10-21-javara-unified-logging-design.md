@@ -185,23 +185,35 @@ through JUL's hierarchy.
 ### 1.7 Handler setup
 
 A single `ConsoleHandler` is installed on the root logger with `LogFormatter`
-attached, and `setUseParentHandlers(false)` is set. JUL's default root handlers
-are removed so that output is not duplicated or rendered in JUL's default
-format.
+attached. JUL's default root handlers are removed so that output is not
+duplicated or rendered in JUL's default format.
+
+A second, separate `ConsoleHandler` is attached to the logger that reports
+problems with the logging configuration itself (an unrecognised level name, a
+malformed properties file). That logger sets `setUseParentHandlers(false)` and
+pins its own level to `ALL`, so a configuration problem is reported whatever
+the configured threshold is: a threshold that is itself wrong must not be able
+to hide the fact.
 
 `Log.configure()` is idempotent and is invoked from `Log`'s static
 initialiser, so logging works correctly regardless of the order in which
 classes are first touched. `GUI` may also call it explicitly at startup.
 
-**Ordering constraint.** JUL fixes a logger's parent at creation time by
-walking up its name. A per-subtree override therefore only reaches the class
-loggers beneath it if the subtree logger already exists when they are created.
-`Log`'s static initialiser runs `configure()` before any `Log.of(...)` call
-can create a class logger, and `configure()` itself creates the subtree
-loggers named by `javara.log.level.<name>`. This ordering is what makes
-`-Djavara.log.level.cr0s.javara.ai=DEBUG` reach `cr0s.javara.ai.BaseBuilder`,
-and it must be preserved: nothing may create a `java.util.logging.Logger`
-directly, bypassing `Log`.
+**Ordering.** JUL creates a logger's ancestor chain on demand and resolves a
+logger's effective level dynamically, walking up to the nearest ancestor with
+an explicit level. A per-subtree override therefore reaches the class loggers
+beneath it whether they are created before or after `configure()` — the
+subtree logger does not need to exist first. `Log`'s static initialiser still
+runs `configure()` before any `Log.of(...)` call can create a class logger, so
+that the console handler is in place before any JavaRA class can log.
+
+**Retention.** `java.util.logging.LogManager` holds loggers weakly, so a
+subtree logger that nothing else references can be garbage collected, taking
+its level with it and silently reverting the override. `Log` keeps a strong
+reference to every logger whose level it sets.
+
+Nothing outside `Log` may create a `java.util.logging.Logger` directly; always
+go through `Log`.
 
 ### 1.8 Module change
 

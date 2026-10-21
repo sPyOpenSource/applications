@@ -1,6 +1,7 @@
 package cr0s.javara.util;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -46,8 +47,12 @@ public final class Log {
     /**
      * Reports problems with the logging configuration itself, such as a level
      * name that is not recognised.
+     *
+     * <p>It has its own handler and does not use its parent's, so that a
+     * configuration problem is reported whatever the configured threshold is:
+     * a threshold that is itself wrong must not be able to hide the fact.</p>
      */
-    private static final Log CONFIG_LOG = Log.of("cr0s.javara.util.Log");
+    private static final Logger CONFIG_LOG = createConfigLogger();
 
     /**
      * The loggers whose level this class has set.
@@ -58,6 +63,20 @@ public final class Log {
      * strong reference here keeps every applied override alive.</p>
      */
     private static final List<Logger> CONFIGURED_LOGGERS = new ArrayList<>();
+
+    /**
+     * Creates the logger used to report configuration problems.
+     */
+    private static Logger createConfigLogger() {
+        Logger logger = Logger.getLogger("cr0s.javara.util.Log");
+        logger.setUseParentHandlers(false);
+        logger.setLevel(Level.ALL);
+        ConsoleHandler handler = new ConsoleHandler();
+        handler.setFormatter(new LogFormatter());
+        handler.setLevel(Level.ALL);
+        logger.addHandler(handler);
+        return logger;
+    }
 
     private final Logger logger;
 
@@ -163,8 +182,13 @@ public final class Log {
         Properties properties = new Properties();
         try (InputStream in = new FileInputStream(PROPERTIES_FILE)) {
             properties.load(in);
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
             // No properties file in the working directory - the defaults apply.
+        } catch (IOException e) {
+            CONFIG_LOG.warning("Cannot read " + PROPERTIES_FILE + ": " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            // A malformed escape sequence; the defaults apply.
+            CONFIG_LOG.warning("Malformed " + PROPERTIES_FILE + ": " + e.getMessage());
         }
         for (String key : System.getProperties().stringPropertyNames()) {
             if (key.equals(LEVEL_PROPERTY) || key.startsWith(LEVEL_PROPERTY_PREFIX)) {
@@ -190,7 +214,7 @@ public final class Log {
             case "DEBUG": return Level.FINE;
             case "TRACE": return Level.FINER;
             default:
-                CONFIG_LOG.warn("Unknown log level '" + value + "' in " + source + "; using INFO");
+                CONFIG_LOG.warning("Unknown log level '" + value + "' in " + source + "; using INFO");
                 return Level.INFO;
         }
     }

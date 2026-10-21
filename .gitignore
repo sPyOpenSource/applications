@@ -15,3 +15,5 @@ private
 /COC/dist/
 .DS_Store
 /Simulator/dist/
+# The optional runtime logging configuration, read from the working directory.
+javara-log.properties
