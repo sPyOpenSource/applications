@@ -15,6 +15,7 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.building.china.*;
 import cr0s.javara.entity.building.soviet.EntityTeslaCoil;
+import util.DebugLog;
 
 public class MapLoader extends Map {
     private final ArrayList<Entity> buildingsMap;
@@ -84,7 +85,7 @@ public class MapLoader extends Map {
                     buildingsMap.add(barrack);
                     break;
                 default:
-                    System.out.println(id);
+                    DebugLog.warn("map", "Unknown actor id: " + id);
             }
         }
     }
