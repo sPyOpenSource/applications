@@ -14,6 +14,7 @@ import model.Player;
 import model.data.UpdateData;
 import view.PlayerPanel;
 import cr0s.javara.render.map.Map;
+import util.DebugLog;
 
 import assets.Assets;
 import java.util.ArrayList;
@@ -65,7 +66,7 @@ public class CheckResultAttack extends Thread {
                 try {
                     Thread.sleep(300);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    DebugLog.error("result", "Interrupted in CheckResultAttack", e);
                 }
                 Platform.runLater(mediaPlayerClick::stop);
                 new PlayerPanel(attackingPlayer, players).start(new Stage());
@@ -77,10 +78,11 @@ public class CheckResultAttack extends Thread {
         try {
             wait();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            DebugLog.error("result", "Interrupted in CheckResultAttack", e);
         }
         while (true){
             if (defensivePlayer.getMap().getBuildingsMap().isEmpty()){
+                DebugLog.info("result", "Defender eliminated; attacker wins");
                 defensivePlayer.Lose();
                 attackingPlayer.Win();
                 //new UpdatePlayerData(attackingPlayer).start();
@@ -93,11 +95,12 @@ public class CheckResultAttack extends Thread {
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    DebugLog.error("result", "Interrupted in CheckResultAttack", e);
                 }
                 break;
             } else if (System.nanoTime() - timer > 30000000000l){
                 if ((map.getBuildingsMap().size() / firstSize) < 0.15){
+                    DebugLog.info("result", "Attacker reaches 2-star (buildings remaining " + map.getBuildingsMap().size() + "/" + (int) firstSize + ")");
                     defensivePlayer.Win();
                     attackingPlayer.Lose();
                     //new UpdatePlayerData(attackingPlayer).start();
@@ -111,10 +114,11 @@ public class CheckResultAttack extends Thread {
                     try {
                         wait();
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        DebugLog.error("result", "Interrupted in CheckResultAttack", e);
                     }
                     break;
                 } else if ((map.getBuildingsMap().size() / firstSize) < 0.5){
+                    DebugLog.info("result", "Attacker reaches 1-star (buildings remaining " + map.getBuildingsMap().size() + "/" + (int) firstSize + ")");
                     defensivePlayer.Win();
                     attackingPlayer.Lose();
                     //new UpdatePlayerData(attackingPlayer).start();
@@ -128,10 +132,11 @@ public class CheckResultAttack extends Thread {
                     try {
                         wait();
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        DebugLog.error("result", "Interrupted in CheckResultAttack", e);
                     }
                     break;
                 }
+                DebugLog.info("result", "Time expired; defender wins (buildings remaining " + map.getBuildingsMap().size() + "/" + (int) firstSize + ")");
                 defensivePlayer.Win();
                 attackingPlayer.Lose();
                 //new UpdatePlayerData(attackingPlayer).start();
@@ -145,14 +150,14 @@ public class CheckResultAttack extends Thread {
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    DebugLog.error("result", "Interrupted in CheckResultAttack", e);
                 }
                 break;
             }
             try {
                 wait(600);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("result", "Interrupted in CheckResultAttack", e);
             }
             if(capacityInt.get() < attackingPlayer.getLevel() * 15)
                 capacityInt.addAndGet(2);
