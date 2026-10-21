@@ -2,9 +2,12 @@ package cr0s.javara.ui.cursor;
 
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
+import cr0s.javara.util.Log;
 import javafx.scene.Scene;
 
 public class CursorManager {
+    private static final Log LOG = Log.of(CursorManager.class);
+
     private CursorType currentCursor;
       
     private CursorSequence currentCursorSequence;

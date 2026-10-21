@@ -6,9 +6,12 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.render.World;
 import cr0s.javara.render.map.TileSet;
 import cr0s.javara.resources.SoundManager;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 
 public class Combat {
+    private static final Log LOG = Log.of(Combat.class);
+
     public static String getImpactSound(Warhead warhead, boolean isWater) {
 	if (isWater && warhead.waterImpactSound != null) {
 	    return warhead.waterImpactSound;
@@ -100,7 +103,7 @@ public class Combat {
 
     public static void doImpacts(Pos pos,  Weapon weapon, EntityActor firedBy, float firepowerModifier) {
 	if (weapon.warheads == null) {
-	    System.err.println("[BUG] Weapon " + weapon.getClass().getName() + " trying to impact without warheads");
+	    LOG.error("Weapon " + weapon.getClass().getName() + " trying to impact without warheads");
 	    return;
 	}
 	

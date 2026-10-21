@@ -6,11 +6,14 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.order.Target;
 import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import javafx.scene.layout.StackPane;
 
 public class TeslaZapRenderer extends Projectile implements IEffect {
+    private static final Log LOG = Log.of(TeslaZapRenderer.class);
+
     private static SpriteSheet tex;
 
     static int[][] steps = {
@@ -144,7 +147,7 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
 	    z = z.add(new Pos(minStep[0], minStep[1]));
 
 	    if (++spriteCount >= 1000) {
-		System.err.println("Sprite limit!");
+		LOG.error("Sprite limit reached");
 		break;
 	    }
 	}

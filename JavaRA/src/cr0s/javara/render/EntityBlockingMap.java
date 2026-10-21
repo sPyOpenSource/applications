@@ -6,9 +6,12 @@ import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.perfomance.Profiler;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.render.map.TileSet;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 
 public class EntityBlockingMap {
+    private static final Log LOG = Log.of(EntityBlockingMap.class);
+
     private final World world;
     
     public enum SubCell { FULL_CELL, TOP_LEFT, TOP_RIGHT, CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, FULL_CELL_PASSABLE };
@@ -132,7 +135,7 @@ public class EntityBlockingMap {
     
     public boolean isSubcellFree(Pos pos, SubCell sub) {
 	if (sub == null) {
-	    System.out.println("ERR: null subcell!");
+	    LOG.error("Null subcell");
 	    return false;
 	}
 	

@@ -8,11 +8,14 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.main.GUI;
 import cr0s.javara.ui.GameSideBar;
 import cr0s.javara.ui.SideBarToolTip;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
 public abstract class SideBarPage {
+    private static final Log LOG = Log.of(SideBarPage.class);
+
     private final ArrayList<SideBarItemsButton> buttons;
     protected HashMap<String, SideBarItemsButton> buttonsHash;
 
@@ -64,12 +67,12 @@ public abstract class SideBarPage {
     public abstract void update(int delta);
 
     public void mouseClick(int x, int y) {
-	System.out.println("[SBP] Button pos: " + x + "; " + y);
+	LOG.trace("Button click at " + x + "," + y);
 
 	for (SideBarItemsButton btn : this.buttons) {
 	    if (btn.posX == x && btn.posY == y) {
 		if (btn.isVisible()) {
-		    System.out.println("[SBP] Found button: " + btn.getDescription());
+		    LOG.debug("Found button: " + btn.getDescription());
 		    buttonClicked(btn);
 		    return;
 		}

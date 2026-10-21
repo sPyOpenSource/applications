@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import assets.Assets;
 
 import cr0s.javara.ui.cursor.CursorManager;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.application.Application;
@@ -15,6 +16,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class StatePauseMenu extends Application {
+	private static final Log LOG = Log.of(StatePauseMenu.class);
 
 	public static final int STATE_ID = 2;
 	

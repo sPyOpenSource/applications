@@ -16,6 +16,7 @@ import java.util.List;
 
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.gameplay.Team.Alignment;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.SpriteSheet;
 import soundly.XSound;
 import assets.Assets;
@@ -28,6 +29,8 @@ import redhorizon.filetypes.shp.ShpFileCnc;
 import redhorizon.filetypes.tmp.TmpFileRA;
 
 public class ResourceManager {
+    private static final Log LOG = Log.of(ResourceManager.class);
+
     private static ResourceManager instance;
     private final Assets assets = new Assets();
     
@@ -219,11 +222,11 @@ public class ResourceManager {
 
 		return shpTexture;
 	    } else {
-		System.err.println("Record SHP (" + name +") in " + tileSetName + ".mix is not found");
+		LOG.error("Record SHP (" + name + ") in " + tileSetName + ".mix is not found");
 		return null;
 	    }
 	} else {
-	    System.err.println("Mix file " + tileSetName + ".mix is not found");    
+	    LOG.error("Mix file " + tileSetName + ".mix is not found");
 	}
 
 	return null;
@@ -255,7 +258,7 @@ public class ResourceManager {
 	    }
 	}
 
-	System.out.println(type + ".mix is not found");
+	LOG.error("Template mix file " + type + ".mix is not found");
 	return null;
     }    
 
@@ -319,7 +322,7 @@ public class ResourceManager {
 		commonTextureSources.put(name, shpTexture);
 		return shpTexture;
 	    } else {
-		System.out.println("HIRES: " + name + " not found");
+		LOG.warn("Hi-res texture " + name + " not found");
 		return null;
 	    }
 	}
