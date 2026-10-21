@@ -14,6 +14,8 @@ import cr0s.javara.render.map.Map;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import util.DebugLog;
+
 public class InfernoTowerDefense extends Thread {
     public InfernoTowerDefense(AnchorPane root, Map map, InfernoTower infernoTower, AtomicInteger capacityInt) {
         this.root = root;
@@ -49,6 +51,9 @@ public class InfernoTowerDefense extends Thread {
                 }
             }
         }
+        if (hero != null) {
+            DebugLog.trace("defense", infernoTower + " selected target " + hero);
+        }
         if (map.getBuildingsMap().isEmpty() || infernoTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
             infernoTower.setDead();
         }
@@ -56,7 +61,7 @@ public class InfernoTowerDefense extends Thread {
             try {
                 wait(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("defense", "Interrupted in InfernoTowerDefense", e);
             }
         }
         return hero;
@@ -75,7 +80,7 @@ public class InfernoTowerDefense extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("defense", "Interrupted in InfernoTowerDefense", e);
             }
             while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX() - lineTo.getX(), 2) + Math.pow(moveTo.getY() - lineTo.getY(), 2)) < infernoTower.getRange()) {
                 if (infernoTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
@@ -94,13 +99,14 @@ public class InfernoTowerDefense extends Thread {
                     try {
                         wait();
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        DebugLog.error("defense", "Interrupted in InfernoTowerDefense", e);
                     }
                     hero.setHp(hero.getHp() - (infernoTower.getDamagePerSecond()));
+                    DebugLog.trace("defense", infernoTower + " hit " + hero + " (hp=" + hero.getHp() + ")");
                     try {
                         wait(1000);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        DebugLog.error("defense", "Interrupted in InfernoTowerDefense", e);
                     }
                 }
             }
@@ -111,7 +117,7 @@ public class InfernoTowerDefense extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("defense", "Interrupted in InfernoTowerDefense", e);
             }
         }
     }
