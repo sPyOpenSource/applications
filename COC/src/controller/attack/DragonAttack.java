@@ -19,6 +19,7 @@ import cr0s.javara.entity.building.EntityBuilding;
 import assets.Assets;
 import cr0s.javara.entity.aircraft.Dragon;
 import cr0s.javara.util.Pos;
+import util.DebugLog;
 
 public class DragonAttack extends Thread {
     private final Assets assets = new Assets();
@@ -62,9 +63,10 @@ public class DragonAttack extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("combat", "Interrupted in DragonAttack", e);
             }
             while (!dragon.isDead()){
+                DebugLog.trace("combat", dragon + " seeking nearest building");
                 EntityBuilding building = moveToward();
                 if (dragon.isDead())
                     break;
@@ -78,7 +80,7 @@ public class DragonAttack extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("combat", "Interrupted in DragonAttack", e);
             }
             map.getAttackingHeroes().remove(dragon);
         }
@@ -110,10 +112,11 @@ public class DragonAttack extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("combat", "Interrupted in DragonAttack", e);
             }
 
 
+            DebugLog.trace("combat", dragon + " moving toward " + building);
             MoveTo moveTo = new MoveTo(dragon.getImageView().getX(), dragon.getImageView().getY());
             LineTo lineTo;
             if (dragon.getImageView().getImage().equals(viewDragonL.getImage())){
@@ -140,7 +143,7 @@ public class DragonAttack extends Thread {
                 try {
                     wait(300);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    DebugLog.error("combat", "Interrupted in DragonAttack", e);
                 }
                 elapsedTime = System.currentTimeMillis() - startTime;
             }
@@ -162,9 +165,10 @@ public class DragonAttack extends Thread {
         try {
             wait();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            DebugLog.error("combat", "Interrupted in DragonAttack", e);
         }
         while (building.getHp() >= 0){
+            DebugLog.trace("combat", dragon + " attacking " + building + " (hp=" + building.getHp() + ")");
             if (dragon.getHp() <= 0){
                 dragon.setDead();
                 break;
@@ -174,12 +178,13 @@ public class DragonAttack extends Thread {
             try {
                 wait(1250);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("combat", "Interrupted in DragonAttack", e);
             }
             Platform.runLater(mediaPlayerAttack::stop);
         }
         if (!dragon.isDead()){
             map.getBuildingsMap().remove(building);
+            DebugLog.trace("combat", dragon + " destroyed " + building);
             Platform.runLater(() -> {
                 root.getChildren().remove(building.getImageView());
                 myNotify();
@@ -187,7 +192,7 @@ public class DragonAttack extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("combat", "Interrupted in DragonAttack", e);
             }
 
             Platform.runLater(() -> {
@@ -203,7 +208,7 @@ public class DragonAttack extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("combat", "Interrupted in DragonAttack", e);
             }
         }
     }
