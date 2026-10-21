@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import cr0s.javara.ai.Squad.SquadType;
+import cr0s.javara.combat.attack.AttackBase;
 import cr0s.javara.combat.Warhead;
 import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.entity.Entity;
@@ -31,6 +32,7 @@ import cr0s.javara.gameplay.Player;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.order.Order;
+import cr0s.javara.order.Target;
 import cr0s.javara.perfomance.Profiler;
 import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
@@ -634,6 +636,7 @@ public class AIPlayer extends Player {
 
 	this.giveOrdersToIdleHarvesters();
 	this.findNewUnits();
+	this.giveOrdersToIdleCombatUnits();
 	this.createAttackForce();
 	this.findAndDeployAllMcv();
     }
@@ -676,6 +679,7 @@ public class AIPlayer extends Player {
 	    }
 	}
 
+
 	for (EntityActor a : newUnits) {
 	    if (a instanceof EntityHarvester) {
 		a.resolveOrder(new Order("Harvest", a, null, false));
@@ -712,6 +716,31 @@ public class AIPlayer extends Player {
 	    }
 
 	    harv.resolveOrder(new Order("Harvest", harv, null, false));
+	}
+    }
+
+    private void giveOrdersToIdleCombatUnits() {
+	ArrayList<EntityActor> enemies = null;
+	for (EntityActor a : new ArrayList<>(this.unitsHangingAroundTheBase)) {
+	    if (!(a instanceof ICanAttack) || !a.isIdle()) {
+		continue;
+	    }
+
+	    if (enemies == null) {
+		enemies = this.findClosestEnemy(a.getPosition());
+	    }
+
+	    if (enemies.isEmpty()) {
+		continue;
+	    }
+
+	    EntityActor target = enemies.get(0);
+	    AttackBase ab = (AttackBase) ((ICanAttack) a).getAttackStrategy();
+	    if (ab.chooseArmamentForTarget(new Target(target)) != null) {
+		a.resolveOrder(new Order("Attack", a, null, target));
+	    } else {
+		a.resolveOrder(new Order("Move", a, target.getCellPosition()));
+	    }
 	}
     }
 
