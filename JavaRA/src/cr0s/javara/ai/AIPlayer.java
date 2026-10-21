@@ -720,6 +720,7 @@ public class AIPlayer extends Player {
     }
 
     private void giveOrdersToIdleCombatUnits() {
+
 	ArrayList<EntityActor> enemies = null;
 	for (EntityActor a : new ArrayList<>(this.unitsHangingAroundTheBase)) {
 	    if (!(a instanceof ICanAttack) || !a.isIdle()) {
