@@ -50,7 +50,7 @@ public final class AI
         Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
-        NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
+        /*NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
         try {
             int port = 80;
             boolean opt_threads = false;
@@ -84,7 +84,7 @@ public final class AI
             }
         } catch (Exception ex) {
             //Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 int j = 0;
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){

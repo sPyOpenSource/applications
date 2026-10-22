@@ -47,7 +47,7 @@ Episode 3: The Hunt of the Big Prime Numbers
 • The Core: How many primes are out there, and does the countdown ever stop?
 • The Story: As numbers stretch toward infinity, prime numbers become rarer and harder to find. But does the list ever run out? We explore the brilliant, elegant proof by the ancient mathematician Euclid, who proved over 2,000 years ago that prime numbers are infinite. The hunt literally never ends!
 
-Episode 4: Secret Agents of the Internet
+Episode 4: Gardians of the Internet
 
 • The Core: How prime numbers protect your text messages and online banking.
 • The Story: Why are scientists using supercomputers to look for massive prime numbers? Because they are the backbone of modern cryptography (RSA encryption). We explain, completely without complex formulas, how multiplying two massive primes creates a digital padlock that even the world's fastest hackers cannot crack.

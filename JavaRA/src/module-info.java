@@ -27,6 +27,10 @@ module cr0s.javara.main {
     exports cr0s.javara.entity.building.common;
     exports cr0s.javara.entity.building.soviet;
     exports cr0s.javara.entity.building.china;
+    exports cr0s.javara.entity.actor;
+    exports cr0s.javara.entity.vehicle.common;
+    exports cr0s.javara.gameplay;
+    exports cr0s.javara.ai;
     exports mazesolver;
 }
     

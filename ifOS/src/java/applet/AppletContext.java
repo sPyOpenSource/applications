@@ -69,7 +69,7 @@ public interface AppletContext
     * @return The requested applet, or <code>null</code> if an applet with
     * the requested name cannot be found.
     */
-  Applet getApplet(String name);
+  //Applet getApplet(String name);
 
   /**
     * Returns a list of all the applets in the document for this object.
