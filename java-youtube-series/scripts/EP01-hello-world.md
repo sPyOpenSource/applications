@@ -45,7 +45,7 @@ Steps (show on screen, narrate):
 
 > "If you see a version number, you're good. If 'command not found', your PATH needs fixing — link in description."
 
-## [5:15] INSTALL INTELLIJ (2 min)
+## [5:15] INSTALL NETBEANS (2 min)
 
 Screen: jetbrains.com/idea/download → Community Edition (free).
 
