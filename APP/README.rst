@@ -9,4 +9,4 @@ Run following command to get the source code:
 
 	 git clone https://github.com/sPyOpenSource/applications.git
 
-This is a NetBean projecct. It requires os, compiler and jcore.
+This is a NetBeans projecct. It requires os, compiler and jcore.
