@@ -47,15 +47,15 @@ Steps (show on screen, narrate):
 
 ## [5:15] INSTALL NETBEANS (2 min)
 
-Screen: jetbrains.com/idea/download → Community Edition (free).
+Screen: https://netbeans.apache.org/front/main/download/ → Community Edition (free).
 
 Steps:
 1. Download & install.
 2. Launch → "New Project".
-3. Name: `HelloWorld`, Language: Java, JDK: Temurin 21, Build system: IntelliJ (no Maven yet).
+3. Name: `HelloWorld`, Language: Java, JDK: 25, Build system: ant.
 4. Create.
 
-> "IntelliJ is the most popular Java IDE. Community edition is free and enough for this whole series."
+> "Netbeans is a popular Java IDE. Community edition is free and enough for this whole series."
 
 ## [7:15] FIRST PROGRAM (2 min)
 
