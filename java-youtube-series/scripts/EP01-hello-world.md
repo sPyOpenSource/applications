@@ -38,7 +38,7 @@ Narration:
 Screen: browser → adoptium.net (Temurin).
 
 Steps (show on screen, narrate):
-1. Go to adoptium.net → Temurin 21 (LTS).
+1. Go to adoptium.net → 25 (LTS).
 2. Download for your OS (Windows .msi / macOS .pkg).
 3. Run installer, keep defaults.
 4. Verify: open terminal → `java -version` and `javac -version`.
@@ -66,6 +66,12 @@ public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
+}
+```
+or
+```java
+void main() {
+    IO.println("Hello, World!");
 }
 ```
 
