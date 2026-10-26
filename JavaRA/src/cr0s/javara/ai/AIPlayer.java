@@ -540,7 +540,7 @@ public class AIPlayer extends Player {
 	return target;
     }
 
-    private ArrayList<EntityBuilding> findEnemyConstructionYards() {
+    public ArrayList<EntityBuilding> findEnemyConstructionYards() {
 	ArrayList<EntityBuilding> result = new ArrayList<>();
 
 	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) { 
@@ -830,7 +830,7 @@ public class AIPlayer extends Player {
 	}	
     }
 
-    private boolean thereIsNoMcv() {
+    public boolean thereIsNoMcv() {
 	/*for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
 	    if (e.isDead() || !(e instanceof EntityMcv)) {
 		continue;

@@ -17,7 +17,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AIPlayerTest {
-
 	@Test
 	public void thereIsNoMcvReturnsFalseWhenOwnedMcvExists() {
 		World world = new World("forest-path");
