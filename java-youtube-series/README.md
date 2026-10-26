@@ -19,8 +19,8 @@ A complete, beginner-friendly YouTube series that teaches **Java programming fro
 |---|---|---|
 | 1 | 1–8 | Java Basics |
 | 2 | 9–16 | Object-Oriented Programming |
-| 3 | 17–24 | Advanced Java |
-| 4 | 25–30 | Projects with AI: AI Agent |
+| 3 | 17–24 | Advanced Java: VFS and Networking |
+| 4 | 25–30 | Java Projects with AI Agent |
 
 ## Branding assets
 

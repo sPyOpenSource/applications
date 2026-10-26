@@ -38,24 +38,24 @@ Narration:
 Screen: browser → adoptium.net (Temurin).
 
 Steps (show on screen, narrate):
-1. Go to adoptium.net → Temurin 21 (LTS).
+1. Go to openjdk.org → 25 (LTS).
 2. Download for your OS (Windows .msi / macOS .pkg).
 3. Run installer, keep defaults.
 4. Verify: open terminal → `java -version` and `javac -version`.
 
 > "If you see a version number, you're good. If 'command not found', your PATH needs fixing — link in description."
 
-## [5:15] INSTALL INTELLIJ (2 min)
+## [5:15] INSTALL NETBEANS (2 min)
 
-Screen: jetbrains.com/idea/download → Community Edition (free).
+Screen: https://netbeans.apache.org/front/main/download/ → Community Edition (free).
 
 Steps:
 1. Download & install.
 2. Launch → "New Project".
-3. Name: `HelloWorld`, Language: Java, JDK: Temurin 21, Build system: IntelliJ (no Maven yet).
+3. Name: `HelloWorld`, Language: Java, JDK: 25, Build system: ant.
 4. Create.
 
-> "IntelliJ is the most popular Java IDE. Community edition is free and enough for this whole series."
+> "Netbeans is a popular Java IDE. Community edition is free and enough for this whole series."
 
 ## [7:15] FIRST PROGRAM (2 min)
 
@@ -66,6 +66,12 @@ public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
+}
+```
+or
+```java
+void main() {
+    IO.println("Hello, World!");
 }
 ```
 
