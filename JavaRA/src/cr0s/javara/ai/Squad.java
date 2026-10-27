@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import cr0s.javara.ai.Squad.SquadType;
 import cr0s.javara.combat.attack.AttackBase;
 import cr0s.javara.combat.attack.ICanAttack;
-import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
-import cr0s.javara.entity.actor.activity.activities.Follow;
-import cr0s.javara.entity.actor.activity.activities.Move;
 import cr0s.javara.order.Order;
 import cr0s.javara.order.Target;
 
@@ -80,8 +77,8 @@ public class Squad {
 	    if (!u.isIdle()) {
 		continue;
 	    }
-	    if (u instanceof ICanAttack) {
-		AttackBase ab = (AttackBase) ((ICanAttack) u).getAttackStrategy();
+	    if (u instanceof ICanAttack iCanAttack) {
+		AttackBase ab = (AttackBase) iCanAttack.getAttackStrategy();
 		if (ab.chooseArmamentForTarget(new Target(tgt)) != null) {
 		    u.resolveOrder(new Order("Attack", u, null, tgt));
 		} else {
@@ -104,8 +101,8 @@ public class Squad {
     public void setTarget(EntityActor tgt) {
 	this.target = new Target(tgt);
 	for (EntityActor u : this.units) {
-	    if (u instanceof ICanAttack) {
-		AttackBase ab = (AttackBase) ((ICanAttack) u).getAttackStrategy();
+	    if (u instanceof ICanAttack iCanAttack) {
+		AttackBase ab = (AttackBase) iCanAttack.getAttackStrategy();
 		if (ab.chooseArmamentForTarget(new Target(tgt)) != null) {
 		    u.resolveOrder(new Order("Attack", u, null, tgt));
 		} else {
