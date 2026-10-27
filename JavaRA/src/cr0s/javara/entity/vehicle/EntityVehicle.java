@@ -13,6 +13,7 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Move;
 import cr0s.javara.entity.effect.SmokeOnUnit;
+import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.order.Order;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.render.World;
@@ -129,9 +130,12 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 
     @Override
     public void resolveOrder(Order order) {
+	if (order.orderString.equals("Attack") && this instanceof ICanAttack) {
+	    ((ICanAttack) this).getAttackStrategy().resolveOrder(order);
+	    return;
+	}
 	super.resolveOrder(order);
-    }    
-
+    }
     @Override
     public void playOrderSound() {
 	// Play order sound

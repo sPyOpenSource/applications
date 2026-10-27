@@ -833,8 +833,8 @@ public class AIPlayer extends Player {
 	}	
     }
 
-    public boolean thereIsNoMcv() {
-	/*for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
+    private boolean thereIsNoMcv() {
+	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
 	    if (e.isDead() || !(e instanceof EntityMcv)) {
 		continue;
 	    }
@@ -845,7 +845,7 @@ public class AIPlayer extends Player {
 	    if (mcv.owner == this) {
 		return false;
 	    }
-	}*/
+	}
 
 	// No any our MCV is found
 	return true;
