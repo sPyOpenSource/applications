@@ -1,8 +1,9 @@
 package test;
 
 import cr0s.javara.ai.Squad;
-import cr0s.javara.ai.ai.states.GroundUnitsIdleState;
-import cr0s.javara.ai.ai.states.GroundUnitsAttackMoveState;
+import cr0s.javara.ai.states.GroundStateBase;
+import cr0s.javara.ai.states.GroundStateBase.GroundUnitsIdleState;
+import cr0s.javara.ai.states.GroundStateBase.GroundUnitsAttackMoveState;
 import cr0s.javara.ai.AIPlayer;
 import cr0s.javara.ai.StateMachine;
 import cr0s.javara.entity.actor.EntityActor;
@@ -22,7 +23,7 @@ public class GroundStateBaseTest {
         World world = new World("forest-path");
         AIPlayer ai = new AIPlayer(world, "AI", Alignment.SOVIET, Color.RED);
         Squad squad = new Squad(ai, Squad.SquadType.ASSAULT);
-        GroundUnitsIdleState state = new GroundUnitsIdleState();
+        GroundUnitsIdleState state = new GroundStateBase.GroundUnitsIdleState();
         state.activate(squad);
         state.tick(squad);
         state.deactivate(squad);
@@ -33,7 +34,7 @@ public class GroundStateBaseTest {
         World world = new World("forest-path");
         AIPlayer ai = new AIPlayer(world, "AI", Alignment.SOVIET, Color.RED);
         Squad squad = new Squad(ai, Squad.SquadType.ASSAULT);
-        GroundUnitsAttackMoveState state = new GroundUnitsAttackMoveState();
+        GroundUnitsAttackMoveState state = new GroundStateBase.GroundUnitsAttackMoveState();
         state.activate(squad);
         state.tick(squad);
         state.deactivate(squad);
