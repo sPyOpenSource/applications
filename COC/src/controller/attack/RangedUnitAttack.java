@@ -1,6 +1,7 @@
 package controller.attack;
 
 import javafx.animation.PathTransition;
+import javafx.application.Platform;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.LineTo;
@@ -76,7 +77,7 @@ public abstract class RangedUnitAttack extends UnitAttack {
             runOnFx(transition::play);
             long start = System.currentTimeMillis();
             long elapsed = 0;
-            while (elapsed < (long) ((widthLowe / unit.getMoveSpeed()) * 300)) {
+            while (elapsed < (long) ((widthLowe / unit.getMoveSpeed()) * 400)) {
                 if (unit.getHp() <= 0) {
                     unit.setDead();
                     break;
@@ -104,37 +105,42 @@ public abstract class RangedUnitAttack extends UnitAttack {
         MoveTo moveTo = new MoveTo(unit.getImageView().getX(), unit.getImageView().getY() + 20);
         LineTo lineTo = new LineTo(building.getImageView().getX() + (building.getImageView().getFitWidth() / 2),
                 building.getImageView().getY() + 20);
-        Circle circle = new Circle(unit.getImageView().getX() + 28.8, unit.getImageView().getY() + 60, 3);
-        circle.setFill(Color.web("#B442F7"));
         path.getElements().addAll(moveTo, lineTo);
-        runOnFx(() -> {
-            root.getChildren().add(circle);
-            myNotify();
-        });
-        await();
+
         while (building.getHp() >= 0) {
             if (unit.getHp() <= 0) {
                 unit.setDead();
                 break;
             }
+            Circle circle = new Circle(unit.getImageView().getX() + 28.8, unit.getImageView().getY() + 60, 3);
+            circle.setFill(Color.web("#00BFFF"));
+            runOnFx(() -> {
+                root.getChildren().add(circle);
+                myNotify();
+            });
+            await();
+
             PathTransition pathTransition = new PathTransition();
             pathTransition.setDuration(Duration.millis(1000));
             pathTransition.setPath(path);
             pathTransition.setCycleCount(1);
             pathTransition.setNode(circle);
+            pathTransition.setOnFinished(e -> {
+                root.getChildren().remove(circle);
+                AttackEffects.flashImpact(root,
+                        building.getImageView().getX() + building.getImageView().getFitWidth() / 2,
+                        building.getImageView().getY() + building.getImageView().getFitHeight() / 2,
+                        Color.web("#00BFFF"));
+            });
             runOnFx(pathTransition::play);
             building.setHp(building.getHp() - unit.getDamagePerSecond());
+            Platform.runLater(() -> AttackEffects.pulse(building.getImageView()));
             await(1000);
         }
-        runOnFx(() -> {
-            root.getChildren().remove(circle);
-            myNotify();
-        });
-        await();
         if (!unit.isDead()) {
             map.getBuildingsMap().remove(building);
             runOnFx(() -> {
-                root.getChildren().remove(building.getImages().get(0));
+                root.getChildren().remove(building.getImageView());
                 myNotify();
             });
             await();

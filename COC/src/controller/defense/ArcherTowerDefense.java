@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.util.Duration;
 
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
@@ -13,6 +14,7 @@ import javafx.scene.shape.Path;
 import cr0s.javara.render.map.Map;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.building.china.ArcherTower;
+import controller.attack.AttackEffects;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -31,7 +33,8 @@ public class ArcherTowerDefense extends Thread {
     private final Map map;
     private final ArcherTower archerTower;
     private final AtomicInteger capacityInt;
-    
+    private Circle beamNode;
+
     @Override
     public synchronized void run() {
         while (!archerTower.isDead()) {
@@ -42,7 +45,7 @@ public class ArcherTowerDefense extends Thread {
                 attack(hero);
         }
     }
-    
+
     private synchronized MobileEntity selectHero(){
         double width;
         MobileEntity hero = null;
@@ -70,19 +73,40 @@ public class ArcherTowerDefense extends Thread {
         }
         return hero;
     }
-    
+
     private synchronized void attack(MobileEntity hero){
-        MoveTo moveTo = new MoveTo(archerTower.getImageView().getX()+48, archerTower.getImageView().getY()+20);
-        LineTo lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
-        Circle circle = new Circle(archerTower.getImageView().getX()+48, archerTower.getImageView().getY()+20, 3);
-        while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX()-lineTo.getX(), 2)+ Math.pow(moveTo.getY()-lineTo.getY(), 2)) < archerTower.getRange()) {
-            if (archerTower.getHp() <= 0) {
+        while (hero.getHp() >= 0) {
+            if (archerTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
                 archerTower.setDead();
                 break;
             }
-            circle = new Circle(circle.getCenterX(), circle.getCenterY(), circle.getRadius());
-            Circle finalCircle = circle;
+                archerTower.setDead();
+                break;
+            }
+            double heroCx = hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX();
+            double heroCy = hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY();
+            double towerX = archerTower.getImageView().getX() + 48;
+            double towerY = archerTower.getImageView().getY() + 20;
+            double dist = Math.sqrt(Math.pow(towerX - heroCx, 2) + Math.pow(towerY - heroCy, 2));
+            if (dist >= archerTower.getRange()) {
+                break;
+            }
+            if (!root.getChildren().contains(hero.getImageView())) {
+                try {
+                    wait(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                continue;
+            }
+
+            Circle previousBeam = beamNode;
+            Circle finalCircle = new Circle(towerX, towerY, 3);
+            beamNode = finalCircle;
             Platform.runLater(() -> {
+                if (previousBeam != null) {
+                    root.getChildren().remove(previousBeam);
+                }
                 root.getChildren().add(finalCircle);
                 myNotify();
             });
@@ -91,8 +115,12 @@ public class ArcherTowerDefense extends Thread {
             } catch (InterruptedException e) {
                 DebugLog.error("defense", "Interrupted in ArcherTowerDefense", e);
             }
+
             if (root.getChildren().contains(hero.getImageView())) {
-                lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
+                MoveTo moveTo = new MoveTo(towerX, towerY);
+                LineTo lineTo = new LineTo(
+                        hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(),
+                        hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
                 Path path = new Path();
                 path.getElements().addAll(new MoveTo(moveTo.getX(), moveTo.getY()), lineTo);
                 PathTransition pathTransition = new PathTransition();
@@ -103,6 +131,10 @@ public class ArcherTowerDefense extends Thread {
                 Platform.runLater(pathTransition::play);
                 hero.setHp(hero.getHp() - (archerTower.getDamagePerSecond()));
                 DebugLog.trace("defense", archerTower + " hit " + hero + " (hp=" + hero.getHp() + ")");
+                Platform.runLater(() -> AttackEffects.flashImpact(root,
+                        hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(),
+                        hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY(),
+                        Color.web("#B442F7")));
                 try {
                     wait(1000);
                 } catch (InterruptedException e) {
@@ -119,9 +151,11 @@ public class ArcherTowerDefense extends Thread {
                 }
             }
         }
-        Circle finalCircle1 = circle;
+        Circle finalBeamNode = beamNode;
         Platform.runLater(() -> {
-            root.getChildren().remove(finalCircle1);
+            if (finalBeamNode != null) {
+                root.getChildren().remove(finalBeamNode);
+            }
             myNotify();
         });
         try {
@@ -130,7 +164,7 @@ public class ArcherTowerDefense extends Thread {
             DebugLog.error("defense", "Interrupted in ArcherTowerDefense", e);
         }
     }
-    
+
     public synchronized void myNotify(){
         notify();
     }

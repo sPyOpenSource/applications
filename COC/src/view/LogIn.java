@@ -1,8 +1,10 @@
 package view;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.util.Duration;
 import javafx.stage.Stage;
 
 import javafx.scene.Scene;
@@ -67,17 +69,17 @@ public class LogIn extends Application {
         Button buttonLogin = new Button("Log In");
         buttonLogin.setEffect(shadow);
         buttonLogin.setOnMouseClicked(mouseEvent -> {
+            buttonLogin.setDisable(true);
             mediaPlayerClick.play();
             try {
                 Player player = controller.getPlayer(textFieldID.getText(), textFieldPassword.getText());
                 mediaPlayerClick.play();
-                try {
-                    Thread.sleep(300);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                new PlayerPanel(player, players).start(new Stage());
-                stage.close();
+                PauseTransition pause = new PauseTransition(Duration.millis(300));
+                pause.setOnFinished(e -> {
+                    new PlayerPanel(player, players).start(new Stage());
+                    stage.close();
+                });
+                pause.play();
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText(e.getMessage());
@@ -88,14 +90,15 @@ public class LogIn extends Application {
         Button buttonSignUp = new Button("Sign Up");
         buttonSignUp.setEffect(shadow);
         buttonSignUp.setOnMouseClicked(mouseEvent -> {
+            buttonLogin.setDisable(true);
+            buttonSignUp.setDisable(true);
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            stage.close();
-            new SignUp(players).start(new Stage());
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                stage.close();
+                new SignUp(players).start(new Stage());
+            });
+            pause.play();
         });
 
         HBox hBoxButton = new HBox(buttonSignUp, buttonLogin);

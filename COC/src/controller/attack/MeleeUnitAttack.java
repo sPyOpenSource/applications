@@ -1,6 +1,8 @@
 package controller.attack;
 
 import javafx.animation.PathTransition;
+import javafx.application.Platform;
+import javafx.scene.paint.Color;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.LineTo;
@@ -44,7 +46,7 @@ public abstract class MeleeUnitAttack extends UnitAttack {
         runOnFx(transition::play);
         long start = System.currentTimeMillis();
         long elapsed = 0;
-        while (elapsed < (long) ((width / unit.getMoveSpeed()) * 300)) {
+        while (elapsed < (long) ((width / unit.getMoveSpeed()) * 400)) {
             if (unit.getHp() <= 0) {
                 unit.setDead();
                 break;
@@ -64,7 +66,12 @@ public abstract class MeleeUnitAttack extends UnitAttack {
                 break;
             }
             runOnFx(player::play);
+            Platform.runLater(() -> AttackEffects.flashImpact(root,
+                    building.getImageView().getX() + building.getImageView().getFitWidth() / 2,
+                    building.getImageView().getY() + building.getImageView().getFitHeight() / 2,
+                    Color.web("#FF4500")));
             building.setHp((int) (building.getHp() - (unit.getDamagePerSecond() * 1.25)));
+            Platform.runLater(() -> AttackEffects.pulse(building.getImageView()));
             await(1250);
             runOnFx(player::stop);
         }

@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.util.Duration;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -55,9 +56,10 @@ public class DragonAttack extends Thread {
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(10000);
             mediaPlayer.setVolume(0.3);
+            MediaView mediaViewFly = new MediaView(mediaPlayer);
+            MediaView mediaViewAttack = new MediaView(mediaPlayerAttack);
             Platform.runLater(() -> {
-                root.getChildren().addAll(new MediaView(mediaPlayer), new MediaView(mediaPlayerAttack));
-                root.getChildren().add(dragon.getImageView());
+                root.getChildren().addAll(mediaViewFly, mediaViewAttack, dragon.getImageView());
                 myNotify();
             });
             try {
@@ -74,7 +76,10 @@ public class DragonAttack extends Thread {
             }
             Platform.runLater(() -> {
                 root.getChildren().remove(dragon.getImageView());
+                root.getChildren().remove(mediaViewFly);
+                root.getChildren().remove(mediaViewAttack);
                 mediaPlayer.stop();
+                mediaPlayerAttack.stop();
                 myNotify();
             });
             try {
@@ -87,7 +92,7 @@ public class DragonAttack extends Thread {
     }
     
     private synchronized EntityBuilding moveToward(){
-        double widthLowe = 10000;
+        double widthLowe = Double.MAX_VALUE;
         double width;
         EntityBuilding building = null;
         for (Entity node : map.getBuildingsMap()){
@@ -135,7 +140,7 @@ public class DragonAttack extends Thread {
             Platform.runLater(transition::play);
             long startTime = System.currentTimeMillis();
             long elapsedTime = 0;
-            while (elapsedTime < (long) ((widthLowe / dragon.getMoveSpeed()) * 300)) {
+            while (elapsedTime < (long) ((widthLowe / dragon.getMoveSpeed()) * 400)) {
                 if (dragon.getHp() <= 0){
                     dragon.setDead();
                     break;
@@ -174,7 +179,12 @@ public class DragonAttack extends Thread {
                 break;
             }
             Platform.runLater(mediaPlayerAttack::play);
+            Platform.runLater(() -> AttackEffects.flashImpact(root,
+                    building.getImageView().getX() + building.getImageView().getFitWidth() / 2,
+                    building.getImageView().getY() + building.getImageView().getFitHeight() / 2,
+                    Color.web("#FF4500")));
             building.setHp((int)(building.getHp() - (dragon.getDamagePerSecond() * 1.25)));
+            Platform.runLater(() -> AttackEffects.pulse(building.getImageView()));
             try {
                 wait(1250);
             } catch (InterruptedException e) {

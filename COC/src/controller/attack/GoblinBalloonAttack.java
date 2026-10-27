@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -127,10 +128,19 @@ public class GoblinBalloonAttack extends Thread {
             transition.setNode(goblinBalloon.getImageView());
             transition.setAutoReverse(false);
             transition.setPath(path);
+            final EntityBuilding targetBuilding = building;
+            transition.setOnFinished(e -> {
+                if (!goblinBalloon.isDead()) {
+                    AttackEffects.flashImpact(root,
+                            targetBuilding.getImageView().getX() + targetBuilding.getImageView().getFitWidth() / 2,
+                            targetBuilding.getImageView().getY() + targetBuilding.getImageView().getFitHeight() / 2,
+                            Color.web("#FFD700"));
+                }
+            });
             Platform.runLater(transition::play);
             long startTime = System.currentTimeMillis();
             long elapsedTime = 0;
-            while (elapsedTime < (long) ((widthLowe / goblinBalloon.getMoveSpeed()) * 300)) {
+            while (elapsedTime < (long) ((widthLowe / goblinBalloon.getMoveSpeed()) * 400)) {
                 if (goblinBalloon.getHp() <= 0){
                     goblinBalloon.setDead();
                     break;
@@ -168,6 +178,7 @@ public class GoblinBalloonAttack extends Thread {
             //} else {
                 building.setHp(building.getHp() - goblinBalloon.getDamagePerSecond());
             //}
+            Platform.runLater(() -> AttackEffects.pulse(building.getImageView()));
             try {
                 wait(1000);
             } catch (InterruptedException e) {
@@ -177,7 +188,7 @@ public class GoblinBalloonAttack extends Thread {
         if (!goblinBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getImages());
+                root.getChildren().remove(building.getImageView());
                 myNotify();
             });
             try {

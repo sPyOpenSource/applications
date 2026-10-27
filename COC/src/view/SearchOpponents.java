@@ -1,5 +1,6 @@
 package view;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -16,6 +17,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import javafx.util.Duration;
 import java.util.concurrent.atomic.AtomicInteger;
 import assets.Assets;
 
@@ -37,7 +39,8 @@ public class SearchOpponents extends Application {
     private final MediaPlayer mediaPlayer;
     private final String audioFilePath = assets.get("/assets/audio/click_button.mp3");
     private final MediaPlayer mediaPlayerClick = new MediaPlayer(new Media(audioFilePath));
-    private Thread thread;
+    private PauseTransition autoBattlePause;
+
     
     @Override
     public void start(Stage stage) {
@@ -54,25 +57,13 @@ public class SearchOpponents extends Application {
         stage.getIcons().add(new Image("assets/jpg/icon.jpg"));
         stage.show();
         stage.setResizable(false);
-        thread = new Thread() {
-            @Override
-            public void run() {  
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException ex) {
-                    System.getLogger(SearchOpponents.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-                }
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {  
-                        new Battle(player, players.get(count.get()), players).start(new Stage());
-                        Platform.runLater(mediaPlayer::stop);
-                        stage.close();
-                    }
-                });
-            }
-        };
-        thread.start();
+        autoBattlePause = new PauseTransition(Duration.millis(3000));
+        autoBattlePause.setOnFinished(e -> {
+            new Battle(player, players.get(count.get()), players).start(new Stage());
+            Platform.runLater(mediaPlayer::stop);
+            stage.close();
+        });
+        autoBattlePause.play();
     }
     
     private AnchorPane getMap(Stage stage, AnchorPane map){
@@ -82,16 +73,17 @@ public class SearchOpponents extends Application {
         imageViewBack.setFitWidth(100);
         imageViewBack.setFitHeight(40);
         imageViewBack.setOnMouseClicked(mouseEvent -> {
+            if (autoBattlePause != null) autoBattlePause.stop();
+            imageViewBack.setDisable(true);
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            mediaPlayerClick.stop();
-            new PlayerPanel(player, players).start(new Stage());
-            Platform.runLater(mediaPlayer::stop);
-            stage.close();
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                mediaPlayerClick.stop();
+                new PlayerPanel(player, players).start(new Stage());
+                Platform.runLater(mediaPlayer::stop);
+                stage.close();
+            });
+            pause.play();
         });
 
         ImageView levelView;
@@ -135,24 +127,25 @@ public class SearchOpponents extends Application {
         imageViewNext.setFitWidth(100);
         imageViewNext.setFitHeight(50);
         imageViewNext.setOnMouseClicked(mouseEvent -> {
+            if (autoBattlePause != null) autoBattlePause.stop();
+            imageViewNext.setDisable(true);
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            mediaPlayerClick.stop();
-            if (players.size() - 3 > count.get()){
-                if (players.get(count.get()).equals(player)) {
-                    count.addAndGet(1);
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                mediaPlayerClick.stop();
+                if (players.size() - 3 > count.get()){
+                    if (players.get(count.get()).equals(player)) {
+                        count.addAndGet(1);
+                    }
+                    scene = new Scene(getMap(stage, players.get(count.addAndGet(1)).getMap().getMapView()), 1000, 737);
+                    scene.getStylesheets().add("style.css");
+                    stage.setScene(scene);
+                    //thread.stop();
+                } else {
+                    map.getChildren().remove(imageViewNext);
                 }
-                scene = new Scene(getMap(stage, players.get(count.addAndGet(1)).getMap().getMapView()), 1000, 737);
-                scene.getStylesheets().add("style.css");
-                stage.setScene(scene);
-                //thread.stop();
-            } else {
-                map.getChildren().remove(imageViewNext);
-            }
+            });
+            pause.play();
         });
 
         ImageView attackView = new ImageView("assets/png/attack1.png");
@@ -161,17 +154,18 @@ public class SearchOpponents extends Application {
         attackView.setFitWidth(100);
         attackView.setFitHeight(40);
         attackView.setOnMouseClicked(mouseEvent -> {
+            if (autoBattlePause != null) autoBattlePause.stop();
+            attackView.setDisable(true);
             mediaPlayerClick.play();
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            mediaPlayerClick.stop();
-            new Battle(player, players.get(count.get()), players).start(new Stage());
-            Platform.runLater(mediaPlayer::stop);
-            stage.close();
-            //thread.stop();
+            PauseTransition pause = new PauseTransition(Duration.millis(300));
+            pause.setOnFinished(e -> {
+                mediaPlayerClick.stop();
+                new Battle(player, players.get(count.get()), players).start(new Stage());
+                Platform.runLater(mediaPlayer::stop);
+                stage.close();
+                //thread.stop();
+            });
+            pause.play();
         });
 
         bottomHero(map);

@@ -131,7 +131,7 @@ public class ArcherBalloonAttack extends Thread {
             Platform.runLater(transition::play);
             long startTime = System.currentTimeMillis();
             long elapsedTime = 0;
-            while (elapsedTime < (long) ((widthLowe / archerBalloon.getMoveSpeed()) * 300)) {
+            while (elapsedTime < (long) ((widthLowe / archerBalloon.getMoveSpeed()) * 400)) {
                 if (archerBalloon.getHp() <= 0){
                     archerBalloon.setDead();
                     break;
@@ -167,50 +167,50 @@ public class ArcherBalloonAttack extends Thread {
         MoveTo moveTo = new MoveTo(viewBalloon.getX(), viewBalloon.getY() + 20);
         LineTo lineTo = new LineTo(building.getImageView().getX() + (building.getImageView().getFitWidth() / 2),
                 building.getImageView().getY() + 20);
-        Circle circle = new Circle(viewBalloon.getX() + 28.8, viewBalloon.getY() + 60,3);
-        circle.setFill(Color.web("#B442F7"));
         path.getElements().addAll(moveTo, lineTo);
-        Platform.runLater(() -> {
-            root.getChildren().add(circle);
-            myNotify();
-        });
-        try {
-            wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         while (building.getHp() >= 0){
             if (archerBalloon.getHp() <= 0){
                 archerBalloon.setDead();
                 break;
             }
+            Circle circle = new Circle(viewBalloon.getX() + 28.8, viewBalloon.getY() + 60, 3);
+            circle.setFill(Color.web("#B442F7"));
+            Platform.runLater(() -> {
+                root.getChildren().add(circle);
+                myNotify();
+            });
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             PathTransition pathTransition = new PathTransition();
             pathTransition.setDuration(Duration.millis(1000));
             pathTransition.setPath(path);
             pathTransition.setCycleCount(1);
             pathTransition.setNode(circle);
+            pathTransition.setOnFinished(e -> {
+                root.getChildren().remove(circle);
+                AttackEffects.flashImpact(root,
+                        building.getImageView().getX() + building.getImageView().getFitWidth() / 2,
+                        building.getImageView().getY() + building.getImageView().getFitHeight() / 2,
+                        Color.web("#B442F7"));
+            });
             Platform.runLater(pathTransition::play);
             building.setHp(building.getHp() - archerBalloon.getDamagePerSecond());
+            Platform.runLater(() -> AttackEffects.pulse(building.getImageView()));
             try {
                 wait(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        Platform.runLater(() -> {
-            root.getChildren().remove(circle);
-            myNotify();
-        });
-        try {
-            wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         if (!archerBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getImages().get(0));
+                root.getChildren().remove(building.getImageView());
                 myNotify();
             });
             try {
@@ -233,6 +233,11 @@ public class ArcherBalloonAttack extends Thread {
         double distanceToCenter = distance(x, y, cx, cy);
         if (distanceToCenter < r) {
             return new double[]{x, y};
+        } else if (Math.abs(cx - x) < 1e-9) {
+            double y1 = cy - r;
+            double y2 = cy + r;
+            return distance(x, y, cx, y1) < distance(x, y, cx, y2)
+                    ? new double[]{cx, y1} : new double[]{cx, y2};
         } else {
             double m1 = (cy - y) / (cx - x);
 

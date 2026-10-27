@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.util.Duration;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -37,7 +38,8 @@ public class PandaAttack extends Thread {
         this.map = map;
         panda.setImageView(new ImageView(viewPandaL.getImage()));
         this.map.getAttackingHeroes().add(panda);
-        root.getChildren().add(new MediaView(mediaPlayerMove));
+        this.mediaViewMove = new MediaView(mediaPlayerMove);
+        root.getChildren().add(mediaViewMove);
         mediaPlayerMove.setVolume(0.2);
     }
     
@@ -50,6 +52,7 @@ public class PandaAttack extends Thread {
     private final Map map;
     String audioFilePathMove = assets.get("/assets/audio/not_path.mp3");
     MediaPlayer mediaPlayerMove = new MediaPlayer(new Media(audioFilePathMove));
+    private final MediaView mediaViewMove;
     private final AtomicInteger count = new AtomicInteger(0);
     
     @Override
@@ -76,7 +79,9 @@ public class PandaAttack extends Thread {
             }
             Platform.runLater(() -> {
                 root.getChildren().remove(panda.getImageView());
+                root.getChildren().remove(mediaViewMove);
                 mediaPlayer.stop();
+                mediaPlayerMove.stop();
                 myNotify();
             });
             try {
@@ -89,7 +94,7 @@ public class PandaAttack extends Thread {
     }
     
     private synchronized EntityBuilding moveToward(){
-        double widthLowe = 10000;
+        double widthLowe = Double.MAX_VALUE;
         double width;
         EntityBuilding building = null;
         for (Entity node : map.getBuildingsMap()){
@@ -139,7 +144,7 @@ public class PandaAttack extends Thread {
             Platform.runLater(transition::play);
             long startTime = System.currentTimeMillis();
             long elapsedTime = 0;
-            while (elapsedTime < (long) ((widthLowe / panda.getMoveSpeed()) * 300)) {
+            while (elapsedTime < (long) ((widthLowe / panda.getMoveSpeed()) * 400)) {
                 if (panda.getHp() <= 0){
                     panda.setDead();
                     break;
@@ -177,7 +182,12 @@ public class PandaAttack extends Thread {
                 break;
             }
 //            Platform.runLater(mediaPlayer::play);
+            Platform.runLater(() -> AttackEffects.flashImpact(root,
+                    building.getImageView().getX() + building.getImageView().getFitWidth() / 2,
+                    building.getImageView().getY() + building.getImageView().getFitHeight() / 2,
+                    Color.web("#FF4500")));
             building.setHp((int)(building.getHp() - (panda.getDamagePerSecond() * 1.25)));
+            Platform.runLater(() -> AttackEffects.pulse(building.getImageView()));
             try {
                 wait(1250);
             } catch (InterruptedException e) {
