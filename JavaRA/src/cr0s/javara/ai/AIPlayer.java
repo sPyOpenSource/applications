@@ -60,8 +60,12 @@ public class AIPlayer extends Player {
 
     private ArrayList<Squad> squads = new ArrayList<>();
     private Squad explorationSquad;
-    private ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
+    ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
     private ArrayList<EntityActor> activeUnits = new ArrayList<>();
+
+    ArrayList<EntityActor> getUnitsHangingAroundTheBase() {
+	return this.unitsHangingAroundTheBase;
+    }
 
     private final int assignRolesInterval = 20;
     private final int rushInterval = 600;
