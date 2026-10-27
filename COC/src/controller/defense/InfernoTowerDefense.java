@@ -49,7 +49,7 @@ public class InfernoTowerDefense extends Thread {
                 }
             }
         }
-        if (map.getBuildingsMap().isEmpty() || infernoTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
+        if (map.getBuildingsMap().isEmpty() || infernoTower.getHp() <= 0) {
             infernoTower.setDead();
         }
         if (!infernoTower.isDead() && hero == null){
@@ -78,7 +78,7 @@ public class InfernoTowerDefense extends Thread {
                 e.printStackTrace();
             }
             while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX() - lineTo.getX(), 2) + Math.pow(moveTo.getY() - lineTo.getY(), 2)) < infernoTower.getRange()) {
-                if (infernoTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
+                if (infernoTower.getHp() <= 0) {
                     infernoTower.setDead();
                     break;
                 }

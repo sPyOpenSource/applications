@@ -56,7 +56,7 @@ public class TeslaDefense extends Thread {
                 }
             }
         }
-        if (map.getBuildingsMap().isEmpty() || tesla.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
+        if (map.getBuildingsMap().isEmpty() || tesla.getHp() <= 0) {
             tesla.setDead();
         }
         if (!tesla.isDead() && hero == null){
@@ -73,7 +73,7 @@ public class TeslaDefense extends Thread {
         MoveTo moveTo = new MoveTo(tesla.getImageView().getX() + 37, tesla.getImageView().getY() + 18);
         LineTo lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(),hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
         while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX()-lineTo.getX(), 2)+ Math.pow(moveTo.getY()-lineTo.getY(), 2)) < tesla.getRange()){
-            if (tesla.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
+            if (tesla.getHp() <= 0) {
                 tesla.setDead();
                 break;
             }

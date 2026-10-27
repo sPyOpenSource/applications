@@ -14,7 +14,6 @@ import cr0s.javara.render.map.Map;
 import cr0s.javara.util.Pos;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.building.china.*;
-import cr0s.javara.entity.building.soviet.EntityTeslaCoil;
 
 public class MapLoader extends Map {
     private final ArrayList<Entity> buildingsMap;
@@ -64,7 +63,7 @@ public class MapLoader extends Map {
                     buildingsMap.add(townHall);
                     break;
                 case "tesla":
-                    EntityTeslaCoil tesla = new EntityTeslaCoil(new Pos(x, y));
+                    Tesla tesla = new Tesla(new Pos(x, y));
                     buildingsMap.add(tesla);
                     break;
                 case "infernoTower":
