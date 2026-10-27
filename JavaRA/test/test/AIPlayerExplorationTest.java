@@ -2,7 +2,7 @@ package test;
 
 import cr0s.javara.ai.AIPlayer;
 import cr0s.javara.ai.Squad;
-import cr0s.javara.ai.ai.states.ExplorationState;
+import cr0s.javara.ai.states.ExplorationState;
 import cr0s.javara.ai.StateMachine;
 import cr0s.javara.entity.infantry.EntityRifleTrooper;
 import cr0s.javara.render.World;

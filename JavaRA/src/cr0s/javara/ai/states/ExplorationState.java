@@ -1,4 +1,4 @@
-package cr0s.javara.ai.ai.states;
+package cr0s.javara.ai.states;
 
 import java.util.ArrayList;
 import java.util.Collections;

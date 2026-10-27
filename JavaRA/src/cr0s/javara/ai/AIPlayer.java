@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import cr0s.javara.ai.Squad.SquadType;
-import cr0s.javara.ai.ai.states.ExplorationState;
+import cr0s.javara.ai.states.ExplorationState;
 import cr0s.javara.combat.Warhead;
 import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.entity.Entity;
