@@ -16,6 +16,8 @@ import cr0s.javara.entity.building.china.Tesla;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import util.DebugLog;
+
 public class TeslaDefense extends Thread {
     public TeslaDefense(AnchorPane root, Map map, Tesla tesla, AtomicInteger capacityInt) {
         this.root = root;
@@ -56,6 +58,9 @@ public class TeslaDefense extends Thread {
                 }
             }
         }
+        if (hero != null) {
+            DebugLog.trace("defense", tesla + " selected target " + hero);
+        }
         if (map.getBuildingsMap().isEmpty() || tesla.getHp() <= 0) {
             tesla.setDead();
         }
@@ -63,7 +68,7 @@ public class TeslaDefense extends Thread {
             try {
                 wait(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("defense", "Interrupted in TeslaDefense", e);
             }
         }
         return hero;
@@ -85,7 +90,7 @@ public class TeslaDefense extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("defense", "Interrupted in TeslaDefense", e);
             }
             if (root.getChildren().contains(hero.getImageView())) {
                 lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
@@ -98,10 +103,11 @@ public class TeslaDefense extends Thread {
                 pathTransition.setNode(finalCircleImpact);
                 Platform.runLater(pathTransition::play);
                 hero.setHp(hero.getHp() - (tesla.getDamagePerSecond() * 2));
+                DebugLog.trace("defense", tesla + " hit " + hero + " (hp=" + hero.getHp() + ")");
                 try {
                     wait(500);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    DebugLog.error("defense", "Interrupted in TeslaDefense", e);
                 }
                 Platform.runLater(() -> {
                     root.getChildren().remove(finalCircleImpact);
@@ -110,7 +116,7 @@ public class TeslaDefense extends Thread {
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    DebugLog.error("defense", "Interrupted in TeslaDefense", e);
                 }
             }
         }
@@ -122,7 +128,7 @@ public class TeslaDefense extends Thread {
         try {
             wait();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            DebugLog.error("defense", "Interrupted in TeslaDefense", e);
         }
     }
     

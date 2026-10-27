@@ -17,6 +17,8 @@ import cr0s.javara.entity.building.china.ArcherTower;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import util.DebugLog;
+
 public class ArcherTowerDefense extends Thread {
     public ArcherTowerDefense(AnchorPane root, Map map, ArcherTower archerTower, AtomicInteger capacityInt) {
         this.root = root;
@@ -53,6 +55,9 @@ public class ArcherTowerDefense extends Thread {
                 }
             }
         }
+        if (hero != null) {
+            DebugLog.trace("defense", archerTower + " selected target " + hero);
+        }
         if (map.getBuildingsMap().isEmpty() || archerTower.getHp() <= 0) {
             archerTower.setDead();
         }
@@ -60,7 +65,7 @@ public class ArcherTowerDefense extends Thread {
             try {
                 wait(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("defense", "Interrupted in ArcherTowerDefense", e);
             }
         }
         return hero;
@@ -84,7 +89,7 @@ public class ArcherTowerDefense extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                DebugLog.error("defense", "Interrupted in ArcherTowerDefense", e);
             }
             if (root.getChildren().contains(hero.getImageView())) {
                 lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
@@ -97,10 +102,11 @@ public class ArcherTowerDefense extends Thread {
                 pathTransition.setNode(finalCircle);
                 Platform.runLater(pathTransition::play);
                 hero.setHp(hero.getHp() - (archerTower.getDamagePerSecond()));
+                DebugLog.trace("defense", archerTower + " hit " + hero + " (hp=" + hero.getHp() + ")");
                 try {
                     wait(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    DebugLog.error("defense", "Interrupted in ArcherTowerDefense", e);
                 }
                 Platform.runLater(() -> {
                     root.getChildren().remove(finalCircle);
@@ -109,7 +115,7 @@ public class ArcherTowerDefense extends Thread {
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    DebugLog.error("defense", "Interrupted in ArcherTowerDefense", e);
                 }
             }
         }
@@ -121,7 +127,7 @@ public class ArcherTowerDefense extends Thread {
         try {
             wait();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            DebugLog.error("defense", "Interrupted in ArcherTowerDefense", e);
         }
     }
     

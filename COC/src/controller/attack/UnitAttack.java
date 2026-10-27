@@ -11,6 +11,7 @@ import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.render.map.Map;
+import util.DebugLog;
 
 public abstract class UnitAttack extends Thread {
     protected final Assets assets = new Assets();
@@ -40,10 +41,17 @@ public abstract class UnitAttack extends Thread {
             });
             await();
             while (!unit.isDead()) {
+                DebugLog.trace("combat", unit + " seeking nearest building");
                 EntityBuilding building = moveToward();
                 if (unit.isDead()) {
+                    DebugLog.trace("combat", unit + " died while moving");
                     break;
                 }
+                if (building == null) {
+                    DebugLog.trace("combat", unit + " found no target");
+                    break;
+                }
+                DebugLog.trace("combat", unit + " attacking " + building);
                 attack(building);
             }
             MediaPlayer die = audio(dieAudio(), 0.5);
@@ -54,6 +62,7 @@ public abstract class UnitAttack extends Thread {
                 myNotify();
             });
             await();
+            DebugLog.trace("combat", unit + " removed from attacking heroes");
             map.getAttackingHeroes().remove(unit);
         }
     }
