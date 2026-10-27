@@ -150,9 +150,6 @@ public class InfernoTowerDefense extends Thread {
             }
             myNotify();
         });
-            }
-            myNotify();
-        });
         try {
             wait();
         } catch (InterruptedException e) {

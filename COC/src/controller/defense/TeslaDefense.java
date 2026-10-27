@@ -79,9 +79,7 @@ public class TeslaDefense extends Thread {
                 tesla.setDead();
                 break;
             }
-                tesla.setDead();
-                break;
-            }
+
             double heroCx = hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX();
             double heroCy = hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY();
             double towerX = tesla.getImageView().getX() + 37;

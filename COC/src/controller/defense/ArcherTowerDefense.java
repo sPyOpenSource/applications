@@ -80,9 +80,7 @@ public class ArcherTowerDefense extends Thread {
                 archerTower.setDead();
                 break;
             }
-                archerTower.setDead();
-                break;
-            }
+            
             double heroCx = hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX();
             double heroCy = hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY();
             double towerX = archerTower.getImageView().getX() + 48;
