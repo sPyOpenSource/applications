@@ -15,7 +15,7 @@ import controller.attack.AttackEffects;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import util.DebugLog;
+import util.Log;
 
 public class InfernoTowerDefense extends Thread {
     public InfernoTowerDefense(AnchorPane root, Map map, InfernoTower infernoTower, AtomicInteger capacityInt) {
@@ -54,7 +54,7 @@ public class InfernoTowerDefense extends Thread {
             }
         }
         if (hero != null) {
-            DebugLog.trace("defense", infernoTower + " selected target " + hero);
+            Log.trace("defense", infernoTower + " selected target " + hero);
         }
         if (map.getBuildingsMap().isEmpty() || infernoTower.getHp() <= 0) {
             infernoTower.setDead();
@@ -63,7 +63,7 @@ public class InfernoTowerDefense extends Thread {
             try {
                 wait(1000);
             } catch (InterruptedException e) {
-                DebugLog.error("defense", "Interrupted in InfernoTowerDefense", e);
+                Log.error("defense", "Interrupted in InfernoTowerDefense", e);
             }
         }
         return hero;
@@ -111,7 +111,7 @@ public class InfernoTowerDefense extends Thread {
             try {
                 wait();
             } catch (InterruptedException e) {
-                DebugLog.error("defense", "Interrupted in InfernoTowerDefense", e);
+                Log.error("defense", "Interrupted in InfernoTowerDefense", e);
             }
             if (root.getChildren().contains(hero.getImageView())) {
                 lineTo = new LineTo(
@@ -128,10 +128,10 @@ public class InfernoTowerDefense extends Thread {
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    DebugLog.error("defense", "Interrupted in InfernoTowerDefense", e);
+                    Log.error("defense", "Interrupted in InfernoTowerDefense", e);
                 }
                 hero.setHp(hero.getHp() - (infernoTower.getDamagePerSecond()));
-                DebugLog.trace("defense", infernoTower + " hit " + hero + " (hp=" + hero.getHp() + ")");
+                Log.trace("defense", infernoTower + " hit " + hero + " (hp=" + hero.getHp() + ")");
                 Platform.runLater(() -> AttackEffects.flashImpact(root,
                         hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(),
                         hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY(),
@@ -139,7 +139,7 @@ public class InfernoTowerDefense extends Thread {
                 try {
                     wait(1000);
                 } catch (InterruptedException e) {
-                    DebugLog.error("defense", "Interrupted in InfernoTowerDefense", e);
+                    Log.error("defense", "Interrupted in InfernoTowerDefense", e);
                 }
             }
         }

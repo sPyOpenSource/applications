@@ -3,7 +3,7 @@ package util;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public final class DebugLog {
+public final class Log {
     public enum Level { OFF, ERROR, WARN, INFO, TRACE }
 
     private static final DateTimeFormatter TS =
@@ -12,7 +12,7 @@ public final class DebugLog {
     private static volatile Level level =
             parse(System.getProperty("coc.debug", "TRACE"));
 
-    private DebugLog() {}
+    private Log() {}
 
     public static void setLevel(Level newLevel) {
         level = newLevel;
