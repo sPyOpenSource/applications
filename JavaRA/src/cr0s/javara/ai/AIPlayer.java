@@ -63,7 +63,7 @@ public class AIPlayer extends Player {
     ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
     private ArrayList<EntityActor> activeUnits = new ArrayList<>();
 
-    ArrayList<EntityActor> getUnitsHangingAroundTheBase() {
+    public ArrayList<EntityActor> getUnitsHangingAroundTheBase() {
 	return this.unitsHangingAroundTheBase;
     }
 
@@ -537,7 +537,7 @@ public class AIPlayer extends Player {
 	}
     }
 
-    Squad getSquadOfType(SquadType type) {
+    public Squad getSquadOfType(SquadType type) {
 	for (Squad s : this.squads) {
 	    if (s.getType() == type) {
 		return s;
@@ -617,7 +617,7 @@ public class AIPlayer extends Player {
 	}
     }
 
-    private void createExplorationSquad() {
+    public void createExplorationSquad() {
 	if (this.explorationSquad != null && !this.explorationSquad.isValid()) {
 	    this.explorationSquad = null;
 	}
