@@ -9,6 +9,10 @@ public class StateMachine {
 
     }
 
+    public IState getCurrentState() {
+	return this.currentState;
+    }
+
     public void update(Squad squad) {
 	if (this.currentState != null) {
 	    this.currentState.tick(squad);
