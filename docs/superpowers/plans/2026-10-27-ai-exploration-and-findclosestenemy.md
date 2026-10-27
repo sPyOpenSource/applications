@@ -13,7 +13,7 @@
 - Java source/target 21 (`javac.source=21`, `javac.target=21` in `nbproject/project.properties`).
 - Follow existing file layout: sources under `JavaRA/src/cr0s/javara/...`, tests under `JavaRA/test/test/`.
 - Test package: `test`. Test framework: JUnit 4 (`org.junit.Test`, `org.junit.Assert.*`).
-- No new packages beyond `cr0s.javara.ai.ai.states` (exploration state).
+- No new packages beyond `cr0s.javara.ai.states` (exploration state lives alongside `GroundStateBase`).
 - No shroud wiring: `playerShroud` stays commented out in `Player`; explorer degrades gracefully when shroud is null.
 - No combat, World, Base, pathfinding, or UI changes.
 - No difficulty tiers or AI personalities.
@@ -241,7 +241,7 @@ git commit -m "feat(ai): add SquadType.EXPLORATION"
 ### Task 4: Create ExplorationState
 
 **Files:**
-- Create: `JavaRA/src/cr0s/javara/ai/ai/states/ExplorationState.java`
+- Create: `JavaRA/src/cr0s/javara/ai/states/ExplorationState.java`
 
 **Interfaces:**
 - Consumes: `Squad`, `AIPlayer` (via `squad.getBot()`), `World`, `Shroud` (may be null), `Pos`, `Order`.
@@ -250,7 +250,7 @@ git commit -m "feat(ai): add SquadType.EXPLORATION"
 - [ ] **Step 1: Create the state file**
 
 ```java
-package cr0s.javara.ai.ai.states;
+package cr0s.javara.ai.states;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -431,7 +431,7 @@ package test;
 
 import cr0s.javara.ai.AIPlayer;
 import cr0s.javara.ai.Squad;
-import cr0s.javara.ai.ai.states.ExplorationState;
+import cr0s.javara.ai.states.ExplorationState;
 import cr0s.javara.ai.StateMachine;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.infantry.EntityRifleTrooper;

@@ -16,14 +16,14 @@ The following items are in scope:
 1. **`findClosestEnemy(Pos)` fix in `AIPlayer.java`** — loop over *all* enemy players, merge results from `findClosestEnemy(center, p, radius)`, sort by distance to `center`, return closest-first. Return empty list when no enemies exist.
 2. **Null-safe call sites** — `GroundStateBase.java` lines 27 and 62 call `.get(0)` on the possibly-empty result; add empty-list early returns.
 3. **New `SquadType.EXPLORATION`** — an exploration squad type alongside ASSAULT, PROTECTION, etc.
-4. **New `ExplorationState implements IState`** in `cr0s.javara.ai.ai.states` — each tick, if the squad has no valid target, choose a destination cell (unexplored shroud cell if available, else a random far-from-base passable cell) and issue `Order("Move", ...)` to idle squad units.
+4. **New `ExplorationState implements IState`** in `cr0s.javara.ai.states` — each tick, if the squad has no valid target, choose a destination cell (unexplored shroud cell if available, else a random far-from-base passable cell) and issue `Order("Move", ...)` to idle squad units.
 5. **Explorer squad creation in `AIPlayer`** — one small exploration squad (~2–4 combat units) registered when idle units are available; maintained like other squads.
 
 ## Non-goals
 
 - No shroud wiring: `playerShroud` is currently commented out in `Player`. The explorer must degrade gracefully (random cell) when no shroud is present; it must not require or create shroud state.
 - No combat changes: exploration is secondary to assault/protection squads; enemies found by the explorer are handled by existing targeting logic.
-- No new packages beyond `cr0s.javara.ai.ai.states`.
+- No new packages beyond `cr0s.javara.ai.states`.
 - No UI, pathfinding, World, or Base changes.
 - No difficulty tiers or AI personalities.
 
@@ -54,7 +54,7 @@ Each responsibility has one home; no logic moves between classes.
 - Add `SquadType.EXPLORATION` to the enum.
 - No other changes: `setTarget()` / `update()` already route through `StateMachine`.
 
-### `cr0s.javara.ai.ai.states.ExplorationState` (new)
+### `cr0s.javara.ai.states.ExplorationState` (new)
 Implements `IState`:
 - `activate(Squad)` — no-op.
 - `tick(Squad)`:
@@ -67,7 +67,7 @@ Implements `IState`:
   - If the squad reached its last destination (target reached / no valid target): clear target; next tick picks a new cell.
 - `deactivate(Squad)` — no-op.
 
-### `cr0s.javara.ai.ai.states.GroundStateBase` (existing)
+### `cr0s.javara.ai.states.GroundStateBase` (existing)
 - Guard both `.get(0)` call sites (`GroundUnitsIdleState.tick` line 27, `GroundUnitsAttackMoveState.tick` line 62): if `findClosestEnemy(...)` returns empty, `return` early instead of indexing.
 
 ### `cr0s.javara.gameplay.Player`
