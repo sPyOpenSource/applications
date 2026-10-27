@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import cr0s.javara.ai.Squad.SquadType;
+import cr0s.javara.ai.ai.states.ExplorationState;
 import cr0s.javara.combat.Warhead;
 import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.entity.Entity;
@@ -58,6 +59,7 @@ public class AIPlayer extends Player {
     private final int squadSize = 8;
 
     private ArrayList<Squad> squads = new ArrayList<>();
+    private Squad explorationSquad;
     private ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
     private ArrayList<EntityActor> activeUnits = new ArrayList<>();
 
@@ -309,7 +311,7 @@ public class AIPlayer extends Player {
 
 		@Override
 		public int compare(Pos p1, Pos p2) {
-		    return (int)(p1.distanceToSq(target) - p2.distanceToSq(target));
+		    return Double.compare(p1.distanceToSq(target), p2.distanceToSq(target));
 		}
 
 	    });
@@ -351,8 +353,9 @@ public class AIPlayer extends Player {
             all.addAll(this.findClosestEnemy(center, p, 20000000));
         }
 
-        all.sort((a, b) -> (int) (a.getPosition().distanceToSq(center)
-                - b.getPosition().distanceToSq(center)));
+        all.sort((a, b) -> Double.compare(
+                a.getPosition().distanceToSq(center),
+                b.getPosition().distanceToSq(center)));
         return all;
     }
 
@@ -449,11 +452,15 @@ public class AIPlayer extends Player {
 	    }
 	}
 
+	if (enemies.isEmpty()) {
+	    return new ArrayList<>();
+	}
+
 	Collections.sort(enemies, new Comparator<>() {
 	    @Override
 	    public int compare(Player p1, Player p2) {
 		if (AIPlayer.this.aggro.containsKey(p1) && AIPlayer.this.aggro.containsKey(p2)) {
-		    return (int) (AIPlayer.this.aggro.get(p1).aggro - AIPlayer.this.aggro.get(p2).aggro);
+		    return Float.compare(AIPlayer.this.aggro.get(p1).aggro, AIPlayer.this.aggro.get(p2).aggro);
 		}
 
 		return 0;
@@ -586,6 +593,7 @@ public class AIPlayer extends Player {
 	this.giveOrdersToIdleHarvesters();
 	this.findNewUnits();
 	this.createAttackForce();
+	this.createExplorationSquad();
 	this.findAndDeployAllMcv();
     }
 
@@ -603,6 +611,30 @@ public class AIPlayer extends Player {
 
 	    this.unitsHangingAroundTheBase.clear();
 	}
+    }
+
+    private void createExplorationSquad() {
+	if (this.explorationSquad != null) {
+	    return;
+	}
+	ArrayList<EntityActor> scouts = new ArrayList<>();
+	for (EntityActor a : this.unitsHangingAroundTheBase) {
+	    if (a instanceof cr0s.javara.combat.attack.ICanAttack && !a.isDead()) {
+		scouts.add(a);
+		if (scouts.size() >= 4) {
+		    break;
+		}
+	    }
+	}
+	if (scouts.isEmpty()) {
+	    return;
+	}
+	this.explorationSquad = this.registerNewSquad(SquadType.EXPLORATION);
+	for (EntityActor a : scouts) {
+	    this.explorationSquad.addUnit(a);
+	    this.unitsHangingAroundTheBase.remove(a);
+	}
+	this.explorationSquad.getFsm().changeState(this.explorationSquad, new ExplorationState(), false);
     }
 
     private void findNewUnits() {
