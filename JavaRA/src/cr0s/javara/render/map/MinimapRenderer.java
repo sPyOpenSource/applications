@@ -4,6 +4,7 @@ import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.main.GUI;
 import cr0s.javara.render.World;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 
 import javafx.scene.Scene;
@@ -11,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 public class MinimapRenderer {
+    private static final Log LOG = Log.of(MinimapRenderer.class);
 
     private final int width;
     private final int height;

@@ -5,6 +5,7 @@ import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
@@ -12,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public abstract class EntityWall extends EntityBuilding implements IHaveCost, IDefense {
+    private static final Log LOG = Log.of(EntityWall.class);
 
     protected boolean dirty;
     protected int adjacent = 0;
@@ -38,7 +40,7 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
 	if (tex != null) {
 	    this.sheet = new SpriteSheet(tex.getAsCombinedImage(null), 24, 24);
 	} else {
-	    System.err.println("Wall texture not found: " + this.textureName);
+	    LOG.error("Wall texture not found: " + this.textureName);
 	}
     }
 

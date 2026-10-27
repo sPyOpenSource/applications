@@ -17,9 +17,12 @@ import cr0s.javara.order.Order;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.render.World;
 import cr0s.javara.resources.SoundManager;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 
 public abstract class EntityVehicle extends MobileEntity implements IShroudRevealer {
+    private static final Log LOG = Log.of(EntityVehicle.class);
+
     public int tileX, tileY;
     public boolean isPrimary = false, isRepairing = false, isInvuln = false, isDestroyed = false;
 

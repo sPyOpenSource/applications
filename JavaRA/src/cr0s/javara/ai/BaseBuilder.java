@@ -12,9 +12,12 @@ import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IPowerConsumer;
 import cr0s.javara.entity.building.common.EntityProc;
 import cr0s.javara.render.World;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 
 public class BaseBuilder {
+    private static final Log LOG = Log.of(BaseBuilder.class);
+
     private final AIPlayer ai;
     private int waitTicks;
     private boolean isActive = false;
@@ -71,7 +74,7 @@ public class BaseBuilder {
     private EntityBuilding getProducibleBuilding(String commonName) {
 	String[] actorNames = this.ai.buildingCommonNames.get(commonName);	
 	if (actorNames == null) {
-	    System.err.println("[AI] Cannot find common names for: " + commonName);
+	    LOG.warn("Cannot find common names for: " + commonName);
 	    return null;
 	}
 
@@ -107,7 +110,7 @@ public class BaseBuilder {
 	if (this.ai.buildingLimits.containsKey(building)) {
 	    Integer limit = this.ai.buildingLimits.get(building);
 
-	    System.out.println("[AI] Checking building limit for " + building + ": " + this.ai.countBuildings(building, this.ai) + " / " + limit);
+	    LOG.debug("Checking building limit for " + building + ": " + this.ai.countBuildings(building, this.ai) + " / " + limit);
 	    
             return this.ai.countBuildings(building, this.ai) < limit;
 	}	
@@ -121,7 +124,7 @@ public class BaseBuilder {
 	    EntityBuilding power = this.getProducibleBuilding("Power");
 
 	    if (power != null) {
-		System.out.println("[AI] Building power plant: " + power.getName());
+		LOG.info("Building power plant: " + power.getName());
 		return power;
 	    }
 	}
@@ -130,7 +133,7 @@ public class BaseBuilder {
 	if (!this.ai.hasAdequateProc() || !this.ai.hasMinimumProc()) {
 	    EntityBuilding proc = this.getProducibleBuilding("Refinery");
 	    if (proc != null) {
-		System.out.println("[AI] Building ore refinery");
+		LOG.info("Building ore refinery");
 		return proc;
 	    }
 	}
@@ -140,7 +143,7 @@ public class BaseBuilder {
 	    EntityBuilding production = this.getProducibleBuilding("Production");
 
 	    if (production != null) {
-		System.out.println("[AI] Building production: " + production.getName());
+		LOG.info("Building production: " + production.getName());
 		return production;
 	    }
 	}
@@ -150,7 +153,7 @@ public class BaseBuilder {
 	    EntityBuilding silo = this.getProducibleBuilding("Silo");
 
 	    if (silo != null) {
-		System.out.println("[AI] Building ore silo");
+		LOG.info("Building ore silo");
 		return silo;
 	    }
 	}
@@ -179,13 +182,13 @@ public class BaseBuilder {
 		EntityBuilding power = this.getProducibleBuilding("Power");
 
 		if (power != null) {
-		    System.out.println("[AI] Building power plant: " + power.getName());
+		    LOG.info("Building power plant: " + power.getName());
 		    return power;
 		}		
 	    }
 	    
 	    // Lets build this
-	    System.out.println("[AI] Building: " + a.getName());
+	    LOG.info("Building: " + a.getName());
 	    return a;
 	}
 

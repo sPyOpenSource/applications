@@ -19,6 +19,7 @@ import cr0s.javara.ui.sbpages.building.PageBuildingSoviet;
 import cr0s.javara.ui.sbpages.infantry.PageInfantry;
 import cr0s.javara.ui.sbpages.vehicle.PageVehicle;
 import cr0s.javara.ui.sbpages.SideBarPage;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
@@ -33,6 +34,8 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class GameSideBar extends Application {
+    private static final Log LOG = Log.of(GameSideBar.class);
+
     private Player player;
     private Rectangle sidebarBounds;
 
@@ -218,7 +221,7 @@ public class GameSideBar extends Application {
             view.setOnMouseClicked(new EventHandler<>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    System.out.println(event);
+                    LOG.trace("Mouse event: " + event);
                 }
             });
             g.getChildren().add(view);
@@ -537,7 +540,7 @@ public class GameSideBar extends Application {
 	    this.currentPage.mouseClick(buttonX, buttonY);
 	}
 
-	System.out.println("[" + barX + "; " + barY + "] Button-" + button + " clicked: " + buttonX + " " + buttonY);
+	LOG.debug("Button " + button + " clicked at " + buttonX + "," + buttonY);
     }
 
     public void switchPage(String pageName) {

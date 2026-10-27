@@ -35,12 +35,15 @@ import cr0s.javara.perfomance.Profiler;
 import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.CellChooser;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 
 import org.yaml.snakeyaml.Yaml;
 import javafx.scene.paint.Color;
 
 public class AIPlayer extends Player {
+    private static final Log LOG = Log.of(AIPlayer.class);
+
     private class Enemy {
 	public float aggro;
 
@@ -806,7 +809,7 @@ public class AIPlayer extends Player {
 	// TODO: add non-random build
 	if (!buildables.isEmpty()) {
 	    String randomName = buildables.get(World.random.nextInt(buildables.size()));
-	    System.out.println(base.getCash());
+	    LOG.debug("Cash: " + base.getCash());
 	    //System.out.println("[AI] Building unit: " + randomName);
 	    this.getBase().getProductionQueue().startBuildingActor(this.getBase().getProductionQueue().getBuildables().get(randomName), null);
 	}

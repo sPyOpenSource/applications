@@ -5,6 +5,7 @@ import assets.Assets;
 
 import cr0s.javara.ui.cursor.CursorManager;
 import cr0s.javara.ui.cursor.CursorType;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.application.Application;
@@ -15,6 +16,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class StateMainMenu extends Application {
+	private static final Log LOG = Log.of(StateMainMenu.class);
 
 	public static final int STATE_ID = 0;
 	

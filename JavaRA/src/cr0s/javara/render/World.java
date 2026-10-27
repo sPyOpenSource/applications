@@ -29,6 +29,7 @@ import cr0s.javara.render.map.TileSet;
 import cr0s.javara.render.map.VehiclePathfinder;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.CellChooser;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
@@ -38,6 +39,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.animation.AnimationTimer;
 
 public class World extends AnimationTimer {
+    private static final Log LOG = Log.of(World.class);
+
     private final TileMap map;
     private final VehiclePathfinder vp;
     private final InfantryPathfinder ip;
@@ -303,7 +306,7 @@ public class World extends AnimationTimer {
     }
 
     public void spawnEntityInWorld(Entity e) {
-        System.out.println(e.getName());
+        LOG.debug("Spawned entity " + e.getClass().getSimpleName());
         try{
             root.getChildren().addAll(e.renderEntity().getChildren());
         } catch (Exception ex){}

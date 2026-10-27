@@ -2,6 +2,7 @@ package cr0s.javara.resources;
 
 import java.awt.image.BufferedImage;
 import java.util.WeakHashMap;
+import cr0s.javara.util.Log;
 import javafx.scene.paint.Color;
 
 /**
@@ -11,6 +12,8 @@ import javafx.scene.paint.Color;
  *
  */
 public class RemappedTextureCache {
+    private static final Log LOG = Log.of(RemappedTextureCache.class);
+
     private static RemappedTextureCache instance = null;
     private final WeakHashMap<String, BufferedImage> remappedTextures;
 
@@ -62,7 +65,7 @@ public class RemappedTextureCache {
 	if (!this.remappedTextures.containsKey(cacheKey)) {
 	    this.remappedTextures.put(cacheKey, image);
 	} else {
-	    System.err.println("[Warning] Remapped textures cache warning: trying to put in cache image that already cached.");
+	    LOG.warn("Remapped texture cache: image already cached");
 	}
     }
 }

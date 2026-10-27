@@ -17,6 +17,7 @@ import cr0s.javara.render.World;
 import cr0s.javara.render.map.ResourcesLayer.ResourceCell;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 
 import javafx.scene.layout.BorderPane;
@@ -25,6 +26,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.image.ImageView;
 
 public class TileMap {
+    private static final Log LOG = Log.of(TileMap.class);
+
     private short width, height;
     private TheaterCache theater;
     private TileSet tileSet;
@@ -116,7 +119,7 @@ public class TileMap {
 	    mapHeader.rewind();
 
 	    if (mapHeader.get() != 1) {
-		System.err.println("Invalid map.");
+		LOG.error("Invalid map");
 		return;
 	    }
 
@@ -132,7 +135,7 @@ public class TileMap {
 
 	    this.mapTiles = new TileReference[width][height];
 
-	    System.out.println("Map size: " + this.width + " x " + this.height);
+	    LOG.info("Map size: " + this.width + " x " + this.height);
 
 	    // Height, Width and sizeof(short) + sizeof(byte)
 	    ByteBuffer mapBytes = BufferUtility.readRemaining(inChannel);
@@ -272,7 +275,7 @@ public class TileMap {
 	    int y = me.getY();
 
 	    ShpTexture t = me.getTexture();
-System.out.println(t.getTextureName());
+	    LOG.trace("Map entity texture: " + t.getTextureName());
 	    Pos sheetPoint = this.theater.getShpTexturePoint(t.getTextureName());
 
 	    int sX = (int) sheetPoint.getX();

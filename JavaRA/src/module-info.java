@@ -3,6 +3,7 @@ module cr0s.javara.main {
     requires javafx.fxml;
     requires javafx.media;
     requires java.sql;
+    requires transitive java.logging;
     //requires mysql.connector.j;
     requires javafx.swt;
     requires javafx.base;

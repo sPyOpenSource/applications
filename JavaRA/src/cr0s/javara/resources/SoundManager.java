@@ -1,6 +1,7 @@
 package cr0s.javara.resources;
 
 import cr0s.javara.main.GUI;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 
 import javafx.scene.media.Media;
@@ -11,6 +12,8 @@ import java.util.Map;
 import soundly.XSound;
 
 public class SoundManager {
+    private static final Log LOG = Log.of(SoundManager.class);
+
     private static SoundManager instance;
     
     // Audio layers (lower number = higher priority)
@@ -70,7 +73,7 @@ public class SoundManager {
         String filePath = getSoundPath("sounds.mix", sound + ".wav");
         File file = new File(filePath);
         if (!file.exists()) {
-            System.err.println("Sound file not found: " + filePath);
+            LOG.error("Sound file not found: " + filePath);
             return;
         }
         

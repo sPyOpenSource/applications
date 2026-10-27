@@ -7,6 +7,7 @@ import java.util.Map;
 import org.yaml.snakeyaml.Yaml;
 import assets.Assets;
 import cr0s.javara.resources.ResourceManager;
+import cr0s.javara.util.Log;
 import javafx.scene.paint.Color;
 
 /**
@@ -14,6 +15,7 @@ import javafx.scene.paint.Color;
  * @author Cr0s
  */
 public class TileSet {
+    private static final Log LOG = Log.of(TileSet.class);
 
     public static HashMap<String, Integer> renameMap = new HashMap<>();
     
@@ -55,7 +57,7 @@ public class TileSet {
 
 	InputStream input = assets.getInputStream("/assets/tilesets/" + (aSetName + ".yaml").toLowerCase());
 
-        System.out.println("Loaded tileSet: " + ResourceManager.TILESETS_FOLDER + (aSetName + ".yaml").toLowerCase());
+        LOG.info("Loaded tileSet: " + ResourceManager.TILESETS_FOLDER + (aSetName + ".yaml").toLowerCase());
         Yaml tilesetYaml = new Yaml();
         Map<String, Object> tilesetYamlMap = (Map) tilesetYaml.load(input);
         //for (String s : tilesetYamlMap.keySet()) {

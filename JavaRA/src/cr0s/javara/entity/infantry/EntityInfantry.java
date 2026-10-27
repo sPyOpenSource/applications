@@ -30,6 +30,7 @@ import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import javafx.scene.image.ImageView;
 
@@ -38,6 +39,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.MoveTo;
 
 public abstract class EntityInfantry extends MobileEntity implements IShroudRevealer {
+    private static final Log LOG = Log.of(EntityInfantry.class);
+
     private static final float DEFAULT_MOVE_SPEED = 1f;
     private static final int WIDTH = 50;
     private static final int HEIGHT = 39;
@@ -181,7 +184,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 	    }
 	    
 	    if (this.attack.isAttacking && !this.attack.isReloading()) {
-		System.out.println("Attacking");
+		LOG.trace("Attacking");
 		this.setCurrentAnimationState(AnimationState.ATTACKING);
 		this.currentSequence = this.attackingSequence;
 	    } else {

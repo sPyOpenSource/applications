@@ -3,10 +3,12 @@ package cr0s.javara.entity.actor.activity.activities;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
 
 public class Drag extends Activity {
+    private static final Log LOG = Log.of(Drag.class);
     
     private final Pos start, end;
     private final int lengthInTicks;
@@ -22,7 +24,7 @@ public class Drag extends Activity {
     @Override
     public Activity tick(EntityActor a) {
 	if (isCancelled || !(a instanceof MobileEntity)) {
-	    System.out.println("Drag is cancelled.");
+	    LOG.debug("Drag is cancelled");
 	    return nextActivity;
 	}
 	

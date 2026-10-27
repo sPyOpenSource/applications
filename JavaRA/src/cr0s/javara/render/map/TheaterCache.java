@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.TmpTexture;
+import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
@@ -19,6 +20,8 @@ import javafx.scene.shape.Rectangle;
  *
  */
 public class TheaterCache {
+    private static final Log LOG = Log.of(TheaterCache.class);
+
     /**
      * Set of tiles and templates to use in this theater.
      */
@@ -191,8 +194,8 @@ public class TheaterCache {
 	    }
 	}
 
-	if (!isSuccess) { // debug
-	    System.out.println("Unable to add: " + texture.getTextureName());
+	if (!isSuccess) {
+	    LOG.error("Unable to add texture: " + texture.getTextureName());
 	}
     }
 
