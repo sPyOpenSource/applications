@@ -10,7 +10,7 @@ import cr0s.javara.order.Order;
 import cr0s.javara.order.Target;
 
 public class Squad {
-    public enum SquadType { ASSAULT, AIR, RUSH, PROTECTION, DEFENSIVE, HARVEST, CONSTRUCTION };
+    public enum SquadType { ASSAULT, AIR, RUSH, PROTECTION, DEFENSIVE, HARVEST, CONSTRUCTION, EXPLORATION };
     public enum Formation { LINE, WEDGE, COLUMN, BOX }
     
     private Formation currentFormation;
