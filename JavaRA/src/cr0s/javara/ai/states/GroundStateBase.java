@@ -5,6 +5,8 @@ import cr0s.javara.ai.StateMachine.IState;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.render.World;
 
+import java.util.ArrayList;
+
 public abstract class GroundStateBase extends StateBase {
 
 }
@@ -24,7 +26,11 @@ class GroundUnitsIdleState extends GroundStateBase implements IState {
 
 	if (!owner.targetIsValid()) {
 	    if (!owner.getUnits().isEmpty()) {
-		EntityActor t = owner.getBot().findClosestEnemy(owner.getUnits().get(0).getPosition()).get(0);
+		ArrayList<EntityActor> enemies = owner.getBot().findClosestEnemy(owner.getUnits().get(0).getPosition());
+		if (enemies.isEmpty()) {
+		    return;
+		}
+		EntityActor t = enemies.get(0);
 		if (t == null) {
 		    return;
 		}
@@ -58,8 +64,15 @@ class GroundUnitsAttackMoveState extends GroundStateBase implements IState {
 	}
 
 	if (!owner.targetIsValid()) {
+	    if (owner.getUnits().isEmpty()) {
+		return;
+	    }
 	    EntityActor randomUnit = owner.getUnits().get(World.random.nextInt(owner.getUnits().size()));
-	    EntityActor closestEnemy = owner.getBot().findClosestEnemy(randomUnit.getCellPosition()).get(0);
+	    ArrayList<EntityActor> enemies = owner.getBot().findClosestEnemy(randomUnit.getCellPosition());
+	    if (enemies.isEmpty()) {
+		return;
+	    }
+	    EntityActor closestEnemy = enemies.get(0);
 
 	    if (closestEnemy != null) {
 		owner.setTarget(closestEnemy);
