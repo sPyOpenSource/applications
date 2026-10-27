@@ -614,12 +614,15 @@ public class AIPlayer extends Player {
     }
 
     private void createExplorationSquad() {
+	if (this.explorationSquad != null && !this.explorationSquad.isValid()) {
+	    this.explorationSquad = null;
+	}
 	if (this.explorationSquad != null) {
 	    return;
 	}
 	ArrayList<EntityActor> scouts = new ArrayList<>();
 	for (EntityActor a : this.unitsHangingAroundTheBase) {
-	    if (a instanceof cr0s.javara.combat.attack.ICanAttack && !a.isDead()) {
+	    if (a instanceof ICanAttack && !a.isDead()) {
 		scouts.add(a);
 		if (scouts.size() >= 4) {
 		    break;
