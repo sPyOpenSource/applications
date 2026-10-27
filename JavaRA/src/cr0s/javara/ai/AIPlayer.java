@@ -343,18 +343,17 @@ public class AIPlayer extends Player {
             return new ArrayList<>();
         }
 
-        ArrayList<Player> enemyPlayers = new ArrayList<>();
-	for (Player p : world.getPlayers()) {
-	    if (p.isEnemyFor(this)) {
-		enemyPlayers.add(p);
-	    }
-	}
+        ArrayList<EntityActor> all = new ArrayList<>();
+        for (Player p : world.getPlayers()) {
+            if (!p.isEnemyFor(this)) {
+                continue;
+            }
+            all.addAll(this.findClosestEnemy(center, p, 20000000));
+        }
 
-	if (enemyPlayers.isEmpty()) {
-	    return new ArrayList<>();
-	}
-
-	return this.findClosestEnemy(center, enemyPlayers.get(0), 20000000);
+        all.sort((a, b) -> (int) (a.getPosition().distanceToSq(center)
+                - b.getPosition().distanceToSq(center)));
+        return all;
     }
 
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
