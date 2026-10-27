@@ -403,13 +403,22 @@ public class AIPlayer extends Player {
     }
 
     public ArrayList<EntityActor> findClosestEnemy(final Pos center) {
-        enemies = new ArrayList<>();
+        if (center == null) {
+            return new ArrayList<>();
+        }
+
+        ArrayList<Player> enemyPlayers = new ArrayList<>();
 	for (Player p : world.getPlayers()) {
 	    if (p.isEnemyFor(this)) {
-		enemies.add(p);
+		enemyPlayers.add(p);
 	    }
 	}
-	return this.findClosestEnemy(center, enemies.get(0), 20000000);
+
+	if (enemyPlayers.isEmpty()) {
+	    return new ArrayList<>();
+	}
+
+	return this.findClosestEnemy(center, enemyPlayers.get(0), 20000000);
     }
 
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
@@ -546,13 +555,24 @@ public class AIPlayer extends Player {
     public ArrayList<EntityBuilding> findEnemyConstructionYards() {
 	ArrayList<EntityBuilding> result = new ArrayList<>();
 
-	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) { 
-	    if (e.isDead() || !(e instanceof EntityConstructionYard) || (e.owner.isEnemyFor(this))) {
+	for (Player p : this.world.getPlayers()) {
+	    if (!p.isEnemyFor(this)) {
 		continue;
 	    }
 
-	    result.add((EntityBuilding) e);
-	}	
+	    for (Entity e : p.entities) {
+		if (e.isDead() || !(e instanceof EntityConstructionYard)) {
+		    continue;
+		}
+
+		EntityConstructionYard yard = (EntityConstructionYard) e;
+		if (yard.owner == null || !yard.owner.isEnemyFor(this)) {
+		    continue;
+		}
+
+		result.add(yard);
+	    }
+	}
 
 	return result;
     }
@@ -841,13 +861,11 @@ public class AIPlayer extends Player {
 
 	    EntityMcv mcv = (EntityMcv) e;
 
-	    // It's our
 	    if (mcv.owner == this) {
 		return false;
 	    }
 	}
 
-	// No any our MCV is found
 	return true;
     }
 }
