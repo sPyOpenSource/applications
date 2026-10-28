@@ -1,6 +1,5 @@
 package cr0s.javara.entity.aircraft;
 
-import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.util.Pos;
 import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
@@ -29,8 +28,6 @@ public class GoblinBalloon extends EntityAircraft{
     public int getWaitAverageTime(){ return 0; }
     @Override
     public int getWaitSpreadTime(){ return 0; }
-    @Override
-    public Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
     public StackPane renderEntity(){ return null; }
 }

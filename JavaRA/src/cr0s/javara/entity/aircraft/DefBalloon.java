@@ -1,8 +1,6 @@
 package cr0s.javara.entity.aircraft;
 
-import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.util.Pos;
-import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
 
 public class DefBalloon extends EntityAircraft{

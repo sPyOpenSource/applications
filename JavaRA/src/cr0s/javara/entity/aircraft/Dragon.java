@@ -1,10 +1,8 @@
 package cr0s.javara.entity.aircraft;
 
 import cr0s.javara.entity.IHaveCost;
-import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.util.Pos;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
 
 public class Dragon extends EntityAircraft implements IHaveCost{
@@ -29,13 +27,13 @@ public class Dragon extends EntityAircraft implements IHaveCost{
     @Override
     public float getMoveSpeed(){ return 16; }    
     @Override
-    public int getMinimumEnoughRange(){ return 0; }
+    public int getMinimumEnoughRange(){ return 4; }
     @Override
     public boolean canEnterCell(cr0s.javara.util.Pos cellPos){ return true; }   
     @Override
-    public int getWaitAverageTime(){ return 0; }
+    public int getWaitAverageTime(){ return 2; }
     @Override
-    public int getWaitSpreadTime(){ return 0; }
+    public int getWaitSpreadTime(){ return 2; }
     @Override
     public StackPane renderEntity(){ 
         if(getImageView() == null){
