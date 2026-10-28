@@ -10,7 +10,6 @@ import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IPowerConsumer;
 import cr0s.javara.entity.building.common.EntityRadarDome;
-import cr0s.javara.entity.vehicle.soviet.EntityMammothTank;
 
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;

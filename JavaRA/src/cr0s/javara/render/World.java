@@ -53,7 +53,7 @@ public class World extends AnimationTimer {
 
     boolean canRender = true;
 
-    private final int removeDeadTicks = 0;
+    private int removeDeadTicks = 0;
     private final int REMOVE_DEAD_INTERVAL_TICKS = 20;
     public static Random random = new Random(System.currentTimeMillis());
     private final ArrayList<Pos> pointsInRange[] = new ArrayList[MAX_RANGE + 1];
@@ -99,21 +99,23 @@ public class World extends AnimationTimer {
 	}*/
 	Profiler.getInstance().stopForSection("World: shroud tick");
 
-	/*if (removeDeadTicks++ > REMOVE_DEAD_INTERVAL_TICKS) {
-	    ConcurrentLinkedQueue<Entity> list = new ConcurrentLinkedQueue<>();
-	    for (Entity e : this.entities) {
-		if (!e.isDead()) {
-		    list.add(e);
+	if (removeDeadTicks++ > REMOVE_DEAD_INTERVAL_TICKS) {
+	    removeDeadTicks = 0;
+	    for (Player player : players) {
+		ConcurrentLinkedQueue<Entity> list = new ConcurrentLinkedQueue<>();
+		for (Entity e : player.entities) {
+		    if (!e.isDead()) {
+			list.add(e);
+		    } else {
+			// Remove render children from scene graph
+			if (e.owner != null && e.owner.world != null) {
+			    e.owner.world.root.getChildren().remove(e.getImageView());
+			}
+		    }
 		}
+		player.entities = list;
 	    }
-	    this.entities = list;
-
-	    this.removeDeadTicks = 0;
 	}
-
-	for (Entity e : this.entitiesToAdd) {
-	    this.entities.add(e);
-	}*/
 	
 	this.blockingEntityMap.update();
 	

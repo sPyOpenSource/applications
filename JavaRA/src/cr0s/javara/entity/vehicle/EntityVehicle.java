@@ -120,12 +120,12 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 	    }
 
 	    if (World.random.nextBoolean() && canPlay) {
-		//SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
+		SoundManager.getInstance().playSfxAt(s, this.getPos());
 		return;
 	    }
 	}
 
-	//SoundManager.getInstance().playUnitSoundGlobal(this, this.SELECTED_SOUND, 0);
+	SoundManager.getInstance().playSfxAt(this.SELECTED_SOUND, this.getPos());
     }
 
     @Override
@@ -155,16 +155,16 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 	    }
 
 	    if (World.random.nextBoolean() && canPlay) {
-		//SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
+		SoundManager.getInstance().playSfxAt(s, this.getPos());
 		return;
 	    }
 	}
 
 	if (World.random.nextBoolean()) {
-	    //SoundManager.getInstance().playUnitSoundGlobal(this, "ackno", this.unitVersion);
+	    SoundManager.getInstance().playSfxAt("ackno", this.getPos());
 	} else {
-	    //SoundManager.getInstance().playUnitSoundGlobal(this, "affirm1", this.unitVersion);
-	}	
+	    SoundManager.getInstance().playSfxAt("affirm1", this.getPos());
+	}
     }
 
     @Override
