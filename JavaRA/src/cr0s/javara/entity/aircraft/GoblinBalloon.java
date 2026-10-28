@@ -30,7 +30,7 @@ public class GoblinBalloon extends EntityAircraft{
     @Override
     public int getWaitSpreadTime(){ return 0; }
     @Override
-    protected Activity moveToRange(Pos cellPos, int range){ return null; }
+    public Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
     public StackPane renderEntity(){ return null; }
 }

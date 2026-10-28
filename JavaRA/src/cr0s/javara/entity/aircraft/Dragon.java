@@ -27,11 +27,6 @@ public class Dragon extends EntityAircraft implements IHaveCost{
     }
     
     @Override
-    public Path findPathFromTo(cr0s.javara.entity.MobileEntity e, Pos aGoal){
-        return null;
-    }
-
-    @Override
     public float getMoveSpeed(){ return 16; }    
     @Override
     public int getMinimumEnoughRange(){ return 0; }
@@ -41,8 +36,6 @@ public class Dragon extends EntityAircraft implements IHaveCost{
     public int getWaitAverageTime(){ return 0; }
     @Override
     public int getWaitSpreadTime(){ return 0; }
-    @Override
-    protected Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
     public StackPane renderEntity(){ 
         if(getImageView() == null){

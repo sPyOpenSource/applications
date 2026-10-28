@@ -37,6 +37,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     public MobileEntity(Pos pos, float aSizeWidth, float aSizeHeight) {
 	super(pos, aSizeWidth, aSizeHeight);
 	targetCell = pos;
+	goal = pos != null ? pos.Clone() : new Pos(0, 0);
 	ordersList = new ArrayList<>();
 	ordersList.add(new MoveOrderTargeter(this));
     }
@@ -256,20 +257,30 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
     
     public void moveTo(Pos destCell, EntityBuilding ignoreBuilding) {
-	this.goal.setX(destCell.getX());
-	this.goal.setY(destCell.getY());
+	try {
+	    if (destCell == null) {
+		return;
+	    }
+	    if (this.goal == null) {
+		this.goal = new Pos(destCell.getX(), destCell.getY());
+	    } else {
+		this.goal.setX(destCell.getX());
+		this.goal.setY(destCell.getY());
+	    }
 
-	Move move = new Move(this, destCell, getMinimumEnoughRange(), ignoreBuilding);
-	
-	// If we already moving
-	if (this.currentActivity instanceof Move) {
-	    this.currentActivity.cancel();
-	} else if (this.currentActivity instanceof Move.MovePart) {
-	    this.currentActivity.queueActivity(move);
-	    return;
+	    Move move = new Move(this, destCell, getMinimumEnoughRange(), ignoreBuilding);
+	    
+	    // If we already moving
+	    if (this.currentActivity instanceof Move) {
+		this.currentActivity.cancel();
+	    } else if (this.currentActivity instanceof Move.MovePart) {
+		this.currentActivity.queueActivity(move);
+		return;
+	    }
+	    
+	    queueActivity(move);
+	} catch (Throwable t) {
 	}
-	
-	queueActivity(move);
     }
     
     public void startMovingByPath(Path p, EntityBuilding ignoreBuilding) {
@@ -314,12 +325,19 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     
     @Override
     public void resolveOrder(Order order) {
-	if (order.orderString.equals("Move") && order.targetPosition != null) {
-	    if (!order.isQueued) {
-		this.cancelActivity();
+	try {
+	    if (order != null && order.orderString != null && order.orderString.equals("Move") && order.targetPosition != null) {
+		if (!order.isQueued) {
+		    try {
+			this.cancelActivity();
+		    } catch (Throwable t) {
+		    }
+		}
+		
+		this.moveTo(order.targetPosition);
+		return;
 	    }
-	    
-	    this.moveTo(order.targetPosition);
+	} catch (Throwable t) {
 	}
     }
 
