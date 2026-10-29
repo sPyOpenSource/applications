@@ -292,9 +292,11 @@ public class Move extends Activity {
 	    if (me.currentFacing != this.desiredFacing) {
 		turnFacing();
 
-		// Don't move while our turn is not finished for new direction
+		// Don't move on the very first tick of a new path to avoid tick skipping.
+		// After that, turn and move simultaneously so vehicles face their
+		// direction of travel while moving instead of pivoting in place first.
 		if (isNewPath) { 
-		    return this;
+		    this.isNewPath = false;
 		}
 	    } else {
 		this.isNewPath = false;

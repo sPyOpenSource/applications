@@ -104,6 +104,14 @@ public class AStarPathFinder {
                 // Obstacle check: in this engine, -1 typically means occupied/blocked
                 if (blockingMap[nx][ny] == -1) continue;
 
+                // Terrain check: ground units cannot walk through water, river or rocks
+                int surfaceId = world.getMap().getSurfaceIdAt(new Pos(nx, ny));
+                if (surfaceId == TileSet.SURFACE_WATER_ID
+                    || surfaceId == TileSet.SURFACE_RIVER_ID
+                    || surfaceId == TileSet.SURFACE_ROCK_ID) {
+                    continue;
+                }
+
                 int newGCost = current.gCost + 1;
                 int nodeKey = nx * 10000 + ny;
                 Node neighbor = allNodes.getOrDefault(nodeKey, new Node(nx, ny));

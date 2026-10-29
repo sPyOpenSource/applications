@@ -423,6 +423,14 @@ public class World extends AnimationTimer {
 	    return false;
 	}
 
+	// Ground units cannot walk through water, river or rocks
+	int surfaceId = this.map.getSurfaceIdAt(x);
+	if (surfaceId == TileSet.SURFACE_WATER_ID
+	    || surfaceId == TileSet.SURFACE_RIVER_ID
+	    || surfaceId == TileSet.SURFACE_ROCK_ID) {
+	    return false;
+	}
+
 	return (this.blockingEntityMap.isSubcellFree(x, sub)) && (
                    blockingEntityMap.getCellInfluences(x) == 0 
 		|| blockingEntityMap.getCellInfluences(x) == TileSet.SURFACE_CLEAR_ID
