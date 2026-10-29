@@ -1,6 +1,7 @@
 package cr0s.javara.render;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Random;
 
@@ -33,10 +34,12 @@ import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import javafx.animation.AnimationTimer;
+import javafx.scene.layout.StackPane;
 
 public class World extends AnimationTimer {
     private static final Log LOG = Log.of(World.class);
@@ -52,6 +55,14 @@ public class World extends AnimationTimer {
     public BorderPane root;
 
     boolean canRender = true;
+
+    /**
+     * Short-lived visual entities (explosions, smoke, muzzle flashes, tesla zaps,
+     * ...) that are not owned by any player. They are ticked every frame and
+     * removed - together with their scene-graph nodes - as soon as they finish,
+     * so they cannot leak and make the game slower the longer it runs.
+     */
+    private final ArrayList<Entity> effects = new ArrayList<>();
 
     private int removeDeadTicks = 0;
     private final int REMOVE_DEAD_INTERVAL_TICKS = 20;
@@ -168,6 +179,24 @@ public class World extends AnimationTimer {
             }
         }
 	Profiler.getInstance().stopForSection("World: entity tick");
+	
+	// Tick short-lived visual effects and remove the finished ones so their
+	// scene-graph nodes are released instead of leaking for the whole session.
+	Profiler.getInstance().startForSection("World: effects tick");
+	Iterator<Entity> effectIt = this.effects.iterator();
+	while (effectIt.hasNext()) {
+	    Entity e = effectIt.next();
+	    if (e.isDead()) {
+		StackPane node = (StackPane)e.getRenderNode();
+		if (node != null && root != null) {
+		    root.getChildren().removeAll(node.getChildren());
+		}
+		effectIt.remove();
+	    } else {
+		e.updateEntity(delta);
+	    }
+	}
+	Profiler.getInstance().stopForSection("World: effects tick");
 	
 	updatePlayers();
 	
@@ -307,11 +336,33 @@ public class World extends AnimationTimer {
 	return map;
     }
 
+    /**
+     * Adds this entity's render children to the scene graph (exactly as before,
+     * preserving absolute positioning) and remembers the parent node on the
+     * entity so that {@link Entity#setDead()} can remove those children again.
+     * Entities that are never removed from the scene graph leak memory and make
+     * the game slower the longer it runs.
+     */
     public void spawnEntityInWorld(Entity e) {
         LOG.debug("Spawned entity " + e.getClass().getSimpleName());
-        try{
-            root.getChildren().addAll(e.renderEntity().getChildren());
-        } catch (Exception ex){}
+        try {
+            StackPane node = e.renderEntity();
+            if (node != null && root != null) {
+                e.setRenderNode(node);
+                root.getChildren().addAll(node.getChildren());
+            }
+        } catch (Exception ex) {}
+    }
+
+    /**
+     * Spawns a short-lived visual effect (explosion, smoke, muzzle flash, tesla
+     * zap, ...) that is not owned by any player. The effect is ticked every
+     * frame and removed - together with its scene-graph node - as soon as it
+     * finishes, so it cannot leak for the rest of the session.
+     */
+    public void registerEffect(Entity e) {
+        spawnEntityInWorld(e);
+        this.effects.add(e);
     }
 
     /**
@@ -656,14 +707,14 @@ public class World extends AnimationTimer {
 	Explosion e = new Explosion(pos, explosionType);
 	e.isVisible = true;
 	
-	this.spawnEntityInWorld(e);
+	this.registerEffect(e);
     }
 
     public void spawnSmokeAt(Pos pos, String smokeSprite) {
 	Smoke s = new Smoke(pos, smokeSprite);
 	s.isVisible = true;
 	
-	this.spawnEntityInWorld(s);	
+	this.registerEffect(s);	
     }
 
     public ArrayList<Pos> chooseTilesInCircle(Pos targetTile, int i) {
@@ -733,7 +784,7 @@ public class World extends AnimationTimer {
 	SequencePlayer sp = new SequencePlayer(position, deathSequence);
 	sp.isVisible = true;
 	
-	this.spawnEntityInWorld(sp);
+	this.registerEffect(sp);
     }
 
     public ArrayList<Pos> chooseTilesInAnnulus(Pos center, int minRange,

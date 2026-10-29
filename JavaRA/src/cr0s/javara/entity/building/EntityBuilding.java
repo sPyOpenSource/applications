@@ -5,7 +5,6 @@ import cr0s.javara.combat.TargetType;
 import cr0s.javara.combat.Warhead;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.actor.EntityActor;
-import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.entity.effect.ScreenShaker;
 
 import cr0s.javara.order.InputAttributes;
@@ -252,7 +251,7 @@ public abstract class EntityBuilding extends EntityActor {
 	    case '~':
 		fc[x][y] = TileSet.SURFACE_BUILDING_CLEAR_ID;
 		x++;
-		break;		    
+		break;	    
 
 	    case 'x':
 		fc[x][y] = TileSet.SURFACE_BUILDING;
@@ -280,7 +279,6 @@ public abstract class EntityBuilding extends EntityActor {
 	// Refresh bounding box
 	this.boundingBox.setX(newCell.getX());
         this.boundingBox.setY(newCell.getY());
-// sizeWidth, sizeHeight);
     }
 
     @Override

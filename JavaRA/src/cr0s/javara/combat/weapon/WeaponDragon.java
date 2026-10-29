@@ -101,7 +101,7 @@ public class WeaponDragon extends Weapon {
 	    MuzzleFlash mz = new MuzzleFlash(muzzlePosition, WeaponDragon.MUZZLE_FLASH, fcng, MUZZLE_FLASH_FACINGS, MUZZLE_FLASH_LENGTH);
 	    mz.isVisible = true;
 	    
-	    srcActor.owner.world.spawnEntityInWorld(mz);
+	    srcActor.owner.world.registerEffect(mz);
 	}
 	
 	return msl;

@@ -20,7 +20,12 @@ public class GoldMine extends EntityBuilding {
 
     @Override
     public StackPane renderEntity() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (getImageView() == null) {
+            setImageView(new ImageView(getImages().get(0)));
+        }
+        StackPane combined = new StackPane();
+        combined.getChildren().add(getImageView());
+        return combined;
     }
 
     @Override
