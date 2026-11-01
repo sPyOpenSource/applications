@@ -1,17 +1,19 @@
 module cr0s.javara.main {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires javafx.media;
     requires java.sql;
     requires transitive java.logging;
-    //requires mysql.connector.j;
-    requires javafx.swt;
-    requires javafx.base;
-    requires javafx.graphics;
-    requires javafx.swing;
-    requires javafx.web;
     requires assets;
     requires org.yaml.snakeyaml;
+    requires javafx.swt;
+    requires javafx.base;
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires javafx.graphics;
+    requires javafx.media;
+    requires javafx.swing;
+    requires javafx.web;
+    requires jdk.jsobject;
+    requires jfx.incubator.input;
+    requires jfx.incubator.richtext;
 
     opens cr0s.javara.main to javafx.fxml;
     exports cr0s.javara.main;
