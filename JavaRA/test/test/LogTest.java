@@ -23,7 +23,6 @@ import org.junit.Assume;
 import org.junit.Test;
 
 public class LogTest {
-
     /** Captures every record published to the logger it is attached to. */
     private static class RecordingHandler extends Handler {
         final List<LogRecord> records = new ArrayList<>();

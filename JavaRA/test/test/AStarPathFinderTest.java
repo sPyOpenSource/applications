@@ -51,4 +51,5 @@ public class AStarPathFinderTest {
         Path path = new Path();
         assertTrue("Empty path should have no elements", path.getElements().isEmpty());
     }
+    
 }

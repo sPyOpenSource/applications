@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class RotationUtilTest {
-
     private static final double DELTA = 1e-6;
 
     @Test
