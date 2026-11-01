@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
  *
  * @author xuyi
  */
-public class testClass {
+public class ClassTest {
     @Test
     public void test() {
 //        Image calculator = new Image("/Users/xuyi/Desktop/horse.jpeg");
