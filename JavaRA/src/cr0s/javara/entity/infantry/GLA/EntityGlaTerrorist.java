@@ -1,4 +1,4 @@
-package cr0s.javara.entity.infantry;
+package cr0s.javara.entity.infantry.GLA;
 
 import cr0s.javara.combat.Armament;
 import cr0s.javara.combat.attack.AttackBase;
@@ -11,6 +11,7 @@ import cr0s.javara.combat.Warhead;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
+import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.render.Sequence;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.resources.ResourceManager;

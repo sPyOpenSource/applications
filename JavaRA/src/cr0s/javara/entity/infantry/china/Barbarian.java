@@ -1,6 +1,7 @@
-package cr0s.javara.entity.infantry;
+package cr0s.javara.entity.infantry.china;
 
 import cr0s.javara.entity.IHaveCost;
+import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.render.Sequence;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.Pos;

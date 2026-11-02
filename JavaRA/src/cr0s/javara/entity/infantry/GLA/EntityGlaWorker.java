@@ -1,34 +1,29 @@
-package cr0s.javara.entity.infantry;
-
-import cr0s.javara.combat.Armament;
-import cr0s.javara.combat.attack.AttackBase;
-import cr0s.javara.combat.attack.AttackFrontal;
-import cr0s.javara.combat.attack.AutoTarget;
-import cr0s.javara.combat.attack.ICanAttack;
-import cr0s.javara.combat.weapon.WeaponM1Carabine;
+package cr0s.javara.entity.infantry.GLA;
 
 import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
+import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.render.Sequence;
+
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.Pos;
 
-public class EntityGlaRebel extends EntityInfantry implements ISelectable, IHaveCost, ICanAttack {
+public class EntityGlaWorker extends EntityInfantry implements ISelectable, IHaveCost {
 
-    private final int BUILD_COST = 12;
+    private final int BUILD_COST = 8;
 
-    public EntityGlaRebel(Pos pos) {
+    public EntityGlaWorker(Pos pos) {
         this(pos, SubCell.CENTER);
     }
 
-    public EntityGlaRebel(Pos pos, SubCell sub) {
+    public EntityGlaWorker(Pos pos, SubCell sub) {
         super(pos, sub);
 
         this.texture = ResourceManager.getInstance().getInfantryTexture("e1.shp");
 
-        this.setMaxHp(50);
-        this.setHp(50);
+        this.setMaxHp(40);
+        this.setHp(40);
 
         this.currentFrame = 0;
 
@@ -48,15 +43,10 @@ public class EntityGlaRebel extends EntityInfantry implements ISelectable, IHave
         this.deathSequences.add(new Sequence(texture, 324, 0, 18, 2, null));
         this.deathSequences.add(new Sequence(electro, 0, 14, 0, 1, null));
 
-        this.attack = new AttackFrontal(this);
-        Armament arma = new Armament(this, new WeaponM1Carabine());
-        arma.addBarrel(new Pos(0, 0), 0);
-        this.attack.addArmament(arma);
+        // Worker has no weapon - it cannot attack
+        this.attack = null;
 
-        this.ordersList.addAll(this.attack.getOrders());
-        this.autoTarget = new AutoTarget(this, this.attack);
-
-        this.setName("glaRebel");
+        this.setName("glaWorker");
     }
 
     @Override
@@ -66,7 +56,7 @@ public class EntityGlaRebel extends EntityInfantry implements ISelectable, IHave
 
     @Override
     public int getMinimumEnoughRange() {
-        return 3;
+        return 0;
     }
 
     @Override
@@ -102,10 +92,5 @@ public class EntityGlaRebel extends EntityInfantry implements ISelectable, IHave
     @Override
     public int getBuildingCost() {
         return BUILD_COST;
-    }
-
-    @Override
-    public AttackBase getAttackStrategy() {
-        return this.attack;
     }
 }

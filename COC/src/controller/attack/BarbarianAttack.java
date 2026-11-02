@@ -1,6 +1,6 @@
 package controller.attack;
 
-import cr0s.javara.entity.infantry.Barbarian;
+import cr0s.javara.entity.infantry.china.Barbarian;
 import cr0s.javara.render.map.Map;
 import cr0s.javara.util.Pos;
 import javafx.scene.layout.AnchorPane;
