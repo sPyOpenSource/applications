@@ -15,8 +15,6 @@ public class Barrack extends EntityBuilding {
         setImageView(new ImageView(view));
         getImageView().setX(x.getX());
         getImageView().setY(x.getY());
-        //getImageView().setFitWidth(70);
-        //getImageView().setFitHeight(70);
         getImages().add(view);
     }
 
