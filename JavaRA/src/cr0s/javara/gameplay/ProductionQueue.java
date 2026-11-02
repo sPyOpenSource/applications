@@ -6,6 +6,7 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.aircraft.Dragon;
 import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.entity.building.china.EntityPortal;
 import cr0s.javara.entity.building.china.GoldMine;
 import cr0s.javara.entity.building.china.InfernoTower;
 import cr0s.javara.entity.building.common.EntityAdvPowerPlant;
@@ -119,6 +120,7 @@ public class ProductionQueue {
 	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(NULL));
 	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(NULL));
 	this.sovietBuildings.put("goldicon.shp", new GoldMine(NULL));
+	this.sovietBuildings.put("portalicon.shp", new EntityPortal(NULL));
         this.sovietBuildings.put("infernoTowericon.shp", new InfernoTower(NULL));
 	
 	this.alliedBuildings.put("powricon.shp", new EntityPowerPlant(NULL));

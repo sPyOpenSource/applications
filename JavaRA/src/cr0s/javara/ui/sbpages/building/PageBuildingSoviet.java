@@ -23,7 +23,7 @@ public class PageBuildingSoviet extends SideBarPage {
 	addButton(new BuildingSidebarButton("Soviet Tech Center", "stekicon.shp", this.getPosition(), 1, 2, false));
 	
 	addButton(new BuildingSidebarButton("Air Field", "afldicon.shp", this.getPosition(), 0, 3, false));
-	addButton(new BuildingSidebarButton("Kennel", "kennicon.shp", this.getPosition(), 1, 3, false));
+	addButton(new BuildingSidebarButton("Portal", "portalicon.shp", this.getPosition(), 1, 3, false));
 	
 	addButton(new BuildingSidebarButton("Helipad", "hpadicon.shp", this.getPosition(), 0, 4, false));
 	addButton(new BuildingSidebarButton("Radar Dome", "domeicon.shp", this.getPosition(), 1, 4, false));
