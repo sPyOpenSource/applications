@@ -13,6 +13,9 @@ public class PageInfantry extends SideBarPage {
 
 	addButton(new InfantrySidebarButton("Shock Trooper", "shokicon.shp", this.getPosition(), 0, 4, false, null));
 
+	addButton(new InfantrySidebarButton("GLA Rebel", "glaRebelicon.shp", this.getPosition(), 0, 5, false, null));
+	addButton(new InfantrySidebarButton("GLA Rocket Soldier", "glaRocketicon.shp", this.getPosition(), 1, 5, false, null));
+
 	//addButton(new InfantrySidebarButton("", "icon.shp", this.getPosition(), 1, 5, false, null));
 	//addButton(new InfantrySidebarButton("", "icon.shp", this.getPosition(), 1, 5, false, null));
 

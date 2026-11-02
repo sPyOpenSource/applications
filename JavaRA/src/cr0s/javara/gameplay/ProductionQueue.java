@@ -21,6 +21,8 @@ import cr0s.javara.entity.building.soviet.EntityBarredWireWall;
 import cr0s.javara.entity.building.soviet.EntityFireTurret;
 import cr0s.javara.entity.building.soviet.EntityTeslaCoil;
 
+import cr0s.javara.entity.infantry.EntityGlaRebel;
+import cr0s.javara.entity.infantry.EntityGlaRocketSoldier;
 import cr0s.javara.entity.infantry.EntityGrenadeTrooper;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.infantry.EntityRifleTrooper;
@@ -148,6 +150,8 @@ public class ProductionQueue {
 	this.sovietInfantry.put("e2icon.shp", new EntityGrenadeTrooper(NULL, SubCell.CENTER));
 	this.sovietInfantry.put("e3icon.shp", new EntityRocketTrooper(NULL, SubCell.CENTER));
         this.sovietInfantry.put("pandaicon.shp", new Panda(NULL));
+	this.sovietInfantry.put("glaRebelicon.shp", new EntityGlaRebel(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("glaRocketicon.shp", new EntityGlaRocketSoldier(NULL, SubCell.CENTER));
 		
 	// Put neutral common vehicles
 	this.neutralVehicles.put("mcvicon.shp", new EntityMcv(NULL));
