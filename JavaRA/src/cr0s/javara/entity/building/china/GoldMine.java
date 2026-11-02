@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane;
 public class GoldMine extends EntityBuilding {
     public GoldMine(Pos x) {
         //super(BuildingType.REFERENCES, 1180, "assets/png/gold_mine.png", 70, 60, x, y);
-        super(x, 70, 60, "");
+        super(x, 24, 24, "");
         setHp(1180);
         Image view = new Image("assets/png/gold_mine.png", true);
         setImageView(new ImageView(view));

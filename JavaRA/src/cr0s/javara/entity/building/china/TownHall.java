@@ -15,8 +15,8 @@ public class TownHall extends EntityBuilding {
         setImageView(new ImageView(view));
         getImageView().setX(x.getX());
         getImageView().setY(x.getY());
-        getImageView().setFitWidth(120);
-        getImageView().setFitHeight(120);
+        //getImageView().setFitWidth(120);
+        //getImageView().setFitHeight(120);
         getImages().add(view);
         name = "townHall";
     }
