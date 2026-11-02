@@ -41,7 +41,7 @@ public class PageBuildingSoviet extends SideBarPage {
 	addButton(new BuildingSidebarButton("Barracks", "barricon.shp", this.getPosition(), 1, 8, false));
 	
 	addButton(new BuildingSidebarButton("Wired Fence", "fencicon.shp", this.getPosition(), 0, 9, false));
-	addButton(new BuildingSidebarButton("Concrete Wall", "brikicon.shp", this.getPosition(), 1, 9, false));
+	addButton(new BuildingSidebarButton("Gold Mine", "goldicon.shp", this.getPosition(), 1, 9, false));
     }
 
     @Override
