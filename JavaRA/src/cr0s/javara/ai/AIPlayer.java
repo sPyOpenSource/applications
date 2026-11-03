@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 
 import cr0s.javara.ai.Squad.SquadType;
 import cr0s.javara.ai.states.ExplorationState;
+import cr0s.javara.ai.states.GroundCombatState;
 import cr0s.javara.combat.Warhead;
 import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.entity.Entity;
@@ -111,6 +112,7 @@ public class AIPlayer extends Player {
     private final HashMap<Player, Enemy> aggro = new HashMap<>();
 
     int assignRolesTicks = 0;
+    int baseRegenTicks = 0;
     int rushTicks = 0;
     int attackForceTicks = 0;
 
@@ -592,7 +594,7 @@ public class AIPlayer extends Player {
 	return result;
     }
 
-    void cleanSquads() {
+    public void cleanSquads() {
 	ArrayList<Squad> newSquads = new ArrayList<>();
 	for (Squad s : this.squads) {
 	    if (s.isValid()) {
@@ -679,9 +681,14 @@ public class AIPlayer extends Player {
     }
 
     void assignRolesToIdleUnits() {
-	//this.cleanSquads();
+	this.cleanSquads();
 	this.activeUnits = cleanFromDeadAndNotOwn(this.activeUnits);
 	this.unitsHangingAroundTheBase = cleanFromDeadAndNotOwn(this.unitsHangingAroundTheBase);
+
+	if (--this.baseRegenTicks <= 0) {
+	    this.baseRegenTicks = this.baseRegenInterval;
+	    this.regenerateBaseUnits();
+	}
 
 	if (--this.rushTicks <= 0) {
 	    this.rushTicks = this.rushInterval;
@@ -692,7 +699,7 @@ public class AIPlayer extends Player {
 	if (--this.attackForceTicks <= 0) {
 	    this.attackForceTicks = this.attackForceInterval;
 
-	    for (Squad s : this.squads) {
+	    for (Squad s : new ArrayList<>(this.squads)) {
 		s.update();
 	    }
 	}
@@ -710,20 +717,50 @@ public class AIPlayer extends Player {
 	this.findAndDeployAllMcv();
     }
 
-    private void createAttackForce() {
-	int randomSquadSize = this.squadSize + World.random.nextInt(4);
-
-	if (this.unitsHangingAroundTheBase.size() >= randomSquadSize) {
-	    Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
-
-	    for (EntityActor a : this.unitsHangingAroundTheBase) {
-		if (a instanceof ICanAttack) { // TODO: check is not aircraft
-		    attackForce.addUnit(a);
-		}
-	    }
-
-	    this.unitsHangingAroundTheBase.clear();
+    public void regenerateBaseUnits() {
+	Pos spawn = this.getPlayerSpawnPoint();
+	if (spawn == null) {
+	    return;
 	}
+
+	double radius = this.baseRegenRadius * 24.0;
+	for (Entity entity : this.entities) {
+	    if (!(entity instanceof MobileEntity unit) || entity.isDead()) {
+		continue;
+	    }
+	    if (unit.owner != this || !unit.isIdle()) {
+		continue;
+	    }
+	    if (unit.getHp() <= 0 || unit.getHp() >= unit.getMaxHp()) {
+		continue;
+	    }
+	    if (unit.getPosition().distanceTo(spawn) > radius) {
+		continue;
+	    }
+	    unit.setHp(Math.min(unit.getMaxHp(), unit.getHp() + this.baseRegenHp));
+	}
+    }
+
+    public void createAttackForce() {
+	ArrayList<EntityActor> candidates = new ArrayList<>();
+	for (EntityActor unit : this.unitsHangingAroundTheBase) {
+	    if (!unit.isDead() && unit.owner == this && unit instanceof ICanAttack) {
+		candidates.add(unit);
+	    }
+	}
+
+	int threshold = this.squadSize + World.random.nextInt(4);
+	if (candidates.size() < threshold) {
+	    return;
+	}
+
+	Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
+	for (EntityActor unit : candidates) {
+	    attackForce.addUnit(unit);
+	    this.unitsHangingAroundTheBase.remove(unit);
+	}
+
+	attackForce.getFsm().changeState(attackForce, new GroundCombatState(), false);
     }
 
     public void createExplorationSquad() {
@@ -753,7 +790,7 @@ public class AIPlayer extends Player {
 	this.explorationSquad.getFsm().changeState(this.explorationSquad, new ExplorationState(), false);
     }
 
-    private void findNewUnits() {
+    public void findNewUnits() {
 	ArrayList<EntityActor> newUnits = new ArrayList<>();
 
 	for (Entity e : entities) {
@@ -762,7 +799,7 @@ public class AIPlayer extends Player {
 	    }
 
 	    EntityActor a = (EntityActor) e;
-	    if (!this.activeUnits.contains(a)) {
+	    if (a.owner == this && !this.activeUnits.contains(a)) {
 		newUnits.add(a);
 	    }
 	}
@@ -806,16 +843,27 @@ public class AIPlayer extends Player {
 	}
     }
 
-    private void tryToRushAttack() {
-        ArrayList<EntityActor> a = chooseEnemyTarget();
-        if(a.isEmpty()) return;
-        if (squads.isEmpty()) return;
-        Squad s = squads.get(0);
-        s.setTarget(a.get(0));
-        /*for(EntityActor b:s.getUnits()) {
-            if(World.random.nextBoolean()) continue;
-            b.queueActivity(new Move((MobileEntity)b, a.get(0).getCellPosition()));
-        }*/
+    public void tryToRushAttack() {
+        Squad assault = null;
+        for (Squad squad : this.squads) {
+            if (squad.getType() == SquadType.ASSAULT
+                    && squad.isValid()
+                    && squad.getFsm().getCurrentState() instanceof GroundCombatState) {
+                assault = squad;
+                break;
+            }
+        }
+
+        if (assault == null) {
+            return;
+        }
+
+        ArrayList<EntityActor> enemies = chooseEnemyTarget();
+        if (enemies.isEmpty()) {
+            return;
+        }
+
+        assault.setTarget(enemies.get(0));
     }
 
     void protectOwn(EntityActor attacker) {

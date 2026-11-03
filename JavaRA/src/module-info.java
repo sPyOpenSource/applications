@@ -25,6 +25,8 @@ module cr0s.javara.main {
     exports cr0s.javara.entity;
     exports cr0s.javara.util;
     exports cr0s.javara.entity.actor.activity;
+    exports cr0s.javara.entity.actor.activity.activities;
+    exports cr0s.javara.order;
     exports cr0s.javara.entity.infantry;
     exports cr0s.javara.entity.infantry.china;
     exports cr0s.javara.entity.building;
