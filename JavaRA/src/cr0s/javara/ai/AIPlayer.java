@@ -56,7 +56,22 @@ public class AIPlayer extends Player {
     private boolean enabled;
     private int ticks;
     private final int feedbackTime = 30;
-    private final int squadSize = 8;
+    public int squadSize = 16;
+
+    public int retreatHealthPercent = 50;
+    public int retreatCasualtyPercent = 40;
+    public int reengageHealthPercent = 80;
+    public int minAttackSquadSize = 4;
+    public int recoverTimeoutTicks = 1800;
+    public int baseRegenInterval = 30;
+    public int baseRegenHp = 10;
+    public int baseRegenRadius = 20;
+
+    public int defenseMinRadius = 5;
+    public int defenseMaxRadius = 20;
+    public int defenseMinSpacing = 3;
+    public int defenseOverlapTarget = 2;
+    public int defenseThreatRadius = 35;
 
     private ArrayList<Squad> squads = new ArrayList<>();
     private Squad explorationSquad;
@@ -115,11 +130,12 @@ public class AIPlayer extends Player {
 	this.unitsToBuild = new HashMap<>();
 
 	InputStream input = null;
+	Map<String, Object> map = null;
 	try {
 	    input = new FileInputStream(new File(ResourceManager.AI_FOLDER + name + ".yaml"));
 
 	    Yaml yaml = new Yaml();
-	    Map<String, Object> map = (Map) yaml.load(input);	   
+	    map = (Map) yaml.load(input);	   
 
 	    // Load buildings common names
 	    Map<String, Object> buildingsCommonNamesMap = (Map) map.get("BuildingCommonNames");
@@ -163,8 +179,9 @@ public class AIPlayer extends Player {
 		this.unitsToBuild.put((String) e.getKey(), percentageValue / 100.0f);
 	    }		    
 
-	    // Load squad size
-	    //this.squadSize = (Integer) map.get("SquadSize");
+	    this.squadSize = intValue(map, "SquadSize", this.squadSize);
+	    loadCombatTuning(map);
+	    loadDefenseTuning(map);
 	} catch (IOException e) {
 	    e.printStackTrace();
 	} finally {
@@ -176,6 +193,58 @@ public class AIPlayer extends Player {
                 }
             }
 	}
+
+        this.idleBaseUnitsMaximum = Math.max(this.idleBaseUnitsMaximum, this.squadSize + 4);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static Map<String, Object> section(Map<String, Object> root, String key) {
+        Object value = root.get(key);
+        return (value instanceof Map) ? (Map<String, Object>) value : null;
+    }
+
+    private static int intValue(Map<String, Object> map, String key, int defaultValue) {
+        Object value = map.get(key);
+        if (value instanceof Number number) {
+            return number.intValue();
+        }
+        if (value instanceof String text) {
+            try {
+                return Integer.parseInt(text.trim());
+            } catch (NumberFormatException ignored) {
+                return defaultValue;
+            }
+        }
+        return defaultValue;
+    }
+
+    private void loadCombatTuning(Map<String, Object> root) {
+        Map<String, Object> combat = section(root, "CombatTuning");
+        if (combat == null) {
+            return;
+        }
+
+        this.retreatHealthPercent = intValue(combat, "RetreatHealthPercent", this.retreatHealthPercent);
+        this.retreatCasualtyPercent = intValue(combat, "RetreatCasualtyPercent", this.retreatCasualtyPercent);
+        this.reengageHealthPercent = intValue(combat, "ReengageHealthPercent", this.reengageHealthPercent);
+        this.minAttackSquadSize = intValue(combat, "MinAttackSquadSize", this.minAttackSquadSize);
+        this.recoverTimeoutTicks = intValue(combat, "RecoverTimeoutTicks", this.recoverTimeoutTicks);
+        this.baseRegenInterval = intValue(combat, "BaseRegenInterval", this.baseRegenInterval);
+        this.baseRegenHp = intValue(combat, "BaseRegenHp", this.baseRegenHp);
+        this.baseRegenRadius = intValue(combat, "BaseRegenRadius", this.baseRegenRadius);
+    }
+
+    private void loadDefenseTuning(Map<String, Object> root) {
+        Map<String, Object> defense = section(root, "Defense");
+        if (defense == null) {
+            return;
+        }
+
+        this.defenseMinRadius = intValue(defense, "MinRadius", this.defenseMinRadius);
+        this.defenseMaxRadius = intValue(defense, "MaxRadius", this.defenseMaxRadius);
+        this.defenseMinSpacing = intValue(defense, "MinSpacing", this.defenseMinSpacing);
+        this.defenseOverlapTarget = intValue(defense, "OverlapTarget", this.defenseOverlapTarget);
+        this.defenseThreatRadius = intValue(defense, "ThreatRadius", this.defenseThreatRadius);
     }
 
     @Override
