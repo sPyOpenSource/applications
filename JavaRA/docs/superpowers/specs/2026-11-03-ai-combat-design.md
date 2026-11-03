@@ -107,7 +107,7 @@ Use the existing `StateMachine` and `ai.states` package. New states:
 - `cleanSquads()` is called from `assignRolesToIdleUnits()`.
 - `createAttackForce()`:
   - Collect `ICanAttack` units from `unitsHangingAroundTheBase`.
-  - If none, do nothing.
+  - Wait until there are at least `SquadSize + random(0..3)` attack-capable idle units, so attacks leave as a mass rather than a trickle. Below that threshold, do nothing.
   - Register an ASSAULT squad, add those units, and remove only those units from the idle pool.
   - Run `changeState(squad, new GroundCombatState(), false)`.
 - `tryToRushAttack()`:
