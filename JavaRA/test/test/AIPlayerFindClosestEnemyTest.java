@@ -35,7 +35,7 @@ public class AIPlayerFindClosestEnemyTest {
 
         Team aiTeam = new Team(); Team nearTeam = new Team(); Team farTeam = new Team();
         ai.setTeam(aiTeam); nearEnemy.setTeam(nearTeam); farEnemy.setTeam(farTeam);
-        world.addPlayer(ai); world.addPlayer(nearEnemy); world.addPlayer(farEnemy);
+        world.getPlayers().add(ai); world.getPlayers().add(nearEnemy); world.getPlayers().add(farEnemy);
 
         EntityRifleTrooper far = new EntityRifleTrooper(new Pos(100, 0));
         far.owner = farEnemy; farEnemy.entities.add(far);
