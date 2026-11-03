@@ -658,6 +658,10 @@ public class AIPlayer extends Player {
 	return this.squads;
     }
 
+    public Pos getDefenseCenter() {
+	return this.defenseCenter;
+    }
+
     public Squad registerNewSquad(SquadType type) {
 	return this.registerNewSquad(type, null);
     }
