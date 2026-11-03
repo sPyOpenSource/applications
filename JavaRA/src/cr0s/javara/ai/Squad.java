@@ -20,6 +20,8 @@ public class Squad {
     
     private ArrayList<EntityActor> units = new ArrayList<>();
     private StateMachine fsm;
+    private int initialStrength;
+    private int desiredSize;
     
     public Squad(AIPlayer bot, SquadType type) {
 	this(bot, type, null);
@@ -32,6 +34,7 @@ public class Squad {
 	this.type = type;
 	
 	this.fsm = new StateMachine();
+	this.desiredSize = Math.max(1, bot.squadSize);
     }
     
     public void adoptFormation(Formation f) {  }
@@ -58,16 +61,29 @@ public class Squad {
     }
 
     public void update() {
-	if (!this.isValid()) {
+	if (this.units.isEmpty()) {
 	    return;
 	}
 
+	this.removeDeadAndNotOwnUnits();
+
+	if (this.units.isEmpty()) {
+	    return;
+	}
+
+	if (this.fsm.getCurrentState() != null) {
+	    this.fsm.update(this);
+	    return;
+	}
+
+	legacyUpdate();
+    }
+
+    private void legacyUpdate() {
 	if (!this.targetIsValid()) {
-	    if (!this.units.isEmpty()) {
-		ArrayList<EntityActor> enemies = this.bot.findClosestEnemy(this.units.get(0).getPosition());
-		if (!enemies.isEmpty()) {
-		    this.setTarget(enemies.get(0));
-		}
+	    ArrayList<EntityActor> enemies = this.bot.findClosestEnemy(this.units.get(0).getPosition());
+	    if (!enemies.isEmpty()) {
+		this.setTarget(enemies.get(0));
 	    }
 	    return;
 	}
@@ -92,6 +108,55 @@ public class Squad {
 
     public void addUnit(EntityActor a) {
 	this.units.add(a);
+	this.initialStrength = Math.max(this.initialStrength, this.getLivingCount());
+    }
+
+    public int getLivingCount() {
+	int living = 0;
+	for (EntityActor unit : this.units) {
+	    if (!unit.isDead()) {
+		living++;
+	    }
+	}
+	return living;
+    }
+
+    public int getInitialStrength() {
+	return this.initialStrength;
+    }
+
+    public int getDesiredSize() {
+	return this.desiredSize;
+    }
+
+    public double healthRatio() {
+	int hp = 0;
+	int maxHp = 0;
+	for (EntityActor unit : this.units) {
+	    if (unit.isDead()) {
+		continue;
+	    }
+	    hp += unit.getHp();
+	    maxHp += Math.max(1, unit.getMaxHp());
+	}
+	return maxHp == 0 ? 0.0 : hp / (double) maxHp;
+    }
+
+    public double casualtyRatio() {
+	if (this.initialStrength <= 0) {
+	    return 0.0;
+	}
+	double ratio = 1.0 - (this.getLivingCount() / (double) this.initialStrength);
+	return Math.max(0.0, Math.min(1.0, ratio));
+    }
+
+    public boolean shouldRetreat() {
+	return this.healthRatio() <= this.bot.retreatHealthPercent / 100.0
+		|| this.casualtyRatio() >= this.bot.retreatCasualtyPercent / 100.0;
+    }
+
+    public void markRegrouped() {
+	this.initialStrength = this.getLivingCount();
     }
 
     public boolean targetIsValid() {
@@ -112,6 +177,14 @@ public class Squad {
 		u.resolveOrder(new Order("Move", u, tgt.getCellPosition()));
 	    }
 	}
+    }
+
+    public Target getTarget() {
+	return this.target;
+    }
+
+    public void clearTarget() {
+	this.target = new Target((EntityActor) null);
     }
     
     public AIPlayer getBot() {
