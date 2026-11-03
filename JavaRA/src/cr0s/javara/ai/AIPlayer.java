@@ -606,6 +606,42 @@ public class AIPlayer extends Player {
 	}
     }
 
+    public void reinforceSquad(Squad squad) {
+	int missing = squad.getDesiredSize() - squad.getLivingCount();
+	if (missing <= 0) {
+	    return;
+	}
+
+	ArrayList<EntityActor> idleSnapshot = new ArrayList<>(this.unitsHangingAroundTheBase);
+	for (EntityActor unit : idleSnapshot) {
+	    if (missing <= 0) {
+		break;
+	    }
+	    if (unit.isDead() || unit.owner != this || !(unit instanceof ICanAttack)) {
+		continue;
+	    }
+	    if (unit instanceof EntityHarvester || unit instanceof EntityBuilding) {
+		continue;
+	    }
+	    squad.addUnit(unit);
+	    this.unitsHangingAroundTheBase.remove(unit);
+	    missing--;
+	}
+    }
+
+    public void disbandSquad(Squad squad) {
+	for (EntityActor unit : squad.getUnits()) {
+	    if (!unit.isDead() && unit.owner == this) {
+		unit.cancelActivity();
+		this.unitsHangingAroundTheBase.add(unit);
+	    }
+	}
+	this.squads.remove(squad);
+	if (this.explorationSquad == squad) {
+	    this.explorationSquad = null;
+	}
+    }
+
     public Squad getSquadOfType(SquadType type) {
 	for (Squad s : this.squads) {
 	    if (s.getType() == type) {
@@ -616,11 +652,15 @@ public class AIPlayer extends Player {
 	return null;
     }
 
-    Squad registerNewSquad(SquadType type) {
+    public ArrayList<Squad> getSquads() {
+	return this.squads;
+    }
+
+    public Squad registerNewSquad(SquadType type) {
 	return this.registerNewSquad(type, null);
     }
 
-    Squad registerNewSquad(SquadType type, EntityActor target) {
+    public Squad registerNewSquad(SquadType type, EntityActor target) {
 	Squad s = new Squad(this, type, target);
 	squads.add(s);
 
