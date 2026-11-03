@@ -5,6 +5,7 @@ import java.util.HashMap;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.aircraft.Dragon;
 import cr0s.javara.entity.aircraft.EntityAircraft;
+import cr0s.javara.entity.aircraft.EntityDrone;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.china.EntityPortal;
 import cr0s.javara.entity.building.china.GoldMine;
@@ -20,6 +21,7 @@ import cr0s.javara.entity.building.common.EntityWarFactory;
 import cr0s.javara.entity.building.soviet.EntityAirField;
 import cr0s.javara.entity.building.soviet.EntityBarracks;
 import cr0s.javara.entity.building.soviet.EntityBarredWireWall;
+import cr0s.javara.entity.building.soviet.EntityBunker;
 import cr0s.javara.entity.building.soviet.EntityFireTurret;
 import cr0s.javara.entity.building.soviet.EntityTeslaCoil;
 
@@ -128,6 +130,7 @@ public class ProductionQueue {
 	
 	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(NULL));
 	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(NULL));
+	this.sovietBuildings.put("bunkericon.shp", new EntityBunker(NULL));
 	this.sovietBuildings.put("goldicon.shp", new GoldMine(NULL));
 	this.sovietBuildings.put("portalicon.shp", new EntityPortal(NULL));
         this.sovietBuildings.put("infernoTowericon.shp", new InfernoTower(NULL));
@@ -188,6 +191,7 @@ public class ProductionQueue {
 	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(NULL));
         
         this.air.put("dragonicon.shp", new Dragon(NULL));
+        //this.air.put("droneicon.shp", new EntityDrone(NULL));
     }
 
     public EntityActor getBuildableActor(SideBarItemsButton texture) {
