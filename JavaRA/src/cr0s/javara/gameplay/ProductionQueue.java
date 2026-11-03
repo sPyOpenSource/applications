@@ -33,6 +33,7 @@ import cr0s.javara.entity.infantry.EntityDog;
 import cr0s.javara.entity.infantry.EntityEngineer;
 import cr0s.javara.entity.infantry.EntityHumanoidRobot;
 import cr0s.javara.entity.infantry.EntityRobotDog;
+import cr0s.javara.entity.infantry.EntityTerrorDrone;
 import cr0s.javara.entity.infantry.EntityGrenadeTrooper;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.infantry.EntityJetpackSoldier;
@@ -178,6 +179,7 @@ public class ProductionQueue {
 	this.sovietInfantry.put("hackericon.shp", new EntityHacker(NULL, SubCell.CENTER));
 	this.sovietInfantry.put("dogicon.shp", new EntityDog(NULL, SubCell.CENTER));
 	this.sovietInfantry.put("robodogicon.shp", new EntityRobotDog(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("terrordroneicon.shp", new EntityTerrorDrone(NULL, SubCell.CENTER));
 	this.sovietInfantry.put("humanoidroboticon.shp", new EntityHumanoidRobot(NULL, SubCell.CENTER));
         this.sovietInfantry.put("pandaicon.shp", new Panda(NULL));
 	this.sovietInfantry.put("glaRebelicon.shp", new EntityGlaRebel(NULL, SubCell.CENTER));
