@@ -9,10 +9,22 @@ import cr0s.javara.render.World;
 import cr0s.javara.util.Pos;
 import cr0s.javara.gameplay.Team.Alignment;
 import javafx.scene.paint.Color;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AIPlayerExplorationTest {
+    @BeforeClass
+    public static void startJavaFx() {
+        FxTestSupport.ensureStarted();
+    }
+
+    @AfterClass
+    public static void stopJavaFx() {
+        FxTestSupport.shutdown();
+    }
+
     @Test
     public void explorationSquadIsCreatedFromIdleUnits() {
         World world = new World("forest-path");

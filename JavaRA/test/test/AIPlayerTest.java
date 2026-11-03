@@ -13,10 +13,22 @@ import java.util.ArrayList;
 
 import javafx.scene.paint.Color;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AIPlayerTest {
+    @BeforeClass
+    public static void startJavaFx() {
+        FxTestSupport.ensureStarted();
+    }
+
+    @AfterClass
+    public static void stopJavaFx() {
+        FxTestSupport.shutdown();
+    }
+
     @Test
     public void thereIsNoMcvReturnsFalseWhenOwnedMcvExists() {
             World world = new World("forest-path");

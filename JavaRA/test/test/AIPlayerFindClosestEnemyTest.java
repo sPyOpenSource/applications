@@ -10,10 +10,22 @@ import cr0s.javara.gameplay.Team.Alignment;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AIPlayerFindClosestEnemyTest {
+    @BeforeClass
+    public static void startJavaFx() {
+        FxTestSupport.ensureStarted();
+    }
+
+    @AfterClass
+    public static void stopJavaFx() {
+        FxTestSupport.shutdown();
+    }
+
     @Test
     public void findClosestEnemyReturnsNearestAcrossAllEnemyPlayers() {
         World world = new World("forest-path");
