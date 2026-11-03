@@ -118,6 +118,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 		this.turret.rotateTurretTo(this.currentFacing);
 	    }
 	}
+        getImageView().setViewport(texture.getSubImage(0, currentFacing).getViewport());
 
 	attack.update(delta);
 	this.autoTarget.update(delta);

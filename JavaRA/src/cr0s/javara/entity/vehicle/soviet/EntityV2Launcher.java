@@ -86,6 +86,7 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
 	super.updateEntity(delta);
 
 	//boundingBox.setBounds(posX + (TEXTURE_WIDTH / 4) - 7, posY + (TEXTURE_WIDTH / 4) - 12, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));	
+        getImageView().setViewport(texture.getSubImage(0, currentFacing).getViewport());
 
 	this.attack.update(delta);
 	this.autoTarget.update(delta);
