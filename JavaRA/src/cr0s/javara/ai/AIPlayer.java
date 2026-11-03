@@ -109,6 +109,7 @@ public class AIPlayer extends Player {
 
     private Pos defenseCenter;
     private final BaseBuilder bb;
+    private final DefensePlanner defensePlanner;
     private final HashMap<Player, Enemy> aggro = new HashMap<>();
 
     int assignRolesTicks = 0;
@@ -122,6 +123,7 @@ public class AIPlayer extends Player {
 	loadAIRules(name);
 
 	this.bb = new BaseBuilder(this);
+	this.defensePlanner = new DefensePlanner(this);
     }
 
     private void loadAIRules(String name) {
@@ -437,16 +439,26 @@ public class AIPlayer extends Player {
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
 	switch (type) {
             case DEFENSIVE:
-                if (World.random.nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
-                    ArrayList<EntityActor> closestEnemy = this.findClosestEnemy(this.defenseCenter);
-                    Pos targetCell = (closestEnemy.isEmpty()) ? this.getPlayerSpawnPoint() : closestEnemy.get(0).getCellPosition();
+                Pos base = this.getPlayerSpawnPoint();
+                if (base == null) {
+                    return null;
+                }
+                if (this.defenseCenter == null) {
+                    this.defenseCenter = base;
+                }
 
-                    /*if (closestEnemy != null) {
-                        System.out.println("[AI] Closest enemy: " + closestEnemy.getClass().getSimpleName() + " | owner: " + closestEnemy.owner.name);
-                    }*/
-                    return this.findPosForBuilding(actorType, this.defenseCenter, targetCell, this.minimumDefenseRadius, this.maximumDefenseRadius, distanceToBaseIsImportant);
-                } else { // In other cases place build somewhere in base
-                    return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
+                Pos planned = this.defensePlanner.chooseCell(actorType);
+                if (planned != null) {
+                    return planned;
+                }
+
+                if (World.random.nextInt(100) >= 30) {
+                    ArrayList<EntityActor> closestEnemy = this.findClosestEnemy(this.defenseCenter);
+                    Pos targetCell = closestEnemy.isEmpty() ? base : closestEnemy.get(0).getCellPosition();
+                    return this.findPosForBuilding(actorType, this.defenseCenter, targetCell,
+                            this.minimumDefenseRadius, this.maximumDefenseRadius, distanceToBaseIsImportant);
+                } else {
+                    return this.findPosForBuilding(actorType, base, base, 0, this.maxBaseRadius, false);
                 }
 
             case NORMAL:
@@ -660,6 +672,10 @@ public class AIPlayer extends Player {
 
     public Pos getDefenseCenter() {
 	return this.defenseCenter;
+    }
+
+    public DefensePlanner getDefensePlanner() {
+	return this.defensePlanner;
     }
 
     public Squad registerNewSquad(SquadType type) {
