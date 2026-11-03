@@ -157,12 +157,13 @@ public class World extends AnimationTimer {
 
                     // For mobile entities, after entity updated, update it's blocking map state to avoid entity movement collisions
                     if (e instanceof MobileEntity mobileEntity) {
-                        //this.blockingEntityMap.freeForMobileEntity(mobileEntity);
+                        // Free previous blocking map state before entity moves
+                        this.blockingEntityMap.freeForMobileEntity(mobileEntity);
 
-                        e.updateEntity(delta);	
+                        e.updateEntity(delta);
 
                         // Lock next entity position. Or re-lock current, if position is not changed
-                        //this.blockingEntityMap.occupyForMobileEntity(mobileEntity);
+                        this.blockingEntityMap.occupyForMobileEntity(mobileEntity);
                     } else {
                         e.updateEntity(delta);	
                         if(e instanceof EntityBuilding eb)
@@ -495,19 +496,29 @@ public class World extends AnimationTimer {
     }
 
     public boolean isCellBuildable(Pos x, boolean isMcvDeploy) {
-	/*if (x.getCellX() >= this.map.getWidth() || x.getCellY() >= this.map.getHeight()) {
-	    return false;
-	}
-
-	if (x.getCellX() < 0 || x.getCellY() < 0) {
-	    return false;
-	}*/
-
 	if (!this.map.isInMap(x.getX(), x.getY())) {
 	    return false;
 	}
 
-	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(x)) && (this.map.getResourcesLayer().isCellEmpty(x));	
+	// Ground buildings cannot be placed on water, river or rocks
+	int surfaceId = this.map.getSurfaceIdAt(x);
+	if (surfaceId == TileSet.SURFACE_WATER_ID
+	    || surfaceId == TileSet.SURFACE_RIVER_ID
+	    || surfaceId == TileSet.SURFACE_ROCK_ID) {
+	    return false;
+	}
+
+	int cx = x.getCellX();
+	int cy = x.getCellY();
+
+	// Check if cell is occupied by a building or unit (blockingMap == -1)
+	if (!isMcvDeploy && cx >= 0 && cx < blockingEntityMap.blockingMap.length
+	    && cy >= 0 && cy < blockingEntityMap.blockingMap[0].length
+	    && blockingEntityMap.blockingMap[cx][cy] == -1) {
+	    return false;
+	}
+
+	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(x)) && (this.map.getResourcesLayer().isCellEmpty(x));
     }
 
     public boolean blocked(PathFindingContext arg0, int x, int y) {

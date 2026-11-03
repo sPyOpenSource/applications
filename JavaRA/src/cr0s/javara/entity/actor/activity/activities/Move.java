@@ -72,9 +72,9 @@ public class Move extends Activity {
 
 	Pos nextCell = new Pos(px, py);
 
-	/*if (!me.canEnterCell(nextCell) && me.world.isCellBlockedByEntity(nextCell)) {
+	if (!me.canEnterCell(nextCell) && me.owner.world.isCellBlockedByEntity(nextCell)) {
 	    // This building we ignore
-	    if (this.ignoreBuilding != null && me.world.getBuildingInCell(nextCell) == this.ignoreBuilding) {
+	    if (this.ignoreBuilding != null && me.owner.world.getBuildingInCell(nextCell) == this.ignoreBuilding) {
 		this.hasNotifiedBlocker = false;
 		this.hasWaited = false;
 
@@ -95,17 +95,6 @@ public class Move extends Activity {
 
 	    // Notify all friendly blockers inside cell
 	    if (!this.hasNotifiedBlocker) {
-		/*for (Influence i : me.world.blockingEntityMap.getCellInfluences(nextCell)) {
-		    Entity blocker = i.entity;
-
-		    if (blocker instanceof MobileEntity mobileEntity) {
-			// Notify blocker 
-			if (blocker != null && mobileEntity.isFrendlyTo(me)) {
-			    mobileEntity.notifyBlocking(me);
-			}
-		    }
-		}
-
 		this.hasNotifiedBlocker = true;
 	    }
 
@@ -132,7 +121,7 @@ public class Move extends Activity {
 	    this.ticksBeforeRepath = Move.REPATHING_INTERVAL_TICKS;
 
 	    chooseNewPath(me);
-	}*/
+	}
 
 	this.currentPathIndex++;
 	this.hasNotifiedBlocker = false;

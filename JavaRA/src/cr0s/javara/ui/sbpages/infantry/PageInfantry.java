@@ -37,6 +37,7 @@ public class PageInfantry extends SideBarPage {
 	addButton(new InfantrySidebarButton("Sniper", "snipericon.shp", this.getPosition(), 1, 10, false, null));
 	addButton(new InfantrySidebarButton("Seal Force", "sealicon.shp", this.getPosition(), 0, 11, false, null));
 	addButton(new InfantrySidebarButton("Hacker", "hackericon.shp", this.getPosition(), 1, 11, false, null));
+	addButton(new InfantrySidebarButton("Dog", "dogicon.shp", this.getPosition(), 0, 12, false, null));
     }
 
     @Override
