@@ -12,6 +12,7 @@ public class PageInfantry extends SideBarPage {
 	super(pos);
 
 	addButton(new InfantrySidebarButton("Shock Trooper", "shokicon.shp", this.getPosition(), 0, 4, false, null));
+	addButton(new InfantrySidebarButton("Jetpack Soldier", "e5icon.shp", this.getPosition(), 1, 4, false, null));
 
 	addButton(new InfantrySidebarButton("GLA Rebel", "glaRebelicon.shp", this.getPosition(), 0, 5, false, null));
 	addButton(new InfantrySidebarButton("GLA Rocket Soldier", "glaRocketicon.shp", this.getPosition(), 1, 5, false, null));
@@ -31,6 +32,11 @@ public class PageInfantry extends SideBarPage {
 
 	addButton(new InfantrySidebarButton("Riffle Trooper", "e1icon.shp", this.getPosition(), 0, 9, false, null));
 	addButton(new InfantrySidebarButton("Engineer", "e6icon.shp", this.getPosition(), 1, 9, false, null));
+
+	addButton(new InfantrySidebarButton("Spy", "spyicon.shp", this.getPosition(), 0, 10, false, null));
+	addButton(new InfantrySidebarButton("Sniper", "snipericon.shp", this.getPosition(), 1, 10, false, null));
+	addButton(new InfantrySidebarButton("Seal Force", "sealicon.shp", this.getPosition(), 0, 11, false, null));
+	addButton(new InfantrySidebarButton("Hacker", "hackericon.shp", this.getPosition(), 1, 11, false, null));
     }
 
     @Override
