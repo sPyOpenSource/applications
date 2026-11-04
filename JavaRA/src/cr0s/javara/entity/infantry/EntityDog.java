@@ -113,4 +113,9 @@ public class EntityDog extends EntityInfantry implements ISelectable, IHaveCost,
     public AttackBase getAttackStrategy() {
 	return this.attack;
     }
+    
+    @Override
+    public float getMoveSpeed() {
+	return 2;
+    }
 }

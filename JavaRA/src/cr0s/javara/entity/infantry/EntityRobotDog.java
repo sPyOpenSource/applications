@@ -77,7 +77,7 @@ public class EntityRobotDog extends EntityInfantry implements ISelectable, IHave
 
     @Override
     public float getMoveSpeed() {
-	return 1.6f;
+	return 2.6f;
     }
 
     @Override
@@ -124,4 +124,5 @@ public class EntityRobotDog extends EntityInfantry implements ISelectable, IHave
     public AttackBase getAttackStrategy() {
 	return this.attack;
     }
+    
 }
