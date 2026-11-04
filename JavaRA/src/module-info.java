@@ -32,6 +32,7 @@ module cr0s.javara.main {
     exports cr0s.javara.entity.vehicle.common;
     exports cr0s.javara.gameplay;
     exports cr0s.javara.ai;
+    exports cr0s.javara.ai.states;
     exports mazesolver;
 }
     
