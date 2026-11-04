@@ -47,7 +47,7 @@ public class EntityQuad extends EntityVehicle implements ISelectable, IHaveCost,
     public EntityQuad(Pos pos) {
 	super(pos, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
-	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture("3tnk.shp").getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture("jeep.shp").getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	this.isVisible = true;
 

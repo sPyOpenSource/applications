@@ -30,7 +30,7 @@ public class EntityDog extends EntityInfantry implements ISelectable, IHaveCost,
 	    SubCell sub) {
 	super(pos, sub);
 
-	this.texture = ResourceManager.getInstance().getInfantryTexture("e1.shp");
+	this.texture = ResourceManager.getInstance().getConquerTexture("dog.shp");
 
 	this.setMaxHp(30);
 	this.setHp(30);

@@ -47,7 +47,7 @@ public class EntityMotorbike extends EntityVehicle implements ISelectable, IHave
     public EntityMotorbike(Pos pos) {
 	super(pos, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
-	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture("3tnk.shp").getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture("cycl.shp").getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	this.isVisible = true;
 

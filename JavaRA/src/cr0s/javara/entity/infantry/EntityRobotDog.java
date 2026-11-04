@@ -33,7 +33,7 @@ public class EntityRobotDog extends EntityInfantry implements ISelectable, IHave
 	    SubCell sub) {
 	super(pos, sub);
 
-	this.texture = ResourceManager.getInstance().getInfantryTexture("e1.shp");
+	this.texture = ResourceManager.getInstance().getConquerTexture("dog.shp");
 
 	this.setMaxHp(40);
 	this.setHp(40);
