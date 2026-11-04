@@ -24,7 +24,6 @@ import cr0s.javara.entity.vehicle.EntityVehicle;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.render.map.TileSet;
-import cr0s.javara.resources.SoundManager;
 import cr0s.javara.ui.sbpages.SideBarItemsButton;
 import cr0s.javara.util.Pos;
 
@@ -527,7 +526,10 @@ public class Base {
         EntityAirField ewf = getPrimaryAirField();
 	
 	if (ewf != null) {
-	    ewf.deployEntity(entityAircraft.newInstance());
+	    EntityActor a = entityAircraft.newInstance();
+	    a.owner = owner;
+	    ewf.deployEntity(a);
+	    owner.entities.add(a);
 	}    
     }
 

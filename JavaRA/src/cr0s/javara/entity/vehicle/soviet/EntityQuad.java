@@ -20,6 +20,7 @@ import cr0s.javara.order.OrderTargeter;
 import cr0s.javara.order.Target;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.resources.ResourceManager;
+import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
@@ -33,21 +34,25 @@ import javafx.scene.layout.StackPane;
  */
 public class EntityQuad extends EntityVehicle implements ISelectable, IHaveCost, ICanAttack {
 
-    private static final int TEXTURE_WIDTH = 36;
-    private static final int TEXTURE_HEIGHT = 36;
     private static final int SHROUD_REVEALING_RANGE = 6;
 
     private static final float MOVE_SPEED = 0.6f;
     private static final int BUILDING_COST = 300;
 
     private final SpriteSheet texture;
+    private final int texWidth, texHeight;
+    private final int numFrames;
     private final AttackBase attack;
     private final AutoTarget autoTarget;
 
     public EntityQuad(Pos pos) {
-	super(pos, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	super(pos, 36, 36);
 
-	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture("jeep.shp").getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	ShpTexture tex = ResourceManager.getInstance().getConquerTexture("jeep.shp");
+	texWidth = tex.width;
+	texHeight = tex.height;
+	numFrames = tex.numImages;
+	texture = new SpriteSheet(tex.getAsCombinedImage(null), texWidth, texHeight);
 
 	this.isVisible = true;
 
@@ -63,7 +68,7 @@ public class EntityQuad extends EntityVehicle implements ISelectable, IHaveCost,
 
 	this.attack = new AttackFrontal(this);
 	Armament arma = new Armament(this, new WeaponM1Carabine());
-	arma.addBarrel(new Pos(12, 0), 0);
+	arma.addBarrel(new Pos(texWidth / 2, 0), 0);
 	this.attack.addArmament(arma);
 
 	this.autoTarget = new AutoTarget(this, this.attack);
@@ -77,7 +82,8 @@ public class EntityQuad extends EntityVehicle implements ISelectable, IHaveCost,
     public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
-	getImageView().setViewport(texture.getSubImage(0, currentFacing).getViewport());
+	int frameIndex = currentFacing % numFrames;
+	getImageView().setViewport(texture.getSubImage(0, frameIndex).getViewport());
 
 	this.attack.update(delta);
 	this.autoTarget.update(delta);
@@ -85,7 +91,8 @@ public class EntityQuad extends EntityVehicle implements ISelectable, IHaveCost,
 
     @Override
     public StackPane renderEntity() {
-	setImageView(texture.getSubImage(0, currentFacing));
+	int frameIndex = currentFacing % numFrames;
+	setImageView(texture.getSubImage(0, frameIndex));
 	getImageView().setX(getTextureX());
 	getImageView().setY(getTextureY());
 	StackPane combined = new StackPane();
@@ -94,11 +101,11 @@ public class EntityQuad extends EntityVehicle implements ISelectable, IHaveCost,
     }
 
     public double getTextureX() {
-	return boundingBox.getX() - (TEXTURE_WIDTH / 2) + 12;
+	return boundingBox.getX() - (texWidth / 2) + 12;
     }
 
     public double getTextureY() {
-	return boundingBox.getY() - (TEXTURE_HEIGHT / 2) + 6;
+	return boundingBox.getY() - (texHeight / 2) + 6;
     }
 
     @Override

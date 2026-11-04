@@ -37,6 +37,10 @@ public abstract class EntityAircraft extends MobileEntity {
 	    this.moveTo(order.targetPosition);
 	    return;
 	}
+	if (order != null && order.orderString != null && (order.orderString.equals("Attack") || order.orderString.equals("Stop"))) {
+	    // Handled by subclasses that implement ICanAttack
+	    return;
+	}
 	try {
 	    super.resolveOrder(order);
 	} catch (Throwable t) {

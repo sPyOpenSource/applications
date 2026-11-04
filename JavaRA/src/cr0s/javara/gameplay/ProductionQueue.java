@@ -205,7 +205,7 @@ public class ProductionQueue {
 	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(NULL));
         
         this.air.put("dragonicon.shp", new Dragon(NULL));
-        //this.air.put("droneicon.shp", new EntityDrone(NULL));
+        this.air.put("droneicon.shp", new EntityDrone(NULL));
     }
 
     public EntityActor getBuildableActor(SideBarItemsButton texture) {
