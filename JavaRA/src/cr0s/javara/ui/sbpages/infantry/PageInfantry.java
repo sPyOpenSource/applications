@@ -38,10 +38,11 @@ public class PageInfantry extends SideBarPage {
 	addButton(new InfantrySidebarButton("Seal Force", "sealicon.shp", this.getPosition(), 0, 11, false, null));
 	addButton(new InfantrySidebarButton("Hacker", "hackericon.shp", this.getPosition(), 1, 11, false, null));
 	addButton(new InfantrySidebarButton("Dog", "dogicon.shp", this.getPosition(), 0, 12, false, null));
-	addButton(new InfantrySidebarButton("Robotic Dog", "robodogicon.shp", this.getPosition(), 1, 12, false, null));
-	addButton(new InfantrySidebarButton("Humanoid Robot", "humanoidroboticon.shp", this.getPosition(), 0, 13, false, null));
+	addButton(new InfantrySidebarButton("Horse", "horseicon.shp", this.getPosition(), 1, 12, false, null));
+	addButton(new InfantrySidebarButton("Robotic Dog", "robodogicon.shp", this.getPosition(), 0, 13, false, null));
 	addButton(new InfantrySidebarButton("Terror Drone", "terrordroneicon.shp", this.getPosition(), 1, 13, false, null));
 	addButton(new InfantrySidebarButton("Medic", "medicicon.shp", this.getPosition(), 0, 14, false, null));
+	addButton(new InfantrySidebarButton("Humanoid Robot", "humanoidroboticon.shp", this.getPosition(), 1, 14, false, null));
     }
 
     @Override
