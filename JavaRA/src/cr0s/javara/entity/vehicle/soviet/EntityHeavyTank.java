@@ -71,8 +71,8 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 	this.turret.setTurretSize(TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	Armament arma = new Armament(this, new Weapon105mm());
-	arma.addBarrel(new Pos(12, -3), 0);
-	arma.addBarrel(new Pos(12, 3), 0);
+	arma.addBarrel(new Pos(12d, -3), 0);
+	arma.addBarrel(new Pos(12d, 3), 0);
 
 	attack = new AttackTurreted(this);
 	attack.armaments.add(arma);

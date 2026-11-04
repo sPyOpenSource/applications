@@ -29,7 +29,7 @@ public class PageVehicle extends SideBarPage {
 	addButton(new VehicleSidebarButton("Mine layer", "mnlyicon.shp", this.getPosition(), 1, 4, false));
 	
 	addButton(new VehicleSidebarButton("Heavy tank", "3tnkicon.shp", this.getPosition(), 0, 5, false));
-	//addButton(new VehicleSidebarButton("", "icon.shp", this.getPosition(), 1, 5, false));
+	addButton(new VehicleSidebarButton("Quad", "quadicon.shp", this.getPosition(), 1, 5, false));
 	
 	//addButton(new VehicleSidebarButton("", "icon.shp", this.getPosition(), 0, 6, false));
 	//addButton(new VehicleSidebarButton("", "icon.shp", this.getPosition(), 1, 6, false));
