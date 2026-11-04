@@ -52,6 +52,7 @@ import cr0s.javara.entity.vehicle.common.EntityHarvester;
 import cr0s.javara.entity.vehicle.common.EntityMcv;
 import cr0s.javara.entity.vehicle.soviet.EntityHeavyTank;
 import cr0s.javara.entity.vehicle.soviet.EntityMammothTank;
+import cr0s.javara.entity.vehicle.soviet.EntityMotorbike;
 import cr0s.javara.entity.vehicle.soviet.EntityQuad;
 import cr0s.javara.entity.vehicle.soviet.EntityV2Launcher;
 
@@ -200,6 +201,7 @@ public class ProductionQueue {
 	this.sovietVehicles.put("4tnkicon.shp", new EntityMammothTank(NULL));
 	this.sovietVehicles.put("3tnkicon.shp", new EntityHeavyTank(NULL));
 	this.sovietVehicles.put("quadicon.shp", new EntityQuad(NULL));
+	this.sovietVehicles.put("motorbikeicon.shp", new EntityMotorbike(NULL));
 	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(NULL));
         
         this.air.put("dragonicon.shp", new Dragon(NULL));
