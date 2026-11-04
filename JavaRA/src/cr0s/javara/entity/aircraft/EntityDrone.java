@@ -105,6 +105,7 @@ public class EntityDrone extends EntityAircraft implements IHaveCost, ICanAttack
 		getImages().add(getImageView().getImage());
 	    }
 	}
+        getImageView().setRotate(-90);
 	StackPane combined = new StackPane();
 	combined.getChildren().add(getImageView());
 	return combined;
