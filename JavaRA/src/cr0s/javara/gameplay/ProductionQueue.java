@@ -36,7 +36,6 @@ import cr0s.javara.entity.infantry.EntityHorse;
 import cr0s.javara.entity.infantry.EntityHumanoidRobot;
 import cr0s.javara.entity.infantry.EntityMedic;
 import cr0s.javara.entity.infantry.EntityRobotDog;
-import cr0s.javara.entity.infantry.EntityTerrorDrone;
 import cr0s.javara.entity.infantry.EntityGrenadeTrooper;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.infantry.EntityJetpackSoldier;
@@ -47,6 +46,7 @@ import cr0s.javara.entity.infantry.EntitySniper;
 import cr0s.javara.entity.infantry.china.EntityHacker;
 import cr0s.javara.entity.infantry.EntitySpy;
 import cr0s.javara.entity.infantry.EntityTanya;
+import cr0s.javara.entity.vehcle.soviet.EntityTerrorDrone;
 
 import cr0s.javara.entity.vehicle.EntityVehicle;
 import cr0s.javara.entity.vehicle.common.EntityHarvester;

@@ -48,7 +48,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     private final int updateTicks = 0;
     private final Entity targetEntity = null;
 
-    private final float MOVE_SPEED = 0.3f;
+    private final float MOVE_SPEED = 0.8f;
     private final float SHIFT = 12;
 
     private final int BUILDING_COST = 1150;

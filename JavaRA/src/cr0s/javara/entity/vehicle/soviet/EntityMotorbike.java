@@ -36,7 +36,7 @@ public class EntityMotorbike extends EntityVehicle implements ISelectable, IHave
 
     private static final int SHROUD_REVEALING_RANGE = 7;
 
-    private static final float MOVE_SPEED = 0.9f;
+    private static final float MOVE_SPEED = 1.5f;
     private static final int BUILDING_COST = 200;
 
     private final SpriteSheet texture;

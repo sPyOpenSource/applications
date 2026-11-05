@@ -324,7 +324,7 @@ public class AIPlayer extends Player {
     private int countUnits(String unit, Player owner) {
 	int result = 0;
 
-	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
+	for (Entity e : this.world.getEntitiesList()) {
 	    if (!(e instanceof EntityActor)) {
 		continue;
 	    }
@@ -899,7 +899,7 @@ public class AIPlayer extends Player {
 
 	// Call to arms for units around
 	if (!protectSquad.isValid()) {
-	    ArrayList<EntityActor> actors = GUI.getInstance().getWorld().getActorsInCircle(this.getPlayerSpawnPoint(), this.protectUnitScanRadius);
+	    ArrayList<EntityActor> actors = this.world.getActorsInCircle(this.getPlayerSpawnPoint(), this.protectUnitScanRadius);
 
 	    for (EntityActor a : actors) {
 		if (!a.isDead() 

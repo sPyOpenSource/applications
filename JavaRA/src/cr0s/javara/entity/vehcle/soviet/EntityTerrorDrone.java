@@ -1,4 +1,4 @@
-package cr0s.javara.entity.infantry;
+package cr0s.javara.entity.vehcle.soviet;
 
 import cr0s.javara.combat.Armament;
 import cr0s.javara.combat.attack.AttackBase;
@@ -10,6 +10,7 @@ import cr0s.javara.combat.weapon.WeaponM1Carabine;
 import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.building.soviet.EntityBarracks;
+import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.render.Sequence;
@@ -78,7 +79,7 @@ public class EntityTerrorDrone extends EntityInfantry implements ISelectable, IH
 
     @Override
     public float getMoveSpeed() {
-	return 1.8f;
+	return 3f;
     }
 
     @Override

@@ -5,7 +5,7 @@ import cr0s.javara.combat.attack.AttackBase;
 import cr0s.javara.combat.attack.AttackFrontal;
 import cr0s.javara.combat.attack.AutoTarget;
 import cr0s.javara.combat.attack.ICanAttack;
-import cr0s.javara.combat.weapon.WeaponM1Carabine;
+import cr0s.javara.combat.weapon.WeaponDogBite;
 
 import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
@@ -54,7 +54,7 @@ public class EntityDog extends EntityInfantry implements ISelectable, IHaveCost,
 	this.deathSequences.add(new Sequence(electro, 0, 14, 0, 1, null));
 
 	this.attack = new AttackFrontal(this);
-	Armament arma = new Armament(this, new WeaponM1Carabine());
+	Armament arma = new Armament(this, new WeaponDogBite());
 	arma.addBarrel(new Pos(0, 0), 0);
 	this.attack.addArmament(arma);
 

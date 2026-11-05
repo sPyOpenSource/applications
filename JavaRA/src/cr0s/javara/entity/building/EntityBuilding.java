@@ -347,7 +347,9 @@ public abstract class EntityBuilding extends EntityActor {
 	    }	    
 	}
 
-	this.setHp(this.getHp() - amount);	
+	if (!this.isDead()) {
+	    this.setHp(this.getHp() - amount);
+	}
 
 	this.owner.notifyDamaged(this, firedBy, amount, warhead);
     }

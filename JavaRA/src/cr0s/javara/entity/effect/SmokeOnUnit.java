@@ -39,7 +39,7 @@ public class SmokeOnUnit extends Entity implements IEffect {
     }
     
     public SmokeOnUnit(Pos pos,
-	    float aSizeWidth, float aSizeHeight) {
+	float aSizeWidth, float aSizeHeight) {
 	super(pos, aSizeWidth, aSizeHeight);
     }
 

@@ -36,7 +36,7 @@ public class EntityQuad extends EntityVehicle implements ISelectable, IHaveCost,
 
     private static final int SHROUD_REVEALING_RANGE = 6;
 
-    private static final float MOVE_SPEED = 0.6f;
+    private static final float MOVE_SPEED = 2f;
     private static final int BUILDING_COST = 300;
 
     private final SpriteSheet texture;

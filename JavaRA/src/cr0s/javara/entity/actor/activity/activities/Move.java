@@ -1,10 +1,14 @@
 package cr0s.javara.entity.actor.activity.activities;
 
+import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Turn.RotationDirection;
 import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.entity.infantry.EntityInfantry;
+import cr0s.javara.entity.vehicle.EntityVehicle;
+import cr0s.javara.render.EntityBlockingMap.Influence;
 import cr0s.javara.render.World;
 
 import cr0s.javara.util.PointsUtil;
@@ -12,6 +16,8 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Move extends Activity {
 
@@ -126,6 +132,19 @@ public class Move extends Activity {
 	this.currentPathIndex++;
 	this.hasNotifiedBlocker = false;
 	this.hasWaited = false;
+
+	// Vehicles crush enemy infantry they move into
+	if (me instanceof EntityVehicle) {
+	    ConcurrentLinkedQueue<Influence> influences = me.owner.world.blockingEntityMap.getEntityInfluences(nextCell);
+	    if (influences != null) {
+		for (Influence influence : influences) {
+		    Entity entity = influence.entity;
+		    if (entity instanceof EntityInfantry targetInf && !targetInf.isDead() && !targetInf.isFrendlyTo(me)) {
+			targetInf.setDead();
+		    }
+		}
+	    }
+	}
 
 	return nextCell;
     }

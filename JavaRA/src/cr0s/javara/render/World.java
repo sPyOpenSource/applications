@@ -23,6 +23,7 @@ import cr0s.javara.order.ITargetLines;
 import cr0s.javara.order.TargetLine;
 import cr0s.javara.perfomance.Profiler;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
+import cr0s.javara.render.EntityBlockingMap.Influence;
 import cr0s.javara.render.map.InfantryPathfinder;
 import cr0s.javara.render.map.SmudgeLayer;
 import cr0s.javara.render.map.TileMap;
@@ -581,7 +582,11 @@ public class World extends AnimationTimer {
     }
 
     public ConcurrentLinkedQueue<Entity> getEntitiesList() {
-	return null;//this.entities;
+	ConcurrentLinkedQueue<Entity> all = new ConcurrentLinkedQueue<>();
+	for (Player p : this.players) {
+	    all.addAll(p.entities);
+	}
+	return all;
     }
 
     public EntityBuilding getBuildingInCell(Pos cellPos) {
@@ -740,8 +745,8 @@ public class World extends AnimationTimer {
 	ArrayList<EntityActor> result = new ArrayList<>();
 	ArrayList<Pos> tiles = this.chooseTilesInCircle(pos.Clone(), (int) Math.floor(range / 24.0f));
 	
-	/*for (Pos tile : tiles) {
-	    ConcurrentLinkedQueue<Influence> influences = this.blockingEntityMap.getCellInfluences(tile);
+	for (Pos tile : tiles) {
+	    ConcurrentLinkedQueue<Influence> influences = this.blockingEntityMap.getEntityInfluences(tile);
 	    
 	    if (influences == null) {
 		continue;
@@ -756,7 +761,7 @@ public class World extends AnimationTimer {
 		    }
 		}
 	    }
-	}*/
+	}
 	
 	return result;
     }
