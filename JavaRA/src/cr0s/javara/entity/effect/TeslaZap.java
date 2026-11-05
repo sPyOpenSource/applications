@@ -58,6 +58,11 @@ public class TeslaZap extends Projectile implements IEffect {
 	if (--timeUntilRemove <= 0) {
 	    this.setDead();
 
+	    // Remove immediately instead of waiting for the 20-tick cleanup
+	    if (this.owner != null) {
+	        this.owner.entities.remove(this);
+	    }
+
 	    return;
 	}	
 	

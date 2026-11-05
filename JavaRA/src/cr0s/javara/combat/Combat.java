@@ -35,9 +35,7 @@ public class Combat {
 	boolean isInWater = pos.getZ() == 0 && world.getMap().getSurfaceIdAt(targetTile) == TileSet.SURFACE_WATER_ID;
 	String explosionType = isInWater ? warhead.waterExplosion : warhead.explosion;
 
-	if (explosionType != null && !explosionType.isEmpty()) {
-	    world.spawnExplosionAt(pos, explosionType);
-	}
+	// Removed impact explosion animation after hit
 
 	SoundManager.getInstance().playSfxAt(getImpactSound(warhead, isInWater), pos);
 

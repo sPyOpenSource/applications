@@ -137,15 +137,9 @@ public class ResourcesLayer {
 	ResourceCell resource = this.resources[x][y];
 	
 	if (resource != null) {
-	    if (resource.density >= 0) {
-		resource.density--;
-		
-		if (resource.density <= 0) {
-		    this.resources[x][y] = null;
-		}
-		
-		return resource.type;
-	    }
+	    // Remove the resource cell immediately after harvest
+	    this.resources[x][y] = null;
+	    return resource.type;
 	}
 	
 	return -1;

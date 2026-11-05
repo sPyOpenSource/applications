@@ -39,7 +39,7 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     private static final int ATTACK_OFFSET = 64;
     private static final int ATTACKING_FACINGS = 8;
     
-    private static final int SHROUD_REVEALING_RANGE = 5;
+    private static final int SHROUD_REVEALING_RANGE = 8;
     private static final int WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS = 15;
     private static final int WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS = 5;
 
