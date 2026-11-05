@@ -6,6 +6,7 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.aircraft.Dragon;
 import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.entity.aircraft.EntityDrone;
+
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.china.EntityPortal;
 import cr0s.javara.entity.building.china.GoldMine;
@@ -46,7 +47,7 @@ import cr0s.javara.entity.infantry.EntitySniper;
 import cr0s.javara.entity.infantry.china.EntityHacker;
 import cr0s.javara.entity.infantry.EntitySpy;
 import cr0s.javara.entity.infantry.EntityTanya;
-import cr0s.javara.entity.infantry.china.Panda;
+
 import cr0s.javara.entity.vehicle.EntityVehicle;
 import cr0s.javara.entity.vehicle.common.EntityHarvester;
 import cr0s.javara.entity.vehicle.common.EntityMcv;

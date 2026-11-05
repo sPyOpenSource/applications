@@ -46,6 +46,10 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     private final static int initialFacing = 12;
     private final boolean isCharging = false;
     
+    // One drone per airport
+    private int droneCount = 0;
+    private static final int MAX_DRONES = 1;
+    
     public EntityAirField(Pos tile) {
 	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xxx xxx");
 
@@ -162,6 +166,25 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     @Override
     public int getBuildingCost() {
 	return BUILDING_COST;
+    }
+
+    // One drone per airport
+    public int getDroneCount() {
+	return droneCount;
+    }
+
+    public boolean canDeployDrone() {
+	return droneCount < MAX_DRONES;
+    }
+
+    public void droneDeployed() {
+	droneCount++;
+    }
+
+    public void droneDestroyed() {
+	if (droneCount > 0) {
+	    droneCount--;
+	}
     }
 
     public void deployEntity(EntityActor newInstance) {

@@ -28,7 +28,7 @@ public class TownHall extends EntityBuilding {
 
     @Override
     public boolean shouldRenderedInPass(int passNum) {
-        return false;
+        return true;
     }
 
     @Override

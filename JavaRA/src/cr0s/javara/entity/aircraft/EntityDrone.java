@@ -17,6 +17,7 @@ import cr0s.javara.order.Target;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
+
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -29,6 +30,9 @@ import javafx.scene.layout.StackPane;
 public class EntityDrone extends EntityAircraft implements IHaveCost, ICanAttack {
     private final AttackFrontal attack;
     private final AutoTarget autoTarget;
+    
+    // The air field this drone was deployed from (one drone per airport)
+    private EntityAirField homeBase;
     
     public EntityDrone(Pos x) {
 	super(x, 56, 56);
@@ -47,6 +51,9 @@ public class EntityDrone extends EntityAircraft implements IHaveCost, ICanAttack
 
 	this.unitProductionAlingment = Alignment.SOVIET;
 	this.requiredToBuild.add(EntityAirField.class);
+
+	// The air field this drone was deployed from (one drone per airport)
+	this.homeBase = null;
 
 	// Attack setup - drone engages ground targets with a forward-mounted cannon
 	this.attack = new AttackFrontal(this);
@@ -69,6 +76,24 @@ public class EntityDrone extends EntityAircraft implements IHaveCost, ICanAttack
 		this.autoTarget.update(delta);
 	    }
 	}
+    }
+
+    /** Set the air field this drone was deployed from (one drone per airport). */
+    public void setHomeBase(EntityAirField eb) {
+	this.homeBase = eb;
+    }
+
+    /**
+     * When the drone dies, free the drone slot on its home air field so another
+     * drone can be deployed from there.
+     */
+    @Override
+    public void setDead() {
+	if (this.homeBase != null) {
+	    this.homeBase.droneDestroyed();
+	    this.homeBase = null;
+	}
+	super.setDead();
     }
 
     @Override
