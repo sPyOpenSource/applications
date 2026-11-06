@@ -122,6 +122,18 @@ int j = 0;
                 USBMassStorageTest.main(null);
             }
         }, "USBMassStorageTest").start();
+        // Start the HTTP server on port 80 (no filesystem). Blocks on the NET
+        // portal until the network stack is up, then accepts connections.
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    WebServer.main(new String[0]);
+                } catch (Exception e) {
+                    Debug.out.println("WebServer: failed to start: " + e.getMessage());
+                }
+            }
+        }, "WebServer").start();
         // Media change / eject/insert test
         /*new Thread(new Runnable() {
             @Override
