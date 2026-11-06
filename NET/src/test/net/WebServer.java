@@ -98,8 +98,8 @@ public class WebServer {
                     startWorkerThread(sock);
                 else
                     startWorkerDomain(sock);
-            } catch (IOException e){                
-                break;
+            } catch (IOException e){
+                Debug.out.println("WebServer: accept() failed: " + e.getMessage() + "; continuing");
             }
 	}
     }
@@ -120,7 +120,7 @@ public class WebServer {
                 try {
                     TCPWebWorker.processRequest(sock, fs);
                 } catch(Exception e) {
-                    //throw new Error();
+                    Debug.out.println("WebServer: worker thread failed: " + e.getMessage());
                 }
             }
         }.start();
@@ -134,14 +134,18 @@ public class WebServer {
 	Object[] portals = new Object [] { sock, fs };
 	boolean useChunkedGC = false;
 	int codesize = 10000;
-	if (useChunkedGC) {
-	    int HeapInitialSize = 40000;
-	    int HeapChunkSize = 10000;
-	    int StartGCSize = 80000;
-	    Domain domain = DomainStarter.createDomain(domainName, mainLib, startClass, (String)null, HeapInitialSize, HeapChunkSize, StartGCSize, argv, portals);
-	} else {
-	    int HeapSize = 400000;
-	    Domain domain = DomainStarter.createDomain(domainName, mainLib, startClass, HeapSize, codesize, argv, portals);
+	try {
+	    if (useChunkedGC) {
+		int HeapInitialSize = 40000;
+		int HeapChunkSize = 10000;
+		int StartGCSize = 80000;
+		Domain domain = DomainStarter.createDomain(domainName, mainLib, startClass, (String)null, HeapInitialSize, HeapChunkSize, StartGCSize, argv, portals);
+	    } else {
+		int HeapSize = 400000;
+		Domain domain = DomainStarter.createDomain(domainName, mainLib, startClass, HeapSize, codesize, argv, portals);
+	    }
+	} catch (Exception e) {
+	    Debug.out.println("WebServer: could not start worker domain: " + e.getMessage());
 	}
     }
 
