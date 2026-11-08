@@ -10,7 +10,7 @@ import jx.fs.*;
 
 public class WebServer {
 
-    private static final boolean debug = false;
+    private static final boolean debug = true;
 
     static NetInit net;
     static Memory fileBuf;
