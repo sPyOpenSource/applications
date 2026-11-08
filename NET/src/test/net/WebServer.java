@@ -98,8 +98,8 @@ public class WebServer {
                     startWorkerThread(sock);
                 else
                     startWorkerDomain(sock);
-            } catch (IOException e){
-                Debug.out.println("WebServer: accept() failed: " + e.getMessage() + "; continuing");
+            } catch (Throwable t){
+                Debug.out.println("WebServer: accept() failed: " + t.getClass().getName() + ": " + t.getMessage() + "; continuing");
             }
 	}
     }
