@@ -30,7 +30,7 @@ public class WebServer {
 
     public WebServer(String[] args) throws Exception {
 	int port = 80;
-	boolean opt_threads = false;
+	boolean opt_threads = true;
 	String fsname = null;
 	boolean opt_use_fs = false;
 	boolean opt_dummyfiles = false;

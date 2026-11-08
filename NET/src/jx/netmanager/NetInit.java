@@ -281,7 +281,7 @@ public class NetInit implements jx.net.NetInit, Service {
 		bufs[i] = memMgr.alloc(1514);
 	    }
 	    netinstance = new jx.netmanager.NetInit(nic, timerManager, bufs);
-	    naming.registerPortal(netinstance, args[0]);
+	    InitialNaming.getInitialNaming().registerPortal(netinstance, args[0]);
 	} catch(Exception e) {
 	    throw new Error("Could not setup");
         }

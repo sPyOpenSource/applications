@@ -50,42 +50,9 @@ public final class AI
         Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
-        /*NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
-        try {
-            int port = 80;
-            boolean opt_threads = false;
-            String fsname = null;
-            boolean opt_use_fs = false;
-            boolean opt_dummyfiles = false;
-            ServerSocket ssock = new ServerSocket(port);
+        NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 
-            if (opt_threads) Debug.out.println("Webserver: use one thread per connection");
-            else Debug.out.println("Webserver: use one domain per connection");
-
-            // accept conections
-            while (true) {
-                Debug.out.println("Network: accept() called");
-                try{
-                    final Socket sock = ssock.accept();
-                    Debug.out.println("Network: got new connection");
-                    new Thread ("WebWorker"){
-                        @Override
-                        public void run() {
-                            try {
-                                TCPWebWorker.processRequest(sock, null);
-                            } catch(Exception e) {
-                                //throw new Error();
-                            }
-                        }
-                    }.start();
-                } catch (IOException e){                
-                    break;
-                }
-            }
-        } catch (Exception ex) {
-            //Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-int j = 0;
+/*int j = 0;
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){
             PCIDevice dev = pci.getDeviceAt(i);
@@ -96,10 +63,10 @@ int j = 0;
                 monitor.addAttachListener(new USBStorageMount());
                 monitors[j++] = monitor;
             }
-        }
+        }*/
 
         logThread = new Thread(log, "logic");
-        while(true){
+        /*while(true){
             for (USBHubMonitor monitor : monitors) {
                 if (monitor == null) {
                     continue;
@@ -108,7 +75,7 @@ int j = 0;
                 monitor.startMonitor();
             }
             break;
-        }
+        }*/
     }
     
     public void start()
@@ -116,12 +83,12 @@ int j = 0;
         logThread.start();
         IO.start();
         // Verify the USB mass storage mount (waits for the USBFS portal)
-        new Thread(new Runnable() {
+        /*new Thread(new Runnable() {
             @Override
             public void run() {
                 USBMassStorageTest.main(null);
             }
-        }, "USBMassStorageTest").start();
+        }, "USBMassStorageTest").start();*/
         // Start the HTTP server on port 80 (no filesystem). Blocks on the NET
         // portal until the network stack is up, then accepts connections.
         new Thread(new Runnable() {
