@@ -16,6 +16,7 @@ import cr0s.javara.combat.Warhead;
 import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
+import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Wait;
@@ -58,7 +59,11 @@ public class AIPlayer extends Player {
     private final int squadSize = 8;
 
     private ArrayList<Squad> squads = new ArrayList<>();
-    private ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
+    ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
+
+    public ArrayList<EntityActor> getUnitsHangingAroundTheBase() {
+	return this.unitsHangingAroundTheBase;
+    }
     private ArrayList<EntityActor> activeUnits = new ArrayList<>();
 
     private final int assignRolesInterval = 20;
@@ -128,7 +133,7 @@ public class AIPlayer extends Player {
 	    for (Entry e : unitsCommonNamesMap.entrySet()) {
 		String[] names = ((String) e.getValue()).split(",");
 
-		this.buildingCommonNames.put((String) e.getKey(), names);
+		this.unitCommonNames.put((String) e.getKey(), names);
 	    }	 
 
 	    // Load building limits
@@ -297,8 +302,21 @@ public class AIPlayer extends Player {
     }
 
     public boolean hasAdequateAirUnits(EntityActor a) {
-	// TODO: finish it after air units being added
-	return true;
+	if (a == null || a.isDead()) {
+	    return false;
+	}
+
+	return a instanceof EntityAircraft;
+    }
+
+    public boolean hasAdequateAirUnits() {
+	int count = 0;
+	for (Entity e : this.entities) {
+	    if (!e.isDead() && e instanceof EntityAircraft) {
+		count++;
+	    }
+	}
+	return count > 0;
     }
 
     private Pos findPosForBuilding(String actorType, final Pos center, final Pos target, final int minRange, final int maxRange, final boolean distanceToBaseIsImportant) {
@@ -450,6 +468,10 @@ public class AIPlayer extends Player {
 	    }
 	}
 
+	if (enemies.isEmpty()) {
+	    return new ArrayList<>();
+	}
+
 	Collections.sort(enemies, new Comparator<>() {
 	    @Override
 	    public int compare(Player p1, Player p2) {
@@ -527,7 +549,7 @@ public class AIPlayer extends Player {
 	}
     }
 
-    Squad getSquadOfType(SquadType type) {
+    public Squad getSquadOfType(SquadType type) {
 	for (Squad s : this.squads) {
 	    if (s.getType() == type) {
 		return s;
@@ -590,19 +612,43 @@ public class AIPlayer extends Player {
 	this.findAndDeployAllMcv();
     }
 
+    public void createAirSquad() {
+	ArrayList<EntityActor> aircraft = new ArrayList<>();
+	for (EntityActor a : this.unitsHangingAroundTheBase) {
+	    if (a instanceof EntityAircraft && !a.isDead()) {
+		aircraft.add(a);
+	    }
+	}
+
+	if (aircraft.isEmpty()) {
+	    return;
+	}
+
+	Squad airSquad = this.registerNewSquad(SquadType.AIR);
+	for (EntityActor a : aircraft) {
+	    airSquad.addUnit(a);
+	    this.unitsHangingAroundTheBase.remove(a);
+	}
+    }
+
     private void createAttackForce() {
 	int randomSquadSize = this.squadSize + World.random.nextInt(4);
 
 	if (this.unitsHangingAroundTheBase.size() >= randomSquadSize) {
-	    Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
-
+	    ArrayList<EntityActor> attackUnits = new ArrayList<>();
 	    for (EntityActor a : this.unitsHangingAroundTheBase) {
-		if (a instanceof ICanAttack) { // TODO: check is not aircraft
-		    attackForce.addUnit(a);
+		if (a instanceof ICanAttack || a instanceof EntityAircraft) {
+		    attackUnits.add(a);
 		}
 	    }
 
-	    this.unitsHangingAroundTheBase.clear();
+	    if (!attackUnits.isEmpty()) {
+		Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
+		for (EntityActor a : attackUnits) {
+		    attackForce.addUnit(a);
+		}
+		this.unitsHangingAroundTheBase.clear();
+	    }
 	}
     }
 
@@ -615,6 +661,9 @@ public class AIPlayer extends Player {
 	    }
 
 	    EntityActor a = (EntityActor) e;
+	    if (a.owner != this) {
+		continue;
+	    }
 	    if (!this.activeUnits.contains(a)) {
 		newUnits.add(a);
 	    }
@@ -626,8 +675,6 @@ public class AIPlayer extends Player {
 	    } else {
 		this.unitsHangingAroundTheBase.add(a);
 	    }
-
-	    // TODO: register squad for aircraft
 
 	    this.activeUnits.add(a);
 	}
@@ -663,7 +710,10 @@ public class AIPlayer extends Player {
         ArrayList<EntityActor> a = chooseEnemyTarget();
         if(a.isEmpty()) return;
         if (squads.isEmpty()) return;
-        Squad s = squads.get(0);
+        Squad s = this.getSquadOfType(SquadType.ASSAULT);
+        if (s == null) {
+            s = squads.get(0);
+        }
         s.setTarget(a.get(0));
         /*for(EntityActor b:s.getUnits()) {
             if(World.random.nextBoolean()) continue;
@@ -745,7 +795,7 @@ public class AIPlayer extends Player {
 		    buildables.add(name);
 		} else if ((this.getBase().isAlliedWarFactoryPresent || this.getBase().isSovietWarFactoryPresent)
 			&& this.getBase().getProductionQueue().neutralVehicles.containsKey(name)) {
-		    
+		    buildables.add(name);
 		}
 	    }
 
@@ -754,11 +804,17 @@ public class AIPlayer extends Player {
 	case 2: // TODO: Naval units
 	    break;
 
-	case 3: // TODO: Air units
-            if(this.getBase().isAirLinePresent){
-                for(String name:this.getBase().getProductionQueue().air.keySet())
-                    buildables.add(name);
-            }
+	case 3: // Air units
+	    if (this.getBase().getProductionQueue().getCurrentAirProduction().isBuilding()
+		    && !this.getBase().getProductionQueue().getCurrentAirProduction().isReady()) {
+		return;
+	    }
+
+	    if (this.getBase().isAirLinePresent) {
+		for (String name : this.getBase().getProductionQueue().air.keySet()) {
+		    buildables.add(name);
+		}
+	    }
 	    break;
 	}
 
@@ -790,7 +846,7 @@ public class AIPlayer extends Player {
     }
 
     public boolean thereIsNoMcv() {
-	/*for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
+	for (Entity e : this.entities) {
 	    if (e.isDead() || !(e instanceof EntityMcv)) {
 		continue;
 	    }
@@ -800,7 +856,7 @@ public class AIPlayer extends Player {
 	    if (mcv.owner == this) {
 		return false;
 	    }
-	}*/
+	}
 
 	return true;
     }

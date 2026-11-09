@@ -192,6 +192,8 @@ public class ProductionQueue {
 	    this.currentVehicle.startBuildingActor(target, texture);
 	} else if (target instanceof EntityInfantry) {
 	    this.currentInfantry.startBuildingActor(target, texture);
+	} else if (target instanceof EntityAircraft) {
+	    this.currentAir.startBuildingActor(target, texture);
 	}
     }
     
@@ -290,7 +292,11 @@ public class ProductionQueue {
 
     public Production getCurrentInfantryProduction() {
 	return this.currentInfantry;
-    }    
+    }
+
+    public Production getCurrentAirProduction() {
+	return this.currentAir;
+    }
 
     public Production getCurrentNeutralBuildingProduction() {
 	return this.currentNeutralBuilding;
