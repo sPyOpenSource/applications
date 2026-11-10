@@ -29,6 +29,7 @@ import cr0s.javara.render.Sequence;
 import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
+import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import javafx.scene.image.ImageView;
@@ -87,10 +88,6 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     protected AttackBase attack;
     protected AutoTarget autoTarget;
     protected ArrayList<String> deathSounds = new ArrayList<>();
-    
-    Maze maze;
-    ArrayList<Pos> router;
-    Director director;
     
     public EntityInfantry(Pos pos) {
 	this(pos, SubCell.CENTER);
@@ -224,13 +221,9 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     @Override
     public StackPane renderEntity() {
         updateEntity(0);
-	//drawPath(g);
-
-	//if (this.sheet != null) {
-            setImageView(new ImageView(this.currentSequence.render()));//this.getTranslateX(), this.getTranslateY());
-            getImageView().setX(boundingBox.getX());
-            getImageView().setY(boundingBox.getY());
-	//}
+        setImageView(new ImageView(this.currentSequence.render()));
+        getImageView().setX(boundingBox.getX());
+        getImageView().setY(boundingBox.getY());
         StackPane combined = new StackPane();
         combined.getChildren().add(getImageView());
         return combined;

@@ -57,7 +57,7 @@ public class Dragon extends EntityAircraft implements IHaveCost, ICanAttack {
     }
 
     @Override
-    public float getMoveSpeed(){ return 16; }    
+    public float getMoveSpeed(){ return 3; }    
     @Override
     public int getMinimumEnoughRange(){ return 4; }
     @Override

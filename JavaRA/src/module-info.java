@@ -40,8 +40,6 @@ module cr0s.javara.main {
     exports cr0s.javara.ai.states;
     exports cr0s.javara.combat;
     exports cr0s.javara.combat.attack;
-    exports cr0s.javara.order;
-    exports cr0s.javara.entity.actor.activity.activities;
     exports mazesolver;
 }
     
