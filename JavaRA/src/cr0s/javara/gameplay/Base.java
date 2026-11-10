@@ -527,7 +527,9 @@ public class Base {
         EntityAirField ewf = getPrimaryAirField();
 	
 	if (ewf != null) {
-	    ewf.deployEntity(entityAircraft.newInstance());
+	    EntityAircraft deployed = (EntityAircraft) entityAircraft.newInstance();
+	    deployed.owner = owner;
+	    ewf.deployEntity(deployed);
 	}    
     }
 
