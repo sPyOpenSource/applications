@@ -1,10 +1,5 @@
 package AI;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jx.devices.pci.PCIAccess;
 import jx.devices.pci.PCICodes;
 import jx.devices.pci.PCIDevice;
@@ -20,11 +15,8 @@ import jx.zero.debug.DebugPrintStream;
 import org.jnode.driver.block.usb.storage.scsi.USBStorageMount;
 import org.jnode.driver.bus.usb.USBHubMonitor;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
-
-import test.fs.MediaChangeTest;
-import test.fs.LargeFileTest;
 import test.fs.USBMassStorageTest;
-import test.net.TCPWebWorker;
+
 import test.net.WebServer;
 
 /**
@@ -52,7 +44,7 @@ public final class AI
         log = new AILogic(IO.getMemory());
         NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 
-/*int j = 0;
+int j = 0;
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){
             PCIDevice dev = pci.getDeviceAt(i);
@@ -63,7 +55,7 @@ public final class AI
                 monitor.addAttachListener(new USBStorageMount());
                 monitors[j++] = monitor;
             }
-        }*/
+        }
 
         logThread = new Thread(log, "logic");
         /*while(true){
@@ -71,7 +63,6 @@ public final class AI
                 if (monitor == null) {
                     continue;
                 }
-                //System.out.println(i);
                 monitor.startMonitor();
             }
             break;
