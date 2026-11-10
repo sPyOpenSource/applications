@@ -29,7 +29,6 @@ import cr0s.javara.render.Sequence;
 import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
-import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Log;
 import cr0s.javara.util.Pos;
 import javafx.scene.image.ImageView;

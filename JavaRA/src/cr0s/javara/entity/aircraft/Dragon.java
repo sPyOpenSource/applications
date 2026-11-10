@@ -6,12 +6,9 @@ import cr0s.javara.combat.attack.AutoTarget;
 import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.combat.weapon.WeaponDragon;
 import cr0s.javara.entity.IHaveCost;
-import cr0s.javara.entity.actor.EntityActor;
-import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.order.Order;
 import cr0s.javara.util.Pos;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
 
 public class Dragon extends EntityAircraft implements IHaveCost, ICanAttack {
@@ -41,7 +38,7 @@ public class Dragon extends EntityAircraft implements IHaveCost, ICanAttack {
     }
     
     @Override
-    public float getMoveSpeed(){ return 16; }    
+    public float getMoveSpeed(){ return 3; }    
     @Override
     public int getMinimumEnoughRange(){ return 5; }
     @Override
