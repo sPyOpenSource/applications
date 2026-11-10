@@ -2,8 +2,10 @@ package cr0s.javara.entity.aircraft;
 
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.activity.Activity;
+import cr0s.javara.entity.actor.activity.activities.Move;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
+import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 public abstract class EntityAircraft extends MobileEntity {
@@ -15,7 +17,11 @@ public abstract class EntityAircraft extends MobileEntity {
 
     @Override
     public Path findPathFromTo(MobileEntity e, Pos aGoalX) {
-	return null;
+	// Aircraft fly in straight lines; no grid-based pathfinding is needed.
+	Path path = new Path();
+	path.getElements().add(new MoveTo(e.getPosition().getX(), e.getPosition().getY()));
+	path.getElements().add(new MoveTo(aGoalX.getX(), aGoalX.getY()));
+	return path;
     }
 
     @Override
@@ -25,7 +31,9 @@ public abstract class EntityAircraft extends MobileEntity {
 
     @Override
     protected Activity moveToRange(Pos cellPos, int range) {
-	return null;
+	Move move = new Move(this, cellPos, range);
+	move.forceRange = true;
+	return move;
     }
 
     protected Pos flyStep(int facing) {
