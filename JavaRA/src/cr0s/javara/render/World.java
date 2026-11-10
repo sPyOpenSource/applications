@@ -510,7 +510,11 @@ public class World extends AnimationTimer {
     }
 
     public ConcurrentLinkedQueue<Entity> getEntitiesList() {
-	return null;//this.entities;
+	ConcurrentLinkedQueue<Entity> all = new ConcurrentLinkedQueue<>();
+	for (Player p : players) {
+	    all.addAll(p.entities);
+	}
+	return all;
     }
 
     public EntityBuilding getBuildingInCell(Pos cellPos) {
