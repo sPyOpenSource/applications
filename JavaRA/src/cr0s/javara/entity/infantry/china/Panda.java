@@ -1,6 +1,7 @@
-package cr0s.javara.entity.infantry;
+package cr0s.javara.entity.infantry.china;
 
 import cr0s.javara.entity.IHaveCost;
+import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.util.Pos;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;

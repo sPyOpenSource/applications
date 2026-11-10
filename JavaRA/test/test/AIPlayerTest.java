@@ -13,162 +13,174 @@ import java.util.ArrayList;
 
 import javafx.scene.paint.Color;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AIPlayerTest {
-	@Test
-	public void thereIsNoMcvReturnsFalseWhenOwnedMcvExists() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+    @BeforeClass
+    public static void startJavaFx() {
+        FxTestSupport.ensureStarted();
+    }
 
-		EntityMcv mcv = new EntityMcv(new Pos(0, 0));
-		mcv.owner = ai;
-		ai.entities.add(mcv);
+    @AfterClass
+    public static void stopJavaFx() {
+        FxTestSupport.shutdown();
+    }
 
-		assertFalse("thereIsNoMcv() should return false when an owned MCV exists", ai.thereIsNoMcv());
-	}
+    @Test
+    public void thereIsNoMcvReturnsFalseWhenOwnedMcvExists() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
 
-	@Test
-	public void thereIsNoMcvReturnsTrueWhenNoMcv() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+            EntityMcv mcv = new EntityMcv(new Pos(0, 0));
+            mcv.owner = ai;
+            ai.entities.add(mcv);
 
-		assertTrue("thereIsNoMcv() should return true when no MCV exists", ai.thereIsNoMcv());
-	}
+            assertFalse("thereIsNoMcv() should return false when an owned MCV exists", ai.thereIsNoMcv());
+    }
 
-	@Test
-	public void thereIsNoMcvReturnsTrueWhenMcvIsDead() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+    @Test
+    public void thereIsNoMcvReturnsTrueWhenNoMcv() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
 
-		EntityMcv mcv = new EntityMcv(new Pos(0, 0));
-		mcv.owner = null;			  // not yet assigned an owner
-		mcv.setDead();				  // owner-null guard avoids touching World.root (null in tests)
-		ai.entities.add(mcv);
+            assertTrue("thereIsNoMcv() should return true when no MCV exists", ai.thereIsNoMcv());
+    }
 
-		assertTrue("thereIsNoMcv() should return true when the only MCV is dead", ai.thereIsNoMcv());
-	}
+    @Test
+    public void thereIsNoMcvReturnsTrueWhenMcvIsDead() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
 
-	@Test
-	public void thereIsNoMcvReturnsTrueWhenMcvOwnedByOtherPlayer() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
-		AIPlayer other = new AIPlayer(world, "EnemyAI", Alignment.SOVIET, Color.RED);
+            EntityMcv mcv = new EntityMcv(new Pos(0, 0));
+            mcv.owner = null;			  // not yet assigned an owner
+            mcv.setDead();				  // owner-null guard avoids touching World.root (null in tests)
+            ai.entities.add(mcv);
 
-		EntityMcv mcv = new EntityMcv(new Pos(0, 0));
-		mcv.owner = other;
-		ai.entities.add(mcv);
+            assertTrue("thereIsNoMcv() should return true when the only MCV is dead", ai.thereIsNoMcv());
+    }
 
-		assertTrue("thereIsNoMcv() should return true when MCV is owned by another player", ai.thereIsNoMcv());
-	}
+    @Test
+    public void thereIsNoMcvReturnsTrueWhenMcvOwnedByOtherPlayer() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+            AIPlayer other = new AIPlayer(world, "EnemyAI", Alignment.SOVIET, Color.RED);
 
-	@Test
-	public void thereIsNoMcvReturnsTrueAndNoNpeWhenMcvHasNullOwner() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+            EntityMcv mcv = new EntityMcv(new Pos(0, 0));
+            mcv.owner = other;
+            ai.entities.add(mcv);
 
-		EntityMcv mcv = new EntityMcv(new Pos(0, 0));
-		// owner intentionally left null (MCV not yet assigned an owner)
-		ai.entities.add(mcv);
+            assertTrue("thereIsNoMcv() should return true when MCV is owned by another player", ai.thereIsNoMcv());
+    }
 
-		assertTrue("thereIsNoMcv() should return true (and not NPE) when MCV owner is null", ai.thereIsNoMcv());
-	}
+    @Test
+    public void thereIsNoMcvReturnsTrueAndNoNpeWhenMcvHasNullOwner() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
 
-	@Test
-	public void findEnemyConstructionYardsReturnsEnemyYardsOnly() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
-		AIPlayer enemy = new AIPlayer(world, "EnemyAI", Alignment.ALLIED, Color.BLUE);
+            EntityMcv mcv = new EntityMcv(new Pos(0, 0));
+            // owner intentionally left null (MCV not yet assigned an owner)
+            ai.entities.add(mcv);
 
-		Team aiTeam = new Team();
-		Team enemyTeam = new Team();
-		ai.setTeam(aiTeam);
-		enemy.setTeam(enemyTeam);
+            assertTrue("thereIsNoMcv() should return true (and not NPE) when MCV owner is null", ai.thereIsNoMcv());
+    }
 
-		world.addPlayer(ai);
-		world.addPlayer(enemy);
+    @Test
+    public void findEnemyConstructionYardsReturnsEnemyYardsOnly() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+            AIPlayer enemy = new AIPlayer(world, "EnemyAI", Alignment.ALLIED, Color.BLUE);
 
-		EntityConstructionYard friendly =
-			new EntityConstructionYard(new Pos(0, 0));
-		friendly.owner = ai;
-		ai.entities.add(friendly);
+            Team aiTeam = new Team();
+            Team enemyTeam = new Team();
+            ai.setTeam(aiTeam);
+            enemy.setTeam(enemyTeam);
 
-		EntityConstructionYard enemyYard =
-			new EntityConstructionYard(new Pos(100, 100));
-		enemyYard.owner = enemy;
-		enemy.entities.add(enemyYard);
+            world.addPlayer(ai);
+            world.addPlayer(enemy);
 
-		ArrayList<EntityBuilding> result = ai.findEnemyConstructionYards();
+            EntityConstructionYard friendly =
+                    new EntityConstructionYard(new Pos(0, 0));
+            friendly.owner = ai;
+            ai.entities.add(friendly);
 
-		assertEquals(1, result.size());
-		assertEquals(enemyYard, result.get(0));
-	}
+            EntityConstructionYard enemyYard =
+                    new EntityConstructionYard(new Pos(100, 100));
+            enemyYard.owner = enemy;
+            enemy.entities.add(enemyYard);
 
-	@Test
-	public void findClosestEnemyWithNoEnemiesReturnsEmptyList() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+            ArrayList<EntityBuilding> result = ai.findEnemyConstructionYards();
 
-		// No other players added, so there are no enemies.
-		ArrayList<EntityActor> result =
-			ai.findClosestEnemy(new Pos(0, 0));
+            assertEquals(1, result.size());
+            assertEquals(enemyYard, result.get(0));
+    }
 
-		assertTrue("should return empty list when no enemies", result.isEmpty());
-	}
+    @Test
+    public void findClosestEnemyWithNoEnemiesReturnsEmptyList() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
 
-	@Test
-	public void findClosestEnemyWithNullCenterAndEnemiesReturnsEmptyList() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
-		AIPlayer enemy = new AIPlayer(world, "EnemyAI", Alignment.ALLIED, Color.BLUE);
+            // No other players added, so there are no enemies.
+            ArrayList<EntityActor> result =
+                    ai.findClosestEnemy(new Pos(0, 0));
 
-		Team enemyTeam = new Team();
-		enemyTeam.addPlayer(enemy);
-		enemy.setTeam(enemyTeam);
+            assertTrue("should return empty list when no enemies", result.isEmpty());
+    }
 
-		Team aiTeam = new Team();
-		aiTeam.addPlayer(ai);
-		ai.setTeam(aiTeam);
+    @Test
+    public void findClosestEnemyWithNullCenterAndEnemiesReturnsEmptyList() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+            AIPlayer enemy = new AIPlayer(world, "EnemyAI", Alignment.ALLIED, Color.BLUE);
 
-		world.addPlayer(ai);
-		world.addPlayer(enemy);
+            Team enemyTeam = new Team();
+            enemyTeam.addPlayer(enemy);
+            enemy.setTeam(enemyTeam);
 
-		// enemies present, but center is null
-		ArrayList<EntityActor> result = ai.findClosestEnemy(null);
+            Team aiTeam = new Team();
+            aiTeam.addPlayer(ai);
+            ai.setTeam(aiTeam);
 
-		assertTrue("should return empty list when center is null", result.isEmpty());
-	}
+            world.addPlayer(ai);
+            world.addPlayer(enemy);
 
-	@Test
-	public void findClosestEnemyWithEmptyPlayersReturnsEmptyList() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+            // enemies present, but center is null
+            ArrayList<EntityActor> result = ai.findClosestEnemy(null);
 
-		ArrayList<EntityActor> result = ai.findClosestEnemy(new Pos(0, 0));
+            assertTrue("should return empty list when center is null", result.isEmpty());
+    }
 
-		assertTrue("should return empty list when no players", result.isEmpty());
-	}
+    @Test
+    public void findClosestEnemyWithEmptyPlayersReturnsEmptyList() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
 
-	@Test
-	public void findClosestEnemyWithEnemiesReturnsNonEmptyList() {
-		World world = new World("forest-path");
-		AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
-		AIPlayer enemy = new AIPlayer(world, "EnemyAI", Alignment.ALLIED, Color.BLUE);
+            ArrayList<EntityActor> result = ai.findClosestEnemy(new Pos(0, 0));
 
-		Team enemyTeam = new Team();
-		enemyTeam.addPlayer(enemy);
-		enemy.setTeam(enemyTeam);
+            assertTrue("should return empty list when no players", result.isEmpty());
+    }
 
-		Team aiTeam = new Team();
-		aiTeam.addPlayer(ai);
-		ai.setTeam(aiTeam);
+    @Test
+    public void findClosestEnemyWithEnemiesReturnsNonEmptyList() {
+            World world = new World("forest-path");
+            AIPlayer ai = new AIPlayer(world, "TestAI", Alignment.SOVIET, Color.RED);
+            AIPlayer enemy = new AIPlayer(world, "EnemyAI", Alignment.ALLIED, Color.BLUE);
 
-		world.addPlayer(ai);
-		world.addPlayer(enemy);
+            Team enemyTeam = new Team();
+            enemyTeam.addPlayer(enemy);
+            enemy.setTeam(enemyTeam);
 
-		ArrayList<EntityActor> result = ai.findClosestEnemy(new Pos(0, 0));
+            Team aiTeam = new Team();
+            aiTeam.addPlayer(ai);
+            ai.setTeam(aiTeam);
 
-		assertNotNull("result should not be null", result);
-	}
+            world.addPlayer(ai);
+            world.addPlayer(enemy);
+
+            ArrayList<EntityActor> result = ai.findClosestEnemy(new Pos(0, 0));
+
+            assertNotNull("result should not be null", result);
+    }
 }

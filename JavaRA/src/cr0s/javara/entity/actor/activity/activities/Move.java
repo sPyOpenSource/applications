@@ -1,10 +1,14 @@
 package cr0s.javara.entity.actor.activity.activities;
 
+import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Turn.RotationDirection;
 import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.entity.infantry.EntityInfantry;
+import cr0s.javara.entity.vehicle.EntityVehicle;
+import cr0s.javara.render.EntityBlockingMap.Influence;
 import cr0s.javara.render.World;
 
 import cr0s.javara.util.PointsUtil;
@@ -12,6 +16,8 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Move extends Activity {
 
@@ -72,9 +78,9 @@ public class Move extends Activity {
 
 	Pos nextCell = new Pos(px, py);
 
-	/*if (!me.canEnterCell(nextCell) && me.world.isCellBlockedByEntity(nextCell)) {
+	if (!me.canEnterCell(nextCell) && me.owner.world.isCellBlockedByEntity(nextCell)) {
 	    // This building we ignore
-	    if (this.ignoreBuilding != null && me.world.getBuildingInCell(nextCell) == this.ignoreBuilding) {
+	    if (this.ignoreBuilding != null && me.owner.world.getBuildingInCell(nextCell) == this.ignoreBuilding) {
 		this.hasNotifiedBlocker = false;
 		this.hasWaited = false;
 
@@ -95,17 +101,6 @@ public class Move extends Activity {
 
 	    // Notify all friendly blockers inside cell
 	    if (!this.hasNotifiedBlocker) {
-		/*for (Influence i : me.world.blockingEntityMap.getCellInfluences(nextCell)) {
-		    Entity blocker = i.entity;
-
-		    if (blocker instanceof MobileEntity mobileEntity) {
-			// Notify blocker 
-			if (blocker != null && mobileEntity.isFrendlyTo(me)) {
-			    mobileEntity.notifyBlocking(me);
-			}
-		    }
-		}
-
 		this.hasNotifiedBlocker = true;
 	    }
 
@@ -132,17 +127,37 @@ public class Move extends Activity {
 	    this.ticksBeforeRepath = Move.REPATHING_INTERVAL_TICKS;
 
 	    chooseNewPath(me);
-	}*/
+	}
 
 	this.currentPathIndex++;
 	this.hasNotifiedBlocker = false;
 	this.hasWaited = false;
 
+	// Vehicles crush enemy infantry they move into
+	if (me instanceof EntityVehicle) {
+	    ConcurrentLinkedQueue<Influence> influences = me.owner.world.blockingEntityMap.getEntityInfluences(nextCell);
+	    if (influences != null) {
+		for (Influence influence : influences) {
+		    Entity entity = influence.entity;
+		    if (entity instanceof EntityInfantry targetInf && !targetInf.isDead() && !targetInf.isFrendlyTo(me)) {
+			targetInf.setDead();
+		    }
+		}
+	    }
+	}
+
 	return nextCell;
     }
 
     private void chooseNewPath(MobileEntity me) {
-	this.currentPath = me.findPathFromTo(me, this.destCell);
+	if (me == null) {
+	    return;
+	}
+	try {
+	    this.currentPath = me.findPathFromTo(me, this.destCell);
+	} catch (Throwable t) {
+	    this.currentPath = null;
+	}
 	this.currentPathIndex = 1;
 
 	this.isNewPath = true;
@@ -158,7 +173,11 @@ public class Move extends Activity {
 	    }
 
 	    this.destCell = newDestCell;
-	    this.currentPath = me.findPathFromTo(me, destCell);
+	    try {
+		this.currentPath = me.findPathFromTo(me, destCell);
+	    } catch (Throwable t) {
+		this.currentPath = null;
+	    }
 	    this.currentPathIndex = 1;
 	    this.isNewPath = true;
 	}
@@ -281,9 +300,11 @@ public class Move extends Activity {
 	    if (me.currentFacing != this.desiredFacing) {
 		turnFacing();
 
-		// Don't move while our turn is not finished for new direction
+		// Don't move on the very first tick of a new path to avoid tick skipping.
+		// After that, turn and move simultaneously so vehicles face their
+		// direction of travel while moving instead of pivoting in place first.
 		if (isNewPath) { 
-		    return this;
+		    this.isNewPath = false;
 		}
 	    } else {
 		this.isNewPath = false;

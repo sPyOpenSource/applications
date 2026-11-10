@@ -1,9 +1,7 @@
 package cr0s.javara.resources;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.file.DirectoryIteratorException;
@@ -79,14 +77,14 @@ public class ResourceManager {
 
     public SpriteSheet getBibSheet(BibType bt) {
 	switch (bt) {
-	case SMALL:
-	    return bib3;
-	case MIDDLE:
-	    return bib2;
-	case BIG:
-	    return bib1;
-	default:
-	    return null;
+            case SMALL:
+                return bib3;
+            case MIDDLE:
+                return bib2;
+            case BIG:
+                return bib1;
+            default:
+                return null;
 	}
     }
 

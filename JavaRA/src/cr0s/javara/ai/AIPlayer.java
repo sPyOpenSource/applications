@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import cr0s.javara.ai.Squad.SquadType;
+import cr0s.javara.ai.states.ExplorationState;
+import cr0s.javara.ai.states.GroundCombatState;
 import cr0s.javara.combat.Warhead;
 import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.entity.Entity;
@@ -55,11 +57,31 @@ public class AIPlayer extends Player {
     private boolean enabled;
     private int ticks;
     private final int feedbackTime = 30;
-    private final int squadSize = 8;
+    public int squadSize = 16;
+
+    public int retreatHealthPercent = 50;
+    public int retreatCasualtyPercent = 40;
+    public int reengageHealthPercent = 80;
+    public int minAttackSquadSize = 4;
+    public int recoverTimeoutTicks = 1800;
+    public int baseRegenInterval = 30;
+    public int baseRegenHp = 10;
+    public int baseRegenRadius = 20;
+
+    public int defenseMinRadius = 5;
+    public int defenseMaxRadius = 20;
+    public int defenseMinSpacing = 3;
+    public int defenseOverlapTarget = 2;
+    public int defenseThreatRadius = 35;
 
     private ArrayList<Squad> squads = new ArrayList<>();
-    private ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
+    private Squad explorationSquad;
+    ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
     private ArrayList<EntityActor> activeUnits = new ArrayList<>();
+
+    public ArrayList<EntityActor> getUnitsHangingAroundTheBase() {
+	return this.unitsHangingAroundTheBase;
+    }
 
     private final int assignRolesInterval = 20;
     private final int rushInterval = 600;
@@ -87,9 +109,11 @@ public class AIPlayer extends Player {
 
     private Pos defenseCenter;
     private final BaseBuilder bb;
+    private final DefensePlanner defensePlanner;
     private final HashMap<Player, Enemy> aggro = new HashMap<>();
 
     int assignRolesTicks = 0;
+    int baseRegenTicks = 0;
     int rushTicks = 0;
     int attackForceTicks = 0;
 
@@ -99,6 +123,7 @@ public class AIPlayer extends Player {
 	loadAIRules(name);
 
 	this.bb = new BaseBuilder(this);
+	this.defensePlanner = new DefensePlanner(this);
     }
 
     private void loadAIRules(String name) {
@@ -109,11 +134,12 @@ public class AIPlayer extends Player {
 	this.unitsToBuild = new HashMap<>();
 
 	InputStream input = null;
+	Map<String, Object> map = null;
 	try {
 	    input = new FileInputStream(new File(ResourceManager.AI_FOLDER + name + ".yaml"));
 
 	    Yaml yaml = new Yaml();
-	    Map<String, Object> map = (Map) yaml.load(input);	   
+	    map = (Map) yaml.load(input);	   
 
 	    // Load buildings common names
 	    Map<String, Object> buildingsCommonNamesMap = (Map) map.get("BuildingCommonNames");
@@ -157,8 +183,9 @@ public class AIPlayer extends Player {
 		this.unitsToBuild.put((String) e.getKey(), percentageValue / 100.0f);
 	    }		    
 
-	    // Load squad size
-	    //this.squadSize = (Integer) map.get("SquadSize");
+	    this.squadSize = intValue(map, "SquadSize", this.squadSize);
+	    loadCombatTuning(map);
+	    loadDefenseTuning(map);
 	} catch (IOException e) {
 	    e.printStackTrace();
 	} finally {
@@ -170,6 +197,58 @@ public class AIPlayer extends Player {
                 }
             }
 	}
+
+        this.idleBaseUnitsMaximum = Math.max(this.idleBaseUnitsMaximum, this.squadSize + 4);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static Map<String, Object> section(Map<String, Object> root, String key) {
+        Object value = root.get(key);
+        return (value instanceof Map) ? (Map<String, Object>) value : null;
+    }
+
+    private static int intValue(Map<String, Object> map, String key, int defaultValue) {
+        Object value = map.get(key);
+        if (value instanceof Number number) {
+            return number.intValue();
+        }
+        if (value instanceof String text) {
+            try {
+                return Integer.parseInt(text.trim());
+            } catch (NumberFormatException ignored) {
+                return defaultValue;
+            }
+        }
+        return defaultValue;
+    }
+
+    private void loadCombatTuning(Map<String, Object> root) {
+        Map<String, Object> combat = section(root, "CombatTuning");
+        if (combat == null) {
+            return;
+        }
+
+        this.retreatHealthPercent = intValue(combat, "RetreatHealthPercent", this.retreatHealthPercent);
+        this.retreatCasualtyPercent = intValue(combat, "RetreatCasualtyPercent", this.retreatCasualtyPercent);
+        this.reengageHealthPercent = intValue(combat, "ReengageHealthPercent", this.reengageHealthPercent);
+        this.minAttackSquadSize = intValue(combat, "MinAttackSquadSize", this.minAttackSquadSize);
+        this.recoverTimeoutTicks = intValue(combat, "RecoverTimeoutTicks", this.recoverTimeoutTicks);
+        this.baseRegenInterval = intValue(combat, "BaseRegenInterval", this.baseRegenInterval);
+        this.baseRegenHp = intValue(combat, "BaseRegenHp", this.baseRegenHp);
+        this.baseRegenRadius = intValue(combat, "BaseRegenRadius", this.baseRegenRadius);
+    }
+
+    private void loadDefenseTuning(Map<String, Object> root) {
+        Map<String, Object> defense = section(root, "Defense");
+        if (defense == null) {
+            return;
+        }
+
+        this.defenseMinRadius = intValue(defense, "MinRadius", this.defenseMinRadius);
+        this.defenseMaxRadius = intValue(defense, "MaxRadius", this.defenseMaxRadius);
+        this.defenseMinSpacing = intValue(defense, "MinSpacing", this.defenseMinSpacing);
+        this.defenseOverlapTarget = intValue(defense, "OverlapTarget", this.defenseOverlapTarget);
+        this.defenseThreatRadius = intValue(defense, "ThreatRadius", this.defenseThreatRadius);
     }
 
     @Override
@@ -245,7 +324,7 @@ public class AIPlayer extends Player {
     private int countUnits(String unit, Player owner) {
 	int result = 0;
 
-	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
+	for (Entity e : this.world.getEntitiesList()) {
 	    if (!(e instanceof EntityActor)) {
 		continue;
 	    }
@@ -309,7 +388,7 @@ public class AIPlayer extends Player {
 
 		@Override
 		public int compare(Pos p1, Pos p2) {
-		    return (int)(p1.distanceToSq(target) - p2.distanceToSq(target));
+		    return Double.compare(p1.distanceToSq(target), p2.distanceToSq(target));
 		}
 
 	    });
@@ -343,33 +422,43 @@ public class AIPlayer extends Player {
             return new ArrayList<>();
         }
 
-        ArrayList<Player> enemyPlayers = new ArrayList<>();
-	for (Player p : world.getPlayers()) {
-	    if (p.isEnemyFor(this)) {
-		enemyPlayers.add(p);
-	    }
-	}
+        ArrayList<EntityActor> all = new ArrayList<>();
+        for (Player p : world.getPlayers()) {
+            if (!p.isEnemyFor(this)) {
+                continue;
+            }
+            all.addAll(this.findClosestEnemy(center, p, 20000000));
+        }
 
-	if (enemyPlayers.isEmpty()) {
-	    return new ArrayList<>();
-	}
-
-	return this.findClosestEnemy(center, enemyPlayers.get(0), 20000000);
+        all.sort((a, b) -> Double.compare(
+                a.getPosition().distanceToSq(center),
+                b.getPosition().distanceToSq(center)));
+        return all;
     }
 
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
 	switch (type) {
             case DEFENSIVE:
-                if (World.random.nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
-                    ArrayList<EntityActor> closestEnemy = this.findClosestEnemy(this.defenseCenter);
-                    Pos targetCell = (closestEnemy.isEmpty()) ? this.getPlayerSpawnPoint() : closestEnemy.get(0).getCellPosition();
+                Pos base = this.getPlayerSpawnPoint();
+                if (base == null) {
+                    return null;
+                }
+                if (this.defenseCenter == null) {
+                    this.defenseCenter = base;
+                }
 
-                    /*if (closestEnemy != null) {
-                        System.out.println("[AI] Closest enemy: " + closestEnemy.getClass().getSimpleName() + " | owner: " + closestEnemy.owner.name);
-                    }*/
-                    return this.findPosForBuilding(actorType, this.defenseCenter, targetCell, this.minimumDefenseRadius, this.maximumDefenseRadius, distanceToBaseIsImportant);
-                } else { // In other cases place build somewhere in base
-                    return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
+                Pos planned = this.defensePlanner.chooseCell(actorType);
+                if (planned != null) {
+                    return planned;
+                }
+
+                if (World.random.nextInt(100) >= 30) {
+                    ArrayList<EntityActor> closestEnemy = this.findClosestEnemy(this.defenseCenter);
+                    Pos targetCell = closestEnemy.isEmpty() ? base : closestEnemy.get(0).getCellPosition();
+                    return this.findPosForBuilding(actorType, this.defenseCenter, targetCell,
+                            this.minimumDefenseRadius, this.maximumDefenseRadius, distanceToBaseIsImportant);
+                } else {
+                    return this.findPosForBuilding(actorType, base, base, 0, this.maxBaseRadius, false);
                 }
 
             case NORMAL:
@@ -450,11 +539,15 @@ public class AIPlayer extends Player {
 	    }
 	}
 
+	if (enemies.isEmpty()) {
+	    return new ArrayList<>();
+	}
+
 	Collections.sort(enemies, new Comparator<>() {
 	    @Override
 	    public int compare(Player p1, Player p2) {
 		if (AIPlayer.this.aggro.containsKey(p1) && AIPlayer.this.aggro.containsKey(p2)) {
-		    return (int) (AIPlayer.this.aggro.get(p1).aggro - AIPlayer.this.aggro.get(p2).aggro);
+		    return Float.compare(AIPlayer.this.aggro.get(p1).aggro, AIPlayer.this.aggro.get(p2).aggro);
 		}
 
 		return 0;
@@ -513,7 +606,7 @@ public class AIPlayer extends Player {
 	return result;
     }
 
-    void cleanSquads() {
+    public void cleanSquads() {
 	ArrayList<Squad> newSquads = new ArrayList<>();
 	for (Squad s : this.squads) {
 	    if (s.isValid()) {
@@ -527,7 +620,43 @@ public class AIPlayer extends Player {
 	}
     }
 
-    Squad getSquadOfType(SquadType type) {
+    public void reinforceSquad(Squad squad) {
+	int missing = squad.getDesiredSize() - squad.getLivingCount();
+	if (missing <= 0) {
+	    return;
+	}
+
+	ArrayList<EntityActor> idleSnapshot = new ArrayList<>(this.unitsHangingAroundTheBase);
+	for (EntityActor unit : idleSnapshot) {
+	    if (missing <= 0) {
+		break;
+	    }
+	    if (unit.isDead() || unit.owner != this || !(unit instanceof ICanAttack)) {
+		continue;
+	    }
+	    if (unit instanceof EntityHarvester || unit instanceof EntityBuilding) {
+		continue;
+	    }
+	    squad.addUnit(unit);
+	    this.unitsHangingAroundTheBase.remove(unit);
+	    missing--;
+	}
+    }
+
+    public void disbandSquad(Squad squad) {
+	for (EntityActor unit : squad.getUnits()) {
+	    if (!unit.isDead() && unit.owner == this) {
+		unit.cancelActivity();
+		this.unitsHangingAroundTheBase.add(unit);
+	    }
+	}
+	this.squads.remove(squad);
+	if (this.explorationSquad == squad) {
+	    this.explorationSquad = null;
+	}
+    }
+
+    public Squad getSquadOfType(SquadType type) {
 	for (Squad s : this.squads) {
 	    if (s.getType() == type) {
 		return s;
@@ -537,11 +666,23 @@ public class AIPlayer extends Player {
 	return null;
     }
 
-    Squad registerNewSquad(SquadType type) {
+    public ArrayList<Squad> getSquads() {
+	return this.squads;
+    }
+
+    public Pos getDefenseCenter() {
+	return this.defenseCenter;
+    }
+
+    public DefensePlanner getDefensePlanner() {
+	return this.defensePlanner;
+    }
+
+    public Squad registerNewSquad(SquadType type) {
 	return this.registerNewSquad(type, null);
     }
 
-    Squad registerNewSquad(SquadType type, EntityActor target) {
+    public Squad registerNewSquad(SquadType type, EntityActor target) {
 	Squad s = new Squad(this, type, target);
 	squads.add(s);
 
@@ -560,9 +701,14 @@ public class AIPlayer extends Player {
     }
 
     void assignRolesToIdleUnits() {
-	//this.cleanSquads();
+	this.cleanSquads();
 	this.activeUnits = cleanFromDeadAndNotOwn(this.activeUnits);
 	this.unitsHangingAroundTheBase = cleanFromDeadAndNotOwn(this.unitsHangingAroundTheBase);
+
+	if (--this.baseRegenTicks <= 0) {
+	    this.baseRegenTicks = this.baseRegenInterval;
+	    this.regenerateBaseUnits();
+	}
 
 	if (--this.rushTicks <= 0) {
 	    this.rushTicks = this.rushInterval;
@@ -573,7 +719,7 @@ public class AIPlayer extends Player {
 	if (--this.attackForceTicks <= 0) {
 	    this.attackForceTicks = this.attackForceInterval;
 
-	    for (Squad s : this.squads) {
+	    for (Squad s : new ArrayList<>(this.squads)) {
 		s.update();
 	    }
 	}
@@ -587,26 +733,84 @@ public class AIPlayer extends Player {
 	this.giveOrdersToIdleHarvesters();
 	this.findNewUnits();
 	this.createAttackForce();
+	this.createExplorationSquad();
 	this.findAndDeployAllMcv();
     }
 
-    private void createAttackForce() {
-	int randomSquadSize = this.squadSize + World.random.nextInt(4);
+    public void regenerateBaseUnits() {
+	Pos spawn = this.getPlayerSpawnPoint();
+	if (spawn == null) {
+	    return;
+	}
 
-	if (this.unitsHangingAroundTheBase.size() >= randomSquadSize) {
-	    Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
-
-	    for (EntityActor a : this.unitsHangingAroundTheBase) {
-		if (a instanceof ICanAttack) { // TODO: check is not aircraft
-		    attackForce.addUnit(a);
-		}
+	double radius = this.baseRegenRadius * 24.0;
+	for (Entity entity : this.entities) {
+	    if (!(entity instanceof MobileEntity unit) || entity.isDead()) {
+		continue;
 	    }
-
-	    this.unitsHangingAroundTheBase.clear();
+	    if (unit.owner != this || !unit.isIdle()) {
+		continue;
+	    }
+	    if (unit.getHp() <= 0 || unit.getHp() >= unit.getMaxHp()) {
+		continue;
+	    }
+	    if (unit.getPosition().distanceTo(spawn) > radius) {
+		continue;
+	    }
+	    unit.setHp(Math.min(unit.getMaxHp(), unit.getHp() + this.baseRegenHp));
 	}
     }
 
-    private void findNewUnits() {
+    public void createAttackForce() {
+	ArrayList<EntityActor> candidates = new ArrayList<>();
+	for (EntityActor unit : this.unitsHangingAroundTheBase) {
+	    if (!unit.isDead() && unit.owner == this && unit instanceof ICanAttack) {
+		candidates.add(unit);
+	    }
+	}
+
+	int threshold = this.squadSize + World.random.nextInt(4);
+	if (candidates.size() < threshold) {
+	    return;
+	}
+
+	Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
+	for (EntityActor unit : candidates) {
+	    attackForce.addUnit(unit);
+	    this.unitsHangingAroundTheBase.remove(unit);
+	}
+
+	attackForce.getFsm().changeState(attackForce, new GroundCombatState(), false);
+    }
+
+    public void createExplorationSquad() {
+	if (this.explorationSquad != null && !this.explorationSquad.isValid()) {
+	    this.explorationSquad = null;
+	}
+	if (this.explorationSquad != null) {
+	    return;
+	}
+	ArrayList<EntityActor> scouts = new ArrayList<>();
+	for (EntityActor a : this.unitsHangingAroundTheBase) {
+	    if (a instanceof ICanAttack && !a.isDead()) {
+		scouts.add(a);
+		if (scouts.size() >= 4) {
+		    break;
+		}
+	    }
+	}
+	if (scouts.isEmpty()) {
+	    return;
+	}
+	this.explorationSquad = this.registerNewSquad(SquadType.EXPLORATION);
+	for (EntityActor a : scouts) {
+	    this.explorationSquad.addUnit(a);
+	    this.unitsHangingAroundTheBase.remove(a);
+	}
+	this.explorationSquad.getFsm().changeState(this.explorationSquad, new ExplorationState(), false);
+    }
+
+    public void findNewUnits() {
 	ArrayList<EntityActor> newUnits = new ArrayList<>();
 
 	for (Entity e : entities) {
@@ -615,7 +819,7 @@ public class AIPlayer extends Player {
 	    }
 
 	    EntityActor a = (EntityActor) e;
-	    if (!this.activeUnits.contains(a)) {
+	    if (a.owner == this && !this.activeUnits.contains(a)) {
 		newUnits.add(a);
 	    }
 	}
@@ -659,16 +863,27 @@ public class AIPlayer extends Player {
 	}
     }
 
-    private void tryToRushAttack() {
-        ArrayList<EntityActor> a = chooseEnemyTarget();
-        if(a.isEmpty()) return;
-        if (squads.isEmpty()) return;
-        Squad s = squads.get(0);
-        s.setTarget(a.get(0));
-        /*for(EntityActor b:s.getUnits()) {
-            if(World.random.nextBoolean()) continue;
-            b.queueActivity(new Move((MobileEntity)b, a.get(0).getCellPosition()));
-        }*/
+    public void tryToRushAttack() {
+        Squad assault = null;
+        for (Squad squad : this.squads) {
+            if (squad.getType() == SquadType.ASSAULT
+                    && squad.isValid()
+                    && squad.getFsm().getCurrentState() instanceof GroundCombatState) {
+                assault = squad;
+                break;
+            }
+        }
+
+        if (assault == null) {
+            return;
+        }
+
+        ArrayList<EntityActor> enemies = chooseEnemyTarget();
+        if (enemies.isEmpty()) {
+            return;
+        }
+
+        assault.setTarget(enemies.get(0));
     }
 
     void protectOwn(EntityActor attacker) {
@@ -684,7 +899,7 @@ public class AIPlayer extends Player {
 
 	// Call to arms for units around
 	if (!protectSquad.isValid()) {
-	    ArrayList<EntityActor> actors = GUI.getInstance().getWorld().getActorsInCircle(this.getPlayerSpawnPoint(), this.protectUnitScanRadius);
+	    ArrayList<EntityActor> actors = this.world.getActorsInCircle(this.getPlayerSpawnPoint(), this.protectUnitScanRadius);
 
 	    for (EntityActor a : actors) {
 		if (!a.isDead() 
@@ -790,8 +1005,8 @@ public class AIPlayer extends Player {
     }
 
     public boolean thereIsNoMcv() {
-	/*for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
-	    if (e.isDead() || !(e instanceof EntityMcv)) {
+	for (Entity e : this.entities) {
+	    if (e == null || e.isDead() || !(e instanceof EntityMcv)) {
 		continue;
 	    }
 
@@ -800,7 +1015,7 @@ public class AIPlayer extends Player {
 	    if (mcv.owner == this) {
 		return false;
 	    }
-	}*/
+	}
 
 	return true;
     }

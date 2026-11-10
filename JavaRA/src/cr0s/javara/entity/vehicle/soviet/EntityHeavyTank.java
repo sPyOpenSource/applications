@@ -48,7 +48,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     private final int updateTicks = 0;
     private final Entity targetEntity = null;
 
-    private final float MOVE_SPEED = 0.3f;
+    private final float MOVE_SPEED = 0.8f;
     private final float SHIFT = 12;
 
     private final int BUILDING_COST = 1150;
@@ -71,8 +71,8 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 	this.turret.setTurretSize(TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	Armament arma = new Armament(this, new Weapon105mm());
-	arma.addBarrel(new Pos(12, -3), 0);
-	arma.addBarrel(new Pos(12, 3), 0);
+	arma.addBarrel(new Pos(12d, -3), 0);
+	arma.addBarrel(new Pos(12d, 3), 0);
 
 	attack = new AttackTurreted(this);
 	attack.armaments.add(arma);

@@ -145,6 +145,11 @@ public class Missile extends Projectile {
     private void explode() {
 	this.setDead();
 
+	// Remove immediately instead of waiting for the 20-tick cleanup
+	if (this.owner != null) {
+	    this.owner.entities.remove(this);
+	}
+
 	Combat.doImpacts(this.pos, this.weapon, this.sourceActor, this.firepowerModifier);
     } 
     

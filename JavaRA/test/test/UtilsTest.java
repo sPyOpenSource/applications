@@ -52,4 +52,5 @@ public class UtilsTest {
         // 3^2 + 4^2 = 25
         assertEquals("Distance squared should be 25", 14400.0, distSq, 0.01);
     }
+    
 }

@@ -85,4 +85,5 @@ public class PointsUtilTest {
         int result = PointsUtil.rangeFromPdf(r, 10);
         assertTrue(Math.abs(result) <= 24);
     }
+    
 }

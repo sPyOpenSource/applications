@@ -85,12 +85,12 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 	this.turret.setTurretSize(TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	Armament arma = new Armament(this, new Weapon120mm());
-	arma.addBarrel(new Pos(14, -3, 6), 0);
-	arma.addBarrel(new Pos(14, 3, 6), 0);
+	arma.addBarrel(new Pos(14d, -3, 6), 0);
+	arma.addBarrel(new Pos(14d, 3, 6), 0);
 
 	Armament arma2 = new Armament(this, new WeaponMammothTusk());
-	arma2.addBarrel(new Pos(-3, -6, 6), -30);
-	arma2.addBarrel(new Pos(-3, 6, 6), 30);
+	arma2.addBarrel(new Pos(-3d, -6, 6), -30);
+	arma2.addBarrel(new Pos(-3d, 6, 6), 30);
 
 	attack = new AttackTurreted(this);
 	attack.armaments.add(arma);
@@ -118,6 +118,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 		this.turret.rotateTurretTo(this.currentFacing);
 	    }
 	}
+        getImageView().setViewport(texture.getSubImage(0, currentFacing).getViewport());
 
 	attack.update(delta);
 	this.autoTarget.update(delta);

@@ -39,7 +39,7 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     private static final int ATTACK_OFFSET = 64;
     private static final int ATTACKING_FACINGS = 8;
     
-    private static final int SHROUD_REVEALING_RANGE = 5;
+    private static final int SHROUD_REVEALING_RANGE = 8;
     private static final int WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS = 15;
     private static final int WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS = 5;
 
@@ -86,6 +86,7 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
 	super.updateEntity(delta);
 
 	//boundingBox.setBounds(posX + (TEXTURE_WIDTH / 4) - 7, posY + (TEXTURE_WIDTH / 4) - 12, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));	
+        getImageView().setViewport(texture.getSubImage(0, currentFacing).getViewport());
 
 	this.attack.update(delta);
 	this.autoTarget.update(delta);

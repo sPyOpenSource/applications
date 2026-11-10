@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import cr0s.javara.entity.IDefense;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.aircraft.EntityAircraft;
+import cr0s.javara.entity.aircraft.EntityDrone;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.EntityBuildingProgress;
 import cr0s.javara.entity.building.IOreCapacitor;
@@ -16,6 +17,7 @@ import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.entity.building.common.EntityRadarDome;
 import cr0s.javara.entity.building.common.EntityWall;
 import cr0s.javara.entity.building.common.EntityWarFactory;
+import cr0s.javara.entity.building.china.TownHall;
 import cr0s.javara.entity.building.soviet.EntityAirField;
 import cr0s.javara.entity.building.soviet.EntityBarracks;
 import cr0s.javara.entity.infantry.EntityInfantry;
@@ -24,7 +26,6 @@ import cr0s.javara.entity.vehicle.EntityVehicle;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.render.map.TileSet;
-import cr0s.javara.resources.SoundManager;
 import cr0s.javara.ui.sbpages.SideBarItemsButton;
 import cr0s.javara.util.Pos;
 
@@ -259,6 +260,11 @@ public class Base {
 
     public boolean tryToBuild(Pos cell,
 	    EntityBuilding targetBuilding) {
+	// Only one TownHall per player
+	if (targetBuilding instanceof TownHall && this.isTownHallPresent()) {
+	    return false;
+	}
+
 	if (!isPossibleToBuildHere(cell, targetBuilding)) {
 	    return false;
 	}
@@ -408,6 +414,15 @@ public class Base {
 	return false;
     }
 
+    public boolean isTownHallPresent() {
+	for (EntityBuilding eb : this.buildings) {
+	    if (eb instanceof TownHall) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
 
     public void giveOre(int aCapacity) {
 	if (this.ore + aCapacity > 0.8f * this.oreCapacity) {
@@ -526,9 +541,33 @@ public class Base {
     void deployBuildedAircraft(EntityAircraft entityAircraft) {
         EntityAirField ewf = getPrimaryAirField();
 	
-	if (ewf != null) {
-	    ewf.deployEntity(entityAircraft.newInstance());
-	}    
+	// Only one drone per airport: find an air field with a free drone slot
+	if (entityAircraft instanceof EntityDrone) {
+	    EntityAirField available = null;
+	    for (EntityBuilding b : this.buildings) {
+		if (b instanceof EntityAirField af && af.canDeployDrone()) {
+		    available = af;
+		    break;
+		}
+	    }
+	    if (available == null) {
+		return; // every airport already has its one drone
+	    }
+	    ewf = available;
+	}
+	
+        if (ewf != null) {
+            EntityActor a = entityAircraft.newInstance();
+            a.owner = owner;
+            ewf.deployEntity(a);
+            owner.entities.add(a);
+            
+            // Assign the drone to its home air field and count it
+            if (a instanceof EntityDrone ed) {
+                ed.setHomeBase(ewf);
+                ewf.droneDeployed();
+            }
+        }    
     }
 
     private EntityAirField getPrimaryAirField() {

@@ -5,7 +5,11 @@ import java.util.HashMap;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.aircraft.Dragon;
 import cr0s.javara.entity.aircraft.EntityAircraft;
+import cr0s.javara.entity.aircraft.EntityDrone;
+
 import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.entity.building.china.EntityPortal;
+import cr0s.javara.entity.building.china.GoldMine;
 import cr0s.javara.entity.building.china.InfernoTower;
 import cr0s.javara.entity.building.common.EntityAdvPowerPlant;
 import cr0s.javara.entity.building.common.EntityConcreteWall;
@@ -18,19 +22,39 @@ import cr0s.javara.entity.building.common.EntityWarFactory;
 import cr0s.javara.entity.building.soviet.EntityAirField;
 import cr0s.javara.entity.building.soviet.EntityBarracks;
 import cr0s.javara.entity.building.soviet.EntityBarredWireWall;
+import cr0s.javara.entity.building.soviet.EntityBunker;
 import cr0s.javara.entity.building.soviet.EntityFireTurret;
 import cr0s.javara.entity.building.soviet.EntityTeslaCoil;
 
+import cr0s.javara.entity.infantry.GLA.EntityGlaRebel;
+import cr0s.javara.entity.infantry.GLA.EntityGlaRocketSoldier;
+import cr0s.javara.entity.infantry.GLA.EntityGlaTerrorist;
+import cr0s.javara.entity.infantry.GLA.EntityGlaWorker;
+import cr0s.javara.entity.infantry.EntityDog;
+import cr0s.javara.entity.infantry.EntityEngineer;
+import cr0s.javara.entity.infantry.EntityHorse;
+import cr0s.javara.entity.infantry.EntityHumanoidRobot;
+import cr0s.javara.entity.infantry.EntityMedic;
+import cr0s.javara.entity.infantry.EntityRobotDog;
 import cr0s.javara.entity.infantry.EntityGrenadeTrooper;
 import cr0s.javara.entity.infantry.EntityInfantry;
+import cr0s.javara.entity.infantry.EntityJetpackSoldier;
 import cr0s.javara.entity.infantry.EntityRifleTrooper;
 import cr0s.javara.entity.infantry.EntityRocketTrooper;
-import cr0s.javara.entity.infantry.Panda;
+import cr0s.javara.entity.infantry.EntitySealForce;
+import cr0s.javara.entity.infantry.EntitySniper;
+import cr0s.javara.entity.infantry.china.EntityHacker;
+import cr0s.javara.entity.infantry.EntitySpy;
+import cr0s.javara.entity.infantry.EntityTanya;
+import cr0s.javara.entity.vehcle.soviet.EntityTerrorDrone;
+
 import cr0s.javara.entity.vehicle.EntityVehicle;
 import cr0s.javara.entity.vehicle.common.EntityHarvester;
 import cr0s.javara.entity.vehicle.common.EntityMcv;
 import cr0s.javara.entity.vehicle.soviet.EntityHeavyTank;
 import cr0s.javara.entity.vehicle.soviet.EntityMammothTank;
+import cr0s.javara.entity.vehicle.soviet.EntityMotorbike;
+import cr0s.javara.entity.vehicle.soviet.EntityQuad;
 import cr0s.javara.entity.vehicle.soviet.EntityV2Launcher;
 
 import cr0s.javara.render.EntityBlockingMap.SubCell;
@@ -114,6 +138,9 @@ public class ProductionQueue {
 	
 	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(NULL));
 	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(NULL));
+	this.sovietBuildings.put("bunkericon.shp", new EntityBunker(NULL));
+	this.sovietBuildings.put("goldicon.shp", new GoldMine(NULL));
+	this.sovietBuildings.put("portalicon.shp", new EntityPortal(NULL));
         this.sovietBuildings.put("infernoTowericon.shp", new InfernoTower(NULL));
 	
 	this.alliedBuildings.put("powricon.shp", new EntityPowerPlant(NULL));
@@ -147,7 +174,25 @@ public class ProductionQueue {
 	//this.sovietInfantry.put("e6icon.shp", new EntityEngineer(0.0f, 0.0f, this.player.getTeam(), this.player, SubCell.CENTER));
 	this.sovietInfantry.put("e2icon.shp", new EntityGrenadeTrooper(NULL, SubCell.CENTER));
 	this.sovietInfantry.put("e3icon.shp", new EntityRocketTrooper(NULL, SubCell.CENTER));
-        this.sovietInfantry.put("pandaicon.shp", new Panda(NULL));
+	this.sovietInfantry.put("e5icon.shp", new EntityJetpackSoldier(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("spyicon.shp", new EntitySpy(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("e6icon.shp", new EntityEngineer(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("e7icon.shp", new EntityTanya(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("snipericon.shp", new EntitySniper(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("sealicon.shp", new EntitySealForce(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("spyicon.shp", new EntitySpy(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("hackericon.shp", new EntityHacker(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("dogicon.shp", new EntityDog(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("horseicon.shp", new EntityHorse(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("robodogicon.shp", new EntityRobotDog(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("terrordroneicon.shp", new EntityTerrorDrone(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("medicicon.shp", new EntityMedic(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("humanoidroboticon.shp", new EntityHumanoidRobot(NULL, SubCell.CENTER));
+        //this.sovietInfantry.put("pandaicon.shp", new Panda(NULL));
+	this.sovietInfantry.put("glaRebelicon.shp", new EntityGlaRebel(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("glaRocketicon.shp", new EntityGlaRocketSoldier(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("glaWorkericon.shp", new EntityGlaWorker(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("glaTerroristicon.shp", new EntityGlaTerrorist(NULL, SubCell.CENTER));
 		
 	// Put neutral common vehicles
 	this.neutralVehicles.put("mcvicon.shp", new EntityMcv(NULL));
@@ -156,9 +201,12 @@ public class ProductionQueue {
 	// Put soviet vehicles
 	this.sovietVehicles.put("4tnkicon.shp", new EntityMammothTank(NULL));
 	this.sovietVehicles.put("3tnkicon.shp", new EntityHeavyTank(NULL));
+	this.sovietVehicles.put("quadicon.shp", new EntityQuad(NULL));
+	this.sovietVehicles.put("motorbikeicon.shp", new EntityMotorbike(NULL));
 	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(NULL));
         
         this.air.put("dragonicon.shp", new Dragon(NULL));
+        this.air.put("droneicon.shp", new EntityDrone(NULL));
     }
 
     public EntityActor getBuildableActor(SideBarItemsButton texture) {

@@ -21,7 +21,7 @@ import cr0s.javara.entity.Entity;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Random;
 import assets.Assets;
-import cr0s.javara.entity.infantry.Panda;
+import cr0s.javara.entity.infantry.china.Panda;
 import cr0s.javara.util.Pos;
 
 public class PandaAttack extends Thread {

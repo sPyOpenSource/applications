@@ -197,6 +197,12 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 	if (!this.isDeploying) {
 	    return;
 	}
+
+	// Only one TownHall per player
+	if (owner.getBase().isTownHallPresent()) {
+	    setDead();
+	    return;
+	}
 	
 	//EntityConstructionYard cy = new EntityConstructionYard(new Pos(boundingBox.getX() - (EntityConstructionYard.WIDTH_TILES / 2 * 24), boundingBox.getY() - (EntityConstructionYard.HEIGHT_TILES / 2 * 24)));
         TownHall cy = new TownHall(new Pos(boundingBox.getX(), boundingBox.getY()));

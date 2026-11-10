@@ -34,7 +34,9 @@ public abstract class SideBarItemsButton {
 	if (!aTextureName.isEmpty()) {
 	    this.textureName = aTextureName;
 	    this.buttonTexture = ResourceManager.getInstance().getSidebarTexture(aTextureName);
-	    this.buttonImg = buttonTexture.getAsImage(0, Color.RED);//GUI.getInstance().getSideBar().getPlayer().playerColor);
+	    if (this.buttonTexture != null) {
+	        this.buttonImg = buttonTexture.getAsImage(0, Color.RED);
+	    }
 	}
     }
     

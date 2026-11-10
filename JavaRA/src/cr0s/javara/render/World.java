@@ -1,6 +1,7 @@
 package cr0s.javara.render;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Random;
 
@@ -22,6 +23,7 @@ import cr0s.javara.order.ITargetLines;
 import cr0s.javara.order.TargetLine;
 import cr0s.javara.perfomance.Profiler;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
+import cr0s.javara.render.EntityBlockingMap.Influence;
 import cr0s.javara.render.map.InfantryPathfinder;
 import cr0s.javara.render.map.SmudgeLayer;
 import cr0s.javara.render.map.TileMap;
@@ -37,6 +39,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import javafx.animation.AnimationTimer;
+import javafx.scene.layout.StackPane;
 
 public class World extends AnimationTimer {
     private static final Log LOG = Log.of(World.class);
@@ -53,7 +56,15 @@ public class World extends AnimationTimer {
 
     boolean canRender = true;
 
-    private final int removeDeadTicks = 0;
+    /**
+     * Short-lived visual entities (explosions, smoke, muzzle flashes, tesla zaps,
+     * ...) that are not owned by any player. They are ticked every frame and
+     * removed - together with their scene-graph nodes - as soon as they finish,
+     * so they cannot leak and make the game slower the longer it runs.
+     */
+    private final ArrayList<Entity> effects = new ArrayList<>();
+
+    private int removeDeadTicks = 0;
     private final int REMOVE_DEAD_INTERVAL_TICKS = 20;
     public static Random random = new Random(System.currentTimeMillis());
     private final ArrayList<Pos> pointsInRange[] = new ArrayList[MAX_RANGE + 1];
@@ -99,21 +110,23 @@ public class World extends AnimationTimer {
 	}*/
 	Profiler.getInstance().stopForSection("World: shroud tick");
 
-	/*if (removeDeadTicks++ > REMOVE_DEAD_INTERVAL_TICKS) {
-	    ConcurrentLinkedQueue<Entity> list = new ConcurrentLinkedQueue<>();
-	    for (Entity e : this.entities) {
-		if (!e.isDead()) {
-		    list.add(e);
+	if (removeDeadTicks++ > REMOVE_DEAD_INTERVAL_TICKS) {
+	    removeDeadTicks = 0;
+	    for (Player player : players) {
+		ConcurrentLinkedQueue<Entity> list = new ConcurrentLinkedQueue<>();
+		for (Entity e : player.entities) {
+		    if (!e.isDead()) {
+			list.add(e);
+		    } else {
+			// Remove render children from scene graph
+			if (e.owner != null && e.owner.world != null) {
+			    e.owner.world.root.getChildren().remove(e.getImageView());
+			}
+		    }
 		}
+		player.entities = list;
 	    }
-	    this.entities = list;
-
-	    this.removeDeadTicks = 0;
 	}
-
-	for (Entity e : this.entitiesToAdd) {
-	    this.entities.add(e);
-	}*/
 	
 	this.blockingEntityMap.update();
 	
@@ -145,12 +158,13 @@ public class World extends AnimationTimer {
 
                     // For mobile entities, after entity updated, update it's blocking map state to avoid entity movement collisions
                     if (e instanceof MobileEntity mobileEntity) {
-                        //this.blockingEntityMap.freeForMobileEntity(mobileEntity);
+                        // Free previous blocking map state before entity moves
+                        this.blockingEntityMap.freeForMobileEntity(mobileEntity);
 
-                        e.updateEntity(delta);	
+                        e.updateEntity(delta);
 
                         // Lock next entity position. Or re-lock current, if position is not changed
-                        //this.blockingEntityMap.occupyForMobileEntity(mobileEntity);
+                        this.blockingEntityMap.occupyForMobileEntity(mobileEntity);
                     } else {
                         e.updateEntity(delta);	
                         if(e instanceof EntityBuilding eb)
@@ -166,6 +180,24 @@ public class World extends AnimationTimer {
             }
         }
 	Profiler.getInstance().stopForSection("World: entity tick");
+	
+	// Tick short-lived visual effects and remove the finished ones so their
+	// scene-graph nodes are released instead of leaking for the whole session.
+	Profiler.getInstance().startForSection("World: effects tick");
+	Iterator<Entity> effectIt = this.effects.iterator();
+	while (effectIt.hasNext()) {
+	    Entity e = effectIt.next();
+	    if (e.isDead()) {
+		StackPane node = (StackPane)e.getRenderNode();
+		if (node != null && root != null) {
+		    root.getChildren().removeAll(node.getChildren());
+		}
+		effectIt.remove();
+	    } else {
+		e.updateEntity(delta);
+	    }
+	}
+	Profiler.getInstance().stopForSection("World: effects tick");
 	
 	updatePlayers();
 	
@@ -305,11 +337,33 @@ public class World extends AnimationTimer {
 	return map;
     }
 
+    /**
+     * Adds this entity's render children to the scene graph (exactly as before,
+     * preserving absolute positioning) and remembers the parent node on the
+     * entity so that {@link Entity#setDead()} can remove those children again.
+     * Entities that are never removed from the scene graph leak memory and make
+     * the game slower the longer it runs.
+     */
     public void spawnEntityInWorld(Entity e) {
         LOG.debug("Spawned entity " + e.getClass().getSimpleName());
-        try{
-            root.getChildren().addAll(e.renderEntity().getChildren());
-        } catch (Exception ex){}
+        try {
+            StackPane node = e.renderEntity();
+            if (node != null && root != null) {
+                e.setRenderNode(node);
+                root.getChildren().addAll(node.getChildren());
+            }
+        } catch (Exception ex) {}
+    }
+
+    /**
+     * Spawns a short-lived visual effect (explosion, smoke, muzzle flash, tesla
+     * zap, ...) that is not owned by any player. The effect is ticked every
+     * frame and removed - together with its scene-graph node - as soon as it
+     * finishes, so it cannot leak for the rest of the session.
+     */
+    public void registerEffect(Entity e) {
+        spawnEntityInWorld(e);
+        this.effects.add(e);
     }
 
     /**
@@ -421,6 +475,14 @@ public class World extends AnimationTimer {
 	    return false;
 	}
 
+	// Ground units cannot walk through water, river or rocks
+	int surfaceId = this.map.getSurfaceIdAt(x);
+	if (surfaceId == TileSet.SURFACE_WATER_ID
+	    || surfaceId == TileSet.SURFACE_RIVER_ID
+	    || surfaceId == TileSet.SURFACE_ROCK_ID) {
+	    return false;
+	}
+
 	return (this.blockingEntityMap.isSubcellFree(x, sub)) && (
                    blockingEntityMap.getCellInfluences(x) == 0 
 		|| blockingEntityMap.getCellInfluences(x) == TileSet.SURFACE_CLEAR_ID
@@ -435,19 +497,29 @@ public class World extends AnimationTimer {
     }
 
     public boolean isCellBuildable(Pos x, boolean isMcvDeploy) {
-	/*if (x.getCellX() >= this.map.getWidth() || x.getCellY() >= this.map.getHeight()) {
-	    return false;
-	}
-
-	if (x.getCellX() < 0 || x.getCellY() < 0) {
-	    return false;
-	}*/
-
 	if (!this.map.isInMap(x.getX(), x.getY())) {
 	    return false;
 	}
 
-	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(x)) && (this.map.getResourcesLayer().isCellEmpty(x));	
+	// Ground buildings cannot be placed on water, river or rocks
+	int surfaceId = this.map.getSurfaceIdAt(x);
+	if (surfaceId == TileSet.SURFACE_WATER_ID
+	    || surfaceId == TileSet.SURFACE_RIVER_ID
+	    || surfaceId == TileSet.SURFACE_ROCK_ID) {
+	    return false;
+	}
+
+	int cx = x.getCellX();
+	int cy = x.getCellY();
+
+	// Check if cell is occupied by a building or unit (blockingMap == -1)
+	if (!isMcvDeploy && cx >= 0 && cx < blockingEntityMap.blockingMap.length
+	    && cy >= 0 && cy < blockingEntityMap.blockingMap[0].length
+	    && blockingEntityMap.blockingMap[cx][cy] == -1) {
+	    return false;
+	}
+
+	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(x)) && (this.map.getResourcesLayer().isCellEmpty(x));
     }
 
     public boolean blocked(PathFindingContext arg0, int x, int y) {
@@ -510,7 +582,11 @@ public class World extends AnimationTimer {
     }
 
     public ConcurrentLinkedQueue<Entity> getEntitiesList() {
-	return null;//this.entities;
+	ConcurrentLinkedQueue<Entity> all = new ConcurrentLinkedQueue<>();
+	for (Player p : this.players) {
+	    all.addAll(p.entities);
+	}
+	return all;
     }
 
     public EntityBuilding getBuildingInCell(Pos cellPos) {
@@ -646,14 +722,14 @@ public class World extends AnimationTimer {
 	Explosion e = new Explosion(pos, explosionType);
 	e.isVisible = true;
 	
-	this.spawnEntityInWorld(e);
+	this.registerEffect(e);
     }
 
     public void spawnSmokeAt(Pos pos, String smokeSprite) {
 	Smoke s = new Smoke(pos, smokeSprite);
 	s.isVisible = true;
 	
-	this.spawnEntityInWorld(s);	
+	this.registerEffect(s);	
     }
 
     public ArrayList<Pos> chooseTilesInCircle(Pos targetTile, int i) {
@@ -669,8 +745,8 @@ public class World extends AnimationTimer {
 	ArrayList<EntityActor> result = new ArrayList<>();
 	ArrayList<Pos> tiles = this.chooseTilesInCircle(pos.Clone(), (int) Math.floor(range / 24.0f));
 	
-	/*for (Pos tile : tiles) {
-	    ConcurrentLinkedQueue<Influence> influences = this.blockingEntityMap.getCellInfluences(tile);
+	for (Pos tile : tiles) {
+	    ConcurrentLinkedQueue<Influence> influences = this.blockingEntityMap.getEntityInfluences(tile);
 	    
 	    if (influences == null) {
 		continue;
@@ -685,7 +761,7 @@ public class World extends AnimationTimer {
 		    }
 		}
 	    }
-	}*/
+	}
 	
 	return result;
     }
@@ -723,7 +799,7 @@ public class World extends AnimationTimer {
 	SequencePlayer sp = new SequencePlayer(position, deathSequence);
 	sp.isVisible = true;
 	
-	this.spawnEntityInWorld(sp);
+	this.registerEffect(sp);
     }
 
     public ArrayList<Pos> chooseTilesInAnnulus(Pos center, int minRange,

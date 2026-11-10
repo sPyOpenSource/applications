@@ -23,7 +23,7 @@ public class PageBuildingSoviet extends SideBarPage {
 	addButton(new BuildingSidebarButton("Soviet Tech Center", "stekicon.shp", this.getPosition(), 1, 2, false));
 	
 	addButton(new BuildingSidebarButton("Air Field", "afldicon.shp", this.getPosition(), 0, 3, false));
-	addButton(new BuildingSidebarButton("Kennel", "kennicon.shp", this.getPosition(), 1, 3, false));
+	addButton(new BuildingSidebarButton("Portal", "portalicon.shp", this.getPosition(), 1, 3, false));
 	
 	addButton(new BuildingSidebarButton("Helipad", "hpadicon.shp", this.getPosition(), 0, 4, false));
 	addButton(new BuildingSidebarButton("Radar Dome", "domeicon.shp", this.getPosition(), 1, 4, false));
@@ -41,7 +41,9 @@ public class PageBuildingSoviet extends SideBarPage {
 	addButton(new BuildingSidebarButton("Barracks", "barricon.shp", this.getPosition(), 1, 8, false));
 	
 	addButton(new BuildingSidebarButton("Wired Fence", "fencicon.shp", this.getPosition(), 0, 9, false));
-	addButton(new BuildingSidebarButton("Concrete Wall", "brikicon.shp", this.getPosition(), 1, 9, false));
+	addButton(new BuildingSidebarButton("Gold Mine", "goldicon.shp", this.getPosition(), 1, 9, false));
+
+	addButton(new BuildingSidebarButton("Bunker", "bunkericon.shp", this.getPosition(), 0, 10, false));
     }
 
     @Override

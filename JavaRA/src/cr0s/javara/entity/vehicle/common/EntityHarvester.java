@@ -104,6 +104,8 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     @Override
     public void updateEntity(long delta) {
 	super.updateEntity(delta);
+        getImageView().setViewport(texture.getSubImage(0, currentFacing).getViewport());
+
 	//boundingBox.setBounds(posX + 6, posY - 6, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));
 	if ((this.currentActivity instanceof Wait && (this.currentActivity.nextActivity instanceof HarvestResource)) 
 		|| (this.currentActivity instanceof HarvestResource)) {

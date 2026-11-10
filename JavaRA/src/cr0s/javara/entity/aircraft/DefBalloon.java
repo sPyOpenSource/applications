@@ -1,8 +1,6 @@
 package cr0s.javara.entity.aircraft;
 
-import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.util.Pos;
-import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
 
 public class DefBalloon extends EntityAircraft{
@@ -15,11 +13,6 @@ public class DefBalloon extends EntityAircraft{
         //getImageViews().get(1).setFitHeight(102);
     }
     @Override
-    public Path findPathFromTo(cr0s.javara.entity.MobileEntity e, Pos aGoal){
-        return null;
-    }
-
-    @Override
     public float getMoveSpeed(){ return 10; }    
     @Override
     public int getMinimumEnoughRange(){ return 0; }
@@ -29,8 +22,6 @@ public class DefBalloon extends EntityAircraft{
     public int getWaitAverageTime(){ return 0; }
     @Override
     public int getWaitSpreadTime(){ return 0; }
-    @Override
-    protected Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
     public StackPane renderEntity(){ return null; }
 }

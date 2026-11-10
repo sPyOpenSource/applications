@@ -11,6 +11,7 @@ import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.util.Pos;
 
 import java.util.ArrayList;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -41,7 +42,14 @@ public abstract class Entity {
     
     private ImageView view;
     private final ArrayList<Image> images = new ArrayList<>();
-    
+
+    /**
+     * The JavaFX node that {@link cr0s.javara.render.World#spawnEntityInWorld}
+     * added to the scene graph for this entity. Kept so that it can be removed
+     * when the entity dies instead of leaking for the rest of the session.
+     */
+    private Parent renderNode;
+
     public ImageView getImageView() {
         return view;
     }
@@ -52,6 +60,14 @@ public abstract class Entity {
         this.view.setFitHeight(sizeHeight);
         this.view.setX(boundingBox.getX());
         this.view.setY(boundingBox.getY());
+    }
+
+    public Parent getRenderNode() {
+        return renderNode;
+    }
+
+    public void setRenderNode(Parent renderNode) {
+        this.renderNode = renderNode;
     }
     
     public ArrayList<Image> getImages() {
@@ -80,7 +96,6 @@ public abstract class Entity {
 
     public void drawSelectionBox(Scene g) {
 	int REDUCE = 8;
-	//g.setLineWidth(2);
 	//g.setColor(Color.WHITE);
 
 	double minX = this.boundingBox.getX();
@@ -239,8 +254,20 @@ public abstract class Entity {
     public void setDead() {
 	this.isVisible = false;
 	this.isDead = true;
-        if(owner != null)
-            owner.world.root.getChildren().remove(view);
+	// Remove this entity's render node from the scene graph. Without this,
+	// every projectile, explosion, smoke puff and muzzle flash that ever
+	// died stays attached to root.getChildren() forever, so the game uses
+	// more and more memory and gets slower the longer it runs.
+	if (this.owner != null && this.owner.world != null
+		&& this.owner.world.root != null) {
+	    StackPane node = (StackPane)this.renderNode;
+	    if (node != null) {
+		// Remove the children this entity added to the scene graph, not
+		// the container itself, to preserve the original positioning.
+		this.owner.world.root.getChildren().removeAll(node.getChildren());
+		this.renderNode = null;
+	    }
+	}
     }
 
     public int getHp() {

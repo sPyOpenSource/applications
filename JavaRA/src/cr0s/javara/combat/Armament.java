@@ -151,6 +151,8 @@ public class Armament {
                 prj.isVisible = true;
 
                 Armament.this.self.owner.world.spawnEntityInWorld(prj);
+                prj.owner = Armament.this.self.owner;
+                Armament.this.self.owner.entities.add(prj);
                 Armament.this.weapon.playReportSound(Armament.this.self.getPosition());
             }
         });

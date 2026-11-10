@@ -63,4 +63,19 @@ UnitsToBuild:
     dd: 10%
     ca: 10%
     pt: 10%
-SquadSize: 40
+SquadSize: 16
+CombatTuning:
+    RetreatHealthPercent: 50
+    RetreatCasualtyPercent: 40
+    ReengageHealthPercent: 80
+    MinAttackSquadSize: 4
+    RecoverTimeoutTicks: 1800
+    BaseRegenInterval: 30
+    BaseRegenHp: 10
+    BaseRegenRadius: 20
+Defense:
+    MinRadius: 5
+    MaxRadius: 20
+    MinSpacing: 3
+    OverlapTarget: 2
+    ThreatRadius: 35

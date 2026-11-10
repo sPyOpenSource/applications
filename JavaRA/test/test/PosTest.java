@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class PosTest {
-
     private static final double DELTA = 1e-9;
 
     @Test

@@ -42,14 +42,14 @@ public class TeslaZap extends Projectile implements IEffect {
 		TeslaZapRenderer tzr = new TeslaZapRenderer(this.sourceActor, this.sourcePos, this.passiveTargetPos, this.guidedTarget, 24, 24, true);
 		tzr.isVisible = true;
 
-		owner.world.spawnEntityInWorld(tzr);
+		owner.world.registerEffect(tzr);
 	    }
 
 	    for (int n = 0; n < this.DIM_ZAPS; n++) {
 		TeslaZapRenderer tzr = new TeslaZapRenderer(this.sourceActor, this.sourcePos, this.passiveTargetPos, this.guidedTarget, 24, 24, false);
 		tzr.isVisible = true;
 		
-		owner.world.spawnEntityInWorld(tzr);
+		owner.world.registerEffect(tzr);
 	    }
 
 	    this.isInit = true;
@@ -57,6 +57,11 @@ public class TeslaZap extends Projectile implements IEffect {
 
 	if (--timeUntilRemove <= 0) {
 	    this.setDead();
+
+	    // Remove immediately instead of waiting for the 20-tick cleanup
+	    if (this.owner != null) {
+	        this.owner.entities.remove(this);
+	    }
 
 	    return;
 	}	

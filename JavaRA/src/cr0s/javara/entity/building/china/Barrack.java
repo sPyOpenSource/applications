@@ -9,20 +9,23 @@ import javafx.scene.layout.StackPane;
 public class Barrack extends EntityBuilding {
     public Barrack(Pos x) {
         //super(BuildingType.NORMAL, 980, "assets/png/barrack.png", 70, 70, x, y);
-        super(x,70,70,"");
+        super(x, 24, 24, "");
         setHp(980);
         Image view = new Image("assets/png/barrack.png", true);
         setImageView(new ImageView(view));
         getImageView().setX(x.getX());
         getImageView().setY(x.getY());
-        getImageView().setFitWidth(70);
-        getImageView().setFitHeight(70);
         getImages().add(view);
     }
 
     @Override
     public StackPane renderEntity() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (getImageView() == null) {
+            setImageView(new ImageView(getImages().get(0)));
+        }
+        StackPane combined = new StackPane();
+        combined.getChildren().add(getImageView());
+        return combined;
     }
 
     @Override

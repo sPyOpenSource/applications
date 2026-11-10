@@ -70,8 +70,6 @@ public class TileMap {
             int x = (Integer) actor.get("LocationX");
             int y = (Integer) actor.get("LocationY");
 
-           // System.out.println("[MAP] Added spawn: (" + x + "; " + y + ")");
-
             this.spawns.add(new Pos(x, y));
         }
 

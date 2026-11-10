@@ -1,6 +1,7 @@
 package cr0s.javara.entity.actor.activity.activities;
 
 import cr0s.javara.entity.MobileEntity;
+import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Turn.RotationDirection;
@@ -8,6 +9,7 @@ import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.infantry.EntityInfantry.AnimationState;
 import cr0s.javara.render.World;
+import cr0s.javara.render.EntityBlockingMap.Influence;
 
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
@@ -109,7 +111,7 @@ public class MoveInfantry extends Activity {
 
 	    // Notify all friendly blockers inside cell
 	    if (!this.hasNotifiedBlocker) {
-		/*for (Influence i : me.world.blockingEntityMap.getCellInfluences(nextCell)) {
+		for (Influence i : me.owner.world.blockingEntityMap.getEntityInfluences(nextCell)) {
 		    Entity blocker = i.entity;
 
 		    if (blocker instanceof MobileEntity) {
@@ -118,7 +120,7 @@ public class MoveInfantry extends Activity {
 			    ((MobileEntity) blocker).notifyBlocking(me);
 			}
 		    }
-		}*/
+		}
 
 		this.hasNotifiedBlocker = true;
 	    }

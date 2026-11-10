@@ -99,6 +99,12 @@ public class AutoTarget {
     
     private EntityActor chooseTarget(float rangeInCells) {
 	this.nextScanTime = World.getRandomInt(this.minimumScanInterval, this.maximumScanInterval);
+
+	// Null-safety: aircraft or units without an owner can't acquire targets
+	if (this.self == null || this.self.owner == null || this.self.owner.world == null) {
+	    return null;
+	}
+
         self.owner.enemies = new ArrayList<>();
 	for (Player p : self.owner.world.getPlayers()) {
 	    if (p.isEnemyFor(self.owner)) {
