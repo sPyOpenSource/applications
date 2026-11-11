@@ -25,13 +25,13 @@ import view.UnitIcon;
 public class CheckResultAttack extends Thread {
     private final Assets assets = new Assets();
     
-    public CheckResultAttack(Stage stage, AnchorPane root, Player attackingPlayer, Player defensivePlayer, AtomicInteger capacityInt, ArrayList<Player> players, MediaPlayer mediaPlayer, ArrayList<UnitIcon> icons) {
+    public CheckResultAttack(Stage stage, AnchorPane root, Player attackingPlayer, Player defensivePlayer, ArrayList<Player> players, MediaPlayer mediaPlayer, ArrayList<UnitIcon> icons) {
         this.map = defensivePlayer.getMap();
         this.firstSize = defensivePlayer.getMap().getBuildingsMap().size();
         this.root = root;
         this.attackingPlayer = attackingPlayer;
         this.defensivePlayer = defensivePlayer;
-        this.capacityInt = capacityInt;
+        this.capacityInt = new AtomicInteger(0);
         this.stage = stage;
         this.players = players;
         this.newView();
@@ -44,7 +44,7 @@ public class CheckResultAttack extends Thread {
     private final double firstSize;
     private long timer;
     private final AnchorPane root;
-    private final AtomicInteger capacityInt;
+    public final AtomicInteger capacityInt;
     private final Player attackingPlayer;
     private final Player defensivePlayer;
     private final ArrayList<Player> players;

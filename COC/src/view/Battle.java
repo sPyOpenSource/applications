@@ -36,7 +36,6 @@ public class Battle extends Application {
     private final Player attackingPlayer;
     private final Player defensivePlayer;
     private final ArrayList<Player> players;
-    private final AtomicInteger capacityInt;
     private final ArrayList<UnitIcon> icons = new ArrayList<>();
     private CheckResultAttack result;
     
@@ -44,7 +43,6 @@ public class Battle extends Application {
         this.attackingPlayer = attackingPlayer;
         this.defensivePlayer = defensivePlayer;
         this.players = players;
-        this.capacityInt = new AtomicInteger(0);
         players.remove(defensivePlayer);
     }
     
@@ -63,16 +61,16 @@ public class Battle extends Application {
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setVolume(0.12);
         root.getChildren().add(new MediaView(mediaPlayer));
-        result = new CheckResultAttack(stage, root, attackingPlayer, defensivePlayer, capacityInt, players, mediaPlayer, icons);
+        result = new CheckResultAttack(stage, root, attackingPlayer, defensivePlayer, players, mediaPlayer, icons);
         result.start();
         synchronized (this){
             for (Entity building : defensivePlayer.getMap().getBuildingsMap()){
                 if (building instanceof InfernoTower infernoTower){
-                    new InfernoTowerDefense(root, defensivePlayer.getMap(), infernoTower, capacityInt).start();
+                    new InfernoTowerDefense(root, defensivePlayer.getMap(), infernoTower, result.capacityInt).start();
                 } else if (building instanceof ArcherTower archerTower){
-                    new ArcherTowerDefense(root, defensivePlayer.getMap(), archerTower, capacityInt).start();
+                    new ArcherTowerDefense(root, defensivePlayer.getMap(), archerTower, result.capacityInt).start();
                 } else if (building instanceof Tesla tesla){
-                    new TeslaDefense(root, defensivePlayer.getMap(), tesla, capacityInt).start();
+                    new TeslaDefense(root, defensivePlayer.getMap(), tesla, result.capacityInt).start();
                 }
             }
         }
@@ -84,7 +82,7 @@ public class Battle extends Application {
         Rectangle rectangle = new Rectangle(0, 635, 1000, 737 - 635);
         rectangle.setFill(Color.rgb(0, 0, 0, 0.4));
 
-        Text capacity = new Text("Capacity : " + capacityInt.get());
+        Text capacity = new Text("Capacity : " + 40);
         capacity.setId("text");
         capacity.setX(810);
         capacity.setY(50);
@@ -129,12 +127,12 @@ public class Battle extends Application {
         }
         for (UnitIcon icon : icons) {
             if (icon.view.getEffect() != null
-                    && capacityInt.get() >= icon.cost
+                    && result.capacityInt.get() >= icon.cost
                     && root.getChildren().contains(icon.view)) {
-                capacityInt.addAndGet(-icon.cost);
-                capacity.setText("Capacity : " + capacityInt.get());
+                result.capacityInt.addAndGet(-icon.cost);
+                capacity.setText("Capacity : " + result.capacityInt.get());
                 Log.trace("deploy", "Deployed unit at (" + x + "," + y
-                        + ") cost=" + icon.cost + " remainingCapacity=" + capacityInt.get());
+                        + ") cost=" + icon.cost + " remainingCapacity=" + result.capacityInt.get());
                 icon.spawn.apply(x, y).start();
             }
         }
