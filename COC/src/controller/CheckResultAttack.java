@@ -11,14 +11,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import model.Player;
-import model.data.UpdateData;
 import view.PlayerPanel;
 import cr0s.javara.render.map.Map;
 import util.Log;
 
 import assets.Assets;
 import java.util.ArrayList;
-import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
 import view.UnitIcon;
 
