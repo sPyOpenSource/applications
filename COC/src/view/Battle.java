@@ -95,18 +95,18 @@ public class Battle extends Application {
         imageViewCapacity.setFitWidth(150);
         imageViewCapacity.setFitHeight(50);
 
-        installIcon("assets/png/dragon_drag.png", 20, 10, 1,
+        installIcon("assets/png/dragon_drag.png", 290, 10, 1,
                 (x, y) -> new DragonAttack(x, y, root, defensivePlayer.getMap()));
-        installIcon("assets/png/panda_drag.png", 110, 10, 1,
+        installIcon("assets/png/panda_drag.png", 380, 10, 1,
                 (x, y) -> new PandaAttack(x, y, root, defensivePlayer.getMap()));
-        installIcon("assets/png/balloon_drag.png", 200, 10, 2,
+        installIcon("assets/png/balloon_drag.png", 470, 10, 2,
                 (x, y) -> new DefBalloonAttack(x, y, root, defensivePlayer.getMap()));
-        installIcon("assets/png/goblin_drag.png", 290, 2, 3,
+        installIcon("assets/png/goblin_drag.png", 20, 2, 3,
                 (x, y) -> new GoblinBalloonAttack(x, y, root, defensivePlayer.getMap()));
-        installIcon("assets/png/archer_drag.png", 380, 3, 4,
+        installIcon("assets/png/archer_drag.png", 110, 3, 4,
                 (x, y) -> new ArcherBalloonAttack(x, y, root, defensivePlayer.getMap()));
         installIcon("assets/png/goblin_drag.png"//new Barbarian(new Pos(0, 0)).getImages().get(0)
-                , 470, 5, 1,
+                , 200, 5, 1,
                 (x, y) -> new BarbarianAttack(x, y, root, defensivePlayer.getMap()));
         installIcon("assets/png/reimu.png", 560, 10, 2,
                 (x, y) -> new WizardAttack(x, y, root, defensivePlayer.getMap()));
