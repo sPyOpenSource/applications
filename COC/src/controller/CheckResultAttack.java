@@ -57,15 +57,18 @@ public class CheckResultAttack extends Thread {
     private final MediaPlayer mediaPlayerClick = new MediaPlayer(new Media(audioFilePath));
     ArrayList<UnitIcon> icons;
     
-    public void refreshBar(AnchorPane root) {
-        Platform.runLater(() -> {
+    public void refreshBar() {
         for (UnitIcon icon : icons) {
             if (capacityInt.get() < icon.cost && root.getChildren().contains(icon.view)) {
-                root.getChildren().remove(icon.view);
+                Platform.runLater(() -> {
+                    root.getChildren().remove(icon.view);
+                });
             } else if(!root.getChildren().contains(icon.view)){
-                root.getChildren().add(icon.view);
+                Platform.runLater(() -> {
+                    root.getChildren().add(icon.view);
+                });
             }
-        }});
+        }
     }
     
     @Override
@@ -170,12 +173,12 @@ public class CheckResultAttack extends Thread {
             }
             try {
                 wait(800);
+                if(capacityInt.get() < attackingPlayer.getLevel() * 15){
+                    capacityInt.addAndGet(2);
+                    refreshBar();
+                }
             } catch (InterruptedException e) {
                 Log.error("result", "Interrupted in CheckResultAttack", e);
-            }
-            if(capacityInt.get() < attackingPlayer.getLevel() * 15){
-                capacityInt.addAndGet(2);
-                refreshBar(root);
             }
         }
     }

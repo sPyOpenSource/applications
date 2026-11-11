@@ -25,7 +25,6 @@ import assets.Assets;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.building.china.*;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
 
 import util.Log;
@@ -136,7 +135,7 @@ public class Battle extends Application {
                 icon.spawn.apply(x, y).start();
             }
         }
-        result.refreshBar(root);
+        //result.refreshBar();
     }
 
     private UnitIcon installIcon(String imagePath, double x, int cost, int minLevel,
