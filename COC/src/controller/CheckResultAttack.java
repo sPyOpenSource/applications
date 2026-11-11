@@ -61,7 +61,7 @@ public class CheckResultAttack extends Thread {
                 Platform.runLater(() -> {
                     root.getChildren().remove(icon.view);
                 });
-            } else if(!root.getChildren().contains(icon.view)){
+            } else if(capacityInt.get() > icon.cost && !root.getChildren().contains(icon.view)){
                 Platform.runLater(() -> {
                     root.getChildren().add(icon.view);
                 });
@@ -170,7 +170,7 @@ public class CheckResultAttack extends Thread {
                 break;
             }
             try {
-                wait(800);
+                wait(500);
                 if(capacityInt.get() < attackingPlayer.getLevel() * 15){
                     capacityInt.addAndGet(2);
                     refreshBar();
