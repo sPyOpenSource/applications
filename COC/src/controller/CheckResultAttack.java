@@ -169,7 +169,7 @@ public class CheckResultAttack extends Thread {
                 break;
             }
             try {
-                wait(600);
+                wait(800);
             } catch (InterruptedException e) {
                 Log.error("result", "Interrupted in CheckResultAttack", e);
             }
