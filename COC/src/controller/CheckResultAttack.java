@@ -170,7 +170,7 @@ public class CheckResultAttack extends Thread {
                 break;
             }
             try {
-                wait(500);
+                wait(300);
                 if(capacityInt.get() < attackingPlayer.getLevel() * 15){
                     capacityInt.addAndGet(2);
                     refreshBar();
