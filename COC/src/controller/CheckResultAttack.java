@@ -20,11 +20,12 @@ import assets.Assets;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
+import view.UnitIcon;
 
 public class CheckResultAttack extends Thread {
     private final Assets assets = new Assets();
     
-    public CheckResultAttack(Stage stage, AnchorPane root, Player attackingPlayer, Player defensivePlayer, AtomicInteger capacityInt, ArrayList<Player> players, MediaPlayer mediaPlayer) {
+    public CheckResultAttack(Stage stage, AnchorPane root, Player attackingPlayer, Player defensivePlayer, AtomicInteger capacityInt, ArrayList<Player> players, MediaPlayer mediaPlayer, ArrayList<UnitIcon> icons) {
         this.map = defensivePlayer.getMap();
         this.firstSize = defensivePlayer.getMap().getBuildingsMap().size();
         this.root = root;
@@ -36,6 +37,7 @@ public class CheckResultAttack extends Thread {
         this.newView();
         this.mediaPlayer = mediaPlayer;
         timer = System.nanoTime();
+        this.icons = icons;
     }
 
     private final Map map;
@@ -53,7 +55,19 @@ public class CheckResultAttack extends Thread {
     private final MediaPlayer mediaPlayer;
     private final String audioFilePath = assets.get("/assets/audio/click_button.mp3");
     private final MediaPlayer mediaPlayerClick = new MediaPlayer(new Media(audioFilePath));
-
+    ArrayList<UnitIcon> icons;
+    
+    public void refreshBar(AnchorPane root) {
+        Platform.runLater(() -> {
+        for (UnitIcon icon : icons) {
+            if (capacityInt.get() < icon.cost && root.getChildren().contains(icon.view)) {
+                root.getChildren().remove(icon.view);
+            } else if(!root.getChildren().contains(icon.view)){
+                root.getChildren().add(icon.view);
+            }
+        }});
+    }
+    
     @Override
     public synchronized void run() {
         Platform.runLater(() -> {
@@ -159,8 +173,10 @@ public class CheckResultAttack extends Thread {
             } catch (InterruptedException e) {
                 Log.error("result", "Interrupted in CheckResultAttack", e);
             }
-            if(capacityInt.get() < attackingPlayer.getLevel() * 15)
+            if(capacityInt.get() < attackingPlayer.getLevel() * 15){
                 capacityInt.addAndGet(2);
+                refreshBar(root);
+            }
         }
     }
     

@@ -38,12 +38,13 @@ public class Battle extends Application {
     private final ArrayList<Player> players;
     private final AtomicInteger capacityInt;
     private final ArrayList<UnitIcon> icons = new ArrayList<>();
+    private CheckResultAttack result;
     
     public Battle(Player attackingPlayer, Player defensivePlayer, ArrayList<Player> players) {
         this.attackingPlayer = attackingPlayer;
         this.defensivePlayer = defensivePlayer;
         this.players = players;
-        this.capacityInt = new AtomicInteger(attackingPlayer.getLevel() * 0);
+        this.capacityInt = new AtomicInteger(0);
         players.remove(defensivePlayer);
     }
     
@@ -62,7 +63,8 @@ public class Battle extends Application {
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setVolume(0.12);
         root.getChildren().add(new MediaView(mediaPlayer));
-        new CheckResultAttack(stage, root, attackingPlayer, defensivePlayer, capacityInt, players, mediaPlayer).start();
+        result = new CheckResultAttack(stage, root, attackingPlayer, defensivePlayer, capacityInt, players, mediaPlayer, icons);
+        result.start();
         synchronized (this){
             for (Entity building : defensivePlayer.getMap().getBuildingsMap()){
                 if (building instanceof InfernoTower infernoTower){
@@ -109,12 +111,12 @@ public class Battle extends Application {
         installIcon("assets/png/reimu.png", 560, 20, 2,
                 (x, y) -> new WizardAttack(x, y, root, defensivePlayer.getMap()));
 
-        for (UnitIcon icon : icons) {
+        /*for (UnitIcon icon : icons) {
             if (attackingPlayer.getLevel() >= icon.minLevel) {
                 root.getChildren().add(icon.view);
             }
         }
-        icons.get(5).view.setEffect(shadow);
+        icons.get(5).view.setEffect(shadow);*/
 
         //root.getChildren().addAll(rectangle, imageViewCapacity, capacity);
         root.setOnMouseClicked(mouseEvent -> deploy(mouseEvent.getX(), mouseEvent.getY(), root, capacity));
@@ -136,17 +138,7 @@ public class Battle extends Application {
                 icon.spawn.apply(x, y).start();
             }
         }
-        refreshBar(root);
-    }
-
-    private void refreshBar(AnchorPane root) {
-        for (UnitIcon icon : icons) {
-            if (capacityInt.get() < icon.cost && root.getChildren().contains(icon.view)) {
-                root.getChildren().remove(icon.view);
-            } else if(!root.getChildren().contains(icon.view)){
-                root.getChildren().add(icon.view);
-            }
-        }
+        result.refreshBar(root);
     }
 
     private UnitIcon installIcon(String imagePath, double x, int cost, int minLevel,
