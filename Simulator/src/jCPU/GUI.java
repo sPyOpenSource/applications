@@ -20,7 +20,6 @@ import jCPU.JVM.ByteCode;
 import jCPU.MCS51.CPU;
 import jCPU.MCS51.MCS51Performance;
 import jCPU.x86.X86FatFileSystem;
-import jCPU.x86.X86FloppyDrive;
 import jCPU.x86.X86IdeController;
 import jCPU.x86.X86IdeDevice;
 import java.nio.file.Files;
@@ -622,9 +621,9 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			File file = new File(path);
 			FileInputStream fis = new FileInputStream(file);
 			byte[] code = fis.readAllBytes();
+			fis.close();
 			for(int i = 0; i < code.length; i++){
-				cpu.code(i, code[i + 0x1000 * 0]);
-				if(i == 0x10000 - 1) break;
+				cpu.code(i, code[i]);
 			}
 		} catch (IOException ex) {
 			throw new IOException("Failed to load raw binary " + path + ": " + ex.getMessage(), ex);
@@ -849,17 +848,59 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION)
 					{
 						String path = fc.getSelectedFile().getCanonicalPath();
-						loadBin(path);
+						try {
+							loadBin(path);
+						} catch (IOException ex) {
+							messages("ELF load failed: " + ex.getMessage() + ". Trying raw binary...");
+							loadRawBin(path);
+						}
 						updatePanel(true);
 					}
 				} catch (FileNotFoundException ex) {
 					showError("File not found", ex);
 				} catch (Exception ex) {
-					showError("Failed to load ELF binary: " + ex.getMessage(), ex);
+					showError("Failed to load binary: " + ex.getMessage(), ex);
 				}
 			}
 		};
 		importMenu.add(importBin);
+
+		AbstractAction importOvmf = new AbstractAction("OVMF Firmware...")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				try{
+					if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+						showError("OVMF firmware requires the x86 CPU. Select it from the CPU menu first.", null);
+						return;
+					}
+					if (fc == null)
+					{
+						fc = new JFileChooser();
+						fc.setCurrentDirectory(new File("."));
+					}
+					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION)
+					{
+						String path = fc.getSelectedFile().getCanonicalPath();
+						int size = x86Cpu.loadOvmf(path);
+						if (size < 0) {
+							throw new IOException("Failed to load OVMF firmware: " + path);
+						}
+						x86Cpu.setPC(x86Cpu.getOvmfResetVector());
+						messages("Loaded OVMF firmware: " + size + " bytes. PC set to 0x" +
+								Integer.toHexString(x86Cpu.getOvmfResetVector()) +
+								" (reset vector at top of RAM). Click Go to start.");
+						updatePanel(true);
+					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
+				} catch (Exception ex) {
+					showError("Failed to load OVMF firmware: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		importMenu.add(importOvmf);
 
 		AbstractAction importClass = new AbstractAction("Java Class...")
 		{

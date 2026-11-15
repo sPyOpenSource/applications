@@ -97,7 +97,7 @@ public class CPU extends jx.disass.x86
 
 	public CPU() throws Exception
 	{
-		core = new X86Core(64 * 1024 * 1024);
+		core = new X86Core(256 * 1024 * 1024);
 		core.setActiveExecutor(new i8086());
 
 		// VGA text/graphics memory at 0xB8000, VGA I/O ports 0x3C0-0x3DA
@@ -184,23 +184,32 @@ public class CPU extends jx.disass.x86
 		try
 		{
 			byte[] data = Files.readAllBytes(Paths.get(path));
-			// Load so the image ends at 0xFFFFFFFF (top of 4GB space),
-			// matching QEMU's IA32 OVMF placement.
-			int base = 0xFFFFFFFF - data.length + 1;
+			// Load so the image ends at the top of available physical memory,
+			// matching QEMU's OVMF placement relative to the RAM top.
+			int base = core.getMemSize() - data.length;
 			for (int i = 0; i < data.length; i++)
 			{
 				core.writeMem8(base + i, data[i]);
 			}
 			System.out.println("OVMF.fd loaded: " + data.length + " bytes at 0x" +
 					Integer.toHexString(base) +
-					", reset vector at 0xFFFFFFF0 -> FD offset 0x" +
-					Integer.toHexString(data.length - 17));
+					", reset vector at 0x" + Integer.toHexString(base + data.length - 16) +
+					" -> FD offset 0x" + Integer.toHexString(data.length - 16));
 			return data.length;
 		}
 		catch (IOException e)
 		{
 			return -1;
 		}
+	}
+
+	/**
+	 * Return the reset vector address for an OVMF image loaded by {@link
+	 * #loadOvmf}: 16 bytes below the top of physical memory.
+	 */
+	public int getOvmfResetVector()
+	{
+		return core.getMemSize() - 16;
 	}
 
 	/**
