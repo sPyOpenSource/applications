@@ -28,6 +28,26 @@ public class X86Amd64Test {
     }
 
     @Test
+    public void testCallIntoFirmwareTrapRunsJavaHandler() throws Exception {
+        // call 0x5000 (rel32 = 0x5000 - 0x1005); the trap returns 42 like a function.
+        X86Core core = coreWith(0xE8, 0xFB, 0x3F, 0x00, 0x00);
+        core.setReg64(X86Core.REG_RSP, 0x8000);
+        long[] seen = new long[1];
+        core.setFirmwareTrap(0x5000, 0x5100, (c, address) -> {
+            seen[0] = address;
+            c.setReg64(X86Core.REG_RAX, 42);
+            c.setPC64(c.pop64());
+        });
+        core.step();
+        assertEquals(0x5000, core.getPC64());
+        core.step();
+        assertEquals(0x5000, seen[0]);
+        assertEquals(42, core.getReg64(X86Core.REG_RAX));
+        assertEquals(START + 5, core.getPC64());
+        assertEquals(0x8000, core.getReg64(X86Core.REG_RSP));
+    }
+
+    @Test
     public void testNopStillAdvances() throws Exception {
         X86Core core = coreWith(0x90);
         core.step();

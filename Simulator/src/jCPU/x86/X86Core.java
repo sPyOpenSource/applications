@@ -142,6 +142,34 @@ public class X86Core implements iCPU
         if (intHandler != null) intHandler.handleInt(this, vector);
     }
 
+    /**
+     * Firmware written in Java: called when execution reaches an address in
+     * the trap range, instead of decoding the bytes there.  The handler is
+     * responsible for setting the next RIP (e.g. by popping a return address).
+     */
+    public interface FirmwareTrap {
+        void call(X86Core core, long address) throws Exception;
+    }
+
+    private FirmwareTrap firmwareTrap;
+    private long trapStart;
+    private long trapEnd;
+
+    public void setFirmwareTrap(long start, long end, FirmwareTrap trap) {
+        this.trapStart = start;
+        this.trapEnd = end;
+        this.firmwareTrap = trap;
+    }
+
+    /** Run the firmware trap if {@code rip} is in its range; true when it ran. */
+    public boolean firmwareTrap(long rip) throws Exception {
+        if (firmwareTrap == null || rip < trapStart || rip >= trapEnd) {
+            return false;
+        }
+        firmwareTrap.call(this, rip);
+        return true;
+    }
+
     public X86Core(int memSize) {
         this.memSize = memSize;
         reset();
