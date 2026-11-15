@@ -1467,10 +1467,14 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					return;
 				}
 				try {
-					int entryPoint = x86Cpu.uefiBoot();
+					long entryPoint = x86Cpu.uefiBoot();
 					if (entryPoint != 0) {
-						x86Cpu.setPC(entryPoint);
-						messages("UEFI boot: entry point at 0x" + Integer.toHexString(entryPoint)
+						if (x86Cpu.isLongMode()) {
+							x86Cpu.setPC64(entryPoint);
+						} else {
+							x86Cpu.setPC((int) entryPoint);
+						}
+						messages("UEFI boot: entry point at 0x" + Long.toHexString(entryPoint)
 								+ ". PC set. Click Go to start execution.");
 					} else {
 						messages("UEFI boot: no bootable EFI application found on attached disk image.");

@@ -38,6 +38,7 @@ public class X86UefiFirmware
     private int vgaCursorY;
 
     private boolean initialized;
+    private boolean lastBootPe32Plus;
 
     public X86UefiFirmware(X86Core core, X86IdeController ide,
                            X86UartPeripheral uart, X86VgaPeripheral vga)
@@ -55,7 +56,7 @@ public class X86UefiFirmware
      * <p>Call this from the simulator startup before starting execution; the
      * caller should then set {@code cpu.setPC(entryPoint)} and begin stepping.</p>
      */
-    public int boot()
+    public long boot()
     {
         println("UEFI IA32 Firmware");
         println("====================");
@@ -77,8 +78,22 @@ public class X86UefiFirmware
         X86Gpt gpt = new X86Gpt(sectorReader);
         if (!gpt.parse(1))
         {
-            println("ERROR: GPT not found on IDE disk.");
-            return 0;
+            println("GPT not found on IDE disk; trying MBR...");
+            long mbrEspLba = tryMbrBoot(sectorReader);
+            if (mbrEspLba < 0)
+            {
+                println("ERROR: No bootable MBR partition found.");
+                return 0;
+            }
+            // Mount FAT on the MBR partition
+            X86FatFileSystem fat = new X86FatFileSystem(sectorReader);
+            if (!fat.mount((int) mbrEspLba))
+            {
+                println("ERROR: FAT filesystem not found on MBR partition at LBA " + mbrEspLba + ".");
+                return 0;
+            }
+            println("FAT" + fat.getFatType() + " filesystem mounted on MBR partition.");
+            return loadEfiFromFat(fat);
         }
 
         X86Gpt.Partition esp = gpt.findEfiSystemPartition();
@@ -101,19 +116,96 @@ public class X86UefiFirmware
         }
         println("FAT" + fat.getFatType() + " filesystem mounted.");
 
-        // Load \EFI\BOOT\BOOTIA32.EFI
-        X86FatFileSystem.FileEntry entry = fat.findFile("EFI\\BOOT\\BOOTIA32.EFI");
-        if (entry == null)
+        return loadEfiFromFat(fat);
+    }
+
+    /* ---------------- MBR fallback ---------------- */
+
+    /**
+     * Try to boot from an MBR-partitioned disk.  Reads LBA 0, checks for the
+     * 0x55AA signature, parses the partition table, and returns the first LBA
+     * of a FAT-type partition, or -1 if none found.
+     */
+    private long tryMbrBoot(X86FatFileSystem.SectorReader sectorReader)
+    {
+        byte[] mbr = sectorReader.readSector(0);
+        if (mbr == null || mbr.length < 512)
         {
-            entry = fat.findFile("EFI/Boot/bootia32.efi");
+            return -1;
+        }
+
+        // MBR signature at offset 510-511
+        if ((mbr[510] & 0xFF) != 0x55 || (mbr[511] & 0xFF) != 0xAA)
+        {
+            return -1;
+        }
+
+        // FAT partition types
+        int[] fatTypes = { 0x0B, 0x0C, 0x0E, 0x1B, 0x1C, 0xEB };
+
+        // 4 partition entries at offset 446, 16 bytes each
+        for (int i = 0; i < 4; i++)
+        {
+            int off = 446 + i * 16;
+            int type = mbr[off + 4] & 0xFF;
+            for (int fatType : fatTypes)
+            {
+                if (type == fatType)
+                {
+                    int firstLba = readLittleEndian32(mbr, off + 8);
+                    int totalSectors = readLittleEndian32(mbr, off + 12);
+                    println("MBR partition " + i + ": type=0x" + Integer.toHexString(type)
+                            + " firstLBA=" + firstLba + " sectors=" + totalSectors);
+                    if (firstLba > 0)
+                    {
+                        return firstLba;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    private long loadEfiFromFat(X86FatFileSystem fat)
+    {
+        // Try standard UEFI boot paths (IA32 and x64)
+        String[] efiPaths = {
+            "EFI\\BOOT\\BOOTIA32.EFI",
+            "EFI/Boot/bootia32.efi",
+            "EFI\\BOOT\\BOOTX64.EFI",
+            "EFI/Boot/bootx64.efi",
+            "EFI\\BOOT\\BOOT.EFI",
+            "EFI/Boot/boot.efi"
+        };
+
+        X86FatFileSystem.FileEntry entry = null;
+        String foundPath = null;
+        for (String path : efiPaths)
+        {
+            entry = fat.findFile(path);
+            if (entry != null)
+            {
+                foundPath = path;
+                break;
+            }
         }
         if (entry == null)
         {
-            println("ERROR: \\EFI\\BOOT\\BOOTIA32.EFI not found on ESP.");
+            println("ERROR: No EFI boot image found. Tried:");
+            for (String path : efiPaths)
+            {
+                println("  \\" + path);
+            }
+            // List root directory contents for debugging
+            println("Root directory contents:");
+            for (String e : fat.listRoot())
+            {
+                println("  " + e);
+            }
             return 0;
         }
 
-        println("Loading \\EFI\\BOOT\\BOOTIA32.EFI (" + entry.size + " bytes)...");
+        println("Loading \\" + foundPath + " (" + entry.size + " bytes)...");
         byte[] peImage = fat.readFile(entry);
         if (peImage == null)
         {
@@ -128,14 +220,16 @@ public class X86UefiFirmware
             return 0;
         }
 
-        int entryPoint = loadPeImage(pe, peImage);
+        lastBootPe32Plus = pe.pe32Plus;
+
+        long entryPoint = loadPeImage(pe, peImage);
         if (entryPoint == 0)
         {
             println("ERROR: Failed to load PE image into memory.");
             return 0;
         }
 
-        println("Entry point at 0x" + Integer.toHexString(entryPoint));
+        println("Entry point at 0x" + Long.toHexString(entryPoint));
         println("Handing control to EFI application...");
         initialized = true;
         return entryPoint;
@@ -145,6 +239,12 @@ public class X86UefiFirmware
     public boolean isInitialized()
     {
         return initialized;
+    }
+
+    /** Returns true if the last booted EFI application was a PE32+ (x64) image. */
+    public boolean isPe32Plus()
+    {
+        return lastBootPe32Plus;
     }
 
     /* ---------------- UEFI data structures ---------------- */
@@ -216,13 +316,9 @@ public class X86UefiFirmware
 
     /* ---------------- PE loading ---------------- */
 
-    private int loadPeImage(X86PeLoader pe, byte[] peImage)
+    private long loadPeImage(X86PeLoader pe, byte[] peImage)
     {
-        int imageBase = pe.imageBase;
-        if (imageBase == 0)
-        {
-            imageBase = 0x00100000; // default load address for UEFI IA32
-        }
+        long imageBase = pe.imageBase;
 
         for (X86PeLoader.PeSection sec : pe.getSections())
         {
@@ -230,20 +326,27 @@ public class X86UefiFirmware
             {
                 continue;
             }
-            int dest = imageBase + sec.virtualAddress;
+            long dest = imageBase + sec.virtualAddress;
             int copyLen = Math.min(sec.virtualSize, sec.rawSize);
+            // Clamp to PE image bounds
+            if (sec.rawAddress + copyLen > peImage.length)
+            {
+                copyLen = peImage.length - sec.rawAddress;
+                if (copyLen <= 0) continue;
+            }
             for (int i = 0; i < copyLen; i++)
             {
-                core.writeMem8(dest + i, peImage[sec.rawAddress + i]);
+                core.writeMem8((int) dest, peImage[sec.rawAddress + i]);
+                dest++;
             }
             // Zero-fill remainder of virtual size
             for (int i = copyLen; i < sec.virtualSize; i++)
             {
-                core.writeMem8(dest + i, 0);
+                core.writeMem8((int) (imageBase + sec.virtualAddress + i), 0);
             }
         }
 
-        return pe.getEntryPoint();
+        return pe.getEntryPoint64();
     }
 
     /* ---------------- IDE sector access ---------------- */
@@ -262,6 +365,12 @@ public class X86UefiFirmware
         byte[] buf = new byte[X86IdeDevice.SECTOR_SIZE];
         dev.readSector(lba, buf);
         return buf;
+    }
+
+    private static int readLittleEndian32(byte[] buf, int off)
+    {
+        return (buf[off] & 0xFF) | ((buf[off + 1] & 0xFF) << 8) |
+               ((buf[off + 2] & 0xFF) << 16) | ((buf[off + 3] & 0xFF) << 24);
     }
 
     /* ---------------- Console output ---------------- */

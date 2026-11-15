@@ -7,7 +7,9 @@ import jCPU.Peripheral;
 import java.util.HashMap;
 import java.util.Map;
 
-public class X86Core implements iCPU {
+public class X86Core implements iCPU
+{
+    /* ---------------- 32-bit register indices (legacy) ---------------- */
     public static final int REG_EAX = 0;
     public static final int REG_ECX = 1;
     public static final int REG_EDX = 2;
@@ -16,8 +18,31 @@ public class X86Core implements iCPU {
     public static final int REG_EBP = 5;
     public static final int REG_ESI = 6;
     public static final int REG_EDI = 7;
-    public static final int REG_VIRTUAL_BASE = 8;
-    public static final int REG_COUNT = 16;
+
+    /* ---------------- 64-bit register indices (long mode) ---------------- */
+    public static final int REG_RAX = 8;
+    public static final int REG_RCX = 9;
+    public static final int REG_RDX = 10;
+    public static final int REG_RBX = 11;
+    public static final int REG_RSP = 12;
+    public static final int REG_RBP = 13;
+    public static final int REG_RSI = 14;
+    public static final int REG_RDI = 15;
+    public static final int REG_R8  = 16;
+    public static final int REG_R9  = 17;
+    public static final int REG_R10 = 18;
+    public static final int REG_R11 = 19;
+    public static final int REG_R12 = 20;
+    public static final int REG_R13 = 21;
+    public static final int REG_R14 = 22;
+    public static final int REG_R15 = 23;
+
+    public static final int REG_COUNT_32 = 8;
+    public static final int REG_COUNT_64 = 24;
+
+    /* Virtual register base (used by NASM assembler/evaluator). */
+    public static final int REG_VIRTUAL_BASE = 100;
+    public static final int REG_VIRTUAL_COUNT = 32;
 
     public static final int FLAG_CF = 0;
     public static final int FLAG_PF = 2;
@@ -26,14 +51,20 @@ public class X86Core implements iCPU {
     public static final int FLAG_SF = 7;
     public static final int FLAG_DF = 10;
     public static final int FLAG_OF = 11;
+    public static final int FLAG_IF = 9;
 
-    private final int[] regs = new int[REG_COUNT];
-    private int flags = 0;
+    private final int[] regs32 = new int[REG_COUNT_32];
+    private final long[] regs64 = new long[REG_COUNT_64];
+    private final int[] regsVirtual = new int[REG_VIRTUAL_COUNT];
+    private int flags32 = 0;
+    private long rflags64 = 0;
     private final int memSize;
     private final Map<Integer, Byte> memory = new HashMap<>();
     private final Map<Integer, Peripheral> ioPorts = new HashMap<>();
     private iExecutor executor;
-    private int pc = 0;
+    private int pc32 = 0;
+    private long rip64 = 0;
+    private boolean longMode = false;
     private volatile boolean stopRequested;
 
     public interface iExecutor {
@@ -48,49 +79,121 @@ public class X86Core implements iCPU {
 
     @Override
     public void reset() {
-        for (int i = 0; i < REG_COUNT; i++) {
-            regs[i] = 0;
+        for (int i = 0; i < REG_COUNT_32; i++) {
+            regs32[i] = 0;
         }
-        flags = 0;
-        pc = 0;
-        regs[REG_ESP] = memSize;
+        for (int i = 0; i < REG_COUNT_64; i++) {
+            regs64[i] = 0;
+        }
+        for (int i = 0; i < REG_VIRTUAL_COUNT; i++) {
+            regsVirtual[i] = 0;
+        }
+        flags32 = 0;
+        rflags64 = 0;
+        pc32 = 0;
+        rip64 = 0;
+        longMode = false;
+        regs32[REG_ESP] = memSize;
+        regs64[REG_RSP] = memSize;
     }
 
+    /* ---------------- register access ---------------- */
+
     public void setReg(int reg, int value) {
-        if (reg >= 0 && reg < REG_COUNT) {
-            regs[reg] = value;
+        if (reg >= 0 && reg < REG_COUNT_32) {
+            regs32[reg] = value;
+        }
+        if (longMode && reg >= REG_RAX && reg < REG_COUNT_64) {
+            regs64[reg] = value & 0xFFFFFFFFL;
+        }
+        if (reg >= REG_VIRTUAL_BASE && reg < REG_VIRTUAL_BASE + REG_VIRTUAL_COUNT) {
+            regsVirtual[reg - REG_VIRTUAL_BASE] = value;
         }
     }
 
     public int getReg(int reg) {
-        if (reg >= 0 && reg < REG_COUNT) {
-            return regs[reg];
+        if (reg >= 0 && reg < REG_COUNT_32) {
+            return regs32[reg];
+        }
+        if (longMode && reg >= REG_RAX && reg < REG_COUNT_64) {
+            return (int) (regs64[reg] & 0xFFFFFFFFL);
+        }
+        if (reg >= REG_VIRTUAL_BASE && reg < REG_VIRTUAL_BASE + REG_VIRTUAL_COUNT) {
+            return regsVirtual[reg - REG_VIRTUAL_BASE];
+        }
+        return 0;
+    }
+
+    public void setReg64(int reg, long value) {
+        if (reg >= REG_RAX && reg < REG_COUNT_64) {
+            regs64[reg] = value;
+        } else if (reg >= 0 && reg < REG_COUNT_32) {
+            regs32[reg] = (int) value;
+        }
+    }
+
+    public long getReg64(int reg) {
+        if (reg >= REG_RAX && reg < REG_COUNT_64) {
+            return regs64[reg];
+        }
+        if (reg >= 0 && reg < REG_COUNT_32) {
+            return regs32[reg] & 0xFFFFFFFFL;
         }
         return 0;
     }
 
     public void setFlag(int flag, boolean value) {
         if (value) {
-            flags |= (1 << flag);
+            flags32 |= (1 << flag);
+            rflags64 |= (1L << flag);
         } else {
-            flags &= ~(1 << flag);
+            flags32 &= ~(1 << flag);
+            rflags64 &= ~(1L << flag);
         }
     }
 
     public boolean getFlag(int flag) {
-        return (flags & (1 << flag)) != 0;
+        return (flags32 & (1 << flag)) != 0;
     }
 
+    public long getRflags64() {
+        return rflags64;
+    }
+
+    public void setRflags64(long rflags) {
+        this.rflags64 = rflags;
+        this.flags32 = (int) rflags;
+    }
+
+    /* ---------------- stack ---------------- */
+
     public void push32(int value) {
-        regs[REG_ESP] -= 4;
-        writeMem32(regs[REG_ESP], value);
+        regs32[REG_ESP] -= 4;
+        writeMem32(regs32[REG_ESP], value);
+        regs64[REG_RSP] = regs32[REG_ESP] & 0xFFFFFFFFL;
     }
 
     public int pop32() {
-        int value = readMem32(regs[REG_ESP]);
-        regs[REG_ESP] += 4;
+        int value = readMem32(regs32[REG_ESP]);
+        regs32[REG_ESP] += 4;
+        regs64[REG_RSP] = regs32[REG_ESP] & 0xFFFFFFFFL;
         return value;
     }
+
+    public void push64(long value) {
+        regs64[REG_RSP] -= 8;
+        writeMem64(regs64[REG_RSP], value);
+        regs32[REG_ESP] = (int) (regs64[REG_RSP] & 0xFFFFFFFFL);
+    }
+
+    public long pop64() {
+        long value = readMem64(regs64[REG_RSP]);
+        regs64[REG_RSP] += 8;
+        regs32[REG_ESP] = (int) (regs64[REG_RSP] & 0xFFFFFFFFL);
+        return value;
+    }
+
+    /* ---------------- memory access ---------------- */
 
     public int readMem8(int addr) {
         Byte b = memory.get(addr);
@@ -127,6 +230,30 @@ public class X86Core implements iCPU {
         writeMem8(addr + 3, (value >> 24) & 0xFF);
     }
 
+    public long readMem64(long addr) {
+        long b0 = readMem8((int) addr) & 0xFFL;
+        long b1 = readMem8((int) (addr + 1)) & 0xFFL;
+        long b2 = readMem8((int) (addr + 2)) & 0xFFL;
+        long b3 = readMem8((int) (addr + 3)) & 0xFFL;
+        long b4 = readMem8((int) (addr + 4)) & 0xFFL;
+        long b5 = readMem8((int) (addr + 5)) & 0xFFL;
+        long b6 = readMem8((int) (addr + 6)) & 0xFFL;
+        long b7 = readMem8((int) (addr + 7)) & 0xFFL;
+        return b0 | (b1 << 8) | (b2 << 16) | (b3 << 24) |
+               (b4 << 32) | (b5 << 40) | (b6 << 48) | (b7 << 56);
+    }
+
+    public void writeMem64(long addr, long value) {
+        writeMem8((int) addr, (int) (value & 0xFF));
+        writeMem8((int) (addr + 1), (int) ((value >> 8) & 0xFF));
+        writeMem8((int) (addr + 2), (int) ((value >> 16) & 0xFF));
+        writeMem8((int) (addr + 3), (int) ((value >> 24) & 0xFF));
+        writeMem8((int) (addr + 4), (int) ((value >> 32) & 0xFF));
+        writeMem8((int) (addr + 5), (int) ((value >> 40) & 0xFF));
+        writeMem8((int) (addr + 6), (int) ((value >> 48) & 0xFF));
+        writeMem8((int) (addr + 7), (int) ((value >> 56) & 0xFF));
+    }
+
     public void registerPort(int port, Peripheral peripheral) {
         ioPorts.put(port, peripheral);
     }
@@ -158,7 +285,6 @@ public class X86Core implements iCPU {
     public void go(int limit) throws Exception {
         stopRequested = false;
         if (limit < 0) {
-            // Run until stopRequested or exception
             while (!stopRequested) {
                 step();
             }
@@ -186,9 +312,15 @@ public class X86Core implements iCPU {
         this.executor = executor;
     }
 
+    /* ---------------- PC / RIP ---------------- */
+
     @Override
     public int code(int i) {
-        return readMem8(pc + i);
+        return readMem8(pc32 + i);
+    }
+
+    public long code64(long i) {
+        return readMem8((int) (rip64 + i)) & 0xFFL;
     }
 
     @Override
@@ -208,7 +340,7 @@ public class X86Core implements iCPU {
 
     @Override
     public int acc() {
-        return regs[REG_EAX];
+        return regs32[REG_EAX];
     }
 
     @Override
@@ -218,7 +350,7 @@ public class X86Core implements iCPU {
 
     @Override
     public int code16(int i) {
-        return readMem16(pc + i);
+        return readMem16(pc32 + i);
     }
 
     @Override
@@ -233,12 +365,18 @@ public class X86Core implements iCPU {
 
     @Override
     public void pc(int address) {
-        this.pc = address;
+        this.pc32 = address;
+        this.rip64 = address & 0xFFFFFFFFL;
+    }
+
+    public void rip(long address) {
+        this.rip64 = address;
+        this.pc32 = (int) address;
     }
 
     @Override
     public void acc(int i) {
-        regs[REG_EAX] = i;
+        regs32[REG_EAX] = i;
     }
 
     @Override
@@ -298,12 +436,12 @@ public class X86Core implements iCPU {
 
     @Override
     public int b() {
-        return regs[REG_EBX];
+        return regs32[REG_EBX];
     }
 
     @Override
     public void b(int i) {
-        regs[REG_EBX] = i;
+        regs32[REG_EBX] = i;
     }
 
     @Override
@@ -368,20 +506,43 @@ public class X86Core implements iCPU {
         return 0;
     }
 
+    public int getPC32() {
+        return pc32;
+    }
+
     public int getPC() {
-        return pc;
+        return pc32;
+    }
+
+    public long getPC64() {
+        return rip64;
     }
 
     public void setPC(int pc) {
-        this.pc = pc;
+        this.pc32 = pc;
+        this.rip64 = pc & 0xFFFFFFFFL;
+    }
+
+    public void setPC64(long pc) {
+        this.rip64 = pc;
+        this.pc32 = (int) pc;
+    }
+
+    public boolean isLongMode() {
+        return longMode;
+    }
+
+    public void setLongMode(boolean longMode) {
+        this.longMode = longMode;
     }
 
     public int getFlags() {
-        return flags;
+        return flags32;
     }
 
     public void setFlags(int flags) {
-        this.flags = flags;
+        this.flags32 = flags;
+        this.rflags64 = flags & 0xFFFFFFFFL;
     }
 
     public int getMemSize() {

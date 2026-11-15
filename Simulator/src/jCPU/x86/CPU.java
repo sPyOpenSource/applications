@@ -140,9 +140,13 @@ public class CPU extends jx.disass.x86
 	 * \EFI\BOOT\BOOTIA32.EFI via FAT+PE, and return its entry point.
 	 * Caller should set PC to the returned address before stepping.
 	 */
-	public int uefiBoot()
+	public long uefiBoot()
 	{
-		return uefi.boot();
+		long entryPoint = uefi.boot();
+		if (entryPoint != 0 && uefi.isPe32Plus()) {
+			setLongMode(true);
+		}
+		return entryPoint;
 	}
 
 	public boolean uefiInitialized()
@@ -223,6 +227,36 @@ public class CPU extends jx.disass.x86
 		core.setPC(pc);
 	}
 
+	/**
+	 * Enable 64-bit long mode and switch the instruction executor to the
+	 * x86-64 decoder.  Call this before starting execution of a PE32+
+	 * (x64) UEFI application.
+	 */
+	public void setLongMode(boolean longMode)
+	{
+		core.setLongMode(longMode);
+		if (longMode) {
+			core.setActiveExecutor(new X86Amd64());
+		} else {
+			core.setActiveExecutor(new i8086());
+		}
+	}
+
+	public boolean isLongMode()
+	{
+		return core.isLongMode();
+	}
+
+	public long getPC64()
+	{
+		return core.getPC64();
+	}
+
+	public void setPC64(long pc)
+	{
+		core.setPC64(pc);
+	}
+
 	public void setTraceExecution(boolean trace)
 	{
 		this.traceExecution = trace;
@@ -242,12 +276,29 @@ public class CPU extends jx.disass.x86
 	public void dumpRegisters()
 	{
 		System.out.println("=== X86 Registers ===");
-		System.out.println(String.format("  EAX=0x%08X  EBX=0x%08X  ECX=0x%08X  EDX=0x%08X",
-				core.getReg(0), core.getReg(3), core.getReg(1), core.getReg(2)));
-		System.out.println(String.format("  ESI=0x%08X  EDI=0x%08X  EBP=0x%08X  ESP=0x%08X",
-				core.getReg(6), core.getReg(7), core.getReg(5), core.getReg(4)));
-		System.out.println(String.format("  PC=0x%08X  FLAGS=0x%08X",
-				core.getPC(), core.getFlags()));
+		if (core.isLongMode()) {
+			System.out.println(String.format("  RAX=0x%016X  RBX=0x%016X  RCX=0x%016X  RDX=0x%016X",
+					core.getReg64(X86Core.REG_RAX), core.getReg64(X86Core.REG_RBX),
+					core.getReg64(X86Core.REG_RCX), core.getReg64(X86Core.REG_RDX)));
+			System.out.println(String.format("  RSI=0x%016X  RDI=0x%016X  RBP=0x%016X  RSP=0x%016X",
+					core.getReg64(X86Core.REG_RSI), core.getReg64(X86Core.REG_RDI),
+					core.getReg64(X86Core.REG_RBP), core.getReg64(X86Core.REG_RSP)));
+			System.out.println(String.format("  R8=0x%016X  R9=0x%016X  R10=0x%016X  R11=0x%016X",
+					core.getReg64(X86Core.REG_R8), core.getReg64(X86Core.REG_R9),
+					core.getReg64(X86Core.REG_R10), core.getReg64(X86Core.REG_R11)));
+			System.out.println(String.format("  R12=0x%016X R13=0x%016X R14=0x%016X R15=0x%016X",
+					core.getReg64(X86Core.REG_R12), core.getReg64(X86Core.REG_R13),
+					core.getReg64(X86Core.REG_R14), core.getReg64(X86Core.REG_R15)));
+			System.out.println(String.format("  RIP=0x%016X RFLAGS=0x%016X",
+					core.getPC64(), core.getRflags64()));
+		} else {
+			System.out.println(String.format("  EAX=0x%08X  EBX=0x%08X  ECX=0x%08X  EDX=0x%08X",
+					core.getReg(0), core.getReg(3), core.getReg(1), core.getReg(2)));
+			System.out.println(String.format("  ESI=0x%08X  EDI=0x%08X  EBP=0x%08X  ESP=0x%08X",
+					core.getReg(6), core.getReg(7), core.getReg(5), core.getReg(4)));
+			System.out.println(String.format("  PC=0x%08X  FLAGS=0x%08X",
+					core.getPC(), core.getFlags()));
+		}
 	}
 
 	/**
@@ -269,6 +320,16 @@ public class CPU extends jx.disass.x86
 	public int step() throws Exception
 	{
 		uhci.tick();
+		if (core.isLongMode()) {
+			long rip = core.getPC64();
+			int opcode = core.readMem8((int) rip);
+			if (traceExecution)
+			{
+				System.out.println(String.format("RIP=0x%016X OP=0x%02X RAX=0x%016X RSP=0x%016X",
+						rip, opcode, core.getReg64(X86Core.REG_RAX), core.getReg64(X86Core.REG_RSP)));
+			}
+			return core.step();
+		}
 		int pc = core.getPC();
 		int opcode = core.readMem8(pc);
 		if (traceExecution)

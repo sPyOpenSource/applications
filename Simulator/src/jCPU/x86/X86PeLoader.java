@@ -12,7 +12,7 @@ public class X86PeLoader
 {
     public final boolean pe32Plus;
     public final int entryPointRva;
-    public final int imageBase;
+    public final long imageBase;
     public final int sizeOfImage;
     public final int sectionAlignment;
     public final int fileAlignment;
@@ -86,7 +86,7 @@ public class X86PeLoader
         {
             // PE32+ optional header
             entryPointRva = readLittleEndian32(peImage, optHeaderOff + 16);
-            imageBase = readInt64AsInt(peImage, optHeaderOff + 24); // truncate to 32-bit
+            imageBase = readInt64(peImage, optHeaderOff + 24);
             sizeOfImage = readLittleEndian32(peImage, optHeaderOff + 60);
             sectionAlignment = readLittleEndian32(peImage, optHeaderOff + 36);
             fileAlignment = readLittleEndian32(peImage, optHeaderOff + 40);
@@ -127,6 +127,11 @@ public class X86PeLoader
 
     public int getEntryPoint()
     {
+        return (int) (imageBase + entryPointRva);
+    }
+
+    public long getEntryPoint64()
+    {
         return imageBase + entryPointRva;
     }
 
@@ -144,12 +149,12 @@ public class X86PeLoader
     }
 
     /**
-     * Reads an 8-byte little-endian field and returns its low 32 bits.
-     * PE32+ ImageBase is 64-bit but we simulate a 32-bit flat space.
+     * Reads an 8-byte little-endian field as a long.
      */
-    private static int readInt64AsInt(byte[] buf, int off)
+    private static long readInt64(byte[] buf, int off)
     {
-        return readLittleEndian32(buf, off);
+        return readLittleEndian32(buf, off) & 0xFFFFFFFFL |
+               ((long) readLittleEndian32(buf, off + 4) << 32);
     }
 
     private static String readSectionName(byte[] buf, int off)
