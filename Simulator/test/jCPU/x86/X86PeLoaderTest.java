@@ -115,13 +115,27 @@ public class X86PeLoaderTest
     }
 
     @Test
-    public void testImageWithoutRelocationsCannotMove()
+    public void testImageWithStrippedRelocationsCannotMove()
     {
         byte[] f = image();
-        put(f, 0x44 + 20 + 112 + 5 * 8 + 4, 0, 4);
+        put(f, 0x44 + 18, 0x0023, 2);       // RELOCS_STRIPPED | EXECUTABLE | LARGE_ADDRESS_AWARE
         X86PeLoader pe = new X86PeLoader(f);
 
+        assertTrue(pe.relocsStripped);
         assertNull(pe.layout(f, 0x1000000L));
         assertNotNull(pe.layout(f, BASE));
+    }
+
+    @Test
+    public void testImageWithoutRelocationEntriesCanMove()
+    {
+        // Position-independent code has nothing to relocate and no .reloc data.
+        byte[] f = image();
+        put(f, 0x44 + 20 + 112 + 5 * 8 + 4, 0, 4);
+        put(f, 0x200, 0, 8);
+        byte[] mem = new X86PeLoader(f).layout(f, 0x1000000L);
+
+        assertNotNull(mem);
+        assertEquals(0x1122334455667788L, get(mem, 0x1008, 8));
     }
 }

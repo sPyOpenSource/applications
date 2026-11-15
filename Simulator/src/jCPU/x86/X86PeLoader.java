@@ -20,6 +20,8 @@ public class X86PeLoader
     /** Base relocation directory (data directory 5); size 0 when absent. */
     public final int relocRva;
     public final int relocSize;
+    /** IMAGE_FILE_RELOCS_STRIPPED: the image can only run at its ImageBase. */
+    public final boolean relocsStripped;
 
     private PeSection[] sections = new PeSection[0];
 
@@ -28,6 +30,7 @@ public class X86PeLoader
         boolean plus = false;
         int entry = 0, imageSize = 0, headersSize = 0, sectAlign = 1, fileAlign = 1;
         int relRva = 0, relSize = 0;
+        boolean stripped = false;
         long base = 0;
 
         int optHeaderOff = -1, optHeaderSize = 0, numSections = 0;
@@ -41,6 +44,7 @@ public class X86PeLoader
             {
                 int coffOff = e_lfanew + 4;
                 numSections = readLittleEndian16(peImage, coffOff + 2);
+                stripped = (readLittleEndian16(peImage, coffOff + 18) & 0x0001) != 0;
                 optHeaderSize = readLittleEndian16(peImage, coffOff + 16);
                 if (coffOff + 20 + optHeaderSize <= peImage.length && optHeaderSize >= 64)
                 {
@@ -98,6 +102,7 @@ public class X86PeLoader
         fileAlignment = fileAlign;
         relocRva = relRva;
         relocSize = relSize;
+        relocsStripped = stripped;
     }
 
     public PeSection[] getSections()
@@ -111,7 +116,7 @@ public class X86PeLoader
      * loading at {@code loadAddress} instead of {@link #imageBase}.
      *
      * @return {@code sizeOfImage} bytes to copy to {@code loadAddress}, or
-     *         null when the image has to move but has no relocations
+     *         null when the image has to move but its relocations were stripped
      */
     public byte[] layout(byte[] peImage, long loadAddress)
     {
@@ -136,7 +141,7 @@ public class X86PeLoader
         {
             return mem;
         }
-        if (relocSize == 0)
+        if (relocsStripped)
         {
             return null;
         }
