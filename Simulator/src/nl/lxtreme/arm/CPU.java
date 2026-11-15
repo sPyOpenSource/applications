@@ -9,7 +9,10 @@ import jCPU.CallListener;
 import jCPU.InterruptStatistic;
 import jCPU.MCS51.MCS51Performance;
 import jCPU.iCPU;
+import j51.swing.VgaPeripheral;
 import java.util.*;
+import javax.swing.JFrame;
+import java.awt.GraphicsEnvironment;
 import nl.lxtreme.arm.memory.*;
 
 /**
@@ -29,6 +32,11 @@ public class CPU implements iCPU
 
   private final List<Integer> breakpoints;
 
+  // Base address and size of the memory range mapped to the VGA peripheral.
+  // Matches j51.swing.VgaPeripheral.VGA_BASE (0x50000000).
+  private static final long VGA_BASE = 0x50000000L;
+  private static final int VGA_SIZE = 0x30000;
+
   // CONSTRUCTORS
 
   /**
@@ -42,35 +50,40 @@ public class CPU implements iCPU
     this.gpr = new int[16];
     this.cpsr = new Cpsr();
 
-    this.code = memory;
+    VgaPeripheral vga = new VgaPeripheral();
+    this.code = new VgaMemory(memory == null ? new Memory() : memory, vga, VGA_BASE, VGA_SIZE);
     this.breakpoints = new ArrayList<>(32);
     this.entryPoint = 0;
+    showVga(vga);
   }
   
   public CPU(){
     this.gpr = new int[16];
     this.cpsr = new Cpsr();
-    /*Memory memory = new Memory();
-    //this.code = new Memory();
-    File elfFile = new File("/Users/xuyi/Source/OS/armOS/lib/jcore/test/Simulator/test/resources/helloWorld_static");
-    Elf elf;
-    try {
-        elf = new Elf(elfFile);
-        for (ProgramHeader ph : elf.getProgramHeaders()){
-            int size = (int) ph.getMemorySize();
-            if (size <= 0){
-                continue;
-            }
-
-            Chunk chunk = memory.create(ph.getVirtualAddress(), size);
-            elf.readSegment(ph, chunk);
-        }
-    } catch (IOException ex) {
-        //Logger.getLogger(CPU.class.getName()).log(Level.SEVERE, null, ex);
-    }
-this.code = memory;*/
+    VgaPeripheral vga = new VgaPeripheral();
+    this.code = new VgaMemory(new Memory(), vga, VGA_BASE, VGA_SIZE);
     this.breakpoints = new ArrayList<>(32);
     this.entryPoint = 0;
+    showVga(vga);
+  }
+
+  /**
+   * Show the VGA console window by default (skipped in headless environments).
+   * 
+   * @param vga
+   *          the VGA peripheral whose display should be shown.
+   */
+  private void showVga(VgaPeripheral vga)
+  {
+    if (GraphicsEnvironment.isHeadless()) {
+      return;
+    }
+    JFrame frame = new JFrame("VGA");
+    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    frame.getContentPane().add(vga.getDisplay());
+    frame.pack();
+    frame.setLocationRelativeTo(null);
+    frame.setVisible(true);
   }
 
   // METHODS

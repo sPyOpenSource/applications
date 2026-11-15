@@ -6,6 +6,8 @@ import jCPU.x86.X86Core;
 import jCPU.x86.X86VgaPeripheral;
 import jCPU.x86.X86UartPeripheral;
 import nasm.inst.NasmInst;
+import javax.swing.JFrame;
+import java.awt.GraphicsEnvironment;
 
 public class NasmVM implements iCPU {
     private final int verboseLevel = 0;
@@ -13,6 +15,7 @@ public class NasmVM implements iCPU {
     private final X86Core core;
     private Nasm code;
     NasmEval eval;
+    private JFrame vgaFrame;
 
     public NasmVM(){
         this(64 * 1024 * 1024);
@@ -28,6 +31,22 @@ public class NasmVM implements iCPU {
         for (int port = 0x3F8; port <= 0x3FF; port++) {
             core.registerPort(port, uart);
         }
+        enableVga(vga);
+    }
+
+    /**
+     * Show the VGA console window by default (skipped in headless environments).
+     */
+    private void enableVga(X86VgaPeripheral vga) {
+        if (GraphicsEnvironment.isHeadless()) {
+            return;
+        }
+        vgaFrame = new JFrame("VGA - NasmVM");
+        vgaFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        vgaFrame.getContentPane().add(vga.getDisplay());
+        vgaFrame.pack();
+        vgaFrame.setLocationRelativeTo(null);
+        vgaFrame.setVisible(true);
     }
 
     public X86Core getCore() {
