@@ -581,7 +581,40 @@ public class X86Core implements iCPU
 
     @Override
     public int sfr(int add) {
-        return 0;
+        // Map x86 registers to SFR addresses 128-137 so they appear in the
+        // SFR panel:
+        //   128=EAX 129=EBX 130=ECX 131=EDX 132=ESI 133=EDI 134=EBP 135=ESP
+        //   136=PC  137=FLAGS
+        switch (add) {
+            case 128: return getReg(REG_EAX);
+            case 129: return getReg(REG_EBX);
+            case 130: return getReg(REG_ECX);
+            case 131: return getReg(REG_EDX);
+            case 132: return getReg(REG_ESI);
+            case 133: return getReg(REG_EDI);
+            case 134: return getReg(REG_EBP);
+            case 135: return getReg(REG_ESP);
+            case 136: return getPC();
+            case 137: return getFlags();
+            default: return 0;
+        }
+    }
+
+    @Override
+    public String getSfrName(int i) {
+        switch (i) {
+            case 128: return "EAX";
+            case 129: return "EBX";
+            case 130: return "ECX";
+            case 131: return "EDX";
+            case 132: return "ESI";
+            case 133: return "EDI";
+            case 134: return "EBP";
+            case 135: return "ESP";
+            case 136: return "PC  ";
+            case 137: return "FLAG";
+            default: return "";
+        }
     }
 
     @Override

@@ -97,6 +97,18 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private JSplitPane leftSplit;
 	private final JSplitPane bottomSplit;
 
+	/** Optional command-line path to a floppy image to auto-load after CPU selection. */
+	private String autoFloppyPath;
+
+	/** Optional command-line path to an OVMF firmware image to auto-load after CPU selection. */
+	private String autoOvmfPath;
+
+	/** Optional command-line path to a floppy image to auto-attach AND boot after CPU selection. */
+	private String autoFloppyBootPath;
+
+	/** Optional command-line path to a hard disk image to auto-attach AND UEFI-boot after CPU selection. */
+	private String autoHddUefiBootPath;
+
 	GUI(){
 		setTitle("J51 1.05 $Revision: 70 $ - Created by mario@viara.eu");
 
@@ -271,6 +283,59 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		updatePanel(true);
 		emulation(false);
 		messages(cpu.toString());
+
+		// Auto-load floppy and/or UEFI firmware from command-line arguments.
+		if (GUI.this.cpu instanceof jCPU.x86.CPU) {
+			jCPU.x86.CPU x86Cpu = (jCPU.x86.CPU) GUI.this.cpu;
+			if (autoFloppyPath != null) {
+				try {
+					x86Cpu.attachFloppyImage(autoFloppyPath);
+					messages("Auto-loaded floppy image: " + autoFloppyPath);
+				} catch (IOException ex) {
+					messages("Failed to auto-load floppy image: " + ex.getMessage());
+				}
+			}
+			if (autoOvmfPath != null) {
+				int size = x86Cpu.loadOvmf(autoOvmfPath);
+				if (size < 0) {
+					messages("Failed to auto-load OVMF firmware: " + autoOvmfPath);
+				} else {
+					x86Cpu.setPC(x86Cpu.getOvmfResetVector());
+					messages("Auto-loaded OVMF firmware: " + size + " bytes. PC set to reset vector 0x"
+							+ Integer.toHexString(x86Cpu.getOvmfResetVector())
+							+ ". Click Go to start.");
+				}
+			}
+			if (autoFloppyBootPath != null) {
+				try {
+					x86Cpu.attachFloppyImage(autoFloppyBootPath);
+					messages("Auto-attached floppy image: " + autoFloppyBootPath);
+					boolean ok = x86Cpu.floppyBoot();
+					if (ok) {
+						messages("Auto-booted floppy: PC jumped to 0x7C00");
+					} else {
+						messages("Auto-boot floppy failed: no bootable sector found");
+					}
+				} catch (IOException ex) {
+					messages("Failed to auto-boot floppy: " + ex.getMessage());
+				}
+			}
+			if (autoHddUefiBootPath != null) {
+				try {
+					x86Cpu.attachDiskImage(autoHddUefiBootPath);
+					messages("Auto-attached hard disk: " + autoHddUefiBootPath);
+					long entryPoint = x86Cpu.uefiBoot();
+					if (entryPoint != 0) {
+						messages("UEFI boot entry point: 0x" + Long.toHexString(entryPoint));
+						x86Cpu.setPC64(entryPoint);
+					} else {
+						messages("UEFI boot failed: no bootable ESP found on disk");
+					}
+				} catch (IOException ex) {
+					messages("Failed to auto-boot hard disk UEFI: " + ex.getMessage());
+				}
+			}
+		}
 	}
 
 	void addKey(JMenuItem item, int key)
@@ -762,9 +827,13 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			if (size < 0) {
 				throw new IOException("Failed to load OVMF.fd: " + path);
 			}
-			// IA32 OVMF reset vector is at 0xFFFFFFF0 (top of 4GB space)
-			x86Cpu.setPC(0xFFFFFFF0);
-			messages("Loaded OVMF.fd: " + size + " bytes ending at 0xFFFFFFFF. PC set to 0xFFFFFFF0 (IA32 reset vector). Click Go to start.");
+			// Reset vector is 16 bytes below the top of physical memory.
+			x86Cpu.setPC(x86Cpu.getOvmfResetVector());
+			messages("Loaded OVMF.fd: " + size + " bytes ending at 0x"
+					+ Integer.toHexString(x86Cpu.getOvmfResetVector() + 16)
+					+ ". PC set to reset vector 0x"
+					+ Integer.toHexString(x86Cpu.getOvmfResetVector())
+					+ ". Click Go to start.");
 		} else {
 			String ext = path.contains(".") ? path.substring(path.lastIndexOf(".")) : "(no extension)";
 			throw new IllegalArgumentException("Unsupported file format: " + ext +
@@ -1597,7 +1666,30 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	static public void main(String argv[])
 	{
 		try {
+			// Parse command-line arguments for auto-loading.
+			//   --floppy <path>   Auto-attach a floppy disk image after CPU selection.
+			//   --ovmf <path>     Auto-load OVMF firmware after CPU selection.
+			String floppyPath = null;
+			String ovmfPath = null;
+			String floppyBootPath = null;
+			String hddUefiBootPath = null;
+			for (int i = 0; i < argv.length; i++) {
+				if ("--floppy".equals(argv[i]) && i + 1 < argv.length) {
+					floppyPath = argv[++i];
+				} else if ("--ovmf".equals(argv[i]) && i + 1 < argv.length) {
+					ovmfPath = argv[++i];
+			} else if ("--floppy-boot".equals(argv[i]) && i + 1 < argv.length) {
+				floppyBootPath = argv[++i];
+			} else if ("--hdd-uefi-boot".equals(argv[i]) && i + 1 < argv.length) {
+				hddUefiBootPath = argv[++i];
+				}
+			}
+
 			GUI j51 = new GUI();
+			j51.autoFloppyPath = floppyPath;
+			j51.autoOvmfPath = ovmfPath;
+			j51.autoFloppyBootPath = floppyBootPath;
+			j51.autoHddUefiBootPath = hddUefiBootPath;
 			j51.updatePanel(true);
 			j51.pack();
 			j51.setVisible(true);

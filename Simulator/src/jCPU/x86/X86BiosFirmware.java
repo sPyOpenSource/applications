@@ -646,8 +646,23 @@ public class X86BiosFirmware
                 core.setFlag(X86Core.FLAG_CF, false);
                 break;
 
-            case 0x02: // read sectors
+            case 0x02: // read sectors (CHS)
                 handleReadSectors(al, ch, cl, dh, dl, bx);
+                break;
+
+            case 0x41: // check extensions present
+                // BX should be 0xAA55 on input; return BX=0xAA55 on success
+                core.setReg(X86Core.REG_EBX, 0xAA55);
+                setAh(0x00);
+                core.setFlag(X86Core.FLAG_CF, false);
+                break;
+
+            case 0x42: // extended read sectors (LBA)
+                handleExtendedReadSectors(dl);
+                break;
+
+            case 0x48: // extended drive parameters
+                handleExtendedDriveParams(dl);
                 break;
 
             case 0x08: // get drive parameters
@@ -720,6 +735,131 @@ public class X86BiosFirmware
         core.setFlag(X86Core.FLAG_CF, false);
         System.out.println("BIOS INT13: read " + sectorCount + " sector(s) from LBA "
                 + lba + " to 0x" + Integer.toHexString(dest));
+    }
+
+    /**
+     * INT 0x13 AH=0x42: Extended Read Sectors (LBA).
+     * <p>DS:SI points to a Disk Address Packet (DAP):
+     * <ul>
+     *   <li>[0]   Size of packet (0x10 = 16)
+     *   <li>[1]   Reserved (0x00)
+     *   <li>[2-3] Number of sectors to transfer (16-bit)
+     *   <li>[4-5] Buffer offset (16-bit)
+     *   <li>[6-7] Buffer segment (16-bit)
+     *   <li>[8-15] LBA start address (64-bit, little-endian)
+     * </ul>
+     */
+    private void handleExtendedReadSectors(int dl)
+    {
+        if (floppy == null || sectorsPerTrack == 0)
+        {
+            setAh(0x01);
+            core.setFlag(X86Core.FLAG_CF, true);
+            return;
+        }
+
+        int si = core.getReg(X86Core.REG_ESI) & 0xFFFF;
+        int dsBase = core.getSegBase(X86Core.SEG_DS);
+        int dapAddr = (dsBase + si) & 0xFFFFFF;
+
+        int dapSize = core.readMem8(dapAddr) & 0xFF;
+        if (dapSize < 0x10)
+        {
+            setAh(0x01);
+            core.setFlag(X86Core.FLAG_CF, true);
+            return;
+        }
+
+        int sectorCount = core.readMem16(dapAddr + 2) & 0xFFFF;
+        int bufOff = core.readMem16(dapAddr + 4) & 0xFFFF;
+        int bufSeg = core.readMem16(dapAddr + 6) & 0xFFFF;
+        long lba = core.readMem32(dapAddr + 8) & 0xFFFFFFFFL;
+        // Read high 32 bits of LBA (usually 0 for floppy)
+        int lbaHi = core.readMem32(dapAddr + 12);
+
+        if (sectorCount == 0)
+        {
+            setAh(0x00);
+            core.setFlag(X86Core.FLAG_CF, false);
+            return;
+        }
+
+        int bufOffBase = bufOff;
+        // Extended read uses the buffer segment from the DAP, not ES.
+        // In real mode, linear address = segment * 16 + offset.
+        int dest = (bufSeg * 16 + bufOffBase) & 0xFFFFFF;
+
+        for (int i = 0; i < sectorCount; i++)
+        {
+            long targetLba = lba + i;
+            if (targetLba >= floppy.getSectorCount())
+            {
+                setAh(0x09);
+                core.setFlag(X86Core.FLAG_CF, true);
+                return;
+            }
+            byte[] buf = new byte[X86IdeDevice.SECTOR_SIZE];
+            floppy.readSector((int) targetLba, buf);
+            int base = dest + i * X86IdeDevice.SECTOR_SIZE;
+            for (int j = 0; j < buf.length; j++)
+            {
+                core.writeMem8(base + j, buf[j]);
+            }
+        }
+
+        setAh(0x00);
+        core.setFlag(X86Core.FLAG_CF, false);
+        System.out.println("BIOS INT13: extended read " + sectorCount + " sector(s) from LBA "
+                + lba + " to 0x" + Integer.toHexString(dest));
+    }
+
+    /**
+     * INT 0x13 AH=0x48: Extended Drive Parameters.
+     * <p>DS:SI points to a buffer that is filled with drive information:
+     * <ul>
+     *   <li>[0-1]   Buffer size (including this field)
+     *   <li>[2-3]   Total cylinders - 1
+     *   <li>[4-5]   Total heads
+     *   <li>[6-7]   Sectors per track
+     *   <li>[8-11]  Total sectors (low 32 bits)
+     *   <li>[12-15] Total sectors high 32 bits
+     * </ul>
+     */
+    private void handleExtendedDriveParams(int dl)
+    {
+        if (floppy == null || sectorsPerTrack == 0)
+        {
+            setAh(0x01);
+            core.setFlag(X86Core.FLAG_CF, true);
+            return;
+        }
+
+        int si = core.getReg(X86Core.REG_ESI) & 0xFFFF;
+        int dsBase = core.getSegBase(X86Core.SEG_DS);
+        int bufAddr = (dsBase + si) & 0xFFFFFF;
+
+        int totalSectors = floppy.getSectorCount();
+        int maxCylinder = 80 - 1;
+        int maxHead = heads - 1;
+
+        // Buffer size
+        core.writeMem16(bufAddr, 0x0010);
+        // Total cylinders - 1
+        core.writeMem16(bufAddr + 2, maxCylinder);
+        // Total heads
+        core.writeMem16(bufAddr + 4, heads);
+        // Sectors per track
+        core.writeMem16(bufAddr + 6, sectorsPerTrack);
+        // Total sectors (low)
+        core.writeMem32(bufAddr + 8, totalSectors);
+        // Total sectors high
+        core.writeMem32(bufAddr + 12, 0);
+
+        setAh(0x00);
+        core.setFlag(X86Core.FLAG_CF, false);
+        System.out.println("BIOS INT13: extended drive params cylinders=" + maxCylinder
+                + " heads=" + heads + " sectors/track=" + sectorsPerTrack
+                + " total sectors=" + totalSectors);
     }
 
     private void handleDriveParams(int dl)
