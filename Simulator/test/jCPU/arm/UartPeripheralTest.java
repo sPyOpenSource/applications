@@ -45,4 +45,10 @@ public class UartPeripheralTest {
         assertEquals((byte) 'o', uart.read(0));
         assertEquals((byte) 0, uart.read(0));
     }
+
+    @Test
+    public void testWriteWithAddress() {
+        Peripheral uart = new UartPeripheral(0x3F201000);
+        uart.write(0, (byte) 'X');
+    }
 }
