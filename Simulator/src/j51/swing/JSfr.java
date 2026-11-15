@@ -61,7 +61,13 @@ public class JSfr extends J51Panel
 	public void update(boolean force)
 	{
 		for (int i = 0 ; i < 128 ; i++){
-			fields[i].setValue(cpu.sfr(i + 128));
+			try {
+				fields[i].setValue(cpu.sfr(i + 128));
+			} catch (UnsupportedOperationException ex){
+				// SFR is an 8051 concept; CPUs that don't implement it
+				// (e.g. ARM) should show empty/0 fields instead of crashing.
+				fields[i].setValue(0);
+			}
                 }
 	}
 	

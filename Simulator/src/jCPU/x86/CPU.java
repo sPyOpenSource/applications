@@ -22,6 +22,8 @@ package jCPU.x86;
 import jCPU.MCS51.MCS51Peripheral;
 import jCPU.MCS51.SfrReadListener;
 import jCPU.MCS51.SfrWriteListener;
+import java.awt.GraphicsEnvironment;
+import javax.swing.JFrame;
 
 
 class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
@@ -79,9 +81,98 @@ class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
 
 public class CPU extends jx.disass.x86
 {
+	private final X86Core core;
+	private JFrame vgaFrame;
+	private X86IdeController ide;
+	private X86UefiFirmware uefi;
+	private X86UhciController uhci;
+
 	public CPU() throws Exception
 	{
+		core = new X86Core(64 * 1024 * 1024);
+		core.setActiveExecutor(new i8086());
+
+		// VGA text/graphics memory at 0xB8000, VGA I/O ports 0x3C0-0x3DA
+		X86VgaPeripheral vga = new X86VgaPeripheral();
+		for (int port = 0x3C0; port <= 0x3DA; port++) {
+			core.registerPort(port, vga);
+		}
+		// UART COM1 at I/O ports 0x3F8-0x3FF
+		X86UartPeripheral uart = new X86UartPeripheral();
+		for (int port = 0x3F8; port <= 0x3FF; port++) {
+			core.registerPort(port, uart);
+		}
+		// IDE primary channel: data/error/features/sector count/sector/cylinder/drive-head/status-command
+		// (0x1F0-0x1F7) and alternate status/device control (0x3F6)
+		ide = new X86IdeController();
+		try {
+			ide.setMaster(new X86IdeHardDrive("QEMU HARDDISK", 65536, null));
+			ide.setSlave(new X86IdeCdrom("QEMU CDROM", 0, null));
+		} catch (Exception ignore) { }
+		for (int port = 0x1F0; port <= 0x1F7; port++) {
+			core.registerPort(port, ide);
+		}
+		core.registerPort(0x3F6, ide);
+
+		// UHCI USB host controller at I/O ports 0xE000-0xE011 (2 ports)
+		uhci = new X86UhciController(0xE000, 2);
+		for (int port = 0xE000; port <= 0xE011; port++) {
+			core.registerPort(port, uhci);
+		}
+
+		// UEFI firmware
+		uefi = new X86UefiFirmware(core, ide, uart, vga);
+
+		enableVga(vga);
 		setOscillator(11184000);
-		//addPeripheral(new G128x64());
-        }
+	}
+
+	/**
+	 * Run the UEFI boot sequence: locate the ESP via GPT, load
+	 * \EFI\BOOT\BOOTIA32.EFI via FAT+PE, and return its entry point.
+	 * Caller should set PC to the returned address before stepping.
+	 */
+	public int uefiBoot()
+	{
+		return uefi.boot();
+	}
+
+	public boolean uefiInitialized()
+	{
+		return uefi.isInitialized();
+	}
+
+	/**
+	 * Show the VGA console window by default (skipped in headless environments).
+	 */
+	private void enableVga(X86VgaPeripheral vga) {
+		if (GraphicsEnvironment.isHeadless()) {
+			return;
+		}
+		vgaFrame = new JFrame("VGA - x86");
+		vgaFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		vgaFrame.getContentPane().add(vga.getDisplay());
+		vgaFrame.pack();
+		vgaFrame.setLocationRelativeTo(null);
+		vgaFrame.setVisible(true);
+	}
+
+        @Override
+	public int step() throws Exception
+	{
+		uhci.tick();
+		return core.step();
+	}
+
+        @Override
+	public void go(int limit) throws Exception
+	{
+		core.go(limit);
+	}
+
+        @Override
+	public String getDecodeAt(int pc)
+	{
+		return core.getDecodeAt(pc);
+	}
 }
