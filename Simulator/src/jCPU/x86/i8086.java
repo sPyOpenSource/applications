@@ -64,6 +64,8 @@ public class i8086 implements X86Core.iExecutor {
             case 0xC2: case 0xC3: case 0xCB:
             case 0xE8: case 0xE9:
                 return 3;
+            case 0xEA:
+                return 5; // JMP FAR ptr16:16: EA offset16 segment16
             case 0xC6: return modrmLen(core, pc) + 1;
             case 0xC7: return modrmLen(core, pc) + 2;
             case 0x80: return modrmLen(core, pc) + 1;
@@ -181,6 +183,7 @@ public class i8086 implements X86Core.iExecutor {
             case 0xE8: call_rel16(core, pc); break;
             case 0xE9: jmp_rel16(core, pc); break;
             case 0xEB: jmp_rel8(core, pc); break;
+            case 0xEA: { int offset = core.readMem16(pc + 1); int segment = core.readMem16(pc + 3); core.setPC((segment << 4) | offset); } break;
 
             case 0xEC: { int dx = core.getReg(REG_EDX) & 0xFFFF; core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFF) | (core.readPort(dx) & 0xFF)); } break;
             case 0xED: { int dx = core.getReg(REG_EDX) & 0xFFFF; int al = core.readPort(dx) & 0xFF; int ah = core.readPort(dx + 1) & 0xFF; core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFFFF) | (ah << 8) | al); } break;
