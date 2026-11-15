@@ -1894,7 +1894,8 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		throw new UndefinedException();
 	}
         
-	private void executeARM(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
+	// package-visible for test invocation
+	void executeARM(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		int condition = (iword >> 28) & 15;
 		if(condition != 15) {
 			/* condition codes (A5-288) */
