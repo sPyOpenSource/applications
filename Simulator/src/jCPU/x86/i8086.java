@@ -19,25 +19,25 @@ public class i8086 implements X86Core.iExecutor {
         int pc = core.getPC();
 
         // Consume legacy prefix bytes so the real opcode and its operands are
-        // decoded at the right offset.  The emulator executes 16-bit
-        // operations, but 0x66 still changes the width of immediate operands
-        // (e.g. "66 81 f5 imm32"), so remember it.  0x67 switches ModR/M
-        // decoding to 32-bit addressing, and segment overrides select the
-        // segment base used for memory operands.
-        boolean wide = false;
-        boolean address32 = false;
+        // decoded at the right offset.  0x66 toggles between the default
+        // operand size of the code segment and 32 bits; 0x67 toggles the
+        // address size the same way.  Segment overrides select the segment
+        // base used for memory operands.
+        boolean default32 = core.isCodeSize32();
+        boolean wide = default32;
+        boolean address32 = default32;
         int override = -1;
         OUTER:
         while (true) {
             int b = core.readMem8(pc) & 0xFF;
             switch (b) {
                 case 0x66:
-                    wide = true;
+                    wide = !wide;
                     pc++;
                     break;
                 case 0x67:
-                    address32 = true;
-                    pc++; // 32-bit addressing
+                    address32 = !address32;
+                    pc++; // toggle address size
                     break;
                 case 0x26:
                     override = X86Core.SEG_ES;
@@ -103,6 +103,10 @@ public class i8086 implements X86Core.iExecutor {
                     return 5; // PUSH imm32
                 case 0x81: case 0xC7:
                     return modrmLen(core, pc) + 4;
+                case 0xE8: case 0xE9:
+                    return 5; // rel32
+                case 0xEA:
+                    return 7; // ptr32:32
                 default:
                     if (opcode >= 0xB8 && opcode <= 0xBF) {
                         return 5; // MOV r32, imm32
@@ -277,11 +281,12 @@ public class i8086 implements X86Core.iExecutor {
                   setFlagsIncDec(core, old, v, !op32, false); } break;
             case 0x50: case 0x51: case 0x52: case 0x53:
             case 0x54: case 0x55: case 0x56: case 0x57:
-                core.push32(core.getReg(opcode & 0x07) & 0xFFFF); break;
+                { int v = core.getReg(opcode & 0x07);
+                  core.push32(op32 ? v : (v & 0xFFFF)); } break;
             case 0x58: case 0x59: case 0x5A: case 0x5B:
             case 0x5C: case 0x5D: case 0x5E: case 0x5F:
-                { int r = opcode & 0x07; int v = core.pop32() & 0xFFFF;
-                  core.setReg(r, (core.getReg(r) & ~0xFFFF) | v); } break;
+                { int r = opcode & 0x07; int v = core.pop32();
+                  core.setReg(r, op32 ? v : (core.getReg(r) & ~0xFFFF) | (v & 0xFFFF)); } break;
 
             case 0x68: core.push32(op32 ? core.readMem32(pc + 1) : core.readMem16(pc + 1)); break;
             case 0x6A: core.push32((byte) core.readMem8(pc + 1)); break;
@@ -289,9 +294,10 @@ public class i8086 implements X86Core.iExecutor {
             case 0x91: case 0x92: case 0x93: case 0x94:
             case 0x95: case 0x96: case 0x97:
                 { int r = opcode & 0x07;
-                  int tmp = core.getReg(REG_EAX) & 0xFFFF;
-                  core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFFFF) | (core.getReg(r) & 0xFFFF));
-                  core.setReg(r, (core.getReg(r) & ~0xFFFF) | tmp); } break;
+                  int mask = op32 ? 0xFFFFFFFF : 0xFFFF;
+                  int tmp = core.getReg(REG_EAX) & mask;
+                  core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~mask) | (core.getReg(r) & mask));
+                  core.setReg(r, (core.getReg(r) & ~mask) | tmp); } break;
 
             case 0x70: case 0x71: case 0x72: case 0x73:
             case 0x74: case 0x75: case 0x76: case 0x77:
@@ -420,7 +426,21 @@ public class i8086 implements X86Core.iExecutor {
             case 0xE8: call_rel16(core, pc); break;
             case 0xE9: jmp_rel16(core, pc); break;
             case 0xEB: jmp_rel8(core, pc); break;
-            case 0xEA: { int offset = core.readMem16(pc + 1); int segment = core.readMem16(pc + 3); core.setPC((segment << 4) | offset); } break;
+            case 0xEA: {
+                int offset;
+                int segment;
+                if (op32) {
+                    offset = core.readMem32(pc + 1);
+                    segment = core.readMem16(pc + 5);
+                } else {
+                    offset = core.readMem16(pc + 1);
+                    segment = core.readMem16(pc + 3);
+                }
+                // A far jump reloads CS, so the D bit of the new descriptor
+                // decides whether the target runs as 16- or 32-bit code.
+                loadSeg(core, X86Core.SEG_CS, segment);
+                core.setPC(core.segmentAddress32(X86Core.SEG_CS, offset));
+            } break;
 
             case 0xEC: { int dx = core.getReg(REG_EDX) & 0xFFFF; core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFF) | (core.readPort(dx) & 0xFF)); } break;
             case 0xED: { int dx = core.getReg(REG_EDX) & 0xFFFF; int al = core.readPort(dx) & 0xFF; int ah = core.readPort(dx + 1) & 0xFF; core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFFFF) | (ah << 8) | al); } break;
@@ -635,6 +655,7 @@ public class i8086 implements X86Core.iExecutor {
         selector &= 0xFFFF;
         core.setSegSelector(seg, selector);
         int base;
+        boolean size32 = false;
         if (core.isProtectedMode() && selector != 0) {
             int desc = core.getGdtBase() + (selector & 0xFFF8);
             int b2 = core.readMem8(desc + 2);
@@ -642,10 +663,15 @@ public class i8086 implements X86Core.iExecutor {
             int b4 = core.readMem8(desc + 4);
             int b7 = core.readMem8(desc + 7);
             base = b2 | (b3 << 8) | (b4 << 16) | (b7 << 24);
+            // Code-segment descriptor: bit 6 of the access/flags byte is D.
+            size32 = (core.readMem8(desc + 6) & 0x40) != 0;
         } else {
             base = selector << 4;
         }
         core.setSegBase(seg, base);
+        if (seg == X86Core.SEG_CS) {
+            core.setCodeSize32(size32);
+        }
     }
 
     private void modrm_imm_arith(X86Core core, int pc, boolean word, boolean signedImm) {
@@ -807,28 +833,39 @@ public class i8086 implements X86Core.iExecutor {
 
     private void jcc(X86Core core, int opcode, int pc) {
         int rel = (byte)core.readMem8(pc + 1);
-        boolean take = false;
-        switch (opcode) {
-            case 0x70: take = core.getFlag(FLAG_OF); break;
-            case 0x71: take = !core.getFlag(FLAG_OF); break;
-            case 0x72: take = core.getFlag(FLAG_CF); break;
-            case 0x73: take = !core.getFlag(FLAG_CF); break;
-            case 0x74: take = core.getFlag(FLAG_ZF); break;
-            case 0x75: take = !core.getFlag(FLAG_ZF); break;
-            case 0x76: take = core.getFlag(FLAG_CF) || core.getFlag(FLAG_ZF); break;
-            case 0x77: take = !core.getFlag(FLAG_CF) && !core.getFlag(FLAG_ZF); break;
-            case 0x78: take = core.getFlag(FLAG_SF); break;
-            case 0x79: take = !core.getFlag(FLAG_SF); break;
-            case 0x7A: take = core.getFlag(FLAG_PF); break;
-            case 0x7B: take = !core.getFlag(FLAG_PF); break;
-            case 0x7C: take = core.getFlag(FLAG_SF) != core.getFlag(FLAG_OF); break;
-            case 0x7D: take = core.getFlag(FLAG_SF) == core.getFlag(FLAG_OF); break;
-            case 0x7E: take = core.getFlag(FLAG_ZF) || (core.getFlag(FLAG_SF) != core.getFlag(FLAG_OF)); break;
-            case 0x7F: take = !core.getFlag(FLAG_ZF) && (core.getFlag(FLAG_SF) == core.getFlag(FLAG_OF)); break;
-        }
-        if (take) {
+        if (conditionHolds(core, opcode & 0x0F)) {
             core.setPC(pc + 2 + rel);
         }
+    }
+
+    /** Evaluate condition code {@code cc} (0..15) against the current flags. */
+    private boolean conditionHolds(X86Core core, int cc) {
+        switch (cc) {
+            case 0x0: return core.getFlag(FLAG_OF);
+            case 0x1: return !core.getFlag(FLAG_OF);
+            case 0x2: return core.getFlag(FLAG_CF);
+            case 0x3: return !core.getFlag(FLAG_CF);
+            case 0x4: return core.getFlag(FLAG_ZF);
+            case 0x5: return !core.getFlag(FLAG_ZF);
+            case 0x6: return core.getFlag(FLAG_CF) || core.getFlag(FLAG_ZF);
+            case 0x7: return !core.getFlag(FLAG_CF) && !core.getFlag(FLAG_ZF);
+            case 0x8: return core.getFlag(FLAG_SF);
+            case 0x9: return !core.getFlag(FLAG_SF);
+            case 0xA: return core.getFlag(FLAG_PF);
+            case 0xB: return !core.getFlag(FLAG_PF);
+            case 0xC: return core.getFlag(FLAG_SF) != core.getFlag(FLAG_OF);
+            case 0xD: return core.getFlag(FLAG_SF) == core.getFlag(FLAG_OF);
+            case 0xE: return core.getFlag(FLAG_ZF) || (core.getFlag(FLAG_SF) != core.getFlag(FLAG_OF));
+            case 0xF: return !core.getFlag(FLAG_ZF) && (core.getFlag(FLAG_SF) == core.getFlag(FLAG_OF));
+        }
+        return false;
+    }
+
+    /** Jcc rel16/rel32 (0x0F 0x80..0x8F); length depends on the operand size. */
+    private void jccNear(X86Core core, int pc, int cc) {
+        int len = op32 ? 6 : 4;
+        int rel = op32 ? core.readMem32(pc + 2) : (short) core.readMem16(pc + 2);
+        core.setPC(conditionHolds(core, cc) ? pc + len + rel : pc + len);
     }
 
     private void ret_near(X86Core core, int pc) {
@@ -837,12 +874,23 @@ public class i8086 implements X86Core.iExecutor {
     }
 
     private void call_rel16(X86Core core, int pc) {
+        if (op32) {
+            int rel = core.readMem32(pc + 1);
+            core.push32(pc + 5);
+            core.setPC(pc + 5 + rel);
+            return;
+        }
         int rel = (short) core.readMem16(pc + 1); // sign-extended 16-bit displacement
         core.push32(pc + 3);
         core.setPC(pc + 3 + rel);
     }
 
     private void jmp_rel16(X86Core core, int pc) {
+        if (op32) {
+            int rel = core.readMem32(pc + 1);
+            core.setPC(pc + 5 + rel);
+            return;
+        }
         int rel = (short) core.readMem16(pc + 1); // sign-extended 16-bit displacement
         core.setPC(pc + 3 + rel);
     }
@@ -1345,6 +1393,10 @@ public class i8086 implements X86Core.iExecutor {
      */
     private void twoByteOpcode(X86Core core, int pc) {
         int op = core.readMem8(pc + 1) & 0xFF;
+        if (op >= 0x80 && op <= 0x8F) {
+            jccNear(core, pc, op & 0x0F);
+            return;
+        }
         switch (op) {
             case 0x01: { // SGDT/SIDT/LGDT/LIDT/SMSW/LMSW
                 int modrm = core.readMem8(pc + 2);

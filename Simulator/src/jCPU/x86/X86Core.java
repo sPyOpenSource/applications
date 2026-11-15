@@ -83,6 +83,7 @@ public class X86Core implements iCPU
     private final int[] segSelector = new int[SEG_COUNT];
     private final int[] segBase = new int[SEG_COUNT];
     private boolean protectedMode;
+    private boolean codeSize32;
     private int gdtBase;
     private int gdtLimit;
 
@@ -102,7 +103,16 @@ public class X86Core implements iCPU
     }
 
     public boolean isProtectedMode() { return protectedMode; }
-    public void setProtectedMode(boolean value) { protectedMode = value; }
+    public void setProtectedMode(boolean value) {
+        protectedMode = value;
+        // Real mode always defaults to 16-bit code, whatever segment
+        // descriptor was in use before leaving protected mode.
+        if (!value) codeSize32 = false;
+    }
+
+    /** Default operand/address size of the current code segment (D bit). */
+    public boolean isCodeSize32() { return codeSize32; }
+    public void setCodeSize32(boolean value) { codeSize32 = value; }
 
     public int getGdtBase() { return gdtBase; }
     public int getGdtLimit() { return gdtLimit; }
@@ -158,6 +168,7 @@ public class X86Core implements iCPU
             segBase[i] = 0;
         }
         protectedMode = false;
+        codeSize32 = false;
         gdtBase = 0;
         gdtLimit = 0;
         regs32[REG_ESP] = memSize;

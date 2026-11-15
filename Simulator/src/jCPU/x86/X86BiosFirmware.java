@@ -128,6 +128,7 @@ public class X86BiosFirmware
             core.setSegBase(seg, 0);
         }
         core.setProtectedMode(false);
+        core.setCodeSize32(false);
 
         // Jump to 0x0000:0x7C00.
         core.setPC(BOOT_OFFSET);
