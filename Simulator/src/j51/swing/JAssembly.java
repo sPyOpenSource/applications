@@ -242,10 +242,17 @@ public class JAssembly extends J51Panel
 			}
 		}
 
-		Rectangle rect = jt.getCellRect(row, 0, true);
-		jt.scrollRectToVisible(rect);
-		jt.clearSelection();
-		jt.setRowSelectionInterval(row, row);
+		// Guard against an empty disassembly table (e.g. no code loaded) so that
+		// selecting/scrolling a row does not throw "Row index out of range".
+		if (jt.getRowCount() > 0){
+			if (row >= jt.getRowCount()){
+				row = jt.getRowCount() - 1;
+			}
+			Rectangle rect = jt.getCellRect(row, 0, true);
+			jt.scrollRectToVisible(rect);
+			jt.clearSelection();
+			jt.setRowSelectionInterval(row, row);
+		}
 	}
 
         @Override
