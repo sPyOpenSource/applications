@@ -107,7 +107,7 @@ public class X86UsbHub extends X86UsbDevice
         d[i++] = 1; // bNumInterfaces
         d[i++] = 1; // bConfigurationValue
         d[i++] = 0; // iConfiguration
-        d[i++] = 0xE0; // self powered
+        d[i++] = (byte)0xE0; // self powered
         d[i++] = 0; // bMaxPower
         // Interface descriptor (hub class)
         d[i++] = (byte) 9;
@@ -126,7 +126,7 @@ public class X86UsbHub extends X86UsbDevice
         d[i++] = 0x03; // Interrupt
         d[i++] = 0x08; // max packet 8
         d[i++] = 0x00;
-        d[i++] = 0xFF; // polling every 255ms
+        d[i++] = (byte)0xFF; // polling every 255ms
         return d;
     }
 
@@ -241,7 +241,8 @@ public class X86UsbHub extends X86UsbDevice
                     }
                     case 0x06: // GET_DESCRIPTOR (HUB descriptor)
                     {
-                        if (descType == 0x29) // HUB descriptor
+                        int hubDescType = wValue >> 8;
+                        if (hubDescType == 0x29) // HUB descriptor
                         {
                             return buildHubDescriptor();
                         }

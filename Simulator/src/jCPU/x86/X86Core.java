@@ -130,6 +130,10 @@ public class X86Core implements iCPU {
         ioPorts.put(port, peripheral);
     }
 
+    public Map<Integer, Peripheral> getIoPorts() {
+        return ioPorts;
+    }
+
     public byte readPort(int port) {
         Peripheral p = ioPorts.get(port);
         if (p != null) return p.read(port);

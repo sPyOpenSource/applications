@@ -15,7 +15,7 @@ public abstract class X86UsbDevice
     private final int bDeviceClass;
     private final int bDeviceSubClass;
     private final int bDeviceProtocol;
-    private final int bMaxPacketSize0; // max packet size for endpoint 0
+    final int bMaxPacketSize0; // max packet size for endpoint 0
     private final int idVendor;
     private final int idProduct;
     private final int bcdDevice;
@@ -108,7 +108,7 @@ public abstract class X86UsbDevice
         d[i++] = 1;                     // bNumInterfaces
         d[i++] = 1;                     // bConfigurationValue
         d[i++] = 0;                     // iConfiguration
-        d[i++] = 0x80;                  // bmAttributes (bus powered)
+        d[i++] = (byte)0x80;                  // bmAttributes (bus powered)
         d[i++] = (byte) (bMaxPacketSize0 / 2); // bMaxPower (2 mA units)
         // Interface descriptor
         d[i++] = (byte) 9;              // bLength

@@ -253,16 +253,16 @@ public class X86UhciController implements Peripheral
                 break;
 
             case REG_PORTSC1:
-                handlePortWrite(0, v, false);
+                handlePortWrite(0, (byte)v, false);
                 break;
             case REG_PORTSC1 + 1:
-                handlePortWrite(0, v, true);
+                handlePortWrite(0, (byte)v, true);
                 break;
             case REG_PORTSC2:
-                handlePortWrite(1, v, false);
+                handlePortWrite(1, (byte)v, false);
                 break;
             case REG_PORTSC2 + 1:
-                handlePortWrite(1, v, true);
+                handlePortWrite(1, (byte)v, true);
                 break;
 
             default:

@@ -23,6 +23,9 @@ import jCPU.MCS51.MCS51Peripheral;
 import jCPU.MCS51.SfrReadListener;
 import jCPU.MCS51.SfrWriteListener;
 import java.awt.GraphicsEnvironment;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import javax.swing.JFrame;
 
 
@@ -127,6 +130,10 @@ public class CPU extends jx.disass.x86
 		setOscillator(11184000);
 	}
 
+	public X86Core getCore() {
+		return core;
+	}
+
 	/**
 	 * Run the UEFI boot sequence: locate the ESP via GPT, load
 	 * \EFI\BOOT\BOOTIA32.EFI via FAT+PE, and return its entry point.
@@ -140,6 +147,39 @@ public class CPU extends jx.disass.x86
 	public boolean uefiInitialized()
 	{
 		return uefi.isInitialized();
+	}
+
+	/**
+	 * Load an OVMF.fd UEFI firmware image into simulated memory starting at
+	 * address 0.  Returns the number of bytes loaded, or -1 if the file
+	 * could not be read.
+	 *
+	 * <p>After loading, call {@link #setPC(int)} to the desired entry point
+	 * (for IA32 OVMF the reset vector is typically at 0xFFFFFFF0, or the
+	 * SEC phase entry near the start of the image) and then {@link #go(int)}
+	 * to begin execution.</p>
+	 */
+	public int loadOvmf(String path)
+	{
+		try
+		{
+			byte[] data = Files.readAllBytes(Paths.get(path));
+			int base = 0; // load at the beginning of the 4GB flat address space
+			for (int i = 0; i < data.length; i++)
+			{
+				core.writeMem8(base + i, data[i]);
+			}
+			return data.length;
+		}
+		catch (IOException e)
+		{
+			return -1;
+		}
+	}
+
+	public void setPC(int pc)
+	{
+		core.setPC(pc);
 	}
 
 	/**
