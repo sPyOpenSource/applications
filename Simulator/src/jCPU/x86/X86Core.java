@@ -44,6 +44,15 @@ public class X86Core implements iCPU
     public static final int REG_VIRTUAL_BASE = 100;
     public static final int REG_VIRTUAL_COUNT = 32;
 
+    /* ---------------- segment registers (real-mode / unreal-mode) ---------------- */
+    public static final int SEG_ES = 0;
+    public static final int SEG_CS = 1;
+    public static final int SEG_SS = 2;
+    public static final int SEG_DS = 3;
+    public static final int SEG_FS = 4;
+    public static final int SEG_GS = 5;
+    public static final int SEG_COUNT = 6;
+
     public static final int FLAG_CF = 0;
     public static final int FLAG_PF = 2;
     public static final int FLAG_AF = 4;
@@ -66,10 +75,61 @@ public class X86Core implements iCPU
     private long rip64 = 0;
     private boolean longMode = false;
     private volatile boolean stopRequested;
+    private java.util.function.IntConsumer vgaMemWrite;
+
+    /* Real-mode segment selectors and their cached linear bases.  The cached
+     * base is kept even after the CPU returns to real mode, which models the
+     * "unreal mode" trick used by many boot loaders. */
+    private final int[] segSelector = new int[SEG_COUNT];
+    private final int[] segBase = new int[SEG_COUNT];
+    private boolean protectedMode;
+    private int gdtBase;
+    private int gdtLimit;
+
+    public int getSegSelector(int seg) { return segSelector[seg]; }
+    public void setSegSelector(int seg, int selector) { segSelector[seg] = selector & 0xFFFF; }
+    public int getSegBase(int seg) { return segBase[seg]; }
+    public void setSegBase(int seg, int base) { segBase[seg] = base & 0xFFFFFF; }
+
+    /** Linear address for {@code segment:offset} using the cached segment base. */
+    public int segmentAddress(int seg, int offset) {
+        return (segBase[seg] + (offset & 0xFFFF)) & 0xFFFFFF;
+    }
+
+    /** Linear address for a 32-bit offset inside a segment. */
+    public int segmentAddress32(int seg, int offset) {
+        return (segBase[seg] + offset) & 0xFFFFFF;
+    }
+
+    public boolean isProtectedMode() { return protectedMode; }
+    public void setProtectedMode(boolean value) { protectedMode = value; }
+
+    public int getGdtBase() { return gdtBase; }
+    public int getGdtLimit() { return gdtLimit; }
+    public void setGdt(int base, int limit) { gdtBase = base; gdtLimit = limit; }
+
+    public void setVgaMemWrite(java.util.function.IntConsumer handler) { this.vgaMemWrite = handler; }
 
     public interface iExecutor {
         int step(X86Core core) throws Exception;
         String getDecodeAt(X86Core core, int pc);
+    }
+
+    /** BIOS interrupt handler, invoked for the {@code int} instruction. */
+    public interface IntHandler {
+        void handleInt(X86Core core, int vector);
+    }
+
+    private IntHandler intHandler;
+
+    public void setIntHandler(IntHandler handler) { this.intHandler = handler; }
+
+    /**
+     * Invoke the installed interrupt handler for the given vector.  No-op when
+     * no handler is installed.
+     */
+    public void handleInt(int vector) {
+        if (intHandler != null) intHandler.handleInt(this, vector);
     }
 
     public X86Core(int memSize) {
@@ -93,6 +153,13 @@ public class X86Core implements iCPU
         pc32 = 0;
         rip64 = 0;
         longMode = false;
+        for (int i = 0; i < SEG_COUNT; i++) {
+            segSelector[i] = 0;
+            segBase[i] = 0;
+        }
+        protectedMode = false;
+        gdtBase = 0;
+        gdtLimit = 0;
         regs32[REG_ESP] = memSize;
         regs64[REG_RSP] = memSize;
     }
@@ -203,6 +270,9 @@ public class X86Core implements iCPU
     public void writeMem8(int addr, int value) {
         if (addr >= 0 && addr < memory.length) {
             memory[addr] = (byte) value;
+        }
+        if (vgaMemWrite != null && addr >= 0xB8000 && addr < 0xB8000 + 80 * 25 * 2) {
+            vgaMemWrite.accept(addr);
         }
     }
 

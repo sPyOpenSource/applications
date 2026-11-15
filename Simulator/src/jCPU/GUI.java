@@ -20,6 +20,7 @@ import jCPU.JVM.ByteCode;
 import jCPU.MCS51.CPU;
 import jCPU.MCS51.MCS51Performance;
 import jCPU.x86.X86FatFileSystem;
+import jCPU.x86.X86FloppyDrive;
 import jCPU.x86.X86IdeController;
 import jCPU.x86.X86IdeDevice;
 import java.nio.file.Files;
@@ -971,6 +972,39 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		};
 		importMenu.add(importDisk);
 
+		AbstractAction importFloppy = new AbstractAction("Floppy Disk Image...")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+					showError("Floppy disk loading is only available for the x86 CPU.", null);
+					return;
+				}
+				try {
+					if (fc == null) {
+						fc = new JFileChooser();
+						fc.setCurrentDirectory(new File("."));
+					}
+					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION) {
+						String path = fc.getSelectedFile().getCanonicalPath();
+						x86Cpu.attachFloppyImage(path);
+						updatePanel(true);
+						reportDiskFat(x86Cpu, path);
+					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
+				} catch (Exception ex) {
+					showError("Failed to attach floppy image: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		importMenu.add(importFloppy);
+
 		menu.add(importMenu);
 		menu.addSeparator();
 
@@ -1485,6 +1519,34 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			}
 		};
 		menu.add(actionDebugUefiBoot);
+
+		AbstractAction actionDebugFloppyBoot = new AbstractAction("Floppy Boot")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+					showError("Floppy boot is only available for the x86 CPU.", null);
+					return;
+				}
+				try {
+					boolean ok = x86Cpu.floppyBoot();
+					if (ok) {
+						x86Cpu.setPC(0x7C00);
+						messages("Floppy boot: boot sector loaded at 0x7C00, DL=0x00. PC set to 0x7C00. Click Go to start.");
+					} else {
+						messages("Floppy boot: no bootable 0x55AA sector found on attached floppy image.");
+					}
+				} catch (Exception ex) {
+					showError("Floppy boot failed: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		menu.add(actionDebugFloppyBoot);
 
 		menu.setMnemonic('D');
 

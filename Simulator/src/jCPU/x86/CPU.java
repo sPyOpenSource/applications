@@ -86,9 +86,13 @@ public class CPU extends jx.disass.x86
 {
 	private final X86Core core;
 	private JFrame vgaFrame;
+	private X86VgaPeripheral vga;
+	private X86UartPeripheral uart;
 	private X86IdeController ide;
 	private X86UefiFirmware uefi;
 	private X86UhciController uhci;
+	private X86FloppyDrive floppy;
+	private X86BiosFirmware bios;
 	private boolean traceExecution;
 
 	public CPU() throws Exception
@@ -97,12 +101,15 @@ public class CPU extends jx.disass.x86
 		core.setActiveExecutor(new i8086());
 
 		// VGA text/graphics memory at 0xB8000, VGA I/O ports 0x3C0-0x3DA
-		X86VgaPeripheral vga = new X86VgaPeripheral();
+		vga = new X86VgaPeripheral();
 		for (int port = 0x3C0; port <= 0x3DA; port++) {
 			core.registerPort(port, vga);
 		}
+		// Forward VGA text memory writes (0xB8000-0xBFFFF) to the VGA peripheral
+		// so the display updates when boot-sector code writes to video memory.
+		core.setVgaMemWrite(addr -> vga.writeMemory(addr, core.readMem8(addr)));
 		// UART COM1 at I/O ports 0x3F8-0x3FF
-		X86UartPeripheral uart = new X86UartPeripheral();
+		uart = new X86UartPeripheral();
 		for (int port = 0x3F8; port <= 0x3FF; port++) {
 			core.registerPort(port, uart);
 		}
@@ -126,6 +133,13 @@ public class CPU extends jx.disass.x86
 
 		// UEFI firmware
 		uefi = new X86UefiFirmware(core, ide, uart, vga);
+
+		// Floppy disk drive (drive 0x00, blank until an image is attached).
+		// The BIOS reads the boot sector from here when booting from floppy.
+		floppy = new X86FloppyDrive("FLOPPY", 2880, null);
+		bios = new X86BiosFirmware(core, floppy, vga, uart);
+		// INT 0x10 / 0x13 BIOS services (used by boot-sector code).
+		core.setIntHandler((c, vector) -> bios.handleInt(vector));
 
 		enableVga(vga);
 		setOscillator(11184000);
@@ -212,6 +226,61 @@ public class CPU extends jx.disass.x86
 		ide.setMaster(drive);
 		System.out.println("Disk image attached: " + path + " (" + sectorCount + " sectors, "
 				+ size + " bytes)");
+	}
+
+	/**
+	 * Attach a raw floppy disk image to the floppy drive.  The image size must
+	 * be a multiple of 512 bytes (e.g. 2880 sectors = 1.44 MB).  After
+	 * attaching, use {@link #floppyBoot()} to attempt a BIOS floppy boot.
+	 *
+	 * @param path path to the raw floppy disk image file
+	 * @throws IOException if the image cannot be read or its size is not sector-aligned
+	 */
+	public void attachFloppyImage(String path) throws IOException
+	{
+		java.io.File file = new java.io.File(path);
+		long size = file.length();
+		if (size % X86IdeDevice.SECTOR_SIZE != 0) {
+			throw new IOException("Floppy image size (" + size + " bytes) is not a multiple of "
+					+ X86IdeDevice.SECTOR_SIZE + " bytes: " + path);
+		}
+		int sectorCount = (int) (size / X86IdeDevice.SECTOR_SIZE);
+		floppy = new X86FloppyDrive("Floppy Image: " + file.getName(), sectorCount, path);
+		bios = new X86BiosFirmware(core, floppy, vga, uart);
+		core.setIntHandler((c, vector) -> bios.handleInt(vector));
+		System.out.println("Floppy image attached: " + path + " (" + sectorCount + " sectors, "
+				+ size + " bytes)");
+	}
+
+	/**
+	 * BIOS boot from floppy disk (INT 0x19).  Reads the boot sector from the
+	 * floppy drive, verifies the {@code 0x55AA} signature, loads it to
+	 * physical {@code 0x7C00}, sets {@code DL = 0x00}, and jumps to
+	 * {@code 0x0000:0x7C00}.
+	 *
+	 * @return true if a bootable floppy sector was found and control
+	 *         transferred to {@code 0x7C00}.
+	 */
+	public boolean floppyBoot()
+	{
+		return bios.floppyBoot();
+	}
+
+	/**
+	 * Returns the floppy drive so callers can inspect or reattach media.
+	 */
+	public X86FloppyDrive getFloppyDrive()
+	{
+		return floppy;
+	}
+
+	/**
+	 * Returns the BIOS firmware so callers can queue keyboard input
+	 * (see {@link X86BiosFirmware#pushKey(int)}).
+	 */
+	public X86BiosFirmware getBios()
+	{
+		return bios;
 	}
 
 	/**

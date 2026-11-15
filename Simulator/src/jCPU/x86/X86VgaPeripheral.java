@@ -88,6 +88,33 @@ public class X86VgaPeripheral extends VgaPeripheral {
         display.repaint();
     }
 
+    /**
+     * Dump the current VGA text buffer to the console, showing only lines
+     * that contain non-space characters.  Useful when no GUI window is
+     * available (e.g. headless environments).
+     */
+    public void dumpText() {
+        StringBuilder sb = new StringBuilder();
+        for (int y = 0; y < HEIGHT; y++) {
+            StringBuilder line = new StringBuilder();
+            boolean nonEmpty = false;
+            for (int x = 0; x < WIDTH; x++) {
+                char ch = txt[y][x];
+                if (ch == 0) ch = ' ';
+                line.append(ch);
+                if (ch != ' ') nonEmpty = true;
+            }
+            if (nonEmpty) {
+                sb.append(line).append('\n');
+            }
+        }
+        String out = sb.toString();
+        if (!out.isEmpty()) {
+            System.out.print(out);
+            System.out.flush();
+        }
+    }
+
     public int readMemory(int addr) {
         if (addr < VGA_MEM_BASE || addr >= VGA_MEM_BASE + WIDTH * HEIGHT * 2) return 0;
         int offset = addr - VGA_MEM_BASE;
