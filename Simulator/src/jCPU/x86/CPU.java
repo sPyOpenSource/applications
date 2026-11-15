@@ -89,6 +89,7 @@ public class CPU extends jx.disass.x86
 	private X86IdeController ide;
 	private X86UefiFirmware uefi;
 	private X86UhciController uhci;
+	private boolean traceExecution;
 
 	public CPU() throws Exception
 	{
@@ -111,7 +112,7 @@ public class CPU extends jx.disass.x86
 		try {
 			ide.setMaster(new X86IdeHardDrive("QEMU HARDDISK", 65536, null));
 			ide.setSlave(new X86IdeCdrom("QEMU CDROM", 0, null));
-		} catch (Exception ignore) { }
+		} catch (IOException ignore) { }
 		for (int port = 0x1F0; port <= 0x1F7; port++) {
 			core.registerPort(port, ide);
 		}
@@ -150,25 +151,31 @@ public class CPU extends jx.disass.x86
 	}
 
 	/**
-	 * Load an OVMF.fd UEFI firmware image into simulated memory starting at
-	 * address 0.  Returns the number of bytes loaded, or -1 if the file
-	 * could not be read.
+	 * Load an OVMF.fd UEFI firmware image into simulated memory.
 	 *
-	 * <p>After loading, call {@link #setPC(int)} to the desired entry point
-	 * (for IA32 OVMF the reset vector is typically at 0xFFFFFFF0, or the
-	 * SEC phase entry near the start of the image) and then {@link #go(int)}
-	 * to begin execution.</p>
+	 * <p>The image is loaded so that it ends at the top of the 4GB address
+	 * space (0xFFFFFFFF), matching how QEMU places OVMF for IA32.  The IA32
+	 * reset vector at 0xFFFFFFF0 therefore maps into the loaded image, and
+	 * {@link #setPC(int)} should be called with 0xFFFFFFF0 before starting.</p>
+	 *
+	 * @return the number of bytes loaded, or -1 if the file could not be read.
 	 */
 	public int loadOvmf(String path)
 	{
 		try
 		{
 			byte[] data = Files.readAllBytes(Paths.get(path));
-			int base = 0; // load at the beginning of the 4GB flat address space
+			// Load so the image ends at 0xFFFFFFFF (top of 4GB space),
+			// matching QEMU's IA32 OVMF placement.
+			int base = 0xFFFFFFFF - data.length + 1;
 			for (int i = 0; i < data.length; i++)
 			{
 				core.writeMem8(base + i, data[i]);
 			}
+			System.out.println("OVMF.fd loaded: " + data.length + " bytes at 0x" +
+					Integer.toHexString(base) +
+					", reset vector at 0xFFFFFFF0 -> FD offset 0x" +
+					Integer.toHexString(data.length - 17));
 			return data.length;
 		}
 		catch (IOException e)
@@ -180,6 +187,33 @@ public class CPU extends jx.disass.x86
 	public void setPC(int pc)
 	{
 		core.setPC(pc);
+	}
+
+	public void setTraceExecution(boolean trace)
+	{
+		this.traceExecution = trace;
+	}
+
+	public boolean isTraceExecution()
+	{
+		return traceExecution;
+	}
+
+        @Override
+	public void stopSimulation()
+	{
+		core.stopSimulation();
+	}
+
+	public void dumpRegisters()
+	{
+		System.out.println("=== X86 Registers ===");
+		System.out.println(String.format("  EAX=0x%08X  EBX=0x%08X  ECX=0x%08X  EDX=0x%08X",
+				core.getReg(0), core.getReg(3), core.getReg(1), core.getReg(2)));
+		System.out.println(String.format("  ESI=0x%08X  EDI=0x%08X  EBP=0x%08X  ESP=0x%08X",
+				core.getReg(6), core.getReg(7), core.getReg(5), core.getReg(4)));
+		System.out.println(String.format("  PC=0x%08X  FLAGS=0x%08X",
+				core.getPC(), core.getFlags()));
 	}
 
 	/**
@@ -201,6 +235,13 @@ public class CPU extends jx.disass.x86
 	public int step() throws Exception
 	{
 		uhci.tick();
+		int pc = core.getPC();
+		int opcode = core.readMem8(pc);
+		if (traceExecution)
+		{
+			System.out.println(String.format("PC=0x%08X OP=0x%02X EAX=0x%08X ESP=0x%08X",
+					pc, opcode, core.getReg(0), core.getReg(4)));
+		}
 		return core.step();
 	}
 

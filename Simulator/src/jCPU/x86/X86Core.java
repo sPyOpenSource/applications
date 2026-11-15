@@ -34,6 +34,7 @@ public class X86Core implements iCPU {
     private final Map<Integer, Peripheral> ioPorts = new HashMap<>();
     private iExecutor executor;
     private int pc = 0;
+    private volatile boolean stopRequested;
 
     public interface iExecutor {
         int step(X86Core core) throws Exception;
@@ -155,9 +156,22 @@ public class X86Core implements iCPU {
 
     @Override
     public void go(int limit) throws Exception {
-        for (int i = 0; i < limit; i++) {
-            if (step() == 0) break;
+        stopRequested = false;
+        if (limit < 0) {
+            // Run until stopRequested or exception
+            while (!stopRequested) {
+                step();
+            }
+        } else {
+            for (int i = 0; i < limit && !stopRequested; i++) {
+                if (step() == 0) break;
+            }
         }
+    }
+
+    @Override
+    public void stopSimulation() {
+        stopRequested = true;
     }
 
     @Override

@@ -751,6 +751,17 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			loadJar(path);
 		} else if (lower.endsWith(".jll")) {
 			loadJll(path);
+		} else if (lower.endsWith(".fd")) {
+			if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+				throw new IllegalArgumentException("OVMF.fd can only be loaded into the x86 CPU (jCPU.x86.CPU). Select it from the CPU menu first.");
+			}
+			int size = x86Cpu.loadOvmf(path);
+			if (size < 0) {
+				throw new IOException("Failed to load OVMF.fd: " + path);
+			}
+			// IA32 OVMF reset vector is at 0xFFFFFFF0 (top of 4GB space)
+			x86Cpu.setPC(0xFFFFFFF0);
+			messages("Loaded OVMF.fd: " + size + " bytes ending at 0xFFFFFFFF. PC set to 0xFFFFFFF0 (IA32 reset vector). Click Go to start.");
 		} else {
 			String ext = path.contains(".") ? path.substring(path.lastIndexOf(".")) : "(no extension)";
 			throw new IllegalArgumentException("Unsupported file format: " + ext +
@@ -1332,6 +1343,50 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		addKey(menu.add(actionDebugGo), KeyEvent.VK_G);
 		addKey(menu.add(actionDebugStop), KeyEvent.VK_S);
 		addKey(menu.add(actionDebugErase), KeyEvent.VK_E);
+
+		AbstractAction actionDebugTraceExec = new AbstractAction("Trace Execution")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (cpu instanceof jCPU.x86.CPU x86Cpu)
+				{
+					boolean next = !x86Cpu.isTraceExecution();
+					x86Cpu.setTraceExecution(next);
+					messages("Execution tracing " + (next ? "enabled" : "disabled"));
+				}
+				else
+				{
+					showError("Execution tracing is only available for the x86 CPU.", null);
+				}
+			}
+		};
+		menu.add(actionDebugTraceExec);
+
+		AbstractAction actionDebugDumpRegs = new AbstractAction("Dump Registers")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (cpu instanceof jCPU.x86.CPU x86Cpu)
+				{
+					x86Cpu.dumpRegisters();
+				}
+				else
+				{
+					showError("Register dump is only available for the x86 CPU.", null);
+				}
+			}
+		};
+		menu.add(actionDebugDumpRegs);
 
 		menu.setMnemonic('D');
 
