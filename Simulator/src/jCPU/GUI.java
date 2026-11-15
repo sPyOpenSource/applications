@@ -19,6 +19,9 @@ import java.awt.datatransfer.StringSelection;
 import jCPU.JVM.ByteCode;
 import jCPU.MCS51.CPU;
 import jCPU.MCS51.MCS51Performance;
+import jCPU.x86.X86FatFileSystem;
+import jCPU.x86.X86IdeController;
+import jCPU.x86.X86IdeDevice;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -90,9 +93,9 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private JRadioButtonMenuItem first = null;
 	private final java.util.ArrayList<J51Panel> panels = new java.util.ArrayList<>();
 	private final Assets assets = new Assets();
-	private JSplitPane mainSplit;
+	private final JSplitPane mainSplit;
 	private JSplitPane leftSplit;
-	private JSplitPane bottomSplit;
+	private final JSplitPane bottomSplit;
 
 	GUI(){
 		setTitle("J51 1.05 $Revision: 70 $ - Created by mario@viara.eu");
@@ -738,7 +741,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		String lower = path.toLowerCase();
 		if (lower.endsWith(".hex") || lower.endsWith(".json")) {
 			loadHex(path);
-		} else if (lower.endsWith(".bin") || !path.contains(".")) {
+		} else if (lower.endsWith(".bin") || lower.endsWith(".img") || !path.contains(".")) {
 			try {
 				loadBin(path);
 			} catch (IOException ex) {
@@ -765,7 +768,36 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		} else {
 			String ext = path.contains(".") ? path.substring(path.lastIndexOf(".")) : "(no extension)";
 			throw new IllegalArgumentException("Unsupported file format: " + ext +
-				". Supported: .hex, .json, .bin, .class, .jar, .jll");
+				". Supported: .hex, .json, .bin, .img, .class, .jar, .jll");
+		}
+	}
+
+	/**
+	 * Attempt to mount a FAT12/FAT16/FAT32 filesystem from the attached disk
+	 * image and report what was found.  Floppy disk images are typically FAT12.
+	 */
+	private void reportDiskFat(jCPU.x86.CPU x86Cpu, String path)
+	{
+		try {
+			X86IdeController ide = x86Cpu.getIdeController();
+			X86IdeDevice master = ide.getMaster();
+			if (master == null) {
+				messages("Disk attached: " + path + " (no FAT scan possible)");
+				return;
+			}
+			X86FatFileSystem fs = new X86FatFileSystem(lba -> {
+				byte[] buf = new byte[512];
+				master.readSector(lba, buf);
+				return buf;
+			});
+			if (fs.mount(0)) {
+				messages("Disk attached: " + path + " -- FAT" + fs.getFatType()
+						+ " filesystem detected at LBA 0");
+			} else {
+				messages("Disk attached: " + path + " -- no FAT boot sector found at LBA 0");
+			}
+		} catch (Exception ex) {
+			messages("Disk attached: " + path + " (FAT scan failed: " + ex.getMessage() + ")");
 		}
 	}
 
@@ -905,6 +937,39 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			}
 		};
 		importMenu.add(importJll);
+
+		AbstractAction importDisk = new AbstractAction("Disk Image...")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+					showError("Disk image loading is only available for the x86 CPU.", null);
+					return;
+				}
+				try {
+					if (fc == null) {
+						fc = new JFileChooser();
+						fc.setCurrentDirectory(new File("."));
+					}
+					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION) {
+						String path = fc.getSelectedFile().getCanonicalPath();
+						x86Cpu.attachDiskImage(path);
+						updatePanel(true);
+						reportDiskFat(x86Cpu, path);
+					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
+				} catch (Exception ex) {
+					showError("Failed to attach disk image: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		importMenu.add(importDisk);
 
 		menu.add(importMenu);
 		menu.addSeparator();
@@ -1387,6 +1452,35 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			}
 		};
 		menu.add(actionDebugDumpRegs);
+
+		AbstractAction actionDebugUefiBoot = new AbstractAction("UEFI Boot")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+					showError("UEFI boot is only available for the x86 CPU.", null);
+					return;
+				}
+				try {
+					int entryPoint = x86Cpu.uefiBoot();
+					if (entryPoint != 0) {
+						x86Cpu.setPC(entryPoint);
+						messages("UEFI boot: entry point at 0x" + Integer.toHexString(entryPoint)
+								+ ". PC set. Click Go to start execution.");
+					} else {
+						messages("UEFI boot: no bootable EFI application found on attached disk image.");
+					}
+				} catch (Exception ex) {
+					showError("UEFI boot failed: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		menu.add(actionDebugUefiBoot);
 
 		menu.setMnemonic('D');
 

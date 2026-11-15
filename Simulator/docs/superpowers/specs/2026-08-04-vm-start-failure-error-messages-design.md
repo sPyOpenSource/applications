@@ -28,7 +28,7 @@ When a VM/simulator fails to start, users currently see raw Java exceptions (sta
 | Failure | User Message | Technical Details |
 |---------|--------------|-------------------|
 | File not found | "File not found: `{path}`" | Path, FileNotFoundException |
-| Unsupported extension | "Unsupported file format: `.{ext}`. Supported formats: .hex, .json (Intel HEX), .bin (ELF/raw), .class, .jar, .jll" | Extension, path |
+| Unsupported extension | "Unsupported file format: `.{ext}`. Supported formats: .hex, .json (Intel HEX), .bin/.img (ELF/raw), .class, .jar, .jll" | Extension, path |
 | Intel HEX parse error | "Invalid Intel HEX file `{file}`: {specific error}" | Line number, error type (checksum, record type, format) |
 | ELF parse error | "Invalid ELF binary `{file}`: {reason}. Falling back to raw binary load..." | ELF parsing exception |
 | Raw binary load error | "Failed to load raw binary `{file}`: {reason}" | IOException, file size |

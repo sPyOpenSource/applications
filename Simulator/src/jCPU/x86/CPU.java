@@ -158,6 +158,7 @@ public class CPU extends jx.disass.x86
 	 * reset vector at 0xFFFFFFF0 therefore maps into the loaded image, and
 	 * {@link #setPC(int)} should be called with 0xFFFFFFF0 before starting.</p>
 	 *
+         * @param path
 	 * @return the number of bytes loaded, or -1 if the file could not be read.
 	 */
 	public int loadOvmf(String path)
@@ -182,6 +183,39 @@ public class CPU extends jx.disass.x86
 		{
 			return -1;
 		}
+	}
+
+	/**
+	 * Replace the IDE master drive with a raw sector disk image (e.g. a floppy
+	 * or hard disk {@code .img} file).  The image size must be a multiple of
+	 * 512 bytes.  After attaching, use {@link #uefiBoot()} to attempt a UEFI
+	 * boot (GPT-partitioned images only), or read files from a FAT-formatted
+	 * image using the FAT filesystem reader.
+	 *
+	 * @param path path to the raw sector disk image file
+	 * @throws IOException if the image cannot be read or its size is not sector-aligned
+	 */
+	public void attachDiskImage(String path) throws IOException
+	{
+		java.io.File file = new java.io.File(path);
+		long size = file.length();
+		if (size % X86IdeDevice.SECTOR_SIZE != 0) {
+			throw new IOException("Disk image size (" + size + " bytes) is not a multiple of "
+					+ X86IdeDevice.SECTOR_SIZE + " bytes: " + path);
+		}
+		int sectorCount = (int) (size / X86IdeDevice.SECTOR_SIZE);
+		X86IdeHardDrive drive = new X86IdeHardDrive("Disk Image: " + file.getName(), sectorCount, path);
+		ide.setMaster(drive);
+		System.out.println("Disk image attached: " + path + " (" + sectorCount + " sectors, "
+				+ size + " bytes)");
+	}
+
+	/**
+	 * Returns the IDE controller so callers can inspect or reattach drives.
+	 */
+	public X86IdeController getIdeController()
+	{
+		return ide;
 	}
 
 	public void setPC(int pc)
