@@ -241,6 +241,11 @@ public class CPU extends jx.disass.x86
 		{
 			System.out.println(String.format("PC=0x%08X OP=0x%02X EAX=0x%08X ESP=0x%08X",
 					pc, opcode, core.getReg(0), core.getReg(4)));
+			if (pc < 0xfff00000)
+			{
+				System.out.println("  *** PC outside OVMF range! Dumping registers:");
+				dumpRegisters();
+			}
 		}
 		return core.step();
 	}
