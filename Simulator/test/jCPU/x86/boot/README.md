@@ -28,4 +28,5 @@ java -cp /tmp/boot jCPU.x86.UefiBootRunner hello.img [maxSteps]
 ```
 
 `RESERVED.java` is listed explicitly because its package (`j51.intel.graph`)
-does not match its directory. Exit code 0 means the EFI application returned.
+does not match its directory. Exit code 0 means the EFI application exited
+with EFI_SUCCESS.

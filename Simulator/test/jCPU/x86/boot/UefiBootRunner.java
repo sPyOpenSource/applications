@@ -14,13 +14,10 @@ import java.io.File;
  * Firmware and EFI console output go to stdout through the UART.  The run
  * ends on an exception (e.g. an unknown opcode, with its instruction
  * history) or after maxSteps instructions; the exit code is 0 only when the
- * EFI application returned to the address the runner placed on the stack.
+ * EFI application exited with EFI_SUCCESS.
  */
 public class UefiBootRunner
 {
-    /** Return address pushed before the entry point; reaching it means efi_main returned. */
-    static final long RETURN_ADDR = 0xDEAD0000L;
-
     public static void main(String[] args) throws Exception
     {
         if (args.length < 1) {
@@ -66,28 +63,18 @@ public class UefiBootRunner
         core.setLongMode(true);
         core.setActiveExecutor(new X86Amd64());
         core.setPC64(entry);
-        // The firmware does not set up a stack or return address yet; give
-        // the application one so a clean return can be recognised.
-        if (core.getReg64(X86Core.REG_RSP) == 0) {
-            core.setReg64(X86Core.REG_RSP, 0x3F00000L);
-        }
-        core.push64(RETURN_ADDR);
 
         long steps = 0;
         int status = 1;
         try {
-            while (steps < maxSteps) {
-                if (core.getPC64() == RETURN_ADDR) {
-                    System.out.println();
-                    System.out.printf("[runner] EFI application returned, RAX=0x%x%n",
-                            core.getReg64(X86Core.REG_RAX));
-                    status = 0;
-                    break;
-                }
+            while (steps < maxSteps && !uefi.hasExited()) {
                 core.step();
                 steps++;
             }
-            if (steps >= maxSteps) {
+            if (uefi.hasExited()) {
+                System.out.printf("[runner] done after %d steps%n", steps);
+                status = uefi.getExitStatus() == 0 ? 0 : 1;
+            } else {
                 System.out.println();
                 System.out.printf("[runner] stopped after %d steps at RIP=0x%x%n", steps, core.getPC64());
             }
