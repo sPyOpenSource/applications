@@ -102,4 +102,40 @@ public class X86Amd64Test {
         }
         assertEquals(START + 2, core.getPC64());
     }
+
+    @Test
+    public void testMessageListsInstructionsThatLedThere() throws Exception {
+        // nop; jmp +2 (over two bytes); AAM
+        X86Core core = coreWith(0x90, 0xEB, 0x02, 0x90, 0x90, 0xD4, 0x0A);
+        core.step();
+        core.step();
+        X86UnknownOpcodeException ex = stepExpectingUnknown(core);
+        assertEquals(START + 5, ex.getRip());
+        assertArrayEquals(new long[] {START, START + 1}, ex.getRecentInstructions());
+        String msg = ex.getMessage();
+        assertTrue(msg, msg.contains("Last 2 instructions before this one"));
+        assertTrue(msg, msg.contains("RIP=0x0000000000001001  EB 02"));
+    }
+
+    @Test
+    public void testHistoryKeepsOnlyTheMostRecentInstructions() throws Exception {
+        int[] code = new int[21];
+        java.util.Arrays.fill(code, 0x90);
+        code[20] = 0xD4;
+        X86Core core = coreWith(code);
+        for (int i = 0; i < 20; i++) {
+            core.step();
+        }
+        long[] recent = stepExpectingUnknown(core).getRecentInstructions();
+        assertEquals(16, recent.length);
+        assertEquals(START + 4, recent[0]);
+        assertEquals(START + 19, recent[15]);
+    }
+
+    @Test
+    public void testNoHistoryLineWhenNothingRanBefore() throws Exception {
+        X86Core core = coreWith(0xD4, 0x0A);
+        String msg = stepExpectingUnknown(core).getMessage();
+        assertFalse(msg, msg.contains("instructions before this one"));
+    }
 }

@@ -11,11 +11,24 @@ public class X86UnknownOpcodeException extends Exception {
     /* Longest possible x86 instruction. */
     private static final int MAX_INSN_BYTES = 15;
 
+    /* Bytes shown for each earlier instruction; its length is not known here. */
+    private static final int HISTORY_BYTES = 8;
+
     private final long rip;
+    private final long[] recent;
 
     public X86UnknownOpcodeException(X86Core core, long rip, String what) {
-        super(describe(core, rip, what));
+        this(core, rip, what, new long[0]);
+    }
+
+    /**
+     * @param recent addresses of the instructions executed before this one,
+     *               oldest first
+     */
+    public X86UnknownOpcodeException(X86Core core, long rip, String what, long[] recent) {
+        super(describe(core, rip, what, recent));
         this.rip = rip;
+        this.recent = recent.clone();
     }
 
     /** Address of the instruction, including any prefix bytes. */
@@ -23,7 +36,12 @@ public class X86UnknownOpcodeException extends Exception {
         return rip;
     }
 
-    private static String describe(X86Core core, long rip, String what) {
+    /** Addresses of the instructions executed before this one, oldest first. */
+    public long[] getRecentInstructions() {
+        return recent.clone();
+    }
+
+    private static String describe(X86Core core, long rip, String what, long[] recent) {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("Unknown x86-64 instruction at RIP=0x%016X (%s), bytes:", rip, what));
         for (int i = 0; i < MAX_INSN_BYTES; i++) {
@@ -44,6 +62,15 @@ public class X86UnknownOpcodeException extends Exception {
             sb.append(String.format("%-3s=0x%016X", names[i], core.getReg64(regs[i])));
         }
         sb.append(String.format("\n  RFLAGS=0x%016X", core.getRflags64()));
+        if (recent.length > 0) {
+            sb.append(String.format("\n  Last %d instructions before this one, oldest first:", recent.length));
+            for (long addr : recent) {
+                sb.append(String.format("\n    RIP=0x%016X ", addr));
+                for (int i = 0; i < HISTORY_BYTES; i++) {
+                    sb.append(String.format(" %02X", core.readMem8((int) addr + i)));
+                }
+            }
+        }
         return sb.toString();
     }
 }

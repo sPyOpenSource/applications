@@ -21,6 +21,13 @@ public class X86Amd64 implements X86Core.iExecutor
     /* Address of the instruction being executed, including any prefix. */
     private long insnStart = 0;
 
+    /* Addresses of the most recently executed instructions, as a ring buffer.
+     * Reported when execution stops on an unknown instruction, to show how
+     * the program got there. */
+    private static final int HISTORY_SIZE = 16;
+    private final long[] history = new long[HISTORY_SIZE];
+    private long historyCount = 0;
+
     @Override
     public int step(X86Core core) throws Exception {
         long rip = core.getPC64();
@@ -48,7 +55,18 @@ public class X86Amd64 implements X86Core.iExecutor
             int len = instructionLen(core, opcode, (int) rip, rexW);
             core.setPC64(rip + len);
         }
+        history[(int) (historyCount++ % HISTORY_SIZE)] = oldRip;
         return 1;
+    }
+
+    /* The recorded instruction addresses, oldest first. */
+    private long[] recentInstructions() {
+        int n = (int) Math.min(historyCount, HISTORY_SIZE);
+        long[] recent = new long[n];
+        for (int i = 0; i < n; i++) {
+            recent[i] = history[(int) ((historyCount - n + i) % HISTORY_SIZE)];
+        }
+        return recent;
     }
 
     /**
@@ -57,7 +75,7 @@ public class X86Amd64 implements X86Core.iExecutor
      * machine state, so the caller gets an exception instead.
      */
     private X86UnknownOpcodeException unknownOpcode(X86Core core, String what) {
-        return new X86UnknownOpcodeException(core, insnStart, what);
+        return new X86UnknownOpcodeException(core, insnStart, what, recentInstructions());
     }
 
     @Override
