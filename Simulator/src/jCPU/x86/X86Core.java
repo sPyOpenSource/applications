@@ -59,7 +59,7 @@ public class X86Core implements iCPU
     private int flags32 = 0;
     private long rflags64 = 0;
     private final int memSize;
-    private final Map<Integer, Byte> memory = new HashMap<>();
+    private final byte[] memory = new byte[64 * 1024 * 1024]; // 64MB direct-mapped memory
     private final Map<Integer, Peripheral> ioPorts = new HashMap<>();
     private iExecutor executor;
     private int pc32 = 0;
@@ -196,12 +196,14 @@ public class X86Core implements iCPU
     /* ---------------- memory access ---------------- */
 
     public int readMem8(int addr) {
-        Byte b = memory.get(addr);
-        return b != null ? b & 0xFF : 0;
+        if (addr < 0 || addr >= memory.length) return 0;
+        return memory[addr] & 0xFF;
     }
 
     public void writeMem8(int addr, int value) {
-        memory.put(addr, (byte) value);
+        if (addr >= 0 && addr < memory.length) {
+            memory[addr] = (byte) value;
+        }
     }
 
     public int readMem16(int addr) {
@@ -549,7 +551,7 @@ public class X86Core implements iCPU
         return memSize;
     }
 
-    public Map<Integer, Byte> getMemory() {
+    public byte[] getMemory() {
         return memory;
     }
 }

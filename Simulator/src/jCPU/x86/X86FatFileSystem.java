@@ -313,10 +313,10 @@ public class X86FatFileSystem
      */
     private int nextCluster32(int cluster)
     {
-        int fatByte = fatOffset + cluster * 4;
-        int sector = fatByte / bytesPerSector;
-        int offset = fatByte % bytesPerSector;
-        byte[] fat = reader.readSector(sector);
+        int fatByteOffset = cluster * 4; // byte offset within FAT
+        int fatSectorLba = fatOffset + fatByteOffset / bytesPerSector;
+        int offset = fatByteOffset % bytesPerSector;
+        byte[] fat = reader.readSector(fatSectorLba);
         if (fat == null)
         {
             return 0x0FFFFFF8;
@@ -329,7 +329,7 @@ public class X86FatFileSystem
                    ((fat[offset + 3] & 0xFF) << 24);
         }
         // FAT entry straddles sector boundary
-        byte[] fat2 = reader.readSector(sector + 1);
+        byte[] fat2 = reader.readSector(fatSectorLba + 1);
         if (fat2 == null)
         {
             return 0x0FFFFFF8;
@@ -452,10 +452,10 @@ public class X86FatFileSystem
     {
         if (fatType == 12)
         {
-            int fatByte = fatOffset + (cluster * 3 / 2);
-            int sector = fatByte / bytesPerSector;
-            int offset = fatByte % bytesPerSector;
-            byte[] fat = reader.readSector(sector);
+            int fatByteOffset = cluster * 3 / 2; // byte offset within FAT
+            int fatSectorLba = fatOffset + fatByteOffset / bytesPerSector;
+            int offset = fatByteOffset % bytesPerSector;
+            byte[] fat = reader.readSector(fatSectorLba);
             if (fat == null)
             {
                 return 0xFFF8;
@@ -463,7 +463,7 @@ public class X86FatFileSystem
             if (offset + 2 > bytesPerSector)
             {
                 // FAT12 entry straddles sector boundary
-                byte[] fat2 = reader.readSector(sector + 1);
+                byte[] fat2 = reader.readSector(fatSectorLba + 1);
                 if (fat2 == null) return 0xFFF8;
                 int b0 = fat[offset] & 0xFF;
                 int b1 = fat2[0] & 0xFF;
@@ -493,17 +493,17 @@ public class X86FatFileSystem
         }
         else if (fatType == 16)
         {
-            int fatByte = fatOffset + cluster * 2;
-            int sector = fatByte / bytesPerSector;
-            int offset = fatByte % bytesPerSector;
-            byte[] fat = reader.readSector(sector);
+            int fatByteOffset = cluster * 2; // byte offset within FAT
+            int fatSectorLba = fatOffset + fatByteOffset / bytesPerSector;
+            int offset = fatByteOffset % bytesPerSector;
+            byte[] fat = reader.readSector(fatSectorLba);
             if (fat == null)
             {
                 return 0xFFF8;
             }
             if (offset + 2 > bytesPerSector)
             {
-                byte[] fat2 = reader.readSector(sector + 1);
+                byte[] fat2 = reader.readSector(fatSectorLba + 1);
                 if (fat2 == null) return 0xFFF8;
                 return (fat[offset] & 0xFF) | ((fat2[0] & 0xFF) << 8);
             }

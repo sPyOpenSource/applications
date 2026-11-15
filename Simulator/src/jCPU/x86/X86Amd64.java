@@ -38,7 +38,7 @@ public class X86Amd64 implements X86Core.iExecutor
 
         executeOpcode(core, opcode, (int) rip);
         if (core.getPC64() == oldRip) {
-            // PC didn't change: either a handled no-PC-change opcode, or unhandled
+            // PC didn't change: check if opcode was handled
             if (!isNoPcChangeOpcode(core, (int) rip, opcode, rexW)) {
                 System.out.println("[WARN] Unhandled opcode at RIP=0x" + Long.toHexString(rip)
                         + ": OP=0x" + Integer.toHexString(opcode) + " (REX.W=" + rexW + ")");
@@ -64,16 +64,176 @@ public class X86Amd64 implements X86Core.iExecutor
             case 0x60: return true; // PUSHAD
             case 0x61: return true; // POPAD
         }
-        // Two-byte escape: check second byte for no-PC-change opcodes
+        // MOV r64, imm64: REX.W + B8..BF
+        if ((opcode & 0xF8) == 0xB8 && rexW != 0) return true;
+        // PUSH/POP r64: REX.W + 50..57 / 58..5F
+        if ((opcode & 0xF8) == 0x50 && rexW != 0) return true;
+        if ((opcode & 0xF8) == 0x58 && rexW != 0) return true;
+        // INC/DEC r64: REX.W + 40..47 / 48..4F
+        if ((opcode & 0xF8) == 0x40 && rexW != 0) return true;
+        if ((opcode & 0xF8) == 0x48 && rexW != 0) return true;
+        // MOV r64, r/m64: REX.W + 0x89/0x8B
+        if (rexW != 0 && (opcode == 0x89 || opcode == 0x8B)) return true;
+        // MOV byte reg/mem: REX.W + 0x88/0x8A
+        if (rexW != 0 && (opcode == 0x88 || opcode == 0x8A)) return true;
+        // CMP r/m64, imm8/imm32: REX.W + 0x81/0x83 /7
+        if (rexW != 0 && (opcode == 0x81 || opcode == 0x83) && mGrp1Reg(core, rip) == 7) return true;
+        // MOV r/m64, imm32: REX.W + 0xC7 /0
+        if (rexW != 0 && opcode == 0xC7 && mGrp1Reg(core, rip) == 0) return true;
+        // CMP r32, imm32: 0x81 /7 (no REX.W)
+        if (opcode == 0x81 && rexW == 0 && mGrp1Reg(core, rip) == 7) return true;
+        // PUSH imm32/imm8
+        if (opcode == 0x68 || opcode == 0x6A) return true;
+        // Arithmetic/logic r/m64, r64: REX.W + 0x01/0x03/0x29/0x2B/0x21/0x23/0x09/0x0B/0x31/0x33/0x39/0x3B/0x85/0x87
+        if (rexW != 0) {
+            switch (opcode) {
+                case 0x01: case 0x03: case 0x29: case 0x2B:
+                case 0x21: case 0x23: case 0x09: case 0x0B:
+                case 0x31: case 0x33: case 0x39: case 0x3B:
+                case 0x85: case 0x87:
+                    return true;
+            }
+        }
+        // LEA r64, m: 0x8D
+        if (opcode == 0x8D) return true;
+        // TEST r/m64, imm32: 0xF7 /0 with REX.W
+        if (opcode == 0xF7 && rexW != 0 && mGrp1Reg(core, rip) == 0) return true;
+        // SHIFT r/m64, imm8: REX.W + 0xC1
+        if (opcode == 0xC1 && rexW != 0) return true;
+        // NOT/NEG r/m64: 0xF7 /2,/3 with REX.W
+        if (opcode == 0xF7 && rexW != 0 &&
+                (mGrp1Reg(core, rip) == 2 || mGrp1Reg(core, rip) == 3)) return true;
+        // MOV r/m64, imm8 sign-extended: REX.W + 0xC6 /0
+        if (rexW != 0 && opcode == 0xC6) return true;
+        // MOV r/m8, imm8: 0xC6 /0 (no REX.W)
+        if (rexW == 0 && opcode == 0xC6) return true;
+        // MOV r/m32, imm32: 0xC7 /0 (no REX.W)
+        if (rexW == 0 && opcode == 0xC7 && mGrp1Reg(core, rip) == 0) return true;
+
+        /* ---------------- New 32-bit no-PC-change opcodes ---------------- */
+
+        // MOV r32, r/m32 / r/m32, r32 / r/m8, r8 / r8, r/m8: 0x88/0x89/0x8A/0x8B (no REX.W)
+        if (rexW == 0 && (opcode == 0x88 || opcode == 0x89 || opcode == 0x8A || opcode == 0x8B)) return true;
+
+        // Arithmetic/logic r/m32, r32: 0x01/0x03/0x29/0x2B/0x21/0x23/0x09/0x0B/0x31/0x33/0x39/0x3B/0x85/0x87 (no REX.W)
+        if (rexW == 0) {
+            switch (opcode) {
+                case 0x01: case 0x03: case 0x29: case 0x2B:
+                case 0x21: case 0x23: case 0x09: case 0x0B:
+                case 0x31: case 0x33: case 0x39: case 0x3B:
+                case 0x85: case 0x87:
+                    return true;
+            }
+        }
+
+        // PUSH r32: 0x50..0x57 (no REX.W)
+        if (rexW == 0 && (opcode & 0xF8) == 0x50) return true;
+        // POP r32: 0x58..0x5F (no REX.W)
+        if (rexW == 0 && (opcode & 0xF8) == 0x58) return true;
+        // INC/DEC r32: 0x40..0x47 / 0x48..0x4F (no REX.W)
+        if (rexW == 0 && (opcode & 0xF8) == 0x40) return true;
+        if (rexW == 0 && (opcode & 0xF8) == 0x48) return true;
+
+        // GROUP 1: 0x80/0x81/0x83 /r (all reg fields)
+        if (opcode == 0x80 || opcode == 0x81 || opcode == 0x83) return true;
+
+        // Accumulator immediate: 0x05/0x0D/0x15/0x1D/0x25/0x2D/0x35/0x3D
+        if (opcode == 0x05 || opcode == 0x0D || opcode == 0x15 || opcode == 0x1D ||
+            opcode == 0x25 || opcode == 0x2D || opcode == 0x35 || opcode == 0x3D) return true;
+
+        // MOV r32, imm32: B8..BF (no REX.W)
+        if ((opcode & 0xF8) == 0xB8 && rexW == 0) return true;
+
+        // OUT instructions: 0xE6/0xE7/0xEE/0xEF
+        if (opcode == 0xE6 || opcode == 0xE7 || opcode == 0xEE || opcode == 0xEF) return true;
+
+        // Flag instructions: 0xF8/0xF9/0xFC/0xFD
+        if (opcode == 0xF8 || opcode == 0xF9 || opcode == 0xFC || opcode == 0xFD) return true;
+
+        // ADD/SUB/SBB/XOR/CMP r/m8, r8: 0x10/0x18/0x28/0x30/0x38 /r
+        if (opcode == 0x10 || opcode == 0x18 || opcode == 0x28 || opcode == 0x30 || opcode == 0x38) return true;
+
+        // MOV AL, moffs8: 0xA0
+        if (opcode == 0xA0) return true;
+
+        // PUSH DS: 0x1E, POP ES: 0x07
+        if (opcode == 0x1E || opcode == 0x07) return true;
+
+        // CMC: 0xF5
+        if (opcode == 0xF5) return true;
+
+        // JO rel8: 0x70
+        if (opcode == 0x70) return true;
+
+        // GROUP 3 byte: 0xF6 /r (no REX.W)
+        if (opcode == 0xF6 && rexW == 0) return true;
+
+        // ADD r/m8, r8: 0x00 /r
+        if (opcode == 0x00) return true;
+        // OR r/m8, r8: 0x08 /r
+        if (opcode == 0x08) return true;
+        // SBB r/m32, r32: 0x18 /r
+        if (opcode == 0x18) return true;
+
+        // Shift by 1: 0xD0-D3
+        if (opcode == 0xD0 || opcode == 0xD1 || opcode == 0xD2 || opcode == 0xD3) return true;
+
+        // XCHG r/m8, r8: 0x86 /r
+        if (opcode == 0x86) return true;
+
+        // GROUP 2 shifts: 0xC0/0xC1 (no REX.W for 0xC0)
+        if (opcode == 0xC0 || (opcode == 0xC1 && rexW != 0)) return true;
+
+        // GROUP 4: 0xFE /r
+        if (opcode == 0xFE) return true;
+
+        // GROUP 5: 0xFF /r - INC/DEC/PUSH don't change PC
+        if (opcode == 0xFF) {
+            int reg = mGrp1Reg(core, rip);
+            if (reg == 0 || reg == 1 || reg == 6) return true;
+        }
+
+        // STOSD: 0xAB
+        if (opcode == 0xAB) return true;
+
+        // IMUL r32, r/m32, imm32: 0x69 /r
+        if (opcode == 0x69) return true;
+
+        // INS: 0x6D
+        if (opcode == 0x6D) return true;
+
+        // ADD AL, imm8: 0x04
+        if (opcode == 0x04) return true;
+
+        // POP DS: 0x17
+        if (opcode == 0x17) return true;
+
+        // IN instructions: 0xE4/0xE5/0xEC/0xED
+        if (opcode == 0xE4 || opcode == 0xE5 || opcode == 0xEC || opcode == 0xED) return true;
+
+        // LOCK prefix: 0xF0
+        if (opcode == 0xF0) return true;
+
+        // Two-byte escape: check handled two-byte opcodes
         if (opcode == 0x0F) {
             int op2 = core.readMem8(rip + 1);
-            switch (op2) {
-                case 0x05: return true; // SYSCALL
-                case 0x07: return true; // SYSRET
-                case 0xA2: return true; // CPUID
-            }
-            // CMOVcc (0x40-0x4F), SETcc (0x90-0x9F) don't change PC
-            if ((op2 & 0xF8) == 0x40 || (op2 & 0xF8) == 0x90) return true;
+            // MOVSXD: REX.W + 0x0F 0x63
+            if ((op2 & 0xF8) == 0x60 && rexW != 0) return true;
+            // CMOVcc: 0x0F 0x40..0x4F
+            // SETcc: 0x0F 0x90..0x9F
+            // Jcc near: 0x0F 0x80..0x8F (PC changes only if taken)
+            if ((op2 & 0xF8) == 0x40 || (op2 & 0xF8) == 0x90 || (op2 & 0xF0) == 0x80) return true;
+            // CPUID: 0x0F 0xA2
+            // SYSCALL: 0x0F 0x05
+            // SYSRET: 0x0F 0x07
+            if (op2 == 0xA2 || op2 == 0x05 || op2 == 0x07) return true;
+            // BSWAP: 0x0F C8..CF
+            if ((op2 & 0xF8) == 0xC8) return true;
+            // MOVZX/MOVSX: 0x0F B6/B7/BE/BF
+            if ((op2 & 0xFC) == 0xB6 || (op2 & 0xFC) == 0xBE) return true;
+            // XADD: 0x0F 0xC0/C1 with REX.W
+            // CMPXCHG: 0x0F 0xB0/B1 with REX.W
+            if (rexW != 0 && (op2 == 0xC0 || op2 == 0xC1 || op2 == 0xB0 || op2 == 0xB1)) return true;
         }
         return false;
     }
@@ -149,6 +309,81 @@ public class X86Amd64 implements X86Core.iExecutor
         // CPUID: 0x0F 0xA2 (two-byte)
         // PUSHAD: 0x60, POPAD: 0x61
         if (opcode == 0x60 || opcode == 0x61) {
+            return 1;
+        }
+
+        // CLC/STC/CLD/STD: 0xF8/0xF9/0xFC/0xFD
+        if (opcode == 0xF8 || opcode == 0xF9 || opcode == 0xFC || opcode == 0xFD) {
+            return 1;
+        }
+
+        // CMC: 0xF5
+        if (opcode == 0xF5) {
+            return 1;
+        }
+
+        // POP ES: 0x07, PUSH DS: 0x1E
+        if (opcode == 0x07 || opcode == 0x1E) {
+            return 1;
+        }
+
+        // JO rel8: 0x70
+        if (opcode == 0x70) {
+            return 2;
+        }
+
+        // MOV AL, moffs8: 0xA0
+        if (opcode == 0xA0) {
+            return 3;
+        }
+
+        // OUT imm8: 0xE6/0xE7
+        if (opcode == 0xE6 || opcode == 0xE7) {
+            return 2;
+        }
+
+        // MOV r32, imm32: B8..BF (no REX.W)
+        if ((opcode & 0xF8) == 0xB8 && rexW == 0) {
+            return 5;
+        }
+
+        // GROUP 3 byte: 0xF6 /r
+        if (opcode == 0xF6 && rexW == 0) {
+            return 2 + modrmDispLen(core, pc);
+        }
+
+        // ADC/SUB/SBB/XOR/CMP r/m8, r8: 0x10/0x18/0x28/0x30/0x38 /r
+        if (opcode == 0x10 || opcode == 0x18 || opcode == 0x28 || opcode == 0x30 || opcode == 0x38) {
+            return 2 + modrmDispLen(core, pc);
+        }
+
+        // Shift by 1: 0xD0-D3 /r
+        if (opcode == 0xD0 || opcode == 0xD1 || opcode == 0xD2 || opcode == 0xD3) {
+            return 2 + modrmDispLen(core, pc);
+        }
+
+        // OR/XCHG r/m8, r8: 0x08/0x86 /r
+        if (opcode == 0x08 || opcode == 0x86) {
+            return 2 + modrmDispLen(core, pc);
+        }
+
+        // IMUL r32, r/m32, imm32: 0x69 /r imm32
+        if (opcode == 0x69) {
+            return 6 + modrmDispLen(core, pc);
+        }
+
+        // INS: 0x6D
+        if (opcode == 0x6D) {
+            return 1;
+        }
+
+        // ADD AL, imm8: 0x04
+        if (opcode == 0x04) {
+            return 2;
+        }
+
+        // POP DS: 0x17
+        if (opcode == 0x17) {
             return 1;
         }
 
@@ -539,6 +774,755 @@ public class X86Amd64 implements X86Core.iExecutor
             return;
         }
 
+        /* ---------------- Accumulator immediate (no ModR/M) ---------------- */
+
+        // ADD EAX, imm32: 0x05
+        if (opcode == 0x05) {
+            long imm = core.readMem32(pc + 1) & 0xFFFFFFFFL;
+            long val = core.getReg64(REG_RAX) & 0xFFFFFFFFL;
+            long res = val + imm;
+            core.setReg64(REG_RAX, res);
+            setFlagsArith64(core, res, val, imm, false);
+            return;
+        }
+
+        // OR EAX, imm32: 0x0D
+        if (opcode == 0x0D) {
+            long imm = core.readMem32(pc + 1) & 0xFFFFFFFFL;
+            long val = core.getReg64(REG_RAX) & 0xFFFFFFFFL;
+            long res = val | imm;
+            core.setReg64(REG_RAX, res);
+            core.setFlag(FLAG_CF, false);
+            core.setFlag(FLAG_OF, false);
+            core.setFlag(FLAG_ZF, res == 0);
+            core.setFlag(FLAG_SF, (res & 0x8000000000000000L) != 0);
+            core.setFlag(FLAG_PF, parity((int) res));
+            core.setFlag(FLAG_AF, false);
+            core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        // ADC EAX, imm32: 0x15 (simplified as ADD)
+        if (opcode == 0x15) {
+            long imm = core.readMem32(pc + 1) & 0xFFFFFFFFL;
+            long val = core.getReg64(REG_RAX) & 0xFFFFFFFFL;
+            long res = val + imm;
+            core.setReg64(REG_RAX, res);
+            setFlagsArith64(core, res, val, imm, false);
+            return;
+        }
+
+        // SBB EAX, imm32: 0x1D (simplified as SUB)
+        if (opcode == 0x1D) {
+            long imm = core.readMem32(pc + 1) & 0xFFFFFFFFL;
+            long val = core.getReg64(REG_RAX) & 0xFFFFFFFFL;
+            long res = val - imm;
+            core.setReg64(REG_RAX, res);
+            setFlagsSub64(core, val, imm, res);
+            return;
+        }
+
+        // AND EAX, imm32: 0x25
+        if (opcode == 0x25) {
+            long imm = core.readMem32(pc + 1) & 0xFFFFFFFFL;
+            long val = core.getReg64(REG_RAX) & 0xFFFFFFFFL;
+            long res = val & imm;
+            core.setReg64(REG_RAX, res);
+            core.setFlag(FLAG_CF, false);
+            core.setFlag(FLAG_OF, false);
+            core.setFlag(FLAG_ZF, res == 0);
+            core.setFlag(FLAG_SF, (res & 0x8000000000000000L) != 0);
+            core.setFlag(FLAG_PF, parity((int) res));
+            core.setFlag(FLAG_AF, false);
+            core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        // SUB EAX, imm32: 0x2D
+        if (opcode == 0x2D) {
+            long imm = core.readMem32(pc + 1) & 0xFFFFFFFFL;
+            long val = core.getReg64(REG_RAX) & 0xFFFFFFFFL;
+            long res = val - imm;
+            core.setReg64(REG_RAX, res);
+            setFlagsSub64(core, val, imm, res);
+            return;
+        }
+
+        // XOR EAX, imm32: 0x35
+        if (opcode == 0x35) {
+            long imm = core.readMem32(pc + 1) & 0xFFFFFFFFL;
+            long val = core.getReg64(REG_RAX) & 0xFFFFFFFFL;
+            long res = val ^ imm;
+            core.setReg64(REG_RAX, res);
+            core.setFlag(FLAG_CF, false);
+            core.setFlag(FLAG_OF, false);
+            core.setFlag(FLAG_ZF, res == 0);
+            core.setFlag(FLAG_SF, (res & 0x8000000000000000L) != 0);
+            core.setFlag(FLAG_PF, parity((int) res));
+            core.setFlag(FLAG_AF, false);
+            core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        // CMP EAX, imm32: 0x3D
+        if (opcode == 0x3D) {
+            long imm = core.readMem32(pc + 1) & 0xFFFFFFFFL;
+            long val = core.getReg64(REG_RAX) & 0xFFFFFFFFL;
+            setFlagsSub64(core, val, imm, val - imm);
+            return;
+        }
+
+        // ADC/SUB/SBB/XOR/CMP r/m8, r8: 0x10/0x18/0x28/0x30/0x38 /r
+        if (opcode == 0x10 || opcode == 0x18 || opcode == 0x28 || opcode == 0x30 || opcode == 0x38) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            long src = m.regVal & 0xFF;
+            long dest = m.rmVal & 0xFF;
+            long res;
+            switch (opcode) {
+                case 0x10: res = dest + src + (core.getFlag(FLAG_CF) ? 1 : 0); break;
+                case 0x18: res = dest - src; break;
+                case 0x28: res = dest - src; break;
+                case 0x30: res = dest ^ src; break;
+                case 0x38: res = dest - src; break;
+                default: res = 0;
+            }
+            if (m.mod == 3) {
+                core.setReg(regFieldIndex64(m.regField), (int) res);
+            } else if (opcode != 0x38) {
+                core.writeMem8(m.effAddr, (int) res);
+            }
+            core.setFlag(FLAG_ZF, (res & 0xFF) == 0);
+            core.setFlag(FLAG_SF, (res & 0x80) != 0);
+            core.setFlag(FLAG_PF, parity((int) res));
+            core.setFlag(FLAG_AF, false);
+            if (opcode == 0x10) {
+                core.setFlag(FLAG_CF, res > 0xFF);
+                core.setFlag(FLAG_OF, (((dest ^ res) & (src ^ res)) & 0x80) != 0);
+            } else if (opcode == 0x18) {
+                core.setFlag(FLAG_CF, dest < src);
+                core.setFlag(FLAG_OF, (((dest ^ src) & (dest ^ res)) & 0x80) != 0);
+            } else if (opcode == 0x38) {
+                core.setFlag(FLAG_CF, dest < src);
+                core.setFlag(FLAG_OF, (((dest ^ src) & (dest ^ res)) & 0x80) != 0);
+            } else {
+                core.setFlag(FLAG_CF, res > 0xFF);
+                core.setFlag(FLAG_OF, (((dest ^ res) & (src ^ res)) & 0x80) != 0);
+            }
+            core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        // MOV AL, moffs8: 0xA0
+        if (opcode == 0xA0) {
+            int addr = core.readMem16(pc + 1);
+            core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFF) | (core.readMem8(addr) & 0xFF));
+            return;
+        }
+
+        /* ---------------- IMUL r32, r/m32, imm32: 0x69 /r ---------------- */
+
+        if (opcode == 0x69) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            long imm = core.readMem32(pc + m.len) & 0xFFFFFFFFL;
+            long src = m.rmVal & 0xFFFFFFFFL;
+            long dest = core.getReg(regFieldIndex64(m.regField)) & 0xFFFFFFFFL;
+            long res = dest * src;
+            core.setReg64(regFieldIndex64(m.regField), res);
+            core.setFlag(FLAG_CF, (res >>> 32) != 0);
+            core.setFlag(FLAG_OF, (res >>> 32) != 0);
+            core.setFlag(FLAG_ZF, res == 0);
+            core.setFlag(FLAG_SF, (res & 0x8000000000000000L) != 0);
+            core.setFlag(FLAG_PF, parity((int) res));
+            core.setFlag(FLAG_AF, false);
+            core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        /* ---------------- ADD AL, imm8: 0x04 ---------------- */
+
+        if (opcode == 0x04) {
+            long imm = core.readMem8(pc + 1) & 0xFF;
+            long val = core.getReg64(REG_RAX) & 0xFF;
+            long res = val + imm;
+            core.setReg64(REG_RAX, (core.getReg64(REG_RAX) & ~0xFFL) | (res & 0xFFL));
+            core.setFlag(FLAG_ZF, (res & 0xFF) == 0);
+            core.setFlag(FLAG_SF, (res & 0x80) != 0);
+            core.setFlag(FLAG_PF, parity((int) res));
+            core.setFlag(FLAG_CF, res > 0xFF);
+            core.setFlag(FLAG_OF, (((val ^ res) & (imm ^ res)) & 0x80) != 0);
+            core.setFlag(FLAG_AF, false);
+            core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        /* ---------------- POP DS: 0x17 ---------------- */
+
+        if (opcode == 0x17) {
+            core.pop64();
+            return;
+        }
+
+        /* ---------------- INS: 0x6D (input string) - simplified ---------------- */
+
+        if (opcode == 0x6D) {
+            int dx = core.getReg(REG_EDX) & 0xFFFF;
+            int edi = core.getReg(REG_EDI);
+            core.writeMem8(edi, core.readPort(dx));
+            if (core.getFlag(FLAG_DF)) {
+                core.setReg(REG_EDI, edi - 1);
+            } else {
+                core.setReg(REG_EDI, edi + 1);
+            }
+            return;
+        }
+
+        // MOV r32, imm32: B8..BF (no REX.W)
+        if ((opcode & 0xF8) == 0xB8 && rexW == 0) {
+            int reg = opcode & 0x07;
+            long imm = core.readMem32(pc + 1) & 0xFFFFFFFFL;
+            core.setReg64(reg, imm);
+            return;
+        }
+
+        /* ---------------- ADD r/m8, r8: 0x00 /r ---------------- */
+
+        if (opcode == 0x00) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            long src = m.regVal & 0xFF;
+            long dest = m.rmVal & 0xFF;
+            long res = dest + src;
+            if (m.mod == 3) {
+                core.setReg(regFieldIndex64(m.regField), (int) res);
+            } else {
+                core.writeMem8(m.effAddr, (int) res);
+            }
+            core.setFlag(FLAG_ZF, (res & 0xFF) == 0);
+            core.setFlag(FLAG_SF, (res & 0x80) != 0);
+            core.setFlag(FLAG_PF, parity((int) res));
+            core.setFlag(FLAG_CF, res > 0xFF);
+            core.setFlag(FLAG_OF, (((dest ^ res) & (src ^ res)) & 0x80) != 0);
+            core.setFlag(FLAG_AF, false);
+            core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        /* ---------------- SBB r/m32, r32: 0x18 /r ---------------- */
+
+        if (opcode == 0x18) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            int dest = core.getReg(regFieldIndex64(m.regField));
+            int src = m.rmVal;
+            int res = dest - src;
+            core.setReg(regFieldIndex64(m.regField), res);
+            setFlagsSub32(core, dest, src, res);
+            return;
+        }
+
+        /* ---------------- 32-bit operand operations (no REX.W) ---------------- */
+
+        // MOV r32, r/m32: 0x8B /r (no REX.W)
+        // MOV r/m32, r32: 0x89 /r (no REX.W)
+        // MOV r/m8, r8: 0x88 /r (no REX.W)
+        // MOV r8, r/m8: 0x8A /r (no REX.W)
+        if (rexW == 0) {
+            switch (opcode) {
+                case 0x89: // MOV r/m32, r32
+                    modrm_arith32(core, pc, false, false, (a, b) -> b, true);
+                    return;
+                case 0x8B: // MOV r32, r/m32
+                    modrm_arith32(core, pc, false, true, (a, b) -> b, true);
+                    return;
+                case 0x88: // MOV r/m8, r8
+                    modrm_arith32(core, pc, false, false, (a, b) -> b & 0xFF, false);
+                    return;
+                case 0x8A: // MOV r8, r/m8
+                    modrm_arith32(core, pc, false, true, (a, b) -> b & 0xFF, false);
+                    return;
+            }
+        }
+
+        // ADD/SUB/AND/OR/XOR/CMP r/m32, r32 and r32, r/m32: no REX.W + 0x01/0x03/0x29/0x2B/0x21/0x23/0x09/0x0B/0x31/0x33/0x39/0x3B
+        if (rexW == 0) {
+            switch (opcode) {
+                case 0x01: // ADD r/m32, r32
+                    modrm_arith32(core, pc, true, false, (a, b) -> a + b, true);
+                    return;
+                case 0x03: // ADD r32, r/m32
+                    modrm_arith32(core, pc, true, true, (a, b) -> a + b, true);
+                    return;
+                case 0x29: // SUB r/m32, r32
+                    modrm_arith32(core, pc, true, false, (a, b) -> a - b, true);
+                    return;
+                case 0x2B: // SUB r32, r/m32
+                    modrm_arith32(core, pc, true, true, (a, b) -> a - b, true);
+                    return;
+                case 0x21: // AND r/m32, r32
+                    modrm_arith32(core, pc, true, false, (a, b) -> a & b, false);
+                    return;
+                case 0x23: // AND r32, r/m32
+                    modrm_arith32(core, pc, true, true, (a, b) -> a & b, false);
+                    return;
+                case 0x09: // OR r/m32, r32
+                    modrm_arith32(core, pc, true, false, (a, b) -> a | b, false);
+                    return;
+                case 0x0B: // OR r32, r/m32
+                    modrm_arith32(core, pc, true, true, (a, b) -> a | b, false);
+                    return;
+                case 0x31: // XOR r/m32, r32
+                    modrm_arith32(core, pc, true, false, (a, b) -> a ^ b, false);
+                    return;
+                case 0x33: // XOR r32, r/m32
+                    modrm_arith32(core, pc, true, true, (a, b) -> a ^ b, false);
+                    return;
+                case 0x39: // CMP r/m32, r32
+                    modrm_cmp32(core, pc, true, false);
+                    return;
+                case 0x3B: // CMP r32, r/m32
+                    modrm_cmp32(core, pc, true, true);
+                    return;
+                case 0x85: // TEST r/m32, r32
+                    modrm_test32(core, pc, true, false);
+                    return;
+                case 0x87: // XCHG r/m32, r32
+                    modrm_xchg32(core, pc);
+                    return;
+            }
+        }
+
+        // PUSH r32: 0x50..0x57 (no REX.W)
+        if (rexW == 0 && (opcode & 0xF8) == 0x50) {
+            core.push64(core.getReg(opcode & 0x07));
+            return;
+        }
+
+        // POP r32: 0x58..0x5F (no REX.W)
+        if (rexW == 0 && (opcode & 0xF8) == 0x58) {
+            core.setReg(opcode & 0x07, (int) core.pop64());
+            return;
+        }
+
+        // INC/DEC r32: 0x40..0x47 / 0x48..0x4F (no REX.W)
+        if (rexW == 0 && (opcode & 0xF8) == 0x40) {
+            int reg = opcode & 0x07;
+            int val = core.getReg(reg) + 1;
+            core.setReg(reg, val);
+            setFlagsArith32(core, val, core.getReg(reg) - 1, 1, false);
+            return;
+        }
+        if (rexW == 0 && (opcode & 0xF8) == 0x48) {
+            int reg = opcode & 0x07;
+            int val = core.getReg(reg) - 1;
+            core.setReg(reg, val);
+            setFlagsArith32(core, val, core.getReg(reg) + 1, 1, true);
+            return;
+        }
+
+        /* ---------------- GROUP 1: 0x80 /r, 0x81 /r, 0x83 /r ---------------- */
+
+        // GROUP 1 with imm8: 0x83 /r
+        if (opcode == 0x83) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            int reg = m.regField;
+            long imm = (byte) core.readMem8(pc + m.len);
+            long src = m.rmVal & 0xFFFFFFFFL;
+            switch (reg) {
+                case 0: // ADD
+                    modrm_imm32(core, m, src + imm, true);
+                    return;
+                case 1: // OR
+                    modrm_imm32(core, m, src | imm, false);
+                    return;
+                case 2: // ADC (simplified as ADD)
+                    modrm_imm32(core, m, src + imm, true);
+                    return;
+                case 3: // SBB (simplified as SUB)
+                    modrm_imm32(core, m, src - imm, true);
+                    return;
+                case 4: // AND
+                    modrm_imm32(core, m, src & imm, false);
+                    return;
+                case 5: // SUB
+                    modrm_imm32(core, m, src - imm, true);
+                    return;
+                case 6: // XOR
+                    modrm_imm32(core, m, src ^ imm, false);
+                    return;
+                case 7: // CMP
+                    setFlagsSub32(core, src, imm, src - imm);
+                    return;
+            }
+        }
+
+        // GROUP 1 with imm32: 0x81 /r
+        if (opcode == 0x81) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            int reg = m.regField;
+            long imm = core.readMem32(pc + m.len) & 0xFFFFFFFFL;
+            long src = m.rmVal & 0xFFFFFFFFL;
+            switch (reg) {
+                case 0: // ADD
+                    modrm_imm32(core, m, src + imm, true);
+                    return;
+                case 1: // OR
+                    modrm_imm32(core, m, src | imm, false);
+                    return;
+                case 2: // ADC
+                    modrm_imm32(core, m, src + imm, true);
+                    return;
+                case 3: // SBB
+                    modrm_imm32(core, m, src - imm, true);
+                    return;
+                case 4: // AND
+                    modrm_imm32(core, m, src & imm, false);
+                    return;
+                case 5: // SUB
+                    modrm_imm32(core, m, src - imm, true);
+                    return;
+                case 6: // XOR
+                    modrm_imm32(core, m, src ^ imm, false);
+                    return;
+                case 7: // CMP
+                    setFlagsSub32(core, src, imm, src - imm);
+                    return;
+            }
+        }
+
+        /* ---------------- GROUP 2: 0xC0 /r, 0xC1 /r shifts ---------------- */
+
+        // SHIFT r/m32, imm8: 0xC0 /r (no REX.W)
+        // SHIFT r/m32, imm8: 0xC1 /r (REX.W)
+        if ((opcode == 0xC0 || opcode == 0xC1) && (rexW != 0 || opcode == 0xC0)) {
+            boolean operand64 = (rexW != 0);
+            ModRm64 m = decodeModRm64(core, pc, operand64);
+            int shift = m.regField;
+            int count = core.readMem8(pc + m.len) & (operand64 ? 0x3F : 0x1F);
+            long val = operand64 ? m.rmVal64 : (m.rmVal & 0xFFFFFFFFL);
+            long res = val;
+            if (count != 0) {
+                switch (shift) {
+                    case 0: res = operand64 ? Long.rotateLeft(val, count) : rotateLeft32((int) val, count); break;
+                    case 1: res = operand64 ? Long.rotateRight(val, count) : rotateRight32((int) val, count); break;
+                    case 4: res = val << count; break;
+                    case 5: res = val >>> count; break;
+                    case 7: res = val >> count; break;
+                }
+            }
+            if (operand64) {
+                core.writeMem64(m.effAddr, res);
+            } else {
+                core.writeMem32(m.effAddr, (int) res);
+            }
+            if (count == 1) {
+                core.setFlag(FLAG_CF, (val & (operand64 ? 0x8000000000000000L : 0x80000000L)) != 0);
+            } else {
+                core.setFlag(FLAG_CF, false);
+            }
+            core.setFlag(FLAG_ZF, res == 0);
+            core.setFlag(FLAG_SF, (res & (operand64 ? 0x8000000000000000L : 0x80000000L)) != 0);
+            core.setFlag(FLAG_PF, parity((int) res));
+            core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        /* ---------------- GROUP 4: 0xFE /r ---------------- */
+
+        // INC/DEC r/m8: 0xFE /r
+        if (opcode == 0xFE) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            int reg = m.regField;
+            long val = m.rmVal & 0xFF;
+            if (reg == 0) {
+                val = (val + 1) & 0xFF;
+                core.writeMem8(m.effAddr, (int) val);
+                core.setFlag(FLAG_ZF, val == 0);
+                core.setFlag(FLAG_SF, (val & 0x80) != 0);
+                core.setFlag(FLAG_PF, parity((int) val));
+                core.setFlag(FLAG_AF, false);
+                core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            } else if (reg == 1) {
+                val = (val - 1) & 0xFF;
+                core.writeMem8(m.effAddr, (int) val);
+                core.setFlag(FLAG_ZF, val == 0);
+                core.setFlag(FLAG_SF, (val & 0x80) != 0);
+                core.setFlag(FLAG_PF, parity((int) val));
+                core.setFlag(FLAG_AF, false);
+                core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            }
+            return;
+        }
+
+        /* ---------------- GROUP 5: 0xFF /r ---------------- */
+
+        // INC/DEC/CALL/JMP/PUSH r/m32: 0xFF /r
+        if (opcode == 0xFF) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            int reg = m.regField;
+            long val = m.rmVal & 0xFFFFFFFFL;
+            switch (reg) {
+                case 0: // INC r/m32
+                    val = val + 1;
+                    core.writeMem32(m.effAddr, (int) val);
+                    setFlagsArith32(core, (int) val, (int) (val - 1), 1, false);
+                    return;
+                case 1: // DEC r/m32
+                    val = val - 1;
+                    core.writeMem32(m.effAddr, (int) val);
+                    setFlagsArith32(core, (int) val, (int) (val + 1), 1, true);
+                    return;
+                case 2: // CALL r/m32
+                    core.push64(pc + m.len);
+                    core.setPC64(val);
+                    return;
+                case 3: // CALL r/m32 (far) - simplified
+                    core.push64(pc + m.len);
+                    core.setPC64(val);
+                    return;
+                case 4: // JMP r/m32
+                    core.setPC64(val);
+                    return;
+                case 5: // JMP far - simplified
+                    core.setPC64(val);
+                    return;
+                case 6: // PUSH r/m32
+                    core.push64(val);
+                    return;
+            }
+        }
+
+        // STOSD: store EAX to [RDI], adjust RDI
+        if (opcode == 0xAB) {
+            int edi = core.getReg(REG_EDI);
+            core.writeMem32(edi, core.getReg(REG_EAX));
+            if (core.getFlag(FLAG_DF)) {
+                core.setReg(REG_EDI, edi - 4);
+            } else {
+                core.setReg(REG_EDI, edi + 4);
+            }
+            return;
+        }
+
+        /* ---------------- POP DS: 0x17 ---------------- */
+
+        if (opcode == 0x17) {
+            // POP DS - simplified, just discard top of stack
+            core.pop64();
+            return;
+        }
+
+        /* ---------------- INS: 0x6D (input string) - simplified ---------------- */
+
+        if (opcode == 0x6D) {
+            // INS: input from DX port to [RDI], adjust RDI
+            int dx = core.getReg(REG_EDX) & 0xFFFF;
+            int edi = core.getReg(REG_EDI);
+            core.writeMem8(edi, core.readPort(dx));
+            if (core.getFlag(FLAG_DF)) {
+                core.setReg(REG_EDI, edi - 1);
+            } else {
+                core.setReg(REG_EDI, edi + 1);
+            }
+            return;
+        }
+
+        /* ---------------- IN instructions ---------------- */
+
+        // IN AL, imm8: 0xE4
+        if (opcode == 0xE4) {
+            int port = core.readMem8(pc + 1) & 0xFF;
+            core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFF) | (core.readPort(port) & 0xFF));
+            return;
+        }
+
+        // IN AX/EAX, imm8: 0xE5
+        if (opcode == 0xE5) {
+            int port = core.readMem8(pc + 1) & 0xFF;
+            int al = core.readPort(port) & 0xFF;
+            int ah = core.readPort(port + 1) & 0xFF;
+            core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFFFF) | (ah << 8) | al);
+            return;
+        }
+
+        // IN AL, DX: 0xEC
+        if (opcode == 0xEC) {
+            int dx = core.getReg(REG_EDX) & 0xFFFF;
+            core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFF) | (core.readPort(dx) & 0xFF));
+            return;
+        }
+
+        // IN AX/EAX, DX: 0xED
+        if (opcode == 0xED) {
+            int dx = core.getReg(REG_EDX) & 0xFFFF;
+            int al = core.readPort(dx) & 0xFF;
+            int ah = core.readPort(dx + 1) & 0xFF;
+            core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFFFF) | (ah << 8) | al);
+            return;
+        }
+
+        // OUT imm8, AL: 0xE6
+        if (opcode == 0xE6) {
+            int port = core.readMem8(pc + 1) & 0xFF;
+            core.writePort(port, (byte)(core.getReg(REG_EAX) & 0xFF));
+            return;
+        }
+
+        // OUT imm8, AX/EAX: 0xE7
+        if (opcode == 0xE7) {
+            int port = core.readMem8(pc + 1) & 0xFF;
+            core.writePort(port, (byte)(core.getReg(REG_EAX) & 0xFF));
+            core.writePort(port + 1, (byte)((core.getReg(REG_EAX) >> 8) & 0xFF));
+            return;
+        }
+
+        // OUT DX, AL: 0xEE
+        if (opcode == 0xEE) {
+            int dx = core.getReg(REG_EDX) & 0xFFFF;
+            core.writePort(dx, (byte)(core.getReg(REG_EAX) & 0xFF));
+            return;
+        }
+
+        // OUT DX, AX/EAX: 0xEF
+        if (opcode == 0xEF) {
+            int dx = core.getReg(REG_EDX) & 0xFFFF;
+            core.writePort(dx, (byte)(core.getReg(REG_EAX) & 0xFF));
+            core.writePort(dx + 1, (byte)((core.getReg(REG_EAX) >> 8) & 0xFF));
+            return;
+        }
+
+        /* ---------------- LOCK prefix: 0xF0 ---------------- */
+
+        // LOCK: atomic prefix, simplified as no-op
+        if (opcode == 0xF0) {
+            return;
+        }
+
+        /* ---------------- Flag instructions ---------------- */
+
+        // CLC: 0xF8
+        if (opcode == 0xF8) {
+            core.setFlag(FLAG_CF, false);
+            return;
+        }
+
+        // STC: 0xF9
+        if (opcode == 0xF9) {
+            core.setFlag(FLAG_CF, true);
+            return;
+        }
+
+        // CLD: 0xFC
+        if (opcode == 0xFC) {
+            core.setFlag(FLAG_DF, false);
+            return;
+        }
+
+        // STD: 0xFD
+        if (opcode == 0xFD) {
+            core.setFlag(FLAG_DF, true);
+            return;
+        }
+
+        // CMC: 0xF5 (complement carry flag)
+        if (opcode == 0xF5) {
+            core.setFlag(FLAG_CF, !core.getFlag(FLAG_CF));
+            return;
+        }
+
+        // PUSH DS: 0x1E
+        if (opcode == 0x1E) {
+            core.push64(0); // DS segment value (simplified as 0)
+            return;
+        }
+
+        // POP ES: 0x07
+        if (opcode == 0x07) {
+            // POP ES - simplified, just discard
+            return;
+        }
+
+        // JO rel8: 0x70
+        if (opcode == 0x70) {
+            int rel = (byte) core.readMem8(pc + 1);
+            if (core.getFlag(FLAG_OF)) {
+                core.setPC64(pc + 2 + rel);
+            }
+            return;
+        }
+
+        /* ---------------- Shift by 1: 0xD0-D3 ---------------- */
+
+        // ROL/ROR/SHL/SHR/SAR r/m32/m8, 1: 0xD0-D1
+        // ROL/ROR/SHL/SHR/SAR r/m32/m8, CL: 0xD2-D3
+        if (opcode == 0xD0 || opcode == 0xD1 || opcode == 0xD2 || opcode == 0xD3) {
+            boolean useCl = (opcode & 0x02) != 0;
+            boolean operand16 = (opcode & 0x01) != 0;
+            ModRm64 m = decodeModRm64(core, pc, !operand16);
+            int shift = m.regField;
+            int count = useCl ? core.getReg(REG_ECX) & 0x1F : 1;
+            long val = operand16 ? m.rmVal64 : (m.rmVal & 0xFF);
+            long res = val;
+            if (count != 0) {
+                switch (shift) {
+                    case 0: res = Long.rotateLeft(val, count); break;
+                    case 1: res = Long.rotateRight(val, count); break;
+                    case 4: res = val << count; break;
+                    case 5: res = val >>> count; break;
+                    case 7: res = val >> count; break;
+                }
+            }
+            if (operand16) {
+                core.writeMem32(m.effAddr, (int) res);
+            } else {
+                core.writeMem8(m.effAddr, (int) res);
+            }
+            if (count == 1) {
+                core.setFlag(FLAG_CF, (val & (operand16 ? 0x80000000L : 0x80L)) != 0);
+            } else {
+                core.setFlag(FLAG_CF, false);
+            }
+            core.setFlag(FLAG_ZF, res == 0);
+            core.setFlag(FLAG_SF, (res & (operand16 ? 0x80000000L : 0x80L)) != 0);
+            core.setFlag(FLAG_PF, parity((int) res));
+            core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        /* ---------------- OR/XCHG r/m8, r8: 0x08/0x86 /r ---------------- */
+
+        if (opcode == 0x08 || opcode == 0x86) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            long src = m.regVal & 0xFF;
+            long dest = m.rmVal & 0xFF;
+            long res;
+            if (opcode == 0x08) {
+                res = dest | src;
+            } else {
+                res = src;
+                core.setReg(regFieldIndex64(m.regField), (int) dest);
+            }
+            if (m.mod == 3) {
+                core.setReg(regFieldIndex64(m.regField), (int) res);
+            } else {
+                core.writeMem8(m.effAddr, (int) res);
+            }
+            if (opcode == 0x08) {
+                core.setFlag(FLAG_CF, false);
+                core.setFlag(FLAG_OF, false);
+                core.setFlag(FLAG_ZF, res == 0);
+                core.setFlag(FLAG_SF, (res & 0x80) != 0);
+                core.setFlag(FLAG_PF, parity((int) res));
+                core.setFlag(FLAG_AF, false);
+                core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            }
+            return;
+        }
+
+        // Two-byte escape
+        if (opcode == 0x0F) {
+            int op2 = core.readMem8(pc + 1);
+            executeTwoByte(core, op2, pc + 2);
+            return;
+        }
+
         // TEST r/m64, imm32: 0xF7 /0
         if (opcode == 0xF7 && rexW != 0 && mGrp1Reg(core, pc) == 0) {
             ModRm64 m = decodeModRm64(core, pc, true);
@@ -603,6 +1587,38 @@ public class X86Amd64 implements X86Core.iExecutor
             core.setFlag(FLAG_CF, val != 0);
             core.setFlag(FLAG_OF, val == 0x8000000000000000L);
             core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            return;
+        }
+
+        // GROUP 3 byte: 0xF6 /r (no REX.W)
+        // TEST r/m8, imm8 (/0), NOT r/m8 (/2), NEG r/m8 (/3)
+        if (opcode == 0xF6 && rexW == 0) {
+            ModRm64 m = decodeModRm64(core, pc, false);
+            int reg = m.regField;
+            if (reg == 0) { // TEST r/m8, imm8
+                long imm = core.readMem8(pc + m.len) & 0xFF;
+                long res = m.rmVal & imm;
+                core.setFlag(FLAG_CF, false);
+                core.setFlag(FLAG_OF, false);
+                core.setFlag(FLAG_ZF, res == 0);
+                core.setFlag(FLAG_SF, (res & 0x80) != 0);
+                core.setFlag(FLAG_PF, parity((int) res));
+                core.setFlag(FLAG_AF, false);
+                core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            } else if (reg == 2) { // NOT r/m8
+                long val = m.rmVal & 0xFF;
+                core.writeMem8(m.effAddr, (int) (~val & 0xFF));
+            } else if (reg == 3) { // NEG r/m8
+                long val = m.rmVal & 0xFF;
+                long res = -val;
+                core.writeMem8(m.effAddr, (int) (res & 0xFF));
+                core.setFlag(FLAG_ZF, res == 0);
+                core.setFlag(FLAG_SF, (res & 0x80) != 0);
+                core.setFlag(FLAG_PF, parity((int) res));
+                core.setFlag(FLAG_CF, val != 0);
+                core.setFlag(FLAG_OF, val == 0x80);
+                core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+            }
             return;
         }
 
@@ -689,7 +1705,7 @@ public class X86Amd64 implements X86Core.iExecutor
         ModRm64 m = decodeModRm64(core, pc, word);
         long destVal = dirToReg ? m.regVal & 0xFFFFFFFFL : m.rmVal64;
         long srcVal = dirToReg ? m.rmVal64 : m.regVal & 0xFFFFFFFFL;
-        long r = op.op(destVal, srcVal);
+        int r = (int) op.op(destVal, srcVal);
         if (dirToReg) {
             core.setReg64(regFieldIndex64(m.regField), r);
             if (updateFlags) setFlagsArith64(core, r, destVal, srcVal, false);
@@ -726,6 +1742,85 @@ public class X86Amd64 implements X86Core.iExecutor
         long tmp = m.rmVal64;
         core.writeMem64(m.effAddr, core.getReg64(regFieldIndex64(m.regField)));
         core.setReg64(regFieldIndex64(m.regField), tmp);
+    }
+
+    /* ---------------- 32-bit helper methods ---------------- */
+
+    private void modrm_arith32(X86Core core, int pc, boolean updateFlags, boolean dirToReg,
+                               BinOp op, boolean writeResult) throws Exception {
+        ModRm64 m = decodeModRm64(core, pc, false);
+        int destVal = dirToReg ? core.getReg(regFieldIndex64(m.regField)) : m.rmVal;
+        int srcVal = dirToReg ? m.rmVal : core.getReg(regFieldIndex64(m.regField));
+        int r = (int) op.op(destVal, srcVal);
+        if (dirToReg) {
+            core.setReg(regFieldIndex64(m.regField), r);
+            if (updateFlags) setFlagsArith32(core, r, destVal, srcVal, false);
+        } else if (writeResult) {
+            core.writeMem32(m.effAddr, r);
+            if (updateFlags) setFlagsArith32(core, r, destVal, srcVal, false);
+        }
+    }
+
+    private void modrm_cmp32(X86Core core, int pc, boolean word, boolean dirToReg) throws Exception {
+        ModRm64 m = decodeModRm64(core, pc, word);
+        int destVal = dirToReg ? core.getReg(regFieldIndex64(m.regField)) : m.rmVal;
+        int srcVal = dirToReg ? m.rmVal : core.getReg(regFieldIndex64(m.regField));
+        int res = destVal - srcVal;
+        setFlagsSub32(core, destVal, srcVal, res);
+    }
+
+    private void modrm_test32(X86Core core, int pc, boolean word, boolean dirToReg) throws Exception {
+        ModRm64 m = decodeModRm64(core, pc, word);
+        int destVal = dirToReg ? core.getReg(regFieldIndex64(m.regField)) : m.rmVal;
+        int srcVal = dirToReg ? m.rmVal : core.getReg(regFieldIndex64(m.regField));
+        int res = destVal & srcVal;
+        core.setFlag(FLAG_CF, false);
+        core.setFlag(FLAG_OF, false);
+        core.setFlag(FLAG_ZF, res == 0);
+        core.setFlag(FLAG_SF, (res & 0x80000000) != 0);
+        core.setFlag(FLAG_PF, parity(res));
+        core.setFlag(FLAG_AF, false);
+        core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+    }
+
+    private void modrm_xchg32(X86Core core, int pc) throws Exception {
+        ModRm64 m = decodeModRm64(core, pc, false);
+        int tmp = m.rmVal;
+        core.writeMem32(m.effAddr, core.getReg(regFieldIndex64(m.regField)));
+        core.setReg(regFieldIndex64(m.regField), tmp);
+    }
+
+    private void modrm_imm32(X86Core core, ModRm64 m, long result, boolean updateFlags) throws Exception {
+        core.writeMem32(m.effAddr, (int) result);
+        if (updateFlags) {
+            setFlagsArith32(core, (int) result, m.rmVal, 0, false);
+        }
+    }
+
+    private void setFlagsArith32(X86Core core, int result, int src1, int src2, boolean isSub) {
+        core.setFlag(FLAG_ZF, result == 0);
+        core.setFlag(FLAG_SF, (result & 0x80000000) != 0);
+        core.setFlag(FLAG_PF, parity(result));
+        core.setFlag(FLAG_AF, false);
+        if (isSub) {
+            setFlagsSub32(core, src1, src2, result);
+        } else {
+            boolean cf = (result < src1 || result < src2);
+            core.setFlag(FLAG_CF, cf);
+            boolean of = (((src1 ^ result) & (src2 ^ result)) & 0x80000000) != 0;
+            core.setFlag(FLAG_OF, of);
+        }
+        core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
+    }
+
+    private static int rotateLeft32(int val, int count) {
+        count &= 0x1F;
+        return (val << count) | (val >>> (32 - count));
+    }
+
+    private static int rotateRight32(int val, int count) {
+        count &= 0x1F;
+        return (val >>> count) | (val << (32 - count));
     }
 
     private void modrm_mov_imm8(X86Core core, int pc, boolean word) throws Exception {
