@@ -23,7 +23,7 @@ import java.util.zip.CRC32;
  *
  * <p>Memory layout (all below 64 MB):</p>
  * <pre>
- *   0x00100000  tables, strings, handles, protocol interfaces
+ *   0x00100000  tables, strings, handles, protocol interfaces, device paths
  *   0x00101000  trap range, 8 bytes per service
  *   0x00400000  stack (grows down from 0x00800000)
  *   0x01000000  the application, unless its own ImageBase is free
@@ -38,8 +38,10 @@ public class X86Uefi64
     static final long EFI_SUCCESS = 0;
     static final long EFI_INVALID_PARAMETER = 0x8000000000000002L;
     static final long EFI_UNSUPPORTED = 0x8000000000000003L;
+    static final long EFI_BAD_BUFFER_SIZE = 0x8000000000000004L;
     static final long EFI_BUFFER_TOO_SMALL = 0x8000000000000005L;
     static final long EFI_NOT_READY = 0x8000000000000006L;
+    static final long EFI_WRITE_PROTECTED = 0x8000000000000008L;
     static final long EFI_OUT_OF_RESOURCES = 0x8000000000000009L;
     static final long EFI_NOT_FOUND = 0x800000000000000EL;
 
@@ -54,7 +56,11 @@ public class X86Uefi64
     static final long IMAGE_HANDLE = FIRMWARE + 0x700;
     static final long CON_IN_HANDLE = FIRMWARE + 0x710;
     static final long CON_OUT_HANDLE = FIRMWARE + 0x720;
+    static final long DISK_HANDLE = FIRMWARE + 0x730;
+    static final long PARTITION_HANDLE = FIRMWARE + 0x740;
     static final long LOADED_IMAGE = FIRMWARE + 0x800;
+    /** Device paths and BlockIo structures are placed from here up to TRAPS. */
+    static final long FIRMWARE_DATA = FIRMWARE + 0x900;
     static final long TRAPS = FIRMWARE + 0x1000;
     static final int MAX_SERVICES = 256;
     static final long TSC_PER_MICROSECOND = X86Core.TSC_HZ / 1_000_000;
@@ -117,6 +123,59 @@ public class X86Uefi64
     private final Map<Long, Long> pools = new HashMap<>();
     /** Handle -> protocol GUID -> interface. */
     private final Map<Long, Map<String, Long>> handles = new LinkedHashMap<>();
+    /** BlockIo interface -> {first sector on the disk, last block}. */
+    private final Map<Long, long[]> blockDevices = new HashMap<>();
+    private BootDisk bootDisk;
+    private long firmwareDataNext;
+
+    /** The disk and partition the application is loaded from. */
+    public static final class BootDisk
+    {
+        final X86FatFileSystem.SectorReader reader;
+        final long sectors;
+        final int partitionNumber;
+        final long partitionStart;
+        final long partitionSize;
+        final byte[] signature;         // 16 bytes: GPT unique GUID or MBR disk signature
+        final int mbrType;              // 1 = MBR, 2 = GPT
+        final String filePath;          // e.g. \EFI\BOOT\BOOTX64.EFI
+
+        private BootDisk(X86FatFileSystem.SectorReader reader, long sectors, int number,
+                         long start, long size, byte[] signature, int mbrType, String filePath)
+        {
+            this.reader = reader;
+            this.sectors = sectors;
+            this.partitionNumber = number;
+            this.partitionStart = start;
+            this.partitionSize = size;
+            this.signature = signature;
+            this.mbrType = mbrType;
+            this.filePath = "\\" + filePath.replace('/', '\\').replaceFirst("^\\\\+", "");
+        }
+
+        public static BootDisk gpt(X86FatFileSystem.SectorReader reader, long sectors,
+                                   X86Gpt.Partition p, String filePath)
+        {
+            return new BootDisk(reader, sectors, p.number, p.firstLba,
+                    (long) p.lastLba - p.firstLba + 1, guidBytes(p.uniqueGuid), 2, filePath);
+        }
+
+        public static BootDisk mbr(X86FatFileSystem.SectorReader reader, long sectors, int number,
+                                   long start, long size, int diskSignature, String filePath)
+        {
+            byte[] sig = new byte[16];
+            for (int i = 0; i < 4; i++) {
+                sig[i] = (byte) (diskSignature >>> (8 * i));
+            }
+            return new BootDisk(reader, sectors, number, start, size, sig, 1, filePath);
+        }
+    }
+
+    /** Offer this disk to the application (BlockIo, DevicePath) and boot from its partition. */
+    public void attachBootDisk(BootDisk disk)
+    {
+        this.bootDisk = disk;
+    }
     private boolean exited;
     private boolean atLineStart = true;
     private long exitStatus;
@@ -331,6 +390,245 @@ public class X86Uefi64
         core.writeMem32(LOADED_IMAGE + 84, X86UefiMemoryMap.LOADER_DATA);
         core.writeMem64(LOADED_IMAGE + 88, 0);                  // Unload
         install(IMAGE_HANDLE, LOADED_IMAGE_PROTOCOL, LOADED_IMAGE);
+
+        firmwareDataNext = FIRMWARE_DATA;
+        blockDevices.clear();
+        if (bootDisk != null) {
+            installDisk(bootDisk);
+        }
+    }
+
+    static final String DEVICE_PATH_PROTOCOL = "09576e91-6d3f-11d2-8e39-00a0c969723b";
+    static final String BLOCK_IO_PROTOCOL = "964e5b21-6459-11d2-8e39-00a0c969723b";
+
+    /**
+     * Two handles, as real firmware has them: the whole disk and the boot
+     * partition, each with a DevicePath and a BlockIo.  The partition's path
+     * is the disk's plus a HardDrive node, which is how applications such as
+     * GRUB find out which disk and partition they were loaded from.
+     */
+    private void installDisk(BootDisk d)
+    {
+        byte[] acpi = node(2, 1, 0xD0, 0x41, 0x03, 0x0A, 0, 0, 0, 0);    // PciRoot: PNP0A03, UID 0
+        byte[] pci = node(1, 1, 1, 1);                                    // function 1, device 1: IDE
+        byte[] ata = node(3, 1, 0, 0, 0, 0);                              // primary, master, LUN 0
+        byte[] hd = new byte[42];
+        hd[0] = 4;                                                        // media
+        hd[1] = 1;                                                        // hard drive
+        hd[2] = 42;
+        putLE(hd, 4, d.partitionNumber, 4);
+        putLE(hd, 8, d.partitionStart, 8);
+        putLE(hd, 16, d.partitionSize, 8);
+        System.arraycopy(d.signature, 0, hd, 24, 16);
+        hd[40] = (byte) d.mbrType;
+        hd[41] = (byte) d.mbrType;                                        // signature type: same numbering
+
+        long diskPath = devicePath(acpi, pci, ata);
+        long partPath = devicePath(acpi, pci, ata, hd);
+        long diskIo = blockIo(0, d.sectors - 1, false, 0);
+        long partIo = blockIo(d.partitionStart, d.partitionSize - 1, true, diskIo);
+        install(DISK_HANDLE, DEVICE_PATH_PROTOCOL, diskPath);
+        install(DISK_HANDLE, BLOCK_IO_PROTOCOL, diskIo);
+        install(PARTITION_HANDLE, DEVICE_PATH_PROTOCOL, partPath);
+        install(PARTITION_HANDLE, BLOCK_IO_PROTOCOL, partIo);
+
+        // The loaded image came from the partition; FilePath is relative to it.
+        byte[] path = new byte[4 + 2 * (d.filePath.length() + 1)];
+        path[0] = 4;                                                      // media
+        path[1] = 4;                                                      // file path
+        putLE(path, 2, path.length, 2);
+        for (int i = 0; i < d.filePath.length(); i++) {
+            putLE(path, 4 + 2 * i, d.filePath.charAt(i), 2);
+        }
+        core.writeMem64(LOADED_IMAGE + 24, PARTITION_HANDLE);
+        core.writeMem64(LOADED_IMAGE + 32, devicePath(path));
+    }
+
+    private static byte[] node(int type, int subtype, int... data)
+    {
+        byte[] n = new byte[4 + data.length];
+        n[0] = (byte) type;
+        n[1] = (byte) subtype;
+        n[2] = (byte) n.length;
+        for (int i = 0; i < data.length; i++) {
+            n[4 + i] = (byte) data[i];
+        }
+        return n;
+    }
+
+    private static void putLE(byte[] b, int off, long v, int size)
+    {
+        for (int i = 0; i < size; i++) {
+            b[off + i] = (byte) (v >>> (8 * i));
+        }
+    }
+
+    /** Space in the firmware data area, 8-byte aligned. */
+    private long firmwareData(int size)
+    {
+        long p = (firmwareDataNext + 7) & -8L;
+        if (p + size > TRAPS) {
+            throw new IllegalStateException("firmware data area is full");
+        }
+        firmwareDataNext = p + size;
+        return p;
+    }
+
+    /** Write the nodes followed by an End node; returns the address. */
+    private long devicePath(byte[]... nodes)
+    {
+        int size = 4;
+        for (byte[] n : nodes) {
+            size += n.length;
+        }
+        long p = firmwareData(size);
+        long a = p;
+        for (byte[] n : nodes) {
+            for (byte b : n) {
+                core.writeMem8(a++, b);
+            }
+        }
+        core.writeMem8(a, 0x7F);
+        core.writeMem8(a + 1, 0xFF);
+        core.writeMem16(a + 2, 4);
+        return p;
+    }
+
+    /**
+     * EFI_BLOCK_IO_PROTOCOL (revision 1) with its media, read-only, 512-byte
+     * blocks.  The function pointers are shared: the interface address tells
+     * which device a call is for.
+     */
+    private long blockIo(long firstSector, long lastBlock, boolean partition, long sharedFunctions)
+    {
+        long media = firmwareData(32);
+        core.writeMem32(media, 0);                      // MediaId
+        core.writeMem8(media + 4, 0);                   // RemovableMedia
+        core.writeMem8(media + 5, 1);                   // MediaPresent
+        core.writeMem8(media + 6, partition ? 1 : 0);   // LogicalPartition
+        core.writeMem8(media + 7, 1);                   // ReadOnly
+        core.writeMem8(media + 8, 0);                   // WriteCaching
+        core.writeMem32(media + 12, X86IdeDevice.SECTOR_SIZE);
+        core.writeMem32(media + 16, 0);                 // IoAlign
+        core.writeMem64(media + 24, lastBlock);
+
+        long bio = firmwareData(48);
+        core.writeMem64(bio, 0x00010000);               // Revision
+        core.writeMem64(bio + 8, media);
+        if (sharedFunctions == 0) {
+            functions(bio + 16, "BlockIo", BLOCK_IO_NAMES);
+        } else {
+            for (int i = 0; i < BLOCK_IO_NAMES.length; i++) {
+                core.writeMem64(bio + 16 + 8L * i, core.readMem64(sharedFunctions + 16 + 8L * i));
+            }
+        }
+        blockDevices.put(bio, new long[] { firstSector, lastBlock });
+        return bio;
+    }
+
+    private static final String[] BLOCK_IO_NAMES = { "Reset", "ReadBlocks", "WriteBlocks", "FlushBlocks" };
+
+    /** ReadBlocks(This, MediaId, Lba, BufferSize, Buffer). */
+    private long readBlocks(X86Core c, long[] a)
+    {
+        long[] dev = blockDevices.get(a[0]);
+        if (dev == null) {
+            return EFI_INVALID_PARAMETER;
+        }
+        long lba = a[2];
+        long size = a[3];
+        long buffer = a[4];
+        int sector = X86IdeDevice.SECTOR_SIZE;
+        if (size % sector != 0) {
+            return EFI_BAD_BUFFER_SIZE;
+        }
+        long count = size / sector;
+        if (lba < 0 || lba + count - 1 > dev[1] || buffer == 0) {
+            return EFI_INVALID_PARAMETER;
+        }
+        for (long i = 0; i < count; i++) {
+            byte[] data = bootDisk.reader.readSector((int) (dev[0] + lba + i));
+            for (int k = 0; k < sector; k++) {
+                c.writeMem8(buffer + i * sector + k, data == null ? 0 : data[k]);
+            }
+        }
+        return EFI_SUCCESS;
+    }
+
+    /**
+     * LocateHandle(SearchType, Protocol, SearchKey, *BufferSize, Buffer):
+     * AllHandles (0) or ByProtocol (2).
+     */
+    private long locateHandle(X86Core c, long[] a)
+    {
+        List<Long> found = handlesFor((int) a[0], a[1]);
+        if (found.isEmpty()) {
+            return EFI_NOT_FOUND;
+        }
+        long need = 8L * found.size();
+        long have = c.readMem64(a[3]);
+        c.writeMem64(a[3], need);
+        if (have < need) {
+            return EFI_BUFFER_TOO_SMALL;
+        }
+        for (int i = 0; i < found.size(); i++) {
+            c.writeMem64(a[4] + 8L * i, found.get(i));
+        }
+        return EFI_SUCCESS;
+    }
+
+    /** LocateHandleBuffer(SearchType, Protocol, SearchKey, *NoHandles, **Buffer). */
+    private long locateHandleBuffer(X86Core c, long[] a)
+    {
+        List<Long> found = handlesFor((int) a[0], a[1]);
+        if (found.isEmpty()) {
+            return EFI_NOT_FOUND;
+        }
+        long status = allocatePool(c, X86UefiMemoryMap.BOOT_SERVICES_DATA, 8L * found.size(), a[4]);
+        if (status != EFI_SUCCESS) {
+            return status;
+        }
+        long buffer = c.readMem64(a[4]);
+        for (int i = 0; i < found.size(); i++) {
+            c.writeMem64(buffer + 8L * i, found.get(i));
+        }
+        c.writeMem64(a[3], found.size());
+        return EFI_SUCCESS;
+    }
+
+    private List<Long> handlesFor(int searchType, long guidPtr)
+    {
+        List<Long> found = new ArrayList<>();
+        if (searchType == 0) {
+            found.addAll(handles.keySet());
+        } else if (searchType == 2) {
+            String guid = guid(core, guidPtr);
+            for (Map.Entry<Long, Map<String, Long>> h : handles.entrySet()) {
+                if (h.getValue().containsKey(guid)) {
+                    found.add(h.getKey());
+                }
+            }
+            if (found.isEmpty()) {
+                message("[UEFI] LocateHandle(" + guidName(guid) + "): none");
+            }
+        }
+        return found;
+    }
+
+    /** "C12A7328-F81F-11D2-BA4B-00A0C93EC93B" to its 16 bytes in memory order. */
+    static byte[] guidBytes(String text)
+    {
+        String hex = text.replace("-", "");
+        byte[] raw = new byte[16];
+        for (int i = 0; i < 16; i++) {
+            raw[i] = (byte) Integer.parseInt(hex.substring(2 * i, 2 * i + 2), 16);
+        }
+        byte[] b = raw.clone();
+        int[] order = { 3, 2, 1, 0, 5, 4, 7, 6 };       // Data1, Data2, Data3 are little endian
+        for (int i = 0; i < 8; i++) {
+            b[i] = raw[order[i]];
+        }
+        return b;
     }
 
     private void install(long handle, String guid, long iface)
@@ -599,6 +897,17 @@ public class X86Uefi64
                 return (c, a) -> openProtocol(c, "HandleProtocol", a[0], a[1], a[2]);
             case "BootServices.OpenProtocol":
                 return (c, a) -> openProtocol(c, "OpenProtocol", a[0], a[1], a[2]);
+            case "BlockIo.ReadBlocks":
+                return this::readBlocks;
+            case "BlockIo.WriteBlocks":
+                return (c, a) -> EFI_WRITE_PROTECTED;
+            case "BlockIo.Reset":
+            case "BlockIo.FlushBlocks":
+                return (c, a) -> EFI_SUCCESS;
+            case "BootServices.LocateHandle":
+                return this::locateHandle;
+            case "BootServices.LocateHandleBuffer":
+                return this::locateHandleBuffer;
             case "BootServices.LocateProtocol":
                 return (c, a) -> locateProtocol(c, a[0], a[2]);
             case "BootServices.CopyMem":

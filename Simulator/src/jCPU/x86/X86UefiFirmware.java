@@ -41,6 +41,12 @@ public class X86UefiFirmware
     private boolean initialized;
     private boolean lastBootPe32Plus;
     private X86Uefi64 x64;
+    /** Describes the partition being booted, given the path of the EFI file on it. */
+    private java.util.function.Function<String, X86Uefi64.BootDisk> bootDisk;
+    private int mbrNumber;
+    private long mbrStart;
+    private long mbrSize;
+    private int mbrSignature;
 
     public X86UefiFirmware(X86Core core, X86IdeController ide,
                            X86UartPeripheral uart, X86VgaPeripheral vga)
@@ -91,6 +97,8 @@ public class X86UefiFirmware
                 return 0;
             }
             println("FAT" + fat.getFatType() + " filesystem mounted on MBR partition.");
+            bootDisk = path -> X86Uefi64.BootDisk.mbr(sectorReader, sectorCount(),
+                    mbrNumber, mbrStart, mbrSize, mbrSignature, path);
             return loadEfiFromFat(fat);
         }
 
@@ -113,6 +121,7 @@ public class X86UefiFirmware
             return 0;
         }
         println("FAT" + fat.getFatType() + " filesystem mounted.");
+        bootDisk = path -> X86Uefi64.BootDisk.gpt(sectorReader, sectorCount(), esp, path);
 
         return loadEfiFromFat(fat);
     }
@@ -138,8 +147,8 @@ public class X86UefiFirmware
             return -1;
         }
 
-        // FAT partition types
-        int[] fatTypes = { 0x0B, 0x0C, 0x0E, 0x1B, 0x1C, 0xEB };
+        // FAT partition types, and 0xEF: EFI System Partition
+        int[] fatTypes = { 0x0B, 0x0C, 0x0E, 0x1B, 0x1C, 0xEB, 0xEF };
 
         // 4 partition entries at offset 446, 16 bytes each
         for (int i = 0; i < 4; i++)
@@ -156,6 +165,10 @@ public class X86UefiFirmware
                             + " firstLBA=" + firstLba + " sectors=" + totalSectors);
                     if (firstLba > 0)
                     {
+                        mbrNumber = i + 1;
+                        mbrStart = firstLba & 0xFFFFFFFFL;
+                        mbrSize = totalSectors & 0xFFFFFFFFL;
+                        mbrSignature = readLittleEndian32(mbr, 440);
                         return firstLba;
                     }
                 }
@@ -224,6 +237,7 @@ public class X86UefiFirmware
         if (pe.pe32Plus)
         {
             x64 = new X86Uefi64(core, this::print, uart::pollInput);
+            x64.attachBootDisk(bootDisk.apply(foundPath));
             entryPoint = x64.load(pe, peImage);
         }
         else
@@ -387,6 +401,12 @@ public class X86UefiFirmware
         byte[] buf = new byte[X86IdeDevice.SECTOR_SIZE];
         dev.readSector(lba, buf);
         return buf;
+    }
+
+    private long sectorCount()
+    {
+        X86IdeDevice dev = ide == null ? null : ide.getMaster();
+        return dev == null ? 0 : dev.getSectorCount();
     }
 
     private static int readLittleEndian32(byte[] buf, int off)
