@@ -74,19 +74,19 @@ public class X86Amd64Test {
 
     @Test
     public void testUnimplementedGroupExtension() throws Exception {
-        // 0xF6 /6 (DIV r/m8) with ModR/M 0xF1: mod=11, reg=110, rm=001
-        X86Core core = coreWith(0xF6, 0xF1);
+        // 0xFE /2 does not exist; ModR/M 0xD0: mod=11, reg=010, rm=000
+        X86Core core = coreWith(0xFE, 0xD0);
         X86UnknownOpcodeException ex = stepExpectingUnknown(core);
-        assertTrue(ex.getMessage(), ex.getMessage().contains("opcode 0xF6 /6"));
+        assertTrue(ex.getMessage(), ex.getMessage().contains("opcode 0xFE /2"));
         assertEquals(START, core.getPC64());
     }
 
     @Test
-    public void testUnimplementedShiftExtension() throws Exception {
-        // 0xD1 /2 (RCL r/m32, 1) with ModR/M 0xD0: mod=11, reg=010, rm=000
-        X86Core core = coreWith(0xD1, 0xD0);
+    public void testUnimplementedFarCall() throws Exception {
+        // 0xFF /3 (far CALL) with ModR/M 0x18: mod=00, reg=011, rm=000
+        X86Core core = coreWith(0xFF, 0x18);
         X86UnknownOpcodeException ex = stepExpectingUnknown(core);
-        assertTrue(ex.getMessage(), ex.getMessage().contains("opcode 0xD1 /2"));
+        assertTrue(ex.getMessage(), ex.getMessage().contains("opcode 0xFF /3"));
         assertEquals(START, core.getPC64());
     }
 

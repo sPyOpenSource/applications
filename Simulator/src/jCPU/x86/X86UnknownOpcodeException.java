@@ -45,7 +45,7 @@ public class X86UnknownOpcodeException extends Exception {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("Unknown x86-64 instruction at RIP=0x%016X (%s), bytes:", rip, what));
         for (int i = 0; i < MAX_INSN_BYTES; i++) {
-            sb.append(String.format(" %02X", core.readMem8((int) rip + i)));
+            sb.append(String.format(" %02X", core.readMem8(rip + i)));
         }
         String[] names = {
             "RAX", "RCX", "RDX", "RBX", "RSP", "RBP", "RSI", "RDI",
@@ -67,7 +67,7 @@ public class X86UnknownOpcodeException extends Exception {
             for (long addr : recent) {
                 sb.append(String.format("\n    RIP=0x%016X ", addr));
                 for (int i = 0; i < HISTORY_BYTES; i++) {
-                    sb.append(String.format(" %02X", core.readMem8((int) addr + i)));
+                    sb.append(String.format(" %02X", core.readMem8(addr + i)));
                 }
             }
         }

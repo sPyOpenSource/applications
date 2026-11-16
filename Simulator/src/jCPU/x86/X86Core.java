@@ -177,12 +177,20 @@ public class X86Core implements iCPU
 
     /* ---------------- register access ---------------- */
 
+    /* The 32-bit registers are the low halves of RAX..RDI.  Every write keeps
+     * both arrays in step, and a 32-bit write clears the upper half as it
+     * does on the real CPU. */
+
     public void setReg(int reg, int value) {
         if (reg >= 0 && reg < REG_COUNT_32) {
             regs32[reg] = value;
+            regs64[reg + REG_RAX] = value & 0xFFFFFFFFL;
         }
         if (longMode && reg >= REG_RAX && reg < REG_COUNT_64) {
             regs64[reg] = value & 0xFFFFFFFFL;
+            if (reg < REG_RAX + REG_COUNT_32) {
+                regs32[reg - REG_RAX] = value;
+            }
         }
         if (reg >= REG_VIRTUAL_BASE && reg < REG_VIRTUAL_BASE + REG_VIRTUAL_COUNT) {
             regsVirtual[reg - REG_VIRTUAL_BASE] = value;
@@ -205,8 +213,12 @@ public class X86Core implements iCPU
     public void setReg64(int reg, long value) {
         if (reg >= REG_RAX && reg < REG_COUNT_64) {
             regs64[reg] = value;
+            if (reg < REG_RAX + REG_COUNT_32) {
+                regs32[reg - REG_RAX] = (int) value;
+            }
         } else if (reg >= 0 && reg < REG_COUNT_32) {
             regs32[reg] = (int) value;
+            regs64[reg + REG_RAX] = value & 0xFFFFFFFFL;
         }
     }
 
@@ -313,28 +325,45 @@ public class X86Core implements iCPU
         writeMem8(addr + 3, (value >> 24) & 0xFF);
     }
 
+    /* Access by 64-bit address, for long mode.  An address outside the
+     * mapped memory reads as 0 and ignores writes; it is never truncated
+     * to a low address. */
+
+    public int readMem8(long addr) {
+        if (addr < 0 || addr >= memory.length) return 0;
+        return memory[(int) addr] & 0xFF;
+    }
+
+    public void writeMem8(long addr, int value) {
+        if (addr < 0 || addr >= memory.length) return;
+        writeMem8((int) addr, value);
+    }
+
+    public int readMem16(long addr) {
+        return readMem8(addr) | (readMem8(addr + 1) << 8);
+    }
+
+    public void writeMem16(long addr, int value) {
+        writeMem8(addr, value & 0xFF);
+        writeMem8(addr + 1, (value >> 8) & 0xFF);
+    }
+
+    public int readMem32(long addr) {
+        return readMem16(addr) | (readMem16(addr + 2) << 16);
+    }
+
+    public void writeMem32(long addr, int value) {
+        writeMem16(addr, value & 0xFFFF);
+        writeMem16(addr + 2, (value >> 16) & 0xFFFF);
+    }
+
     public long readMem64(long addr) {
-        long b0 = readMem8((int) addr) & 0xFFL;
-        long b1 = readMem8((int) (addr + 1)) & 0xFFL;
-        long b2 = readMem8((int) (addr + 2)) & 0xFFL;
-        long b3 = readMem8((int) (addr + 3)) & 0xFFL;
-        long b4 = readMem8((int) (addr + 4)) & 0xFFL;
-        long b5 = readMem8((int) (addr + 5)) & 0xFFL;
-        long b6 = readMem8((int) (addr + 6)) & 0xFFL;
-        long b7 = readMem8((int) (addr + 7)) & 0xFFL;
-        return b0 | (b1 << 8) | (b2 << 16) | (b3 << 24) |
-               (b4 << 32) | (b5 << 40) | (b6 << 48) | (b7 << 56);
+        return (readMem32(addr) & 0xFFFFFFFFL) | ((long) readMem32(addr + 4) << 32);
     }
 
     public void writeMem64(long addr, long value) {
-        writeMem8((int) addr, (int) (value & 0xFF));
-        writeMem8((int) (addr + 1), (int) ((value >> 8) & 0xFF));
-        writeMem8((int) (addr + 2), (int) ((value >> 16) & 0xFF));
-        writeMem8((int) (addr + 3), (int) ((value >> 24) & 0xFF));
-        writeMem8((int) (addr + 4), (int) ((value >> 32) & 0xFF));
-        writeMem8((int) (addr + 5), (int) ((value >> 40) & 0xFF));
-        writeMem8((int) (addr + 6), (int) ((value >> 48) & 0xFF));
-        writeMem8((int) (addr + 7), (int) ((value >> 56) & 0xFF));
+        writeMem32(addr, (int) value);
+        writeMem32(addr + 4, (int) (value >>> 32));
     }
 
     public void registerPort(int port, Peripheral peripheral) {
@@ -403,7 +432,7 @@ public class X86Core implements iCPU
     }
 
     public long code64(long i) {
-        return readMem8((int) (rip64 + i)) & 0xFFL;
+        return readMem8(rip64 + i) & 0xFFL;
     }
 
     @Override
