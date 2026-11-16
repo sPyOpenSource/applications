@@ -1,5 +1,11 @@
 package jCPU.RiscV;
 
+import static jCPU.RiscV.Esp32c3MemoryMap.GPIO_BASE;
+import static jCPU.RiscV.Esp32c3MemoryMap.SRAM_BASE;
+import static jCPU.RiscV.Esp32c3MemoryMap.SRAM_SIZE;
+import static jCPU.RiscV.Esp32c3MemoryMap.TIMER_BASE;
+import static jCPU.RiscV.Esp32c3MemoryMap.UART_BASE;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
