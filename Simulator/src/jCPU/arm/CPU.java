@@ -327,11 +327,17 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	/*** EXECUTION ***/
 	private boolean haveReset = false;
 	private int cycleBudget = 0;
+	private long totalCycles = 0;
         
 	/**
 	 * @return true if the cycle budget is fully spent, false if there are some unspent cycles left.
 	 */
 	public boolean budgetFullySpent() { return cycleBudget <= 0; }
+
+	/**
+	 * @return total number of instructions executed since CPU construction.
+	 */
+	public long getTotalCycles() { return totalCycles; }
         
 	/**
 	 * Spends any cycles that still remain in the budget.
@@ -396,6 +402,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	 */
 	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
+		totalCycles++;
 		if((cpsr & (1 << CPSR_BIT_F)) == 0 && haveFIQ()) generateFIQException();
 		if((cpsr & (1 << CPSR_BIT_I)) == 0 && haveIRQ()) generateIRQException();
 		
