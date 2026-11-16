@@ -6,14 +6,13 @@ import static jCPU.RiscV.Esp32c3MemoryMap.SRAM_SIZE;
 import static jCPU.RiscV.Esp32c3MemoryMap.TIMER_BASE;
 import static jCPU.RiscV.Esp32c3MemoryMap.UART_BASE;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public final class Esp32c3Loader {
     private Esp32c3Loader() {}
 
-    public static IsaSim loadImage(byte[] image) {
+    public static IsaSim loadImage(byte[] image) throws BusErrorException {
         Esp32c3MemoryMap mem = new Esp32c3MemoryMap();
         UartPeripheral uart = new UartPeripheral();
         GpioPeripheral gpio = new GpioPeripheral();

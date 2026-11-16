@@ -137,7 +137,7 @@ public class IsaSim implements iCPU {
      * Read a byte, routing through the ESP32-C3 memory map when set
      * (Task 6), else falling back to the raw code Memory.
      */
-    public int readByte(int addr) {
+    public int readByte(int addr) throws BusErrorException {
         if (memoryMap != null) {
             return memoryMap.readByte(addr);
         }
