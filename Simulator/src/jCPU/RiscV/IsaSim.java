@@ -55,9 +55,10 @@ public class IsaSim implements iCPU {
     private Decoder decoder = new Decoder();
     protected int pc;
     protected Memory code;
+    Esp32c3MemoryMap memoryMap;
 
     public IsaSim() {
-        System.out.println("RISC-V World!");
+        System.out.println("RISC-V!");
         code = new Memory();
         //code = new Memory();
         /*try {
@@ -68,7 +69,50 @@ public class IsaSim implements iCPU {
         reg[2] = INITIAL_SP; // Reset stack pointer
         pc = INITIAL_PC;
     }
-        
+
+    /**
+     * Set the ESP32-C3 memory map (Task 5). Memory routing of fetch/load/store
+     * through this map is deferred to Task 6.
+     */
+    public void setMemoryMap(Esp32c3MemoryMap memoryMap) {
+        this.memoryMap = memoryMap;
+    }
+
+    /**
+     * Reset the simulator: PC = RESET_VECTOR, all registers cleared, clock = 0.
+     */
+    @Override
+    public void reset() {
+        pc = Esp32c3MemoryMap.RESET_VECTOR;
+        for (int i = 0; i < reg.length; i++) {
+            reg[i] = 0;
+        }
+        cc = 0;
+    }
+
+    /**
+     * Get the current cycle count (clock).
+     */
+    public int getClock() {
+        return cc;
+    }
+
+    /**
+     * Get the current program counter.
+     */
+    public int pc() {
+        return pc;
+    }
+
+    /**
+     * Get the current cycle count (clock). Overrides iCPU.clock() which
+     * defaults to 0; here it returns the real cycle counter `cc`.
+     */
+    @Override
+    public long clock() {
+        return cc;
+    }
+
     @Override
     public void go(int limit) throws Exception{
         while(true){
