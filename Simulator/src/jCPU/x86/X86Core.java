@@ -170,6 +170,17 @@ public class X86Core implements iCPU
         return true;
     }
 
+    /**
+     * Time stamp counter: one tick per instruction, plus whatever firmware
+     * adds when it waits (e.g. Stall).  Read by RDTSC; the PIT runs from it.
+     * Its nominal rate is {@link #TSC_HZ}, i.e. one instruction takes 10 ns.
+     */
+    private long timestampCounter;
+    public static final long TSC_HZ = 100_000_000;
+
+    public long getTimestampCounter() { return timestampCounter; }
+    public void addTimestampCounter(long ticks) { timestampCounter += ticks; }
+
     public X86Core(int memSize) {
         this.memSize = memSize;
         reset();

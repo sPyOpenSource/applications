@@ -48,6 +48,31 @@ public class X86Amd64Test {
     }
 
     @Test
+    public void testCpuidReportsOnlyImplementedFeatures() throws Exception {
+        // mov eax, 1 ; cpuid
+        X86Core core = coreWith(0xB8, 0x01, 0x00, 0x00, 0x00, 0x0F, 0xA2);
+        core.step();
+        core.step();
+        long edx = core.getReg64(X86Core.REG_RDX);
+        assertTrue("TSC", (edx & (1 << 4)) != 0);
+        assertTrue("CMOV", (edx & (1 << 15)) != 0);
+        assertEquals("no FPU", 0, edx & 1);
+        assertEquals("no SSE/SSE2", 0, edx & (3 << 25));
+    }
+
+    @Test
+    public void testRdtscCountsInstructions() throws Exception {
+        // nop ; nop ; rdtsc
+        X86Core core = coreWith(0x90, 0x90, 0x0F, 0x31);
+        core.addTimestampCounter(0x100000000L);
+        core.step();
+        core.step();
+        core.step();
+        assertEquals(1, core.getReg64(X86Core.REG_RDX));
+        assertEquals(3, core.getReg64(X86Core.REG_RAX));
+    }
+
+    @Test
     public void testNopStillAdvances() throws Exception {
         X86Core core = coreWith(0x90);
         core.step();
