@@ -98,14 +98,13 @@ public class IsaSim implements iCPU {
         for (int i = 0; i < reg.length; i++) {
             reg[i] = 0;
         }
-        reg[2] = INITIAL_SP;
         cc = 0;
     }
 
     /**
      * Get the current cycle count (clock).
      */
-    public int getClock() {
+    public long getClock() {
         return cc;
     }
 
@@ -123,6 +122,17 @@ public class IsaSim implements iCPU {
     @Override
     public long clock() {
         return cc;
+    }
+
+    /**
+     * Read a byte, routing through the ESP32-C3 memory map when set
+     * (Task 6), else falling back to the raw code Memory.
+     */
+    public int readByte(int addr) {
+        if (memoryMap != null) {
+            return memoryMap.readByte(addr);
+        }
+        return code.read(addr);
     }
 
     @Override
