@@ -937,35 +937,38 @@ public class SdEndToEndTest {
     @Test
     public void testWriteThenReadRoundTrip() throws Exception {
         Path tmp = Files.createTempFile("sd", ".img");
-        Files.write(tmp, new byte[1024]);
+        Files.write(tmp, new byte[4 * 512]); // 4 sectors so sector 3 exists
         try {
-            // Controller wired directly at EMMC_BASE (loader-level wiring covered by Task 8)
-            CPU cpu = new CPU();
+            // Boot through the loader, exactly like the CLI: controller is wired at EMMC_BASE
+            CPU cpu = Pi2Loader.loadImageWithSd(new byte[4], tmp.toString());
             cpu.reset();
-            SdCard card = new SdCard(tmp.toString());
-            EmmcController ctl = new EmmcController(card, cpu);
-            cpu.getVirtualMemorySpace().registerPeripheral(Pi2MemoryMap.EMMC_BASE, 0x1000, ctl);
+            VirtualMemorySpace vm = cpu.getVirtualMemorySpace();
 
-            // write sector 3 via CMD24 from RAM at 0x2000
+            // stage sector 3 in RAM at 0x2000
             byte[] sector = new byte[512];
             for (int i = 0; i < 512; i++) sector[i] = (byte) (i ^ 0x5A);
             for (int i = 0; i < 128; i++) {
-                int w = sector[i*4] & 0xFF | (sector[i*4+1] & 0xFF) << 8
-                    | (sector[i*4+2] & 0xFF) << 16 | (sector[i*4+3] & 0xFF) << 24;
+                int w = (sector[i*4] & 0xFF) | ((sector[i*4+1] & 0xFF) << 8)
+                    | ((sector[i*4+2] & 0xFF) << 16) | ((sector[i*4+3] & 0xFF) << 24);
                 cpu.instructionWriteWord(Pi2MemoryMap.RAM_BASE + 0x2000 + i*4, w, false);
             }
-            writeWord(ctl, EmmcController.ARG1, 3);
-            writeWord(ctl, EmmcController.DATA, Pi2MemoryMap.RAM_BASE + 0x2000);
-            writeWord(ctl, EmmcController.CMDCMD, 24);
-            waitNotBusy(ctl);
 
-            // read sector 3 via CMD17 to RAM at 0x3000
-            writeWord(ctl, EmmcController.ARG1, 3);
-            writeWord(ctl, EmmcController.DATA, Pi2MemoryMap.RAM_BASE + 0x3000);
-            writeWord(ctl, EmmcController.CMDCMD, 17);
-            waitNotBusy(ctl);
+            // CMD24: write sector 3 from RAM 0x2000 — all accesses through MMIO, like bare metal
+            vm.writeInt(Pi2MemoryMap.EMMC_BASE + EmmcController.ARG1, 3, false, false);
+            vm.writeInt(Pi2MemoryMap.EMMC_BASE + EmmcController.DATA, Pi2MemoryMap.RAM_BASE + 0x2000, false, false);
+            vm.writeInt(Pi2MemoryMap.EMMC_BASE + EmmcController.CMDCMD, EmmcController.CMD_WRITE_SINGLE, false, false);
+            assertEquals(0, vm.readInt(Pi2MemoryMap.EMMC_BASE + EmmcController.STATUS, false, false) & EmmcController.STATUS_ERROR);
+            assertTrue(cpu.haveIRQ());
+            vm.writeInt(Pi2MemoryMap.EMMC_BASE + EmmcController.INTERRUPT, EmmcController.IRQ_COMPLETE, false, false);
+            assertFalse(cpu.haveIRQ());
 
-            // verify RAM contents match original sector
+            // CMD17: read sector 3 back into RAM 0x3000
+            vm.writeInt(Pi2MemoryMap.EMMC_BASE + EmmcController.ARG1, 3, false, false);
+            vm.writeInt(Pi2MemoryMap.EMMC_BASE + EmmcController.DATA, Pi2MemoryMap.RAM_BASE + 0x3000, false, false);
+            vm.writeInt(Pi2MemoryMap.EMMC_BASE + EmmcController.CMDCMD, EmmcController.CMD_READ_SINGLE, false, false);
+            assertEquals(0, vm.readInt(Pi2MemoryMap.EMMC_BASE + EmmcController.STATUS, false, false) & EmmcController.STATUS_ERROR);
+
+            // verify RAM contents match the original sector
             for (int i = 0; i < 128; i++) {
                 int w = cpu.instructionReadWord(Pi2MemoryMap.RAM_BASE + 0x3000 + i*4, false);
                 byte[] exp = new byte[4];
@@ -974,39 +977,28 @@ public class SdEndToEndTest {
                 assertArrayEquals(new byte[]{sector[i*4], sector[i*4+1], sector[i*4+2], sector[i*4+3]}, exp);
             }
 
-            // verify persisted in image file
+            // verify persisted in the host image file
             byte[] img = Files.readAllBytes(tmp);
             assertArrayEquals(sector, java.util.Arrays.copyOfRange(img, 3*512, 3*512+512));
         } finally {
             Files.deleteIfExists(tmp);
         }
     }
-
-    private void writeWord(EmmcController ctl, int offset, int value) {
-        ctl.write(offset + 0, (byte) (value & 0xFF));
-        ctl.write(offset + 1, (byte) ((value >> 8) & 0xFF));
-        ctl.write(offset + 2, (byte) ((value >> 16) & 0xFF));
-        ctl.write(offset + 3, (byte) ((value >> 24) & 0xFF));
-    }
-
-    private void waitNotBusy(EmmcController ctl) {
-        for (int i = 0; i < 100000 && (ctl.getStatus() & EmmcController.STATUS_BUSY) != 0; i++) {}
-    }
 }
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [ ] **Step 2: Run the test**
 
-Compile: `javac -d out/test -cp "out/main:junit:hamcrest" Simulator/test/jCPU/arm/SdEndToEndTest.java`
-Expected: compiles but round-trip fails if CMD24/CMD17 DMA broken → assertion failure (exit 1)
+Compile: `javac -d out/test -cp "out/main:$SIMPATH:$JUNIT:$HAMCREST" test/jCPU/arm/SdEndToEndTest.java`
+Expected: compiles. Tasks 5–8 already implement the behavior, so it may pass immediately — that is the point of an integration guard. A failure here means the pieces do not compose (e.g. range registration, DMA endianness, IRQ masking).
 
-- [ ] **Step 3: Write minimal implementation**
+- [ ] **Step 3: Fix the composition, not the test**
 
-No new production code (Tasks 5–7 supply CMD17/CMD24/DMA/IRQ). If assertions fail, fix `EmmcController` DMA copy loops (little-endian word boundaries) until green.
+No new production code is expected. If assertions fail, diagnose the seam: controller registration range, `DATA` register DMA address, little-endian word assembly, or `IRQ_MASK` default. Do not weaken the assertions.
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `java -cp "out/main:out/test:junit:hamcrest" org.junit.runner.JUnitCore jCPU.arm.SdEndToEndTest`
+Run: `java -cp "out/main:out/test:$SIMPATH:$JUNIT:$HAMCREST" org.junit.runner.JUnitCore jCPU.arm.SdEndToEndTest`
 Expected: `OK (1 test)`
 
 - [ ] **Step 5: Commit**
