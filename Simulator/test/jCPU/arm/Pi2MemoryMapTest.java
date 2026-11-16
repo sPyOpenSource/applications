@@ -16,4 +16,8 @@ public class Pi2MemoryMapTest {
     public void testUartBase() {
         assertEquals(0x3F201000, Pi2MemoryMap.UART_BASE);
     }
+    @Test
+    public void testEmmcBase() {
+        assertEquals(0x3F200000, Pi2MemoryMap.EMMC_BASE);
+    }
 }
