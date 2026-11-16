@@ -2,7 +2,7 @@ package jCPU.arm;
 
 import jCPU.Peripheral;
 
-public class EmmcController implements Peripheral, Comparable<EmmcController> {
+public class EmmcController implements Peripheral, Comparable<Object> {
     /**
      * CPU.setIRQ/clearIRQ keep their sources in a TreeSet, so the source token must be
      * Comparable. Each controller gets a unique id; the controller itself is the token so
@@ -220,7 +220,15 @@ public class EmmcController implements Peripheral, Comparable<EmmcController> {
     }
 
     @Override
-    public int compareTo(EmmcController other) {
-        return Long.compare(irqId, other.irqId);
+    public int compareTo(Object other) {
+        if (other == null) return 1;
+        if (this == other) return 0;
+        // Cross-type comparison (e.g. EmmcController vs SystemTimer in CPU's TreeSet):
+        // order by class name first so different device types never collide,
+        // then by irqId within the same type.
+        int cmp = getClass().getName().compareTo(other.getClass().getName());
+        if (cmp != 0) return cmp;
+        long otherId = ((EmmcController) other).irqId;
+        return Long.compare(irqId, otherId);
     }
 }

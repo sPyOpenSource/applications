@@ -10,7 +10,7 @@ import jCPU.Peripheral;
  * are write-1-to-clear. Implements {@link Comparable} so the timer can be a
  * token in {@link CPU}'s TreeSet-based IRQ line (same pattern as EmmcController).
  */
-public class SystemTimer implements Peripheral, Comparable<SystemTimer> {
+public class SystemTimer implements Peripheral, Comparable<Object> {
     private static final java.util.concurrent.atomic.AtomicLong IRQ_SEQUENCE = new java.util.concurrent.atomic.AtomicLong();
     private final long irqId = IRQ_SEQUENCE.incrementAndGet();
 
@@ -65,15 +65,19 @@ public class SystemTimer implements Peripheral, Comparable<SystemTimer> {
             System.err.println("Warning: unimplemented system timer register offset 0x" + Integer.toHexString(offset));
             return;
         }
-        if (offset == CS + 0) {
-            int clearMask = value & 0xFF;
-            for (int ch = 0; ch < 4; ch++) {
-                if ((clearMask & (1 << ch)) != 0) {
-                    csFlags &= ~(1 << ch);
+        if (offset >= CS && offset <= CS + 3) {
+            // CS: write-1-to-clear match flags (process only the low byte at offset 0;
+            // offsets 0x01-0x03 are the upper bytes of a 32-bit CS write and are ignored)
+            if (offset == CS + 0) {
+                int clearMask = value & 0xFF;
+                for (int ch = 0; ch < 4; ch++) {
+                    if ((clearMask & (1 << ch)) != 0) {
+                        csFlags &= ~(1 << ch);
+                    }
                 }
-            }
-            if (cpu != null && csFlags == 0) {
-                cpu.clearIRQ(this);
+                if (cpu != null && csFlags == 0) {
+                    cpu.clearIRQ(this);
+                }
             }
             return;
         }
@@ -96,8 +100,16 @@ public class SystemTimer implements Peripheral, Comparable<SystemTimer> {
     }
 
     @Override
-    public int compareTo(SystemTimer other) {
-        return Long.compare(irqId, other.irqId);
+    public int compareTo(Object other) {
+        if (other == null) return 1;
+        if (this == other) return 0;
+        // Cross-type comparison (e.g. SystemTimer vs EmmcController in CPU's TreeSet):
+        // order by class name first so different device types never collide,
+        // then by irqId within the same type.
+        int cmp = getClass().getName().compareTo(other.getClass().getName());
+        if (cmp != 0) return cmp;
+        long otherId = ((SystemTimer) other).irqId;
+        return Long.compare(irqId, otherId);
     }
 
     public void tickTo(long targetCycles) {
