@@ -5,6 +5,7 @@ import jCPU.x86.X86Core;
 import jCPU.x86.X86IdeController;
 import jCPU.x86.X86IdeDevice;
 import jCPU.x86.X86IdeHardDrive;
+import jCPU.x86.X86PitPeripheral;
 import jCPU.x86.X86UartPeripheral;
 import jCPU.x86.X86UefiFirmware;
 import jCPU.x86.X86VgaPeripheral;
@@ -48,6 +49,11 @@ public class UefiBootRunner
         for (int port = 0x3F8; port <= 0x3FF; port++) {
             core.registerPort(port, uart);
         }
+        X86PitPeripheral pit = new X86PitPeripheral(core);
+        for (int port = 0x40; port <= 0x43; port++) {
+            core.registerPort(port, pit);
+        }
+        core.registerPort(0x61, pit);
         X86IdeController ide = new X86IdeController();
         for (int port = 0x1F0; port <= 0x1F7; port++) {
             core.registerPort(port, ide);
@@ -85,7 +91,21 @@ public class UefiBootRunner
                 status = uefi.getExitStatus() == 0 ? 0 : 1;
             } else {
                 System.out.println();
-                System.out.printf("[runner] stopped after %d steps at RIP=0x%x%n", steps, core.getPC64());
+                System.out.printf("[runner] stopped after %d steps at RIP=0x%x; where it runs now:%n",
+                        steps, core.getPC64());
+                // Show the loop it is in: the next instructions, each address once.
+                java.util.Set<Long> seen = new java.util.LinkedHashSet<>();
+                for (int i = 0; i < 2000 && seen.size() < 40 && !uefi.hasExited(); i++) {
+                    long rip = core.getPC64();
+                    if (seen.add(rip)) {
+                        StringBuilder bytes = new StringBuilder();
+                        for (int k = 0; k < 8; k++) {
+                            bytes.append(String.format(" %02X", core.readMem8(rip + k)));
+                        }
+                        System.out.printf("  0x%x%s%n", rip, bytes);
+                    }
+                    core.step();
+                }
             }
         } catch (Exception e) {
             System.out.println();

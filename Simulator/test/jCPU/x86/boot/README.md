@@ -27,6 +27,16 @@ javac -d /tmp/boot -sourcepath src \
 java -cp /tmp/boot jCPU.x86.UefiBootRunner hello.img [maxSteps]
 ```
 
+Standard input is the keyboard (through the UART), so commands can be
+typed or piped in:
+
+```sh
+printf 'echo hello\n' | java -cp /tmp/boot jCPU.x86.UefiBootRunner grub.img
+```
+
+When the step limit is reached, the runner prints the addresses of the
+loop the program is in.
+
 `RESERVED.java` is listed explicitly because its package (`j51.intel.graph`)
 does not match its directory. Exit code 0 means the EFI application exited
 with EFI_SUCCESS.
