@@ -2,7 +2,15 @@ package jCPU.arm;
 
 import jCPU.Peripheral;
 
-public class EmmcController implements Peripheral {
+public class EmmcController implements Peripheral, Comparable<EmmcController> {
+    /**
+     * CPU.setIRQ/clearIRQ keep their sources in a TreeSet, so the source token must be
+     * Comparable. Each controller gets a unique id; the controller itself is the token so
+     * that setIRQ(this) and clearIRQ(this) refer to the same entry.
+     */
+    private static final java.util.concurrent.atomic.AtomicLong IRQ_SEQUENCE = new java.util.concurrent.atomic.AtomicLong();
+    private final long irqId = IRQ_SEQUENCE.incrementAndGet();
+
     public static final int ARG1 = 0x00;
     public static final int ARG2 = 0x04;
     public static final int CMDCMD = 0x08;
@@ -46,6 +54,9 @@ public class EmmcController implements Peripheral {
         if (offset < 0 || offset >= regs.length) {
             return 0;
         }
+        if (offset >= STATUS && offset <= STATUS + 3) {
+            return (byte) ((status >>> (8 * (offset - STATUS))) & 0xFF);
+        }
         return regs[offset];
     }
 
@@ -53,6 +64,16 @@ public class EmmcController implements Peripheral {
     public void write(int offset, byte value) {
         if (offset < 0 || offset >= regs.length) {
             System.err.println("Warning: unimplemented EMMC register offset 0x" + Integer.toHexString(offset));
+            return;
+        }
+        if (offset == INTERRUPT) {
+            // write-1-to-clear: the written value is a clear mask, not a stored value
+            if ((value & IRQ_COMPLETE) != 0) {
+                regs[INTERRUPT] &= ~IRQ_COMPLETE;
+                if (cpu != null) {
+                    cpu.clearIRQ(this);
+                }
+            }
             return;
         }
         regs[offset] = value;
@@ -93,16 +114,12 @@ public class EmmcController implements Peripheral {
                 case CMD_SET_BLOCKLEN:
                     break; // acknowledged
                 case CMD_READ_SINGLE:
-                    if (readSectorToRam()) {
-                        regs[INTERRUPT] |= IRQ_COMPLETE;
-                    } else {
+                    if (!readSectorToRam()) {
                         setStatus(STATUS_ERROR);
                     }
                     break;
                 case CMD_WRITE_SINGLE:
-                    if (writeSectorFromRam()) {
-                        regs[INTERRUPT] |= IRQ_COMPLETE;
-                    } else {
+                    if (!writeSectorFromRam()) {
                         setStatus(STATUS_ERROR);
                     }
                     break;
@@ -112,6 +129,14 @@ public class EmmcController implements Peripheral {
             }
         }
         setStatus(getStatus() & ~STATUS_BUSY);
+        // Completion is signalled on both success and error so software never waits forever.
+        regs[INTERRUPT] |= IRQ_COMPLETE;
+        if (cpu != null) {
+            int mask = regs[IRQ_MASK] & 0xFF;
+            if (mask == 0 || (mask & IRQ_COMPLETE) != 0) {
+                cpu.setIRQ(this);
+            }
+        }
     }
 
     /**
@@ -192,5 +217,10 @@ public class EmmcController implements Peripheral {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    @Override
+    public int compareTo(EmmcController other) {
+        return Long.compare(irqId, other.irqId);
     }
 }
