@@ -21,7 +21,7 @@ import java.util.zip.CRC32;
  * implemented print their name and return {@code EFI_UNSUPPORTED}, so a run
  * shows which one an application needs next.</p>
  *
- * <p>Memory layout (all below 64 MB):</p>
+ * <p>Memory layout (the core needs at least 32 MB):</p>
  * <pre>
  *   0x00100000  tables, strings, handles, protocol interfaces, device paths
  *   0x00101000  trap range, 8 bytes per service
@@ -66,8 +66,6 @@ public class X86Uefi64
     static final long TSC_PER_MICROSECOND = X86Core.TSC_HZ / 1_000_000;
     static final long STACK_TOP = 0x00800000L;
     static final long IMAGE_LOAD = 0x01000000L;
-    /** X86Core always backs 64 MB, whatever size it was given. */
-    static final long MEMORY_END = 64L * 1024 * 1024;
 
     /** Boot services in table order, after the 24-byte header. */
     private static final String[] BOOT_SERVICE_NAMES = {
@@ -184,6 +182,12 @@ public class X86Uefi64
      * @param console  receives everything the application prints
      * @param keyboard the next typed character, or -1 when there is none
      */
+    /** End of memory: the core's size, rounded down to whole pages. */
+    private long memoryEnd()
+    {
+        return core.getMemSize() & -X86UefiMemoryMap.PAGE;
+    }
+
     public X86Uefi64(X86Core core, Consumer<String> console, IntSupplier keyboard)
     {
         this.core = core;
@@ -200,7 +204,7 @@ public class X86Uefi64
      */
     public long load(X86PeLoader pe, byte[] peImage)
     {
-        memoryMap = new X86UefiMemoryMap(MEMORY_END);
+        memoryMap = new X86UefiMemoryMap(memoryEnd());
         memoryMap.set(0, X86UefiMemoryMap.PAGE, X86UefiMemoryMap.RESERVED);  // keep null pointers invalid
         memoryMap.set(0xA0000, FIRMWARE, X86UefiMemoryMap.RESERVED);         // VGA and BIOS area
         memoryMap.set(FIRMWARE, TRAPS, X86UefiMemoryMap.BOOT_SERVICES_DATA);
@@ -209,7 +213,7 @@ public class X86Uefi64
 
         long pages = (pe.sizeOfImage + X86UefiMemoryMap.PAGE - 1) / X86UefiMemoryMap.PAGE;
         long base = IMAGE_LOAD;
-        if (pe.imageBase % X86UefiMemoryMap.PAGE == 0 && pe.imageBase + pe.sizeOfImage <= MEMORY_END
+        if (pe.imageBase % X86UefiMemoryMap.PAGE == 0 && pe.imageBase + pe.sizeOfImage <= memoryEnd()
                 && memoryMap.isFree(pe.imageBase, pages)) {
             base = pe.imageBase;
         }
@@ -701,7 +705,7 @@ public class X86Uefi64
             }
             memoryMap.set(p, p + pages * X86UefiMemoryMap.PAGE, memoryType);
         } else {                                // AllocateAnyPages, AllocateMaxAddress
-            long max = type == 1 ? c.readMem64(memoryPtr) : MEMORY_END - 1;
+            long max = type == 1 ? c.readMem64(memoryPtr) : memoryEnd() - 1;
             p = memoryMap.allocate(pages, memoryType, X86UefiMemoryMap.PAGE, max);
             if (p < 0) {
                 return EFI_OUT_OF_RESOURCES;
@@ -714,7 +718,7 @@ public class X86Uefi64
     private long allocatePool(X86Core c, int memoryType, long size, long bufferPtr)
     {
         long pages = Math.max(1, (size + X86UefiMemoryMap.PAGE - 1) / X86UefiMemoryMap.PAGE);
-        long p = memoryMap.allocate(pages, memoryType, X86UefiMemoryMap.PAGE, MEMORY_END - 1);
+        long p = memoryMap.allocate(pages, memoryType, X86UefiMemoryMap.PAGE, memoryEnd() - 1);
         if (p < 0) {
             return EFI_OUT_OF_RESOURCES;
         }

@@ -158,7 +158,7 @@ public class X86Uefi64Test
                 0xC3));                                     // exit status = buffer address
         r.run();
 
-        assertEquals(X86Uefi64.MEMORY_END - 4096, r.uefi.getExitStatus());
+        assertEquals(r.core.getMemSize() - 4096, r.uefi.getExitStatus());
     }
 
     @Test
