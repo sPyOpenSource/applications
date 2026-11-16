@@ -175,6 +175,8 @@ public class X86Uefi64
         this.bootDisk = disk;
     }
     private boolean exited;
+    /** After ExitBootServices only the runtime services may be called. */
+    private boolean bootServicesEnded;
     private boolean atLineStart = true;
     private long exitStatus;
 
@@ -252,6 +254,7 @@ public class X86Uefi64
         core.setReg64(X86Core.REG_RCX, IMAGE_HANDLE);
         core.setReg64(X86Core.REG_RDX, SYSTEM_TABLE);
         exited = false;
+        bootServicesEnded = false;
         return base + pe.entryPointRva;
     }
 
@@ -800,7 +803,10 @@ public class X86Uefi64
         };
         Service s = e.service;
         long status;
-        if (s == null) {
+        if (bootServicesEnded && !e.name.startsWith("RuntimeServices.")) {
+            message("[UEFI] " + e.name + ": called after ExitBootServices");
+            status = EFI_UNSUPPORTED;
+        } else if (s == null) {
             message("[UEFI] " + e.name + ": not implemented");
             status = EFI_UNSUPPORTED;
         } else {
@@ -930,6 +936,18 @@ public class X86Uefi64
                     for (long i = 0; i < a[1]; i++) {
                         c.writeMem8(a[0] + i, (int) a[2]);
                     }
+                    return EFI_SUCCESS;
+                };
+            case "BootServices.ExitBootServices":
+                return (c, a) -> {
+                    // The caller must pass the MapKey of the current memory map,
+                    // proving it has seen the final map; otherwise it gets the map
+                    // again and retries.
+                    if (a[0] != IMAGE_HANDLE || a[1] != memoryMap.getKey()) {
+                        return EFI_INVALID_PARAMETER;
+                    }
+                    bootServicesEnded = true;
+                    message("[UEFI] ExitBootServices: the operating system takes over");
                     return EFI_SUCCESS;
                 };
             case "BootServices.Exit":

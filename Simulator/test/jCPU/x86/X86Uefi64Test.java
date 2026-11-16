@@ -283,6 +283,60 @@ public class X86Uefi64Test
         }
     }
 
+    @Test
+    public void testExitBootServicesNeedsTheCurrentMapKey() throws Exception
+    {
+        // ExitBootServices(ImageHandle, 0): MapKey 0 is not the current one.
+        Run r = new Run(image(
+                0x48, 0x83, 0xEC, 0x28,                     // sub rsp, 0x28
+                0x48, 0x8B, 0x42, 0x60,                     // mov rax, [rdx+96]   ; BootServices
+                0x31, 0xD2,                                 // xor edx, edx
+                0xFF, 0x90, 0xE8, 0x00, 0x00, 0x00,         // call [rax+232]      ; ExitBootServices
+                0x48, 0x83, 0xC4, 0x28,                     // add rsp, 0x28
+                0xC3));
+        r.run();
+
+        assertEquals(X86Uefi64.EFI_INVALID_PARAMETER, r.uefi.getExitStatus());
+    }
+
+    @Test
+    public void testExitBootServicesWithKeyFromGetMemoryMap() throws Exception
+    {
+        // GetMemoryMap(&size, 0x900000, &key, &descSize, 0), then
+        // ExitBootServices(ImageHandle, key), then AllocatePool, which must fail.
+        Run r = new Run(image(
+                0x48, 0x83, 0xEC, 0x58,                     // sub rsp, 0x58
+                0x48, 0x89, 0x4C, 0x24, 0x50,               // mov [rsp+0x50], rcx ; ImageHandle
+                0x48, 0x8B, 0x42, 0x60,                     // mov rax, [rdx+96]   ; BootServices
+                0x48, 0x89, 0x44, 0x24, 0x48,               // mov [rsp+0x48], rax
+                0x48, 0xC7, 0x44, 0x24, 0x30, 0x00, 0x00, 0x01, 0x00, // mov qword [rsp+0x30], 0x10000
+                0x48, 0x8D, 0x4C, 0x24, 0x30,               // lea rcx, [rsp+0x30] ; &size
+                0xBA, 0x00, 0x00, 0x90, 0x00,               // mov edx, 0x900000   ; map
+                0x4C, 0x8D, 0x44, 0x24, 0x38,               // lea r8, [rsp+0x38]  ; &key
+                0x4C, 0x8D, 0x4C, 0x24, 0x40,               // lea r9, [rsp+0x40]  ; &descSize
+                0x48, 0xC7, 0x44, 0x24, 0x20, 0, 0, 0, 0,   // mov qword [rsp+0x20], 0
+                0xFF, 0x50, 0x38,                           // call [rax+56]       ; GetMemoryMap
+                0x48, 0x8B, 0x4C, 0x24, 0x50,               // mov rcx, [rsp+0x50]
+                0x48, 0x8B, 0x54, 0x24, 0x38,               // mov rdx, [rsp+0x38]
+                0x48, 0x8B, 0x44, 0x24, 0x48,               // mov rax, [rsp+0x48]
+                0xFF, 0x90, 0xE8, 0x00, 0x00, 0x00,         // call [rax+232]      ; ExitBootServices
+                0x48, 0x89, 0x44, 0x24, 0x28,               // mov [rsp+0x28], rax
+                0xB9, 0x04, 0x00, 0x00, 0x00,               // mov ecx, 4
+                0xBA, 0x00, 0x01, 0x00, 0x00,               // mov edx, 0x100
+                0x4C, 0x8D, 0x44, 0x24, 0x30,               // lea r8, [rsp+0x30]
+                0x48, 0x8B, 0x44, 0x24, 0x48,               // mov rax, [rsp+0x48]
+                0xFF, 0x50, 0x40,                           // call [rax+64]       ; AllocatePool
+                0x48, 0x03, 0x44, 0x24, 0x28,               // add rax, [rsp+0x28] ; + ExitBootServices status
+                0x48, 0x83, 0xC4, 0x58,                     // add rsp, 0x58
+                0xC3));
+        r.run();
+
+        assertEquals("ExitBootServices succeeds, AllocatePool is then unsupported",
+                X86Uefi64.EFI_UNSUPPORTED, r.uefi.getExitStatus());
+        assertTrue(r.out.toString(), r.out.toString().contains("the operating system takes over"));
+        assertTrue(r.out.toString(), r.out.toString().contains("AllocatePool: called after ExitBootServices"));
+    }
+
     private static String ascii(X86Core core, long addr, int n)
     {
         StringBuilder sb = new StringBuilder();
