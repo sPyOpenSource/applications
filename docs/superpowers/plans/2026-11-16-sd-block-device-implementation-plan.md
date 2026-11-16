@@ -841,6 +841,8 @@ git add Simulator/src/jCPU/arm/EmmcController.java Simulator/test/jCPU/arm/EmmcC
 git commit -m "feat(arm): EmmcController completion IRQ wired to CPU"
 ```
 
+**Note (discovered during implementation):** `CPU.setIRQ`/`clearIRQ` store sources in a `TreeSet<Object>`, so the token must be `Comparable`. `EmmcController` implements `Comparable<EmmcController>` with a unique per-instance id, and always passes `this` to both calls.
+
 ---
 
 ### Task 8: Pi2Loader SD image arg + wire controller into VirtualMemorySpace
