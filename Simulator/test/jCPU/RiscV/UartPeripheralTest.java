@@ -4,10 +4,9 @@ import org.junit.*;
 import java.io.*;
 public class UartPeripheralTest {
     private final PrintStream originalOut = System.out;
-    private final InputStream originalIn = System.in;
     private ByteArrayOutputStream testOut;
     @Before public void setUp() { testOut = new ByteArrayOutputStream(); System.setOut(new PrintStream(testOut)); }
-    @After public void tearDown() { System.setOut(originalOut); System.setIn(originalIn); }
+    @After public void tearDown() { System.setOut(originalOut); }
     @Test public void testWrite() {
         UartPeripheral uart = new UartPeripheral();
         uart.write(0, (byte) 'H');

@@ -9,9 +9,9 @@ public class UartPeripheral implements Peripheral {
     private Thread reader;
     public UartPeripheral() { this(System.in, System.out); }
     public UartPeripheral(InputStream in) { this(in, System.out); }
-    public UartPeripheral(InputStream in, PrintStream out) {
+    private UartPeripheral(InputStream in, PrintStream out) {
         this.out = out;
-        this.reader = new Thread(() -> { try { int b; while ((b = in.read()) != -1) input.offer((byte) b); } catch (Exception ignored) {} }, "uart-input-reader");
+        this.reader = new Thread(() -> { try { int b; while ((b = in.read()) != -1) input.offer((byte) b); } catch (Exception e) { System.err.println("UART reader error: " + e.getMessage()); } }, "uart-input-reader");
         this.reader.setDaemon(true); this.reader.start();
     }
     @Override public byte read(int offset) { Byte b = input.poll(); return b == null ? 0 : b; }
