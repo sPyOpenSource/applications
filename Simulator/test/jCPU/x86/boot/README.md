@@ -7,14 +7,15 @@ an unknown instruction stops the run with the instruction history.
 
 ## Test images
 
-`make-image.sh <dir>` builds two GPT disks with a FAT32 EFI system partition:
+`make-image.sh <dir>` builds disks with a FAT32 EFI system partition:
 
 - `hello.img`: `hello.c`, a small x64 EFI application that prints through
   `ConOut->OutputString` and returns
 - `grub.img`: a GRUB x64 EFI binary from `grub-mkimage`, as a large
-  real-world application
+  real-world application, with a `grub.cfg` it reads from the disk
+- `grub-mbr.img`: the same with an MBR partition table instead of GPT
 
-It needs clang, lld-link, sgdisk, mtools and grub-efi-amd64-bin.
+It needs clang, lld-link, sgdisk, sfdisk, mtools and grub-efi-amd64-bin.
 
 ## Running
 
