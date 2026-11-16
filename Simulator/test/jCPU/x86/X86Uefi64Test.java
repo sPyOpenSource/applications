@@ -57,7 +57,9 @@ public class X86Uefi64Test
     {
         final X86Core core = new X86Core(64 * 1024 * 1024);
         final StringBuilder out = new StringBuilder();
-        final X86Uefi64 uefi = new X86Uefi64(core, out::append);
+        final java.util.ArrayDeque<Integer> keys = new java.util.ArrayDeque<>();
+        final X86Uefi64 uefi = new X86Uefi64(core, out::append,
+                () -> keys.isEmpty() ? -1 : keys.poll());
         final long entry;
 
         Run(byte[] image) throws Exception
@@ -124,13 +126,13 @@ public class X86Uefi64Test
         Run r = new Run(image(
                 0x48, 0x83, 0xEC, 0x28,                     // sub rsp, 0x28
                 0x48, 0x8B, 0x42, 0x60,                     // mov rax, [rdx+96]   ; BootServices
-                0xFF, 0x50, 0x38,                           // call [rax+56]       ; GetMemoryMap
+                0xFF, 0x50, 0x50,                           // call [rax+80]       ; CreateEvent
                 0x48, 0x83, 0xC4, 0x28,                     // add rsp, 0x28
                 0xC3));
         r.run();
 
         assertEquals(X86Uefi64.EFI_UNSUPPORTED, r.uefi.getExitStatus());
-        assertTrue(r.out.toString(), r.out.toString().contains("BootServices.GetMemoryMap: not implemented"));
+        assertTrue(r.out.toString(), r.out.toString().contains("BootServices.CreateEvent: not implemented"));
     }
 
     @Test
@@ -148,7 +150,57 @@ public class X86Uefi64Test
                 0xC3));                                     // exit status = buffer address
         r.run();
 
-        assertEquals(X86Uefi64.HEAP, r.uefi.getExitStatus());
+        assertEquals(X86Uefi64.MEMORY_END - 4096, r.uefi.getExitStatus());
+    }
+
+    @Test
+    public void testLoadedImageProtocolOnImageHandle() throws Exception
+    {
+        // OpenProtocol(ImageHandle, &LoadedImageGuid, &iface, ImageHandle, 0, BY_HANDLE_PROTOCOL)
+        // and return iface->ImageBase.
+        Run r = new Run(image(
+                0x48, 0x83, 0xEC, 0x48,                     // sub rsp, 0x48
+                0x48, 0x8B, 0x42, 0x60,                     // mov rax, [rdx+96]   ; BootServices
+                0x48, 0x8D, 0x15, 0x31, 0x00, 0x00, 0x00,   // lea rdx, [rip+0x31] ; GUID at 0x40
+                0x4C, 0x8D, 0x44, 0x24, 0x38,               // lea r8, [rsp+0x38]
+                0x49, 0x89, 0xC9,                           // mov r9, rcx
+                0x48, 0xC7, 0x44, 0x24, 0x20, 0, 0, 0, 0,   // mov qword [rsp+0x20], 0
+                0x48, 0xC7, 0x44, 0x24, 0x28, 1, 0, 0, 0,   // mov qword [rsp+0x28], 1
+                0xFF, 0x90, 0x18, 0x01, 0x00, 0x00,         // call [rax+280]      ; OpenProtocol
+                0x48, 0x8B, 0x44, 0x24, 0x38,               // mov rax, [rsp+0x38]
+                0x48, 0x8B, 0x40, 0x40,                     // mov rax, [rax+64]   ; ImageBase
+                0x48, 0x83, 0xC4, 0x48,                     // add rsp, 0x48
+                0xC3,
+                0, 0, 0,
+                0xA1, 0x31, 0x1B, 0x5B, 0x62, 0x95, 0xD2, 0x11,
+                0x8E, 0x3F, 0x00, 0xA0, 0xC9, 0x69, 0x72, 0x3B));
+        r.run();
+
+        assertEquals(X86Uefi64.IMAGE_LOAD, r.uefi.getExitStatus());
+    }
+
+    @Test
+    public void testReadKeyStrokeGivesTypedCharacters() throws Exception
+    {
+        // ConIn->ReadKeyStroke(ConIn, &key) and return key (ScanCode | UnicodeChar << 16).
+        int[] code = {
+                0x48, 0x83, 0xEC, 0x38,                     // sub rsp, 0x38
+                0x48, 0x8B, 0x4A, 0x30,                     // mov rcx, [rdx+48]   ; ConIn
+                0x48, 0x8D, 0x54, 0x24, 0x28,               // lea rdx, [rsp+0x28]
+                0xFF, 0x51, 0x08,                           // call [rcx+8]        ; ReadKeyStroke
+                0x48, 0x85, 0xC0,                           // test rax, rax
+                0x75, 0x04,                                 // jnz +4              ; keep the error
+                0x8B, 0x44, 0x24, 0x28,                     // mov eax, [rsp+0x28]
+                0x48, 0x83, 0xC4, 0x38,                     // add rsp, 0x38
+                0xC3 };
+        Run none = new Run(image(code));
+        none.run();
+        assertEquals(X86Uefi64.EFI_NOT_READY, none.uefi.getExitStatus());
+
+        Run typed = new Run(image(code));
+        typed.keys.add((int) '\n');
+        typed.run();
+        assertEquals(0x000D0000L, typed.uefi.getExitStatus());
     }
 
     private static String ascii(X86Core core, long addr, int n)

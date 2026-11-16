@@ -223,7 +223,7 @@ public class X86UefiFirmware
         long entryPoint;
         if (pe.pe32Plus)
         {
-            x64 = new X86Uefi64(core, this::print);
+            x64 = new X86Uefi64(core, this::print, uart::pollInput);
             entryPoint = x64.load(pe, peImage);
         }
         else
