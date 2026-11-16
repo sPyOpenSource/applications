@@ -7,23 +7,13 @@ import java.io.InputStreamReader;
 import java.io.InputStream;
 
 public class UartPeripheral implements Peripheral {
-    private final int uartAddress;
     private final ConcurrentLinkedQueue<Byte> inputBuffer = new ConcurrentLinkedQueue<>();
 
     public UartPeripheral() {
-        this(0x10000000);
-    }
-
-    public UartPeripheral(int uartAddress) {
-        this(System.in, uartAddress);
+        this(System.in);
     }
 
     public UartPeripheral(InputStream in) {
-        this(in, 0x10000000);
-    }
-
-    public UartPeripheral(InputStream in, int uartAddress) {
-        this.uartAddress = uartAddress;
         Thread readerThread = new Thread(() -> {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
                 while (true) {
@@ -37,10 +27,6 @@ public class UartPeripheral implements Peripheral {
         });
         readerThread.setDaemon(true);
         readerThread.start();
-    }
-
-    public int getUartAddress() {
-        return uartAddress;
     }
 
     @Override
