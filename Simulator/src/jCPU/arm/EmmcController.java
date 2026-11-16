@@ -100,7 +100,11 @@ public class EmmcController implements Peripheral {
                     }
                     break;
                 case CMD_WRITE_SINGLE:
-                    // handled in Task 6
+                    if (writeSectorFromRam()) {
+                        regs[INTERRUPT] |= IRQ_COMPLETE;
+                    } else {
+                        setStatus(STATUS_ERROR);
+                    }
                     break;
                 default:
                     setStatus(STATUS_ERROR);
@@ -137,6 +141,38 @@ public class EmmcController implements Peripheral {
                 cpu.instructionWriteWord(addr + i * 4, word, false);
             }
         } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * CMD24: DMA 512 bytes from the RAM address in DATA and write them to the sector in ARG1.
+     *
+     * @return true on success, false if the card/CPU is unavailable, the sector is out of
+     *         range, or the DMA transfer fails.
+     */
+    private boolean writeSectorFromRam() {
+        if (card == null || cpu == null) {
+            return false;
+        }
+        int sector = readWord(ARG1);
+        int addr = readWord(DATA);
+        byte[] buffer = new byte[SdCard.SECTOR_SIZE];
+        try {
+            for (int i = 0; i < buffer.length / 4; i++) {
+                int word = cpu.instructionReadWord(addr + i * 4, false);
+                buffer[i * 4] = (byte) (word & 0xFF);
+                buffer[i * 4 + 1] = (byte) ((word >> 8) & 0xFF);
+                buffer[i * 4 + 2] = (byte) ((word >> 16) & 0xFF);
+                buffer[i * 4 + 3] = (byte) ((word >> 24) & 0xFF);
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        try {
+            card.writeSector(sector, buffer);
+        } catch (IllegalArgumentException e) {
             return false;
         }
         return true;
