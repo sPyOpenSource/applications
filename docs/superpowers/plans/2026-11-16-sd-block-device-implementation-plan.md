@@ -781,6 +781,18 @@ public class EmmcControllerIrqTest {
         writeWord(ctl, EmmcController.CMDCMD, 0); // CMD0 completes
         assertTrue((ctl.read(EmmcController.INTERRUPT) & 0x01) != 0);
         assertTrue(cpu.haveIRQ());
+        // STATUS is readable through MMIO and reports no busy/error after completion
+        assertEquals(0, ctl.read(EmmcController.STATUS) & (EmmcController.STATUS_BUSY | EmmcController.STATUS_ERROR));
+    }
+
+    @Test
+    public void testUnsupportedCommandExposesErrorInStatus() {
+        CPU cpu = new CPU();
+        cpu.reset();
+        EmmcController ctl = new EmmcController(null, cpu);
+        writeWord(ctl, EmmcController.CMDCMD, 48); // CMD48 unsupported
+        assertTrue((ctl.read(EmmcController.STATUS) & EmmcController.STATUS_ERROR) != 0);
+        assertTrue(cpu.haveIRQ());
     }
 
     @Test
@@ -812,14 +824,15 @@ Expected: `INTERRUPT` bit not set after command → assertion failure (exit 1)
 
 Modify `Simulator/src/jCPU/arm/EmmcController.java` only:
 1. `public static final int IRQ_COMPLETE = 1;`
-2. In `write(...)`, special-case `offset == INTERRUPT`: `if ((value & IRQ_COMPLETE) != 0) { regs[INTERRUPT] &= ~IRQ_COMPLETE; if (cpu != null) cpu.clearIRQ(this); }` and return (do not store the written value).
-3. At the end of `processCommand` (after clearing busy): `regs[INTERRUPT] |= IRQ_COMPLETE; if (cpu != null) cpu.setIRQ(this);`
-4. Only raise on successful completion; on the error path set `STATUS_ERROR` and still signal completion (so bare-metal code is not stuck waiting).
+2. `read(...)`: for offsets in `[STATUS, STATUS + 3]` return `(status >>> (8 * (offset - STATUS))) & 0xFF` instead of the raw `regs` byte; all other offsets keep reading `regs`. (Busy/error must be visible through MMIO.)
+3. In `write(...)`, special-case `offset == INTERRUPT`: `if ((value & IRQ_COMPLETE) != 0) { regs[INTERRUPT] &= ~IRQ_COMPLETE; if (cpu != null) cpu.clearIRQ(this); }` and return (do not store the written value).
+4. At the end of `processCommand` (after clearing busy): `regs[INTERRUPT] |= IRQ_COMPLETE; if (cpu != null) cpu.setIRQ(this);`
+5. Signal completion on both success and error paths (so bare-metal code is never stuck waiting).
 
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `java -cp "out/main:out/test:$SIMPATH:$JUNIT:$HAMCREST" org.junit.runner.JUnitCore jCPU.arm.EmmcControllerIrqTest`
-Expected: `OK (2 tests)`
+Expected: `OK (3 tests)`
 
 - [ ] **Step 5: Commit**
 
