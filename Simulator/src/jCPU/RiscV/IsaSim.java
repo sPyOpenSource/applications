@@ -73,13 +73,24 @@ public class IsaSim implements iCPU {
     /**
      * Set the ESP32-C3 memory map (Task 5). Memory routing of fetch/load/store
      * through this map is deferred to Task 6.
+     *
+     * @param memoryMap the board memory map; must not be null
+     * @throws IllegalArgumentException if {@code memoryMap} is null
      */
     public void setMemoryMap(Esp32c3MemoryMap memoryMap) {
+        if (memoryMap == null) {
+            throw new IllegalArgumentException("memoryMap must not be null");
+        }
         this.memoryMap = memoryMap;
     }
 
     /**
      * Reset the simulator: PC = RESET_VECTOR, all registers cleared, clock = 0.
+     *
+     * <p><b>Implementation note:</b> the register file {@code reg[]} is
+     * {@code static} and therefore shared across all {@link IsaSim}
+     * instances. {@link #reset()} clears it for every instance, not just
+     * this one. Per-instance register state is a known future improvement.
      */
     @Override
     public void reset() {
@@ -87,13 +98,14 @@ public class IsaSim implements iCPU {
         for (int i = 0; i < reg.length; i++) {
             reg[i] = 0;
         }
+        reg[2] = INITIAL_SP;
         cc = 0;
     }
 
     /**
      * Get the current cycle count (clock).
      */
-    public int getClock() {
+    public long getClock() {
         return cc;
     }
 
