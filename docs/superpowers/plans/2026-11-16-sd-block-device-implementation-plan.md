@@ -757,12 +757,11 @@ git commit -m "feat(arm): EmmcController CMD24 write sector + DMA from RAM"
 
 **Files:**
 - Modify: `Simulator/src/jCPU/arm/EmmcController.java`
-- Modify: `Simulator/src/jCPU/arm/CPU.java`
 - Test: `Simulator/test/jCPU/arm/EmmcControllerIrqTest.java` (new)
 
 **Interfaces:**
-- Consumes: none new.
-- Produces: `EmmcController` sets `INTERRUPT` register bit and asserts CPU IRQ on command completion; `CPU` exposes a method for the controller to raise IRQ (e.g., `public void setIrq(boolean)` or reuses `generateIRQException` path). The controller holds a reference to `CPU` for IRQ delivery.
+- Consumes: existing `CPU.setIRQ(Object who)`, `CPU.clearIRQ(Object who)`, `CPU.haveIRQ()` — already implemented, no `CPU.java` change needed.
+- Produces: `EmmcController` sets `INTERRUPT` bit 0 (`IRQ_COMPLETE`) on command completion and calls `cpu.setIRQ(this)`. Writing `1` to the `INTERRUPT` register clears the pending bit and calls `cpu.clearIRQ(this)`.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -779,10 +778,20 @@ public class EmmcControllerIrqTest {
         CPU cpu = new CPU();
         cpu.reset();
         EmmcController ctl = new EmmcController(null, cpu);
-        // simulate completion: trigger internal done path by writing CMD0 then checking IRQ bit
-        writeWord(ctl, EmmcController.CMDCMD, 0);
-        // after processing, INTERRUPT register should have completion bit set
+        writeWord(ctl, EmmcController.CMDCMD, 0); // CMD0 completes
         assertTrue((ctl.read(EmmcController.INTERRUPT) & 0x01) != 0);
+        assertTrue(cpu.haveIRQ());
+    }
+
+    @Test
+    public void testWritingInterruptClearsIrq() {
+        CPU cpu = new CPU();
+        cpu.reset();
+        EmmcController ctl = new EmmcController(null, cpu);
+        writeWord(ctl, EmmcController.CMDCMD, 0);
+        ctl.write(EmmcController.INTERRUPT, (byte) 0x01); // write-1-to-clear
+        assertEquals(0, ctl.read(EmmcController.INTERRUPT) & 0x01);
+        assertFalse(cpu.haveIRQ());
     }
 
     private void writeWord(EmmcController ctl, int offset, int value) {
@@ -796,29 +805,27 @@ public class EmmcControllerIrqTest {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Compile: `javac -d out/test -cp "out/main:junit:hamcrest" Simulator/test/jCPU/arm/EmmcControllerIrqTest.java`
+Compile: `javac -d out/test -cp "out/main:$SIMPATH:$JUNIT:$HAMCREST" test/jCPU/arm/EmmcControllerIrqTest.java`
 Expected: `INTERRUPT` bit not set after command → assertion failure (exit 1)
 
 - [ ] **Step 3: Write minimal implementation**
 
-Modify `Simulator/src/jCPU/arm/EmmcController.java`:
-1. Constructor takes `CPU cpu`; store it.
-2. Add `public static final int IRQ_COMPLETE = 1;` (bit 0 of INTERRUPT register).
-3. At end of `processCommand` (after clearing busy): set `regs[INTERRUPT] |= IRQ_COMPLETE;` and call `cpu.raiseIrq()` (or equivalent).
-
-Modify `Simulator/src/jCPU/arm/CPU.java`:
-1. Add `public void raiseIrq()` that sets the IRQ bit in CPSR / pending IRQ state, reusing existing interrupt infrastructure (`generateIRQException` or a simple pending flag).
+Modify `Simulator/src/jCPU/arm/EmmcController.java` only:
+1. `public static final int IRQ_COMPLETE = 1;`
+2. In `write(...)`, special-case `offset == INTERRUPT`: `if ((value & IRQ_COMPLETE) != 0) { regs[INTERRUPT] &= ~IRQ_COMPLETE; if (cpu != null) cpu.clearIRQ(this); }` and return (do not store the written value).
+3. At the end of `processCommand` (after clearing busy): `regs[INTERRUPT] |= IRQ_COMPLETE; if (cpu != null) cpu.setIRQ(this);`
+4. Only raise on successful completion; on the error path set `STATUS_ERROR` and still signal completion (so bare-metal code is not stuck waiting).
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `java -cp "out/main:out/test:junit:hamcrest" org.junit.runner.JUnitCore jCPU.arm.EmmcControllerIrqTest`
-Expected: `OK (1 test)`
+Run: `java -cp "out/main:out/test:$SIMPATH:$JUNIT:$HAMCREST" org.junit.runner.JUnitCore jCPU.arm.EmmcControllerIrqTest`
+Expected: `OK (2 tests)`
 
 - [ ] **Step 5: Commit**
 
 ```bash
-git add Simulator/src/jCPU/arm/EmmcController.java Simulator/src/jCPU/arm/CPU.java Simulator/test/jCPU/arm/EmmcControllerIrqTest.java
-git commit -m "feat(arm): EmmcController completion IRQ + CPU IRQ wiring"
+git add Simulator/src/jCPU/arm/EmmcController.java Simulator/test/jCPU/arm/EmmcControllerIrqTest.java
+git commit -m "feat(arm): EmmcController completion IRQ wired to CPU"
 ```
 
 ---
