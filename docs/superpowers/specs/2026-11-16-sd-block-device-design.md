@@ -118,6 +118,7 @@ Each responsibility has one home:
 5. **Unit:** `VirtualMemorySpaceRangeTest` — range MMIO dispatch and exact-registration precedence.
 6. **Loader:** `Pi2LoaderSdTest` — `Pi2Loader` accepts an SD image and the controller is reachable through MMIO.
 7. **Integration:** `SdEndToEndTest` — boot via `Pi2Loader.loadImageWithSd`, write sector 3 via CMD24 through MMIO, read it back via CMD17, verify RAM and the host image file, assert/clear IRQ.
+8. **Error paths:** `SdErrorHandlingTest` — out-of-range CMD17/CMD24 set `STATUS.ERROR`, leave RAM/image untouched, and still raise the completion IRQ.
 
 ## Implementation notes (2026-11-16)
 
@@ -133,8 +134,9 @@ Commits on the detached HEAD of `neon-engine`:
 - `47f576fb` completion IRQ + live `STATUS` reads
 - `337065a6` `Pi2Loader` SD arg
 - `7b0418ef` end-to-end round-trip test
+- `4041732d` out-of-range error-path tests
 
-Verification: `javac` + JUnit 4 (`ant` is broken by a pre-existing `ifOS`/Zero dependency); full `jCPU.arm` suite `OK (54 tests)`.
+Verification: `javac` + JUnit 4 (`ant` is broken by a pre-existing `ifOS`/Zero dependency); clean-room rebuild and full `jCPU.arm` suite `OK (56 tests)`, plus a 3-second CLI smoke run of `Pi2Loader kernel.img sd.img` with no errors.
 
 Known deviations from the original draft, recorded deliberately:
 - MMIO required new range registration (`registerPeripheral(base, size, p)`); the pre-existing API was exact-address only.
