@@ -360,12 +360,20 @@ String ins = String.format("%08x ", instr);
 
             case LOAD_MASK:
                             ins += "Load ";
-                    ins += loadInstruction(instr);
+                    try {
+                        ins += loadInstruction(instr);
+                    } catch (BusErrorException e) {
+                        ins += "<bus error>";
+                    }
                     break;
 
             case STORE_MASK:
                             ins += "Store ";
-                    ins += storeInstruction(instr);
+                    try {
+                        ins += storeInstruction(instr);
+                    } catch (BusErrorException e) {
+                        ins += "<bus error>";
+                    }
                     break;
 
             case OP_IMM_MASK: // Immediate instructions
