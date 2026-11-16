@@ -18,8 +18,13 @@ import java.io.File;
  * jx.compiler classes from another repository).
  *
  * <pre>
- *   java jCPU.x86.UefiBootRunner disk.img [maxSteps]
+ *   java jCPU.x86.UefiBootRunner disk.img [maxSteps] [--after TEXT --type KEYS]...
  * </pre>
+ *
+ * Without {@code --after}/{@code --type}, standard input is the keyboard.
+ * With them, each KEYS is typed once TEXT has appeared in the output after
+ * the previous match, so an interactive session runs the same way every
+ * time.  KEYS understands {@code \n} (Enter) and {@code \e} (Escape).
  *
  * Firmware and EFI console output go to stdout through the UART.  The run
  * ends on an exception (e.g. an unknown opcode, with its instruction
@@ -31,11 +36,50 @@ public class UefiBootRunner
     public static void main(String[] args) throws Exception
     {
         if (args.length < 1) {
-            System.err.println("usage: UefiBootRunner disk.img [maxSteps]");
+            System.err.println("usage: UefiBootRunner disk.img [maxSteps] [--after TEXT --type KEYS]...");
             System.exit(2);
         }
         String image = args[0];
-        long maxSteps = args.length > 1 ? Long.parseLong(args[1]) : 50_000_000L;
+        int argi = 1;
+        long maxSteps = 50_000_000L;
+        if (args.length > 1 && !args[1].startsWith("--")) {
+            maxSteps = Long.parseLong(args[1]);
+            argi = 2;
+        }
+        java.util.List<String[]> script = new java.util.ArrayList<>();
+        for (; argi + 3 < args.length && args[argi].equals("--after") && args[argi + 2].equals("--type"); argi += 4) {
+            script.add(new String[] { args[argi + 1], unescape(args[argi + 3]) });
+        }
+        if (argi < args.length) {
+            System.err.println("unexpected argument: " + args[argi]);
+            System.exit(2);
+        }
+
+        // With a script, the keyboard is a pipe the runner types into, and
+        // the output is kept so the runner can see when to type.
+        StringBuilder output = new StringBuilder();
+        java.io.PipedOutputStream keys = null;
+        if (!script.isEmpty()) {
+            keys = new java.io.PipedOutputStream();
+            System.setIn(new java.io.PipedInputStream(keys));
+            java.io.PrintStream original = System.out;
+            System.setOut(new java.io.PrintStream(new java.io.OutputStream() {
+                @Override
+                public void write(int b) {
+                    original.write(b);
+                    synchronized (output) {
+                        output.append((char) (b & 0xFF));
+                    }
+                }
+
+                @Override
+                public void flush() {
+                    original.flush();
+                }
+            }, true));
+        }
+        int scriptIndex = 0;
+        int searchFrom = 0;
 
         // Same devices and ports as CPU's constructor.
         X86Core core = new X86Core(64 * 1024 * 1024);
@@ -85,6 +129,18 @@ public class UefiBootRunner
             while (steps < maxSteps && !uefi.hasExited()) {
                 core.step();
                 steps++;
+                if (scriptIndex < script.size() && steps % 10_000 == 0) {
+                    int at;
+                    synchronized (output) {
+                        at = output.indexOf(script.get(scriptIndex)[0], searchFrom);
+                    }
+                    if (at >= 0) {
+                        searchFrom = at + script.get(scriptIndex)[0].length();
+                        keys.write(script.get(scriptIndex)[1].getBytes("ISO-8859-1"));
+                        keys.flush();
+                        scriptIndex++;
+                    }
+                }
             }
             if (uefi.hasExited()) {
                 System.out.printf("[runner] done after %d steps%n", steps);
@@ -113,5 +169,10 @@ public class UefiBootRunner
                     e.getClass().getSimpleName(), steps, e.getMessage());
         }
         System.exit(status);
+    }
+
+    private static String unescape(String s)
+    {
+        return s.replace("\\n", "\n").replace("\\e", "\u001b");
     }
 }
