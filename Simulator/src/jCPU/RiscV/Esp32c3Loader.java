@@ -33,6 +33,7 @@ public final class Esp32c3Loader {
         for (int i = 0; i < Math.min(image.length, SRAM_SIZE); i++) {
             sim.code.write(SRAM_BASE + i, image[i]);
         }
+        sim.setTimer(timer);
         sim.reset();
         return sim;
     }
