@@ -28,6 +28,22 @@ public final class Pi2Loader {
 		return cpu;
 	}
 
+	/**
+	 * Loads {@code image} and wires an {@link EmmcController} backed by
+	 * {@code sdPath} over the EMMC register range at
+	 * {@link Pi2MemoryMap#EMMC_BASE}.
+	 *
+	 * @return a CPU with the image loaded and the EMMC controller registered
+	 *         (not yet reset)
+	 */
+	public static CPU loadImageWithSd(byte[] image, String sdPath) throws IOException {
+		CPU cpu = loadImage(image);
+		SdCard card = new SdCard(sdPath);
+		EmmcController ctl = new EmmcController(card, cpu);
+		cpu.getVirtualMemorySpace().registerPeripheral(Pi2MemoryMap.EMMC_BASE, 0x1000, ctl);
+		return cpu;
+	}
+
 	private static ByteArrayRegion findRam(PhysicalMemorySpace mem) {
 		for (PhysicalMemorySpace.MappedRegion mr : mem.getMappedRegions()) {
 			if (mr.getBase() == Pi2MemoryMap.RAM_BASE) {
@@ -39,11 +55,11 @@ public final class Pi2Loader {
 
 	public static void main(String[] args) throws Exception {
 		if (args.length < 1) {
-			System.err.println("Usage: Pi2Loader <kernel.img>");
+			System.err.println("Usage: Pi2Loader <kernel.img> [sd.img]");
 			System.exit(1);
 		}
 		byte[] image = readImage(args[0]);
-		CPU cpu = loadImage(image);
+		CPU cpu = args.length >= 2 ? loadImageWithSd(image, args[1]) : loadImage(image);
 		cpu.reset();
 		cpu.go(0);
 	}
