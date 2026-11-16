@@ -25,12 +25,20 @@ public class EmmcController implements Peripheral {
     public static final int CMD_READ_SINGLE = 17;
     public static final int CMD_WRITE_SINGLE = 24;
 
+    public static final int IRQ_COMPLETE = 1 << 0;
+
     private final SdCard card;
+    private final CPU cpu;
     private final byte[] regs = new byte[0x30];
     private int status;
 
     public EmmcController(SdCard card) {
+        this(card, null);
+    }
+
+    public EmmcController(SdCard card, CPU cpu) {
         this.card = card;
+        this.cpu = cpu;
     }
 
     @Override
@@ -85,8 +93,14 @@ public class EmmcController implements Peripheral {
                 case CMD_SET_BLOCKLEN:
                     break; // acknowledged
                 case CMD_READ_SINGLE:
+                    if (readSectorToRam()) {
+                        regs[INTERRUPT] |= IRQ_COMPLETE;
+                    } else {
+                        setStatus(STATUS_ERROR);
+                    }
+                    break;
                 case CMD_WRITE_SINGLE:
-                    // handled in Tasks 5/6; for now mark busy then clear
+                    // handled in Task 6
                     break;
                 default:
                     setStatus(STATUS_ERROR);
@@ -94,6 +108,46 @@ public class EmmcController implements Peripheral {
             }
         }
         setStatus(getStatus() & ~STATUS_BUSY);
+    }
+
+    /**
+     * CMD17: read the sector in ARG1 from the card and DMA it to the RAM address in DATA.
+     *
+     * @return true on success, false if the card/CPU is unavailable, the sector is out of
+     *         range, or the DMA transfer fails.
+     */
+    private boolean readSectorToRam() {
+        if (card == null || cpu == null) {
+            return false;
+        }
+        int sector = readWord(ARG1);
+        int addr = readWord(DATA);
+        byte[] buffer;
+        try {
+            buffer = card.readSector(sector);
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+        try {
+            for (int i = 0; i < buffer.length / 4; i++) {
+                int word = (buffer[i * 4] & 0xFF)
+                        | ((buffer[i * 4 + 1] & 0xFF) << 8)
+                        | ((buffer[i * 4 + 2] & 0xFF) << 16)
+                        | ((buffer[i * 4 + 3] & 0xFF) << 24);
+                cpu.instructionWriteWord(addr + i * 4, word, false);
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    /** Assemble a little-endian 32-bit word from the register file. */
+    private int readWord(int offset) {
+        return (regs[offset] & 0xFF)
+                | ((regs[offset + 1] & 0xFF) << 8)
+                | ((regs[offset + 2] & 0xFF) << 16)
+                | ((regs[offset + 3] & 0xFF) << 24);
     }
 
     public int getStatus() {
