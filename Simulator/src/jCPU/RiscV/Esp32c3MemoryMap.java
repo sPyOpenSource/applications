@@ -30,7 +30,7 @@ public final class Esp32c3MemoryMap {
         }
     }
 
-    public byte readByte(int addr) {
+    public byte readByte(int addr) throws BusErrorException {
         Peripheral p = peripherals.get(addr);
         if (p != null) {
             return p.read(addr - PERIPHERAL_BASE);
@@ -38,10 +38,10 @@ public final class Esp32c3MemoryMap {
         if (addr >= SRAM_BASE && addr < SRAM_BASE + SRAM_SIZE) {
             return sram[addr - SRAM_BASE];
         }
-        return 0;
+        throw new BusErrorException(addr, "read");
     }
 
-    public void writeByte(int addr, byte value) {
+    public void writeByte(int addr, byte value) throws BusErrorException {
         Peripheral p = peripherals.get(addr);
         if (p != null) {
             p.write(addr - PERIPHERAL_BASE, value);
@@ -49,17 +49,19 @@ public final class Esp32c3MemoryMap {
         }
         if (addr >= SRAM_BASE && addr < SRAM_BASE + SRAM_SIZE) {
             sram[addr - SRAM_BASE] = value;
+            return;
         }
+        throw new BusErrorException(addr, "write");
     }
 
-    public int read32(int addr) {
+    public int read32(int addr) throws BusErrorException {
         return ((readByte(addr + 3) & 0xFF) << 24) |
                ((readByte(addr + 2) & 0xFF) << 16) |
                ((readByte(addr + 1) & 0xFF) << 8) |
                (readByte(addr) & 0xFF);
     }
 
-    public void write32(int addr, int value) {
+    public void write32(int addr, int value) throws BusErrorException {
         writeByte(addr, (byte) value);
         writeByte(addr + 1, (byte) (value >> 8));
         writeByte(addr + 2, (byte) (value >> 16));
