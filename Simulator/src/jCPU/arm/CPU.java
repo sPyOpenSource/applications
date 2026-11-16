@@ -1714,6 +1714,12 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
         
 	private void executeARMPage67(int iword, boolean unconditional) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		/* Coprocessor instructions, and Supervisor Call (A5-215) */
+		/* BX (A8-352) */
+		if((iword & 0x0FFFFFF0) == 0x012FFF10) {
+			int Rm = iword & 15;
+			interworkingBranch(readRegister(Rm));
+			return;
+		}
 		int op1 = (iword >> 20) & 63;
 		if((op1 & 62) == 0) throw new UndefinedException();
 		else if((op1 & 48) == 48) {
