@@ -313,10 +313,9 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		this.debugger = debugger;
 		vm = new VirtualMemorySpace(mem, debugger);
 		if(enableUart) {
-			vm.registerPeripheral(Pi2MemoryMap.UART_BASE, new UartPeripheral());
+			vm.registerPeripheral(0x10000000, new UartPeripheral());
 		}
 		vm.registerPeripheral(VgaPeripheral.VGA_BASE, new VgaPeripheral());
-		mem.mapRegion(Pi2MemoryMap.RAM_BASE, new ByteArrayRegion(0x100000)); /* 1MB RAM at 0x0 */
 		
 		coprocessors[10] = new FPU(this);
 		coprocessors[11] = coprocessors[10];
@@ -327,29 +326,12 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	/*** EXECUTION ***/
 	private boolean haveReset = false;
 	private int cycleBudget = 0;
-	private long totalCycles = 0;
-	private SystemTimer systemTimer = null;
         
 	/**
 	 * @return true if the cycle budget is fully spent, false if there are some unspent cycles left.
 	 */
 	public boolean budgetFullySpent() { return cycleBudget <= 0; }
-
-	/**
-	 * @return total number of instructions executed since CPU construction.
-	 */
-	public long getTotalCycles() { return totalCycles; }
-
-	/**
-	 * Wires a SystemTimer to this CPU so the timer is ticked on each instruction.
-	 * @param t the SystemTimer, or null to unwire
-	 */
-	public void setSystemTimer(SystemTimer t) { this.systemTimer = t; }
-
-	public void setWaitingForInterrupt(boolean waiting) {
-		this.waitingForInterrupt = waiting;
-	}
-
+        
 	/**
 	 * Spends any cycles that still remain in the budget.
 	 * @param soft If true, only zero the budget if there are unspent cycles. If false, also forgive debt.
@@ -377,7 +359,6 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		while(true) {
 			cycleBudget += budget;
 			int backupPC = pc;
-			if(systemTimer != null) systemTimer.tickTo(totalCycles);
 			if(waitingForInterrupt && (haveIRQ() || haveFIQ())) waitingForInterrupt = false;
 			try {
 				while(cycleBudget > 0 && !waitingForInterrupt) {
@@ -404,11 +385,6 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			catch(EscapeCompleteException e) {}
 			// don't hoard cycles in a low-power state
 			cycleBudget -= mem.settleAccessBill();
-			if(waitingForInterrupt && cycleBudget > 0 && systemTimer != null) {
-				totalCycles += cycleBudget;
-				systemTimer.tickTo(totalCycles);
-				cycleBudget = 0;
-			}
 			if(waitingForInterrupt && cycleBudget > 0) cycleBudget = 0;
 			return cycleBudget <= 0;
 		}
@@ -419,8 +395,6 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	 */
 	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
-		totalCycles++;
-		if(systemTimer != null) systemTimer.tickTo(totalCycles);
 		if((cpsr & (1 << CPSR_BIT_F)) == 0 && haveFIQ()) generateFIQException();
 		if((cpsr & (1 << CPSR_BIT_I)) == 0 && haveIRQ()) generateIRQException();
 		
@@ -1740,12 +1714,6 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
         
 	private void executeARMPage67(int iword, boolean unconditional) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		/* Coprocessor instructions, and Supervisor Call (A5-215) */
-		/* BX (A8-352) */
-		if((iword & 0x0FFFFFF0) == 0x012FFF10) {
-			int Rm = iword & 15;
-			interworkingBranch(readRegister(Rm));
-			return;
-		}
 		int op1 = (iword >> 20) & 63;
 		if((op1 & 62) == 0) throw new UndefinedException();
 		else if((op1 & 48) == 48) {
@@ -1926,8 +1894,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		throw new UndefinedException();
 	}
         
-	// package-visible for test invocation
-	void executeARM(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
+	private void executeARM(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		int condition = (iword >> 28) & 15;
 		if(condition != 15) {
 			/* condition codes (A5-288) */
