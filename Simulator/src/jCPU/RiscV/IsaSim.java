@@ -105,7 +105,7 @@ public class IsaSim implements iCPU {
     /**
      * Get the current cycle count (clock).
      */
-    public long getClock() {
+    public int getClock() {
         return cc;
     }
 
