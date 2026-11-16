@@ -29,6 +29,10 @@ public final class Esp32c3Loader {
         for (int i = 0; i < Math.min(image.length, SRAM_SIZE); i++) {
             mem.writeByte(SRAM_BASE + i, image[i]);
         }
+        // Also copy into IsaSim's code Memory so step()/go() can fetch the instructions
+        for (int i = 0; i < Math.min(image.length, SRAM_SIZE); i++) {
+            sim.code.write(SRAM_BASE + i, image[i]);
+        }
         sim.reset();
         return sim;
     }
