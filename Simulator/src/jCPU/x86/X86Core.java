@@ -68,7 +68,7 @@ public class X86Core implements iCPU
     private int flags32 = 0;
     private long rflags64 = 0;
     private final int memSize;
-    private final byte[] memory = new byte[64 * 1024 * 1024]; // 64MB direct-mapped memory
+    private final byte[] memory;                // direct-mapped memory of memSize bytes
     private final Map<Integer, Peripheral> ioPorts = new HashMap<>();
     private iExecutor executor;
     private int pc32 = 0;
@@ -183,6 +183,7 @@ public class X86Core implements iCPU
 
     public X86Core(int memSize) {
         this.memSize = memSize;
+        this.memory = new byte[memSize];
         reset();
     }
 
