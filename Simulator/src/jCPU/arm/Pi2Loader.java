@@ -25,13 +25,15 @@ public final class Pi2Loader {
 		ByteArrayRegion ram = findRam(cpu.getMemorySpace());
 		byte[] backing = ram.getBackingArray();
 		System.arraycopy(image, 0, backing, 0, Math.min(image.length, backing.length));
+		wireTimer(cpu);
 		return cpu;
 	}
 
 	/**
 	 * Loads {@code image} and wires an {@link EmmcController} backed by
 	 * {@code sdPath} over the EMMC register range at
-	 * {@link Pi2MemoryMap#EMMC_BASE}.
+	 * {@link Pi2MemoryMap#EMMC_BASE}. The system timer is also wired at
+	 * {@link Pi2MemoryMap#SYSTEM_TIMER_BASE}.
 	 *
 	 * @return a CPU with the image loaded and the EMMC controller registered
 	 *         (not yet reset)
@@ -42,6 +44,12 @@ public final class Pi2Loader {
 		EmmcController ctl = new EmmcController(card, cpu);
 		cpu.getVirtualMemorySpace().registerPeripheral(Pi2MemoryMap.EMMC_BASE, 0x1000, ctl);
 		return cpu;
+	}
+
+	private static void wireTimer(CPU cpu) {
+		SystemTimer timer = new SystemTimer(cpu);
+		cpu.setSystemTimer(timer);
+		cpu.getVirtualMemorySpace().registerPeripheral(Pi2MemoryMap.SYSTEM_TIMER_BASE, 0x1000, timer);
 	}
 
 	private static ByteArrayRegion findRam(PhysicalMemorySpace mem) {
