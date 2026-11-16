@@ -20,4 +20,8 @@ public class Pi2MemoryMapTest {
     public void testEmmcBase() {
         assertEquals(0x3F200000, Pi2MemoryMap.EMMC_BASE);
     }
+    @Test
+    public void testSystemTimerBase() {
+        assertEquals(0x3F003000, Pi2MemoryMap.SYSTEM_TIMER_BASE);
+    }
 }

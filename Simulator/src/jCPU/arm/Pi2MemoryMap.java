@@ -10,5 +10,6 @@ public final class Pi2MemoryMap {
     public static final int PERIPHERAL_BASE = 0x3F000000;
     public static final int UART_BASE = 0x3F201000;
     public static final int EMMC_BASE = 0x3F200000;
+    public static final int SYSTEM_TIMER_BASE = 0x3F003000;
     private Pi2MemoryMap() {}
 }
