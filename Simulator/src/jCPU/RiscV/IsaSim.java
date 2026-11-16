@@ -56,6 +56,7 @@ public class IsaSim implements iCPU {
     protected int pc;
     protected Memory code;
     Esp32c3MemoryMap memoryMap;
+    TimerPeripheral timer;
 
     public IsaSim() {
         System.out.println("RISC-V!");
@@ -85,6 +86,13 @@ public class IsaSim implements iCPU {
     }
 
     /**
+     * Set the timer peripheral. {@link #step()} advances it once per cycle.
+     */
+    public void setTimer(TimerPeripheral timer) {
+        this.timer = timer;
+    }
+
+    /**
      * Reset the simulator: PC = RESET_VECTOR, all registers cleared, clock = 0.
      *
      * <p><b>Implementation note:</b> the register file {@code reg[]} is
@@ -99,6 +107,7 @@ public class IsaSim implements iCPU {
             reg[i] = 0;
         }
         cc = 0;
+        running = true;
     }
 
     /**
@@ -145,9 +154,14 @@ public class IsaSim implements iCPU {
     }
     
     @Override
-    public int step () {
+    public int step() throws BusErrorException {
             // Combine four bytes to produce a single instruction
-            int instr = code.read32(pc);
+            int instr;
+            if (memoryMap != null) {
+                instr = memoryMap.read32(pc);
+            } else {
+                instr = code.read32(pc);
+            }
 
             // Retrieve the least significant seven bits of the instruction
             // indicating the type of instruction
@@ -252,8 +266,58 @@ public class IsaSim implements iCPU {
                     return 1;
             }
             cc++;
+            if (timer != null) {
+                timer.tick();
+            }
             return 1;
     }
+
+    /**
+     * Read a byte through the memory map when set, else from raw code Memory.
+     * Throws {@link BusErrorException} on unmapped addresses.
+     */
+    private int readMemByte(int addr) throws BusErrorException {
+        if (memoryMap != null) {
+            return memoryMap.readByte(addr);
+        }
+        return code.read(addr);
+    }
+
+    /**
+     * Write a byte through the memory map when set, else to raw code Memory.
+     * Throws {@link BusErrorException} on unmapped addresses.
+     */
+    private void writeMemByte(int addr, int value) throws BusErrorException {
+        if (memoryMap != null) {
+            memoryMap.writeByte(addr, (byte) value);
+        } else {
+            code.write(addr, value);
+        }
+    }
+
+    private int readMem16(int addr) throws BusErrorException {
+        return ((readMemByte(addr + 1) & 0xFF) << 8) | (readMemByte(addr) & 0xFF);
+    }
+
+    private int readMem32(int addr) throws BusErrorException {
+        return ((readMemByte(addr + 3) & 0xFF) << 24) |
+               ((readMemByte(addr + 2) & 0xFF) << 16) |
+               ((readMemByte(addr + 1) & 0xFF) << 8) |
+               (readMemByte(addr) & 0xFF);
+    }
+
+    private void writeMem16(int addr, int value) throws BusErrorException {
+        writeMemByte(addr, value);
+        writeMemByte(addr + 1, value >> 8);
+    }
+
+    private void writeMem32(int addr, int value) throws BusErrorException {
+        writeMemByte(addr, value);
+        writeMemByte(addr + 1, value >> 8);
+        writeMemByte(addr + 2, value >> 16);
+        writeMemByte(addr + 3, value >> 24);
+    }
+
     //System.out.println("Program exit");
     
     @Override
@@ -454,7 +518,7 @@ String ins = String.format("%08x ", instr);
 		return false;
 	}
 
-	private String loadInstruction(int instr) throws NullPointerException {
+	private String loadInstruction(int instr) throws BusErrorException {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -473,34 +537,34 @@ String ins = String.format("%08x ", instr);
 		switch (funct3) {
 		case 0x0: // LB
                     if(running)
-			memValue = code.read(memAddr);
+			memValue = readMemByte(memAddr);
 			if ((memValue >> 7) == 1) {
 				memValue |= 0xFFFFFF00; // Sign-extension if necessary
 			}
 			break;
 		case 0x1: // LH
                     if(running)
-			memValue = code.read16(memAddr);
+			memValue = readMem16(memAddr);
 			if ((memValue >> 15) == 1) {
 				memValue |= 0xFFFF0000; // Sign-extension if necessary
 			}
 			break;
 		case 0x2: // LW
                     if(running)
-			memValue = code.read16(memAddr);
+			memValue = readMem16(memAddr);
 			break;
 		case 0x4: // LBU
                     if(running)
-			memValue = code.read(memAddr);
+			memValue = readMemByte(memAddr);
 			break;
 		case 0x5: // LHU
-			memValue = code.read16(memAddr);
+			memValue = readMem16(memAddr);
 		}
 		reg[rd] = memValue;
                 return "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", memAddr = " + memAddr;
 	}
 	
-	private String storeInstruction(int instr) {
+	private String storeInstruction(int instr) throws BusErrorException {
 		// General information
 		int rs1 = (instr >> 15) & 0x1F;
 		int rs2 = (instr >> 20) & 0x1F;
@@ -520,15 +584,15 @@ String ins = String.format("%08x ", instr);
 		case 0x0: // SB
 			memValue &= 0x000000FF;
                         if(running)
-			code.write(memAddr, memValue);
+			writeMemByte(memAddr, memValue);
 			break;
 		case 0x1: // SH
 			memValue &= 0x0000FFFF;
-			code.write16(memAddr, (short)memValue);
+			writeMem16(memAddr, memValue);
 			break;
 		case 0x2: // SW
                     if(running)
-			code.write16(memAddr, (short)memValue);
+			writeMem16(memAddr, memValue);
 			break;
 		}
                 return "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", memAddr = " + memAddr;
