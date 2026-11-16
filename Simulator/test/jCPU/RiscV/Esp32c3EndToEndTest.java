@@ -24,11 +24,16 @@ public class Esp32c3EndToEndTest {
 
     @Test
     public void testEndToEndExecutesAddi() throws Exception {
-        byte[] image = new byte[4];
-        image[0] = (byte) (ADDI_X1_X0_65 & 0xFF);
-        image[1] = (byte) ((ADDI_X1_X0_65 >> 8) & 0xFF);
-        image[2] = (byte) ((ADDI_X1_X0_65 >> 16) & 0xFF);
-        image[3] = (byte) ((ADDI_X1_X0_65 >> 24) & 0xFF);
+        // Two instructions (8 bytes): the first is executed, the second at
+        // SRAM_BASE + 4 keeps code.containsKey(SRAM_BASE + 4) true so that
+        // IsaSim.step() does not early-exit before incrementing the clock.
+        // See IsaSim.step(): pc advances, then early-exit check, then cc++.
+        byte[] image = new byte[8];
+        for (int i = 0; i < 4; i++) {
+            byte b = (byte) ((ADDI_X1_X0_65 >> (8 * i)) & 0xFF);
+            image[i] = b;
+            image[i + 4] = b; // second addi at SRAM_BASE + 4
+        }
 
         IsaSim sim = Esp32c3Loader.loadImage(image);
         sim.pc = Esp32c3MemoryMap.SRAM_BASE; // point PC at loaded image
