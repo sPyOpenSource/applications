@@ -19,6 +19,12 @@ public class EmmcController implements Peripheral {
     public static final int STATUS_BUSY = 1 << 0;
     public static final int STATUS_ERROR = 1 << 1;
 
+    public static final int CMD_GO_IDLE_STATE = 0;
+    public static final int CMD_SEND_OP_COND = 41; // ACMD41 = index 41 with bit 6 (0x40) set
+    public static final int CMD_SET_BLOCKLEN = 16;
+    public static final int CMD_READ_SINGLE = 17;
+    public static final int CMD_WRITE_SINGLE = 24;
+
     private final SdCard card;
     private final byte[] regs = new byte[0x30];
     private int status;
@@ -42,6 +48,52 @@ public class EmmcController implements Peripheral {
             return;
         }
         regs[offset] = value;
+        if (offset == CMDCMD + 3) {
+            // The command is executed once the high byte of CMDCMD is written.
+            int cmdWord = (regs[CMDCMD] & 0xFF)
+                    | ((regs[CMDCMD + 1] & 0xFF) << 8)
+                    | ((regs[CMDCMD + 2] & 0xFF) << 16)
+                    | ((regs[CMDCMD + 3] & 0xFF) << 24);
+            processCommand(cmdWord);
+        }
+    }
+
+    private void processCommand(int cmdWord) {
+        setStatus(STATUS_BUSY);
+        int cmdIndex = cmdWord & 0x3F;
+        boolean isAcmd = (cmdWord & 0x40) != 0;
+        // clear response
+        regs[CMDRESP0] = 0;
+        regs[CMDRESP1] = 0;
+        regs[CMDRESP2] = 0;
+        regs[CMDRESP3] = 0;
+        if (isAcmd) {
+            if (cmdIndex == CMD_SEND_OP_COND) {
+                regs[CMDRESP0] = 0x00; // ready
+            } else {
+                setStatus(STATUS_ERROR);
+            }
+        } else {
+            switch (cmdIndex) {
+                case CMD_GO_IDLE_STATE:
+                    regs[CMDRESP0] = 0x01; // idle
+                    break;
+                case CMD_SEND_OP_COND:
+                    // CMD41 sent without the APP_CMD bit also means SEND_OP_COND
+                    regs[CMDRESP0] = 0x00; // ready
+                    break;
+                case CMD_SET_BLOCKLEN:
+                    break; // acknowledged
+                case CMD_READ_SINGLE:
+                case CMD_WRITE_SINGLE:
+                    // handled in Tasks 5/6; for now mark busy then clear
+                    break;
+                default:
+                    setStatus(STATUS_ERROR);
+                    break;
+            }
+        }
+        setStatus(getStatus() & ~STATUS_BUSY);
     }
 
     public int getStatus() {
