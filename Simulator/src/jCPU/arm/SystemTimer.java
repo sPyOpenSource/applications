@@ -37,7 +37,7 @@ public class SystemTimer implements Peripheral, Comparable<SystemTimer> {
 
     @Override
     public byte read(int offset) {
-        tickToFromCpu();
+        tickTo(cpu == null ? lastCycles : cpu.getTotalCycles());
         if (offset < 0 || offset >= 0x18) {
             return 0;
         }
@@ -100,13 +100,11 @@ public class SystemTimer implements Peripheral, Comparable<SystemTimer> {
         return Long.compare(irqId, other.irqId);
     }
 
-    private void tickToFromCpu() {
-        if (cpu == null) return;
-        long cycles = cpu.getTotalCycles();
-        long ticks = (cycles - lastCycles) / CYCLES_PER_TICK;
+    public void tickTo(long targetCycles) {
+        long ticks = (targetCycles - lastCycles) / CYCLES_PER_TICK;
         if (ticks <= 0) return;
         counter += ticks;
-        lastCycles = cycles;
+        lastCycles = targetCycles;
         for (int ch = 0; ch < 4; ch++) {
             checkMatch(ch);
         }
