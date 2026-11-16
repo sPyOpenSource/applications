@@ -313,9 +313,10 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		this.debugger = debugger;
 		vm = new VirtualMemorySpace(mem, debugger);
 		if(enableUart) {
-			vm.registerPeripheral(0x10000000, new UartPeripheral());
+			vm.registerPeripheral(Pi2MemoryMap.UART_BASE, new UartPeripheral());
 		}
 		vm.registerPeripheral(VgaPeripheral.VGA_BASE, new VgaPeripheral());
+		mem.mapRegion(Pi2MemoryMap.RAM_BASE, new ByteArrayRegion(0x100000)); /* 1MB RAM at 0x0 */
 		
 		coprocessors[10] = new FPU(this);
 		coprocessors[11] = coprocessors[10];
