@@ -66,6 +66,11 @@ public class X86Amd64 implements X86Core.iExecutor
     @Override
     public int step(X86Core core) throws Exception {
         this.core = core;
+        long rip = core.getPC64();
+        if (core.firmwareTrap(rip)) {
+            history[(int) (historyCount++ % HISTORY_SIZE)] = rip;
+            return 1;
+        }
         insnStart = ip = core.getPC64();
         rexPresent = false;
         rexW = rexR = rexX = rexB = 0;

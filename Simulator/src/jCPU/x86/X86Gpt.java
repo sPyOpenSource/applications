@@ -55,9 +55,11 @@ public class X86Gpt
         }
 
         headerLba = lba;
-        entryStartLba = readLittleEndian32(hdr, 84);
+        // Offset 72: PartitionEntryLBA (8 bytes), 80: NumberOfPartitionEntries,
+        // 84: SizeOfPartitionEntry
+        entryStartLba = (int) readLittleEndian64(hdr, 72);
         entryCount = readLittleEndian32(hdr, 80);
-        entrySize = (hdr[78] & 0xFF) | ((hdr[79] & 0xFF) << 8);
+        entrySize = readLittleEndian32(hdr, 84);
 
         if (entryStartLba == 0 || entryCount == 0 || entrySize == 0)
         {

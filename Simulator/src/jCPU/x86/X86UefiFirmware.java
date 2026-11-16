@@ -1,7 +1,7 @@
 package jCPU.x86;
 
 /**
- * Minimal UEFI (IA32) firmware implementation.
+ * Minimal UEFI firmware implementation.
  *
  * <p>The firmware is the first code that runs when the x86 simulator boots.
  * It performs the UEFI boot sequence:</p>
@@ -12,7 +12,8 @@ package jCPU.x86;
  *       Partition (ESP)</li>
  *   <li>Uses the FAT filesystem reader to load {@code \EFI\BOOT\BOOTIA32.EFI}
  *       from the ESP</li>
- *   <li>Loads the PE32 image into simulated memory</li>
+ *   <li>Loads the PE32 image into simulated memory; PE32+ (x64) images are
+ *       loaded and served by {@link X86Uefi64}</li>
  *   <li>Transfers control to the loaded EFI application entry point</li>
  * </ul>
  *
@@ -39,6 +40,7 @@ public class X86UefiFirmware
 
     private boolean initialized;
     private boolean lastBootPe32Plus;
+    private X86Uefi64 x64;
 
     public X86UefiFirmware(X86Core core, X86IdeController ide,
                            X86UartPeripheral uart, X86VgaPeripheral vga)
@@ -58,12 +60,8 @@ public class X86UefiFirmware
      */
     public long boot()
     {
-        println("UEFI IA32 Firmware");
-        println("====================");
-
-        // Install minimal UEFI data structures in memory
-        installSystemTable();
-        installedServices();
+        println("UEFI Firmware");
+        println("=============");
 
         // Locate EFI System Partition via GPT
         X86FatFileSystem.SectorReader sectorReader = new X86FatFileSystem.SectorReader()
@@ -222,7 +220,19 @@ public class X86UefiFirmware
 
         lastBootPe32Plus = pe.pe32Plus;
 
-        long entryPoint = loadPeImage(pe, peImage);
+        long entryPoint;
+        if (pe.pe32Plus)
+        {
+            x64 = new X86Uefi64(core, this::print);
+            entryPoint = x64.load(pe, peImage);
+        }
+        else
+        {
+            // Install minimal UEFI data structures in memory
+            installSystemTable();
+            installedServices();
+            entryPoint = loadPeImage(pe, peImage);
+        }
         if (entryPoint == 0)
         {
             println("ERROR: Failed to load PE image into memory.");
@@ -245,6 +255,18 @@ public class X86UefiFirmware
     public boolean isPe32Plus()
     {
         return lastBootPe32Plus;
+    }
+
+    /** True once an x64 application returned from its entry point or called Exit(). */
+    public boolean hasExited()
+    {
+        return x64 != null && x64.hasExited();
+    }
+
+    /** The EFI_STATUS the x64 application exited with. */
+    public long getExitStatus()
+    {
+        return x64 == null ? 0 : x64.getExitStatus();
     }
 
     /* ---------------- UEFI data structures ---------------- */
@@ -395,6 +417,11 @@ public class X86UefiFirmware
     {
         if (vga == null)
         {
+            return;
+        }
+        if (c == '\r')
+        {
+            vgaCursorX = 0;
             return;
         }
         if (c == '\n')
