@@ -18,12 +18,23 @@ public class X86Amd64 implements X86Core.iExecutor
     private int rexX = 0;
     private int rexB = 0;
 
+    /* Address of the instruction being executed, including any prefix. */
+    private long insnStart = 0;
+
+    /* Addresses of the most recently executed instructions, as a ring buffer.
+     * Reported when execution stops on an unknown instruction, to show how
+     * the program got there. */
+    private static final int HISTORY_SIZE = 16;
+    private final long[] history = new long[HISTORY_SIZE];
+    private long historyCount = 0;
+
     @Override
     public int step(X86Core core) throws Exception {
         long rip = core.getPC64();
         int opcode = core.readMem8((int) rip);
         lastDecode = "";
         long oldRip = rip;
+        insnStart = rip;
         rexW = rexR = rexX = rexB = 0;
 
         // Handle REX prefix
@@ -36,206 +47,35 @@ public class X86Amd64 implements X86Core.iExecutor
             opcode = core.readMem8((int) rip);
         }
 
+        // Throws X86UnknownOpcodeException for anything that is not implemented,
+        // leaving RIP on the offending instruction.
         executeOpcode(core, opcode, (int) rip);
         if (core.getPC64() == oldRip) {
-            // PC didn't change: check if opcode was handled
-            if (!isNoPcChangeOpcode(core, (int) rip, opcode, rexW)) {
-                System.out.println("[WARN] Unhandled opcode at RIP=0x" + Long.toHexString(rip)
-                        + ": OP=0x" + Integer.toHexString(opcode) + " (REX.W=" + rexW + ")");
-            }
+            // The instruction did not branch: advance past it.
             int len = instructionLen(core, opcode, (int) rip, rexW);
             core.setPC64(rip + len);
         }
+        history[(int) (historyCount++ % HISTORY_SIZE)] = oldRip;
         return 1;
     }
 
-    /** Returns true for opcodes that are handled but intentionally don't modify PC. */
-    private boolean isNoPcChangeOpcode(X86Core core, int rip, int opcode, int rexW) {
-        // One-byte opcodes that don't change PC
-        switch (opcode) {
-            case 0x90: return true; // NOP
-            case 0xF4: return true; // HLT
-            case 0xFA: return true; // CLI
-            case 0xFB: return true; // STI
-            case 0x9C: return true; // PUSHFD
-            case 0x9D: return true; // POPFD
-            case 0x98: return true; // CDQE
-            case 0x99: return true; // CQO
-            case 0x60: return true; // PUSHAD
-            case 0x61: return true; // POPAD
+    /* The recorded instruction addresses, oldest first. */
+    private long[] recentInstructions() {
+        int n = (int) Math.min(historyCount, HISTORY_SIZE);
+        long[] recent = new long[n];
+        for (int i = 0; i < n; i++) {
+            recent[i] = history[(int) ((historyCount - n + i) % HISTORY_SIZE)];
         }
-        // MOV r64, imm64: REX.W + B8..BF
-        if ((opcode & 0xF8) == 0xB8 && rexW != 0) return true;
-        // PUSH/POP r64: REX.W + 50..57 / 58..5F
-        if ((opcode & 0xF8) == 0x50 && rexW != 0) return true;
-        if ((opcode & 0xF8) == 0x58 && rexW != 0) return true;
-        // INC/DEC r64: REX.W + 40..47 / 48..4F
-        if ((opcode & 0xF8) == 0x40 && rexW != 0) return true;
-        if ((opcode & 0xF8) == 0x48 && rexW != 0) return true;
-        // MOV r64, r/m64: REX.W + 0x89/0x8B
-        if (rexW != 0 && (opcode == 0x89 || opcode == 0x8B)) return true;
-        // MOV byte reg/mem: REX.W + 0x88/0x8A
-        if (rexW != 0 && (opcode == 0x88 || opcode == 0x8A)) return true;
-        // CMP r/m64, imm8/imm32: REX.W + 0x81/0x83 /7
-        if (rexW != 0 && (opcode == 0x81 || opcode == 0x83) && mGrp1Reg(core, rip) == 7) return true;
-        // MOV r/m64, imm32: REX.W + 0xC7 /0
-        if (rexW != 0 && opcode == 0xC7 && mGrp1Reg(core, rip) == 0) return true;
-        // CMP r32, imm32: 0x81 /7 (no REX.W)
-        if (opcode == 0x81 && rexW == 0 && mGrp1Reg(core, rip) == 7) return true;
-        // PUSH imm32/imm8
-        if (opcode == 0x68 || opcode == 0x6A) return true;
-        // Arithmetic/logic r/m64, r64: REX.W + 0x01/0x03/0x29/0x2B/0x21/0x23/0x09/0x0B/0x31/0x33/0x39/0x3B/0x85/0x87
-        if (rexW != 0) {
-            switch (opcode) {
-                case 0x01: case 0x03: case 0x29: case 0x2B:
-                case 0x21: case 0x23: case 0x09: case 0x0B:
-                case 0x31: case 0x33: case 0x39: case 0x3B:
-                case 0x85: case 0x87:
-                    return true;
-            }
-        }
-        // LEA r64, m: 0x8D
-        if (opcode == 0x8D) return true;
-        // TEST r/m64, imm32: 0xF7 /0 with REX.W
-        if (opcode == 0xF7 && rexW != 0 && mGrp1Reg(core, rip) == 0) return true;
-        // SHIFT r/m64, imm8: REX.W + 0xC1
-        if (opcode == 0xC1 && rexW != 0) return true;
-        // NOT/NEG r/m64: 0xF7 /2,/3 with REX.W
-        if (opcode == 0xF7 && rexW != 0 &&
-                (mGrp1Reg(core, rip) == 2 || mGrp1Reg(core, rip) == 3)) return true;
-        // MOV r/m64, imm8 sign-extended: REX.W + 0xC6 /0
-        if (rexW != 0 && opcode == 0xC6) return true;
-        // MOV r/m8, imm8: 0xC6 /0 (no REX.W)
-        if (rexW == 0 && opcode == 0xC6) return true;
-        // MOV r/m32, imm32: 0xC7 /0 (no REX.W)
-        if (rexW == 0 && opcode == 0xC7 && mGrp1Reg(core, rip) == 0) return true;
+        return recent;
+    }
 
-        /* ---------------- New 32-bit no-PC-change opcodes ---------------- */
-
-        // MOV r32, r/m32 / r/m32, r32 / r/m8, r8 / r8, r/m8: 0x88/0x89/0x8A/0x8B (no REX.W)
-        if (rexW == 0 && (opcode == 0x88 || opcode == 0x89 || opcode == 0x8A || opcode == 0x8B)) return true;
-
-        // Arithmetic/logic r/m32, r32: 0x01/0x03/0x29/0x2B/0x21/0x23/0x09/0x0B/0x31/0x33/0x39/0x3B/0x85/0x87 (no REX.W)
-        if (rexW == 0) {
-            switch (opcode) {
-                case 0x01: case 0x03: case 0x29: case 0x2B:
-                case 0x21: case 0x23: case 0x09: case 0x0B:
-                case 0x31: case 0x33: case 0x39: case 0x3B:
-                case 0x85: case 0x87:
-                    return true;
-            }
-        }
-
-        // PUSH r32: 0x50..0x57 (no REX.W)
-        if (rexW == 0 && (opcode & 0xF8) == 0x50) return true;
-        // POP r32: 0x58..0x5F (no REX.W)
-        if (rexW == 0 && (opcode & 0xF8) == 0x58) return true;
-        // INC/DEC r32: 0x40..0x47 / 0x48..0x4F (no REX.W)
-        if (rexW == 0 && (opcode & 0xF8) == 0x40) return true;
-        if (rexW == 0 && (opcode & 0xF8) == 0x48) return true;
-
-        // GROUP 1: 0x80/0x81/0x83 /r (all reg fields)
-        if (opcode == 0x80 || opcode == 0x81 || opcode == 0x83) return true;
-
-        // Accumulator immediate: 0x05/0x0D/0x15/0x1D/0x25/0x2D/0x35/0x3D
-        if (opcode == 0x05 || opcode == 0x0D || opcode == 0x15 || opcode == 0x1D ||
-            opcode == 0x25 || opcode == 0x2D || opcode == 0x35 || opcode == 0x3D) return true;
-
-        // MOV r32, imm32: B8..BF (no REX.W)
-        if ((opcode & 0xF8) == 0xB8 && rexW == 0) return true;
-
-        // OUT instructions: 0xE6/0xE7/0xEE/0xEF
-        if (opcode == 0xE6 || opcode == 0xE7 || opcode == 0xEE || opcode == 0xEF) return true;
-
-        // Flag instructions: 0xF8/0xF9/0xFC/0xFD
-        if (opcode == 0xF8 || opcode == 0xF9 || opcode == 0xFC || opcode == 0xFD) return true;
-
-        // ADD/SUB/SBB/XOR/CMP r/m8, r8: 0x10/0x18/0x28/0x30/0x38 /r
-        if (opcode == 0x10 || opcode == 0x18 || opcode == 0x28 || opcode == 0x30 || opcode == 0x38) return true;
-
-        // MOV AL, moffs8: 0xA0
-        if (opcode == 0xA0) return true;
-
-        // PUSH DS: 0x1E, POP ES: 0x07
-        if (opcode == 0x1E || opcode == 0x07) return true;
-
-        // CMC: 0xF5
-        if (opcode == 0xF5) return true;
-
-        // JO rel8: 0x70
-        if (opcode == 0x70) return true;
-
-        // GROUP 3 byte: 0xF6 /r (no REX.W)
-        if (opcode == 0xF6 && rexW == 0) return true;
-
-        // ADD r/m8, r8: 0x00 /r
-        if (opcode == 0x00) return true;
-        // OR r/m8, r8: 0x08 /r
-        if (opcode == 0x08) return true;
-        // SBB r/m32, r32: 0x18 /r
-        if (opcode == 0x18) return true;
-
-        // Shift by 1: 0xD0-D3
-        if (opcode == 0xD0 || opcode == 0xD1 || opcode == 0xD2 || opcode == 0xD3) return true;
-
-        // XCHG r/m8, r8: 0x86 /r
-        if (opcode == 0x86) return true;
-
-        // GROUP 2 shifts: 0xC0/0xC1 (no REX.W for 0xC0)
-        if (opcode == 0xC0 || (opcode == 0xC1 && rexW != 0)) return true;
-
-        // GROUP 4: 0xFE /r
-        if (opcode == 0xFE) return true;
-
-        // GROUP 5: 0xFF /r - INC/DEC/PUSH don't change PC
-        if (opcode == 0xFF) {
-            int reg = mGrp1Reg(core, rip);
-            if (reg == 0 || reg == 1 || reg == 6) return true;
-        }
-
-        // STOSD: 0xAB
-        if (opcode == 0xAB) return true;
-
-        // IMUL r32, r/m32, imm32: 0x69 /r
-        if (opcode == 0x69) return true;
-
-        // INS: 0x6D
-        if (opcode == 0x6D) return true;
-
-        // ADD AL, imm8: 0x04
-        if (opcode == 0x04) return true;
-
-        // POP DS: 0x17
-        if (opcode == 0x17) return true;
-
-        // IN instructions: 0xE4/0xE5/0xEC/0xED
-        if (opcode == 0xE4 || opcode == 0xE5 || opcode == 0xEC || opcode == 0xED) return true;
-
-        // LOCK prefix: 0xF0
-        if (opcode == 0xF0) return true;
-
-        // Two-byte escape: check handled two-byte opcodes
-        if (opcode == 0x0F) {
-            int op2 = core.readMem8(rip + 1);
-            // MOVSXD: REX.W + 0x0F 0x63
-            if ((op2 & 0xF8) == 0x60 && rexW != 0) return true;
-            // CMOVcc: 0x0F 0x40..0x4F
-            // SETcc: 0x0F 0x90..0x9F
-            // Jcc near: 0x0F 0x80..0x8F (PC changes only if taken)
-            if ((op2 & 0xF8) == 0x40 || (op2 & 0xF8) == 0x90 || (op2 & 0xF0) == 0x80) return true;
-            // CPUID: 0x0F 0xA2
-            // SYSCALL: 0x0F 0x05
-            // SYSRET: 0x0F 0x07
-            if (op2 == 0xA2 || op2 == 0x05 || op2 == 0x07) return true;
-            // BSWAP: 0x0F C8..CF
-            if ((op2 & 0xF8) == 0xC8) return true;
-            // MOVZX/MOVSX: 0x0F B6/B7/BE/BF
-            if ((op2 & 0xFC) == 0xB6 || (op2 & 0xFC) == 0xBE) return true;
-            // XADD: 0x0F 0xC0/C1 with REX.W
-            // CMPXCHG: 0x0F 0xB0/B1 with REX.W
-            if (rexW != 0 && (op2 == 0xC0 || op2 == 0xC1 || op2 == 0xB0 || op2 == 0xB1)) return true;
-        }
-        return false;
+    /**
+     * Stop execution on an instruction that is not implemented.  Skipping it
+     * would mean guessing its length and silently continuing with a wrong
+     * machine state, so the caller gets an exception instead.
+     */
+    private X86UnknownOpcodeException unknownOpcode(X86Core core, String what) {
+        return new X86UnknownOpcodeException(core, insnStart, what, recentInstructions());
     }
 
     @Override
@@ -1195,6 +1035,9 @@ public class X86Amd64 implements X86Core.iExecutor
             boolean operand64 = (rexW != 0);
             ModRm64 m = decodeModRm64(core, pc, operand64);
             int shift = m.regField;
+            if (shift == 2 || shift == 3 || shift == 6) {
+                throw unknownOpcode(core, String.format("opcode 0x%02X /%d", opcode, shift));
+            }
             int count = core.readMem8(pc + m.len) & (operand64 ? 0x3F : 0x1F);
             long val = operand64 ? m.rmVal64 : (m.rmVal & 0xFFFFFFFFL);
             long res = val;
@@ -1230,6 +1073,9 @@ public class X86Amd64 implements X86Core.iExecutor
         if (opcode == 0xFE) {
             ModRm64 m = decodeModRm64(core, pc, false);
             int reg = m.regField;
+            if (reg > 1) {
+                throw unknownOpcode(core, String.format("opcode 0xFE /%d", reg));
+            }
             long val = m.rmVal & 0xFF;
             if (reg == 0) {
                 val = (val + 1) & 0xFF;
@@ -1457,6 +1303,9 @@ public class X86Amd64 implements X86Core.iExecutor
             boolean operand16 = (opcode & 0x01) != 0;
             ModRm64 m = decodeModRm64(core, pc, !operand16);
             int shift = m.regField;
+            if (shift == 2 || shift == 3 || shift == 6) {
+                throw unknownOpcode(core, String.format("opcode 0x%02X /%d", opcode, shift));
+            }
             int count = useCl ? core.getReg(REG_ECX) & 0x1F : 1;
             long val = operand16 ? m.rmVal64 : (m.rmVal & 0xFF);
             long res = val;
@@ -1542,6 +1391,9 @@ public class X86Amd64 implements X86Core.iExecutor
         if (opcode == 0xC1 && rexW != 0) {
             ModRm64 m = decodeModRm64(core, pc, true);
             int shift = mGrp1Reg(core, pc);
+            if (shift == 2 || shift == 3 || shift == 6) {
+                throw unknownOpcode(core, String.format("opcode 0x%02X /%d", opcode, shift));
+            }
             int count = core.readMem8(pc + m.len) & 0x3F;
             long val = m.rmVal64;
             long res = val;
@@ -1595,6 +1447,9 @@ public class X86Amd64 implements X86Core.iExecutor
         if (opcode == 0xF6 && rexW == 0) {
             ModRm64 m = decodeModRm64(core, pc, false);
             int reg = m.regField;
+            if (reg != 0 && reg != 2 && reg != 3) {
+                throw unknownOpcode(core, String.format("opcode 0xF6 /%d", reg));
+            }
             if (reg == 0) { // TEST r/m8, imm8
                 long imm = core.readMem8(pc + m.len) & 0xFF;
                 long res = m.rmVal & imm;
@@ -1686,12 +1541,7 @@ public class X86Amd64 implements X86Core.iExecutor
             return;
         }
 
-        // Two-byte escape
-        if (opcode == 0x0F) {
-            int op2 = core.readMem8(pc + 1);
-            executeTwoByte(core, op2, pc + 2);
-            return;
-        }
+        throw unknownOpcode(core, String.format("opcode 0x%02X", opcode));
     }
 
     /* Return the ModR/M reg field (3 bits) for GROUP 1 opcode determination */
@@ -2105,6 +1955,8 @@ public class X86Amd64 implements X86Core.iExecutor
             core.setRflags64(core.getFlags() & 0xFFFFFFFFL);
             return;
         }
+
+        throw unknownOpcode(core, String.format("opcode 0x0F 0x%02X", op2));
     }
 
     private interface BinOp {
