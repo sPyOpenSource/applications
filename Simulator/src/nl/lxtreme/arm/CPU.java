@@ -54,7 +54,7 @@ public class CPU implements iCPU
     this.code = new VgaMemory(memory == null ? new Memory() : memory, vga, VGA_BASE, VGA_SIZE);
     this.breakpoints = new ArrayList<>(32);
     this.entryPoint = 0;
-    showVga(vga);
+    //showVga(vga);
   }
   
   public CPU(){
@@ -64,7 +64,7 @@ public class CPU implements iCPU
     this.code = new VgaMemory(new Memory(), vga, VGA_BASE, VGA_SIZE);
     this.breakpoints = new ArrayList<>(32);
     this.entryPoint = 0;
-    showVga(vga);
+    //showVga(vga);
   }
 
   /**

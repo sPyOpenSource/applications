@@ -141,7 +141,7 @@ public class CPU extends jx.disass.x86
 		// INT 0x10 / 0x13 BIOS services (used by boot-sector code).
 		core.setIntHandler((c, vector) -> bios.handleInt(vector));
 
-		enableVga(vga);
+		//enableVga(vga);
 		setOscillator(11184000);
 	}
 
