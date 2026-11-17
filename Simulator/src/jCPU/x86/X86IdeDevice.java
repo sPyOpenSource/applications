@@ -12,7 +12,7 @@ import java.io.*;
 public abstract class X86IdeDevice
 {
     /** Sector size in bytes. */
-    protected static final int SECTOR_SIZE = 512;
+    public static final int SECTOR_SIZE = 512;
 
     /** Number of sectors on this device. */
     protected final int sectorCount;

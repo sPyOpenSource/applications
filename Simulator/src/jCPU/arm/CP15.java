@@ -215,12 +215,20 @@ class CP15 extends SaneCoprocessor {
 	static final int SCTLR_BIT_M = 0;
 	static final int SCTLR_READ_OR = 0x00E50058;
 	static final int SCTLR_READ_MASK = 0x7A022427;
+	/* NMFI (bit 27) is read-only; all other readable fields are writable */
+	static final int SCTLR_WRITE_MASK = 0x72022427;
 	int SCTLR = 0xDEADBEEF;
 	/* Auxiliary Control Register */
 	/* Implemented as a fully read/write register that is not affected by resets but is 0 on power-on */
 	int ACTLR = 0;
 	/* Coprocessor Access Control Register (TODO: implement) */
 	int CPACR = 0;
+	/* Registers with no functional effect in this CPU (stored so MRC reads
+	 * return what the guest wrote) */
+	int TTBR0 = 0, TTBR1 = 0, TTBCR = 0;
+	int DACR = 0, VBAR = 0, CONTEXTIDR = 0;
+	int TPIDRURW = 0, TPIDRURO = 0, TPIDRPRW = 0;
+	int PRRR = 0, NMRR = 0, MAIR0 = 0, MAIR1 = 0;
 	/** IMPLEMENTATION **/
 	CP15(CPU cpu) { super(cpu); }
 	/* B3-1446: all CDP, LDC, and STC operations to ... CP15 [are undefined] */
@@ -314,10 +322,21 @@ class CP15 extends SaneCoprocessor {
 			}
 			break;
 		case 2:
-			/* Memory protection and control registers (B3-1473) */
+			/* Translation table base registers (B3-1473) */
+			if(opc1 == 0 && CRm == 0) {
+				switch(opc2) {
+				case 0: valid = true; readValue = TTBR0; break;
+				case 1: valid = true; readValue = TTBR1; break;
+				case 2: valid = true; readValue = TTBCR; break;
+				}
+			}
 			break;
 		case 3:
-			/* Memory protection and control registers, continued (B3-1473) */
+			/* Domain Access Control Register (B3-1473) */
+			if(opc1 == 0 && CRm == 0 && opc2 == 0) {
+				valid = true;
+				readValue = DACR;
+			}
 			break;
 		case 4:
 			/* Not used */
@@ -339,33 +358,158 @@ class CP15 extends SaneCoprocessor {
 			/* Cache and TCM control and performance monitors (B3-1477) */
 			break;
 		case 10:
-			/* Memory remapping and TLB control registers (B3-1478) */
+			/* Memory remapping registers (B3-1478) */
+			if(opc1 == 0 && CRm >= 2 && CRm <= 4) {
+				switch(CRm) {
+				case 2:
+					if(opc2 == 0) { valid = true; readValue = PRRR; }
+					else if(opc2 == 1) { valid = true; readValue = NMRR; }
+					break;
+				case 3: if(opc2 == 0) { valid = true; readValue = NMRR; } break;
+				case 4:
+					if(opc2 == 0) { valid = true; readValue = MAIR0; }
+					else if(opc2 == 1) { valid = true; readValue = MAIR1; }
+					break;
+				}
+			}
 			break;
 		case 11:
 			/* Reserved for TCM DMA registers (B3-1478) */
 			break;
 		case 12:
-			/* Reserved for Security Extensions (B3-1479) */
-			/* We do not implement the Security Extensions */
+			/* Vector Base Address Register (B3-1479) */
+			if(opc1 == 0 && CRm == 0 && opc2 == 0) {
+				valid = true;
+				readValue = VBAR;
+			}
 			break;
 		case 13:
 			/* Process, context, and thread ID registers (B3-1479) */
+			if(opc1 == 0 && CRm == 0) {
+				switch(opc2) {
+				case 1: valid = true; readValue = CONTEXTIDR; break;
+				case 2: valid = true; readValue = TPIDRURW; break;
+				case 3: valid = true; readValue = TPIDRURO; break;
+				case 4: valid = true; readValue = TPIDRPRW; break;
+				}
+			}
 			break;
 		case 14:
-			/* Generic Timer Extension (B3-1480) */
+			/* Generic Timer Extension is not implemented; the board's
+			 * BCM2835 system timer is used instead. Report no clock. */
+			valid = true;
+			readValue = 0;
 			break;
 		case 15:
 			/* Implementation defined */
+			valid = true;
+			readValue = 0;
 			break;
 		}
-		if(!valid) throw new UndefinedException();
+		if(!valid) {
+			System.err.printf("CP15: unsupported MRC p15, %d, c%d, c%d, %d (Rt r%d)%n",
+					opc1, CRn, CRm, opc2, Rt);
+			throw new UndefinedException();
+		}
 		if(privileged && !cpu.isPrivileged()) throw new UndefinedException();
 		cpu.writeGPR(Rt, readValue);
 	}
 	@Override
 	public void moveCoreRegisterToCoprocessorRegister(boolean unconditional, int coproc, int opc1, int opc2, int CRn, int CRm, int Rt) throws BusErrorException, AlignmentException, UndefinedException {
-		/* TODO: implement write access */
-		throw new UndefinedException();
+		int value = cpu.readRegister(Rt);
+		boolean valid = false;
+		switch(CRn) {
+		case 0:
+			/* Cache Size Selection Register (B4-1555) */
+			if(opc1 == 2 && CRm == 0 && opc2 == 0) {
+				CSSELR = value & 15;
+				valid = true;
+			}
+			break;
+		case 1:
+			/* System control registers (B3-1472) */
+			if(opc1 == 0 && CRm == 0) {
+				switch(opc2) {
+				case 0:
+					SCTLR = (SCTLR & ~SCTLR_WRITE_MASK) | (value & SCTLR_WRITE_MASK);
+					valid = true;
+					break;
+				case 1: ACTLR = value; valid = true; break;
+				case 2: CPACR = value; valid = true; break;
+				}
+			}
+			break;
+		case 2:
+			/* Translation table base registers; no MMU is implemented, so
+			 * TTBR0/TTBR1/TTBCR writes are only stored for MRC reads. */
+			if(opc1 == 0 && CRm == 0 && opc2 <= 2) {
+				switch(opc2) {
+				case 0: TTBR0 = value; break;
+				case 1: TTBR1 = value; break;
+				case 2: TTBCR = value; break;
+				}
+				valid = true;
+			}
+			break;
+		case 3:
+			/* Domain Access Control Register; no domains are implemented */
+			if(opc1 == 0 && CRm == 0 && opc2 == 0) {
+				DACR = value;
+				valid = true;
+			}
+			break;
+		case 7:
+			/* Cache maintenance and barriers; no caches are implemented */
+			valid = true;
+			break;
+		case 8:
+			/* TLB maintenance; no TLB is implemented */
+			valid = true;
+			break;
+		case 10:
+			/* Memory remapping registers (B3-1478); no MMU is implemented,
+			 * so these are stored only for MRC reads. */
+			if(opc1 == 0 && CRm >= 2 && CRm <= 4) {
+				switch(CRm) {
+				case 2:
+					if(opc2 == 0) { PRRR = value; valid = true; }
+					else if(opc2 == 1) { NMRR = value; valid = true; }
+					break;
+				case 3: if(opc2 == 0) { NMRR = value; valid = true; } break;
+				case 4:
+					if(opc2 == 0) { MAIR0 = value; valid = true; }
+					else if(opc2 == 1) { MAIR1 = value; valid = true; }
+					break;
+				}
+			}
+			break;
+		case 12:
+			/* Vector Base Address Register; exception vectors are selected at
+			 * reset via the high-vectors setting, so this is stored only. */
+			if(opc1 == 0 && CRm == 0 && opc2 == 0) {
+				VBAR = value & ~31;
+				valid = true;
+			}
+			break;
+		case 13:
+			/* Context ID and thread ID registers; not used by this CPU */
+			if(opc1 == 0 && CRm == 0) {
+				switch(opc2) {
+				case 1: CONTEXTIDR = value; break;
+				case 2: TPIDRURW = value; break;
+				case 3: TPIDRURO = value; break;
+				case 4: TPIDRPRW = value; break;
+				default: break;
+				}
+				if(opc2 >= 1 && opc2 <= 4) valid = true;
+			}
+			break;
+		}
+		if(!valid) {
+			System.err.printf("CP15: unsupported MCR p15, %d, r%d, c%d, c%d, %d (0x%08X)%n",
+					opc1, Rt, CRn, CRm, opc2, value);
+			throw new UndefinedException();
+		}
 	}
 	@Override
 	public void moveCoreRegistersToCoprocessorRegister(boolean unconditional, int coproc, int opc1, int CRm, int Rt, int Rt2) throws BusErrorException, AlignmentException, UndefinedException {

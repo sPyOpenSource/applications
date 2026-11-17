@@ -1,5 +1,14 @@
-package jCPU.x86;
+package jCPU.x86.boot;
 
+import jCPU.x86.X86Amd64;
+import jCPU.x86.X86Core;
+import jCPU.x86.X86IdeController;
+import jCPU.x86.X86IdeDevice;
+import jCPU.x86.X86IdeHardDrive;
+import jCPU.x86.X86UartPeripheral;
+import jCPU.x86.X86UefiFirmware;
+import jCPU.x86.X86VgaPeripheral;
+import jCPU.x86.i8086;
 import java.io.File;
 
 /**

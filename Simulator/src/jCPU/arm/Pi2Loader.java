@@ -8,10 +8,19 @@ import java.nio.file.Paths;
  * Loads a flat Raspberry Pi 2 {@code kernel.img} into simulated RAM at
  * {@link Pi2MemoryMap#RAM_BASE} (0x00000000) and returns a CPU ready to run it.
  * <p>
- * The {@link CPU} constructor already maps 1 MB of RAM at {@code RAM_BASE};
- * {@link #loadImage(byte[])} copies the image bytes into that region.
+ * The {@link CPU} constructor maps only 1 MB of RAM at {@code RAM_BASE};
+ * {@link #loadImage(byte[])} replaces it with a lazily allocated region
+ * covering the board's whole RAM space (up to the peripheral window).
  */
 public final class Pi2Loader {
+
+	/** Linux ARM 2G/2G split: PAGE_OFFSET (virt = phys + this). */
+	private static final int PAGE_OFFSET = 0x80000000;
+	/** Alternate 3G/1G PAGE_OFFSET, mapped for kernels built with that split. */
+	private static final int PAGE_OFFSET_3G = 0xC0000000;
+	/** High-vector page used when SCTLR.V is set. */
+	private static final int HIGH_VECTOR_BASE = 0xFFFF0000;
+	private static final int HIGH_VECTOR_SIZE = 0x10000;
 
 	private Pi2Loader() {}
 
@@ -22,9 +31,26 @@ public final class Pi2Loader {
 	 */
 	public static CPU loadImage(byte[] image) {
 		CPU cpu = new CPU();
-		ByteArrayRegion ram = findRam(cpu.getMemorySpace());
-		byte[] backing = ram.getBackingArray();
-		System.arraycopy(image, 0, backing, 0, Math.min(image.length, backing.length));
+		PhysicalMemorySpace mem = cpu.getMemorySpace();
+
+		/* A real Pi 2 has RAM from 0x0 up to the peripheral window at
+		 * 0x3F000000. Map all of it lazily so both large kernel images and
+		 * runtime writes far beyond the image are handled. */
+		SparseRamRegion ram = new SparseRamRegion(Pi2MemoryMap.PERIPHERAL_BASE & 0xFFFFFFFFL);
+		mem.unmapRegion(Pi2MemoryMap.RAM_BASE, findRam(mem));
+		mem.mapRegion(Pi2MemoryMap.RAM_BASE, ram);
+		/* Linux is linked with a 2G/2G split (PAGE_OFFSET 0x80000000): its
+		 * virtual addresses map 1:1 onto physical RAM (virt = phys + PAGE_OFFSET).
+		 * jCPU has no MMU, so alias the same backing region there to let the
+		 * kernel execute after it switches to virtual addresses. Also cover the
+		 * 3G/1G PAGE_OFFSET for kernels built with that configuration. */
+		mem.mapRegion(PAGE_OFFSET, ram);
+		mem.mapRegion(PAGE_OFFSET_3G, ram);
+		/* With SCTLR.V set, exceptions vector through 0xFFFF0000. That page
+		 * must be backed or the abort handler cannot be reached. */
+		mem.mapRegion(HIGH_VECTOR_BASE, new ByteArrayRegion(HIGH_VECTOR_SIZE));
+		ram.load(image);
+
 		wireTimer(cpu);
 		return cpu;
 	}
@@ -52,22 +78,23 @@ public final class Pi2Loader {
 		cpu.getVirtualMemorySpace().registerPeripheral(Pi2MemoryMap.SYSTEM_TIMER_BASE, 0x1000, timer);
 	}
 
-	private static ByteArrayRegion findRam(PhysicalMemorySpace mem) {
+	private static MemoryRegion findRam(PhysicalMemorySpace mem) {
 		for (PhysicalMemorySpace.MappedRegion mr : mem.getMappedRegions()) {
 			if (mr.getBase() == Pi2MemoryMap.RAM_BASE) {
-				return (ByteArrayRegion) mr.getRegion();
+				return mr.getRegion();
 			}
 		}
 		throw new IllegalStateException("no RAM region mapped at " + Integer.toHexString(Pi2MemoryMap.RAM_BASE));
 	}
 
 	public static void main(String[] args) throws Exception {
-		if (args.length < 1) {
+		/*if (args.length < 1) {
 			System.err.println("Usage: Pi2Loader <kernel.img> [sd.img]");
 			System.exit(1);
 		}
 		byte[] image = readImage(args[0]);
-		CPU cpu = args.length >= 2 ? loadImageWithSd(image, args[1]) : loadImage(image);
+		CPU cpu = args.length >= 2 ? loadImageWithSd(image, args[1]) : loadImage(image);*/
+                CPU cpu = loadImage(readImage("/Users/xuyi/Downloads/OVMF-X64-r15214/qemu-rpi-kernel-master/native-emuation/5.4.51/kernel7.img"));
 		cpu.reset();
 		cpu.go(0);
 	}

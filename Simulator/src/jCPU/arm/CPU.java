@@ -288,10 +288,13 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	}
 	/*** INTERRUPT VECTORS ***/
 	public int getInterruptVector(int interrupt) {
-		/* B1-1165 */
-		/* TODO: SCTLR.V */
-		if((cp15.SCTLR & (1<<CP15.SCTLR_BIT_V)) != 0) return (interrupt * 4) | 0xFFFF0000;
-		else return interrupt * 4;
+		/* B1-1165: SCTLR.V selects high vectors (0xFFFF0000). On ARMv7,
+		 * VBAR gives the vector base address when V is clear. Linux programs
+		 * VBAR with a physical address, which is always mapped in jCPU. */
+		int offset = interrupt * 4;
+		if((cp15.SCTLR & (1<<CP15.SCTLR_BIT_V)) != 0) return offset | 0xFFFF0000;
+		if(cp15.VBAR != 0) return cp15.VBAR + offset;
+		return offset;
 	}
 	/*** SYSTEM CONTROL REGISTERS ***/
 	/* debug (C6), ThumbEE (A2-95), Jazelle (A2-97) */
@@ -438,10 +441,14 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		catch(BusErrorException e) {
 			// TODO: ugh
 			if(exceptionDebugMode) throw e;
-			// System.out.println("Prefetch abort! "+Long.toHexString((long)pc & 0xFFFFFFFFL));
+			int faultPc = pc;
 			generatePrefetchAbortException();
 			try { iword = vm.readInt(pc, true, false); }
-			catch(BusErrorException e2) { throw new FatalException("Prefetch abort vector is on invalid address"); }
+			catch(BusErrorException e2) {
+				throw new FatalException(String.format(
+						"Prefetch abort vector is on invalid address (faultPC=0x%08X vectorPC=0x%08X CPSR=0x%08X SCTLR=0x%08X VBAR=0x%08X)",
+						faultPc, pc, cpsr, cp15.SCTLR, cp15.VBAR));
+			}
 		}
 		// System.out.printf("\t%08X : %08X\n", pc, iword);
 		pc += 4;
@@ -723,11 +730,13 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 							boolean writingSPSR = (op & 2) != 0;
 							if(writingSPSR || ((mask & 3) == 1) || ((mask & 2) != 0))
 								if(!isPrivileged()) throw new UndefinedException();
-							int imm32 = expandARMImmediate(iword & 4095);
+							/* bits [3:0] hold Rm; the value comes from the register,
+							 * not from expanding the register number as an immediate */
+							int value = readRegister(iword & 15);
 							if(writingSPSR)
-								instrWriteCurSPSR(imm32, mask);
+								instrWriteCurSPSR(value, mask);
 							else
-								instrWriteCurCPSR(imm32, mask, false);
+								instrWriteCurCPSR(value, mask, false);
 							return;
 						}
 					}
@@ -867,9 +876,21 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 				writeRegister(Rd, result);
 				return;
 			}
-			case 4:
-				/* UMAAL (A8-774) */
-				throw new UnimplementedInstructionException(iword, "UMAAL");
+			case 4: {
+				/* UMAAL (A8-774): RdHi:RdLo = Rn*Rm + RdLo + RdHi (all unsigned) */
+				int Rn = iword&15;
+				int Rm = (iword>>8)&15;
+				int RdLo = (iword>>12)&15;
+				int RdHi = (iword>>16)&15;
+				long src1 = readRegister(Rn) & 0xFFFFFFFFL;
+				long src2 = readRegister(Rm) & 0xFFFFFFFFL;
+				long accLo = readRegister(RdLo) & 0xFFFFFFFFL;
+				long accHi = readRegister(RdHi) & 0xFFFFFFFFL;
+				long result = src1 * src2 + accLo + accHi;
+				writeRegister(RdLo, (int)result);
+				writeRegister(RdHi, (int)(result >>> 32));
+				return;
+			}
 			case 6: {
 				/* MLS (A8-482) */
 				int Rn = iword&15;
@@ -900,43 +921,153 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 				}
 				return;
 			}
-			case 10: case 11:
-				/* UMLAL (A8-776) */
-				throw new UnimplementedInstructionException(iword, "UMLAL");
-			case 12: case 13:
-				/* SMULL (A8-646) */
-				throw new UnimplementedInstructionException(iword, "SMULL");
-			case 14: case 15:
-				/* SMLAL (A8-624) */
-				throw new UnimplementedInstructionException(iword, "SMLAL");
-			/* Synchronization primitives (A5-205) */
-			case 16: case 20:
+			case 10: case 11: {
+				/* UMLAL (A8-776): RdHi:RdLo = Rn*Rm + RdHi:RdLo (unsigned) */
+				int Rn = iword&15;
+				int Rm = (iword>>8)&15;
+				int RdLo = (iword>>12)&15;
+				int RdHi = (iword>>16)&15;
+				boolean setFlags = (op1&1) != 0;
+				long src1 = readRegister(Rn) & 0xFFFFFFFFL;
+				long src2 = readRegister(Rm) & 0xFFFFFFFFL;
+				long acc = ((readRegister(RdHi) & 0xFFFFFFFFL) << 32) | (readRegister(RdLo) & 0xFFFFFFFFL);
+				long result = src1 * src2 + acc;
+				writeRegister(RdLo, (int)result);
+				writeRegister(RdHi, (int)(result >>> 32));
+				if(setFlags) {
+					setConditionN(result < 0);
+					setConditionZ(result == 0);
+				}
+				return;
+			}
+			case 12: case 13: {
+				/* SMULL (A8-646): RdHi:RdLo = Rn*Rm (signed) */
+				int Rn = iword&15;
+				int Rm = (iword>>8)&15;
+				int RdLo = (iword>>12)&15;
+				int RdHi = (iword>>16)&15;
+				boolean setFlags = (op1&1) != 0;
+				long src1 = readRegister(Rn); // sign-extend to 64 bits
+				long src2 = readRegister(Rm);
+				long result = src1 * src2;
+				writeRegister(RdLo, (int)result);
+				writeRegister(RdHi, (int)(result >>> 32));
+				if(setFlags) {
+					setConditionN(result < 0);
+					setConditionZ(result == 0);
+				}
+				return;
+			}
+			case 14: case 15: {
+				/* SMLAL (A8-624): RdHi:RdLo = Rn*Rm + RdHi:RdLo (signed) */
+				int Rn = iword&15;
+				int Rm = (iword>>8)&15;
+				int RdLo = (iword>>12)&15;
+				int RdHi = (iword>>16)&15;
+				boolean setFlags = (op1&1) != 0;
+				long src1 = readRegister(Rn);
+				long src2 = readRegister(Rm);
+				long acc = ((readRegister(RdHi) & 0xFFFFFFFFL) << 32) | (readRegister(RdLo) & 0xFFFFFFFFL);
+				long result = src1 * src2 + acc;
+				writeRegister(RdLo, (int)result);
+				writeRegister(RdHi, (int)(result >>> 32));
+				if(setFlags) {
+					setConditionN(result < 0);
+					setConditionZ(result == 0);
+				}
+				return;
+			}
+			/* Synchronization primitives (A5-205).
+			 * This CPU has no other bus masters and no MMU, so the exclusive
+			 * monitor never fails: LDREX* behaves as a plain load and STREX*
+			 * always stores and returns 0 (success). SWP is an atomic swap. */
+			case 16: case 20: {
 				/* SWP/SWPB (A8-722) */
-				throw new UnimplementedInstructionException(iword, "SWP/SWPB");
-			case 24:
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				int Rt2 = iword & 15;
+				int address = readRegisterAlignPC(Rn);
+				if((op1 & 4) != 0) {
+					byte oldValue = instructionReadByte(address, isPrivileged());
+					instructionWriteByte(address, (byte)readRegister(Rt2), isPrivileged());
+					writeRegister(Rt, oldValue & 0xFF);
+				} else {
+					int oldValue = instructionReadWord(address, isPrivileged());
+					instructionWriteWord(address, readRegister(Rt2), isPrivileged());
+					writeRegister(Rt, oldValue);
+				}
+				return;
+			}
+			case 24: {
 				/* STREX (A8-690) */
-				throw new UnimplementedInstructionException(iword, "STREX");
-			case 25:
+				int Rn = (iword >> 16) & 15;
+				int Rd = (iword >> 12) & 15;
+				int Rt = iword & 15;
+				instructionWriteWord(readRegisterAlignPC(Rn), readRegister(Rt), isPrivileged());
+				writeRegister(Rd, 0);
+				return;
+			}
+			case 25: {
 				/* LDREX (A8-432) */
-				throw new UnimplementedInstructionException(iword, "LDREX");
-			case 26:
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				writeRegister(Rt, instructionReadWord(readRegisterAlignPC(Rn), isPrivileged()));
+				return;
+			}
+			case 26: {
 				/* STREXD (A8-694) */
-				throw new UnimplementedInstructionException(iword, "STREXD");
-			case 27:
+				int Rn = (iword >> 16) & 15;
+				int Rd = (iword >> 12) & 15;
+				int Rt = iword & 15;
+				if((Rt & 1) != 0 || Rt == 14) throw new UndefinedException();
+				int address = readRegisterAlignPC(Rn);
+				instructionWriteWord(address, readRegister(Rt), isPrivileged());
+				instructionWriteWord(address + 4, readRegister(Rt + 1), isPrivileged());
+				writeRegister(Rd, 0);
+				return;
+			}
+			case 27: {
 				/* LDREXD (A8-436) */
-				throw new UnimplementedInstructionException(iword, "LDREXD");
-			case 28:
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				if((Rt & 1) != 0 || Rt == 14) throw new UndefinedException();
+				int address = readRegisterAlignPC(Rn);
+				writeRegister(Rt, instructionReadWord(address, isPrivileged()));
+				writeRegister(Rt + 1, instructionReadWord(address + 4, isPrivileged()));
+				return;
+			}
+			case 28: {
 				/* STREXB (A8-692) */
-				throw new UnimplementedInstructionException(iword, "STREXB");
-			case 29:
+				int Rn = (iword >> 16) & 15;
+				int Rd = (iword >> 12) & 15;
+				int Rt = iword & 15;
+				instructionWriteByte(readRegisterAlignPC(Rn), (byte)readRegister(Rt), isPrivileged());
+				writeRegister(Rd, 0);
+				return;
+			}
+			case 29: {
 				/* LDREXB (A8-434) */
-				throw new UnimplementedInstructionException(iword, "LDREXB");
-			case 30:
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				writeRegister(Rt, instructionReadByte(readRegisterAlignPC(Rn), isPrivileged()) & 0xFF);
+				return;
+			}
+			case 30: {
 				/* STREXH (A8-696) */
-				throw new UnimplementedInstructionException(iword, "STREXH");
-			case 31:
+				int Rn = (iword >> 16) & 15;
+				int Rd = (iword >> 12) & 15;
+				int Rt = iword & 15;
+				instructionWriteHalfword(readRegisterAlignPC(Rn), (short)readRegister(Rt), isPrivileged());
+				writeRegister(Rd, 0);
+				return;
+			}
+			case 31: {
 				/* LDREXH (A8-438) */
-				throw new UnimplementedInstructionException(iword, "LDREXH");
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				writeRegister(Rt, instructionReadHalfword(readRegisterAlignPC(Rn), isPrivileged()) & 0xFFFF);
+				return;
+			}
 			default:
 				/* undefined, explicitly throw */
 				throw new UndefinedException();
@@ -1831,9 +1962,9 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 85:
 			case 89:
 			case 93:
-				/* PLD, PLDW (A8-524) */
+				/* PLD, PLDW (A8-524) -- preload hints are architecturally NOPs */
 				/* TODO: When MMU is implemented, preload the page table cache */
-				break;
+				return;
 			case 87:
 				switch(op2) {
 				case 1:
@@ -1857,8 +1988,8 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 101:
 			case 109:
 				if((op2 & 1) == 0) {
-					/* PLI (A8-532) */
-					throw new UnimplementedInstructionException(iword, "PLI");
+					/* PLI (A8-532) -- preload hint, architecturally a NOP */
+					return;
 				}
 				break;
 			case 113:
@@ -1866,8 +1997,8 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 121:
 			case 125:
 				if((op2 & 1) == 0) {
-					/* PLD (A8-528) */
-					throw new UnimplementedInstructionException(iword, "PLD/PLDW");
+					/* PLD (A8-528) -- preload hint, architecturally a NOP */
+					return;
 				}
 				break;
 			case 127:
@@ -1923,7 +2054,11 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			executeARMPage67(iword, true);
 			return;
 		}
-		throw new UndefinedException();
+		/* Surface the offending instruction so unsupported unconditional
+		 * opcodes (cond=1111) can be identified from a boot trace. */
+		throw new FatalException(String.format(
+				"Undefined unconditional instruction at pc=0x%08X: 0x%08X (op1=0x%02X op2=0x%02X)",
+				(pc - 4) & 0xFFFFFFFF, iword, (iword >> 20) & 127, (iword >> 4) & 15));
 	}
         
 	// package-visible for test invocation
