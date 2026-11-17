@@ -18,7 +18,7 @@ import java.io.File;
  * jx.compiler classes from another repository).
  *
  * <pre>
- *   java jCPU.x86.UefiBootRunner disk.img [maxSteps] [--after TEXT --type KEYS]...
+ *   java jCPU.x86.boot.UefiBootRunner disk.img [maxSteps] [--after TEXT --type KEYS]...
  * </pre>
  *
  * Without {@code --after}/{@code --type}, standard input is the keyboard.

@@ -25,21 +25,21 @@ From `Simulator/`:
 javac -d /tmp/boot -sourcepath src \
     src/jCPU/x86/X86*.java src/jCPU/x86/i8086.java src/jCPU/MCS51/graph/RESERVED.java \
     test/jCPU/x86/boot/UefiBootRunner.java
-java -cp /tmp/boot jCPU.x86.UefiBootRunner hello.img [maxSteps]
+java -cp /tmp/boot jCPU.x86.boot.UefiBootRunner hello.img [maxSteps]
 ```
 
 Standard input is the keyboard (through the UART), so commands can be
 typed or piped in:
 
 ```sh
-printf 'echo hello\n' | java -cp /tmp/boot jCPU.x86.UefiBootRunner grub.img
+printf 'echo hello\n' | java -cp /tmp/boot jCPU.x86.boot.UefiBootRunner grub.img
 ```
 
 For a session that runs the same way every time, give the keys in the
 arguments; each is typed once its text has appeared in the output:
 
 ```sh
-java -cp /tmp/boot jCPU.x86.UefiBootRunner grub.img 100000000 \
+java -cp /tmp/boot jCPU.x86.boot.UefiBootRunner grub.img 100000000 \
     --after 'grub> ' --type 'ls\n' --after 'grub> ' --type 'echo done\n'
 ```
 
