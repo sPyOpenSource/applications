@@ -668,14 +668,14 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		/* Progress diagnostic: shows whether the guest advances or spins. */
 		if((totalCycles % 1000000) == 0) {
 			traceRegion(pc);
-			System.err.printf("[JCPU-PROGRESS] cycles=%d pc=0x%08X cpsr=0x%08X mode=%s ir=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X lr=0x%08X%n",
-					totalCycles, pc, cpsr, mode, traceWord(pc), readRegister(0), readRegister(1), readRegister(2), readRegister(14));
+			//System.err.printf("[JCPU-PROGRESS] cycles=%d pc=0x%08X cpsr=0x%08X mode=%s ir=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X lr=0x%08X%n",
+			//		totalCycles, pc, cpsr, mode, traceWord(pc), readRegister(0), readRegister(1), readRegister(2), readRegister(14));
 			/* Dump the code window around PC so the stalled loop can be decoded. */
 			StringBuilder code = new StringBuilder();
 			for(int i = -2; i < 6; i++) {
 				code.append(String.format(" %08X", traceWord((pc + i * 4) & ~3)));
 			}
-			System.err.println("[JCPU-CODE] pc=0x" + String.format("%08X", pc) + ":" + code);
+			//System.err.println("[JCPU-CODE] pc=0x" + String.format("%08X", pc) + ":" + code);
 			/* A terminal spin is a stable PC executing a self-branch (`b .`).
 			 * Requiring the self-branch avoids a false positive when a long loop
 			 * (e.g. the decompressor) happens to be sampled at the same PC twice.
