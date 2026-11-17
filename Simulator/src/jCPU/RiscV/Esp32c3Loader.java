@@ -43,7 +43,7 @@ public final class Esp32c3Loader {
             System.exit(1);
         }
         byte[] image = Files.readAllBytes(Paths.get(args[0]));*/
-        byte[] image = Files.readAllBytes(Paths.get("/Users/xuyi/Downloads/ESP32-C3FH4_FlintJVM_Release.bin"));
+        byte[] image = Files.readAllBytes(Paths.get("/Users/xuyi/Downloads/OVMF-X64-r15214/firmware/ESP32-C3FH4_FlintJVM_Release.bin"));
         IsaSim sim = loadImage(image);
         // The firmware image is loaded at SRAM_BASE, but reset() parks the PC at
         // the reset vector (0x40000000) where nothing is mapped, so point the PC

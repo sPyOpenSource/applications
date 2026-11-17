@@ -604,18 +604,18 @@ String ins = String.format("%08x ", instr);
 		// Value to store to memory
 		int memValue = reg[rs2];
 		switch (funct3) {
-		case 0x0: // SB
+                    case 0x0: // SB
 			memValue &= 0x000000FF;
                         if(running)
-			writeMemByte(memAddr, memValue);
+                            writeMemByte(memAddr, memValue);
 			break;
-		case 0x1: // SH
+                    case 0x1: // SH
 			memValue &= 0x0000FFFF;
 			writeMem16(memAddr, memValue);
 			break;
-		case 0x2: // SW
-                    if(running)
-			writeMem16(memAddr, memValue);
+                    case 0x2: // SW
+                        if(running)
+                            writeMem16(memAddr, memValue);
 			break;
 		}
                 return "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", memAddr = " + memAddr;
@@ -635,33 +635,33 @@ String ins = String.format("%08x ", instr);
 		// Determining the type of instruction
 		int funct3 = (instr >> 12) & 0x7;
 		switch (funct3) {
-		case 0x0: // ADDI
+                    case 0x0: // ADDI
 			reg[rd] = reg[rs1] + imm;
 			break;
-		case 0x2: // SLTI (signed comparison)
+                    case 0x2: // SLTI (signed comparison)
 			if (reg[rs1] < imm) {
 				reg[rd] = 1;
 			} else {
 				reg[rd] = 0;
 			}
 			break;
-		case 0x3: // SLTIU (unsigned comparison)
+                    case 0x3: // SLTIU (unsigned comparison)
 			if (((long) reg[rs1] & 0xFFFFFFFFL) < ((long) imm & 0xFFFFFFFFL)) {
 				reg[rd] = 1;
 			} else {
 				reg[rd] = 0;
 			}
 			break;
-		case 0x4: // XORI
+                    case 0x4: // XORI
 			reg[rd] = reg[rs1] ^ imm;
 			break;
-		case 0x6: // ORI
+                    case 0x6: // ORI
 			reg[rd] = reg[rs1] | imm;
 			break;
-		case 0x7: // ANDI
+                    case 0x7: // ANDI
 			reg[rd] = reg[rs1] & imm;
 			break;
-		default:
+                    default:
 			// Additional information
 			int funct7 = (instr >> 25);
 			int shamt = (instr >> 20) & 0x1F;
@@ -697,32 +697,32 @@ String ins = String.format("%08x ", instr);
 			System.out.println("funct3 = " + funct3 + ", funct7 = " + funct7);
 		}
 		switch (funct7) {
-		case 0x1: // MUL, DIV and so on
+                    case 0x1: // MUL, DIV and so on
 			long regrs1 = reg[rs1], regrs2 = reg[rs2];
 			switch (funct3) {
-			case 0x0: // MUL
+                            case 0x0: // MUL
 				reg[rd] = reg[rs1] * reg[rs2];
 				break;
-			case 0x1: // MULH
+                            case 0x1: // MULH
 				reg[rd] = (int) ((regrs1 * regrs2) >> 32) & 0xFFFFFFFF;
 				break;
-			case 0x2: // MULHSU
+                            case 0x2: // MULHSU
 				regrs2 &= 0xFFFFFFFFL;
 				reg[rd] = (int) ((regrs1 * regrs2) >> 32) & 0xFFFFFFFF;
 				break;
-			case 0x3: // MULHU
+                            case 0x3: // MULHU
 				regrs1 &= 0xFFFFFFFFL;
 				regrs2 &= 0xFFFFFFFFL;
 				reg[rd] = (int) ((regrs1 * regrs2) >> 32) & 0xFFFFFFFF;
 				break;
-			case 0x4: // DIV
+                            case 0x4: // DIV
 				if (reg[rs2] == 0) { // Division by zero
 					reg[rd] = -1;
 				} else {
 					reg[rd] = reg[rs1] / reg[rs2];
 				}
 				break;
-			case 0x5: // DIVU
+                            case 0x5: // DIVU
 				if (reg[rs2] == 0) { // Division by zero
 					reg[rd] = -1;
 				} else {
@@ -731,14 +731,14 @@ String ins = String.format("%08x ", instr);
 					reg[rd] = (int) (regrs1 / regrs2);
 				}
 				break;
-			case 0x6: // REM
+                            case 0x6: // REM
 				if (reg[rs2] == 0) { // Remainder by zero
 					reg[rd] = reg[rs1];
 				} else {
 					reg[rd] = reg[rs1] % reg[rs2];
 				}
 				break;
-			case 0x7: // REMU
+                            case 0x7: // REMU
 				if (reg[rs2] == 0) { // Remainder by zero
 					reg[rd] = reg[rs1];
 				} else {
@@ -749,26 +749,26 @@ String ins = String.format("%08x ", instr);
 				break;
 			}
 			break;
-		default: // ADD, SUB and so on
+                    default: // ADD, SUB and so on
 			switch (funct3) {
-			case 0x0: // ADD or SUB
+                            case 0x0: // ADD or SUB
 				if (funct7 == 0x00) { // ADD
 					reg[rd] = reg[rs1] + reg[rs2];
 				} else { // SUB
 					reg[rd] = reg[rs1] - reg[rs2];
 				}
 				break;
-			case 0x1: // SLL
+                            case 0x1: // SLL
 				reg[rd] = (reg[rs1] << (reg[rs2] & 0x1F));
 				break;
-			case 0x2: // SLT (signed comparison)
+                            case 0x2: // SLT (signed comparison)
 				if (reg[rs1] < reg[rs2]) {
 					reg[rd] = 1;
 				} else {
 					reg[rd] = 0;
 				}
 				break;
-			case 0x3: // SLTU (unsigned comparison)
+                            case 0x3: // SLTU (unsigned comparison)
 				if (rs1 == 0 && reg[rs2] != 0) { // See manual page 15
 					reg[rd] = 1;
 				} else {
@@ -779,20 +779,20 @@ String ins = String.format("%08x ", instr);
 					}
 				}
 				break;
-			case 0x4: // XOR
+                            case 0x4: // XOR
 				reg[rd] = reg[rs1] ^ reg[rs2];
 				break;
-			case 0x5: // SRL or SRA
+                            case 0x5: // SRL or SRA
 				if (funct7 == 0x00) { // SRL
 					reg[rd] = (reg[rs1] >>> (reg[rs2] & 0x1F));
 				} else { // SRA
 					reg[rd] = (reg[rs1] >> (reg[rs2] & 0x1F));
 				}
 				break;
-			case 0x6: // OR
+                            case 0x6: // OR
 				reg[rd] = reg[rs1] | reg[rs2];
 				break;
-			case 0x7: // AND
+                            case 0x7: // AND
 				reg[rd] = reg[rs1] & reg[rs2];
 				break;
 			}
@@ -803,19 +803,19 @@ String ins = String.format("%08x ", instr);
 
 	private boolean ecallInstruction() {
 		switch (reg[10]) {
-		case 1: // print_int
+                    case 1: // print_int
 			System.out.println(reg[11]);
 			return false;
-		case 4: // print_string
+                    case 4: // print_string
 			return false;
-		case 9: // sbrk
+                    case 9: // sbrk
 			return false;
-		case 10: // exit
+                    case 10: // exit
 			return true;
-		case 11: // print_character
+                    case 11: // print_character
 			System.out.println((char) reg[11]);
 			return false;
-		default: // exit2
+                    default: // exit2
 			reg[11] = 0;
 			return true;
 		}
