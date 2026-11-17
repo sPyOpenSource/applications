@@ -38,12 +38,17 @@ public final class Esp32c3Loader {
     }
 
     public static void main(String[] args) throws Exception {
-        if (args.length < 1) {
+        /*if (args.length < 1) {
             System.err.println("Usage: Esp32c3Loader <firmware.bin>");
             System.exit(1);
         }
-        byte[] image = Files.readAllBytes(Paths.get(args[0]));
+        byte[] image = Files.readAllBytes(Paths.get(args[0]));*/
+        byte[] image = Files.readAllBytes(Paths.get("/Users/xuyi/Downloads/ESP32-C3FH4_FlintJVM_Release.bin"));
         IsaSim sim = loadImage(image);
+        // The firmware image is loaded at SRAM_BASE, but reset() parks the PC at
+        // the reset vector (0x40000000) where nothing is mapped, so point the PC
+        // at the loaded image before starting execution.
+        sim.pc = Esp32c3MemoryMap.SRAM_BASE;
         sim.go(0);
     }
 }

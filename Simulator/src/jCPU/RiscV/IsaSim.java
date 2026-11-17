@@ -146,10 +146,25 @@ public class IsaSim implements iCPU {
 
     @Override
     public void go(int limit) throws Exception{
+        int steps = 0;
         while(true){
+            // Stop cleanly at the end of the loaded program instead of throwing a
+            // NullPointerException when the PC runs past mapped code.
+            if (!code.containsKey(pc) || !code.containsKey(pc + 1) ||
+                !code.containsKey(pc + 2) || !code.containsKey(pc + 3)) {
+                return;
+            }
+            // RV32I instructions are 4 bytes; a misaligned PC cannot be fetched.
+            if (pc % 4 != 0) {
+                return;
+            }
+            if (limit > 0 && steps >= limit) {
+                return;
+            }
             RVInstruction ins = new RVInstruction(code.read16(pc));
             decoder.decode_riscv_binary(ins);
             step();
+            steps++;
         }
     }
     
@@ -461,7 +476,7 @@ String ins = String.format("%08x ", instr);
 			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm);
 		}
 		reg[rd] = pc + 4; // Store return address
-		pc = (reg[rs1] + imm) & 0xFFFFFFFE; // Jump target address sets LSB to 0
+		pc = (reg[rs1] + imm) & 0xFFFFFFFC; // Jump target address is 4-byte aligned
 		if (pc % 4 != 0) {
 			System.out.println("Instruction fetch exception; pc not multiple of 4 bytes");
 		}
