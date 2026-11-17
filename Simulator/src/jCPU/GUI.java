@@ -142,7 +142,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		leftPanel.add(bottomSplit, BorderLayout.CENTER);
 
 		JScrollPane peripheralScroll = new JScrollPane(peripheral);
-		peripheralScroll.setBorder(BorderFactory.createTitledBorder("Peripheral"));
+		//peripheralScroll.setBorder(BorderFactory.createTitledBorder("Peripheral"));
 
 		mainSplit = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, peripheralScroll);
 		mainSplit.setResizeWeight(0.6);
