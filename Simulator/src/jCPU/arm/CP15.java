@@ -409,7 +409,7 @@ class CP15 extends SaneCoprocessor {
 			throw new UndefinedException();
 		}
 		if(privileged && !cpu.isPrivileged()) throw new UndefinedException();
-		cpu.writeGPR(Rt, readValue);
+		cpu.writeRegister(Rt, readValue);
 	}
 	@Override
 	public void moveCoreRegisterToCoprocessorRegister(boolean unconditional, int coproc, int opc1, int opc2, int CRn, int CRm, int Rt) throws BusErrorException, AlignmentException, UndefinedException {

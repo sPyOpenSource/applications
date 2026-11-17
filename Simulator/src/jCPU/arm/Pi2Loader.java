@@ -33,10 +33,11 @@ public final class Pi2Loader {
 		CPU cpu = new CPU();
 		PhysicalMemorySpace mem = cpu.getMemorySpace();
 
-		/* A real Pi 2 has RAM from 0x0 up to the peripheral window at
-		 * 0x3F000000. Map all of it lazily so both large kernel images and
-		 * runtime writes far beyond the image are handled. */
-		SparseRamRegion ram = new SparseRamRegion(Pi2MemoryMap.PERIPHERAL_BASE & 0xFFFFFFFFL);
+		/* A real Pi 2 has 1 GiB of RAM (0x0–0x3FFFFFFF). Map it lazily so
+		 * both large kernel images and runtime writes far beyond the image
+		 * are handled. The 3G alias (0xC0000000) must cover kernel virtual
+		 * addresses up to ~0xFF000000, so the region needs the full 1 GiB. */
+		SparseRamRegion ram = new SparseRamRegion(0x40000000L);
 		mem.unmapRegion(Pi2MemoryMap.RAM_BASE, findRam(mem));
 		mem.mapRegion(Pi2MemoryMap.RAM_BASE, ram);
 		/* Linux is linked with a 2G/2G split (PAGE_OFFSET 0x80000000): its

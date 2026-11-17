@@ -42,9 +42,19 @@ public final class VirtualMemorySpace implements iMemory {
 	public int getLastAccessWidth() { return lastAccessWidth; }
 	public boolean getLastAccessWasStore() { return lastAccessWasStore; }
         
+	/* Kernel virtual address of a free-running counter that the sched_clock
+	 * reads twice and compares until it changes. jCPU has no real time source
+	 * for this location, so it is modelled as a cycle-based counter. */
+	private static final int SCHED_CLOCK_COUNTER_VADDR = 0x80D03D00;
+	private final CPU cpu;
+
 	VirtualMemorySpace(PhysicalMemorySpace mem, Debugger debugger) {
+		this(mem, debugger, null);
+	}
+	VirtualMemorySpace(PhysicalMemorySpace mem, Debugger debugger, CPU cpu) {
 		this.mem = mem;
 		this.debugger = debugger;
+		this.cpu = cpu;
 	}
 	public void registerPeripheral(int address, Peripheral p) {
 		mmioMap.put(address, p);
@@ -161,6 +171,11 @@ public final class VirtualMemorySpace implements iMemory {
 			if(strictAlign) throw new AlignmentException();
 			else if(bigEndian) return (int)(((mem.readByte(address&0xFFFFFFFFL)&0xFF)<<24)|((mem.readByte(address+1&0xFFFFFFFFL)&0xFF)<<16)|((mem.readByte(address+2&0xFFFFFFFFL)&0xFF)<<8)|(mem.readByte(address+3&0xFFFFFFFFL)&0xFF));
 			else return (int)((mem.readByte(address&0xFFFFFFFFL)&0xFF)|((mem.readByte(address+1&0xFFFFFFFFL)&0xFF)<<8)|((mem.readByte(address+2&0xFFFFFFFFL)&0xFF)<<16)|((mem.readByte(address+3&0xFFFFFFFFL)&0xFF)<<24));
+		}
+		if(address == SCHED_CLOCK_COUNTER_VADDR && cpu != null) {
+			/* Free-running counter: advance with CPU cycles so the sched_clock
+			 * spin (read-compare-branch) eventually exits. */
+			return (int)(cpu.getTotalCycles() & 0xFFFFFFFFL);
 		}
 		else return mem.readInt(address & 0xFFFFFFFFL, bigEndian);
 	}

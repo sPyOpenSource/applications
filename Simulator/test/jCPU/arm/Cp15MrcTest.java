@@ -51,6 +51,24 @@ public class Cp15MrcTest {
     }
 
     @Test
+    public void testMrcIntoLr() throws Exception {
+        // MRC into r14 (LR) must write the link register, not the GPR array.
+        CPU cpu = new CPU();
+        cpu.reset();
+        cpu.executeARM(0xEE10EF10); // mrc p15, 0, r14, c0, c0, 0 (MIDR)
+        assertEquals(0x410FC075, cpu.readRegister(14));
+    }
+
+    @Test
+    public void testMrcIntoSp() throws Exception {
+        // MRC into r13 (SP) must write the stack pointer, not the GPR array.
+        CPU cpu = new CPU();
+        cpu.reset();
+        cpu.executeARM(0xEE10DF10); // mrc p15, 0, r13, c0, c0, 0 (MIDR)
+        assertEquals(0x410FC075, cpu.readRegister(13));
+    }
+
+    @Test
     public void testMcrMemoryRemapRegisters() throws Exception {
         CPU cpu = new CPU();
         cpu.reset();

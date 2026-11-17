@@ -305,9 +305,12 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	/*** SYSTEM CONTROL REGISTERS ***/
 	/* debug (C6), ThumbEE (A2-95), Jazelle (A2-97) */
 	private static class CP14 extends Coprocessor {
+		/* CP14 (debug, Jazelle, performance monitors) is not modelled.
+		 * Linux reads/writes debug and PMU registers during early boot;
+		 * ignoring them keeps the kernel alive. */
 		CP14(CPU cpu) {}
 		@Override
-		public void executeInstruction(boolean unconditional, int iword) throws UndefinedException { throw new UndefinedException(); }
+		public void executeInstruction(boolean unconditional, int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {}
 		@Override
 		public void reset() {}
 	}
@@ -320,7 +323,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	public CPU(boolean enableUart) { this(null, enableUart); }
 	public CPU(Debugger debugger, boolean enableUart) {
 		this.debugger = debugger;
-		vm = new VirtualMemorySpace(mem, debugger);
+		vm = new VirtualMemorySpace(mem, debugger, this);
 		if(enableUart) {
 			/* A Pi 2 kernel can reach the PL011 through several aliases: the
 			 * ARM physical base, the VC bus alias used during early boot
@@ -1448,9 +1451,29 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 				}
 			case 15:
 				switch(op1 & 5) {
-				case 0:
+				case 0: {
 					/* STRD (register, A8-688) */
-					throw new UnimplementedInstructionException(iword, "STRD(688)");
+					boolean registerForm = ((iword >> 22) & 1) == 0;
+					boolean P = ((iword >> 24) & 1) != 0;
+					boolean U = ((iword >> 23) & 1) != 0;
+					boolean W = ((iword >> 21) & 1) != 0;
+					int Rt = (iword >> 12) & 15;
+					boolean unprivileged = (!P && W);
+					boolean writeback = (!P ^ W);
+					int offset;
+					if(registerForm) offset = readRegister(iword & 15);
+					else offset = (iword & 15) | ((iword >> 4) & 240);
+					int base_addr = readRegisterAlignPC(Rn);
+					int offset_addr;
+					if(U) offset_addr = base_addr + offset;
+					else offset_addr = base_addr - offset;
+					int address = P ? offset_addr : base_addr;
+					if((Rt&1)!=0 || Rt==14) throw new UndefinedException();
+					instructionWriteWord(address, readRegister(Rt));
+					instructionWriteWord(address+4, readRegister(Rt+1));
+					if(writeback) writeRegister(Rn, offset_addr);
+					return;
+				}
 				case 1:
 					/* LDRSH (register, A8-462) */
 					throw new UnimplementedInstructionException(iword, "LDRSH");
