@@ -23,7 +23,21 @@ public final class VirtualMemorySpace implements iMemory {
 	private final java.util.List<MmioRange> mmioRanges = new java.util.concurrent.CopyOnWriteArrayList<>();
 	private int lastAccessAddress, lastAccessWidth;
 	private boolean lastAccessWasStore;
-        
+
+	/* Diagnostic: report unhandled accesses to peripheral-like ranges once per
+	 * address, to identify MMIO a guest OS uses that the simulator lacks. */
+	private static final java.util.Set<Integer> tracedUnmapped = java.util.concurrent.ConcurrentHashMap.newKeySet();
+	private static volatile int tracedUnmappedCount = 0;
+	private static void traceUnmapped(int address) {
+		long a = address & 0xFFFFFFFFL;
+		if(!((a >= 0x20000000L && a < 0x40000000L) || a >= 0xB0000000L)) return;
+		if(tracedUnmappedCount >= 100) return;
+		if(tracedUnmapped.add(address)) {
+			tracedUnmappedCount++;
+			System.err.printf("[JCPU-MMIO] unhandled access at 0x%08X%n", address);
+		}
+	}
+
 	public int getLastAccessAddress() { return lastAccessAddress; }
 	public int getLastAccessWidth() { return lastAccessWidth; }
 	public boolean getLastAccessWasStore() { return lastAccessWasStore; }
@@ -50,6 +64,7 @@ public final class VirtualMemorySpace implements iMemory {
 		for (MmioRange r : mmioRanges) {
 			if (address >= r.base && address < r.end) return r.p;
 		}
+		traceUnmapped(address);
 		return null;
 	}
 	private int peripheralOffset(int address) {
@@ -72,7 +87,6 @@ public final class VirtualMemorySpace implements iMemory {
 	}
 	public final void writeByte(int address, byte value) throws BusErrorException, EscapeRetryException {
 		if(debugger != null) debugger.onWriteMemory(address, 1, false, value);
-		
 		lastAccessAddress = address; lastAccessWidth = 0; lastAccessWasStore = true;
 		Peripheral p = lookupPeripheral(address);
 		int po = peripheralOffset(address);
@@ -152,7 +166,6 @@ public final class VirtualMemorySpace implements iMemory {
 	}
 	public final void writeInt(int address, int value, boolean strictAlign, boolean bigEndian) throws AlignmentException, BusErrorException, EscapeRetryException {
 		if(debugger!=null) debugger.onWriteMemory(address, 4, bigEndian, value);
-		
 		lastAccessAddress = address; lastAccessWidth = 2; lastAccessWasStore = true;
 		Peripheral p = lookupPeripheral(address);
 		int po = peripheralOffset(address);

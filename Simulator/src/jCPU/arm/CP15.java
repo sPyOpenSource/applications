@@ -3,14 +3,11 @@ package jCPU.arm;
 /* VMSA system control registers (B3-1444, B3-1469, B3-1491) */
 class CP15 extends SaneCoprocessor {
 	/** CPUID REGISTERS **/
-	/* Main ID Register */
-	/* 24-31: Implementer ('j' | 0x80)
-	   We break the rules by providing our own implementer bits. */
-	/* 20-23: Variant (TODO: Allow the user to provide these bits) */
-	/* 16-19: Architecture (0xF / "defined by CPUID scheme") */
-	/* 4-15: Primary part number (TODO: Allow the user to provide these bits) */
-	/* 0-3: Revision number (TODO: Allow the user to provide these bits) */
-	static final int MIDR = 0xEA0F0000;
+	/* Main ID Register. Linux matches this against its .proc.info.init table
+	 * in __lookup_processor_type before doing anything else; a made-up value
+	 * sends it to __error_p (a silent infinite loop). The Pi 2 is a Cortex-A7,
+	 * so report a valid Cortex-A7 r0p5 ID that its proc info entry accepts. */
+	static final int MIDR = 0x410FC075;
 	/* Cache Type Register (B4-1556) */
 	/* 29-31: 0b100, ARMv7 format */
 	/* 24-27: CWG / Cache Write-back Granule. 0b0000 -> no info provided. */

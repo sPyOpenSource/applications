@@ -94,22 +94,27 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		default: return readGPR(r);
 		}
 	}
+        @Override
         public int r(int r)
 	{
 		return readRegister(r);
 	}
+        @Override
         public int sp()
 	{
 		return readSP();
 	}
+        @Override
 	public void sp(int value)
 	{
 		writeSP(value);
 	}
+        @Override
 	public int pc()
 	{
 		return readPC() & ~3;
 	}
+        @Override
 	public void pc(int value)
 	{
 		writePC(value);
@@ -130,6 +135,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		default: writeGPR(r, new_value); break;
             }
 	}
+        @Override
         public void r(int r, int value)
 	{
 		writeRegister(r, value);
@@ -316,7 +322,19 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		this.debugger = debugger;
 		vm = new VirtualMemorySpace(mem, debugger);
 		if(enableUart) {
-			vm.registerPeripheral(Pi2MemoryMap.UART_BASE, new UartPeripheral());
+			/* A Pi 2 kernel can reach the PL011 through several aliases: the
+			 * ARM physical base, the VC bus alias used during early boot
+			 * (0x20201000), and the kernel virtual addresses after the MMU
+			 * configuration (2G/2G and 3G/1G PAGE_OFFSET). Register the same
+			 * instance across the whole register page at each alias so the
+			 * flag/control offsets are handled too. */
+			UartPeripheral uart = new UartPeripheral();
+			vm.registerPeripheral(Pi2MemoryMap.UART_BASE, Pi2MemoryMap.UART_SIZE, uart);
+			vm.registerPeripheral(Pi2MemoryMap.UART_BUS_ALIAS_BASE, Pi2MemoryMap.UART_SIZE, uart);
+			vm.registerPeripheral(Pi2MemoryMap.UART_VIRT_BASE_2G, Pi2MemoryMap.UART_SIZE, uart);
+			vm.registerPeripheral(Pi2MemoryMap.UART_VIRT_BASE_3G, Pi2MemoryMap.UART_SIZE, uart);
+			/* earlycon runs through the ARM fixmap before the real console. */
+			vm.registerPeripheral(Pi2MemoryMap.UART_EARLYCON_FIXMAP_BASE, Pi2MemoryMap.UART_SIZE, uart);
 		}
 		vm.registerPeripheral(VgaPeripheral.VGA_BASE, new VgaPeripheral());
 		mem.mapRegion(Pi2MemoryMap.RAM_BASE, new ByteArrayRegion(0x100000)); /* 1MB RAM at 0x0 */
@@ -417,12 +435,256 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		}
 	}
         
+	/* Diagnostic helpers: fetch a full instruction word and log the first time
+	 * execution enters each 1 MB region, which reveals the boot phase. */
+	private static final java.util.Set<Integer> tracedRegions =
+		java.util.concurrent.ConcurrentHashMap.newKeySet();
+	private static boolean kernelEntryTraced = false;
+	private static boolean mmSwitchTraced = false;
+	private int traceWord(int addr) {
+		try { return vm.readInt(addr & ~3, false, false); }
+		catch(Exception e) { return -1; }
+	}
+	private static void traceRegion(int pc) {
+		int region = (pc >>> 20) & 0xFFF;
+		if(tracedRegions.size() < 64 && tracedRegions.add(region)) {
+			System.err.printf("[JCPU-REGION] first execution at 0x%08X%n", pc & 0xFFF00000);
+		}
+	}
+
+	/* ---- Control-flow / halt diagnosis ---------------------------------
+	 * A kernel can enter a terminal `b .` loop (panic/BUG) before it has
+	 * initialised the console, so no UART output reveals why. Record the last
+	 * real control-flow transfers and exceptions, then dump them with any
+	 * strings referenced near the halt PC when a spin is detected. */
+	private static final int BRANCH_TRACE_SIZE = 128;
+	private final int[] branchFrom = new int[BRANCH_TRACE_SIZE];
+	private final int[] branchTo = new int[BRANCH_TRACE_SIZE];
+	private final int[] branchInstr = new int[BRANCH_TRACE_SIZE];
+	private int branchHead = 0, branchCount = 0;
+	private int lastProgressPc = -2;
+	private boolean haltDumpDone = false;
+
+	private void traceBranch(int from, int to, int iword) {
+		if(from == to) return; // the spin's own self-branch carries no information
+		/* Collapse consecutive identical transfers so a tight loop cannot fill
+		 * the whole ring buffer and hide the call path that led into it. */
+		if(branchCount > 0) {
+			int last = (branchHead - 1 + BRANCH_TRACE_SIZE) % BRANCH_TRACE_SIZE;
+			if(branchFrom[last] == from && branchTo[last] == to) return;
+		}
+		int i = branchHead;
+		branchFrom[i] = from; branchTo[i] = to; branchInstr[i] = iword;
+		branchHead = (branchHead + 1) % BRANCH_TRACE_SIZE;
+		if(branchCount < BRANCH_TRACE_SIZE) branchCount++;
+	}
+
+	/** True for an ARM `b .` style self-branch (imm24 == -2), any condition. */
+	static boolean isSelfBranch(int iword) {
+		return (iword & 0x0E000000) == 0x0A000000   /* branch instruction */
+			&& (iword & 0x00FFFFFF) == 0x00FFFFFE;  /* imm24 = -2 -> branch to self */
+	}
+
+	private static final int EXC_TRACE_SIZE = 32;
+	private final String[] excTrace = new String[EXC_TRACE_SIZE];
+	private int excHead = 0, excCount = 0;
+
+	private void traceException(String kind, int vector, int lrValue) {
+		excTrace[excHead] = String.format("%s vec=0x%04X lr=0x%08X pc=0x%08X cpsr=0x%08X cyc=%d",
+				kind, vector, lrValue, pc, cpsr, totalCycles);
+		excHead = (excHead + 1) % EXC_TRACE_SIZE;
+		if(excCount < EXC_TRACE_SIZE) excCount++;
+	}
+
+	/** Raw word dump at an address — for when traceString sees a leading NUL. */
+	private String traceHexWords(int addr, int count) {
+		if(addr < 0x100) return "";
+		StringBuilder s = new StringBuilder();
+		for(int i = 0; i < count; i++) {
+			int w = traceWord(addr + i * 4);
+			s.append(String.format(" %08X", w));
+		}
+		return s.toString();
+	}
+
+	/** Scan a window around an address for the first printable ASCII run. */
+	private String traceNearbyString(int addr, int span) {
+		if(addr < 0x100) return "";
+		int start = (addr - span) & ~3;
+		for(int a = start; a <= addr + span; a += 4) {
+			String str = traceString(a);
+			if(str.length() >= 4) return String.format("@0x%08X \"%s\"", a, str);
+		}
+		return "";
+	}
+
+	/** Read a NUL-terminated ASCII string from guest memory (diagnostics only). */
+	private String traceString(int addr) {
+		/* 0xFFFFF000 is negative as a Java int, so an upper-bound check here
+		 * would reject every positive RAM address. traceWord returns -1 for
+		 * unmapped memory, which terminates the loop naturally. */
+		if(addr < 0x100) return "";
+		StringBuilder s = new StringBuilder();
+		/* Use word reads (same path as instruction fetch) and split little-endian
+		 * bytes; byte-wise reads through the MMIO dispatcher are unreliable here. */
+		for(int off = 0; off < 200; off += 4) {
+			int w = traceWord(addr + off);
+			if(w == -1) break;
+			for(int b = 0; b < 4; b++) {
+				int ch = (w >>> (b * 8)) & 0xFF;
+				if(ch == 0) return s.toString();
+				s.append(ch >= 0x20 && ch < 0x7F ? (char)ch : '.');
+			}
+		}
+		return s.toString();
+	}
+
+	/** Human-readable dump of the lead-up to a terminal spin (also used by tests). */
+	String buildHaltDiagnosis(int haltPc) {
+		StringBuilder s = new StringBuilder();
+		s.append(String.format("[JCPU-HALT] pc=0x%08X ir=0x%08X cpsr=0x%08X lr=0x%08X cyc=%d%n",
+				haltPc, traceWord(haltPc), cpsr, readRegister(14), totalCycles));
+		s.append(String.format("[JCPU-HALT-REGS] r0=0x%08X r1=0x%08X r2=0x%08X r3=0x%08X r4=0x%08X r5=0x%08X r6=0x%08X r7=0x%08X%n",
+				readRegister(0), readRegister(1), readRegister(2), readRegister(3),
+				readRegister(4), readRegister(5), readRegister(6), readRegister(7)));
+		StringBuilder code = new StringBuilder("[JCPU-HALT-CODE]");
+		for(int i = -12; i <= 8; i++) {
+			int a = (haltPc + i * 4) & ~3;
+			code.append(String.format(" %08X:%08X", a, traceWord(a)));
+		}
+		s.append(code).append('\n');
+		/* Dump registers that look like pointers with both a string interpretation
+		 * and raw words — a leading NUL or a non-ASCII struct makes traceString
+		 * return "" even when the address is valid kernel memory. */
+		for(int r = 0; r <= 7; r++) {
+			int v = readRegister(r);
+			String str = traceString(v);
+			String near = str.length() < 4 ? traceNearbyString(v, 64) : "";
+			s.append(String.format("[JCPU-HALT-STR] r%d=0x%08X \"%s\"%s words:%s%n",
+					r, v, str, near, traceHexWords(v, 8)));
+		}
+		appendMovLiteralStrings(s, haltPc);
+		appendBlTargetCode(s, haltPc);
+		/* Boot globals: __atags_pointer / __machine_arch_type and the DTB magic
+		 * at the expected physical address. These pinpoint boot-parameter
+		 * failures even when the kernel cannot print anything. */
+		int atagsPtr = traceWord(0x80C69A3C);
+		int machType = traceWord(0x80D04F5C);
+		s.append(String.format("[JCPU-BOOT-GLOBALS] __atags_pointer=0x%08X __machine_arch_type=0x%08X dtbMagic@0x%08X=0x%08X dtbMagic@0x00000100=0x%08X%n",
+				atagsPtr, machType, Pi2BootParams.DTB_ADDRESS, traceWord(Pi2BootParams.DTB_ADDRESS), traceWord(0x00000100)));
+		s.append("[JCPU-HALT-BRANCHES] (last taken transfers, newest last)\n");
+		int bstart = branchCount < BRANCH_TRACE_SIZE ? 0 : branchHead;
+		for(int n = 0; n < branchCount; n++) {
+			int i = (bstart + n) % BRANCH_TRACE_SIZE;
+			s.append(String.format("  0x%08X -> 0x%08X (ir=0x%08X)%n", branchFrom[i], branchTo[i], branchInstr[i]));
+		}
+		s.append("[JCPU-HALT-EXCEPTIONS]\n");
+		int estart = excCount < EXC_TRACE_SIZE ? 0 : excHead;
+		for(int n = 0; n < excCount; n++) {
+			s.append("  ").append(excTrace[(estart + n) % EXC_TRACE_SIZE]).append('\n');
+		}
+		return s.toString();
+	}
+
+	/* The instruction right before a `b .` is often a `bl` into the fatal
+	 * handler (panic/BUG). Dump code at its target so the handler can be
+	 * identified even when the strings it was passed are unreadable. */
+	private void appendBlTargetCode(StringBuilder s, int haltPc) {
+		for(int a = haltPc - 4; a >= haltPc - 32; a -= 4) {
+			int w = traceWord(a);
+			if((w & 0x0F000000) == 0x0B000000 || (w & 0xFE000000) == 0xFA000000) {
+				/* ARM bl: imm24 sign-extended, target = PC+8+imm24*4.
+				 * Thumb blx (0xFA/0xFB) is ignored here (ARM state only). */
+				if((w & 0xFE000000) == 0xFA000000) continue;
+				int imm24 = w & 0x00FFFFFF;
+				if((imm24 & 0x00800000) != 0) imm24 |= 0xFF000000;
+				int target = a + 8 + (imm24 << 2);
+				StringBuilder code = new StringBuilder(String.format("[JCPU-HALT-BLTARGET] bl@0x%08X -> 0x%08X:", a, target));
+				for(int i = 0; i < 12; i++) {
+					code.append(String.format(" %08X", traceWord(target + i * 4)));
+				}
+				s.append(code).append('\n');
+				return;
+			}
+		}
+	}
+
+	/* Reconstruct pointers built with movw/movt pairs around the halt and dump
+	 * the strings they point at — kernels pass panic/format strings this way. */
+	private void appendMovLiteralStrings(StringBuilder s, int haltPc) {
+		int[] low = new int[16], high = new int[16];
+		boolean[] seenW = new boolean[16], seenT = new boolean[16];
+		for(int a = haltPc - 64; a <= haltPc + 64; a += 4) {
+			int w = traceWord(a);
+			int rd;
+			if((w & 0x0FF00000) == 0x03000000) { /* movw imm16 */
+				rd = (w >>> 12) & 0xF;
+				low[rd] = ((w >>> 4) & 0xF000) | (w & 0xFFF);
+				seenW[rd] = true;
+			} else if((w & 0x0FF00000) == 0x03400000) { /* movt imm16 */
+				rd = (w >>> 12) & 0xF;
+				high[rd] = ((w >>> 4) & 0xF000) | (w & 0xFFF);
+				seenT[rd] = true;
+			} else continue;
+			if(seenW[rd] && seenT[rd]) {
+				int ptr = (high[rd] << 16) | low[rd];
+				String str = traceString(ptr);
+				String near = str.length() < 4 ? traceNearbyString(ptr, 64) : "";
+				s.append(String.format("[JCPU-HALT-STR] movw/movt r%d=0x%08X \"%s\"%s words:%s%n",
+						rd, ptr, str, near, traceHexWords(ptr, 8)));
+			}
+		}
+	}
+
 	/**
 	 * Fetch and execute a single instruction
 	 */
 	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
 		totalCycles++;
+		/* Diagnostics use a real 32-bit fetch; vm.read() returns only a byte. */
+		if(totalCycles == 1) {
+			System.err.printf("[JCPU-BOOT] pc=0x%08X cpsr=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X ir=0x%08X dtbMagic=0x%08X%n",
+					pc, cpsr, readRegister(0), readRegister(1), readRegister(2), traceWord(pc), traceWord(Pi2BootParams.DTB_ADDRESS));
+			traceRegion(pc);
+		}
+		/* The zImage decompressor jumps back to r4 (0x8000) once inflation is
+		 * done. Detect that handoff and log the boot registers it restored. */
+		if(!kernelEntryTraced && totalCycles > 100000 && (pc & 0xFFFFF000) == 0x8000) {
+			kernelEntryTraced = true;
+			System.err.printf("[JCPU-KERNEL] decompressed kernel entry at cycle=%d pc=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X dtbMagic=0x%08X%n",
+					totalCycles, pc, readRegister(0), readRegister(1), readRegister(2), traceWord(Pi2BootParams.DTB_ADDRESS));
+		}
+		/* One-shot capture at __mmap_switched, where boot r0/r1/r2 are saved
+		 * to processor_id / __machine_arch_type / __atags_pointer. */
+		if(!mmSwitchTraced && pc == 0x80C002E0) {
+			mmSwitchTraced = true;
+			System.err.printf("[JCPU-MMSWITCH] cycle=%d pc=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X dtbMagic=0x%08X%n",
+					totalCycles, pc, readRegister(0), readRegister(1), readRegister(2), traceWord(Pi2BootParams.DTB_ADDRESS));
+		}
+		/* Progress diagnostic: shows whether the guest advances or spins. */
+		if((totalCycles % 1000000) == 0) {
+			traceRegion(pc);
+			System.err.printf("[JCPU-PROGRESS] cycles=%d pc=0x%08X cpsr=0x%08X mode=%s ir=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X lr=0x%08X%n",
+					totalCycles, pc, cpsr, mode, traceWord(pc), readRegister(0), readRegister(1), readRegister(2), readRegister(14));
+			/* Dump the code window around PC so the stalled loop can be decoded. */
+			StringBuilder code = new StringBuilder();
+			for(int i = -2; i < 6; i++) {
+				code.append(String.format(" %08X", traceWord((pc + i * 4) & ~3)));
+			}
+			System.err.println("[JCPU-CODE] pc=0x" + String.format("%08X", pc) + ":" + code);
+			/* A terminal spin is a stable PC executing a self-branch (`b .`).
+			 * Requiring the self-branch avoids a false positive when a long loop
+			 * (e.g. the decompressor) happens to be sampled at the same PC twice.
+			 * Reset the one-shot flag if we moved on, so a later real halt is
+			 * still diagnosed. */
+			if(pc != lastProgressPc) haltDumpDone = false;
+			if(!haltDumpDone && pc == lastProgressPc && isSelfBranch(traceWord(pc))) {
+				haltDumpDone = true;
+				System.err.print(buildHaltDiagnosis(pc));
+			}
+			lastProgressPc = pc;
+		}
 		if(systemTimer != null) systemTimer.tickTo(totalCycles);
 		if((cpsr & (1 << CPSR_BIT_F)) == 0 && haveFIQ()) generateFIQException();
 		if((cpsr & (1 << CPSR_BIT_I)) == 0 && haveIRQ()) generateIRQException();
@@ -452,9 +714,13 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		}
 		// System.out.printf("\t%08X : %08X\n", pc, iword);
 		pc += 4;
+		int branchFromPc = pc;
 		try { executeARM(iword); }
 		/* if we experience an exception, restore as much state as possible to before the exception */
 		catch(BusErrorException | AlignmentException | UndefinedException e) { pc -= 4; throw e; }
+		/* A changed PC means a branch/call/exception-return was taken. Record it
+		 * for the halt diagnosis; self-branches are filtered in traceBranch. */
+		if(pc != branchFromPc) traceBranch(branchFromPc - 4, pc, iword);
 	}
         
 	/* used by executeDataProcessingOperation for operations that don't provide their own carry logic */
@@ -2100,12 +2366,12 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		else executeARMUnconditional(iword);
 	}
         
-	private void performSVC() { generateException(ProcessorMode.SUPERVISOR, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_SUPERVISOR_CALL, isThumb() ? pc - 2 : pc - 4); }
-	private void generateUndefinedException() { generateException(ProcessorMode.UNDEFINED, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_UNDEFINED, pc); }
-	private void generatePrefetchAbortException() { generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_PREFETCH_ABORT, pc); }
-	private void generateDataAbortException() { generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_DATA_ABORT, pc + 8); }
-	private void generateIRQException() { generateException(ProcessorMode.IRQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_IRQ, pc + 4); }
-	private void generateFIQException() { generateException(ProcessorMode.FIQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A) | (1 << CPSR_BIT_F), EXCEPTION_VECTOR_FIQ, pc + 4); }
+	private void performSVC() { traceException("SVC", EXCEPTION_VECTOR_SUPERVISOR_CALL, pc - 4); generateException(ProcessorMode.SUPERVISOR, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_SUPERVISOR_CALL, isThumb() ? pc - 2 : pc - 4); }
+	private void generateUndefinedException() { traceException("UNDEFINED", EXCEPTION_VECTOR_UNDEFINED, pc); generateException(ProcessorMode.UNDEFINED, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_UNDEFINED, pc); }
+	private void generatePrefetchAbortException() { traceException("PREFETCH_ABORT", EXCEPTION_VECTOR_PREFETCH_ABORT, pc); generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_PREFETCH_ABORT, pc); }
+	private void generateDataAbortException() { traceException("DATA_ABORT", EXCEPTION_VECTOR_DATA_ABORT, pc + 8); generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_DATA_ABORT, pc + 8); }
+	private void generateIRQException() { traceException("IRQ", EXCEPTION_VECTOR_IRQ, pc + 4); generateException(ProcessorMode.IRQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_IRQ, pc + 4); }
+	private void generateFIQException() { traceException("FIQ", EXCEPTION_VECTOR_FIQ, pc + 4); generateException(ProcessorMode.FIQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A) | (1 << CPSR_BIT_F), EXCEPTION_VECTOR_FIQ, pc + 4); }
 	private void generateException(ProcessorMode targetMode, int interruptMask, int vector, int preferredReturn) {
 		enterProcessorModeByException(targetMode);
 		lr[cur_lr] = preferredReturn;

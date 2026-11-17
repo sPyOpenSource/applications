@@ -30,6 +30,19 @@ public class Cp15MrcTest {
     }
 
     @Test
+    public void testMrcMidrReturnsCortexA7Id() throws Exception {
+        CPU cpu = new CPU();
+        cpu.reset();
+
+        cpu.executeARM(0xEE101F10); // mrc p15, 0, r1, c0, c0, 0 (MIDR)
+
+        // Linux __lookup_processor_type only recognises real ARM CPU IDs.
+        // Report a valid Cortex-A7 r0p5 ID so the kernel boots instead of
+        // dropping into the silent __error_p loop.
+        assertEquals(0x410FC075, cpu.r(1));
+    }
+
+    @Test
     public void testMrcGenericTimerDoesNotFail() throws Exception {
         CPU cpu = new CPU();
         cpu.reset();

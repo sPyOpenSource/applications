@@ -51,6 +51,10 @@ public final class Pi2Loader {
 		mem.mapRegion(HIGH_VECTOR_BASE, new ByteArrayRegion(HIGH_VECTOR_SIZE));
 		ram.load(image);
 
+		/* A Pi 2 kernel needs r0/r1/r2 boot parameters — in particular a DTB
+		 * in r2 — or it fails before console initialisation. */
+		Pi2BootParams.install(cpu);
+
 		wireTimer(cpu);
 		return cpu;
 	}
@@ -101,7 +105,20 @@ public final class Pi2Loader {
 
 	private static byte[] readImage(String path) {
 		try {
-			return Files.readAllBytes(Paths.get(path));
+			byte[] image = Files.readAllBytes(Paths.get(path));
+			/* Diagnose the kernel image header: first instruction, magic and
+			 * declared load/end offsets. Helps confirm a valid ARM image. */
+			StringBuilder sb = new StringBuilder();
+			sb.append("[JCPU-IMAGE] path=").append(path).append(" size=0x")
+				.append(Integer.toHexString(image.length)).append(" words:");
+			for(int i = 0; i < Math.min(16, image.length / 4); i++) {
+				int o = i * 4;
+				int w = (image[o] & 0xFF) | ((image[o+1] & 0xFF) << 8)
+					| ((image[o+2] & 0xFF) << 16) | ((image[o+3] & 0xFF) << 24);
+				sb.append(String.format(" 0x%08X", w));
+			}
+			System.err.println(sb);
+			return image;
 		} catch (IOException e) {
 			System.err.println("Failed to read kernel image: " + e.getMessage());
 			System.exit(1);
