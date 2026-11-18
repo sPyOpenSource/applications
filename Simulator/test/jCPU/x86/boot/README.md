@@ -61,6 +61,21 @@ qemu-system-x86_64 -machine q35 -m 512 -nic none -snapshot -serial stdio \
     -drive file=jcore.img,format=raw,if=ide
 ```
 
+jxcore writes its log to the serial port, so it appears on stdout in both.
+In the emulator GRUB leaves long mode, jxcore starts, and both runs end
+the same way, about 1.4 billion steps in:
+
+```
+load zero.jll
+PANIC:
+Mismatch between library version and version supported by jxcore
+```
+
+with the same instruction addresses in the panic backtrace. The
+`jxcore` and `code.zip` in that directory do not belong together. The one
+difference before that point: QEMU has a local APIC and the emulator does
+not, so jxcore prints `no APIC found!!` and uses the PIT as its timer.
+
 `RESERVED.java` is listed explicitly because its package (`j51.intel.graph`)
 does not match its directory. Exit code 0 means the EFI application exited
 with EFI_SUCCESS.
