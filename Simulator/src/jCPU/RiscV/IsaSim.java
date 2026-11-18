@@ -27,6 +27,8 @@ import java.io.PrintWriter;
 import java.io.IOException;
 
 import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -57,6 +59,8 @@ public class IsaSim implements iCPU {
     protected Memory code;
     Esp32c3MemoryMap memoryMap;
     TimerPeripheral timer;
+    // Control and Status Registers (CSR). Key = CSR address, value = register contents.
+    private final Map<Integer, Integer> csrRegisters = new HashMap<>();
 
     public IsaSim() {
         System.out.println("RISC-V!");
@@ -152,22 +156,44 @@ public class IsaSim implements iCPU {
             // NullPointerException when the PC runs past mapped code.
             if (!code.containsKey(pc) || !code.containsKey(pc + 1) ||
                 !code.containsKey(pc + 2) || !code.containsKey(pc + 3)) {
+                dumpRegisters("end of program");
                 return;
             }
             // RV32I instructions are 4 bytes; a misaligned PC cannot be fetched.
             if (pc % 4 != 0) {
+                dumpRegisters("misaligned PC");
                 return;
             }
             if (limit > 0 && steps >= limit) {
                 return;
             }
             RVInstruction ins = new RVInstruction(code.read16(pc));
+            if (DEBUGGING) {
+                int instr = code.read32(pc);
+                System.out.println(cc + " PC=0x" + Integer.toHexString(pc) +
+                                   " ins=0x" + Integer.toHexString(instr) +
+                                   " opcode=0x" + Integer.toHexString(instr & 0x7f));
+            }
             decoder.decode_riscv_binary(ins);
             step();
             steps++;
         }
     }
-    
+
+    /**
+     * Dump the current register file and program counter to stdout.
+     * Used for debugging when execution stops cleanly.
+     *
+     * @param reason a short description of why execution stopped
+     */
+    public void dumpRegisters(String reason) {
+        System.out.println("Register dump (" + reason + "):");
+        System.out.println("pc = 0x" + Integer.toHexString(pc) + " (" + pc + ")");
+        for (int i = 0; i < reg.length; i++) {
+            System.out.println("x" + i + " : 0x" + Integer.toHexString(reg[i]) + " (" + reg[i] + ")");
+        }
+    }
+
     @Override
     public int step() throws BusErrorException {
             // Combine four bytes to produce a single instruction
@@ -249,11 +275,64 @@ public class IsaSim implements iCPU {
                     arithmeticInstruction(instr);
                     break;
 
-            case FENCE_MASK: // Fence (NOT IMPLEMENTED)
+            case FENCE_MASK: // Fence (no-op)
                     break;
 
-            case CSR_MASK: // Ecalls and CSR (SOME IMPLEMENTED, SOME LEFT OUT)
-                    breakProgram = ecallInstruction();
+            case CSR_MASK: // Ecalls and CSR instructions
+                    {
+                        int funct3 = (instr >> 12) & 0x7;
+                        int csr = (instr >> 20) & 0xFFF;
+                        int rd = (instr >> 7) & 0x1F;
+                        int rs1 = (instr >> 15) & 0x1F;
+                        int zimm = (instr >> 15) & 0x1F; // CSR immediate (zero-extended)
+                        int csrVal = csrRegisters.getOrDefault(csr, 0);
+                        switch (funct3) {
+                        case 0x0: // ECALL / EBREAK / CSRRW(read-only)
+                            if (csr == 0) {
+                                // ECALL or EBREAK (imm[11:0] distinguishes them)
+                                breakProgram = ecallInstruction();
+                            } else {
+                                // CSRRW with rs1=0: read-only CSR access
+                                reg[rd] = csrVal;
+                            }
+                            break;
+                        case 0x1: // CSRRW (Atomic Read/Write CSR)
+                            reg[rd] = csrVal;
+                            if (rs1 != 0) {
+                                csrRegisters.put(csr, reg[rs1]);
+                            }
+                            break;
+                        case 0x2: // CSRRS (Atomic Read and Set bits in CSR)
+                            reg[rd] = csrVal;
+                            if (rs1 != 0) {
+                                csrRegisters.put(csr, csrVal | reg[rs1]);
+                            }
+                            break;
+                        case 0x3: // CSRRC (Atomic Read and Clear bits in CSR)
+                            reg[rd] = csrVal;
+                            if (rs1 != 0) {
+                                csrRegisters.put(csr, csrVal & ~reg[rs1]);
+                            }
+                            break;
+                        case 0x5: // CSRRWI (Atomic Read/Write CSR immediate)
+                            reg[rd] = csrVal;
+                            csrRegisters.put(csr, zimm);
+                            break;
+                        case 0x6: // CSRRSI (Atomic Read and Set bits in CSR immediate)
+                            reg[rd] = csrVal;
+                            csrRegisters.put(csr, csrVal | zimm);
+                            break;
+                        case 0x7: // CSRRCI (Atomic Read and Clear bits in CSR immediate)
+                            reg[rd] = csrVal;
+                            csrRegisters.put(csr, csrVal & ~zimm);
+                            break;
+                        default:
+                            if (DEBUGGING) {
+                                System.out.println("CSR funct3 " + funct3 + " not yet implemented");
+                            }
+                            break;
+                        }
+                    }
                     break;
 
             default:
@@ -404,8 +483,37 @@ String ins = String.format("%08x ", instr);
             case FENCE_MASK: // Fence (NOT IMPLEMENTED)
                     break;
 
-            case CSR_MASK: // Ecalls and CSR (SOME IMPLEMENTED, SOME LEFT OUT)
-                    breakProgram = ecallInstruction();
+            case CSR_MASK: // Ecalls and CSR instructions
+                    {
+                        int funct3 = (instr >> 12) & 0x7;
+                        int csr = (instr >> 20) & 0xFFF;
+                        switch (funct3) {
+                        case 0x0:
+                            ins += (csr == 0) ? "ECALL/EBREAK " : "CSRRW ";
+                            break;
+                        case 0x1:
+                            ins += "CSRRW ";
+                            break;
+                        case 0x2:
+                            ins += "CSRRS ";
+                            break;
+                        case 0x3:
+                            ins += "CSRRC ";
+                            break;
+                        case 0x5:
+                            ins += "CSRRWI ";
+                            break;
+                        case 0x6:
+                            ins += "CSRRSI ";
+                            break;
+                        case 0x7:
+                            ins += "CSRRCI ";
+                            break;
+                        default:
+                            ins += "CSR? ";
+                            break;
+                        }
+                    }
                     break;
 
             default:
@@ -582,6 +690,11 @@ String ins = String.format("%08x ", instr);
 			break;
 		case 0x5: // LHU
 			memValue = readMem16(memAddr);
+			break;
+		case 0x6: // LWU (load word unsigned, zero-extended)
+                    if(running)
+			memValue = readMem32(memAddr);
+			break;
 		}
 		reg[rd] = memValue;
                 return "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", memAddr = " + memAddr;
