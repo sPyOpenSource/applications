@@ -5,7 +5,7 @@ import static jCPU.x86.X86Core.*;
 import java.math.BigInteger;
 
 /**
- * Executor for x86-64 long mode.
+ * Executor for x86-64 long mode and for 32-bit protected mode.
  *
  * Each step decodes one whole instruction (prefixes, REX, opcode, ModR/M,
  * SIB, displacement, immediate) while advancing {@link #ip}, so the length
@@ -14,6 +14,12 @@ import java.math.BigInteger;
  *
  * Registers are numbered 0..15 (RAX, RCX, RDX, RBX, RSP, RBP, RSI, RDI,
  * R8..R15) and operand sizes are given in bytes (1, 2, 4 or 8).
+ *
+ * The code segment decides how instructions are decoded: 64-bit code while
+ * long mode is active and CS has the L bit, otherwise 32-bit code (CS has
+ * the D bit).  In 32-bit code there is no REX prefix, addresses and the
+ * stack are 32 bits wide, and segment bases are added to every memory
+ * address.  16-bit code is not supported.
  */
 public class X86Amd64 implements X86Core.iExecutor
 {
@@ -38,6 +44,11 @@ public class X86Amd64 implements X86Core.iExecutor
 
     private X86Core core;
 
+    /* 64-bit code, or 32-bit code (protected or compatibility mode). */
+    private boolean code64;
+    /* Segment override prefix (SEG_ES..SEG_GS), or -1. */
+    private int segOverride;
+
     /* Address of the instruction, including any prefix. */
     private long insnStart = 0;
     /* Address of the next byte to decode; after decoding, of the next instruction. */
@@ -52,9 +63,17 @@ public class X86Amd64 implements X86Core.iExecutor
     /* Repeat prefix: 0, 0xF2 (REPNE) or 0xF3 (REP/REPE). */
     private int rep;
 
-    /* ModR/M: reg and rm include the REX extension bits; ea is valid when mod != 3. */
+    /* ModR/M: reg and rm include the REX extension bits; ea is valid when mod != 3.
+     * ea is the linear address, offset the address within its segment (what
+     * LEA returns); they differ only for a segment with a base in 32-bit code. */
     private int mod, reg, rm;
     private long ea;
+    private long offset;
+
+    /* A data breakpoint the current instruction hit, reported once it has run, or -1. */
+    private int dataBreakpoint;
+    private long dataBreakpointAddr;
+    private boolean dataBreakpointWrite;
 
     /* Addresses of the most recently executed instructions, as a ring buffer.
      * Reported when execution stops on an unknown instruction, to show how
@@ -77,7 +96,21 @@ public class X86Amd64 implements X86Core.iExecutor
         rexW = rexR = rexX = rexB = 0;
         addr32 = false;
         rep = 0;
+        segOverride = -1;
         boolean opSize16 = false;
+        code64 = core.isLongMode() && core.isCodeLong();
+        if (!code64 && !core.isCodeSize32()) {
+            throw unknownOpcode("16-bit code; this executor runs 64-bit and 32-bit code");
+        }
+        dataBreakpoint = -1;
+        if (core.hasBreakpoints()) {
+            // An instruction breakpoint is a fault: it stops before the instruction.
+            int bp = core.breakpointHit(rip, 1, ACCESS_EXECUTE);
+            if (bp >= 0) {
+                throw unknownOpcode(String.format(
+                        "debug breakpoint %d: instruction at 0x%X (the #DB exception is not emulated)", bp, rip));
+            }
+        }
 
         int opcode;
         for (;;) {
@@ -85,15 +118,22 @@ public class X86Amd64 implements X86Core.iExecutor
             if (opcode == 0x66) {
                 opSize16 = true;
             } else if (opcode == 0x67) {
+                if (!code64) {
+                    throw unknownOpcode("prefix 0x67 (16-bit addressing)");
+                }
                 addr32 = true;
             } else if (opcode == 0xF2 || opcode == 0xF3) {
                 rep = opcode;
             } else if (opcode == 0xF0) {
                 // LOCK: there is one CPU, so every instruction is already atomic.
             } else if (opcode == 0x26 || opcode == 0x2E || opcode == 0x36 || opcode == 0x3E) {
-                // ES, CS, SS, DS overrides have no effect in 64-bit mode.
+                // ES, CS, SS, DS; in 64-bit code their bases are always 0.
+                segOverride = (opcode >>> 3) & 3;   // 26 -> ES, 2E -> CS, 36 -> SS, 3E -> DS
             } else if (opcode == 0x64 || opcode == 0x65) {
-                throw unknownOpcode(String.format("segment override 0x%02X (FS/GS)", opcode));
+                if (code64) {
+                    throw unknownOpcode(String.format("segment override 0x%02X (FS/GS)", opcode));
+                }
+                segOverride = opcode == 0x64 ? SEG_FS : SEG_GS;
             } else {
                 break;
             }
@@ -103,7 +143,8 @@ public class X86Amd64 implements X86Core.iExecutor
         }
 
         // A REX prefix counts only when it is the last byte before the opcode.
-        if ((opcode & 0xF0) == 0x40) {
+        // In 32-bit code these bytes are INC and DEC.
+        if (code64 && (opcode & 0xF0) == 0x40) {
             rexPresent = true;
             rexW = (opcode >> 3) & 1;
             rexR = (opcode >> 2) & 1;
@@ -120,8 +161,14 @@ public class X86Amd64 implements X86Core.iExecutor
         } else {
             executeOneByte(opcode);
         }
-        core.setPC64(ip);
+        core.setPC64(code64 ? ip : ip & 0xFFFFFFFFL);
         history[(int) (historyCount++ % HISTORY_SIZE)] = insnStart;
+        if (dataBreakpoint >= 0) {
+            // A data breakpoint is a trap: the instruction has run.
+            throw unknownOpcode(String.format(
+                    "debug breakpoint %d: %s 0x%X (the #DB exception is not emulated)", dataBreakpoint,
+                    dataBreakpointWrite ? "write to" : "read from", dataBreakpointAddr));
+        }
         return 1;
     }
 
@@ -173,7 +220,8 @@ public class X86Amd64 implements X86Core.iExecutor
      * machine state, so the caller gets an exception instead.
      */
     private X86UnknownOpcodeException unknownOpcode(String what) {
-        return new X86UnknownOpcodeException(core, insnStart, what, recentInstructions());
+        return new X86UnknownOpcodeException(core, insnStart,
+                code64 ? what : what + " in 32-bit code", recentInstructions());
     }
 
     @Override
@@ -266,7 +314,20 @@ public class X86Amd64 implements X86Core.iExecutor
         }
     }
 
+    /* Remember the first data breakpoint an access hits. */
+    private void watch(long addr, int size, int access) {
+        if (dataBreakpoint < 0) {
+            int bp = core.breakpointHit(addr, size, access);
+            if (bp >= 0) {
+                dataBreakpoint = bp;
+                dataBreakpointAddr = addr;
+                dataBreakpointWrite = access == ACCESS_WRITE;
+            }
+        }
+    }
+
     private long readMem(long addr, int size) {
+        if (core.hasBreakpoints()) watch(addr, size, ACCESS_READ);
         switch (size) {
             case 1: return core.readMem8(addr);
             case 2: return core.readMem16(addr);
@@ -276,6 +337,7 @@ public class X86Amd64 implements X86Core.iExecutor
     }
 
     private void writeMem(long addr, int size, long v) {
+        if (core.hasBreakpoints()) watch(addr, size, ACCESS_WRITE);
         switch (size) {
             case 1: core.writeMem8(addr, (int) (v & 0xFF)); break;
             case 2: core.writeMem16(addr, (int) (v & 0xFFFF)); break;
@@ -284,22 +346,65 @@ public class X86Amd64 implements X86Core.iExecutor
         }
     }
 
+    /* Linear address of an offset in a segment.  Only 32-bit code uses segment bases. */
+    private long linear(int seg, long off) {
+        return code64 ? off : (core.getSegBase(seg) + off) & 0xFFFFFFFFL;
+    }
+
+    /* The segment of a data access: the override prefix, or the default. */
+    private int dataSeg(int defaultSeg) {
+        return segOverride >= 0 ? segOverride : defaultSeg;
+    }
+
+    /* Address size in bytes: 8, or 4 with prefix 67, in 64-bit code; 4 in 32-bit code. */
+    private int addrSize() {
+        return code64 && !addr32 ? 8 : 4;
+    }
+
+    /* The stack is 64 bits wide in 64-bit code; in 32-bit code SS is a 32-bit segment. */
     private void push(long v, int size) {
-        long sp = reg64(RSP) - size;
-        writeMem(sp, size, v);
-        setReg64(RSP, sp);
+        if (code64) {
+            long sp = reg64(RSP) - size;
+            writeMem(sp, size, v);
+            setReg64(RSP, sp);
+        } else {
+            long sp = (reg64(RSP) - size) & 0xFFFFFFFFL;
+            writeMem(linear(SEG_SS, sp), size, v);
+            setReg(RSP, 4, sp);
+        }
     }
 
     private long pop(int size) {
-        long sp = reg64(RSP);
-        long v = readMem(sp, size);
-        setReg64(RSP, sp + size);
+        long sp = code64 ? reg64(RSP) : reg64(RSP) & 0xFFFFFFFFL;
+        long v = readMem(linear(SEG_SS, sp), size);
+        addStack(size);
         return v;
     }
 
-    /* PUSH and POP use 8 bytes unless prefix 66 selects 2. */
+    /* RSP += delta, or ESP in 32-bit code. */
+    private void addStack(long delta) {
+        if (code64) {
+            setReg64(RSP, reg64(RSP) + delta);
+        } else {
+            setReg(RSP, 4, reg64(RSP) + delta);
+        }
+    }
+
+    /* PUSH and POP use 8 bytes (4 in 32-bit code) unless prefix 66 selects 2. */
     private int stackSize() {
-        return opSize == 2 ? 2 : 8;
+        return opSize == 2 ? 2 : code64 ? 8 : 4;
+    }
+
+    /*
+     * Size of a near branch target and return address: 8 in 64-bit code, 4
+     * in 32-bit code.  With prefix 66 a branch in 32-bit code uses a 16-bit
+     * IP, which is not implemented.
+     */
+    private int nearSize() throws X86UnknownOpcodeException {
+        if (!code64 && opSize == 2) {
+            throw unknownOpcode("near branch with prefix 0x66 (16-bit IP)");
+        }
+        return code64 ? 8 : 4;
     }
 
     /* ---------------- ModR/M ---------------- */
@@ -322,6 +427,7 @@ public class X86Amd64 implements X86Core.iExecutor
 
         long addr;
         boolean ripRelative = false;
+        int defaultSeg = SEG_DS;                    // SS when the base is rSP or rBP
         if (rm == 4) {
             int sib = fetch8();
             int scale = sib >>> 6;
@@ -331,15 +437,17 @@ public class X86Amd64 implements X86Core.iExecutor
                 addr = fetch32();                   // disp32, no base register
             } else {
                 addr = reg64(base | (rexB << 3));
+                if (base == RSP || base == RBP) defaultSeg = SEG_SS;
             }
             if (index != 4) {                       // index 4 without REX.X: no index
                 addr += reg64(index) << scale;
             }
         } else if (rm == 5 && mod == 0) {
-            addr = fetch32();
-            ripRelative = true;
+            addr = fetch32();                       // RIP-relative; absolute in 32-bit code
+            ripRelative = code64;
         } else {
             addr = reg64(rm | (rexB << 3));
+            if (rm == RBP) defaultSeg = SEG_SS;
         }
         if (mod == 1) {
             addr += (byte) fetch8();
@@ -349,7 +457,8 @@ public class X86Amd64 implements X86Core.iExecutor
         if (ripRelative) {
             addr += ip + immBytes;
         }
-        ea = addr32 ? addr & 0xFFFFFFFFL : addr;
+        offset = addrSize() == 4 ? addr & 0xFFFFFFFFL : addr;
+        ea = linear(dataSeg(defaultSeg), offset);
     }
 
     /* The /digit of a group opcode: the reg field without the REX.R bit. */
@@ -455,6 +564,13 @@ public class X86Amd64 implements X86Core.iExecutor
     /* ---------------- one-byte opcodes ---------------- */
 
     private void executeOneByte(int opcode) throws Exception {
+        // INC r, DEC r: 40..4F, in 32-bit code only (in 64-bit code they are REX)
+        if (!code64 && (opcode & 0xF0) == 0x40) {
+            int r = opcode & 7;
+            setReg(r, opSize, incDec(getReg(r, opSize), opSize, opcode >= 0x48));
+            return;
+        }
+
         // ADD, OR, ADC, SBB, AND, SUB, XOR, CMP: 00..3F, six forms each
         if (opcode < 0x40 && (opcode & 7) < 6) {
             int op = opcode >>> 3;
@@ -488,6 +604,7 @@ public class X86Amd64 implements X86Core.iExecutor
 
         // Jcc rel8: 70..7F
         if ((opcode & 0xF0) == 0x70) {
+            nearSize();
             long rel = fetchImm8();
             if (condition(opcode & 0xF)) ip += rel;
             return;
@@ -518,7 +635,68 @@ public class X86Amd64 implements X86Core.iExecutor
         }
 
         switch (opcode) {
-            case 0x63: {                            // MOVSXD r, r/m32
+            case 0x06: case 0x0E: case 0x16: case 0x1E:     // PUSH ES, CS, SS, DS (32-bit code)
+                if (code64) break;
+                push(core.getSegSelector(opcode >>> 3), stackSize());
+                return;
+            case 0x07: case 0x17: case 0x1F:                // POP ES, SS, DS (32-bit code)
+                if (code64) break;
+                loadSegment(opcode >>> 3, (int) pop(stackSize()) & 0xFFFF);
+                return;
+            case 0x8C: {                            // MOV r/m, Sreg
+                int seg = peekGroup();
+                if (seg >= SEG_COUNT) break;
+                decodeModRm(0);
+                writeRm(mod == 3 ? opSize : 2, core.getSegSelector(seg));
+                return;
+            }
+            case 0x8E: {                            // MOV Sreg, r/m
+                int seg = peekGroup();
+                if (seg >= SEG_COUNT || seg == SEG_CS) break;
+                decodeModRm(0);
+                loadSegment(seg, (int) readRm(2));
+                return;
+            }
+            case 0x9A: {                            // CALL ptr16:32 (32-bit code)
+                if (code64) break;
+                long target = farOffsetImm();
+                int selector = fetch16();
+                farCall(selector, target);
+                return;
+            }
+            case 0xEA: {                            // JMP ptr16:32 (32-bit code)
+                if (code64) break;
+                long target = farOffsetImm();
+                farJump(fetch16(), target);
+                return;
+            }
+            case 0xCA:                              // RETF imm16
+            case 0xCB: {                            // RETF
+                int extra = opcode == 0xCA ? fetch16() : 0;
+                int size = farSize();
+                long target = pop(size);
+                int selector = (int) pop(size) & 0xFFFF;
+                addStack(extra);
+                farJump(selector, target);
+                return;
+            }
+            case 0x60: {                            // PUSHA/PUSHAD (32-bit code)
+                if (code64) break;
+                long sp = getReg(RSP, opSize);
+                for (int r = RAX; r <= RDI; r++) {
+                    push(r == RSP ? sp : getReg(r, opSize), opSize);
+                }
+                return;
+            }
+            case 0x61:                              // POPA/POPAD (32-bit code); the saved rSP is skipped
+                if (code64) break;
+                for (int r = RDI; r >= RAX; r--) {
+                    long v = pop(opSize);
+                    if (r != RSP) setReg(r, opSize, v);
+                }
+                return;
+            case 0x63: {                            // MOVSXD r, r/m32 (ARPL in 32-bit code)
+                if (!code64) break;
                 decodeModRm(0);
                 if (opSize == 8) {
                     setReg(reg, 8, sx(readRm(4), 4));
@@ -547,8 +725,10 @@ public class X86Amd64 implements X86Core.iExecutor
 
             case 0x80:                              // group 1: r/m8, imm8
             case 0x81:                              // group 1: r/m, imm32
+            case 0x82:                              // the same as 80, 32-bit code only
             case 0x83: {                            // group 1: r/m, imm8
-                int size = opcode == 0x80 ? 1 : opSize;
+                if (opcode == 0x82 && code64) break;
+                int size = opcode == 0x80 || opcode == 0x82 ? 1 : opSize;
                 decodeModRm(opcode == 0x81 ? immZBytes() : 1);
                 long imm = opcode == 0x81 ? fetchImmZ() : fetchImm8();
                 long res = alu(group(), readRm(size), imm, size);
@@ -588,7 +768,7 @@ public class X86Amd64 implements X86Core.iExecutor
             case 0x8D: {                            // LEA r, m
                 decodeModRm(0);
                 if (mod == 3) break;
-                setReg(reg, opSize, ea);
+                setReg(reg, opSize, offset);
                 return;
             }
             case 0x8F: {                            // POP r/m
@@ -622,7 +802,8 @@ public class X86Amd64 implements X86Core.iExecutor
 
             case 0xA0: case 0xA1: case 0xA2: case 0xA3: {   // MOV AL/rAX <-> absolute address
                 int size = (opcode & 1) == 0 ? 1 : opSize;
-                long addr = addr32 ? fetch32() & 0xFFFFFFFFL : fetch64();
+                long addr = addrSize() == 4 ? fetch32() & 0xFFFFFFFFL : fetch64();
+                addr = linear(dataSeg(SEG_DS), addr);
                 if (opcode < 0xA2) {
                     setReg(RAX, size, readMem(addr, size));
                 } else {
@@ -653,12 +834,12 @@ public class X86Amd64 implements X86Core.iExecutor
             }
             case 0xC2: {                            // RET imm16
                 int extra = fetch16();
-                ip = pop(8);
-                setReg64(RSP, reg64(RSP) + extra);
+                ip = pop(nearSize());
+                addStack(extra);
                 return;
             }
             case 0xC3:                              // RET
-                ip = pop(8);
+                ip = pop(nearSize());
                 return;
             case 0xC6:                              // MOV r/m8, imm8
             case 0xC7: {                            // MOV r/m, imm32
@@ -669,8 +850,13 @@ public class X86Amd64 implements X86Core.iExecutor
                 return;
             }
             case 0xC9:                              // LEAVE
-                setReg64(RSP, reg64(RBP));
-                setReg64(RBP, pop(8));
+                if (code64) {
+                    setReg64(RSP, reg64(RBP));
+                    setReg64(RBP, pop(8));
+                } else {
+                    setReg(RSP, 4, reg64(RBP));
+                    setReg(RBP, stackSize(), pop(stackSize()));
+                }
                 return;
             case 0xCC:                              // INT3
                 core.handleInt(3);
@@ -680,8 +866,9 @@ public class X86Amd64 implements X86Core.iExecutor
                 return;
 
             case 0xE0: case 0xE1: case 0xE2: {      // LOOPNE, LOOPE, LOOP
+                nearSize();
                 long rel = fetchImm8();
-                int size = addr32 ? 4 : 8;
+                int size = addrSize();
                 long count = (getReg(RCX, size) - 1) & mask(size);
                 setReg(RCX, size, count);
                 boolean taken = count != 0
@@ -689,9 +876,10 @@ public class X86Amd64 implements X86Core.iExecutor
                 if (taken) ip += rel;
                 return;
             }
-            case 0xE3: {                            // JRCXZ
+            case 0xE3: {                            // JRCXZ, JECXZ
+                nearSize();
                 long rel = fetchImm8();
-                if (getReg(RCX, addr32 ? 4 : 8) == 0) ip += rel;
+                if (getReg(RCX, addrSize()) == 0) ip += rel;
                 return;
             }
             case 0xE4: case 0xE5: {                 // IN AL/eAX, imm8
@@ -715,17 +903,20 @@ public class X86Amd64 implements X86Core.iExecutor
                 return;
             }
             case 0xE8: {                            // CALL rel32
+                int size = nearSize();
                 long rel = fetch32();
-                push(ip, 8);
+                push(ip, size);
                 ip += rel;
                 return;
             }
             case 0xE9: {                            // JMP rel32
+                nearSize();
                 long rel = fetch32();
                 ip += rel;
                 return;
             }
             case 0xEB: {                            // JMP rel8
+                nearSize();
                 long rel = fetchImm8();
                 ip += rel;
                 return;
@@ -771,20 +962,33 @@ public class X86Amd64 implements X86Core.iExecutor
             }
             case 0xFF: {                            // group 5
                 int sub = peekGroup();
-                if (sub == 3 || sub == 5 || sub == 7) break;    // far CALL, far JMP
+                boolean far = sub == 3 || sub == 5;
+                if (sub == 7 || far && (core.readMem8(ip) >>> 6) == 3) break;
                 decodeModRm(0);
+                if (far) {                          // far CALL, far JMP through m16:32 / m16:64
+                    int size = farSize();
+                    long target = readMem(ea, size);
+                    int selector = (int) readMem(linear(dataSeg(SEG_DS), offset + size), 2);
+                    if (sub == 3) {
+                        farCall(selector, target);
+                    } else {
+                        farJump(selector, target);
+                    }
+                    return;
+                }
                 switch (sub) {
                     case 0: case 1:                 // INC, DEC r/m
                         writeRm(opSize, incDec(readRm(opSize), opSize, sub == 1));
                         break;
-                    case 2: {                       // CALL r/m64
-                        long target = readRm(8);
-                        push(ip, 8);
+                    case 2: {                       // CALL r/m64 (r/m32 in 32-bit code)
+                        int size = nearSize();
+                        long target = readRm(size);
+                        push(ip, size);
                         ip = target;
                         break;
                     }
-                    case 4:                         // JMP r/m64
-                        ip = readRm(8);
+                    case 4:                         // JMP r/m64 (r/m32 in 32-bit code)
+                        ip = readRm(nearSize());
                         break;
                     default:                        // PUSH r/m
                         push(readRm(stackSize()), stackSize());
@@ -795,7 +999,8 @@ public class X86Amd64 implements X86Core.iExecutor
         }
 
         String name = String.format("opcode 0x%02X", opcode);
-        if (opcode == 0x8F || opcode == 0xC6 || opcode == 0xC7 || opcode == 0xFE || opcode == 0xFF) {
+        if (opcode == 0x8F || opcode == 0xC6 || opcode == 0xC7 || opcode == 0xFE || opcode == 0xFF
+                || opcode == 0x8C || opcode == 0x8E) {
             name += " /" + peekGroup();             // the /digit selects the instruction
         }
         throw unknownOpcode(name);
@@ -976,7 +1181,9 @@ public class X86Amd64 implements X86Core.iExecutor
     private void stringOp(int opcode) {
         int size = (opcode & 1) == 0 ? 1 : opSize;
         if (opcode < 0x70 && size == 8) size = 4;   // INS and OUTS have no 64-bit form
-        int addrSize = addr32 ? 4 : 8;
+        int addrSize = addrSize();
+        // The source is DS:rSI (or an override), the destination always ES:rDI.
+        int srcSeg = dataSeg(SEG_DS);
         long delta = flag(DF) ? -size : size;
         boolean compares = (opcode & 0xFE) == 0xA6 || (opcode & 0xFE) == 0xAE;
 
@@ -986,34 +1193,36 @@ public class X86Amd64 implements X86Core.iExecutor
         for (;;) {
             long si = getReg(RSI, addrSize);
             long di = getReg(RDI, addrSize);
+            long src = linear(srcSeg, si);
+            long dst = linear(SEG_ES, di);
             boolean usesSi = false, usesDi = false;
             switch (opcode & 0xFE) {
                 case 0xA4:                          // MOVS
-                    writeMem(di, size, readMem(si, size));
+                    writeMem(dst, size, readMem(src, size));
                     usesSi = usesDi = true;
                     break;
                 case 0xA6:                          // CMPS
-                    sub(readMem(si, size), readMem(di, size), 0, size, STATUS);
+                    sub(readMem(src, size), readMem(dst, size), 0, size, STATUS);
                     usesSi = usesDi = true;
                     break;
                 case 0xAA:                          // STOS
-                    writeMem(di, size, getReg(RAX, size));
+                    writeMem(dst, size, getReg(RAX, size));
                     usesDi = true;
                     break;
                 case 0xAC:                          // LODS
-                    setReg(RAX, size, readMem(si, size));
+                    setReg(RAX, size, readMem(src, size));
                     usesSi = true;
                     break;
                 case 0xAE:                          // SCAS
-                    sub(getReg(RAX, size), readMem(di, size), 0, size, STATUS);
+                    sub(getReg(RAX, size), readMem(dst, size), 0, size, STATUS);
                     usesDi = true;
                     break;
                 case 0x6C:                          // INS
-                    writeMem(di, size, portIn((int) getReg(RDX, 2), size));
+                    writeMem(dst, size, portIn((int) getReg(RDX, 2), size));
                     usesDi = true;
                     break;
                 default:                            // OUTS
-                    portOut((int) getReg(RDX, 2), size, readMem(si, size));
+                    portOut((int) getReg(RDX, 2), size, readMem(src, size));
                     usesSi = true;
                     break;
             }
@@ -1048,6 +1257,7 @@ public class X86Amd64 implements X86Core.iExecutor
         }
         // Jcc rel32: 0F 80..8F
         if ((op2 & 0xF0) == 0x80) {
+            nearSize();
             long rel = fetch32();
             if (condition(op2 & 0xF)) ip += rel;
             return;
@@ -1075,6 +1285,62 @@ public class X86Amd64 implements X86Core.iExecutor
         }
 
         switch (op2) {
+            case 0x01: {                            // group 7: SGDT, SIDT, LGDT, LIDT, INVLPG
+                int sub = peekGroup();
+                if ((core.readMem8(ip) >>> 6) == 3 || sub == 4 || sub == 5 || sub == 6) break;
+                decodeModRm(0);
+                descriptorTable(sub);
+                return;
+            }
+            case 0x20:                              // MOV r, CRn
+            case 0x22: {                            // MOV CRn, r
+                // The r/m operand is always a register, whatever the mod field says.
+                int modrm = fetch8();
+                int cr = ((modrm >>> 3) & 7) | (rexR << 3);
+                int r = (modrm & 7) | (rexB << 3);
+                int size = code64 ? 8 : 4;
+                if (op2 == 0x20) {
+                    setReg(r, size, readCr(cr));
+                } else {
+                    writeCr(cr, getReg(r, size));
+                }
+                return;
+            }
+            case 0x21:                              // MOV r, DRn
+            case 0x23: {                            // MOV DRn, r
+                int modrm = fetch8();
+                int dr = ((modrm >>> 3) & 7) | (rexR << 3);
+                int r = (modrm & 7) | (rexB << 3);
+                if (dr > 7) {
+                    throw unknownOpcode("MOV with DR" + dr);
+                }
+                if (dr == 4 || dr == 5) {
+                    dr += 2;                        // DR6 and DR7, as with CR4.DE clear
+                }
+                int size = code64 ? 8 : 4;
+                if (op2 == 0x21) {
+                    setReg(r, size, core.getDebugReg(dr));
+                } else {
+                    core.setDebugReg(dr, getReg(r, size));
+                }
+                return;
+            }
+            case 0x30:                              // WRMSR
+                writeMsr((int) getReg(RCX, 4), (getReg(RDX, 4) << 32) | getReg(RAX, 4));
+                return;
+            case 0x32: {                            // RDMSR
+                long v = readMsr((int) getReg(RCX, 4));
+                setReg(RAX, 4, v & 0xFFFFFFFFL);
+                setReg(RDX, 4, v >>> 32);
+                return;
+            }
+            case 0xA0: case 0xA8:                   // PUSH FS, PUSH GS
+                push(core.getSegSelector(op2 == 0xA0 ? SEG_FS : SEG_GS), stackSize());
+                return;
+            case 0xA1: case 0xA9:                   // POP FS, POP GS
+                if (code64) break;                  // the FS/GS base would come from the descriptor
+                loadSegment(op2 == 0xA1 ? SEG_FS : SEG_GS, (int) pop(stackSize()) & 0xFFFF);
+                return;
             case 0x05:                              // SYSCALL: there is no kernel entry to call
             case 0x07:                              // SYSRET
                 return;
@@ -1154,7 +1420,242 @@ public class X86Amd64 implements X86Core.iExecutor
         }
 
         String name = String.format("opcode 0x0F 0x%02X", op2);
-        throw unknownOpcode(op2 == 0xBA ? name + " /" + peekGroup() : name);
+        throw unknownOpcode(op2 == 0xBA || op2 == 0x01 ? name + " /" + peekGroup() : name);
+    }
+
+    /* ---------------- system instructions ---------------- */
+
+    /*
+     * The CPU always runs at privilege level 0.  Segment limits are not
+     * checked, and paging is not translated: long mode relies on the
+     * identity mapping UEFI firmware sets up, and turning paging on outside
+     * long mode stops with an error.  So do LDT selectors, other privilege
+     * levels and MSRs other than EFER.
+     */
+
+    /* SGDT (0), SIDT (1), LGDT (2), LIDT (3), INVLPG (7) on the decoded memory operand. */
+    private void descriptorTable(int sub) throws X86UnknownOpcodeException {
+        int baseSize = code64 ? 8 : 4;
+        long baseAddr = linear(dataSeg(SEG_DS), offset + 2);
+        switch (sub) {
+            case 0:
+            case 1: {
+                boolean gdt = sub == 0;
+                writeMem(ea, 2, gdt ? core.getGdtLimit() : core.getIdtLimit());
+                writeMem(baseAddr, baseSize, gdt ? core.getGdtBase64() : core.getIdtBase());
+                return;
+            }
+            case 2:
+            case 3: {
+                int limit = (int) readMem(ea, 2);
+                long base = readMem(baseAddr, baseSize);
+                if (!code64 && opSize == 2) {
+                    base &= 0xFFFFFF;               // a 16-bit operand loads a 24-bit base
+                }
+                if (sub == 2) {
+                    core.setGdt(base, limit);
+                } else {
+                    core.setIdt(base, limit);
+                }
+                return;
+            }
+            default:                                // INVLPG: there is no TLB
+                return;
+        }
+    }
+
+    private long readCr(int cr) throws X86UnknownOpcodeException {
+        switch (cr) {
+            case 0: return core.getCr0();
+            case 2: return core.getCr2();
+            case 3: return core.getCr3();
+            case 4: return core.getCr4();
+            default: throw unknownOpcode("MOV from CR" + cr);
+        }
+    }
+
+    /*
+     * Writing CR0 and CR4 follows the rules for entering and leaving long
+     * mode: setting CR0.PG with EFER.LME (and CR4.PAE) activates it, clearing
+     * CR0.PG deactivates it.
+     */
+    private void writeCr(int cr, long v) throws X86UnknownOpcodeException {
+        long efer = core.getEfer();
+        switch (cr) {
+            case 0: {
+                v = (v | 0x10) & 0xFFFFFFFFL;       // ET is always 1
+                boolean paging = (v & X86Core.CR0_PG) != 0;
+                boolean wasPaging = (core.getCr0() & X86Core.CR0_PG) != 0;
+                if ((v & X86Core.CR0_PE) == 0) {
+                    throw unknownOpcode("MOV CR0 that leaves protected mode");
+                }
+                if (paging && !wasPaging) {
+                    if ((efer & X86Core.EFER_LME) == 0) {
+                        throw unknownOpcode("MOV CR0 that turns on paging outside long mode");
+                    }
+                    if ((core.getCr4() & X86Core.CR4_PAE) == 0) {
+                        throw unknownOpcode("MOV CR0 that enters long mode without CR4.PAE");
+                    }
+                    efer |= X86Core.EFER_LMA;
+                } else if (!paging && wasPaging) {
+                    if (code64) {
+                        throw unknownOpcode("MOV CR0 that turns off paging in 64-bit code");
+                    }
+                    efer &= ~X86Core.EFER_LMA;
+                }
+                core.setCr0(v);
+                core.setEfer(efer);
+                return;
+            }
+            case 2:
+                core.setCr2(v);
+                return;
+            case 3:
+                core.setCr3(v);
+                return;
+            case 4:
+                if ((efer & X86Core.EFER_LMA) != 0 && (v & X86Core.CR4_PAE) == 0) {
+                    throw unknownOpcode("MOV CR4 that clears PAE in long mode");
+                }
+                core.setCr4(v);
+                return;
+            default:
+                throw unknownOpcode("MOV to CR" + cr);
+        }
+    }
+
+    private long readMsr(int msr) throws X86UnknownOpcodeException {
+        if (msr == X86Core.MSR_EFER) {
+            return core.getEfer();
+        }
+        throw unknownOpcode(String.format("RDMSR 0x%X", msr));
+    }
+
+    private void writeMsr(int msr, long v) throws X86UnknownOpcodeException {
+        if (msr != X86Core.MSR_EFER) {
+            throw unknownOpcode(String.format("WRMSR 0x%X", msr));
+        }
+        long old = core.getEfer();
+        if ((core.getCr0() & X86Core.CR0_PG) != 0 && ((old ^ v) & X86Core.EFER_LME) != 0) {
+            throw unknownOpcode("WRMSR that changes EFER.LME while paging is on");
+        }
+        // LMA cannot be written; it follows CR0.PG.
+        core.setEfer((v & ~X86Core.EFER_LMA) | (old & X86Core.EFER_LMA));
+    }
+
+    /* The 8-byte GDT descriptor of a selector. */
+    private long descriptor(int selector, String what) throws X86UnknownOpcodeException {
+        if ((selector & 4) != 0) {
+            throw unknownOpcode(String.format("%s: selector 0x%X is in the LDT", what, selector));
+        }
+        int index = selector & ~7;
+        if (index + 7 > core.getGdtLimit()) {
+            throw unknownOpcode(String.format("%s: selector 0x%X is outside the GDT", what, selector));
+        }
+        long d = core.readMem64(core.getGdtBase64() + index);
+        if ((d & (1L << 47)) == 0) {
+            throw unknownOpcode(String.format("%s: segment 0x%X is not present", what, selector));
+        }
+        if ((d & (1L << 44)) == 0) {
+            throw unknownOpcode(String.format("%s: selector 0x%X is a system segment", what, selector));
+        }
+        return d;
+    }
+
+    private static int descriptorBase(long d) {
+        return (int) (((d >>> 16) & 0xFFFFFF) | ((d >>> 56) << 24));
+    }
+
+    /* Load a data segment register (not CS) from the GDT. */
+    private void loadSegment(int seg, int selector) throws X86UnknownOpcodeException {
+        String what = "load " + "ECSDFG".charAt(seg) + "S";
+        int base = 0;
+        if ((selector & ~3) == 0) {
+            // The null selector; only SS outside 64-bit code needs a real segment.
+            if (seg == SEG_SS && !code64) {
+                throw unknownOpcode(what + ": null selector");
+            }
+        } else {
+            if ((selector & 3) != 0) {
+                throw unknownOpcode(String.format("%s: selector 0x%X has privilege level %d",
+                        what, selector, selector & 3));
+            }
+            long d = descriptor(selector, what);
+            boolean code = (d & (1L << 43)) != 0;
+            boolean writableOrReadable = (d & (1L << 41)) != 0;
+            if (seg == SEG_SS ? code || !writableOrReadable : code && !writableOrReadable) {
+                throw unknownOpcode(String.format("%s: segment 0x%X cannot be used here", what, selector));
+            }
+            if (seg == SEG_SS && !code64 && (d & (1L << 54)) == 0) {
+                throw unknownOpcode(String.format("%s: segment 0x%X is a 16-bit stack", what, selector));
+            }
+            base = descriptorBase(d);
+        }
+        core.setSegSelector(seg, selector);
+        core.setSegBase(seg, base);
+    }
+
+    /* Size of a far pointer's offset: 4, or 8 with REX.W.  16-bit offsets are not implemented. */
+    private int farSize() throws X86UnknownOpcodeException {
+        if (opSize == 2) {
+            throw unknownOpcode("far branch with a 16-bit offset");
+        }
+        return opSize;
+    }
+
+    /* The offset of an immediate far pointer (ptr16:32). */
+    private long farOffsetImm() throws X86UnknownOpcodeException {
+        farSize();
+        return fetch32() & 0xFFFFFFFFL;
+    }
+
+    private void farCall(int selector, long target) throws X86UnknownOpcodeException {
+        int size = farSize();
+        long returnTo = ip;
+        int cs = core.getSegSelector(SEG_CS);
+        // The target is checked before anything is pushed.
+        long d = codeDescriptor(selector);
+        push(cs, size);
+        push(returnTo, size);
+        enterCode(selector, d, target);
+    }
+
+    private void farJump(int selector, long target) throws X86UnknownOpcodeException {
+        enterCode(selector, codeDescriptor(selector), target);
+    }
+
+    private long codeDescriptor(int selector) throws X86UnknownOpcodeException {
+        String what = "far branch";
+        if ((selector & 3) != 0) {
+            throw unknownOpcode(String.format("%s: selector 0x%X has privilege level %d",
+                    what, selector, selector & 3));
+        }
+        if ((selector & ~3) == 0) {
+            throw unknownOpcode(what + ": null selector");
+        }
+        long d = descriptor(selector, what);
+        if ((d & (1L << 43)) == 0) {
+            throw unknownOpcode(String.format("%s: segment 0x%X is not a code segment", what, selector));
+        }
+        if (descriptorBase(d) != 0) {
+            throw unknownOpcode(String.format("%s: code segment 0x%X has a base", what, selector));
+        }
+        return d;
+    }
+
+    /*
+     * Continue at target in the code segment.  Its L and D bits decide
+     * whether the next instruction is 64-bit, 32-bit or (not supported)
+     * 16-bit code.
+     */
+    private void enterCode(int selector, long d, long target) {
+        boolean longSegment = core.isLongMode() && (d & (1L << 53)) != 0;
+        core.setSegSelector(SEG_CS, selector);
+        core.setSegBase(SEG_CS, 0);
+        core.setCodeLong(longSegment);
+        core.setCodeSize32(!longSegment && (d & (1L << 54)) != 0);
+        ip = longSegment ? target : target & 0xFFFFFFFFL;
+        code64 = longSegment;
     }
 
     /**

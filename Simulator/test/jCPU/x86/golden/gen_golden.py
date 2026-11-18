@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Generate x86_64.golden: instruction snippets with the result the real CPU gives.
+"""Generate x86_64.golden and x86_32.golden: instruction snippets with the
+result the real CPU gives, for 64-bit and for 32-bit code.
 
-Needs an x86-64 Linux machine with gcc and binutils.  See README.md.
+Needs an x86-64 Linux machine with gcc and binutils that can build 32-bit
+code (gcc -m32).  See README.md.
 """
 import os
 import subprocess
@@ -339,20 +341,277 @@ case('mov rcx, 0x200100\n xor edx, edx\n 1: movzx eax, byte ptr [rcx+rdx]\n add 
      ' rol ebx, 3\n inc rdx\n cmp rdx, 64\n jb 1b')
 
 
+# ================================================================ 32-bit code
+# The same kinds of cases for 32-bit protected mode.  There is no REX, so
+# 40..4F are INC and DEC, there are no r8..r15, and [disp32] is absolute.
+REGS32 = REGS[:8]
+# How the 32-bit golden file names them.
+NAMES32 = ['eax', 'ecx', 'edx', 'ebx', 'esp', 'ebp', 'esi', 'edi']
+DEFAULT32 = dict(rax=0x55667788, rcx=0xC3, rdx=0x76543210, rbx=0x80000001, rsp=0x308000,
+                 rbp=0x200300, rsi=0x200200, rdi=0x200100)
+EDGE32 = dict(rax=0, rdx=0xFFFFFFFF, rbx=0x7FFFFFFF, rcx=1)
+
+cases32 = []
+
+
+def case32(asm, regs=None, flags=0, undef=0, code=None):
+    cases32.append(dict(asm=asm, regs=dict(regs or {}), flags=flags, undef=undef, code=code))
+
+
+def both32(asm, flags=0, undef=0):
+    case32(asm, flags=flags, undef=undef)
+    case32(asm, regs=EDGE32, flags=flags, undef=undef)
+
+
+for op in ['add', 'or', 'adc', 'sbb', 'and', 'sub', 'xor', 'cmp']:
+    undef = AF if op in ('or', 'and', 'xor') else 0
+    for operands in [
+            'al, bl', 'ah, bl', 'bl, ah', 'ch, dl', 'ax, dx', 'eax, edx', 'ebx, eax',
+            'esi, edi', '[edi], eax', 'dword ptr [esi+8], edx', 'byte ptr [edi], bl',
+            'word ptr [ebp+0x10], dx', '[edi+ecx*2+0x10], ebx', 'eax, [ebp]',
+            'bl, [esi+0x1234]', 'dx, [edi]', 'al, 0x7f', 'ax, 0x8001', 'eax, 0x12345678',
+            'eax, -0x12345678', 'ebx, 1', 'ebx, -1', 'bx, 0x7fff', 'bl, 0x80',
+            'word ptr [edi], 0x1234', 'byte ptr [esi], 0x80', 'dword ptr [edi+8], -2',
+            'dword ptr [ebp+0x100], 0x12345678', 'dword ptr [0x200040], 7']:
+        for flags in ([0, CF] if op in ('adc', 'sbb') else [0]):
+            both32('%s %s' % (op, operands), flags=flags, undef=undef)
+    # 82 is the same as 80 in 32-bit code; the assembler never emits it.
+    case32('.byte 0x82, 0xc3 + 8 * %d, 0x81' % ['add', 'or', 'adc', 'sbb', 'and', 'sub', 'xor', 'cmp'].index(op),
+           undef=undef)
+
+for operands in ['al, bl', 'eax, edx', 'bx, dx', '[edi], ebx', 'byte ptr [esi], 0x80', 'al, 0x81',
+                 'eax, 0x80000000', 'ebx, 0x10', 'bh, 0x80', 'dword ptr [ebp], 0xff00']:
+    both32('test ' + operands, flags=CF | OF, undef=AF)
+
+# inc/dec of a 32 or 16-bit register is the one-byte form 40..4F.
+for op in ['inc', 'dec', 'neg', 'not']:
+    for operand in ['al', 'bh', 'bx', 'eax', 'ebx', 'esp', 'edi', 'si', 'byte ptr [edi]',
+                    'word ptr [esi+2]', 'dword ptr [ebp]', 'dword ptr [edi+ecx*4]']:
+        both32('%s %s' % (op, operand), flags=CF)
+        both32('%s %s' % (op, operand), flags=0)
+
+BITS32 = {'al': 8, 'bh': 8, 'bx': 16, 'edx': 32, 'esi': 32, 'byte ptr [edi]': 8,
+          'word ptr [esi]': 16, 'dword ptr [ebp]': 32}
+for op in ['rol', 'ror', 'rcl', 'rcr', 'shl', 'shr', 'sar']:
+    for operand, bits in BITS32.items():
+        def shift_case32(count, text, regs=None):
+            masked = count & 31
+            undef = 0
+            if masked != 0:
+                if masked != 1:
+                    undef |= OF
+                if op in ('shl', 'shr', 'sar'):
+                    undef |= AF
+                    if masked >= bits:
+                        undef |= CF
+            for flags in ((0, CF) if op in ('rcl', 'rcr') else (0,)):
+                case32('%s %s, %s' % (op, operand, text), regs=regs, flags=flags, undef=undef)
+                if regs is None:
+                    case32('%s %s, %s' % (op, operand, text), regs=EDGE32, flags=flags, undef=undef)
+        for count in (1, 3, 7, 8, 9, 16, 17, 31, 32, 33):
+            shift_case32(count, str(count))
+        case32('%s %s, 1' % (op, operand), flags=OF | CF,
+               undef=AF if op in ('shl', 'shr', 'sar') else 0)
+        for count in (0, 1, 4, 9, 17, 31, 32, 37, 255):
+            shift_case32(count, 'cl', regs=dict(rcx=count))
+
+MEMS32 = ['[edi]', '[edi+8]', '[edi-8]', '[edi+0x1000]', '[esp]', '[esp+8]', '[esp-0x100]',
+          '[ebp]', '[ebp+8]', '[ebp+0x400]', '[esi+0x7f]', '[esi-0x80]', '[esi+0x80]',
+          '[edi+ecx]', '[edi+ecx*2]', '[edi+ecx*4+4]', '[edi+ecx*8+0x100]', '[ebp+ecx*2]',
+          '[esp+ecx*8]', '[ecx*8+0x200000]', '[ecx*4+0x200020]', '[0x200040]',
+          '[esi+edi*1-0x200000]', '[ebp+esi*1-0x200000]']
+for mem in MEMS32:
+    case32('lea eax, %s' % mem)
+    case32('lea si, %s' % mem)
+    case32('mov eax, %s' % mem)
+    case32('mov bx, word ptr %s' % mem)
+    case32('mov dl, byte ptr %s' % mem)
+    case32('movzx eax, byte ptr %s' % mem)
+    case32('mov %s, edx' % mem)
+    case32('mov word ptr %s, bx' % mem)
+    case32('mov byte ptr %s, ah' % mem)
+    case32('mov dword ptr %s, 0x89abcdef' % mem)
+    case32('mov word ptr %s, 0x1234' % mem)
+    case32('mov byte ptr %s, 0x5a' % mem)
+    case32('add byte ptr %s, 0x11' % mem)
+    case32('cmp dword ptr %s, 0x7f' % mem)
+    case32('imul eax, dword ptr %s, 0x1234' % mem, undef=SF | ZF | AF | PF)
+    case32('shl dword ptr %s, 5' % mem, undef=OF | AF)
+    case32('test dword ptr %s, 0x8000' % mem, undef=AF)
+
+for asm in ['mov eax, 0x80000000', 'mov ebx, -1', 'mov esi, 0x12345678', 'mov ax, 0x1234',
+            'mov di, 0xffff', 'mov al, 0x12', 'mov ah, 0x34', 'mov bh, 0x56', 'mov dl, 0x78',
+            'mov ebx, eax', 'mov eax, ebx', 'mov esi, edx', 'mov bx, dx', 'mov bl, al',
+            'mov ah, bl', 'mov bl, ah', 'mov ch, dh',
+            'mov al, [0x200010]', 'mov ax, [0x200010]', 'mov eax, [0x200010]',
+            'mov [0x200010], al', 'mov [0x200010], ax', 'mov [0x200010], eax',
+            'movzx eax, bl', 'movzx eax, bh', 'movzx ax, bl', 'movzx eax, bx',
+            'movzx esi, word ptr [edi]', 'movsx eax, bl', 'movsx eax, bh', 'movsx ax, bl',
+            'movsx eax, bx', 'movsx edx, byte ptr [esi+1]', 'movsx esi, word ptr [edi]',
+            'xchg eax, ebx', 'xchg eax, esi', 'xchg ax, bx', 'xchg ebx, edx', 'xchg bl, dl',
+            'xchg ah, bl', 'xchg [edi], ebx', 'xchg dword ptr [esi], edx', 'xchg byte ptr [ebp], al',
+            'nop', 'xchg ax, ax', 'pause', 'nop dword ptr [eax+eax*1+0]', 'nop word ptr [eax+eax*1+0x100]',
+            'cs mov eax, ebx', 'ds mov [edi], ebx', 'es mov eax, [esi]', 'ss mov eax, [edi]',
+            'cs nop word ptr [eax+eax*1+0]', 'lock add [edi], eax', 'lock inc dword ptr [esi]']:
+    both32(asm)
+
+for asm in ['push eax', 'push esp', 'push edi', 'push bx', 'push 0x12345678', 'push -1', 'push 0x7f',
+            'push dword ptr [edi]', 'push dword ptr [esp]', 'push word ptr [esi]',
+            'push eax\n pop ebx', 'push edx\n pop edi', 'push eax\n pop esp',
+            'push edx\n pop dword ptr [esi]', 'push edx\n pop dword ptr [esp]',
+            'push edx\n pop dword ptr [esp+4]', 'push dx\n pop bx', 'push edx\n pop word ptr [edi]',
+            'pushfd\n pop eax', 'push 0x8d5\n popfd', 'push 0\n popfd', 'pushfd\n pop ebx\n push ebx\n popfd',
+            'pushad', 'pushad\n popad', 'pushad\n mov dword ptr [esp+12], 0\n mov dword ptr [esp+28], 5\n popad',
+            'pushaw', 'pushaw\n popaw', 'pushfw\n pop ax',
+            'push ebp\n mov ebp, esp\n sub esp, 0x20\n mov [ebp-8], eax\n leave',
+            'sub esp, 0x18\n mov [esp+8], edx\n add esp, 0x18',
+            'call 1f\n 1: pop eax', 'call 1f\n jmp 2f\n 1: mov ebx, 1\n ret\n 2: nop',
+            'push edx\n push eax\n call 1f\n jmp 2f\n 1: mov ebx, [esp+4]\n ret 8\n 2: nop',
+            'call 1f\n 1: pop eax\n add eax, 2f-1b\n call eax\n jmp 3f\n 2: mov ebx, 7\n ret\n 3: nop',
+            'call 1f\n 1: pop eax\n add eax, 2f-1b\n mov [edi], eax\n call dword ptr [edi]\n jmp 3f\n'
+            ' 2: mov ebx, 7\n ret\n 3: nop',
+            'call 1f\n 1: pop esi\n add esi, 2f-1b\n jmp esi\n mov ebx, 1\n 2: nop',
+            'call 1f\n 1: pop eax\n add eax, 2f-1b\n mov [edi+ecx*4], eax\n jmp dword ptr [edi+ecx*4]\n'
+            ' mov ebx, 1\n 2: nop',
+            'call 1f\n 1: pop eax\n add eax, 2f-1b\n push eax\n ret\n mov ebx, 1\n 2: nop',
+            'jmp 1f\n mov ebx, 1\n 1: nop', 'jmp 1f\n .skip 300, 0x90\n mov ebx, 1\n 1: nop',
+            'mov ecx, 3\n 1: jmp 2f\n 2: dec ecx\n jnz 1b']:
+    both32(asm)
+
+for cc in CC:
+    for flags in FLAG_SETS:
+        case32('j%s 1f\n mov ebx, 1\n 1: nop' % cc, flags=flags)
+        case32('j%s 1f\n .skip 200, 0x90\n mov ebx, 1\n 1: nop' % cc, flags=flags)
+        case32('set%s al' % cc, flags=flags)
+        case32('set%s byte ptr [edi+1]' % cc, flags=flags)
+        case32('cmov%s eax, edx' % cc, flags=flags)
+        case32('cmov%s ax, dx' % cc, flags=flags)
+        case32('cmov%s ebx, [edi]' % cc, flags=flags)
+    for a, b in [(1, 2), (2, 1), (5, 5), (0x80000000, 1), (1, 0x80000000), (0xFFFFFFFF, 0),
+                 (0x7FFFFFFF, 0xFFFFFFFF)]:
+        case32('cmp eax, edx\n j%s 1f\n mov ebx, 1\n 1: nop' % cc, regs=dict(rax=a, rdx=b))
+        case32('cmp ax, dx\n set%s bl' % cc, regs=dict(rax=a, rdx=b))
+        case32('cmp al, dl\n cmov%s ebx, edi' % cc, regs=dict(rax=a, rdx=b))
+
+for count in (0, 1, 3):
+    case32('1: inc eax\n loop 1b', regs=dict(rcx=count or 4))
+    case32('jecxz 1f\n mov ebx, 1\n 1: nop', regs=dict(rcx=count))
+    for flags in (0, ZF):
+        case32('loope 1f\n mov ebx, 1\n 1: nop', regs=dict(rcx=count + 1), flags=flags)
+        case32('loopne 1f\n mov ebx, 1\n 1: nop', regs=dict(rcx=count + 1), flags=flags)
+
+for operand in ['bl', 'bh', 'bx', 'ebx', 'esi', 'byte ptr [edi]', 'word ptr [esi]', 'dword ptr [ebp]']:
+    both32('mul ' + operand, undef=MULU)
+    both32('imul ' + operand, undef=MULU)
+for operands in ['eax, edx', 'ax, dx', 'ebx, [edi]', 'ebx, [esi+4]', 'eax, edx, 7', 'eax, edx, -7',
+                 'eax, edx, 0x12345678', 'ax, dx, 0x1234', 'esi, [edi], -0x12345678',
+                 'ebx, ebx, 100', 'ebx, ebx, -1', 'si, [ebp], 3']:
+    both32('imul ' + operands, undef=MULU)
+for a, b in [(0, 5), (3, 5), (0xFFFFFFFF, 2), (0x7FFFFFFF, 2), (0x40000000, 2),
+             (0xFFFFFFFF, 0xFFFFFFFF), (0x80000000, 0xFFFFFFFF), (0x10000, 0x10000), (0x7F, 2), (0x80, 0xFF)]:
+    for asm in ['mul edx', 'mul dx', 'mul dl', 'imul edx', 'imul dx', 'imul dl', 'imul eax, edx',
+                'imul ax, dx']:
+        case32(asm, regs=dict(rax=a, rdx=b), undef=MULU)
+
+DIVS32 = [  # (asm, eax, edx, ebx)
+    ('div bl', 0x1234, 0, 0x7F), ('div bl', 0xFE01, 0, 0xFF), ('div bh', 0x00FF, 0, 0x1000),
+    ('idiv bl', 0xFF80, 0, 3), ('idiv bl', 0x007F, 0, 0xFF), ('idiv bl', 0xC080, 0, 0x7F),
+    ('div bx', 0x5678, 0x1234, 0x9000), ('idiv bx', 0x0001, 0xFFFF, 0x7), ('idiv bx', 0x8000, 0xFFFF, 0xFFFE),
+    ('div ebx', 0x12345678, 0x1, 0x10000), ('div ebx', 0xFFFFFFFF, 0xFFFFFFFE, 0xFFFFFFFF),
+    ('idiv ebx', 0xFFFFFF00, 0xFFFFFFFF, 0x10), ('idiv ebx', 0x80000000, 0, 0xFFFFFFFE),
+    ('idiv ebx', 0x7FFFFFFF, 0, 0x80000000),
+    ('cdq\n idiv ebx', 0x80000001, 0x55, 7), ('cwd\n idiv bx', 0x8001, 0x55, 7),
+    ('xor edx, edx\n div ebx', 0xFFFFFFFF, 5, 10),
+    ('mov dword ptr [edi], 12345\n cdq\n idiv dword ptr [edi]', 0xFFF00000, 0, 0),
+    ('mov dword ptr [esi], 77\n xor edx, edx\n div dword ptr [esi]', 0xFFFFFFFF, 0, 0),
+    ('mov byte ptr [ebp], 9\n div byte ptr [ebp]', 0x0456, 0, 0),
+]
+for asm, a, d, b in DIVS32:
+    case32(asm, regs=dict(rax=a, rdx=d, rbx=b), undef=STATUS)
+
+for size, suffix in [(1, 'b'), (2, 'w'), (4, 'd')]:
+    for std in ('', 'std\n '):
+        regs = dict(rsi=0x200200 + 0x40, rdi=0x200100 + 0x40)
+        case32(std + 'movs' + suffix, regs=regs)
+        case32(std + 'stos' + suffix, regs=regs)
+        case32(std + 'lods' + suffix, regs=regs)
+        case32(std + 'scas' + suffix, regs=regs)
+        case32(std + 'cmps' + suffix, regs=regs)
+        for count in (0, 1, 5):
+            r = dict(regs, rcx=count)
+            case32(std + 'rep movs' + suffix, regs=r)
+            case32(std + 'rep stos' + suffix, regs=r)
+            case32(std + 'rep lods' + suffix, regs=r)
+            case32(std + 'repe cmps' + suffix, regs=r, flags=ZF)
+            case32(std + 'repne cmps' + suffix, regs=r)
+            case32(std + 'repe scas' + suffix, regs=r)
+            case32(std + 'repne scas' + suffix, regs=r, flags=ZF)
+case32('mov ecx, 32\n rep movsb\n mov esi, 0x200200\n mov edi, 0x200100\n mov ecx, 40\n repe cmpsb')
+case32('mov al, [edi+9]\n mov ecx, 100\n repne scasb')
+case32('xor eax, eax\n mov ecx, 16\n rep stosd\n mov edi, 0x200100\n mov ecx, 64\n repe scasw')
+case32('es movsd')
+case32('ds lodsb')
+
+for asm in ['cbw', 'cwde', 'cwd', 'cdq']:
+    for a in (0x7F, 0x80, 0x7FFF, 0x8000, 0x7FFFFFFF, 0x80000000, 0x11223344, 0xFFFFFFFF):
+        case32(asm, regs=dict(rax=a))
+for flags in (0, CF, STATUS, ZF | SF, DF | CF):
+    for asm in ['lahf', 'clc', 'stc', 'cmc', 'cld', 'std', 'mov ah, 0xd5\n sahf',
+                'mov ah, 0x2a\n sahf', 'mov ah, 0x41\n sahf']:
+        case32(asm, flags=flags)
+for asm in ['bswap eax', 'bswap edx', 'bswap esi']:
+    both32(asm)
+for op in ['bt', 'bts', 'btr', 'btc']:
+    for operands in ['eax, 5', 'ax, 3', 'edx, 31', 'eax, 35', 'dword ptr [edi], 7', 'word ptr [esi], 15',
+                     'dword ptr [ebp], 100']:
+        both32('%s %s' % (op, operands), undef=BT_UNDEF)
+    for off in (0, 1, 31, 32, 100, 1000, 0xFFFFFF00, 0xFFFFFC18):
+        for operands in ['eax, edx', 'ax, dx', 'esi, edx', '[ebp], edx', '[ebp], dx', '[edi+ecx*4], edx']:
+            case32('%s %s' % (op, operands), regs=dict(rdx=off), undef=BT_UNDEF)
+for v in (1, 0x8000, 0x80000000, 0x00F00000, 0x12345678, 0xFFFFFFFF, 0x10000):
+    for asm in ['bsf eax, edx', 'bsr eax, edx', 'bsf esi, edx', 'bsr esi, edx']:
+        case32(asm, regs=dict(rdx=v), undef=BS_UNDEF)
+    if v & 0xFFFF:
+        case32('bsf ax, dx', regs=dict(rdx=v), undef=BS_UNDEF)
+        case32('bsr ax, dx', regs=dict(rdx=v), undef=BS_UNDEF)
+case32('bsf eax, edx', regs=dict(rdx=0), undef=BS_UNDEF)
+case32('mov dword ptr [edi], 0x500\n bsf ebx, [edi]\n bsr ecx, [edi]', undef=BS_UNDEF)
+for operands in ['al, bl', 'ax, bx', 'eax, ebx', 'eax, eax', 'bl, bl', '[edi], al', '[edi], bx',
+                 '[esi], edx']:
+    both32('xadd ' + operands)
+for a in (0x55667788, 0x76543210, 0x77, 0x3210):
+    for operands in ['dl, bl', 'dx, bx', 'edx, ebx', '[edi], bl', '[edi], bx', '[edi], ebx', 'eax, ebx']:
+        case32('cmpxchg ' + operands, regs=dict(rax=a))
+case32('mov eax, [edi]\n lock cmpxchg [edi], ebx')
+
+case32('xor eax, eax\n mov ecx, 10\n 1: add eax, ecx\n dec ecx\n jnz 1b\n shl eax, 4\n neg eax')
+case32('mov ecx, 0x200100\n xor edx, edx\n 1: movzx eax, byte ptr [ecx+edx]\n add ebx, eax\n'
+       ' rol ebx, 3\n inc edx\n cmp edx, 64\n jb 1b')
+
+
 # ---------------------------------------------------------------- compiled C functions
-def compiled_cases(tmp):
+def compiled_cases(tmp, bits):
+    """The functions in functions.c as cases.  In 32-bit code they take their
+    arguments in eax, edx and ecx (regparm), like the 64-bit ones in rdi,
+    rsi and rdx."""
     src = os.path.join(HERE, 'functions.c')
     flags = ['-ffreestanding', '-fno-stack-protector', '-mgeneral-regs-only', '-fno-jump-tables',
              '-fcf-protection=none', '-fno-pic', '-fno-asynchronous-unwind-tables',
              '-fno-builtin', '-w']
-    args = [(3, 7), (0x1122334455667788, 0xFEDCBA9876543210), (0xFFFFFFFFFFFFFFFF, 2),
-            (12, 0x8000000000000000)]
+    if bits == 64:
+        add, regs, ld = case, ('rdi', 'rsi', 'rdx'), ['ld']
+        args = [(3, 7), (0x1122334455667788, 0xFEDCBA9876543210), (0xFFFFFFFFFFFFFFFF, 2),
+                (12, 0x8000000000000000)]
+    else:
+        add, regs, ld = case32, ('rax', 'rdx', 'rcx'), ['ld', '-m', 'elf_i386']
+        args = [(3, 7), (0x11223344, 0xFEDCBA98), (0xFFFFFFFF, 2), (12, 0x80000000)]
+        flags = ['-m32', '-mregparm=3'] + flags
     for opt in ['-O0', '-O1', '-O2', '-Os']:
-        obj = os.path.join(tmp, 'f%s.o' % opt)
+        obj = os.path.join(tmp, 'f%d%s.o' % (bits, opt))
         subprocess.run(['gcc', '-c', opt] + flags + ['-o', obj, src], check=True)
         # Link, so that calls between functions are resolved; they stay relative.
         elf = os.path.join(tmp, 'f.elf')
-        subprocess.run(['ld', '-e', 'fn_sum', '-o', elf, obj], check=True)
+        subprocess.run(ld + ['-e', 'fn_sum', '-o', elf, obj], check=True)
         headers = subprocess.run(['objdump', '-h', elf], check=True, capture_output=True, text=True).stdout
         sections = [l.split() for l in headers.splitlines() if l.split()[:1] and l.split()[0].isdigit()]
         if any(sec[1].startswith(('.rodata', '.data', '.bss')) for sec in sections):
@@ -371,21 +630,21 @@ def compiled_cases(tmp):
             # call fn; jmp end; fn: ...
             code = b'\xE8\x05\x00\x00\x00' + b'\xE9' + len(body).to_bytes(4, 'little') + body
             for a, b in args:
-                case('gcc %s: %s(0x%x, 0x%x, 0x200100)' % (opt, name, a, b),
-                     regs=dict(rdi=a, rsi=b, rdx=0x200100), code=code, undef=STATUS)
+                add('gcc %s: %s(0x%x, 0x%x, 0x200100)' % (opt, name, a, b),
+                    regs={regs[0]: a, regs[1]: b, regs[2]: 0x200100}, code=code, undef=STATUS)
 
 
-def assemble(tmp):
-    src = os.path.join(tmp, 'cases.s')
+def assemble(tmp, cases, bits):
+    src = os.path.join(tmp, 'cases%d.s' % bits)
     with open(src, 'w') as f:
-        f.write('.intel_syntax noprefix\n.text\n')
+        f.write('.intel_syntax noprefix\n.code%d\n.text\n' % bits)
         for i, c in enumerate(cases):
             if c['code'] is None:
                 f.write('case_%d:\n %s\n' % (i, c['asm']))
         f.write('case_end:\n')
-    obj = os.path.join(tmp, 'cases.o')
-    subprocess.run(['as', '--64', '-o', obj, src], check=True)
-    raw = os.path.join(tmp, 'cases.bin')
+    obj = os.path.join(tmp, 'cases%d.o' % bits)
+    subprocess.run(['as', '--%d' % bits, '-o', obj, src], check=True)
+    raw = os.path.join(tmp, 'cases%d.bin' % bits)
     subprocess.run(['objcopy', '-O', 'binary', '-j', '.text', obj, raw], check=True)
     text = open(raw, 'rb').read()
     syms = subprocess.run(['nm', obj], check=True, capture_output=True, text=True).stdout
@@ -396,36 +655,45 @@ def assemble(tmp):
         c['code'] = text[start:end]
 
 
-def main():
-    with tempfile.TemporaryDirectory() as tmp:
-        compiled_cases(tmp)
-        assemble(tmp)
-        runner = os.path.join(tmp, 'runner')
-        subprocess.run(['gcc', '-O1', '-o', runner, os.path.join(HERE, 'runner.c')], check=True)
-        lines = []
-        for c in cases:
-            regs = dict(DEFAULT, **c['regs'])
-            c['init'] = [regs[r] for r in REGS]
-            lines.append('%s %s %x' % (c['code'].hex(), ' '.join('%x' % v for v in c['init']), c['flags']))
-        run = subprocess.run([runner], input='\n'.join(lines) + '\n', capture_output=True, text=True)
-        out = run.stdout.splitlines()
-        if run.returncode != 0:
-            sys.exit('the real CPU faulted on case %d: %s' % (len(out), cases[len(out)]['asm']))
+def generate(tmp, runner, cases, bits, regs, names, default, name):
+    compiled_cases(tmp, bits)
+    assemble(tmp, cases, bits)
+    lines = []
+    for c in cases:
+        init = dict(default, **c['regs'])
+        c['init'] = [init[r] for r in regs]
+        # The runner always takes 16 registers.
+        values = c['init'] + [0] * (16 - len(regs))
+        lines.append('%s %s %x' % (c['code'].hex(), ' '.join('%x' % v for v in values), c['flags']))
+    run = subprocess.run([runner] + ([] if bits == 64 else ['--32']),
+                         input='\n'.join(lines) + '\n', capture_output=True, text=True)
+    out = run.stdout.splitlines()
+    if run.returncode != 0:
+        sys.exit('the real CPU faulted on %d-bit case %d: %s' % (bits, len(out), cases[len(out)]['asm']))
 
-    with open(os.path.join(HERE, 'x86_64.golden'), 'w') as f:
-        f.write('# Generated by gen_golden.py; do not edit.  Fields, separated by "|":\n'
+    n = len(regs)
+    with open(os.path.join(HERE, name), 'w') as f:
+        f.write('# Generated by gen_golden.py; do not edit.  %d-bit code.  Fields, separated by "|":\n'
                 '#   assembly | code | initial registers | initial flags | undefined flags |\n'
                 '#   changed registers | expected flags | changed memory bytes\n'
                 '# Initial registers not listed have these values:\n'
-                '#   %s\n' % ','.join('%s=%x' % (r, DEFAULT[r]) for r in REGS))
+                '#   %s\n' % (bits, ','.join('%s=%x' % (nm, default[r]) for r, nm in zip(regs, names))))
         for c, result in zip(cases, out):
             fields = result.split()
-            final = [int(v, 16) for v in fields[:16]]
-            init = ','.join('%s=%x' % (r, v) for r, v in zip(REGS, c['init']) if v != DEFAULT[r])
-            changed = ','.join('%s=%x' % (r, v) for r, v, v0 in zip(REGS, final, c['init']) if v != v0)
+            final = [int(v, 16) for v in fields[:n]]
+            init = ','.join('%s=%x' % (nm, v) for r, nm, v in zip(regs, names, c['init']) if v != default[r])
+            changed = ','.join('%s=%x' % (nm, v) for nm, v, v0 in zip(names, final, c['init']) if v != v0)
             f.write('|'.join([c['asm'].replace('\n', ';'), c['code'].hex(), init, '%x' % c['flags'],
-                              '%x' % c['undef'], changed, fields[16], fields[17]]) + '\n')
-    print('%d cases written' % len(cases))
+                              '%x' % c['undef'], changed, fields[n], fields[n + 1]]) + '\n')
+    print('%s: %d cases written' % (name, len(cases)))
+
+
+def main():
+    with tempfile.TemporaryDirectory() as tmp:
+        runner = os.path.join(tmp, 'runner')
+        subprocess.run(['gcc', '-O1', '-o', runner, os.path.join(HERE, 'runner.c')], check=True)
+        generate(tmp, runner, cases, 64, REGS, REGS, DEFAULT, 'x86_64.golden')
+        generate(tmp, runner, cases32, 32, REGS32, NAMES32, DEFAULT32, 'x86_32.golden')
 
 
 if __name__ == '__main__':

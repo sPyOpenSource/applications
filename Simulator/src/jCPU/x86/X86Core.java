@@ -84,13 +84,14 @@ public class X86Core implements iCPU
     private final int[] segBase = new int[SEG_COUNT];
     private boolean protectedMode;
     private boolean codeSize32;
-    private int gdtBase;
+    private long gdtBase;
     private int gdtLimit;
 
     public int getSegSelector(int seg) { return segSelector[seg]; }
     public void setSegSelector(int seg, int selector) { segSelector[seg] = selector & 0xFFFF; }
     public int getSegBase(int seg) { return segBase[seg]; }
-    public void setSegBase(int seg, int base) { segBase[seg] = base & 0xFFFFFF; }
+    /** The full 32-bit base is kept; real-mode addressing masks it to 24 bits. */
+    public void setSegBase(int seg, int base) { segBase[seg] = base; }
 
     /** Linear address for {@code segment:offset} using the cached segment base. */
     public int segmentAddress(int seg, int offset) {
@@ -105,6 +106,7 @@ public class X86Core implements iCPU
     public boolean isProtectedMode() { return protectedMode; }
     public void setProtectedMode(boolean value) {
         protectedMode = value;
+        cr0 = value ? cr0 | CR0_PE : cr0 & ~CR0_PE;
         // Real mode always defaults to 16-bit code, whatever segment
         // descriptor was in use before leaving protected mode.
         if (!value) codeSize32 = false;
@@ -114,9 +116,129 @@ public class X86Core implements iCPU
     public boolean isCodeSize32() { return codeSize32; }
     public void setCodeSize32(boolean value) { codeSize32 = value; }
 
-    public int getGdtBase() { return gdtBase; }
+    public int getGdtBase() { return (int) gdtBase; }
+    public long getGdtBase64() { return gdtBase; }
     public int getGdtLimit() { return gdtLimit; }
-    public void setGdt(int base, int limit) { gdtBase = base; gdtLimit = limit; }
+    public void setGdt(long base, int limit) { gdtBase = base; gdtLimit = limit & 0xFFFF; }
+
+    /* Control registers, EFER and the IDT register, as used by the x86-64
+     * executor (X86Amd64).  Paging is not translated: code that turns it on
+     * relies on an identity mapping, as UEFI firmware provides. */
+    public static final long CR0_PE = 1L;
+    public static final long CR0_PG = 1L << 31;
+    public static final long CR4_PAE = 1L << 5;
+    public static final int MSR_EFER = 0xC0000080;
+    public static final long EFER_LME = 1L << 8;
+    public static final long EFER_LMA = 1L << 10;
+
+    private long cr0, cr2, cr3, cr4, efer;
+    private long idtBase;
+    private int idtLimit;
+    /* L bit of the code segment: 64-bit code while long mode is active. */
+    private boolean codeLong;
+
+    public long getCr0() { return cr0; }
+    /** CR0.PE also sets {@link #isProtectedMode()}. */
+    public void setCr0(long value) {
+        cr0 = value & 0xFFFFFFFFL;
+        protectedMode = (value & CR0_PE) != 0;
+    }
+    public long getCr2() { return cr2; }
+    public void setCr2(long value) { cr2 = value; }
+    public long getCr3() { return cr3; }
+    public void setCr3(long value) { cr3 = value; }
+    public long getCr4() { return cr4; }
+    public void setCr4(long value) { cr4 = value & 0xFFFFFFFFL; }
+    public long getEfer() { return efer; }
+    /** EFER.LMA decides {@link #isLongMode()}. */
+    public void setEfer(long value) {
+        efer = value;
+        longMode = (value & EFER_LMA) != 0;
+    }
+
+    public long getIdtBase() { return idtBase; }
+    public int getIdtLimit() { return idtLimit; }
+    public void setIdt(long base, int limit) { idtBase = base; idtLimit = limit & 0xFFFF; }
+
+    /* Debug registers DR0..DR7.  DR4 and DR5 are DR6 and DR7, as with CR4.DE clear. */
+    private final long[] debugRegs = new long[8];
+    private boolean breakpointsEnabled;
+    /* Length in bytes for the LEN field of DR7. */
+    private static final int[] BREAKPOINT_LEN = { 1, 2, 8, 4 };
+
+    public long getDebugReg(int n) { return debugRegs[n]; }
+    public void setDebugReg(int n, long value) {
+        debugRegs[n] = value;
+        if (n == 7) {
+            breakpointsEnabled = (value & 0xFF) != 0;
+        }
+    }
+    /** Whether DR7 enables any breakpoint. */
+    public boolean hasBreakpoints() { return breakpointsEnabled; }
+
+    /** Kinds of access for {@link #breakpointHit}. */
+    public static final int ACCESS_EXECUTE = 0, ACCESS_WRITE = 1, ACCESS_READ = 2;
+
+    /**
+     * The number of the first enabled breakpoint in DR0..DR3 that an access
+     * hits, or -1.  An instruction breakpoint matches the address of the
+     * instruction; a data breakpoint matches any byte of the access.
+     */
+    public int breakpointHit(long addr, int size, int access) {
+        long dr7 = debugRegs[7];
+        for (int i = 0; i < 4; i++) {
+            if (((dr7 >>> (2 * i)) & 3) == 0) {
+                continue;
+            }
+            int rw = (int) (dr7 >>> (16 + 4 * i)) & 3;     // 0 execute, 1 write, 3 read/write
+            if (access == ACCESS_EXECUTE) {
+                if (rw == 0 && addr == debugRegs[i]) {
+                    return i;
+                }
+            } else if (rw == 3 || (rw == 1 && access == ACCESS_WRITE)) {
+                int len = BREAKPOINT_LEN[(int) (dr7 >>> (18 + 4 * i)) & 3];
+                long start = debugRegs[i] & -len;
+                if (addr < start + len && start < addr + size) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /** L bit of the code segment descriptor. */
+    public boolean isCodeLong() { return codeLong; }
+    public void setCodeLong(boolean value) { codeLong = value; }
+
+    /**
+     * State in which UEFI firmware starts an x64 application: protected mode
+     * with paging, long mode active, 64-bit code segment.
+     */
+    private void enterLongMode() {
+        cr0 = 0x80010033L;                          // PE, MP, ET, NE, WP, PG
+        cr4 = CR4_PAE;
+        efer = EFER_LME | EFER_LMA;
+        protectedMode = true;
+        codeSize32 = false;
+        codeLong = true;
+    }
+
+    /**
+     * Flat 32-bit protected mode without paging, as a Multiboot loader
+     * leaves the CPU: every segment has base 0, code and stack are 32-bit.
+     */
+    public void enterProtectedMode32() {
+        cr0 = CR0_PE | (1L << 4);                   // PE, ET
+        cr4 = 0;
+        efer = 0;
+        longMode = false;
+        protectedMode = true;
+        codeSize32 = true;
+        codeLong = false;
+        for (int i = 0; i < SEG_COUNT; i++) {
+            segBase[i] = 0;
+        }
+    }
 
     public void setVgaMemWrite(java.util.function.IntConsumer handler) { this.vgaMemWrite = handler; }
 
@@ -211,6 +333,14 @@ public class X86Core implements iCPU
         codeSize32 = false;
         gdtBase = 0;
         gdtLimit = 0;
+        cr0 = cr2 = cr3 = cr4 = efer = 0;
+        idtBase = 0;
+        idtLimit = 0;
+        codeLong = false;
+        java.util.Arrays.fill(debugRegs, 0);
+        debugRegs[6] = 0xFFFF0FF0L;
+        debugRegs[7] = 0x400;
+        breakpointsEnabled = false;
         regs32[REG_ESP] = memSize;
         regs64[REG_RSP] = memSize;
     }
@@ -717,8 +847,19 @@ public class X86Core implements iCPU
         return longMode;
     }
 
+    /**
+     * Turning long mode on sets up the state UEFI firmware leaves for an x64
+     * application (see {@link #enterLongMode()}); turning it off only clears
+     * EFER.LMA.
+     */
     public void setLongMode(boolean longMode) {
         this.longMode = longMode;
+        if (longMode) {
+            enterLongMode();
+        } else {
+            efer &= ~EFER_LMA;
+            codeLong = false;
+        }
     }
 
     public int getFlags() {
