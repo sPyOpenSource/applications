@@ -70,6 +70,11 @@ public class X86Amd64 implements X86Core.iExecutor
     private long ea;
     private long offset;
 
+    /* A data breakpoint the current instruction hit, reported once it has run, or -1. */
+    private int dataBreakpoint;
+    private long dataBreakpointAddr;
+    private boolean dataBreakpointWrite;
+
     /* Addresses of the most recently executed instructions, as a ring buffer.
      * Reported when execution stops on an unknown instruction, to show how
      * the program got there. */
@@ -96,6 +101,15 @@ public class X86Amd64 implements X86Core.iExecutor
         code64 = core.isLongMode() && core.isCodeLong();
         if (!code64 && !core.isCodeSize32()) {
             throw unknownOpcode("16-bit code; this executor runs 64-bit and 32-bit code");
+        }
+        dataBreakpoint = -1;
+        if (core.hasBreakpoints()) {
+            // An instruction breakpoint is a fault: it stops before the instruction.
+            int bp = core.breakpointHit(rip, 1, ACCESS_EXECUTE);
+            if (bp >= 0) {
+                throw unknownOpcode(String.format(
+                        "debug breakpoint %d: instruction at 0x%X (the #DB exception is not emulated)", bp, rip));
+            }
         }
 
         int opcode;
@@ -149,6 +163,12 @@ public class X86Amd64 implements X86Core.iExecutor
         }
         core.setPC64(code64 ? ip : ip & 0xFFFFFFFFL);
         history[(int) (historyCount++ % HISTORY_SIZE)] = insnStart;
+        if (dataBreakpoint >= 0) {
+            // A data breakpoint is a trap: the instruction has run.
+            throw unknownOpcode(String.format(
+                    "debug breakpoint %d: %s 0x%X (the #DB exception is not emulated)", dataBreakpoint,
+                    dataBreakpointWrite ? "write to" : "read from", dataBreakpointAddr));
+        }
         return 1;
     }
 
@@ -294,7 +314,20 @@ public class X86Amd64 implements X86Core.iExecutor
         }
     }
 
+    /* Remember the first data breakpoint an access hits. */
+    private void watch(long addr, int size, int access) {
+        if (dataBreakpoint < 0) {
+            int bp = core.breakpointHit(addr, size, access);
+            if (bp >= 0) {
+                dataBreakpoint = bp;
+                dataBreakpointAddr = addr;
+                dataBreakpointWrite = access == ACCESS_WRITE;
+            }
+        }
+    }
+
     private long readMem(long addr, int size) {
+        if (core.hasBreakpoints()) watch(addr, size, ACCESS_READ);
         switch (size) {
             case 1: return core.readMem8(addr);
             case 2: return core.readMem16(addr);
@@ -304,6 +337,7 @@ public class X86Amd64 implements X86Core.iExecutor
     }
 
     private void writeMem(long addr, int size, long v) {
+        if (core.hasBreakpoints()) watch(addr, size, ACCESS_WRITE);
         switch (size) {
             case 1: core.writeMem8(addr, (int) (v & 0xFF)); break;
             case 2: core.writeMem16(addr, (int) (v & 0xFFFF)); break;
@@ -1269,6 +1303,25 @@ public class X86Amd64 implements X86Core.iExecutor
                     setReg(r, size, readCr(cr));
                 } else {
                     writeCr(cr, getReg(r, size));
+                }
+                return;
+            }
+            case 0x21:                              // MOV r, DRn
+            case 0x23: {                            // MOV DRn, r
+                int modrm = fetch8();
+                int dr = ((modrm >>> 3) & 7) | (rexR << 3);
+                int r = (modrm & 7) | (rexB << 3);
+                if (dr > 7) {
+                    throw unknownOpcode("MOV with DR" + dr);
+                }
+                if (dr == 4 || dr == 5) {
+                    dr += 2;                        // DR6 and DR7, as with CR4.DE clear
+                }
+                int size = code64 ? 8 : 4;
+                if (op2 == 0x21) {
+                    setReg(r, size, core.getDebugReg(dr));
+                } else {
+                    core.setDebugReg(dr, getReg(r, size));
                 }
                 return;
             }

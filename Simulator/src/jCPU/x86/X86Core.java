@@ -160,6 +160,52 @@ public class X86Core implements iCPU
     public int getIdtLimit() { return idtLimit; }
     public void setIdt(long base, int limit) { idtBase = base; idtLimit = limit & 0xFFFF; }
 
+    /* Debug registers DR0..DR7.  DR4 and DR5 are DR6 and DR7, as with CR4.DE clear. */
+    private final long[] debugRegs = new long[8];
+    private boolean breakpointsEnabled;
+    /* Length in bytes for the LEN field of DR7. */
+    private static final int[] BREAKPOINT_LEN = { 1, 2, 8, 4 };
+
+    public long getDebugReg(int n) { return debugRegs[n]; }
+    public void setDebugReg(int n, long value) {
+        debugRegs[n] = value;
+        if (n == 7) {
+            breakpointsEnabled = (value & 0xFF) != 0;
+        }
+    }
+    /** Whether DR7 enables any breakpoint. */
+    public boolean hasBreakpoints() { return breakpointsEnabled; }
+
+    /** Kinds of access for {@link #breakpointHit}. */
+    public static final int ACCESS_EXECUTE = 0, ACCESS_WRITE = 1, ACCESS_READ = 2;
+
+    /**
+     * The number of the first enabled breakpoint in DR0..DR3 that an access
+     * hits, or -1.  An instruction breakpoint matches the address of the
+     * instruction; a data breakpoint matches any byte of the access.
+     */
+    public int breakpointHit(long addr, int size, int access) {
+        long dr7 = debugRegs[7];
+        for (int i = 0; i < 4; i++) {
+            if (((dr7 >>> (2 * i)) & 3) == 0) {
+                continue;
+            }
+            int rw = (int) (dr7 >>> (16 + 4 * i)) & 3;     // 0 execute, 1 write, 3 read/write
+            if (access == ACCESS_EXECUTE) {
+                if (rw == 0 && addr == debugRegs[i]) {
+                    return i;
+                }
+            } else if (rw == 3 || (rw == 1 && access == ACCESS_WRITE)) {
+                int len = BREAKPOINT_LEN[(int) (dr7 >>> (18 + 4 * i)) & 3];
+                long start = debugRegs[i] & -len;
+                if (addr < start + len && start < addr + size) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
     /** L bit of the code segment descriptor. */
     public boolean isCodeLong() { return codeLong; }
     public void setCodeLong(boolean value) { codeLong = value; }
@@ -291,6 +337,10 @@ public class X86Core implements iCPU
         idtBase = 0;
         idtLimit = 0;
         codeLong = false;
+        java.util.Arrays.fill(debugRegs, 0);
+        debugRegs[6] = 0xFFFF0FF0L;
+        debugRegs[7] = 0x400;
+        breakpointsEnabled = false;
         regs32[REG_ESP] = memSize;
         regs64[REG_RSP] = memSize;
     }

@@ -255,6 +255,60 @@ public class X86SystemTest
     }
 
     @Test
+    public void testDebugRegistersReadBack() throws Exception
+    {
+        X86Core core = core32(
+                0xB8, 0xF0, 0x0F, 0xFF, 0xFF,           // mov eax, 0xFFFF0FF0
+                0x0F, 0x23, 0xF0,                       // mov dr6, eax
+                0x0F, 0x21, 0xF3,                       // mov ebx, dr6
+                0x0F, 0x21, 0xE9);                      // mov ecx, dr5 (DR7)
+        steps(core, 4);
+        assertEquals(0xFFFF0FF0L, core.getReg64(X86Core.REG_RBX));
+        assertEquals(0x400, core.getReg64(X86Core.REG_RCX));
+        assertFalse(core.hasBreakpoints());
+    }
+
+    @Test
+    public void testWriteBreakpointStopsAfterTheWrite() throws Exception
+    {
+        // What jxcore does to catch writes through a null pointer:
+        // breakpoint 1 on writes to address 0..3.
+        X86Core core = core32(
+                0x31, 0xC0,                             // xor eax, eax
+                0x0F, 0x23, 0xC8,                       // mov dr1, eax
+                0xB8, 0x08, 0x02, 0xD0, 0x00,           // mov eax, 0xD00208 (G1, GE, write, 4 bytes)
+                0x0F, 0x23, 0xF8,                       // mov dr7, eax
+                0x89, 0x1D, 0x00, 0x01, 0x00, 0x00,     // mov [0x100], ebx
+                0x8B, 0x1D, 0x00, 0x00, 0x00, 0x00,     // mov ebx, [0]: reads do not count
+                0xB3, 0x5A,                             // mov bl, 0x5A
+                0x88, 0x1D, 0x02, 0x00, 0x00, 0x00);    // mov [2], bl
+        steps(core, 7);
+        assertTrue(core.hasBreakpoints());
+        String message = unknown(core, 1);
+        assertTrue(message, message.contains("debug breakpoint 1: write to 0x2"));
+        assertEquals(0x5A, core.readMem8(2));           // the write happened
+        assertEquals(CODE + 33, core.getPC64());        // and the instruction completed
+    }
+
+    @Test
+    public void testInstructionBreakpointStopsBeforeTheInstruction() throws Exception
+    {
+        X86Core core = core32(
+                0xB8, 0x20, 0x00, 0x01, 0x00,           // mov eax, 0x10020
+                0x0F, 0x23, 0xC0,                       // mov dr0, eax
+                0xB8, 0x02, 0x02, 0x00, 0x00,           // mov eax, 0x202 (G0, GE, execute)
+                0x0F, 0x23, 0xF8,                       // mov dr7, eax
+                0xEB, 0x0E);                            // jmp 0x10020
+        load(core, 0x10020, 0x43);                      // inc ebx
+        steps(core, 5);
+        assertEquals(0x10020, core.getPC64());
+        String message = unknown(core, 1);
+        assertTrue(message, message.contains("debug breakpoint 0: instruction at 0x10020"));
+        assertEquals(0x10020, core.getPC64());
+        assertEquals(0, core.getReg64(X86Core.REG_RBX));
+    }
+
+    @Test
     public void testPagingOutsideLongModeStops() throws Exception
     {
         X86Core core = core32(
