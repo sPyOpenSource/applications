@@ -1,0 +1,268 @@
+package jCPU.x86;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+/**
+ * System instructions of the x86-64 executor: descriptor tables, segment
+ * registers, control registers, EFER and far branches, and the switch from
+ * long mode to 32-bit protected mode they make possible.
+ */
+public class X86SystemTest
+{
+    private static final int GDT = 0x1000;
+    private static final int CODE = 0x10000;
+
+    /** Flat 32-bit code (0x08) and data (0x10) segments, and data with base 0x5000 (0x18). */
+    private static final long[] FLAT_GDT = {
+        0,
+        0x00CF9A000000FFFFL,
+        0x00CF92000000FFFFL,
+        0x00CF92005000FFFFL,
+    };
+
+    private static X86Core core32(int... code)
+    {
+        X86Core core = new X86Core(1024 * 1024);
+        core.enterProtectedMode32();
+        core.setActiveExecutor(new X86Amd64());
+        for (int i = 0; i < FLAT_GDT.length; i++) {
+            core.writeMem64(GDT + 8L * i, FLAT_GDT[i]);
+        }
+        core.setGdt(GDT, 8 * FLAT_GDT.length - 1);
+        core.setSegSelector(X86Core.SEG_CS, 0x08);
+        load(core, CODE, code);
+        core.setPC64(CODE);
+        core.setReg64(X86Core.REG_RSP, 0x8000);
+        return core;
+    }
+
+    private static void load(X86Core core, int address, int... code)
+    {
+        for (int i = 0; i < code.length; i++) {
+            core.writeMem8(address + i, code[i]);
+        }
+    }
+
+    private static void steps(X86Core core, int n) throws Exception
+    {
+        for (int i = 0; i < n; i++) {
+            core.step();
+        }
+    }
+
+    private static String unknown(X86Core core, int steps) throws Exception
+    {
+        try {
+            steps(core, steps);
+        } catch (X86UnknownOpcodeException ex) {
+            return ex.getMessage();
+        }
+        fail("expected X86UnknownOpcodeException");
+        return null;
+    }
+
+    /**
+     * What GRUB 2.00's relocator does to start a 32-bit Multiboot kernel from
+     * x64 UEFI (PREAMBLE and RELOAD_GDT in relocator_common.S, then
+     * relocator32.S): load its own GDT, far jump to a 32-bit code segment,
+     * which is compatibility mode, load the data segments, turn off paging,
+     * EFER.LME and PAE, and jump to the kernel.  Assembled with GNU as.
+     */
+    private static final int[] GRUB_LEAVE_LONG_MODE = {
+            0x48, 0x89, 0xC6,                            // 00: mov rsi,rax
+            0x48, 0x05, 0x0B, 0x00, 0x00, 0x00,          // 03: add rax,0xb
+            0xFF, 0xE0,                                  // 09: jmp rax
+            0x48, 0x8D, 0x86, 0x33, 0x00, 0x00, 0x00,    // 0b: lea rax,[rsi+0x33]
+            0x89, 0x86, 0xAA, 0x00, 0x00, 0x00,          // 12: mov DWORD PTR [rsi+0xaa],eax
+            0x48, 0x8D, 0x86, 0x80, 0x00, 0x00, 0x00,    // 18: lea rax,[rsi+0x80]
+            0x48, 0x89, 0x86, 0xA2, 0x00, 0x00, 0x00,    // 1f: mov QWORD PTR [rsi+0xa2],rax
+            0x0F, 0x01, 0x96, 0xA0, 0x00, 0x00, 0x00,    // 26: lgdt [rsi+0xa0]
+            0xFF, 0xAE, 0xAA, 0x00, 0x00, 0x00,          // 2d: jmp FWORD PTR [rsi+0xaa]
+            0xB8, 0x18, 0x00, 0x00, 0x00,                // 33: mov eax,0x18
+            0x8E, 0xD8,                                  // 38: mov ds,eax
+            0x8E, 0xC0,                                  // 3a: mov es,eax
+            0x8E, 0xE0,                                  // 3c: mov fs,eax
+            0x8E, 0xE8,                                  // 3e: mov gs,eax
+            0x8E, 0xD0,                                  // 40: mov ss,eax
+            0x0F, 0x20, 0xC0,                            // 42: mov eax,cr0
+            0x25, 0xFF, 0xFF, 0xFF, 0x7F,                // 45: and eax,0x7fffffff
+            0x0F, 0x22, 0xC0,                            // 4a: mov cr0,eax
+            0xB9, 0x80, 0x00, 0x00, 0xC0,                // 4d: mov ecx,0xc0000080
+            0x0F, 0x32,                                  // 52: rdmsr
+            0x25, 0xFF, 0xFE, 0xFF, 0xFF,                // 54: and eax,0xfffffeff
+            0x0F, 0x30,                                  // 59: wrmsr
+            0x0F, 0x20, 0xE0,                            // 5b: mov eax,cr4
+            0x83, 0xE0, 0xDF,                            // 5e: and eax,0xffffffdf
+            0x0F, 0x22, 0xE0,                            // 61: mov cr4,eax
+            0xEB, 0x00,                                  // 64: jmp 0x66
+            0xB8, 0x00, 0x70, 0x00, 0x00,                // 66: mov eax,0x7000
+            0x89, 0xC4,                                  // 6b: mov esp,eax
+            0xB8, 0x02, 0xB0, 0xAD, 0x2B,                // 6d: mov eax,0x2badb002
+            0xBB, 0x00, 0x90, 0x00, 0x00,                // 72: mov ebx,0x9000
+            0xFC,                                        // 77: cld
+            0xEA, 0x00, 0x00, 0x02, 0x00, 0x10, 0x00,    // 78: jmp 0x10:0x20000
+            0x90,                                        // 7f: padding
+            // 80: GDT: null, reserved, flat 32-bit code (0x10), flat data (0x18)
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0xFF, 0xFF, 0x00, 0x00, 0x00, 0x9A, 0xCF, 0x00,
+            0xFF, 0xFF, 0x00, 0x00, 0x00, 0x92, 0xCF, 0x00,
+            0x1F, 0x00,                                  // a0: GDT limit
+            0, 0, 0, 0, 0, 0, 0, 0,                      // a2: GDT base, filled in
+            0, 0, 0, 0, 0x10, 0x00,                      // aa: far pointer to cont1, filled in
+    };
+
+    @Test
+    public void testLeaveLongModeLikeGrub() throws Exception
+    {
+        X86Core core = new X86Core(1024 * 1024);
+        core.setLongMode(true);
+        core.setActiveExecutor(new X86Amd64());
+        load(core, CODE, GRUB_LEAVE_LONG_MODE);
+        load(core, 0x20000, 0x50, 0x5A);                // the kernel: push eax ; pop edx
+        core.setReg64(X86Core.REG_RAX, CODE);           // GRUB passes the base in RAX
+        core.setReg64(X86Core.REG_RSP, 0x8000);
+        core.setPC64(CODE);
+
+        steps(core, 9);                                 // up to and including the far jump
+        assertEquals(CODE + 0x33, core.getPC64());
+        assertTrue("compatibility mode", core.isLongMode() && !core.isCodeLong());
+        assertTrue(core.isCodeSize32());
+        assertEquals(0x10, core.getSegSelector(X86Core.SEG_CS));
+        assertEquals(CODE + 0x80, core.getGdtBase64());
+        assertEquals(0x1F, core.getGdtLimit());
+
+        for (int i = 0; i < 100 && core.getPC64() != 0x20000; i++) {
+            core.step();
+        }
+        assertEquals(0x20000, core.getPC64());
+        assertFalse("long mode is off", core.isLongMode());
+        assertEquals(0, core.getEfer() & (X86Core.EFER_LME | X86Core.EFER_LMA));
+        assertEquals(0, core.getCr0() & X86Core.CR0_PG);
+        assertEquals(X86Core.CR0_PE, core.getCr0() & X86Core.CR0_PE);
+        assertEquals(0, core.getCr4() & X86Core.CR4_PAE);
+        assertEquals(0x10, core.getSegSelector(X86Core.SEG_CS));
+        assertTrue(core.isCodeSize32());
+        assertFalse(core.isCodeLong());
+        for (int seg : new int[] { X86Core.SEG_DS, X86Core.SEG_ES, X86Core.SEG_FS,
+                                   X86Core.SEG_GS, X86Core.SEG_SS }) {
+            assertEquals(0x18, core.getSegSelector(seg));
+        }
+        assertEquals(0x2BADB002L, core.getReg64(X86Core.REG_RAX));
+        assertEquals(0x9000, core.getReg64(X86Core.REG_RBX));
+        assertEquals(0x7000, core.getReg64(X86Core.REG_RSP));
+
+        steps(core, 2);                                 // 32-bit stack: 4 bytes per push
+        assertEquals(0x2BADB002L, core.getReg64(X86Core.REG_RDX));
+        assertEquals(0x2BADB002, core.readMem32(0x7000 - 4));
+        assertEquals(0x7000, core.getReg64(X86Core.REG_RSP));
+    }
+
+    @Test
+    public void testSegmentBaseComesFromTheDescriptor() throws Exception
+    {
+        X86Core core = core32(
+                0x66, 0xB8, 0x18, 0x00,                 // mov ax, 0x18
+                0x8E, 0xE0,                             // mov fs, eax
+                0x64, 0xA1, 0x10, 0x00, 0x00, 0x00,     // mov eax, fs:[0x10]
+                0x8B, 0x1D, 0x10, 0x00, 0x00, 0x00);    // mov ebx, [0x10]
+        core.writeMem32(0x5010, 0x12345678);
+        core.writeMem32(0x10, 0xAAAA);
+        steps(core, 4);
+        assertEquals(0x5000, core.getSegBase(X86Core.SEG_FS));
+        assertEquals(0x12345678, core.getReg64(X86Core.REG_RAX));
+        assertEquals(0xAAAA, core.getReg64(X86Core.REG_RBX));
+    }
+
+    @Test
+    public void testPushAndPopSegmentRegisters() throws Exception
+    {
+        X86Core core = core32(
+                0x6A, 0x18,                             // push 0x18
+                0x07,                                   // pop es
+                0x06,                                   // push es
+                0x0F, 0xA9,                             // pop gs
+                0x8C, 0xE8);                            // mov eax, gs
+        steps(core, 5);
+        assertEquals(0x18, core.getSegSelector(X86Core.SEG_ES));
+        assertEquals(0x5000, core.getSegBase(X86Core.SEG_GS));
+        assertEquals(0x18, core.getReg64(X86Core.REG_RAX));
+        assertEquals(0x8000, core.getReg64(X86Core.REG_RSP));
+    }
+
+    @Test
+    public void testFarCallAndReturnIn32BitCode() throws Exception
+    {
+        X86Core core = core32(
+                0x9A, 0x00, 0x01, 0x01, 0x00, 0x08, 0x00,   // call 0x08:0x10100
+                0x90);                                      // nop
+        load(core, 0x10100,
+                0xBB, 0x05, 0x00, 0x00, 0x00,           // mov ebx, 5
+                0xCB);                                  // retf
+        core.step();
+        assertEquals(0x10100, core.getPC64());
+        assertEquals(0x8000 - 8, core.getReg64(X86Core.REG_RSP));
+        assertEquals(CODE + 7, core.readMem32(0x8000 - 8));
+        assertEquals(0x08, core.readMem32(0x8000 - 4));
+        steps(core, 2);
+        assertEquals(CODE + 7, core.getPC64());
+        assertEquals(0x8000, core.getReg64(X86Core.REG_RSP));
+        assertEquals(5, core.getReg64(X86Core.REG_RBX));
+    }
+
+    @Test
+    public void testSgdtStoresWhatLgdtLoaded() throws Exception
+    {
+        X86Core core = new X86Core(1024 * 1024);
+        core.setLongMode(true);
+        core.setActiveExecutor(new X86Amd64());
+        load(core, CODE,
+                0x0F, 0x01, 0x15, 0x08, 0x00, 0x00, 0x00,   // lgdt [rip+8]
+                0x0F, 0x01, 0x07,                           // sgdt [rdi]
+                0x90, 0x90, 0x90, 0x90, 0x90,
+                0x37, 0x00,                                 // limit 0x37
+                0x00, 0x30, 0x02, 0x00, 0x01, 0x00, 0x00, 0x00);  // base 0x100023000
+        core.setReg64(X86Core.REG_RDI, 0x3000);
+        core.setPC64(CODE);
+        steps(core, 2);
+        assertEquals(0x100023000L, core.getGdtBase64());
+        assertEquals(0x37, core.getGdtLimit());
+        assertEquals(0x37, core.readMem16(0x3000));
+        assertEquals(0x100023000L, core.readMem64(0x3002L));
+    }
+
+    @Test
+    public void testLdtSelectorStops() throws Exception
+    {
+        X86Core core = core32(
+                0x66, 0xB8, 0x0C, 0x00,                 // mov ax, 0x0C (TI = 1)
+                0x8E, 0xD8);                            // mov ds, eax
+        String message = unknown(core, 2);
+        assertTrue(message, message.contains("load DS: selector 0xC is in the LDT"));
+        assertEquals(CODE + 4, core.getPC64());
+    }
+
+    @Test
+    public void testUnknownMsrStops() throws Exception
+    {
+        X86Core core = core32(
+                0xB9, 0x1B, 0x00, 0x00, 0x00,           // mov ecx, 0x1B (APIC base)
+                0x0F, 0x32);                            // rdmsr
+        String message = unknown(core, 2);
+        assertTrue(message, message.contains("RDMSR 0x1B in 32-bit code"));
+    }
+
+    @Test
+    public void testPagingOutsideLongModeStops() throws Exception
+    {
+        X86Core core = core32(
+                0x0F, 0x20, 0xC0,                       // mov eax, cr0
+                0x0D, 0x00, 0x00, 0x00, 0x80,           // or eax, 0x80000000
+                0x0F, 0x22, 0xC0);                      // mov cr0, eax
+        String message = unknown(core, 3);
+        assertTrue(message, message.contains("turns on paging outside long mode"));
+        assertEquals(0, core.getCr0() & X86Core.CR0_PG);
+    }
+}

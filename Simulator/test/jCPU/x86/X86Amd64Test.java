@@ -127,11 +127,11 @@ public class X86Amd64Test {
     }
 
     @Test
-    public void testUnimplementedFarCall() throws Exception {
-        // 0xFF /3 (far CALL) with ModR/M 0x18: mod=00, reg=011, rm=000
-        X86Core core = coreWith(0xFF, 0x18);
+    public void testUndefinedGroup5Member() throws Exception {
+        // 0xFF /7 does not exist; ModR/M 0x38: mod=00, reg=111, rm=000
+        X86Core core = coreWith(0xFF, 0x38);
         X86UnknownOpcodeException ex = stepExpectingUnknown(core);
-        assertTrue(ex.getMessage(), ex.getMessage().contains("opcode 0xFF /3"));
+        assertTrue(ex.getMessage(), ex.getMessage().contains("opcode 0xFF /7"));
         assertEquals(START, core.getPC64());
     }
 

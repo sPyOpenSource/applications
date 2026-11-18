@@ -601,6 +601,51 @@ public class X86Amd64 implements X86Core.iExecutor
         }
 
         switch (opcode) {
+            case 0x06: case 0x0E: case 0x16: case 0x1E:     // PUSH ES, CS, SS, DS (32-bit code)
+                if (code64) break;
+                push(core.getSegSelector(opcode >>> 3), stackSize());
+                return;
+            case 0x07: case 0x17: case 0x1F:                // POP ES, SS, DS (32-bit code)
+                if (code64) break;
+                loadSegment(opcode >>> 3, (int) pop(stackSize()) & 0xFFFF);
+                return;
+            case 0x8C: {                            // MOV r/m, Sreg
+                int seg = peekGroup();
+                if (seg >= SEG_COUNT) break;
+                decodeModRm(0);
+                writeRm(mod == 3 ? opSize : 2, core.getSegSelector(seg));
+                return;
+            }
+            case 0x8E: {                            // MOV Sreg, r/m
+                int seg = peekGroup();
+                if (seg >= SEG_COUNT || seg == SEG_CS) break;
+                decodeModRm(0);
+                loadSegment(seg, (int) readRm(2));
+                return;
+            }
+            case 0x9A: {                            // CALL ptr16:32 (32-bit code)
+                if (code64) break;
+                long target = farOffsetImm();
+                int selector = fetch16();
+                farCall(selector, target);
+                return;
+            }
+            case 0xEA: {                            // JMP ptr16:32 (32-bit code)
+                if (code64) break;
+                long target = farOffsetImm();
+                farJump(fetch16(), target);
+                return;
+            }
+            case 0xCA:                              // RETF imm16
+            case 0xCB: {                            // RETF
+                int extra = opcode == 0xCA ? fetch16() : 0;
+                int size = farSize();
+                long target = pop(size);
+                int selector = (int) pop(size) & 0xFFFF;
+                addStack(extra);
+                farJump(selector, target);
+                return;
+            }
             case 0x60: {                            // PUSHA/PUSHAD (32-bit code)
                 if (code64) break;
                 long sp = getReg(RSP, opSize);
@@ -883,8 +928,20 @@ public class X86Amd64 implements X86Core.iExecutor
             }
             case 0xFF: {                            // group 5
                 int sub = peekGroup();
-                if (sub == 3 || sub == 5 || sub == 7) break;    // far CALL, far JMP
+                boolean far = sub == 3 || sub == 5;
+                if (sub == 7 || far && (core.readMem8(ip) >>> 6) == 3) break;
                 decodeModRm(0);
+                if (far) {                          // far CALL, far JMP through m16:32 / m16:64
+                    int size = farSize();
+                    long target = readMem(ea, size);
+                    int selector = (int) readMem(linear(dataSeg(SEG_DS), offset + size), 2);
+                    if (sub == 3) {
+                        farCall(selector, target);
+                    } else {
+                        farJump(selector, target);
+                    }
+                    return;
+                }
                 switch (sub) {
                     case 0: case 1:                 // INC, DEC r/m
                         writeRm(opSize, incDec(readRm(opSize), opSize, sub == 1));
@@ -908,7 +965,8 @@ public class X86Amd64 implements X86Core.iExecutor
         }
 
         String name = String.format("opcode 0x%02X", opcode);
-        if (opcode == 0x8F || opcode == 0xC6 || opcode == 0xC7 || opcode == 0xFE || opcode == 0xFF) {
+        if (opcode == 0x8F || opcode == 0xC6 || opcode == 0xC7 || opcode == 0xFE || opcode == 0xFF
+                || opcode == 0x8C || opcode == 0x8E) {
             name += " /" + peekGroup();             // the /digit selects the instruction
         }
         throw unknownOpcode(name);
@@ -1193,6 +1251,43 @@ public class X86Amd64 implements X86Core.iExecutor
         }
 
         switch (op2) {
+            case 0x01: {                            // group 7: SGDT, SIDT, LGDT, LIDT, INVLPG
+                int sub = peekGroup();
+                if ((core.readMem8(ip) >>> 6) == 3 || sub == 4 || sub == 5 || sub == 6) break;
+                decodeModRm(0);
+                descriptorTable(sub);
+                return;
+            }
+            case 0x20:                              // MOV r, CRn
+            case 0x22: {                            // MOV CRn, r
+                // The r/m operand is always a register, whatever the mod field says.
+                int modrm = fetch8();
+                int cr = ((modrm >>> 3) & 7) | (rexR << 3);
+                int r = (modrm & 7) | (rexB << 3);
+                int size = code64 ? 8 : 4;
+                if (op2 == 0x20) {
+                    setReg(r, size, readCr(cr));
+                } else {
+                    writeCr(cr, getReg(r, size));
+                }
+                return;
+            }
+            case 0x30:                              // WRMSR
+                writeMsr((int) getReg(RCX, 4), (getReg(RDX, 4) << 32) | getReg(RAX, 4));
+                return;
+            case 0x32: {                            // RDMSR
+                long v = readMsr((int) getReg(RCX, 4));
+                setReg(RAX, 4, v & 0xFFFFFFFFL);
+                setReg(RDX, 4, v >>> 32);
+                return;
+            }
+            case 0xA0: case 0xA8:                   // PUSH FS, PUSH GS
+                push(core.getSegSelector(op2 == 0xA0 ? SEG_FS : SEG_GS), stackSize());
+                return;
+            case 0xA1: case 0xA9:                   // POP FS, POP GS
+                if (code64) break;                  // the FS/GS base would come from the descriptor
+                loadSegment(op2 == 0xA1 ? SEG_FS : SEG_GS, (int) pop(stackSize()) & 0xFFFF);
+                return;
             case 0x05:                              // SYSCALL: there is no kernel entry to call
             case 0x07:                              // SYSRET
                 return;
@@ -1272,7 +1367,242 @@ public class X86Amd64 implements X86Core.iExecutor
         }
 
         String name = String.format("opcode 0x0F 0x%02X", op2);
-        throw unknownOpcode(op2 == 0xBA ? name + " /" + peekGroup() : name);
+        throw unknownOpcode(op2 == 0xBA || op2 == 0x01 ? name + " /" + peekGroup() : name);
+    }
+
+    /* ---------------- system instructions ---------------- */
+
+    /*
+     * The CPU always runs at privilege level 0.  Segment limits are not
+     * checked, and paging is not translated: long mode relies on the
+     * identity mapping UEFI firmware sets up, and turning paging on outside
+     * long mode stops with an error.  So do LDT selectors, other privilege
+     * levels and MSRs other than EFER.
+     */
+
+    /* SGDT (0), SIDT (1), LGDT (2), LIDT (3), INVLPG (7) on the decoded memory operand. */
+    private void descriptorTable(int sub) throws X86UnknownOpcodeException {
+        int baseSize = code64 ? 8 : 4;
+        long baseAddr = linear(dataSeg(SEG_DS), offset + 2);
+        switch (sub) {
+            case 0:
+            case 1: {
+                boolean gdt = sub == 0;
+                writeMem(ea, 2, gdt ? core.getGdtLimit() : core.getIdtLimit());
+                writeMem(baseAddr, baseSize, gdt ? core.getGdtBase64() : core.getIdtBase());
+                return;
+            }
+            case 2:
+            case 3: {
+                int limit = (int) readMem(ea, 2);
+                long base = readMem(baseAddr, baseSize);
+                if (!code64 && opSize == 2) {
+                    base &= 0xFFFFFF;               // a 16-bit operand loads a 24-bit base
+                }
+                if (sub == 2) {
+                    core.setGdt(base, limit);
+                } else {
+                    core.setIdt(base, limit);
+                }
+                return;
+            }
+            default:                                // INVLPG: there is no TLB
+                return;
+        }
+    }
+
+    private long readCr(int cr) throws X86UnknownOpcodeException {
+        switch (cr) {
+            case 0: return core.getCr0();
+            case 2: return core.getCr2();
+            case 3: return core.getCr3();
+            case 4: return core.getCr4();
+            default: throw unknownOpcode("MOV from CR" + cr);
+        }
+    }
+
+    /*
+     * Writing CR0 and CR4 follows the rules for entering and leaving long
+     * mode: setting CR0.PG with EFER.LME (and CR4.PAE) activates it, clearing
+     * CR0.PG deactivates it.
+     */
+    private void writeCr(int cr, long v) throws X86UnknownOpcodeException {
+        long efer = core.getEfer();
+        switch (cr) {
+            case 0: {
+                v = (v | 0x10) & 0xFFFFFFFFL;       // ET is always 1
+                boolean paging = (v & X86Core.CR0_PG) != 0;
+                boolean wasPaging = (core.getCr0() & X86Core.CR0_PG) != 0;
+                if ((v & X86Core.CR0_PE) == 0) {
+                    throw unknownOpcode("MOV CR0 that leaves protected mode");
+                }
+                if (paging && !wasPaging) {
+                    if ((efer & X86Core.EFER_LME) == 0) {
+                        throw unknownOpcode("MOV CR0 that turns on paging outside long mode");
+                    }
+                    if ((core.getCr4() & X86Core.CR4_PAE) == 0) {
+                        throw unknownOpcode("MOV CR0 that enters long mode without CR4.PAE");
+                    }
+                    efer |= X86Core.EFER_LMA;
+                } else if (!paging && wasPaging) {
+                    if (code64) {
+                        throw unknownOpcode("MOV CR0 that turns off paging in 64-bit code");
+                    }
+                    efer &= ~X86Core.EFER_LMA;
+                }
+                core.setCr0(v);
+                core.setEfer(efer);
+                return;
+            }
+            case 2:
+                core.setCr2(v);
+                return;
+            case 3:
+                core.setCr3(v);
+                return;
+            case 4:
+                if ((efer & X86Core.EFER_LMA) != 0 && (v & X86Core.CR4_PAE) == 0) {
+                    throw unknownOpcode("MOV CR4 that clears PAE in long mode");
+                }
+                core.setCr4(v);
+                return;
+            default:
+                throw unknownOpcode("MOV to CR" + cr);
+        }
+    }
+
+    private long readMsr(int msr) throws X86UnknownOpcodeException {
+        if (msr == X86Core.MSR_EFER) {
+            return core.getEfer();
+        }
+        throw unknownOpcode(String.format("RDMSR 0x%X", msr));
+    }
+
+    private void writeMsr(int msr, long v) throws X86UnknownOpcodeException {
+        if (msr != X86Core.MSR_EFER) {
+            throw unknownOpcode(String.format("WRMSR 0x%X", msr));
+        }
+        long old = core.getEfer();
+        if ((core.getCr0() & X86Core.CR0_PG) != 0 && ((old ^ v) & X86Core.EFER_LME) != 0) {
+            throw unknownOpcode("WRMSR that changes EFER.LME while paging is on");
+        }
+        // LMA cannot be written; it follows CR0.PG.
+        core.setEfer((v & ~X86Core.EFER_LMA) | (old & X86Core.EFER_LMA));
+    }
+
+    /* The 8-byte GDT descriptor of a selector. */
+    private long descriptor(int selector, String what) throws X86UnknownOpcodeException {
+        if ((selector & 4) != 0) {
+            throw unknownOpcode(String.format("%s: selector 0x%X is in the LDT", what, selector));
+        }
+        int index = selector & ~7;
+        if (index + 7 > core.getGdtLimit()) {
+            throw unknownOpcode(String.format("%s: selector 0x%X is outside the GDT", what, selector));
+        }
+        long d = core.readMem64(core.getGdtBase64() + index);
+        if ((d & (1L << 47)) == 0) {
+            throw unknownOpcode(String.format("%s: segment 0x%X is not present", what, selector));
+        }
+        if ((d & (1L << 44)) == 0) {
+            throw unknownOpcode(String.format("%s: selector 0x%X is a system segment", what, selector));
+        }
+        return d;
+    }
+
+    private static int descriptorBase(long d) {
+        return (int) (((d >>> 16) & 0xFFFFFF) | ((d >>> 56) << 24));
+    }
+
+    /* Load a data segment register (not CS) from the GDT. */
+    private void loadSegment(int seg, int selector) throws X86UnknownOpcodeException {
+        String what = "load " + "ECSDFG".charAt(seg) + "S";
+        int base = 0;
+        if ((selector & ~3) == 0) {
+            // The null selector; only SS outside 64-bit code needs a real segment.
+            if (seg == SEG_SS && !code64) {
+                throw unknownOpcode(what + ": null selector");
+            }
+        } else {
+            if ((selector & 3) != 0) {
+                throw unknownOpcode(String.format("%s: selector 0x%X has privilege level %d",
+                        what, selector, selector & 3));
+            }
+            long d = descriptor(selector, what);
+            boolean code = (d & (1L << 43)) != 0;
+            boolean writableOrReadable = (d & (1L << 41)) != 0;
+            if (seg == SEG_SS ? code || !writableOrReadable : code && !writableOrReadable) {
+                throw unknownOpcode(String.format("%s: segment 0x%X cannot be used here", what, selector));
+            }
+            if (seg == SEG_SS && !code64 && (d & (1L << 54)) == 0) {
+                throw unknownOpcode(String.format("%s: segment 0x%X is a 16-bit stack", what, selector));
+            }
+            base = descriptorBase(d);
+        }
+        core.setSegSelector(seg, selector);
+        core.setSegBase(seg, base);
+    }
+
+    /* Size of a far pointer's offset: 4, or 8 with REX.W.  16-bit offsets are not implemented. */
+    private int farSize() throws X86UnknownOpcodeException {
+        if (opSize == 2) {
+            throw unknownOpcode("far branch with a 16-bit offset");
+        }
+        return opSize;
+    }
+
+    /* The offset of an immediate far pointer (ptr16:32). */
+    private long farOffsetImm() throws X86UnknownOpcodeException {
+        farSize();
+        return fetch32() & 0xFFFFFFFFL;
+    }
+
+    private void farCall(int selector, long target) throws X86UnknownOpcodeException {
+        int size = farSize();
+        long returnTo = ip;
+        int cs = core.getSegSelector(SEG_CS);
+        // The target is checked before anything is pushed.
+        long d = codeDescriptor(selector);
+        push(cs, size);
+        push(returnTo, size);
+        enterCode(selector, d, target);
+    }
+
+    private void farJump(int selector, long target) throws X86UnknownOpcodeException {
+        enterCode(selector, codeDescriptor(selector), target);
+    }
+
+    private long codeDescriptor(int selector) throws X86UnknownOpcodeException {
+        String what = "far branch";
+        if ((selector & 3) != 0) {
+            throw unknownOpcode(String.format("%s: selector 0x%X has privilege level %d",
+                    what, selector, selector & 3));
+        }
+        if ((selector & ~3) == 0) {
+            throw unknownOpcode(what + ": null selector");
+        }
+        long d = descriptor(selector, what);
+        if ((d & (1L << 43)) == 0) {
+            throw unknownOpcode(String.format("%s: segment 0x%X is not a code segment", what, selector));
+        }
+        if (descriptorBase(d) != 0) {
+            throw unknownOpcode(String.format("%s: code segment 0x%X has a base", what, selector));
+        }
+        return d;
+    }
+
+    /*
+     * Continue at target in the code segment.  Its L and D bits decide
+     * whether the next instruction is 64-bit, 32-bit or (not supported)
+     * 16-bit code.
+     */
+    private void enterCode(int selector, long d, long target) {
+        boolean longSegment = core.isLongMode() && (d & (1L << 53)) != 0;
+        core.setSegSelector(SEG_CS, selector);
+        core.setSegBase(SEG_CS, 0);
+        core.setCodeLong(longSegment);
+        core.setCodeSize32(!longSegment && (d & (1L << 54)) != 0);
+        ip = longSegment ? target : target & 0xFFFFFFFFL;
+        code64 = longSegment;
     }
 
     /**
