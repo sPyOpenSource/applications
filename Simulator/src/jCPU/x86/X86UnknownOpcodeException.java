@@ -43,7 +43,7 @@ public class X86UnknownOpcodeException extends Exception {
 
     private static String describe(X86Core core, long rip, String what, long[] recent) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Unknown x86-64 instruction at RIP=0x%016X (%s), bytes:", rip, what));
+        sb.append(String.format("Unknown x86 instruction at RIP=0x%016X (%s), bytes:", rip, what));
         for (int i = 0; i < MAX_INSN_BYTES; i++) {
             sb.append(String.format(" %02X", core.readMem8(rip + i)));
         }
