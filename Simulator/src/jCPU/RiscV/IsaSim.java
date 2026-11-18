@@ -16,8 +16,10 @@ import static jCPU.RiscV.RVConstants.JALR_MASK;
 import static jCPU.RiscV.RVConstants.JAL_MASK;
 import static jCPU.RiscV.RVConstants.LOAD_MASK;
 import static jCPU.RiscV.RVConstants.LUI_MASK;
+import static jCPU.RiscV.RVConstants.OP_IMM_32_MASK;
 import static jCPU.RiscV.RVConstants.OP_IMM_MASK;
 import static jCPU.RiscV.RVConstants.OP_MASK;
+import static jCPU.RiscV.RVConstants.OP_MASK_32;
 import static jCPU.RiscV.RVConstants.STORE_MASK;
 import jCPU.iCPU;
 import java.io.FileInputStream;
@@ -91,6 +93,7 @@ public class IsaSim implements iCPU {
 
     /**
      * Set the timer peripheral. {@link #step()} advances it once per cycle.
+     * @param timer
      */
     public void setTimer(TimerPeripheral timer) {
         this.timer = timer;
@@ -116,6 +119,7 @@ public class IsaSim implements iCPU {
 
     /**
      * Get the current cycle count (clock).
+     * @return 
      */
     public long getClock() {
         return cc;
@@ -123,7 +127,9 @@ public class IsaSim implements iCPU {
 
     /**
      * Get the current program counter.
+     * @return 
      */
+    @Override
     public int pc() {
         return pc;
     }
@@ -131,6 +137,7 @@ public class IsaSim implements iCPU {
     /**
      * Get the current cycle count (clock). Overrides iCPU.clock() which
      * defaults to 0; here it returns the real cycle counter `cc`.
+     * @return 
      */
     @Override
     public long clock() {
@@ -140,6 +147,9 @@ public class IsaSim implements iCPU {
     /**
      * Read a byte, routing through the ESP32-C3 memory map when set
      * (Task 6), else falling back to the raw code Memory.
+     * @param addr
+     * @return 
+     * @throws jCPU.RiscV.BusErrorException
      */
     public int readByte(int addr) throws BusErrorException {
         if (memoryMap != null) {
@@ -411,124 +421,425 @@ public class IsaSim implements iCPU {
         writeMemByte(addr + 2, value >> 16);
         writeMemByte(addr + 3, value >> 24);
     }
-
-    //System.out.println("Program exit");
     
+    /**
+     * Disassemble the instruction at {@code pc} without modifying any simulator
+     * state (no register writes, no PC advancement, no memory side effects).
+     *
+     * <p>Supports both 32-bit RV32I instructions and 16-bit RVC compressed
+     * instructions. If the address is unmapped or the encoding is unknown, a
+     * descriptive string is returned instead of throwing.</p>
+     *
+     * @param pc byte address of the instruction to disassemble
+     * @return a human-readable disassembly line
+     */
     @Override
     public String getDecodeAt(int pc) {
-            // Combine four bytes to produce a single instruction
-            int instr = code.read32(pc);
-String ins = String.format("%08x ", instr);
-            // Retrieve the least significant seven bits of the instruction
-            // indicating the type of instruction
-            int opcode = instr & 0x7f;
+        // Cannot fetch even 2 bytes from an unmapped address
+        if (!code.containsKey(pc) || !code.containsKey(pc + 1)) {
+            return String.format("     0x%08x: <unmapped>", pc);
+        }
 
-            // Execute the instruction based on its type
-            switch (opcode) {
-            case LUI_MASK:
-                            ins += "LUI ";
-                    ins += loadUpperImmediate(instr);
-                    break;
+        int cInstr = code.read16(pc);
 
-            case AUIPC_MASK:
-                            ins += "AUIPC ";
-                    ins += addUpperImmediatePC(instr);
-                    break;
+        // RVC compressed instruction: lowest two bits are not "11"
+        if ((cInstr & 0x3) != 0x3) {
+            return String.format("     0x%08x: %04x  %s", pc, cInstr,
+                    decodeCompressed(cInstr, pc));
+        }
 
-            case JAL_MASK:
-                            ins += "JAL ";
-                    ins += jumpAndLink(instr);
-                    offsetPC = true;
-                    break;
+        // 32-bit instruction: need all 4 bytes
+        if (!code.containsKey(pc + 2) || !code.containsKey(pc + 3)) {
+            return String.format("     0x%08x: <unmapped>", pc);
+        }
 
-            case JALR_MASK:
-                            ins += "JALR ";
-                    ins += jumpAndLinkRegister(instr);
-                    offsetPC = true;
-                    break;
+        int instr = code.read32(pc);
+        return String.format("     0x%08x: %08x  %s", pc, instr,
+                decode32Bit(instr, pc));
+    }
 
-            case BRANCH_MASK:
-                            ins += "Branch ";
-                    offsetPC = branchInstruction(instr);
-                    break;
+    /* ------------------------------------------------------------------ */
+    /* Read-only 32-bit RV32I disassembly                                 */
+    /* ------------------------------------------------------------------ */
 
-            case LOAD_MASK:
-                            ins += "Load ";
-                    try {
-                        ins += loadInstruction(instr);
-                    } catch (BusErrorException e) {
-                        ins += "<bus error>";
+    private String decode32Bit(int instr, int pc) {
+        int opcode = instr & 0x7f;
+        int rd = (instr >> 7) & 0x1f;
+        int rs1 = (instr >> 15) & 0x1f;
+        int rs2 = (instr >> 20) & 0x1f;
+        int funct3 = (instr >> 12) & 0x7;
+        int funct7 = (instr >> 25);
+
+        switch (opcode) {
+        case LUI_MASK: {
+            int imm = instr & 0xfffff000;
+            return String.format("lui x%d, 0x%x", rd, imm);
+        }
+        case AUIPC_MASK: {
+            int imm = instr & 0xfffff000;
+            return String.format("auipc x%d, 0x%x", rd, imm);
+        }
+        case JAL_MASK: {
+            int imm = ((instr >> (31 - 20)) & (1 << 20))
+                    | ((instr >> (21 - 1)) & 0x7fe)
+                    | ((instr >> (20 - 11)) & (1 << 11))
+                    | (instr & 0xff000);
+            imm = (imm << 11) >> 11; // sign-extend 20 bits
+            return String.format("jal x%d, 0x%x (pc + %d -> 0x%x)",
+                    rd, imm, imm, pc + imm);
+        }
+        case JALR_MASK: {
+            int imm = (instr >> 20);
+            imm = (imm << 20) >> 20; // sign-extend 12 bits
+            return String.format("jalr x%d, %d(x%d)", rd, imm, rs1);
+        }
+        case BRANCH_MASK: {
+            int imm = ((instr >> (31 - 12)) & (1 << 12))
+                    | ((instr >> (25 - 5)) & 0x7e0)
+                    | ((instr >> (8 - 1)) & 0x1e)
+                    | ((instr << (11 - 7)) & (1 << 11));
+            imm = (imm << 19) >> 19; // sign-extend 12 bits
+            String mnemonic;
+            switch (funct3) {
+            case 0x0: mnemonic = "beq"; break;
+            case 0x1: mnemonic = "bne"; break;
+            case 0x4: mnemonic = "blt"; break;
+            case 0x5: mnemonic = "bge"; break;
+            case 0x6: mnemonic = "bltu"; break;
+            case 0x7: mnemonic = "bgeu"; break;
+            default: mnemonic = "branch?"; break;
+            }
+            return String.format("%s x%d, x%d, 0x%x (pc + %d -> 0x%x)",
+                    mnemonic, rs1, rs2, imm, imm, pc + imm);
+        }
+        case LOAD_MASK: {
+            int imm = (instr >> 20);
+            imm = (imm << 20) >> 20; // sign-extend 12 bits
+            String mnemonic;
+            switch (funct3) {
+            case 0x0: mnemonic = "lb"; break;
+            case 0x1: mnemonic = "lh"; break;
+            case 0x2: mnemonic = "lw"; break;
+            case 0x4: mnemonic = "lbu"; break;
+            case 0x5: mnemonic = "lhu"; break;
+            case 0x6: mnemonic = "lwu"; break;
+            default: mnemonic = "load?"; break;
+            }
+            return String.format("%s x%d, %d(x%d)", mnemonic, rd, imm, rs1);
+        }
+        case STORE_MASK: {
+            int imm = ((instr >> 7) & 0x1f) | ((instr >> 25) << 5);
+            imm = (imm << 20) >> 20; // sign-extend 12 bits
+            String mnemonic;
+            switch (funct3) {
+            case 0x0: mnemonic = "sb"; break;
+            case 0x1: mnemonic = "sh"; break;
+            case 0x2: mnemonic = "sw"; break;
+            default: mnemonic = "store?"; break;
+            }
+            return String.format("%s x%d, %d(x%d)", mnemonic, rs2, imm, rs1);
+        }
+        case OP_IMM_MASK:
+        case OP_IMM_32_MASK: {
+            int imm = (instr >> 20);
+            imm = (imm << 20) >> 20; // sign-extend 12 bits
+            String mnemonic;
+            switch (funct3) {
+            case 0x0: mnemonic = "addi"; break;
+            case 0x2: mnemonic = "slti"; break;
+            case 0x3: mnemonic = "sltiu"; break;
+            case 0x4: mnemonic = "xori"; break;
+            case 0x6: mnemonic = "ori"; break;
+            case 0x7: mnemonic = "andi"; break;
+            case 0x1:
+                if (funct7 == 0x00) mnemonic = "slli";
+                else mnemonic = "slli?";
+                break;
+            case 0x5:
+                if (funct7 == 0x00) mnemonic = "srli";
+                else if (funct7 == 0x20) mnemonic = "srai";
+                else mnemonic = "sr?";
+                break;
+            default: mnemonic = "op-imm?"; break;
+            }
+            if (funct3 == 0x1 || funct3 == 0x5) {
+                int shamt = (instr >> 20) & 0x1f;
+                return String.format("%s x%d, x%d, %d", mnemonic, rd, rs1, shamt);
+            }
+            return String.format("%s x%d, x%d, %d", mnemonic, rd, rs1, imm);
+        }
+        case OP_MASK:
+        case OP_MASK_32: {
+            String mnemonic;
+            switch (funct7) {
+            case 0x01: // MUL/DIV extensions
+                switch (funct3) {
+                case 0x0: mnemonic = "mul"; break;
+                case 0x1: mnemonic = "mulh"; break;
+                case 0x2: mnemonic = "mulhsu"; break;
+                case 0x3: mnemonic = "mulhu"; break;
+                case 0x4: mnemonic = "div"; break;
+                case 0x5: mnemonic = "divu"; break;
+                case 0x6: mnemonic = "rem"; break;
+                case 0x7: mnemonic = "remu"; break;
+                default: mnemonic = "muldiv?"; break;
+                }
+                break;
+            default: // ADD/SUB and logic
+                switch (funct3) {
+                case 0x0: mnemonic = (funct7 == 0x00) ? "add" : "sub"; break;
+                case 0x1: mnemonic = "sll"; break;
+                case 0x2: mnemonic = "slt"; break;
+                case 0x3: mnemonic = "sltu"; break;
+                case 0x4: mnemonic = "xor"; break;
+                case 0x5: mnemonic = (funct7 == 0x00) ? "srl" : "sra"; break;
+                case 0x6: mnemonic = "or"; break;
+                case 0x7: mnemonic = "and"; break;
+                default: mnemonic = "op?"; break;
+                }
+                break;
+            }
+            return String.format("%s x%d, x%d, x%d", mnemonic, rd, rs1, rs2);
+        }
+        case FENCE_MASK:
+            return "fence";
+        case CSR_MASK: {
+            int csr = (instr >> 20) & 0xFFF;
+            int zimm = rs1; // CSR immediate is in rs1 field
+            switch (funct3) {
+            case 0x0:
+                if (csr == 0) return "ecall";
+                return String.format("csrrw x%d, 0x%x", rd, csr);
+            case 0x1:
+                return String.format("csrrw x%d, 0x%x, x%d", rd, csr, rs1);
+            case 0x2:
+                return String.format("csrrs x%d, 0x%x, x%d", rd, csr, rs1);
+            case 0x3:
+                return String.format("csrrc x%d, 0x%x, x%d", rd, csr, rs1);
+            case 0x5:
+                return String.format("csrrwi x%d, 0x%x, %d", rd, csr, zimm);
+            case 0x6:
+                return String.format("csrrsi x%d, 0x%x, %d", rd, csr, zimm);
+            case 0x7:
+                return String.format("csrrci x%d, 0x%x, %d", rd, csr, zimm);
+            default:
+                return String.format("csr? x%d, 0x%x", rd, csr);
+            }
+        }
+        default:
+            return String.format("<opcode 0x%02x not implemented>", opcode);
+        }
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* Read-only RVC (compressed 16-bit) disassembly                      */
+    /* ------------------------------------------------------------------ */
+
+    private String decodeCompressed(int cInstr, int pc) {
+        int funct3 = (cInstr >> 13) & 0x7;
+        int quad = cInstr & 0x3;
+
+        switch (quad) {
+        case 0: // Quadrant 0
+            switch (funct3) {
+            case 0x0: // c.addi4spn
+                {
+                    int imm = ((cInstr >> 7) & 0x20) | ((cInstr >> 2) & 0x1e)
+                            | ((cInstr >> 6) & 0x4) | ((cInstr >> 5) & 0x8);
+                    if (imm == 0) return "c.illegal";
+                    return String.format("c.addi4spn sp, %d", imm);
+                }
+            case 0x1: // c.fld (not RV32I core)
+            case 0x3: // c.ld
+                return "c.fld/c.ld (FP/64-bit)";
+            case 0x2: // c.lw
+                {
+                    int imm = ((cInstr >> 7) & 0x3c) | ((cInstr >> 5) & 0x40)
+                            | ((cInstr >> 2) & 0x4);
+                    int rs1 = ((cInstr >> 7) & 0x7) | 0x8;
+                    return String.format("c.lw x%d, %d(x%d)", rs1, imm, rs1);
+                }
+            case 0x5: // c.fsd
+            case 0x6: // c.sw
+                {
+                    int imm = ((cInstr >> 7) & 0x3c) | ((cInstr >> 5) & 0x40)
+                            | ((cInstr >> 2) & 0x4);
+                    int rs2 = ((cInstr >> 7) & 0x7) | 0x8;
+                    int rs1 = ((cInstr >> 7) & 0x7) | 0x8;
+                    return String.format("c.sw x%d, %d(x%d)", rs2, imm, rs1);
+                }
+            case 0x7: // c.sd
+                return "c.sd (64-bit)";
+            default:
+                return "c.unknown q0";
+            }
+        case 1: // Quadrant 1
+            switch (funct3) {
+            case 0x0: // c.addi / c.nop
+                {
+                    int rd = (cInstr >> 7) & 0x1f;
+                    int imm = (((cInstr >> 7) & 0x20) | ((cInstr >> 2) & 0x1f));
+                    imm = (imm << 26) >> 26; // sign-extend 6 bits
+                    if (rd == 0 && imm == 0) return "c.nop";
+                    return String.format("c.addi x%d, x%d, %d", rd, rd, imm);
+                }
+            case 0x1: // c.addiw
+                {
+                    int rd = (cInstr >> 7) & 0x1f;
+                    int imm = (((cInstr >> 7) & 0x20) | ((cInstr >> 2) & 0x1f));
+                    imm = (imm << 26) >> 26;
+                    return String.format("c.addiw x%d, x%d, %d", rd, rd, imm);
+                }
+            case 0x2: // c.li
+                {
+                    int rd = (cInstr >> 7) & 0x1f;
+                    int imm = (((cInstr >> 7) & 0x20) | ((cInstr >> 2) & 0x1f));
+                    imm = (imm << 26) >> 26;
+                    return String.format("c.li x%d, %d", rd, imm);
+                }
+            case 0x3:
+                {
+                    int rd = (cInstr >> 7) & 0x1f;
+                    if (rd == 2) {
+                        int imm = (((cInstr >> 7) & 0x20) | ((cInstr >> 2) & 0x1f)
+                                | ((cInstr >> 6) & 0x40) | ((cInstr >> 3) & 0x38)
+                                | ((cInstr >> 2) & 0x40));
+                        imm = (imm << 22) >> 22;
+                        if (imm == 0) return "c.illegal";
+                        return String.format("c.addi16sp sp, %d", imm);
+                    } else if (rd != 0) {
+                        int imm = (((cInstr >> 7) & 0x20) | ((cInstr >> 2) & 0x1f)
+                                | ((cInstr >> 6) & 0x100) >> 2);
+                        imm = (imm << 22) >> 22;
+                        return String.format("c.lui x%d, %d", rd, imm);
                     }
-                    break;
-
-            case STORE_MASK:
-                            ins += "Store ";
-                    try {
-                        ins += storeInstruction(instr);
-                    } catch (BusErrorException e) {
-                        ins += "<bus error>";
+                    return "c.unknown";
+                }
+            case 0x4: // c.srli/c.srai/c.andi/c.sub/c.xor/c.or/c.and/c.subw/c.addw
+                {
+                    int funct4 = (cInstr >> 10) & 0x3;
+                    int rd = ((cInstr >> 7) & 0x7) | 0x8;
+                    int rs1 = rd;
+                    switch (funct4) {
+                    case 0x0: // c.srli / c.srai
+                        {
+                            int imm = ((cInstr >> 7) & 0x20) | ((cInstr >> 2) & 0x1f);
+                            int funct5 = (cInstr >> 5) & 0x2;
+                            String m = (funct5 == 0x0) ? "c.srli" : "c.srai";
+                            return String.format("%s x%d, x%d, %d", m, rd, rd, imm);
+                        }
+                    case 0x1: // c.srai
+                        return "c.srai";
+                    case 0x2: // c.andi
+                        {
+                            int imm = (((cInstr >> 7) & 0x20) | ((cInstr >> 2) & 0x1f));
+                            imm = (imm << 26) >> 26;
+                            return String.format("c.andi x%d, x%d, %d", rd, rd, imm);
+                        }
+                    case 0x3: // c.sub/c.xor/c.or/c.and/c.subw/c.addw
+                        {
+                            int rs2 = ((cInstr >> 2) & 0x7) | 0x8;
+                            int funct5 = ((cInstr >> 5) & 0x3) | ((cInstr >> 10) & 0x4);
+                            String m;
+                            switch (funct5) {
+                            case 0x0: m = "c.sub"; break;
+                            case 0x1: m = "c.xor"; break;
+                            case 0x2: m = "c.or"; break;
+                            case 0x3: m = "c.and"; break;
+                            case 0x4: m = "c.subw"; break;
+                            case 0x5: m = "c.addw"; break;
+                            default: m = "c.alu?"; break;
+                            }
+                            return String.format("%s x%d, x%d, x%d", m, rd, rd, rs2);
+                        }
+                    default:
+                        return "c.unknown q1.4";
                     }
-                    break;
-
-            case OP_IMM_MASK: // Immediate instructions
-                            ins += "Immediate ";
-                    ins += immediateInstruction(instr);
-                    break;
-
-            case OP_MASK: // Arithmetic
-                            ins += "Arithmetic ";
-                    ins += arithmeticInstruction(instr);
-                    break;
-
-            case FENCE_MASK: // Fence (NOT IMPLEMENTED)
-                    break;
-
-            case CSR_MASK: // Ecalls and CSR instructions
-                    {
-                        int funct3 = (instr >> 12) & 0x7;
-                        int csr = (instr >> 20) & 0xFFF;
-                        switch (funct3) {
-                        case 0x0:
-                            ins += (csr == 0) ? "ECALL/EBREAK " : "CSRRW ";
-                            break;
-                        case 0x1:
-                            ins += "CSRRW ";
-                            break;
-                        case 0x2:
-                            ins += "CSRRS ";
-                            break;
-                        case 0x3:
-                            ins += "CSRRC ";
-                            break;
-                        case 0x5:
-                            ins += "CSRRWI ";
-                            break;
-                        case 0x6:
-                            ins += "CSRRSI ";
-                            break;
-                        case 0x7:
-                            ins += "CSRRCI ";
-                            break;
-                        default:
-                            ins += "CSR? ";
-                            break;
+                }
+            case 0x5: // c.j
+                {
+                    int imm = (((cInstr >> 7) & 0x800) >> 3) | (((cInstr >> 4) & 0x700) >> 2)
+                            | (((cInstr >> 8) & 0x400) >> 1) | (((cInstr >> 6) & 0x200))
+                            | (((cInstr >> 5) & 0x100)) | (((cInstr >> 3) & 0x80))
+                            | (((cInstr >> 1) & 0x40));
+                    imm = (imm << 22) >> 22;
+                    return String.format("c.j 0x%x (pc + %d -> 0x%x)", imm, imm, pc + imm);
+                }
+            case 0x6: // c.beqz
+                {
+                    int rs1 = ((cInstr >> 7) & 0x7) | 0x8;
+                    int imm = (((cInstr >> 7) & 0x100) >> 1) | (((cInstr >> 3) & 0x18))
+                            | (((cInstr >> 5) & 0x60) >> 1) | (((cInstr >> 1) & 0x4));
+                    imm = (imm << 25) >> 25;
+                    return String.format("c.beqz x%d, 0x%x (pc + %d -> 0x%x)",
+                            rs1, imm, imm, pc + imm);
+                }
+            case 0x7: // c.bnez
+                {
+                    int rs1 = ((cInstr >> 7) & 0x7) | 0x8;
+                    int imm = (((cInstr >> 7) & 0x100) >> 1) | (((cInstr >> 3) & 0x18))
+                            | (((cInstr >> 5) & 0x60) >> 1) | (((cInstr >> 1) & 0x4));
+                    imm = (imm << 25) >> 25;
+                    return String.format("c.bnez x%d, 0x%x (pc + %d -> 0x%x)",
+                            rs1, imm, imm, pc + imm);
+                }
+            default:
+                return "c.unknown q1";
+            }
+        case 2: // Quadrant 2
+            switch (funct3) {
+            case 0x0: // c.slli
+                {
+                    int rd = (cInstr >> 7) & 0x1f;
+                    int imm = ((cInstr >> 7) & 0x20) | ((cInstr >> 2) & 0x1f);
+                    return String.format("c.slli x%d, x%d, %d", rd, rd, imm);
+                }
+            case 0x1: // c.fldsp (FP/64-bit)
+                return "c.fldsp (FP)";
+            case 0x2: // c.lwsp
+                {
+                    int rd = (cInstr >> 7) & 0x1f;
+                    int imm = ((cInstr >> 7) & 0x3c) | ((cInstr >> 2) & 0x60);
+                    return String.format("c.lwsp x%d, %d(sp)", rd, imm);
+                }
+            case 0x3: // c.ldsp
+                return "c.ldsp (64-bit)";
+            case 0x4:
+                {
+                    int rd = (cInstr >> 7) & 0x1f;
+                    int rs2 = (cInstr >> 2) & 0x1f;
+                    if (((cInstr >> 12) & 0x1) == 0) {
+                        if (rs2 == 0) {
+                            if (rd == 0) return "c.illegal";
+                            return String.format("c.jr x%d", rd);
+                        } else {
+                            return String.format("c.mv x%d, x%d", rd, rs2);
+                        }
+                    } else {
+                        if (rs2 == 0) {
+                            if (rd == 0) return "c.ebreak";
+                            return String.format("c.jalr x%d, x%d", 1, rd);
+                        } else {
+                            return String.format("c.add x%d, x%d, x%d", rd, rd, rs2);
                         }
                     }
-                    break;
-
+                }
+            case 0x5: // c.fsdsp (FP)
+                return "c.fsdsp (FP)";
+            case 0x6: // c.swsp
+                {
+                    int rs2 = (cInstr >> 2) & 0x1f;
+                    int imm = ((cInstr >> 7) & 0x1c) | ((cInstr >> 2) & 0x60);
+                    return String.format("c.swsp x%d, %d(sp)", rs2, imm);
+                }
+            case 0x7: // c.sdsp
+                return "c.sdsp (64-bit)";
             default:
-                    if (DEBUGGING) {
-                            System.out.println("Opcode " + opcode + " not yet implemented");
-                    }
-                    break;
+                return "c.unknown q2";
             }
-
-            if (!offsetPC) {
-                    pc += 4; // Update program counter
-            }
-            offsetPC = false; // Reset the pc offset flag
-
-            return "     " + ins;
+        default:
+            return "c.illegal";
+        }
     }
 
 	private String loadUpperImmediate(int instr) {
@@ -606,37 +917,37 @@ String ins = String.format("%08x ", instr);
 		// Determining the type of instruction
 		int funct3 = (instr >> 12) & 0x7;
 		switch (funct3) {
-		case 0x0: // BEQ
+                    case 0x0: // BEQ
 			if (reg[rs1] == reg[rs2]) {
 				pc += imm;
 				return true;
 			}
 			break;
-		case 0x1: // BNE
+                    case 0x1: // BNE
 			if (reg[rs1] != reg[rs2]) {
 				pc += imm;
 				return true;
 			}
 			break;
-		case 0x4: // BLT
+                    case 0x4: // BLT
 			if (reg[rs1] < reg[rs2]) {
 				pc += imm;
 				return true;
 			}
 			break;
-		case 0x5: // BGE
+                    case 0x5: // BGE
 			if (reg[rs1] >= reg[rs2]) {
 				pc += imm;
 				return true;
 			}
 			break;
-		case 0x6: // BLTU
+                    case 0x6: // BLTU
 			if (((long) reg[rs1] & 0xFFFFFFFFL) < ((long) reg[rs2] & 0xFFFFFFFFL)) {
 				pc += imm;
 				return true;
 			}
 			break;
-		case 0x7: // BGEU
+                    case 0x7: // BGEU
 			if (((long) reg[rs1] & 0xFFFFFFFFL) >= ((long) reg[rs2] & 0xFFFFFFFFL)) {
 				pc += imm;
 				return true;
