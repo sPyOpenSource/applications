@@ -5,7 +5,8 @@
  *
  * Rules: no calls to other functions (self-recursion is fine), no global
  * data, no floating point.  Arguments are (a, b, p) where p points into the
- * data region of the test.
+ * data region of the test.  They are built for x86-64 and for 32-bit x86,
+ * where a word is 32 bits.
  */
 typedef unsigned long u64;
 typedef long i64;
@@ -86,8 +87,17 @@ u64 fn_struct(u64 a, u64 b, u8 *p) {
     return sum;
 }
 
+/* The full product of two words, unsigned and signed. */
+#ifdef __x86_64__
+typedef unsigned __int128 u2w;
+typedef __int128 i2w;
+#else
+typedef unsigned long long u2w;
+typedef long long i2w;
+#endif
+
 u64 fn_mul128(u64 a, u64 b, u8 *p) {
-    unsigned __int128 x = (unsigned __int128)a * b;
-    __int128 y = (__int128)(i64)a * (i64)b;
-    return (u64)(x >> 64) ^ (u64)(y >> 64) ^ (u64)x;
+    u2w x = (u2w)a * b;
+    i2w y = (i2w)(i64)a * (i64)b;
+    return (u64)(x >> (8 * sizeof(u64))) ^ (u64)(y >> (8 * sizeof(u64))) ^ (u64)x;
 }
