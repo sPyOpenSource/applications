@@ -87,12 +87,12 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		else interworkingBranch(new_pc);
 	}
 	public int readRegister(int r) {
-		switch(r) {
+            switch(r) {
 		case 13: return readSP();
 		case 14: return readLR();
 		case 15: return readPC();
 		default: return readGPR(r);
-		}
+            }
 	}
         @Override
         public int r(int r)
@@ -735,11 +735,11 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	}
         
 	private int applyOpShift(int value, int type, int amount) {
-		if(amount == 0) {
-			shifterCarryOut = conditionC();
-			return value;
-		}
-		switch(type) {
+            if(amount == 0) {
+                    shifterCarryOut = conditionC();
+                    return value;
+            }
+            switch(type) {
 		case 0: /* logical left */
 			if(amount >= 33) shifterCarryOut = false;
 			else shifterCarryOut = ((value >>> (32-amount)) & 1) != 0;
@@ -767,7 +767,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		}
 		default:
 			throw new InternalError(); /* we technically shouldn't throw these */
-		}
+            }
 	}
         
 	private int applyOpRRX(int value) {
@@ -779,8 +779,8 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	}
         
 	private int applyIRShift(int src, int type, int imm5) {
-		/* A8-291 */
-		switch(type) {
+            /* A8-291 */
+            switch(type) {
 		case 0: /* logical left */
 			/* optimize this particular case in a way the compiler probably won't
 			 * the vast majority of instructions will use this case */
@@ -795,7 +795,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			else return applyOpShift(src, type, imm5);
 		default:
 			throw new InternalError(); /* we technically shouldn't throw these */
-		}
+            }
 	}
         
 	private int applyRRShift(int src, int type, int Rs) {
@@ -803,12 +803,12 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	}
         
 	private void executeDataProcessingOperation(int opcode, int n, int m, int Rd) throws UndefinedException {
-		/* TODO: possibly speed this up by separating WriteFlags version out */
-		/* TODO: ensure that all the data processing operation variants are correct */
-		boolean writeFlags = (opcode & 1) != 0;
-		boolean Cout, Vout;
-		int result;
-		switch(opcode) {
+            /* TODO: possibly speed this up by separating WriteFlags version out */
+            /* TODO: ensure that all the data processing operation variants are correct */
+            boolean writeFlags = (opcode & 1) != 0;
+            boolean Cout, Vout;
+            int result;
+            switch(opcode) {
 		case 0: case 1:
 			/* AND (immediate at A8-324) */
 			writeRegister(Rd, result = (n&m));
@@ -909,19 +909,19 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			Vout = signedResult != result;
 			if(writeOut) writeRegister(Rd, result);
 		}
-		}
-		if(writeFlags) {
-			if(Rd == 15) {
-				/* when the destination register is the PC, the flag-setting versions are for PL1 and above only */
-				if(!isPrivileged()) throw new UndefinedException();
-			} else {
-				cpsr &= CPSR_MASK_CLEAR_CONDITIONS;
-				if(result < 0) cpsr |= 1<<CPSR_BIT_N;
-				if(result == 0) cpsr |= 1<<CPSR_BIT_Z;
-				if(Cout) cpsr |= 1<<CPSR_BIT_C;
-				if(Vout) cpsr |= 1<<CPSR_BIT_V;
-			}
-		}
+            }
+            if(writeFlags) {
+                    if(Rd == 15) {
+                            /* when the destination register is the PC, the flag-setting versions are for PL1 and above only */
+                            if(!isPrivileged()) throw new UndefinedException();
+                    } else {
+                            cpsr &= CPSR_MASK_CLEAR_CONDITIONS;
+                            if(result < 0) cpsr |= 1<<CPSR_BIT_N;
+                            if(result == 0) cpsr |= 1<<CPSR_BIT_Z;
+                            if(Cout) cpsr |= 1<<CPSR_BIT_C;
+                            if(Vout) cpsr |= 1<<CPSR_BIT_V;
+                    }
+            }
 	}
         
 	private void executeARMPage0(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
@@ -2354,9 +2354,9 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	void executeARM(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		int condition = (iword >> 28) & 15;
 		if(condition != 15) {
-			/* condition codes (A5-288) */
-			boolean execute = true;
-			switch(condition >> 1) {
+                    /* condition codes (A5-288) */
+                    boolean execute = true;
+                    switch(condition >> 1) {
 			case 0: execute = conditionZ(); break;
 			case 1: execute = conditionC(); break;
 			case 2: execute = conditionN(); break;
@@ -2365,10 +2365,10 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 5: execute = conditionN() == conditionV(); break;
 			case 6: execute = conditionZ() == false && conditionN() == conditionV(); break;
 			/* case 7: execute = true; */
-			}
-			if((condition & 1) != 0) execute = !execute;
-			if(!execute) return;
-			switch((iword >> 25) & 7) {
+                    }
+                    if((condition & 1) != 0) execute = !execute;
+                    if(!execute) return;
+                    switch((iword >> 25) & 7) {
 			case 0:
 				executeARMPage0(iword);
 				break;
@@ -2384,7 +2384,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 6:
 			case 7:
 				executeARMPage67(iword, false);
-			}
+                    }
 		}
 		else executeARMUnconditional(iword);
 	}
