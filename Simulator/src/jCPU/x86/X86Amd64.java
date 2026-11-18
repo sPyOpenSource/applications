@@ -67,6 +67,7 @@ public class X86Amd64 implements X86Core.iExecutor
     public int step(X86Core core) throws Exception {
         this.core = core;
         long rip = core.getPC64();
+        core.addTimestampCounter(1);
         if (core.firmwareTrap(rip)) {
             history[(int) (historyCount++ % HISTORY_SIZE)] = rip;
             return 1;
@@ -122,6 +123,38 @@ public class X86Amd64 implements X86Core.iExecutor
         core.setPC64(ip);
         history[(int) (historyCount++ % HISTORY_SIZE)] = insnStart;
         return 1;
+    }
+
+    /**
+     * CPUID reports only features this executor implements: TSC and CMOV in
+     * leaf 1, long mode in leaf 0x80000001.  No FPU, SSE or MSRs.
+     */
+    private void cpuid(int leaf, int subleaf) {
+        int a = 0, b = 0, c = 0, d = 0;
+        switch (leaf) {
+            case 0:                                 // max leaf, vendor "JavaOSimx_64"
+                a = 1;
+                b = 0x6176614A;                     // "Java"
+                d = 0x6D69534F;                     // "OSim"
+                c = 0x34365F78;                     // "x_64"
+                break;
+            case 1:
+                a = 0x00000F00;                     // family 15, model 0, stepping 0
+                d = (1 << 4) | (1 << 15);           // TSC, CMOV
+                break;
+            case 0x80000000:
+                a = 0x80000001;
+                break;
+            case 0x80000001:
+                d = 1 << 29;                        // LM
+                break;
+            default:
+                break;
+        }
+        setReg(RAX, 4, a & 0xFFFFFFFFL);
+        setReg(RBX, 4, b & 0xFFFFFFFFL);
+        setReg(RCX, 4, c & 0xFFFFFFFFL);
+        setReg(RDX, 4, d & 0xFFFFFFFFL);
     }
 
     /* The recorded instruction addresses, oldest first. */
@@ -1045,12 +1078,16 @@ public class X86Amd64 implements X86Core.iExecutor
             case 0x05:                              // SYSCALL: there is no kernel entry to call
             case 0x07:                              // SYSRET
                 return;
-            case 0xA2:                              // CPUID: no leaves and no features
-                setReg(RAX, 4, 0);
-                setReg(RBX, 4, 0);
-                setReg(RCX, 4, 0);
-                setReg(RDX, 4, 0);
+            case 0xA2:                              // CPUID
+                cpuid((int) getReg(RAX, 4), (int) getReg(RCX, 4));
                 return;
+
+            case 0x31: {                            // RDTSC
+                long tsc = core.getTimestampCounter();
+                setReg(RAX, 4, tsc & 0xFFFFFFFFL);
+                setReg(RDX, 4, tsc >>> 32);
+                return;
+            }
 
             case 0xA3: case 0xAB: case 0xB3: case 0xBB: {   // BT, BTS, BTR, BTC r/m, r
                 decodeModRm(0);

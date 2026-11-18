@@ -78,7 +78,8 @@ public class X86Gpt
             }
             for (int off = 0; off + entrySize <= sector.length; off += entrySize)
             {
-                Partition p = parseEntry(sector, off);
+                int number = s * entriesPerSector + off / entrySize + 1;
+                Partition p = parseEntry(sector, off, number);
                 if (p != null && p.firstLba != 0)
                 {
                     partitions.add(p);
@@ -105,7 +106,7 @@ public class X86Gpt
         return null;
     }
 
-    private Partition parseEntry(byte[] buf, int off)
+    private Partition parseEntry(byte[] buf, int off, int number)
     {
         // Partition type GUID (16 bytes)
         String typeGuid = guidToString(buf, off);
@@ -136,7 +137,7 @@ public class X86Gpt
         }
 
         return new Partition(typeGuid, uniqueGuid, (int) firstLba,
-                             (int) lastLba, attributes, name);
+                             (int) lastLba, attributes, name, number);
     }
 
     private String guidToString(byte[] buf, int off)
@@ -195,10 +196,19 @@ public class X86Gpt
         public final int lastLba;
         public final long attributes;
         public final String name;
+        /** 1-based index in the partition entry array, 0 if unknown. */
+        public final int number;
 
         public Partition(String typeGuid, String uniqueGuid, int firstLba,
                          int lastLba, long attributes, String name)
         {
+            this(typeGuid, uniqueGuid, firstLba, lastLba, attributes, name, 0);
+        }
+
+        public Partition(String typeGuid, String uniqueGuid, int firstLba,
+                         int lastLba, long attributes, String name, int number)
+        {
+            this.number = number;
             this.typeGuid = typeGuid;
             this.uniqueGuid = uniqueGuid;
             this.firstLba = firstLba;

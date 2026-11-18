@@ -113,6 +113,12 @@ public class CPU extends jx.disass.x86
 		for (int port = 0x3F8; port <= 0x3FF; port++) {
 			core.registerPort(port, uart);
 		}
+		// 8254 timer (0x40-0x43) and port B (0x61), which gates and reads PIT channel 2
+		X86PitPeripheral pit = new X86PitPeripheral(core);
+		for (int port = 0x40; port <= 0x43; port++) {
+			core.registerPort(port, pit);
+		}
+		core.registerPort(0x61, pit);
 		// IDE primary channel: data/error/features/sector count/sector/cylinder/drive-head/status-command
 		// (0x1F0-0x1F7) and alternate status/device control (0x3F6)
 		ide = new X86IdeController();
