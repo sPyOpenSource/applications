@@ -1072,6 +1072,18 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 						x86Cpu.attachDiskImage(path);
 						updatePanel(true);
 						reportDiskFat(x86Cpu, path);
+                                                long entryPoint = x86Cpu.uefiBoot();
+                                                if (entryPoint != 0) {
+                                                        if (x86Cpu.isLongMode()) {
+                                                                x86Cpu.setPC64(entryPoint);
+                                                        } else {
+                                                                x86Cpu.setPC((int) entryPoint);
+                                                        }
+                                                        messages("UEFI boot: entry point at 0x" + Long.toHexString(entryPoint)
+                                                                        + ". PC set. Click Go to start execution.");
+                                                } else {
+                                                        messages("UEFI boot: no bootable EFI application found on attached disk image.");
+                                                }
 					}
 				} catch (FileNotFoundException ex) {
 					showError("File not found", ex);
@@ -1105,6 +1117,13 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 						x86Cpu.attachFloppyImage(path);
 						updatePanel(true);
 						reportDiskFat(x86Cpu, path);
+                                                boolean ok = x86Cpu.floppyBoot();
+                                                if (ok) {
+                                                        x86Cpu.setPC(0x7C00);
+                                                        messages("Floppy boot: boot sector loaded at 0x7C00, DL=0x00. PC set to 0x7C00. Click Go to start.");
+                                                } else {
+                                                        messages("Floppy boot: no bootable 0x55AA sector found on attached floppy image.");
+                                                }
 					}
 				} catch (FileNotFoundException ex) {
 					showError("File not found", ex);

@@ -118,6 +118,8 @@ public class X86Uefi64
      * its entry: RCX = ImageHandle, RDX = SystemTable, and a return address
      * on the stack that ends the run.
      *
+     * @param pe
+     * @param peImage
      * @return the entry point, or 0 if the image cannot be placed in memory
      */
     public long load(X86PeLoader pe, byte[] peImage)
