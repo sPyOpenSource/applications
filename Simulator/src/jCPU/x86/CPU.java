@@ -1,11 +1,11 @@
 /**
- * $Id: Test.java,v 1.1 2007/02/16 07:50:23 mviara Exp $
+ * $Id: CPU.java,v 1.1 2007/02/16 07:50:23 mviara Exp $
  * $Name:  $
  *
  *
- * Bytechnology S400
+ * x86
  * 
- * $Log: Test.java,v $
+ * $Log: CPU.java,v $
  * Revision 1.1  2007/02/16 07:50:23  mviara
  * *** empty log message ***
  *
@@ -22,11 +22,12 @@ package jCPU.x86;
 import jCPU.MCS51.MCS51Peripheral;
 import jCPU.MCS51.SfrReadListener;
 import jCPU.MCS51.SfrWriteListener;
+import javax.swing.JFrame;
+
 import java.awt.GraphicsEnvironment;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import javax.swing.JFrame;
 
 
 class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
@@ -49,11 +50,11 @@ class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
 	public void registerCpu(jCPU.MCS51.CPU cpu)
 	{
 		this.cpu = cpu;
-		cpu.addSfrWriteListener(ADDL,this);
-		cpu.addSfrWriteListener(ADDH,this);
-		cpu.addSfrWriteListener(DATA,this);
+		cpu.addSfrWriteListener(ADDL, this);
+		cpu.addSfrWriteListener(ADDH, this);
+		cpu.addSfrWriteListener(DATA, this);
 
-		cpu.addSfrReadListener(DATA,this);
+		cpu.addSfrReadListener(DATA, this);
 	}
 
         @Override
@@ -85,12 +86,12 @@ class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
 public class CPU extends jx.disass.x86
 {
 	private final X86Core core;
-	private JFrame vgaFrame;
+	private final X86UefiFirmware uefi;
+	private final X86UhciController uhci;
+        private JFrame vgaFrame;
 	private X86VgaPeripheral vga;
 	private X86UartPeripheral uart;
 	private X86IdeController ide;
-	private X86UefiFirmware uefi;
-	private X86UhciController uhci;
 	private X86FloppyDrive floppy;
 	private X86BiosFirmware bios;
 	private boolean traceExecution;
@@ -159,6 +160,7 @@ public class CPU extends jx.disass.x86
 	 * Run the UEFI boot sequence: locate the ESP via GPT, load
 	 * \EFI\BOOT\BOOTIA32.EFI via FAT+PE, and return its entry point.
 	 * Caller should set PC to the returned address before stepping.
+         * @return 
 	 */
 	public long uefiBoot()
 	{
@@ -212,6 +214,7 @@ public class CPU extends jx.disass.x86
 	/**
 	 * Return the reset vector address for an OVMF image loaded by {@link
 	 * #loadOvmf}: 16 bytes below the top of physical memory.
+         * @return 
 	 */
 	public int getOvmfResetVector()
 	{
@@ -283,6 +286,7 @@ public class CPU extends jx.disass.x86
 
 	/**
 	 * Returns the floppy drive so callers can inspect or reattach media.
+         * @return 
 	 */
 	public X86FloppyDrive getFloppyDrive()
 	{
@@ -292,6 +296,7 @@ public class CPU extends jx.disass.x86
 	/**
 	 * Returns the BIOS firmware so callers can queue keyboard input
 	 * (see {@link X86BiosFirmware#pushKey(int)}).
+         * @return 
 	 */
 	public X86BiosFirmware getBios()
 	{
@@ -300,6 +305,7 @@ public class CPU extends jx.disass.x86
 
 	/**
 	 * Returns the IDE controller so callers can inspect or reattach drives.
+         * @return 
 	 */
 	public X86IdeController getIdeController()
 	{
@@ -315,6 +321,7 @@ public class CPU extends jx.disass.x86
 	 * Enable 64-bit long mode and switch the instruction executor to the
 	 * x86-64 decoder.  Call this before starting execution of a PE32+
 	 * (x64) UEFI application.
+         * @param longMode
 	 */
 	public void setLongMode(boolean longMode)
 	{
