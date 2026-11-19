@@ -67,7 +67,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private final JXdata xdata;
 	private final JCode code;
 	private final JCsr csr;
-	private final JTextArea codeText;
+	private final JTextPane codeText;
 	private final JInfo info;
 	private final JTextArea messages;
 
@@ -76,6 +76,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private iCPU cpu;
 	private JFileChooser fc = null;
 	private JButton buttonStop;
+	private boolean highlighting = false;
 	private AbstractAction actionDebugTrace;
 	private AbstractAction actionDebugStep;
 	private AbstractAction actionDebugGo;
@@ -122,9 +123,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		xdata = new JXdata();
 		code = new JCode();
 		csr = new JCsr();
-		codeText = new JTextArea(20, 60);
-		//codeText.setEditable(false);
+		codeText = new JTextPane();
 		codeText.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		installHighlightListener();
+		//codeText.setEditable(false);
 		peripheral = new JPeripheral();
 		messages = new JTextArea(5, 40);
 		messages.setEditable(false);
@@ -140,12 +142,12 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		tp.add("CODE", new JScrollPane(code));
 		tp.add("CSR", csr);
 
-		bottomSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, assembly, tp);
+		bottomSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, tp, assembly);
 		bottomSplit.setResizeWeight(0.5);
 		bottomSplit.setOneTouchExpandable(true);
 
 		JPanel leftPanel = new JPanel(new BorderLayout());
-		leftPanel.add(register, BorderLayout.NORTH);
+		//leftPanel.add(register, BorderLayout.NORTH);
 		leftPanel.add(bottomSplit, BorderLayout.CENTER);
 
 		JScrollPane peripheralScroll = new JScrollPane(peripheral);
@@ -314,9 +316,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		if (cpu == null){
 			return;
 		}
-		if (cpu instanceof jCPU.js.Interpreter){
-			// CODE field is user-editable JavaScript source for the JS interpreter;
-			// do not overwrite it with a CPU-memory hex dump.
+		boolean isJs = cpu instanceof jCPU.js.Interpreter;
+		boolean isNasm = cpu.getClass().getName().contains("nasm");
+		if (isJs || isNasm){
+			refreshHighlight();
 			return;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -330,6 +333,46 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		}
 		sb.append('\n');
 		codeText.setText(sb.toString());
+	}
+
+	private void refreshHighlight()
+	{
+		if (highlighting || cpu == null){
+			return;
+		}
+		boolean isJs = cpu instanceof jCPU.js.Interpreter;
+		boolean isNasm = cpu.getClass().getName().contains("nasm");
+		if (!isJs && !isNasm){
+			return;
+		}
+		String lang = isJs ? "js" : "nasm";
+		highlighting = true;
+		try{
+			SyntaxHighlighter.highlight(codeText, lang, codeText.getText());
+		} finally {
+			highlighting = false;
+		}
+	}
+
+	private void installHighlightListener()
+	{
+		codeText.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+			public void insertUpdate(javax.swing.event.DocumentEvent e) { requestHighlight(); }
+			public void removeUpdate(javax.swing.event.DocumentEvent e) { requestHighlight(); }
+			public void changedUpdate(javax.swing.event.DocumentEvent e) { requestHighlight(); }
+		});
+	}
+
+	private void requestHighlight()
+	{
+		if (highlighting){
+			return;
+		}
+		boolean isJs = cpu instanceof jCPU.js.Interpreter;
+		boolean isNasm = cpu.getClass().getName().contains("nasm");
+		if (isJs || isNasm){
+			refreshHighlight();
+		}
 	}
 
 	public void setCpu(CPU cpu)
