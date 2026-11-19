@@ -145,6 +145,21 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		bottomSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, tp, assembly);
 		bottomSplit.setResizeWeight(0.5);
 		bottomSplit.setOneTouchExpandable(true);
+		// The assembler table is empty until code is loaded, so its preferred
+		// height is tiny and the vertical split would otherwise collapse it to
+		// an unusable sliver (it only becomes readable when maximized / full
+		// screen). Clamp both sides to a minimum height and position the
+		// divider once the pane has a real size.
+		bottomSplit.setDividerLocation(0.58);
+		assembly.setMinimumSize(new Dimension(0, 170));
+		tp.setMinimumSize(new Dimension(0, 140));
+		bottomSplit.addComponentListener(new java.awt.event.ComponentAdapter() {
+			@Override
+			public void componentShown(java.awt.event.ComponentEvent e) {
+				bottomSplit.removeComponentListener(this);
+				bottomSplit.setDividerLocation(0.58);
+			}
+		});
 
 		JPanel leftPanel = new JPanel(new BorderLayout());
 		//leftPanel.add(register, BorderLayout.NORTH);
@@ -309,6 +324,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 		tp.revalidate();
 		tp.repaint();
+
+		if (isJsOrNasm){
+			updateCodeText();
+		}
 	}
 
 	private void updateCodeText()
@@ -371,7 +390,11 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		boolean isJs = cpu instanceof jCPU.js.Interpreter;
 		boolean isNasm = cpu.getClass().getName().contains("nasm");
 		if (isJs || isNasm){
-			refreshHighlight();
+			// Defer: the DocumentListener fires while holding the document write lock;
+			// setCharacterAttributes would mutate during notification and throw.
+			SwingUtilities.invokeLater(new Runnable(){
+				public void run(){ refreshHighlight(); }
+			});
 		}
 	}
 

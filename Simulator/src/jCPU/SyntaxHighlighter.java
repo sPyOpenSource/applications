@@ -2,6 +2,7 @@ package jCPU;
 
 import javax.swing.JTextPane;
 import javax.swing.text.*;
+import javax.swing.text.SimpleAttributeSet;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +12,13 @@ import java.util.regex.Pattern;
 /**
  * Simple syntax highlighter for the JS and NASM source editors.
  * <p>
- * Tokenizes source text and paints a {@link StyledDocument} that is installed on
- * a {@link JTextPane}. Colors: keywords (blue), strings (red), comments (green),
- * numbers (orange), registers (purple), labels (dark slate). No third-party
- * dependencies; pure Java 17 + Swing.
+ * Tokenizes source text and paints the pane's existing {@link StyledDocument}
+ * in place (the document is never replaced, so {@link javax.swing.event.DocumentListener}
+ * s stay attached and typing keeps re-highlighting).
+ * <p>
+ * Colors: keywords (blue), strings (red), comments (green), numbers (orange),
+ * registers (purple), labels (dark slate). No third-party dependencies; pure
+ * Java 17 + Swing.
  */
 public final class SyntaxHighlighter {
     private SyntaxHighlighter() {}
@@ -43,37 +47,40 @@ public final class SyntaxHighlighter {
         if (text == null) text = "";
         List<Token> tokens = tokenize(language, text);
 
-        StyleContext sc = StyleContext.getDefaultStyleContext();
-        StyledDocument doc = new DefaultStyledDocument(sc);
-
-        AttributeSet def = sc.getStyle(StyleContext.DEFAULT_STYLE);
-        AttributeSet kw  = addStyle(sc, doc, "keyword",  KEYWORD,   false, false);
-        AttributeSet str = addStyle(sc, doc, "string",   STRING,    false, false);
-        AttributeSet com = addStyle(sc, doc, "comment",  COMMENT,   false,  true);
-        AttributeSet num = addStyle(sc, doc, "number",   NUMBER,    false, false);
-        AttributeSet reg = addStyle(sc, doc, "register", REGISTER,  false, false);
-        AttributeSet lab = addStyle(sc, doc, "label",    LABEL,     true,  false);
-
-        try {
-            int pos = 0;
-            for (Token t : tokens) {
-                if (t.start > pos) {
-                    doc.insertString(pos, text.substring(pos, t.start), def);
-                }
-                AttributeSet s = switchStyle(t.kind, kw, str, com, num, reg, lab, def);
-                doc.insertString(t.start, text.substring(t.start, t.end), s);
-                pos = t.end;
-            }
-            if (pos < text.length()) {
-                doc.insertString(pos, text.substring(pos), def);
-            }
-        } catch (BadLocationException e) {
-            throw new RuntimeException(e);
+        StyledDocument doc;
+        if (pane.getDocument() instanceof StyledDocument){
+            doc = (StyledDocument) pane.getDocument();
+        } else {
+            doc = new DefaultStyledDocument(StyleContext.getDefaultStyleContext());
+            pane.setDocument(doc);
         }
-        pane.setDocument(doc);
+
+        // Reset the entire existing range to the default (plain) style first,
+        // so stale coloring from a previous highlight is cleared.
+        int len = text.length();
+        SimpleAttributeSet plain = new SimpleAttributeSet();
+        StyleConstants.setFontFamily(plain, "Monospaced");
+        StyleConstants.setFontSize(plain, 12);
+        doc.setCharacterAttributes(0, len, plain, false);
+
+        StyleContext sc = StyleContext.getDefaultStyleContext();
+        AttributeSet kw  = addStyle(sc, "keyword",  KEYWORD,   false, false);
+        AttributeSet str = addStyle(sc, "string",   STRING,    false, false);
+        AttributeSet com = addStyle(sc, "comment",  COMMENT,   false,  true);
+        AttributeSet num = addStyle(sc, "number",   NUMBER,    false, false);
+        AttributeSet reg = addStyle(sc, "register", REGISTER,  false, false);
+        AttributeSet lab = addStyle(sc, "label",    LABEL,     true,  false);
+        AttributeSet def = sc.getStyle(StyleContext.DEFAULT_STYLE);
+
+        int pos = 0;
+        for (Token t : tokens) {
+            AttributeSet s = switchStyle(t.kind, kw, str, com, num, reg, lab, def);
+            doc.setCharacterAttributes(t.start, t.end - t.start, s, false);
+            pos = t.end;
+        }
     }
 
-    private static AttributeSet addStyle(StyleContext sc, StyledDocument doc,
+    private static AttributeSet addStyle(StyleContext sc,
                                          String name, Color fg, boolean bold, boolean italic) {
         Style style = sc.addStyle(name, null);
         StyleConstants.setForeground(style, fg);
@@ -131,25 +138,16 @@ public final class SyntaxHighlighter {
 
     // ---------- JavaScript ----------
     private static List<Rule> jsRules(List<Rule> out) {
-        // whitespace (default style, consumed)
         out.add(new Rule(Pattern.compile("[ \t\r\n]+"), null));
-        // block comment
         out.add(new Rule(Pattern.compile("/\\*[\\s\\S]*?\\*/"), "comment"));
-        // line comment
         out.add(new Rule(Pattern.compile("//[^\n]*"), "comment"));
-        // double-quoted string
         out.add(new Rule(Pattern.compile("\"([^\"\\\\]|\\\\.)*\""), "string"));
-        // single-quoted string
         out.add(new Rule(Pattern.compile("'([^'\\\\]|\\\\.)*'"), "string"));
-        // number
         out.add(new Rule(Pattern.compile("\\d+(\\.\\d+)?"), "number"));
-        // keyword
         out.add(new Rule(Pattern.compile(
                 "\\b(var|let|const|if|else|while|for|function|return|true|false|null|undefined|" +
                 "break|continue|throw|try|catch|finally|typeof|len|print|console)\\b"), "keyword"));
-        // identifier (default style)
         out.add(new Rule(Pattern.compile("[A-Za-z_$][A-Za-z0-9_$]*"), null));
-        // any other single char (default)
         out.add(new Rule(Pattern.compile("[\\s\\S]"), null));
         return out;
     }
@@ -157,17 +155,11 @@ public final class SyntaxHighlighter {
     // ---------- NASM ----------
     private static List<Rule> nasmRules(List<Rule> out) {
         out.add(new Rule(Pattern.compile("[ \t\r\n]+"), null));
-        // comment (; to end of line)
         out.add(new Rule(Pattern.compile(";[^\n]*"), "comment"));
-        // double-quoted string
         out.add(new Rule(Pattern.compile("\"[^\"]*\""), "string"));
-        // hex number
         out.add(new Rule(Pattern.compile("0[xX][0-9a-fA-F]+"), "number"));
-        // decimal number
         out.add(new Rule(Pattern.compile("\\d+"), "number"));
-        // label: identifier ending with ':'
         out.add(new Rule(Pattern.compile("\\b[A-Za-z_.][A-Za-z0-9_.]*\\s*:"), "label"));
-        // register
         out.add(new Rule(Pattern.compile(
                 "\\b(eax|ebx|ecx|edx|esi|edi|ebp|esp|" +
                 "rax|rbx|rcx|rdx|rsi|rdi|rbp|rsp|" +
@@ -183,7 +175,6 @@ public final class SyntaxHighlighter {
                 "st|mm0|mm1|mm2|mm3|mm4|mm5|mm6|mm7|" +
                 "xmm0|xmm1|xmm2|xmm3|xmm4|xmm5|xmm6|xmm7|" +
                 "ymm0|ymm1|ymm2|ymm3|ymm4|ymm5|ymm6|ymm7)\\b"), "register"));
-        // instruction / directive
         out.add(new Rule(Pattern.compile(
                 "\\b(mov|movsx|movzx|lea|add|sub|cmp|inc|dec|neg|mul|imul|div|idiv|" +
                 "and|or|xor|not|shl|sal|shr|sar|rol|ror|rcl|rcr|" +
@@ -202,9 +193,7 @@ public final class SyntaxHighlighter {
                 "rep|repe|repz|repne|repnz|" +
                 "section|segment|global|extern|db|dw|dd|dq|dt|resb|resw|resd|resq|" +
                 "times|equ|%define|%include|%ifdef|%ifndef|%endif|%if|%else|%endif)\\b"), "keyword"));
-        // identifier (default)
         out.add(new Rule(Pattern.compile("[A-Za-z_.][A-Za-z0-9_.]*"), null));
-        // any other single char (default)
         out.add(new Rule(Pattern.compile("[\\s\\S]"), null));
         return out;
     }
