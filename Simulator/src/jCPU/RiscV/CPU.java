@@ -21,6 +21,7 @@ import static jCPU.RiscV.RVConstants.OP_IMM_MASK;
 import static jCPU.RiscV.RVConstants.OP_MASK;
 import static jCPU.RiscV.RVConstants.OP_MASK_32;
 import static jCPU.RiscV.RVConstants.STORE_MASK;
+
 import jCPU.iCPU;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
