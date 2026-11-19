@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 public final class Esp32c3Loader {
     private Esp32c3Loader() {}
 
-    public static IsaSim loadImage(byte[] image) throws BusErrorException {
+    public static CPU loadImage(byte[] image) throws BusErrorException {
         Esp32c3MemoryMap mem = new Esp32c3MemoryMap();
         UartPeripheral uart = new UartPeripheral();
         GpioPeripheral gpio = new GpioPeripheral();
@@ -21,14 +21,14 @@ public final class Esp32c3Loader {
         mem.registerPeripheral(GPIO_BASE, 0x1000, gpio);
         mem.registerPeripheral(TIMER_BASE, 0x1000, timer);
 
-        IsaSim sim = new IsaSim();
+        CPU sim = new CPU();
         sim.setMemoryMap(mem);
 
         // Copy image into SRAM
         for (int i = 0; i < Math.min(image.length, SRAM_SIZE); i++) {
             mem.writeByte(SRAM_BASE + i, image[i]);
         }
-        // Also copy into IsaSim's code Memory so step()/go() can fetch the instructions
+        // Also copy into CPU's code Memory so step()/go() can fetch the instructions
         for (int i = 0; i < Math.min(image.length, SRAM_SIZE); i++) {
             sim.code.write(SRAM_BASE + i, image[i]);
         }
@@ -43,8 +43,11 @@ public final class Esp32c3Loader {
             System.exit(1);
         }
         byte[] image = Files.readAllBytes(Paths.get(args[0]));*/
-        byte[] image = Files.readAllBytes(Paths.get("/Users/xuyi/Downloads/OVMF-X64-r15214/firmware/ESP32-C3FH4_FlintJVM_Release.bin"));
-        IsaSim sim = loadImage(image);
+        //byte[] image = Files.readAllBytes(Paths.get("/Users/xuyi/Downloads/OVMF-X64-r15214/firmware/ESP32-C3FH4_FlintJVM_Release.bin"));
+        byte[] image = Files.readAllBytes(Paths.get("/Users/xuyi/Downloads/OVMF-X64-r15214/firmware/circuitpython.bin"));
+        //byte[] image = Files.readAllBytes(Paths.get("tests/resources/task3/loop.bin"));
+       
+        CPU sim = loadImage(image);
         // The firmware image is loaded at SRAM_BASE, but reset() parks the PC at
         // the reset vector (0x40000000) where nothing is mapped, so point the PC
         // at the loaded image before starting execution.

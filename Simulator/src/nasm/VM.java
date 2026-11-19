@@ -9,7 +9,7 @@ import nasm.inst.NasmInst;
 import javax.swing.JFrame;
 import java.awt.GraphicsEnvironment;
 
-public class NasmVM implements iCPU {
+public class VM implements iCPU {
     private final int verboseLevel = 0;
     private final int stackSize = 10000;
     private final X86Core core;
@@ -17,11 +17,11 @@ public class NasmVM implements iCPU {
     NasmEval eval;
     private JFrame vgaFrame;
 
-    public NasmVM(){
+    public VM(){
         this(64 * 1024 * 1024);
     }
 
-    public NasmVM(int memSize){
+    public VM(int memSize){
         core = new X86Core(memSize);
         X86VgaPeripheral vga = new X86VgaPeripheral();
         for (int port = 0x3C0; port <= 0x3DA; port++) {
@@ -111,7 +111,7 @@ public class NasmVM implements iCPU {
 		System.out.println("java NasmVM -nasm nasmFile -s stackSize -v verboseLevel");
 		System.exit(1);
 	    }
-	    var vm = new NasmVM();
+	    var vm = new VM();
 	} catch(NumberFormatException e) {
             e.printStackTrace();
         }

@@ -8,7 +8,7 @@ public class IsaSimEsp32c3HooksTest {
     // ADDI x1, x0, 1  (opcode 0x13 OP_IMM, funct3 0, imm = 1)
     private static final int ADDI_X1_X0_1 = 0x00100093;
 
-    private static void writeCode(IsaSim sim, int addr, int word) {
+    private static void writeCode(CPU sim, int addr, int word) {
         sim.code.write(addr, (byte) word);
         sim.code.write(addr + 1, (byte) (word >>> 8));
         sim.code.write(addr + 2, (byte) (word >>> 16));
@@ -17,7 +17,7 @@ public class IsaSimEsp32c3HooksTest {
 
     @Test
     public void testSetMemoryMapStoresReference() {
-        IsaSim sim = new IsaSim();
+        CPU sim = new CPU();
         Esp32c3MemoryMap map = new Esp32c3MemoryMap();
         sim.setMemoryMap(map);
         assertSame(map, sim.memoryMap);
@@ -25,7 +25,7 @@ public class IsaSimEsp32c3HooksTest {
 
     @Test
     public void testResetSetsPcToResetVector() {
-        IsaSim sim = new IsaSim();
+        CPU sim = new CPU();
         sim.pc = 0x12345678; // perturb
         sim.reset();
         assertEquals(Esp32c3MemoryMap.RESET_VECTOR, sim.pc());
@@ -33,7 +33,7 @@ public class IsaSimEsp32c3HooksTest {
 
     @Test
     public void testResetClearsRegisters() {
-        IsaSim sim = new IsaSim();
+        CPU sim = new CPU();
         sim.reg[1] = 42;
         sim.reg[5] = -7;
         sim.reg[31] = Integer.MAX_VALUE;
@@ -45,7 +45,7 @@ public class IsaSimEsp32c3HooksTest {
 
     @Test
     public void testResetClearsClock() {
-        IsaSim sim = new IsaSim();
+        CPU sim = new CPU();
         sim.cc = 123; // perturb
         sim.reset();
         assertEquals(0, sim.getClock());
@@ -53,14 +53,14 @@ public class IsaSimEsp32c3HooksTest {
 
     @Test
     public void testPcGetter() {
-        IsaSim sim = new IsaSim();
+        CPU sim = new CPU();
         sim.pc = Esp32c3MemoryMap.RESET_VECTOR;
         assertEquals(Esp32c3MemoryMap.RESET_VECTOR, sim.pc());
     }
 
     @Test
     public void testClockIncrementsPerStep() throws Exception {
-        IsaSim sim = new IsaSim();
+        CPU sim = new CPU();
         sim.reset();
         int base = Esp32c3MemoryMap.RESET_VECTOR;
         writeCode(sim, base, ADDI_X1_X0_1);

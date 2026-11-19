@@ -29,12 +29,14 @@ import java.io.PrintWriter;
 import java.io.IOException;
 
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class IsaSim implements iCPU {
+public class CPU implements iCPU {
     // Insert path to binary file containing RISC-V instructions
     public final static String FILEPATH = "tests/task3/loop.bin";
 
@@ -45,7 +47,12 @@ public class IsaSim implements iCPU {
     public final static int INITIAL_SP = Integer.MAX_VALUE;
 
     // Activate/deactivate debugging prints (default is true)
-    public final static boolean DEBUGGING = false;
+    public final static boolean DEBUGGING = true;
+
+    // Safety valve: maximum steps when go() is called with no explicit limit
+    // (<= 0). Prevents the simulator from running forever on code that lacks
+    // an ecall exit or loops within mapped memory.
+    public final static int MAX_STEPS = 10_000_000;
 
     // Static variables used throughout the simulator
     static int reg[] = new int[32]; // 32 registers
@@ -64,14 +71,14 @@ public class IsaSim implements iCPU {
     // Control and Status Registers (CSR). Key = CSR address, value = register contents.
     private final Map<Integer, Integer> csrRegisters = new HashMap<>();
 
-    public IsaSim() {
-        System.out.println("RISC-V!");
+    public CPU() {
+        //System.out.println("RISC-V!");
         code = new Memory();
         //code = new Memory();
         /*try {
             code.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
         } catch (IOException ex) {
-            Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CPU.class.getName()).log(Level.SEVERE, null, ex);
         }*/
         reg[2] = INITIAL_SP; // Reset stack pointer
         pc = INITIAL_PC;
@@ -103,7 +110,7 @@ public class IsaSim implements iCPU {
      * Reset the simulator: PC = RESET_VECTOR, all registers cleared, clock = 0.
      *
      * <p><b>Implementation note:</b> the register file {@code reg[]} is
-     * {@code static} and therefore shared across all {@link IsaSim}
+     * {@code static} and therefore shared across all {@link CPU}
      * instances. {@link #reset()} clears it for every instance, not just
      * this one. Per-instance register state is a known future improvement.
      */
@@ -145,6 +152,156 @@ public class IsaSim implements iCPU {
     }
 
     /**
+     * Read a code byte at {@code addr} for the GUI code/memory panel.
+     * Returns 0 for unmapped addresses.
+     * @param addr code memory address
+     * @return the byte at {@code addr}, or 0 if unmapped
+     */
+    @Override
+    public int code(int addr) {
+        try {
+            return code.read(addr);
+        } catch (NullPointerException e) {
+            return 0;
+        }
+    }
+
+    /**
+     * Write a code byte at {@code addr} for the GUI code/memory panel.
+     * @param addr code memory address
+     * @param value byte value to store
+     */
+    @Override
+    public void code(int addr, int value) {
+        code.write(addr, value);
+    }
+
+    /**
+     * Get the size of the code memory for the GUI code/memory panel.
+     * @return number of code bytes currently mapped
+     */
+    @Override
+    public int getCodeSize() {
+        return code.getSize();
+    }
+
+    /**
+     * Get the number of Control and Status Registers (CSRs) currently defined.
+     * @return number of CSRs
+     */
+    @Override
+    public int csrSize() {
+        return csrRegisters.size();
+    }
+
+    /**
+     * Get the name of the CSR at the given index.
+     * @param index zero-based index into the sorted CSR list
+     * @return CSR name like "csr 0x300" (mtvec)
+     */
+    @Override
+    public String getCsrName(int index) {
+        List<Integer> keys = new ArrayList<>(csrRegisters.keySet());
+        java.util.Collections.sort(keys);
+        if (index >= 0 && index < keys.size()) {
+            int csrAddr = keys.get(index);
+            return "csr 0x" + Integer.toHexString(csrAddr) + " (" + csrName(csrAddr) + ")";
+        }
+        return "";
+    }
+
+    /**
+     * Get the value of the CSR at the given index.
+     * @param index zero-based index into the sorted CSR list
+     * @return CSR value
+     */
+    @Override
+    public int csr(int index) {
+        List<Integer> keys = new ArrayList<>(csrRegisters.keySet());
+        java.util.Collections.sort(keys);
+        if (index >= 0 && index < keys.size()) {
+            return csrRegisters.get(keys.get(index));
+        }
+        return 0;
+    }
+
+    /**
+     * Return a mnemonic name for a standard RISC-V CSR address, or the address
+     * in hex if not recognized.
+     */
+    private String csrName(int addr) {
+        switch (addr) {
+            case 0x000: return "ustatus";
+            case 0x001: return "uisa";
+            case 0x002: return "utvec";
+            case 0x003: return "uscratch";
+            case 0x004: return "uepc";
+            case 0x005: return "ucause";
+            case 0x006: return "utval";
+            case 0x007: return "uip";
+            case 0x040: return "uie";
+            case 0x100: return "sstatus";
+            case 0x102: return "stvec";
+            case 0x104: return "sscratch";
+            case 0x105: return "sepc";
+            case 0x106: return "scause";
+            case 0x107: return "stval";
+            case 0x108: return "sip";
+            case 0x144: return "sie";
+            case 0x300: return "mstatus";
+            case 0x301: return "mtvec";
+            case 0x302: return "mtdeleg";
+            case 0x303: return "mideleg";
+            case 0x304: return "mie";
+            case 0x305: return "mtimer";
+            case 0x306: return "mtimecmp";
+            case 0x340: return "mscratch";
+            case 0x341: return "mepc";
+            case 0x342: return "mcause";
+            case 0x343: return "mtval";
+            case 0x344: return "mip";
+            case 0x345: return "mtinst";
+            case 0x346: return "mtval2";
+            case 0x7A0: return "marchid";
+            case 0x7A1: return "mimpid";
+            case 0x7A2: return "mhartid";
+            case 0xF11: return "mvendorid";
+            case 0x30A: return "menvcfg";
+            case 0x30B: return "mcountinhibit";
+            case 0x320: return "mcountinhibit";
+            case 0x321: return "mhpmevent3";
+            case 0x322: return "mhpmevent4";
+            case 0x780: return "mcycle";
+            case 0x781: return "minstret";
+            case 0x782: return "mhpmcounter3";
+            case 0x783: return "mhpmcounter4";
+            case 0xB00: return "mcycleh";
+            case 0xB01: return "minstreth";
+            case 0xB02: return "mhpmcounter3h";
+            case 0xB03: return "mhpmcounter4h";
+            case 0xC00: return "mstatus";
+            case 0xC01: return "mtvec";
+            case 0xC02: return "mtdeleg";
+            case 0xC03: return "mideleg";
+            case 0xC04: return "mie";
+            case 0xC05: return "mtime";
+            case 0xC06: return "mtimecmp";
+            case 0xC40: return "mscratch";
+            case 0xC41: return "mepc";
+            case 0xC42: return "mcause";
+            case 0xC43: return "mtval";
+            case 0xC44: return "mip";
+            case 0xC45: return "mtinst";
+            case 0xC46: return "mtval2";
+            case 0xFC0: return "mcycle";
+            case 0xFC1: return "minstret";
+            case 0xFC2: return "mhpmcounter3";
+            case 0xFC3: return "mhpmcounter4";
+            default: return "0x" + Integer.toHexString(addr);
+        }
+    }
+
+    /**
      * Read a byte, routing through the ESP32-C3 memory map when set
      * (Task 6), else falling back to the raw code Memory.
      * @param addr
@@ -171,10 +328,11 @@ public class IsaSim implements iCPU {
             }
             // RV32I instructions are 4 bytes; a misaligned PC cannot be fetched.
             if (pc % 4 != 0) {
-                dumpRegisters("misaligned PC");
-                return;
+                throw new BusErrorException(pc, "instruction fetch");
             }
-            if (limit > 0 && steps >= limit) {
+            int effectiveLimit = limit > 0 ? limit : MAX_STEPS;
+            if (steps >= effectiveLimit) {
+                dumpRegisters("step limit reached");
                 return;
             }
             RVInstruction ins = new RVInstruction(code.read16(pc));
@@ -433,6 +591,31 @@ public class IsaSim implements iCPU {
      * @param pc byte address of the instruction to disassemble
      * @return a human-readable disassembly line
      */
+    /**
+     * Get the length of the instruction at {@code pc} for the GUI disassembly panel.
+     * RISC-V instructions are 4 bytes (or 2 bytes for RVC compressed). Returns 1 for
+     * unmapped addresses so the decoder advances instead of looping forever.
+     * @param pc byte address of the instruction
+     * @return instruction length in bytes (2, 4, or 1 for unmapped)
+     */
+    @Override
+    public int getLengthAt(int pc) {
+        // Cannot fetch even 2 bytes from an unmapped address
+        if (!code.containsKey(pc) || !code.containsKey(pc + 1)) {
+            return 1;
+        }
+
+        int cInstr = code.read16(pc);
+
+        // RVC compressed instruction: lowest two bits are not "11"
+        if ((cInstr & 0x3) != 0x3) {
+            return 2;
+        }
+
+        // 32-bit instruction
+        return 4;
+    }
+
     @Override
     public String getDecodeAt(int pc) {
         // Cannot fetch even 2 bytes from an unmapped address
@@ -1255,7 +1438,7 @@ public class IsaSim implements iCPU {
 				System.out.println("x" + i + " : " + reg[i]);
 			}
 		} catch (IOException e) {
-			 Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, e);
+			 Logger.getLogger(CPU.class.getName()).log(Level.SEVERE, null, e);
 		} finally {
 			if (fileStream != null) {
 				fileStream.close();
@@ -1292,7 +1475,7 @@ public class IsaSim implements iCPU {
 				writer.println("x" + i + " : " + Integer.reverseBytes(dataStream.readInt()));
 			}
 		} catch (IOException e) {
-			 Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, e);
+			 Logger.getLogger(CPU.class.getName()).log(Level.SEVERE, null, e);
 		} finally {
 			if (writer != null) {
 				writer.close();

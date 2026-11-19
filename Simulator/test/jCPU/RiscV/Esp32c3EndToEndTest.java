@@ -22,7 +22,7 @@ public class Esp32c3EndToEndTest {
     // addi x1, x0, 65  ->  0x04100093  (little-endian: 93 00 10 04)
     private static final int ADDI_X1_X0_65 = 0x04100093;
     // addi x1, x0, 66  ->  0x04200093  (little-endian: 93 20 10 04)
-    // Second instruction at SRAM_BASE + 4 keeps IsaSim.step()'s
+    // Second instruction at SRAM_BASE + 4 keeps CPU.step()'s
     // code.containsKey(pc) check from early-returning before cc++.
     private static final int ADDI_X1_X0_66 = 0x04200093;
 
@@ -30,7 +30,7 @@ public class Esp32c3EndToEndTest {
     public void testEndToEndExecutesAddi() throws Exception {
         // Two instructions (8 bytes): the first is executed, the second at
         // SRAM_BASE + 4 keeps code.containsKey(SRAM_BASE + 4) true so that
-        // IsaSim.step() does not early-exit before incrementing the clock.
+        // CPU.step() does not early-exit before incrementing the clock.
         // Image: [0x93,0x00,0x10,0x04, 0x93,0x20,0x10,0x04]
         byte[] image = new byte[8];
         image[0] = (byte) (ADDI_X1_X0_65 & 0xFF);
@@ -42,7 +42,7 @@ public class Esp32c3EndToEndTest {
         image[6] = (byte) ((ADDI_X1_X0_66 >> 16) & 0xFF);
         image[7] = (byte) ((ADDI_X1_X0_66 >> 24) & 0xFF);
 
-        IsaSim sim = Esp32c3Loader.loadImage(image);
+        CPU sim = Esp32c3Loader.loadImage(image);
         sim.pc = Esp32c3MemoryMap.SRAM_BASE; // point PC at loaded image
 
         sim.step();
@@ -66,7 +66,7 @@ public class Esp32c3EndToEndTest {
             0x23, (byte) 0x80, 0x20, 0x00
         };
 
-        IsaSim sim = Esp32c3Loader.loadImage(image);
+        CPU sim = Esp32c3Loader.loadImage(image);
         sim.pc = Esp32c3MemoryMap.SRAM_BASE; // point PC at loaded image
 
         sim.step(); // addi  -> reg[2] = 65, pc = SRAM_BASE + 4, cc = 1

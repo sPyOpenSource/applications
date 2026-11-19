@@ -11,20 +11,19 @@ import javax.swing.*;
 import javax.swing.tree.*;
 import assets.Assets;
 import j51.swing.J51Panel;
-
 import j51.util.*;
 import j51.swing.*;
 
-import java.awt.datatransfer.StringSelection;
 import jCPU.JVM.ByteCode;
 import jCPU.MCS51.CPU;
 import jCPU.MCS51.MCS51Performance;
 import jCPU.x86.X86FatFileSystem;
 import jCPU.x86.X86IdeController;
 import jCPU.x86.X86IdeDevice;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+import java.awt.datatransfer.StringSelection;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.jar.JarEntry;
@@ -67,6 +66,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private final JIdata idata;
 	private final JXdata xdata;
 	private final JCode code;
+	private final JCsr csr;
 	private final JInfo info;
 	private final JTextArea messages;
 
@@ -119,6 +119,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		idata = new JIdata();
 		xdata = new JXdata();
 		code = new JCode();
+		csr = new JCsr();
 		peripheral = new JPeripheral();
 		messages = new JTextArea(5, 40);
 		messages.setEditable(false);
@@ -131,7 +132,8 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		tp.add("SFR", sfr);
 		tp.add("IDATA", idata);
 		tp.add("XDATA", xdata);
-		tp.add("CODE", code);
+		tp.add("CODE", new JScrollPane(code));
+		tp.add("CSR", new JCsr());
 
 		bottomSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, assembly, tp);
 		bottomSplit.setResizeWeight(0.5);
@@ -693,6 +695,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		} catch (IOException ex) {
 			throw new IOException("Failed to load raw binary " + path + ": " + ex.getMessage(), ex);
 		}
+		messages("Raw binary loaded: " + path);
 	}
 
 	private void loadClass(String path) throws Exception
@@ -790,7 +793,13 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			{
 				String path = fc.getSelectedFile().getCanonicalPath();
 				tryLoadFile(path);
+				// Refresh code panel size and reset view to address 0 BEFORE updating display
+				code.setCpu(cpu);
+				code.setAddress(0);
+				code.revalidate();
 				updatePanel(true);
+				code.repaint();
+				messages("Loaded: " + path + "  code size=" + cpu.getCodeSize());
 			}
 		} catch (FileNotFoundException ex) {
 			showError("File not found: " + ex.getMessage(), ex);
@@ -807,11 +816,18 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		if (lower.endsWith(".hex") || lower.endsWith(".json")) {
 			loadHex(path);
 		} else if (lower.endsWith(".bin") || lower.endsWith(".img") || !path.contains(".")) {
+			if (cpu == null) {
+				throw new IllegalArgumentException("No CPU selected. Choose a CPU from the CPU menu first.");
+			}
 			try {
-				loadBin(path);
-			} catch (IOException ex) {
-				messages("ELF load failed: " + ex.getMessage() + ". Trying raw binary...");
 				loadRawBin(path);
+			} catch (Exception ex) {
+				messages("Raw binary load failed: " + ex.getMessage() + ". Trying ELF...");
+				try {
+					loadBin(path);
+				} catch (Exception ex2) {
+					throw ex2;
+				}
 			}
 		} else if (lower.endsWith(".class")) {
 			loadClass(path);

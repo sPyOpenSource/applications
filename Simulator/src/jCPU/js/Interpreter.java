@@ -5,7 +5,7 @@ import jCPU.js.ast.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSInterpreter extends InterpreterBase implements jCPU.iCPU {
+public class Interpreter extends InterpreterBase implements jCPU.iCPU {
     public static final int MAX_DEPTH = 10000;
 
     private int depth = 0;
