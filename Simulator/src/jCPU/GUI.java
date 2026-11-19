@@ -48,12 +48,12 @@ import org.json.JSONObject;
 /**
  *
  * J51 main Frame.
- * 
+ *
  * @author Mario Viara
  * @version 1.01
  *
  * 1.01 Added support for menu icon.
- * 
+ *
  */
 public class GUI extends JFrame implements MCS51Performance, ActionListener
 {
@@ -312,6 +312,11 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private void updateCodeText()
 	{
 		if (cpu == null){
+			return;
+		}
+		if (cpu instanceof jCPU.js.Interpreter){
+			// CODE field is user-editable JavaScript source for the JS interpreter;
+			// do not overwrite it with a CPU-memory hex dump.
 			return;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -1565,6 +1570,9 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				}
 				try
 				{
+					if (cpu instanceof jCPU.js.Interpreter jsVm && jsVm.pc() < 0) {
+						jsVm.loadSource(codeText.getText());
+					}
 					cpu.step();
 					updatePanel(false);
 				} catch (Exception ex) {
@@ -1583,6 +1591,14 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
 					return;
 				}
+				if (cpu instanceof jCPU.js.Interpreter jsVm) {
+					try {
+						jsVm.loadSource(codeText.getText());
+					} catch (Exception ex) {
+						showError("Failed to load JavaScript source: " + ex.getMessage(), ex);
+						return;
+					}
+				}
 				thread = new Thread(() -> {
 					messages("Simulating ....");
 					try
@@ -1597,16 +1613,20 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 					SwingUtilities.invokeLater(() -> {
 						emulation(false);
+						if (cpu instanceof jCPU.js.Interpreter jsVmOut) {
+							String out = jsVmOut.readOut();
+							if (out != null && !out.isEmpty()) messages(out);
+						}
 					});
 				});
 
 				emulation(true);
 
 				thread.start();
+
 			}
-
-
 		};
+
 		addIcon(actionDebugGo, "play.gif");
 
 		actionDebugStep = new AbstractAction("Step over")

@@ -34,6 +34,10 @@ public class Interpreter extends InterpreterBase implements jCPU.iCPU {
         env.declare("print", wrapFunction(new JSFunction("print", -1, true)));
         env.declare("len", wrapFunction(new JSFunction("len", 1, true)));
         env.declare("typeof", wrapFunction(new JSFunction("typeof", 1, true)));
+
+        JSValue.Obj console = new JSValue.Obj();
+        console.set("log", wrapFunction(new JSFunction("log", -1, true)));
+        env.declare("console", console);
     }
 
     private JSValue wrapFunction(JSFunction fn) {
@@ -310,7 +314,7 @@ public class Interpreter extends InterpreterBase implements jCPU.iCPU {
     }
 
     private JSValue callBuiltin(String name, List<JSValue> args) {
-        if ("print".equals(name)) {
+        if ("print".equals(name) || "log".equals(name)) {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < args.size(); i++) { if (i > 0) sb.append(' '); sb.append(args.get(i).toString()); }
             writeOut(sb.toString());
