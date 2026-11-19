@@ -67,10 +67,12 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private final JXdata xdata;
 	private final JCode code;
 	private final JCsr csr;
+	private final JTextArea codeText;
 	private final JInfo info;
 	private final JTextArea messages;
 
 	private JToolBar toolBar = new JToolBar();
+	private JTabbedPane tp;
 	private iCPU cpu;
 	private JFileChooser fc = null;
 	private JButton buttonStop;
@@ -128,12 +130,12 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		createMenuBar();
 		register.setChangeListener(this);
 
-		JTabbedPane tp = new JTabbedPane();
+		tp = new JTabbedPane();
 		tp.add("SFR", sfr);
 		tp.add("IDATA", idata);
 		tp.add("XDATA", xdata);
 		tp.add("CODE", new JScrollPane(code));
-		tp.add("CSR", new JCsr());
+		tp.add("CSR", csr);
 
 		bottomSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, assembly, tp);
 		bottomSplit.setResizeWeight(0.5);
@@ -164,6 +166,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		panels.add(idata);
 		panels.add(xdata);
 		panels.add(code);
+		panels.add(csr);
 		panels.add(register);
 		panels.add(peripheral);
 
@@ -229,6 +232,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					setProgress("Stop simulation");
 					emulation(false);
 					messages(cpu.toString());
+					updateTabs();
 					setProgress("Garbage collection");
 					System.gc();
 				} catch (ClassNotFoundException ex) {
@@ -267,6 +271,36 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		avgCpuUsage = 0;
 	}
 
+	private void updateTabs()
+	{
+		if (cpu == null || tp == null){
+			return;
+		}
+
+		tp.removeAll();
+
+		boolean isRiscV = cpu instanceof jCPU.RiscV.CPU;
+		boolean isMcs51 = cpu instanceof jCPU.MCS51.CPU || cpu.getClass().getName().contains("MCS51");
+
+		// CODE is universal
+		tp.add("CODE", new JScrollPane(code));
+
+		// CSR only for RISC-V
+		if (isRiscV){
+			tp.add("CSR", csr);
+		}
+
+		// SFR / IDATA / XDATA only for 8051 family
+		if (isMcs51){
+			tp.add("SFR", sfr);
+			tp.add("IDATA", idata);
+			tp.add("XDATA", xdata);
+		}
+
+		tp.revalidate();
+		tp.repaint();
+	}
+
 	public void setCpu(CPU cpu)
 	{
 		info.reset.setValue(0);
@@ -285,6 +319,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		updatePanel(true);
 		emulation(false);
 		messages(cpu.toString());
+		updateTabs();
 
 		// Auto-load floppy and/or UEFI firmware from command-line arguments.
 		if (GUI.this.cpu instanceof jCPU.x86.CPU) {
