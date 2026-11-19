@@ -122,6 +122,9 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		xdata = new JXdata();
 		code = new JCode();
 		csr = new JCsr();
+		codeText = new JTextArea(20, 60);
+		//codeText.setEditable(false);
+		codeText.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		peripheral = new JPeripheral();
 		messages = new JTextArea(5, 40);
 		messages.setEditable(false);
@@ -281,9 +284,14 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 		boolean isRiscV = cpu instanceof jCPU.RiscV.CPU;
 		boolean isMcs51 = cpu instanceof jCPU.MCS51.CPU || cpu.getClass().getName().contains("MCS51");
+		boolean isJsOrNasm = cpu instanceof jCPU.js.Interpreter || cpu.getClass().getName().contains("nasm");
 
-		// CODE is universal
-		tp.add("CODE", new JScrollPane(code));
+		// CODE for most architectures; plain text for JS and NASM
+		if (isJsOrNasm){
+			tp.add("CODE", new JScrollPane(codeText));
+		} else {
+			tp.add("CODE", new JScrollPane(code));
+		}
 
 		// CSR only for RISC-V
 		if (isRiscV){
@@ -299,6 +307,24 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 		tp.revalidate();
 		tp.repaint();
+	}
+
+	private void updateCodeText()
+	{
+		if (cpu == null){
+			return;
+		}
+		StringBuilder sb = new StringBuilder();
+		int size = cpu.getCodeSize();
+		for (int i = 0 ; i < size ; i++){
+			if (i % 16 == 0){
+				if (i > 0) sb.append('\n');
+				sb.append(String.format("%06x  ", i));
+			}
+			sb.append(String.format("%02x ", cpu.code(i)));
+		}
+		sb.append('\n');
+		codeText.setText(sb.toString());
 	}
 
 	public void setCpu(CPU cpu)
@@ -835,6 +861,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				updatePanel(true);
 				code.repaint();
 				messages("Loaded: " + path + "  code size=" + cpu.getCodeSize());
+				// Populate plain text view for JS and NASM
+				if (cpu instanceof jCPU.js.Interpreter || cpu.getClass().getName().contains("nasm")){
+					updateCodeText();
+				}
 			}
 		} catch (FileNotFoundException ex) {
 			showError("File not found: " + ex.getMessage(), ex);
