@@ -72,7 +72,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private final JTextArea messages;
 
 	private JToolBar toolBar = new JToolBar();
-	private JTabbedPane tp;
+	private final JTabbedPane tp;
 	private iCPU cpu;
 	private JFileChooser fc = null;
 	private JButton buttonStop;
