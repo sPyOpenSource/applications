@@ -16,8 +16,6 @@ import jx.classfile.constantpool.MethodRefCPEntry;
 import jx.classfile.constantpool.NameAndTypeCPEntry;
 import jx.classfile.constantpool.StringCPEntry;
 import jx.disass.Disassembler;
-import jx.verifier.Verifier;
-//import jx.verifier.Verifier;
 
 /**
  *
