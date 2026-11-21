@@ -1,5 +1,5 @@
 
-package j51.intel.graph;
+package jCPU.MCS51.graph;
 
 import jCPU.AbstractOpcode;
 import jCPU.iCPU;

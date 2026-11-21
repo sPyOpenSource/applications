@@ -36,6 +36,7 @@ public class CPU implements iCPU {
     private VmStackFrame stack;
     private LocalVariables localVariables;
     private FExec vm = new FExec(1000);
+    JvmRunner vmr = new JvmRunner();
 
     protected int pc;
 

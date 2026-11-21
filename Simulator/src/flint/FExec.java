@@ -394,7 +394,7 @@ public class FExec extends ListNode {
     public boolean readLocal(int stackIndex, int localIndex, AtomicInteger value, AtomicInteger isObject) {
         VmStackFrame stackTrace = new VmStackFrame();
         if (!getStackTrace(stackIndex, stackTrace, null)) return false;
-        int val = (int) stack.get(stackTrace.baseSp + 1 + localIndex);
+        int val = (int) stack.get(stackTrace.sp + 1 + localIndex);
         value.set(val);
         if (isObject != null) {
             isObject.set(Flint.isObject(val) ? 1 : 0);
@@ -405,8 +405,8 @@ public class FExec extends ListNode {
     public boolean readLocal(int stackIndex, int localIndex, AtomicLong value) {
         VmStackFrame stackTrace = new VmStackFrame();
         if (!getStackTrace(stackIndex, stackTrace, null)) return false;
-        int low = (int) stack.get(stackTrace.baseSp + 1 + localIndex);
-        int high = (int) stack.get(stackTrace.baseSp + 2 + localIndex);
+        int low = (int) stack.get(stackTrace.sp + 1 + localIndex);
+        int high = (int) stack.get(stackTrace.sp + 2 + localIndex);
         long val = ((long) high << 32) | (low & 0xFFFFFFFFL);
         value.set(val);
         return true;

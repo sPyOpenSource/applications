@@ -3,7 +3,7 @@
  */
 package jCPU.MCS51;
 
-import j51.intel.graph.RESERVED;
+import jCPU.MCS51.graph.RESERVED;
 import j51.util.*;
 import j51.swing.*;
 import jCPU.AsyncTimerListener;
