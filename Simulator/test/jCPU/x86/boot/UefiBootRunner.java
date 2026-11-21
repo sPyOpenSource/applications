@@ -82,7 +82,7 @@ public class UefiBootRunner
         int searchFrom = 0;
 
         // Same devices and ports as CPU's constructor.
-        X86Core core = new X86Core(256 * 1024 * 1024);
+        X86Core core = new X86Core(X86Core.DEFAULT_MEMORY_SIZE);
         core.setActiveExecutor(new i8086());
         X86VgaPeripheral vga = new X86VgaPeripheral();
         for (int port = 0x3C0; port <= 0x3DA; port++) {

@@ -98,7 +98,7 @@ public class CPU extends jx.disass.x86
 
 	public CPU() throws Exception
 	{
-		core = new X86Core(256 * 1024 * 1024);
+		core = new X86Core(X86Core.DEFAULT_MEMORY_SIZE);
 		core.setActiveExecutor(new i8086());
 
 		// VGA text/graphics memory at 0xB8000, VGA I/O ports 0x3C0-0x3DA

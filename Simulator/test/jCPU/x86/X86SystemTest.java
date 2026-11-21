@@ -13,6 +13,8 @@ public class X86SystemTest
 {
     private static final int GDT = 0x1000;
     private static final int CODE = 0x10000;
+    private static final int IDT = 0x2000;
+    private static final int HANDLER = 0x10100;
 
     /** Flat 32-bit code (0x08) and data (0x10) segments, and data with base 0x5000 (0x18). */
     private static final long[] FLAT_GDT = {
@@ -43,6 +45,18 @@ public class X86SystemTest
         for (int i = 0; i < code.length; i++) {
             core.writeMem8(address + i, code[i]);
         }
+    }
+
+    /** A flat 32-bit interrupt gate for vector 1, and an IRETD-only handler. */
+    private static void installDebugGate(X86Core core)
+    {
+        core.setIdt(IDT, 0x10);
+        long gate = (HANDLER & 0xFFFFL)
+                | (0x08L << 16)                         // flat 32-bit code selector
+                | (0x8EL << 40)                         // present, DPL 0, 32-bit interrupt gate
+                | (((HANDLER >>> 16) & 0xFFFFL) << 48);
+        core.writeMem64(IDT + 8, gate);                 // vector 1 (#DB)
+        load(core, HANDLER, 0xCF);                      // iretd
     }
 
     private static void steps(X86Core core, int n) throws Exception
@@ -255,6 +269,18 @@ public class X86SystemTest
     }
 
     @Test
+    public void testPopfKeepsReservedBitOne() throws Exception
+    {
+        // Even POPF 0 must leave EFLAGS bit 1 set; x86 does not allow it to be cleared.
+        X86Core core = core32(
+                0x6A, 0x00,                             // push 0
+                0x9D);                                  // popf
+        steps(core, 2);
+        assertEquals(2, core.getRflags64() & 2);
+        assertEquals(0x8000, core.getReg64(X86Core.REG_RSP));
+    }
+
+    @Test
     public void testDebugRegistersReadBack() throws Exception
     {
         X86Core core = core32(
@@ -269,7 +295,7 @@ public class X86SystemTest
     }
 
     @Test
-    public void testWriteBreakpointStopsAfterTheWrite() throws Exception
+    public void testWriteBreakpointDeliversDebugException() throws Exception
     {
         // What jxcore does to catch writes through a null pointer:
         // breakpoint 1 on writes to address 0..3.
@@ -282,16 +308,25 @@ public class X86SystemTest
                 0x8B, 0x1D, 0x00, 0x00, 0x00, 0x00,     // mov ebx, [0]: reads do not count
                 0xB3, 0x5A,                             // mov bl, 0x5A
                 0x88, 0x1D, 0x02, 0x00, 0x00, 0x00);    // mov [2], bl
+        installDebugGate(core);
         steps(core, 7);
         assertTrue(core.hasBreakpoints());
-        String message = unknown(core, 1);
-        assertTrue(message, message.contains("debug breakpoint 1: write to 0x2"));
-        assertEquals(0x5A, core.readMem8(2));           // the write happened
-        assertEquals(CODE + 33, core.getPC64());        // and the instruction completed
+
+        core.step();                                    // #DB: write happens, then the trap is delivered
+        assertEquals(HANDLER, core.getPC64());
+        assertEquals(0x5A, core.readMem8(2));           // the write happened before the trap
+        assertEquals(0x8000 - 12, core.getReg64(X86Core.REG_RSP));
+        assertEquals(CODE + 33, core.readMem32(0x8000 - 12));
+        assertEquals(0x08, core.readMem32(0x8000 - 8));
+        assertEquals(1 << 1, core.getDebugReg(6) & 0xF);
+
+        core.step();                                    // iretd
+        assertEquals(CODE + 33, core.getPC64());
+        assertEquals(0x8000, core.getReg64(X86Core.REG_RSP));
     }
 
     @Test
-    public void testInstructionBreakpointStopsBeforeTheInstruction() throws Exception
+    public void testInstructionBreakpointDeliversDebugException() throws Exception
     {
         X86Core core = core32(
                 0xB8, 0x20, 0x00, 0x01, 0x00,           // mov eax, 0x10020
@@ -300,12 +335,59 @@ public class X86SystemTest
                 0x0F, 0x23, 0xF8,                       // mov dr7, eax
                 0xEB, 0x0E);                            // jmp 0x10020
         load(core, 0x10020, 0x43);                      // inc ebx
+        installDebugGate(core);
         steps(core, 5);
         assertEquals(0x10020, core.getPC64());
-        String message = unknown(core, 1);
-        assertTrue(message, message.contains("debug breakpoint 0: instruction at 0x10020"));
-        assertEquals(0x10020, core.getPC64());
+
+        core.step();                                    // #DB fault: before the instruction
+        assertEquals(HANDLER, core.getPC64());
+        assertEquals(0x8000 - 12, core.getReg64(X86Core.REG_RSP));
+        assertEquals(0x10020, core.readMem32(0x8000 - 12));
+        assertEquals(0x08, core.readMem32(0x8000 - 8));
+        assertEquals(1, core.getDebugReg(6) & 0xF);
         assertEquals(0, core.getReg64(X86Core.REG_RBX));
+
+        core.step();                                    // iretd resumes at the faulting instruction
+        assertEquals(0x10020, core.getPC64());
+        assertEquals(0x8000, core.getReg64(X86Core.REG_RSP));
+        assertTrue("RF set on resume", (core.getRflags64() & (1 << 16)) != 0);
+
+        core.step();                                    // RF suppresses the same breakpoint
+        assertEquals(0x10021, core.getPC64());
+        assertEquals(1, core.getReg64(X86Core.REG_RBX));
+        assertEquals(0, core.getRflags64() & (1 << 16));
+    }
+
+    @Test
+    public void testNullInstructionBreakpointDeliversDebugException() throws Exception
+    {
+        // The exact jxcore setup: an execute breakpoint on address 0, then a
+        // jump through a null pointer.  The emulator must deliver #DB instead
+        // of stopping with "the #DB exception is not emulated".
+        X86Core core = core32(
+                0x31, 0xC0,                             // xor eax, eax
+                0x0F, 0x23, 0xC0,                       // mov dr0, eax
+                0xB8, 0x02, 0x02, 0x00, 0x00,           // mov eax, 0x202 (G0, GE, execute)
+                0x0F, 0x23, 0xF8,                       // mov dr7, eax
+                0x31, 0xDB,                             // xor ebx, ebx
+                0xFF, 0xE3);                            // jmp ebx (null pointer)
+        load(core, 0, 0x90);                            // nop at address 0
+        installDebugGate(core);
+        steps(core, 6);
+        assertEquals(0, core.getPC64());
+
+        core.step();                                    // #DB instead of an unknown-opcode stop
+        assertEquals(HANDLER, core.getPC64());
+        assertEquals(0, core.readMem32(0x8000 - 12));
+        assertEquals(1, core.getDebugReg(6) & 0xF);
+
+        core.step();                                    // iretd
+        assertEquals(0, core.getPC64());
+        assertEquals(0x8000, core.getReg64(X86Core.REG_RSP));
+
+        core.step();                                    // RF suppresses the breakpoint at 0
+        assertEquals(1, core.getPC64());
+        assertEquals(0, core.getRflags64() & (1 << 16));
     }
 
     @Test

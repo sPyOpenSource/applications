@@ -9,6 +9,13 @@ import java.util.Map;
 
 public class X86Core implements iCPU
 {
+    /**
+     * Memory needed by the full jxcore image.  Its initial stack lives around
+     * 0x11700000; with only 256 MB those accesses silently fell outside the
+     * mapped array, corrupting call frames and trapping on a bogus NULL target.
+     */
+    public static final int DEFAULT_MEMORY_SIZE = 512 * 1024 * 1024;
+
     /* ---------------- 32-bit register indices (legacy) ---------------- */
     public static final int REG_EAX = 0;
     public static final int REG_ECX = 1;
@@ -61,6 +68,7 @@ public class X86Core implements iCPU
     public static final int FLAG_DF = 10;
     public static final int FLAG_OF = 11;
     public static final int FLAG_IF = 9;
+    public static final int FLAG_RF = 16;
 
     private final int[] regs32 = new int[REG_COUNT_32];
     private final long[] regs64 = new long[REG_COUNT_64];

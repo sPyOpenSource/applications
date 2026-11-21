@@ -31,6 +31,7 @@ public class X86Amd64 implements X86Core.iExecutor
     private static final long IF = 1L << FLAG_IF;
     private static final long DF = 1L << FLAG_DF;
     private static final long OF = 1L << FLAG_OF;
+    private static final long RF = 1L << FLAG_RF;
     private static final long STATUS = CF | PF | AF | ZF | SF | OF;
 
     private static final int RAX = 0, RCX = 1, RDX = 2, RBX = 3, RSP = 4, RBP = 5, RSI = 6, RDI = 7;
@@ -103,12 +104,13 @@ public class X86Amd64 implements X86Core.iExecutor
             throw unknownOpcode("16-bit code; this executor runs 64-bit and 32-bit code");
         }
         dataBreakpoint = -1;
-        if (core.hasBreakpoints()) {
-            // An instruction breakpoint is a fault: it stops before the instruction.
+        if (core.hasBreakpoints() && (flags() & RF) == 0) {
+            // An instruction breakpoint is a fault: deliver #DB before the instruction.
             int bp = core.breakpointHit(rip, 1, ACCESS_EXECUTE);
             if (bp >= 0) {
-                throw unknownOpcode(String.format(
-                        "debug breakpoint %d: instruction at 0x%X (the #DB exception is not emulated)", bp, rip));
+                deliverDebugException(bp, rip);
+                core.setPC64(code64 ? ip : ip & 0xFFFFFFFFL);
+                return 1;
             }
         }
 
@@ -165,9 +167,15 @@ public class X86Amd64 implements X86Core.iExecutor
         history[(int) (historyCount++ % HISTORY_SIZE)] = insnStart;
         if (dataBreakpoint >= 0) {
             // A data breakpoint is a trap: the instruction has run.
-            throw unknownOpcode(String.format(
-                    "debug breakpoint %d: %s 0x%X (the #DB exception is not emulated)", dataBreakpoint,
-                    dataBreakpointWrite ? "write to" : "read from", dataBreakpointAddr));
+            deliverDebugException(dataBreakpoint, ip);
+            core.setPC64(code64 ? ip : ip & 0xFFFFFFFFL);
+            return 1;
+        }
+        // RF suppresses an instruction breakpoint for one instruction only.
+        // IRETD keeps the value it popped so the resumed instruction is not
+        // reported again.
+        if (opcode != 0xCF && (flags() & RF) != 0) {
+            core.setRflags64(flags() & ~RF);
         }
         return 1;
     }
@@ -790,7 +798,7 @@ public class X86Amd64 implements X86Core.iExecutor
                 push(flags(), stackSize());
                 return;
             case 0x9D:                              // POPFQ
-                core.setRflags64(pop(stackSize()));
+                core.setRflags64(pop(stackSize()) | 2); // bit 1 is always set
                 return;
             case 0x9E:                              // SAHF
                 setFlags(CF | PF | AF | ZF | SF, reg64(RAX) >>> 8);
@@ -864,6 +872,19 @@ public class X86Amd64 implements X86Core.iExecutor
             case 0xCD:                              // INT imm8
                 core.handleInt(fetch8());
                 return;
+            case 0xCF: {                            // IRETD
+                if (code64) break;
+                farSize();
+                long sp = reg64(RSP) & 0xFFFFFFFFL;
+                long target = core.readMem32(linear(SEG_SS, sp)) & 0xFFFFFFFFL;
+                int selector = core.readMem32(linear(SEG_SS, sp + 4)) & 0xFFFF;
+                long savedFlags = core.readMem32(linear(SEG_SS, sp + 8)) & 0xFFFFFFFFL;
+                long d = codeDescriptor(selector);
+                addStack(12);
+                core.setRflags64(savedFlags | 2);   // bit 1 is always set
+                enterCode(selector, d, target);
+                return;
+            }
 
             case 0xE0: case 0xE1: case 0xE2: {      // LOOPNE, LOOPE, LOOP
                 nearSize();
@@ -1656,6 +1677,47 @@ public class X86Amd64 implements X86Core.iExecutor
         core.setCodeSize32(!longSegment && (d & (1L << 54)) != 0);
         ip = longSegment ? target : target & 0xFFFFFFFFL;
         code64 = longSegment;
+    }
+
+    /**
+     * Deliver vector 1 (#DB) through the 32-bit interrupt gate in the IDT.
+     * Instruction breakpoints are faults, so the return address is the
+     * faulting instruction; data breakpoints are traps, so it is the next
+     * instruction.  RF is set in the saved flags to keep IRETD from reporting
+     * the same instruction breakpoint again.
+     */
+    private void deliverDebugException(int bp, long returnIp) throws Exception {
+        if (!core.isProtectedMode() || code64) {
+            throw unknownOpcode("debug exception outside 32-bit protected mode is not emulated");
+        }
+        long idtBase = core.getIdtBase();
+        if (idtBase == 0 || 1 * 8 + 7 > core.getIdtLimit()) {
+            throw unknownOpcode("debug exception: IDT does not cover vector 1");
+        }
+        long gate = core.readMem64(idtBase + 1 * 8L);
+        if ((gate & (1L << 47)) == 0) {
+            throw unknownOpcode("debug exception: gate for vector 1 is not present");
+        }
+        int type = (int) ((gate >>> 40) & 0xFF);
+        if ((type & 0x1F) != 0x0E) {
+            throw unknownOpcode("debug exception: gate for vector 1 is not a 32-bit interrupt gate");
+        }
+        int selector = (int) ((gate >>> 16) & 0xFFFF);
+        long target = (gate & 0xFFFFL) | (((gate >>> 48) & 0xFFFFL) << 16);
+        long d = codeDescriptor(selector);
+
+        long savedIp = returnIp & 0xFFFFFFFFL;
+        long savedCs = core.getSegSelector(SEG_CS) & 0xFFFFL;
+        long savedFlags = flags() | RF;
+        long sp = (reg64(RSP) - 12) & 0xFFFFFFFFL;
+        core.writeMem32(linear(SEG_SS, sp), (int) savedIp);
+        core.writeMem32(linear(SEG_SS, sp + 4), (int) savedCs);
+        core.writeMem32(linear(SEG_SS, sp + 8), (int) savedFlags);
+        setReg(RSP, 4, sp);
+
+        core.setDebugReg(6, (core.getDebugReg(6) & ~0xFL) | (1L << bp));
+        core.setFlag(FLAG_IF, false);               // an interrupt gate clears IF
+        enterCode(selector, d, target);
     }
 
     /**
