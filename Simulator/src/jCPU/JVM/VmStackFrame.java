@@ -22,7 +22,7 @@ public class VmStackFrame {
     private int top;
 
     public int pc;
-    public int baseSp;
+    public int sp;
 
     VmStackEntry a[] = new VmStackEntry[MAX]; // Maximum size of Stack 
 
@@ -38,7 +38,7 @@ public class VmStackFrame {
 
     public void init(int pc, int baseSp, jx.classfile.MethodData method) {
         this.pc = pc;
-        this.baseSp = baseSp;
+        this.sp = baseSp;
     }
 
     public boolean push(VmStackEntry x)
