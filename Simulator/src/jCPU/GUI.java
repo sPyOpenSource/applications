@@ -11,17 +11,19 @@ import javax.swing.*;
 import javax.swing.tree.*;
 import assets.Assets;
 import j51.swing.J51Panel;
-
 import j51.util.*;
 import j51.swing.*;
 
-import java.awt.datatransfer.StringSelection;
 import jCPU.JVM.ByteCode;
 import jCPU.MCS51.CPU;
 import jCPU.MCS51.MCS51Performance;
+import jCPU.x86.X86FatFileSystem;
+import jCPU.x86.X86IdeController;
+import jCPU.x86.X86IdeDevice;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+import java.awt.datatransfer.StringSelection;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.jar.JarEntry;
@@ -46,12 +48,12 @@ import org.json.JSONObject;
 /**
  *
  * J51 main Frame.
- * 
+ *
  * @author Mario Viara
  * @version 1.01
  *
  * 1.01 Added support for menu icon.
- * 
+ *
  */
 public class GUI extends JFrame implements MCS51Performance, ActionListener
 {
@@ -64,13 +66,17 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private final JIdata idata;
 	private final JXdata xdata;
 	private final JCode code;
+	private final JCsr csr;
+	private final JTextPane codeText;
 	private final JInfo info;
 	private final JTextArea messages;
 
 	private JToolBar toolBar = new JToolBar();
+	private final JTabbedPane tp;
 	private iCPU cpu;
 	private JFileChooser fc = null;
 	private JButton buttonStop;
+	private boolean highlighting = false;
 	private AbstractAction actionDebugTrace;
 	private AbstractAction actionDebugStep;
 	private AbstractAction actionDebugGo;
@@ -90,9 +96,21 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private JRadioButtonMenuItem first = null;
 	private final java.util.ArrayList<J51Panel> panels = new java.util.ArrayList<>();
 	private final Assets assets = new Assets();
-	private JSplitPane mainSplit;
+	private final JSplitPane mainSplit;
 	private JSplitPane leftSplit;
-	private JSplitPane bottomSplit;
+	private final JSplitPane bottomSplit;
+
+	/** Optional command-line path to a floppy image to auto-load after CPU selection. */
+	private String autoFloppyPath;
+
+	/** Optional command-line path to an OVMF firmware image to auto-load after CPU selection. */
+	private String autoOvmfPath;
+
+	/** Optional command-line path to a floppy image to auto-attach AND boot after CPU selection. */
+	private String autoFloppyBootPath;
+
+	/** Optional command-line path to a hard disk image to auto-attach AND UEFI-boot after CPU selection. */
+	private String autoHddUefiBootPath;
 
 	GUI(){
 		setTitle("J51 1.05 $Revision: 70 $ - Created by mario@viara.eu");
@@ -104,6 +122,11 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		idata = new JIdata();
 		xdata = new JXdata();
 		code = new JCode();
+		csr = new JCsr();
+		codeText = new JTextPane();
+		codeText.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		installHighlightListener();
+		//codeText.setEditable(false);
 		peripheral = new JPeripheral();
 		messages = new JTextArea(5, 40);
 		messages.setEditable(false);
@@ -112,22 +135,38 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		createMenuBar();
 		register.setChangeListener(this);
 
-		JTabbedPane tp = new JTabbedPane();
+		tp = new JTabbedPane();
 		tp.add("SFR", sfr);
 		tp.add("IDATA", idata);
 		tp.add("XDATA", xdata);
-		tp.add("CODE", code);
+		tp.add("CODE", new JScrollPane(code));
+		tp.add("CSR", csr);
 
-		bottomSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, assembly, tp);
+		bottomSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, tp, assembly);
 		bottomSplit.setResizeWeight(0.5);
 		bottomSplit.setOneTouchExpandable(true);
+		// The assembler table is empty until code is loaded, so its preferred
+		// height is tiny and the vertical split would otherwise collapse it to
+		// an unusable sliver (it only becomes readable when maximized / full
+		// screen). Clamp both sides to a minimum height and position the
+		// divider once the pane has a real size.
+		bottomSplit.setDividerLocation(0.58);
+		assembly.setMinimumSize(new Dimension(0, 170));
+		tp.setMinimumSize(new Dimension(0, 140));
+		bottomSplit.addComponentListener(new java.awt.event.ComponentAdapter() {
+			@Override
+			public void componentShown(java.awt.event.ComponentEvent e) {
+				bottomSplit.removeComponentListener(this);
+				bottomSplit.setDividerLocation(0.58);
+			}
+		});
 
 		JPanel leftPanel = new JPanel(new BorderLayout());
-		leftPanel.add(register, BorderLayout.NORTH);
+		//leftPanel.add(register, BorderLayout.NORTH);
 		leftPanel.add(bottomSplit, BorderLayout.CENTER);
 
 		JScrollPane peripheralScroll = new JScrollPane(peripheral);
-		peripheralScroll.setBorder(BorderFactory.createTitledBorder("Peripheral"));
+		//peripheralScroll.setBorder(BorderFactory.createTitledBorder("Peripheral"));
 
 		mainSplit = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, peripheralScroll);
 		mainSplit.setResizeWeight(0.6);
@@ -147,6 +186,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		panels.add(idata);
 		panels.add(xdata);
 		panels.add(code);
+		panels.add(csr);
 		panels.add(register);
 		panels.add(peripheral);
 
@@ -212,6 +252,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					setProgress("Stop simulation");
 					emulation(false);
 					messages(cpu.toString());
+					updateTabs();
 					setProgress("Garbage collection");
 					System.gc();
 				} catch (ClassNotFoundException ex) {
@@ -250,6 +291,113 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		avgCpuUsage = 0;
 	}
 
+	private void updateTabs()
+	{
+		if (cpu == null || tp == null){
+			return;
+		}
+
+		tp.removeAll();
+
+		boolean isRiscV = cpu instanceof jCPU.RiscV.CPU;
+		boolean isMcs51 = cpu instanceof jCPU.MCS51.CPU || cpu.getClass().getName().contains("MCS51");
+		boolean isJsOrNasm = cpu instanceof jCPU.js.Interpreter || cpu.getClass().getName().contains("nasm");
+
+		// CODE for most architectures; plain text for JS and NASM
+		if (isJsOrNasm){
+			tp.add("CODE", new JScrollPane(codeText));
+		} else {
+			tp.add("CODE", new JScrollPane(code));
+		}
+
+		// CSR only for RISC-V
+		if (isRiscV){
+			tp.add("CSR", csr);
+		}
+
+		// SFR / IDATA / XDATA only for 8051 family
+		if (isMcs51){
+			tp.add("SFR", sfr);
+			tp.add("IDATA", idata);
+			tp.add("XDATA", xdata);
+		}
+
+		tp.revalidate();
+		tp.repaint();
+
+		if (isJsOrNasm){
+			updateCodeText();
+		}
+	}
+
+	private void updateCodeText()
+	{
+		if (cpu == null){
+			return;
+		}
+		boolean isJs = cpu instanceof jCPU.js.Interpreter;
+		boolean isNasm = cpu.getClass().getName().contains("nasm");
+		if (isJs || isNasm){
+			refreshHighlight();
+			return;
+		}
+		StringBuilder sb = new StringBuilder();
+		int size = cpu.getCodeSize();
+		for (int i = 0 ; i < size ; i++){
+			if (i % 16 == 0){
+				if (i > 0) sb.append('\n');
+				sb.append(String.format("%06x  ", i));
+			}
+			sb.append(String.format("%02x ", cpu.code(i)));
+		}
+		sb.append('\n');
+		codeText.setText(sb.toString());
+	}
+
+	private void refreshHighlight()
+	{
+		if (highlighting || cpu == null){
+			return;
+		}
+		boolean isJs = cpu instanceof jCPU.js.Interpreter;
+		boolean isNasm = cpu.getClass().getName().contains("nasm");
+		if (!isJs && !isNasm){
+			return;
+		}
+		String lang = isJs ? "js" : "nasm";
+		highlighting = true;
+		try{
+			SyntaxHighlighter.highlight(codeText, lang, codeText.getText());
+		} finally {
+			highlighting = false;
+		}
+	}
+
+	private void installHighlightListener()
+	{
+		codeText.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+			public void insertUpdate(javax.swing.event.DocumentEvent e) { requestHighlight(); }
+			public void removeUpdate(javax.swing.event.DocumentEvent e) { requestHighlight(); }
+			public void changedUpdate(javax.swing.event.DocumentEvent e) { requestHighlight(); }
+		});
+	}
+
+	private void requestHighlight()
+	{
+		if (highlighting){
+			return;
+		}
+		boolean isJs = cpu instanceof jCPU.js.Interpreter;
+		boolean isNasm = cpu.getClass().getName().contains("nasm");
+		if (isJs || isNasm){
+			// Defer: the DocumentListener fires while holding the document write lock;
+			// setCharacterAttributes would mutate during notification and throw.
+			SwingUtilities.invokeLater(new Runnable(){
+				public void run(){ refreshHighlight(); }
+			});
+		}
+	}
+
 	public void setCpu(CPU cpu)
 	{
 		info.reset.setValue(0);
@@ -268,6 +416,60 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		updatePanel(true);
 		emulation(false);
 		messages(cpu.toString());
+		updateTabs();
+
+		// Auto-load floppy and/or UEFI firmware from command-line arguments.
+		if (GUI.this.cpu instanceof jCPU.x86.CPU) {
+			jCPU.x86.CPU x86Cpu = (jCPU.x86.CPU) GUI.this.cpu;
+			if (autoFloppyPath != null) {
+				try {
+					x86Cpu.attachFloppyImage(autoFloppyPath);
+					messages("Auto-loaded floppy image: " + autoFloppyPath);
+				} catch (IOException ex) {
+					messages("Failed to auto-load floppy image: " + ex.getMessage());
+				}
+			}
+			if (autoOvmfPath != null) {
+				int size = x86Cpu.loadOvmf(autoOvmfPath);
+				if (size < 0) {
+					messages("Failed to auto-load OVMF firmware: " + autoOvmfPath);
+				} else {
+					x86Cpu.setPC(x86Cpu.getOvmfResetVector());
+					messages("Auto-loaded OVMF firmware: " + size + " bytes. PC set to reset vector 0x"
+							+ Integer.toHexString(x86Cpu.getOvmfResetVector())
+							+ ". Click Go to start.");
+				}
+			}
+			if (autoFloppyBootPath != null) {
+				try {
+					x86Cpu.attachFloppyImage(autoFloppyBootPath);
+					messages("Auto-attached floppy image: " + autoFloppyBootPath);
+					boolean ok = x86Cpu.floppyBoot();
+					if (ok) {
+						messages("Auto-booted floppy: PC jumped to 0x7C00");
+					} else {
+						messages("Auto-boot floppy failed: no bootable sector found");
+					}
+				} catch (IOException ex) {
+					messages("Failed to auto-boot floppy: " + ex.getMessage());
+				}
+			}
+			if (autoHddUefiBootPath != null) {
+				try {
+					x86Cpu.attachDiskImage(autoHddUefiBootPath);
+					messages("Auto-attached hard disk: " + autoHddUefiBootPath);
+					long entryPoint = x86Cpu.uefiBoot();
+					if (entryPoint != 0) {
+						messages("UEFI boot entry point: 0x" + Long.toHexString(entryPoint));
+						x86Cpu.setPC64(entryPoint);
+					} else {
+						messages("UEFI boot failed: no bootable ESP found on disk");
+					}
+				} catch (IOException ex) {
+					messages("Failed to auto-boot hard disk UEFI: " + ex.getMessage());
+				}
+			}
+		}
 	}
 
 	void addKey(JMenuItem item, int key)
@@ -618,13 +820,14 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			File file = new File(path);
 			FileInputStream fis = new FileInputStream(file);
 			byte[] code = fis.readAllBytes();
+			fis.close();
 			for(int i = 0; i < code.length; i++){
-				cpu.code(i, code[i + 0x1000 * 0]);
-				if(i == 0x10000 - 1) break;
+				cpu.code(i, code[i]);
 			}
 		} catch (IOException ex) {
 			throw new IOException("Failed to load raw binary " + path + ": " + ex.getMessage(), ex);
 		}
+		messages("Raw binary loaded: " + path);
 	}
 
 	private void loadClass(String path) throws Exception
@@ -722,7 +925,17 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			{
 				String path = fc.getSelectedFile().getCanonicalPath();
 				tryLoadFile(path);
+				// Refresh code panel size and reset view to address 0 BEFORE updating display
+				code.setCpu(cpu);
+				code.setAddress(0);
+				code.revalidate();
 				updatePanel(true);
+				code.repaint();
+				messages("Loaded: " + path + "  code size=" + cpu.getCodeSize());
+				// Populate plain text view for JS and NASM
+				if (cpu instanceof jCPU.js.Interpreter || cpu.getClass().getName().contains("nasm")){
+					updateCodeText();
+				}
 			}
 		} catch (FileNotFoundException ex) {
 			showError("File not found: " + ex.getMessage(), ex);
@@ -738,12 +951,19 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		String lower = path.toLowerCase();
 		if (lower.endsWith(".hex") || lower.endsWith(".json")) {
 			loadHex(path);
-		} else if (lower.endsWith(".bin") || !path.contains(".")) {
+		} else if (lower.endsWith(".bin") || lower.endsWith(".img") || !path.contains(".")) {
+			if (cpu == null) {
+				throw new IllegalArgumentException("No CPU selected. Choose a CPU from the CPU menu first.");
+			}
 			try {
-				loadBin(path);
-			} catch (IOException ex) {
-				messages("ELF load failed: " + ex.getMessage() + ". Trying raw binary...");
 				loadRawBin(path);
+			} catch (Exception ex) {
+				messages("Raw binary load failed: " + ex.getMessage() + ". Trying ELF...");
+				try {
+					loadBin(path);
+				} catch (Exception ex2) {
+					throw ex2;
+				}
 			}
 		} else if (lower.endsWith(".class")) {
 			loadClass(path);
@@ -751,10 +971,54 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			loadJar(path);
 		} else if (lower.endsWith(".jll")) {
 			loadJll(path);
+		} else if (lower.endsWith(".fd")) {
+			if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+				throw new IllegalArgumentException("OVMF.fd can only be loaded into the x86 CPU (jCPU.x86.CPU). Select it from the CPU menu first.");
+			}
+			int size = x86Cpu.loadOvmf(path);
+			if (size < 0) {
+				throw new IOException("Failed to load OVMF.fd: " + path);
+			}
+			// Reset vector is 16 bytes below the top of physical memory.
+			x86Cpu.setPC(x86Cpu.getOvmfResetVector());
+			messages("Loaded OVMF.fd: " + size + " bytes ending at 0x"
+					+ Integer.toHexString(x86Cpu.getOvmfResetVector() + 16)
+					+ ". PC set to reset vector 0x"
+					+ Integer.toHexString(x86Cpu.getOvmfResetVector())
+					+ ". Click Go to start.");
 		} else {
 			String ext = path.contains(".") ? path.substring(path.lastIndexOf(".")) : "(no extension)";
 			throw new IllegalArgumentException("Unsupported file format: " + ext +
-				". Supported: .hex, .json, .bin, .class, .jar, .jll");
+				". Supported: .hex, .json, .bin, .img, .class, .jar, .jll");
+		}
+	}
+
+	/**
+	 * Attempt to mount a FAT12/FAT16/FAT32 filesystem from the attached disk
+	 * image and report what was found.  Floppy disk images are typically FAT12.
+	 */
+	private void reportDiskFat(jCPU.x86.CPU x86Cpu, String path)
+	{
+		try {
+			X86IdeController ide = x86Cpu.getIdeController();
+			X86IdeDevice master = ide.getMaster();
+			if (master == null) {
+				messages("Disk attached: " + path + " (no FAT scan possible)");
+				return;
+			}
+			X86FatFileSystem fs = new X86FatFileSystem(lba -> {
+				byte[] buf = new byte[512];
+				master.readSector(lba, buf);
+				return buf;
+			});
+			if (fs.mount(0)) {
+				messages("Disk attached: " + path + " -- FAT" + fs.getFatType()
+						+ " filesystem detected at LBA 0");
+			} else {
+				messages("Disk attached: " + path + " -- no FAT boot sector found at LBA 0");
+			}
+		} catch (Exception ex) {
+			messages("Disk attached: " + path + " (FAT scan failed: " + ex.getMessage() + ")");
 		}
 	}
 
@@ -805,17 +1069,59 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION)
 					{
 						String path = fc.getSelectedFile().getCanonicalPath();
-						loadBin(path);
+						try {
+							loadBin(path);
+						} catch (IOException ex) {
+							messages("ELF load failed: " + ex.getMessage() + ". Trying raw binary...");
+							loadRawBin(path);
+						}
 						updatePanel(true);
 					}
 				} catch (FileNotFoundException ex) {
 					showError("File not found", ex);
 				} catch (Exception ex) {
-					showError("Failed to load ELF binary: " + ex.getMessage(), ex);
+					showError("Failed to load binary: " + ex.getMessage(), ex);
 				}
 			}
 		};
 		importMenu.add(importBin);
+
+		AbstractAction importOvmf = new AbstractAction("OVMF Firmware...")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				try{
+					if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+						showError("OVMF firmware requires the x86 CPU. Select it from the CPU menu first.", null);
+						return;
+					}
+					if (fc == null)
+					{
+						fc = new JFileChooser();
+						fc.setCurrentDirectory(new File("."));
+					}
+					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION)
+					{
+						String path = fc.getSelectedFile().getCanonicalPath();
+						int size = x86Cpu.loadOvmf(path);
+						if (size < 0) {
+							throw new IOException("Failed to load OVMF firmware: " + path);
+						}
+						x86Cpu.setPC(x86Cpu.getOvmfResetVector());
+						messages("Loaded OVMF firmware: " + size + " bytes. PC set to 0x" +
+								Integer.toHexString(x86Cpu.getOvmfResetVector()) +
+								" (reset vector at top of RAM). Click Go to start.");
+						updatePanel(true);
+					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
+				} catch (Exception ex) {
+					showError("Failed to load OVMF firmware: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		importMenu.add(importOvmf);
 
 		AbstractAction importClass = new AbstractAction("Java Class...")
 		{
@@ -894,6 +1200,91 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			}
 		};
 		importMenu.add(importJll);
+
+		AbstractAction importDisk = new AbstractAction("Disk Image...")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+					showError("Disk image loading is only available for the x86 CPU.", null);
+					return;
+				}
+				try {
+					if (fc == null) {
+						fc = new JFileChooser();
+						fc.setCurrentDirectory(new File("."));
+					}
+					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION) {
+						String path = fc.getSelectedFile().getCanonicalPath();
+						x86Cpu.attachDiskImage(path);
+						updatePanel(true);
+						reportDiskFat(x86Cpu, path);
+                                                long entryPoint = x86Cpu.uefiBoot();
+                                                if (entryPoint != 0) {
+                                                        if (x86Cpu.isLongMode()) {
+                                                                x86Cpu.setPC64(entryPoint);
+                                                        } else {
+                                                                x86Cpu.setPC((int) entryPoint);
+                                                        }
+                                                        messages("UEFI boot: entry point at 0x" + Long.toHexString(entryPoint)
+                                                                        + ". PC set. Click Go to start execution.");
+                                                } else {
+                                                        messages("UEFI boot: no bootable EFI application found on attached disk image.");
+                                                }
+					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
+				} catch (Exception ex) {
+					showError("Failed to attach disk image: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		importMenu.add(importDisk);
+
+		AbstractAction importFloppy = new AbstractAction("Floppy Disk Image...")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+					showError("Floppy disk loading is only available for the x86 CPU.", null);
+					return;
+				}
+				try {
+					if (fc == null) {
+						fc = new JFileChooser();
+						fc.setCurrentDirectory(new File("."));
+					}
+					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION) {
+						String path = fc.getSelectedFile().getCanonicalPath();
+						x86Cpu.attachFloppyImage(path);
+						updatePanel(true);
+						reportDiskFat(x86Cpu, path);
+                                                boolean ok = x86Cpu.floppyBoot();
+                                                if (ok) {
+                                                        x86Cpu.setPC(0x7C00);
+                                                        messages("Floppy boot: boot sector loaded at 0x7C00, DL=0x00. PC set to 0x7C00. Click Go to start.");
+                                                } else {
+                                                        messages("Floppy boot: no bootable 0x55AA sector found on attached floppy image.");
+                                                }
+					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
+				} catch (Exception ex) {
+					showError("Failed to attach floppy image: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		importMenu.add(importFloppy);
 
 		menu.add(importMenu);
 		menu.addSeparator();
@@ -1245,6 +1636,9 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				}
 				try
 				{
+					if (cpu instanceof jCPU.js.Interpreter jsVm && jsVm.pc() < 0) {
+						jsVm.loadSource(codeText.getText());
+					}
 					cpu.step();
 					updatePanel(false);
 				} catch (Exception ex) {
@@ -1263,6 +1657,14 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
 					return;
 				}
+				if (cpu instanceof jCPU.js.Interpreter jsVm) {
+					try {
+						jsVm.loadSource(codeText.getText());
+					} catch (Exception ex) {
+						showError("Failed to load JavaScript source: " + ex.getMessage(), ex);
+						return;
+					}
+				}
 				thread = new Thread(() -> {
 					messages("Simulating ....");
 					try
@@ -1277,16 +1679,20 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 					SwingUtilities.invokeLater(() -> {
 						emulation(false);
+						if (cpu instanceof jCPU.js.Interpreter jsVmOut) {
+							String out = jsVmOut.readOut();
+							if (out != null && !out.isEmpty()) messages(out);
+						}
 					});
 				});
 
 				emulation(true);
 
 				thread.start();
+
 			}
-
-
 		};
+
 		addIcon(actionDebugGo, "play.gif");
 
 		actionDebugStep = new AbstractAction("Step over")
@@ -1333,6 +1739,111 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		addKey(menu.add(actionDebugStop), KeyEvent.VK_S);
 		addKey(menu.add(actionDebugErase), KeyEvent.VK_E);
 
+		AbstractAction actionDebugTraceExec = new AbstractAction("Trace Execution")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (cpu instanceof jCPU.x86.CPU x86Cpu)
+				{
+					boolean next = !x86Cpu.isTraceExecution();
+					x86Cpu.setTraceExecution(next);
+					messages("Execution tracing " + (next ? "enabled" : "disabled"));
+				}
+				else
+				{
+					showError("Execution tracing is only available for the x86 CPU.", null);
+				}
+			}
+		};
+		menu.add(actionDebugTraceExec);
+
+		AbstractAction actionDebugDumpRegs = new AbstractAction("Dump Registers")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (cpu instanceof jCPU.x86.CPU x86Cpu)
+				{
+					x86Cpu.dumpRegisters();
+				}
+				else
+				{
+					showError("Register dump is only available for the x86 CPU.", null);
+				}
+			}
+		};
+		menu.add(actionDebugDumpRegs);
+
+		AbstractAction actionDebugUefiBoot = new AbstractAction("UEFI Boot")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+					showError("UEFI boot is only available for the x86 CPU.", null);
+					return;
+				}
+				try {
+					long entryPoint = x86Cpu.uefiBoot();
+					if (entryPoint != 0) {
+						if (x86Cpu.isLongMode()) {
+							x86Cpu.setPC64(entryPoint);
+						} else {
+							x86Cpu.setPC((int) entryPoint);
+						}
+						messages("UEFI boot: entry point at 0x" + Long.toHexString(entryPoint)
+								+ ". PC set. Click Go to start execution.");
+					} else {
+						messages("UEFI boot: no bootable EFI application found on attached disk image.");
+					}
+				} catch (Exception ex) {
+					showError("UEFI boot failed: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		menu.add(actionDebugUefiBoot);
+
+		AbstractAction actionDebugFloppyBoot = new AbstractAction("Floppy Boot")
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
+				if (!(cpu instanceof jCPU.x86.CPU x86Cpu)) {
+					showError("Floppy boot is only available for the x86 CPU.", null);
+					return;
+				}
+				try {
+					boolean ok = x86Cpu.floppyBoot();
+					if (ok) {
+						x86Cpu.setPC(0x7C00);
+						messages("Floppy boot: boot sector loaded at 0x7C00, DL=0x00. PC set to 0x7C00. Click Go to start.");
+					} else {
+						messages("Floppy boot: no bootable 0x55AA sector found on attached floppy image.");
+					}
+				} catch (Exception ex) {
+					showError("Floppy boot failed: " + ex.getMessage(), ex);
+				}
+			}
+		};
+		menu.add(actionDebugFloppyBoot);
+
 		menu.setMnemonic('D');
 
 		return menu;
@@ -1341,7 +1852,30 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	static public void main(String argv[])
 	{
 		try {
+			// Parse command-line arguments for auto-loading.
+			//   --floppy <path>   Auto-attach a floppy disk image after CPU selection.
+			//   --ovmf <path>     Auto-load OVMF firmware after CPU selection.
+			String floppyPath = null;
+			String ovmfPath = null;
+			String floppyBootPath = null;
+			String hddUefiBootPath = null;
+			for (int i = 0; i < argv.length; i++) {
+				if ("--floppy".equals(argv[i]) && i + 1 < argv.length) {
+					floppyPath = argv[++i];
+				} else if ("--ovmf".equals(argv[i]) && i + 1 < argv.length) {
+					ovmfPath = argv[++i];
+			} else if ("--floppy-boot".equals(argv[i]) && i + 1 < argv.length) {
+				floppyBootPath = argv[++i];
+			} else if ("--hdd-uefi-boot".equals(argv[i]) && i + 1 < argv.length) {
+				hddUefiBootPath = argv[++i];
+				}
+			}
+
 			GUI j51 = new GUI();
+			j51.autoFloppyPath = floppyPath;
+			j51.autoOvmfPath = ovmfPath;
+			j51.autoFloppyBootPath = floppyBootPath;
+			j51.autoHddUefiBootPath = hddUefiBootPath;
 			j51.updatePanel(true);
 			j51.pack();
 			j51.setVisible(true);

@@ -5,7 +5,10 @@ import j51.util.Hex;
 import jCPU.iCPU;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 /**
  *
@@ -15,6 +18,7 @@ public class JSfr extends J51Panel
 {
 	JLabel labels[] = new JLabel[128];
 	JHexByte fields[] = new JHexByte[128];
+	private Timer updateTimer;
 	
 	public JSfr()
 	{
@@ -61,8 +65,36 @@ public class JSfr extends J51Panel
 	public void update(boolean force)
 	{
 		for (int i = 0 ; i < 128 ; i++){
-			fields[i].setValue(cpu.sfr(i + 128));
+			try {
+				fields[i].setValue(cpu.sfr(i + 128));
+			} catch (UnsupportedOperationException ex){
+				// SFR is an 8051 concept; CPUs that don't implement it
+				// (e.g. ARM) should show empty/0 fields instead of crashing.
+				fields[i].setValue(0);
+			}
                 }
 	}
-	
+        
+        @Override
+        public void setEmulation(boolean mode)
+        {
+            super.setEmulation(mode);
+            if (mode) {
+                // Start a timer to keep SFR values live-updated during emulation
+                if (updateTimer == null) {
+                    updateTimer = new Timer(50, new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            update(false);
+                        }
+                    });
+                    updateTimer.setRepeats(true);
+                }
+                updateTimer.start();
+            } else {
+                if (updateTimer != null) {
+                    updateTimer.stop();
+                }
+            }
+        }
 }

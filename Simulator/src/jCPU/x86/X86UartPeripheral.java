@@ -46,11 +46,37 @@ public class X86UartPeripheral implements Peripheral {
         }
     }
 
+    /** @return true if a received byte is waiting to be read. */
+    public boolean hasInput() {
+        return !inputBuffer.isEmpty();
+    }
+
+    /**
+     * Look at the next received byte without consuming it.
+     *
+     * @return the next byte (0-255) or -1 if the buffer is empty
+     */
+    public int peekInput() {
+        Byte b = inputBuffer.peek();
+        return b == null ? -1 : (b & 0xFF);
+    }
+
+    /**
+     * Remove and return the next received byte.
+     *
+     * @return the byte (0-255) or -1 if the buffer is empty
+     */
+    public int pollInput() {
+        Byte b = inputBuffer.poll();
+        return b == null ? -1 : (b & 0xFF);
+    }
+
     @Override
     public void write(int port, byte value) {
         int offset = port - basePort;
         if (offset == 0) { // Transmit buffer
             System.out.print((char) value);
+            System.out.flush();
         }
     }
 }

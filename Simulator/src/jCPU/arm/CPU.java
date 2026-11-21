@@ -87,29 +87,34 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		else interworkingBranch(new_pc);
 	}
 	public int readRegister(int r) {
-		switch(r) {
+            switch(r) {
 		case 13: return readSP();
 		case 14: return readLR();
 		case 15: return readPC();
 		default: return readGPR(r);
-		}
+            }
 	}
+        @Override
         public int r(int r)
 	{
 		return readRegister(r);
 	}
+        @Override
         public int sp()
 	{
 		return readSP();
 	}
+        @Override
 	public void sp(int value)
 	{
 		writeSP(value);
 	}
+        @Override
 	public int pc()
 	{
 		return readPC() & ~3;
 	}
+        @Override
 	public void pc(int value)
 	{
 		writePC(value);
@@ -130,6 +135,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		default: writeGPR(r, new_value); break;
             }
 	}
+        @Override
         public void r(int r, int value)
 	{
 		writeRegister(r, value);
@@ -288,17 +294,23 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	}
 	/*** INTERRUPT VECTORS ***/
 	public int getInterruptVector(int interrupt) {
-		/* B1-1165 */
-		/* TODO: SCTLR.V */
-		if((cp15.SCTLR & (1<<CP15.SCTLR_BIT_V)) != 0) return (interrupt * 4) | 0xFFFF0000;
-		else return interrupt * 4;
+		/* B1-1165: SCTLR.V selects high vectors (0xFFFF0000). On ARMv7,
+		 * VBAR gives the vector base address when V is clear. Linux programs
+		 * VBAR with a physical address, which is always mapped in jCPU. */
+		int offset = interrupt * 4;
+		if((cp15.SCTLR & (1<<CP15.SCTLR_BIT_V)) != 0) return offset | 0xFFFF0000;
+		if(cp15.VBAR != 0) return cp15.VBAR + offset;
+		return offset;
 	}
 	/*** SYSTEM CONTROL REGISTERS ***/
 	/* debug (C6), ThumbEE (A2-95), Jazelle (A2-97) */
 	private static class CP14 extends Coprocessor {
+		/* CP14 (debug, Jazelle, performance monitors) is not modelled.
+		 * Linux reads/writes debug and PMU registers during early boot;
+		 * ignoring them keeps the kernel alive. */
 		CP14(CPU cpu) {}
 		@Override
-		public void executeInstruction(boolean unconditional, int iword) throws UndefinedException { throw new UndefinedException(); }
+		public void executeInstruction(boolean unconditional, int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {}
 		@Override
 		public void reset() {}
 	}
@@ -311,11 +323,24 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	public CPU(boolean enableUart) { this(null, enableUart); }
 	public CPU(Debugger debugger, boolean enableUart) {
 		this.debugger = debugger;
-		vm = new VirtualMemorySpace(mem, debugger);
+		vm = new VirtualMemorySpace(mem, debugger, this);
 		if(enableUart) {
-			vm.registerPeripheral(0x10000000, new UartPeripheral());
+			/* A Pi 2 kernel can reach the PL011 through several aliases: the
+			 * ARM physical base, the VC bus alias used during early boot
+			 * (0x20201000), and the kernel virtual addresses after the MMU
+			 * configuration (2G/2G and 3G/1G PAGE_OFFSET). Register the same
+			 * instance across the whole register page at each alias so the
+			 * flag/control offsets are handled too. */
+			UartPeripheral uart = new UartPeripheral();
+			vm.registerPeripheral(Pi2MemoryMap.UART_BASE, Pi2MemoryMap.UART_SIZE, uart);
+			vm.registerPeripheral(Pi2MemoryMap.UART_BUS_ALIAS_BASE, Pi2MemoryMap.UART_SIZE, uart);
+			vm.registerPeripheral(Pi2MemoryMap.UART_VIRT_BASE_2G, Pi2MemoryMap.UART_SIZE, uart);
+			vm.registerPeripheral(Pi2MemoryMap.UART_VIRT_BASE_3G, Pi2MemoryMap.UART_SIZE, uart);
+			/* earlycon runs through the ARM fixmap before the real console. */
+			vm.registerPeripheral(Pi2MemoryMap.UART_EARLYCON_FIXMAP_BASE, Pi2MemoryMap.UART_SIZE, uart);
 		}
 		vm.registerPeripheral(VgaPeripheral.VGA_BASE, new VgaPeripheral());
+		mem.mapRegion(Pi2MemoryMap.RAM_BASE, new ByteArrayRegion(0x100000)); /* 1MB RAM at 0x0 */
 		
 		coprocessors[10] = new FPU(this);
 		coprocessors[11] = coprocessors[10];
@@ -326,12 +351,29 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	/*** EXECUTION ***/
 	private boolean haveReset = false;
 	private int cycleBudget = 0;
+	private long totalCycles = 0;
+	private SystemTimer systemTimer = null;
         
 	/**
 	 * @return true if the cycle budget is fully spent, false if there are some unspent cycles left.
 	 */
 	public boolean budgetFullySpent() { return cycleBudget <= 0; }
-        
+
+	/**
+	 * @return total number of instructions executed since CPU construction.
+	 */
+	public long getTotalCycles() { return totalCycles; }
+
+	/**
+	 * Wires a SystemTimer to this CPU so the timer is ticked on each instruction.
+	 * @param t the SystemTimer, or null to unwire
+	 */
+	public void setSystemTimer(SystemTimer t) { this.systemTimer = t; }
+
+	public void setWaitingForInterrupt(boolean waiting) {
+		this.waitingForInterrupt = waiting;
+	}
+
 	/**
 	 * Spends any cycles that still remain in the budget.
 	 * @param soft If true, only zero the budget if there are unspent cycles. If false, also forgive debt.
@@ -359,6 +401,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		while(true) {
 			cycleBudget += budget;
 			int backupPC = pc;
+			if(systemTimer != null) systemTimer.tickTo(totalCycles);
 			if(waitingForInterrupt && (haveIRQ() || haveFIQ())) waitingForInterrupt = false;
 			try {
 				while(cycleBudget > 0 && !waitingForInterrupt) {
@@ -385,16 +428,267 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			catch(EscapeCompleteException e) {}
 			// don't hoard cycles in a low-power state
 			cycleBudget -= mem.settleAccessBill();
+			if(waitingForInterrupt && cycleBudget > 0 && systemTimer != null) {
+				totalCycles += cycleBudget;
+				systemTimer.tickTo(totalCycles);
+				cycleBudget = 0;
+			}
 			if(waitingForInterrupt && cycleBudget > 0) cycleBudget = 0;
 			return cycleBudget <= 0;
 		}
 	}
         
+	/* Diagnostic helpers: fetch a full instruction word and log the first time
+	 * execution enters each 1 MB region, which reveals the boot phase. */
+	private static final java.util.Set<Integer> tracedRegions =
+		java.util.concurrent.ConcurrentHashMap.newKeySet();
+	private static boolean kernelEntryTraced = false;
+	private static boolean mmSwitchTraced = false;
+	private int traceWord(int addr) {
+		try { return vm.readInt(addr & ~3, false, false); }
+		catch(Exception e) { return -1; }
+	}
+	private static void traceRegion(int pc) {
+		int region = (pc >>> 20) & 0xFFF;
+		if(tracedRegions.size() < 64 && tracedRegions.add(region)) {
+			System.err.printf("[JCPU-REGION] first execution at 0x%08X%n", pc & 0xFFF00000);
+		}
+	}
+
+	/* ---- Control-flow / halt diagnosis ---------------------------------
+	 * A kernel can enter a terminal `b .` loop (panic/BUG) before it has
+	 * initialised the console, so no UART output reveals why. Record the last
+	 * real control-flow transfers and exceptions, then dump them with any
+	 * strings referenced near the halt PC when a spin is detected. */
+	private static final int BRANCH_TRACE_SIZE = 128;
+	private final int[] branchFrom = new int[BRANCH_TRACE_SIZE];
+	private final int[] branchTo = new int[BRANCH_TRACE_SIZE];
+	private final int[] branchInstr = new int[BRANCH_TRACE_SIZE];
+	private int branchHead = 0, branchCount = 0;
+	private int lastProgressPc = -2;
+	private boolean haltDumpDone = false;
+
+	private void traceBranch(int from, int to, int iword) {
+		if(from == to) return; // the spin's own self-branch carries no information
+		/* Collapse consecutive identical transfers so a tight loop cannot fill
+		 * the whole ring buffer and hide the call path that led into it. */
+		if(branchCount > 0) {
+			int last = (branchHead - 1 + BRANCH_TRACE_SIZE) % BRANCH_TRACE_SIZE;
+			if(branchFrom[last] == from && branchTo[last] == to) return;
+		}
+		int i = branchHead;
+		branchFrom[i] = from; branchTo[i] = to; branchInstr[i] = iword;
+		branchHead = (branchHead + 1) % BRANCH_TRACE_SIZE;
+		if(branchCount < BRANCH_TRACE_SIZE) branchCount++;
+	}
+
+	/** True for an ARM `b .` style self-branch (imm24 == -2), any condition. */
+	static boolean isSelfBranch(int iword) {
+		return (iword & 0x0E000000) == 0x0A000000   /* branch instruction */
+			&& (iword & 0x00FFFFFF) == 0x00FFFFFE;  /* imm24 = -2 -> branch to self */
+	}
+
+	private static final int EXC_TRACE_SIZE = 32;
+	private final String[] excTrace = new String[EXC_TRACE_SIZE];
+	private int excHead = 0, excCount = 0;
+
+	private void traceException(String kind, int vector, int lrValue) {
+		excTrace[excHead] = String.format("%s vec=0x%04X lr=0x%08X pc=0x%08X cpsr=0x%08X cyc=%d",
+				kind, vector, lrValue, pc, cpsr, totalCycles);
+		excHead = (excHead + 1) % EXC_TRACE_SIZE;
+		if(excCount < EXC_TRACE_SIZE) excCount++;
+	}
+
+	/** Raw word dump at an address — for when traceString sees a leading NUL. */
+	private String traceHexWords(int addr, int count) {
+		if(addr < 0x100) return "";
+		StringBuilder s = new StringBuilder();
+		for(int i = 0; i < count; i++) {
+			int w = traceWord(addr + i * 4);
+			s.append(String.format(" %08X", w));
+		}
+		return s.toString();
+	}
+
+	/** Scan a window around an address for the first printable ASCII run. */
+	private String traceNearbyString(int addr, int span) {
+		if(addr < 0x100) return "";
+		int start = (addr - span) & ~3;
+		for(int a = start; a <= addr + span; a += 4) {
+			String str = traceString(a);
+			if(str.length() >= 4) return String.format("@0x%08X \"%s\"", a, str);
+		}
+		return "";
+	}
+
+	/** Read a NUL-terminated ASCII string from guest memory (diagnostics only). */
+	private String traceString(int addr) {
+		/* 0xFFFFF000 is negative as a Java int, so an upper-bound check here
+		 * would reject every positive RAM address. traceWord returns -1 for
+		 * unmapped memory, which terminates the loop naturally. */
+		if(addr < 0x100) return "";
+		StringBuilder s = new StringBuilder();
+		/* Use word reads (same path as instruction fetch) and split little-endian
+		 * bytes; byte-wise reads through the MMIO dispatcher are unreliable here. */
+		for(int off = 0; off < 200; off += 4) {
+			int w = traceWord(addr + off);
+			if(w == -1) break;
+			for(int b = 0; b < 4; b++) {
+				int ch = (w >>> (b * 8)) & 0xFF;
+				if(ch == 0) return s.toString();
+				s.append(ch >= 0x20 && ch < 0x7F ? (char)ch : '.');
+			}
+		}
+		return s.toString();
+	}
+
+	/** Human-readable dump of the lead-up to a terminal spin (also used by tests). */
+	String buildHaltDiagnosis(int haltPc) {
+		StringBuilder s = new StringBuilder();
+		s.append(String.format("[JCPU-HALT] pc=0x%08X ir=0x%08X cpsr=0x%08X lr=0x%08X cyc=%d%n",
+				haltPc, traceWord(haltPc), cpsr, readRegister(14), totalCycles));
+		s.append(String.format("[JCPU-HALT-REGS] r0=0x%08X r1=0x%08X r2=0x%08X r3=0x%08X r4=0x%08X r5=0x%08X r6=0x%08X r7=0x%08X%n",
+				readRegister(0), readRegister(1), readRegister(2), readRegister(3),
+				readRegister(4), readRegister(5), readRegister(6), readRegister(7)));
+		StringBuilder code = new StringBuilder("[JCPU-HALT-CODE]");
+		for(int i = -12; i <= 8; i++) {
+			int a = (haltPc + i * 4) & ~3;
+			code.append(String.format(" %08X:%08X", a, traceWord(a)));
+		}
+		s.append(code).append('\n');
+		/* Dump registers that look like pointers with both a string interpretation
+		 * and raw words — a leading NUL or a non-ASCII struct makes traceString
+		 * return "" even when the address is valid kernel memory. */
+		for(int r = 0; r <= 7; r++) {
+			int v = readRegister(r);
+			String str = traceString(v);
+			String near = str.length() < 4 ? traceNearbyString(v, 64) : "";
+			s.append(String.format("[JCPU-HALT-STR] r%d=0x%08X \"%s\"%s words:%s%n",
+					r, v, str, near, traceHexWords(v, 8)));
+		}
+		appendMovLiteralStrings(s, haltPc);
+		appendBlTargetCode(s, haltPc);
+		/* Boot globals: __atags_pointer / __machine_arch_type and the DTB magic
+		 * at the expected physical address. These pinpoint boot-parameter
+		 * failures even when the kernel cannot print anything. */
+		int atagsPtr = traceWord(0x80C69A3C);
+		int machType = traceWord(0x80D04F5C);
+		s.append(String.format("[JCPU-BOOT-GLOBALS] __atags_pointer=0x%08X __machine_arch_type=0x%08X dtbMagic@0x%08X=0x%08X dtbMagic@0x00000100=0x%08X%n",
+				atagsPtr, machType, Pi2BootParams.DTB_ADDRESS, traceWord(Pi2BootParams.DTB_ADDRESS), traceWord(0x00000100)));
+		s.append("[JCPU-HALT-BRANCHES] (last taken transfers, newest last)\n");
+		int bstart = branchCount < BRANCH_TRACE_SIZE ? 0 : branchHead;
+		for(int n = 0; n < branchCount; n++) {
+			int i = (bstart + n) % BRANCH_TRACE_SIZE;
+			s.append(String.format("  0x%08X -> 0x%08X (ir=0x%08X)%n", branchFrom[i], branchTo[i], branchInstr[i]));
+		}
+		s.append("[JCPU-HALT-EXCEPTIONS]\n");
+		int estart = excCount < EXC_TRACE_SIZE ? 0 : excHead;
+		for(int n = 0; n < excCount; n++) {
+			s.append("  ").append(excTrace[(estart + n) % EXC_TRACE_SIZE]).append('\n');
+		}
+		return s.toString();
+	}
+
+	/* The instruction right before a `b .` is often a `bl` into the fatal
+	 * handler (panic/BUG). Dump code at its target so the handler can be
+	 * identified even when the strings it was passed are unreadable. */
+	private void appendBlTargetCode(StringBuilder s, int haltPc) {
+		for(int a = haltPc - 4; a >= haltPc - 32; a -= 4) {
+			int w = traceWord(a);
+			if((w & 0x0F000000) == 0x0B000000 || (w & 0xFE000000) == 0xFA000000) {
+				/* ARM bl: imm24 sign-extended, target = PC+8+imm24*4.
+				 * Thumb blx (0xFA/0xFB) is ignored here (ARM state only). */
+				if((w & 0xFE000000) == 0xFA000000) continue;
+				int imm24 = w & 0x00FFFFFF;
+				if((imm24 & 0x00800000) != 0) imm24 |= 0xFF000000;
+				int target = a + 8 + (imm24 << 2);
+				StringBuilder code = new StringBuilder(String.format("[JCPU-HALT-BLTARGET] bl@0x%08X -> 0x%08X:", a, target));
+				for(int i = 0; i < 12; i++) {
+					code.append(String.format(" %08X", traceWord(target + i * 4)));
+				}
+				s.append(code).append('\n');
+				return;
+			}
+		}
+	}
+
+	/* Reconstruct pointers built with movw/movt pairs around the halt and dump
+	 * the strings they point at — kernels pass panic/format strings this way. */
+	private void appendMovLiteralStrings(StringBuilder s, int haltPc) {
+		int[] low = new int[16], high = new int[16];
+		boolean[] seenW = new boolean[16], seenT = new boolean[16];
+		for(int a = haltPc - 64; a <= haltPc + 64; a += 4) {
+			int w = traceWord(a);
+			int rd;
+			if((w & 0x0FF00000) == 0x03000000) { /* movw imm16 */
+				rd = (w >>> 12) & 0xF;
+				low[rd] = ((w >>> 4) & 0xF000) | (w & 0xFFF);
+				seenW[rd] = true;
+			} else if((w & 0x0FF00000) == 0x03400000) { /* movt imm16 */
+				rd = (w >>> 12) & 0xF;
+				high[rd] = ((w >>> 4) & 0xF000) | (w & 0xFFF);
+				seenT[rd] = true;
+			} else continue;
+			if(seenW[rd] && seenT[rd]) {
+				int ptr = (high[rd] << 16) | low[rd];
+				String str = traceString(ptr);
+				String near = str.length() < 4 ? traceNearbyString(ptr, 64) : "";
+				s.append(String.format("[JCPU-HALT-STR] movw/movt r%d=0x%08X \"%s\"%s words:%s%n",
+						rd, ptr, str, near, traceHexWords(ptr, 8)));
+			}
+		}
+	}
+
 	/**
 	 * Fetch and execute a single instruction
 	 */
 	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
+		totalCycles++;
+		/* Diagnostics use a real 32-bit fetch; vm.read() returns only a byte. */
+		if(totalCycles == 1) {
+			System.err.printf("[JCPU-BOOT] pc=0x%08X cpsr=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X ir=0x%08X dtbMagic=0x%08X%n",
+					pc, cpsr, readRegister(0), readRegister(1), readRegister(2), traceWord(pc), traceWord(Pi2BootParams.DTB_ADDRESS));
+			traceRegion(pc);
+		}
+		/* The zImage decompressor jumps back to r4 (0x8000) once inflation is
+		 * done. Detect that handoff and log the boot registers it restored. */
+		if(!kernelEntryTraced && totalCycles > 100000 && (pc & 0xFFFFF000) == 0x8000) {
+			kernelEntryTraced = true;
+			System.err.printf("[JCPU-KERNEL] decompressed kernel entry at cycle=%d pc=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X dtbMagic=0x%08X%n",
+					totalCycles, pc, readRegister(0), readRegister(1), readRegister(2), traceWord(Pi2BootParams.DTB_ADDRESS));
+		}
+		/* One-shot capture at __mmap_switched, where boot r0/r1/r2 are saved
+		 * to processor_id / __machine_arch_type / __atags_pointer. */
+		if(!mmSwitchTraced && pc == 0x80C002E0) {
+			mmSwitchTraced = true;
+			System.err.printf("[JCPU-MMSWITCH] cycle=%d pc=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X dtbMagic=0x%08X%n",
+					totalCycles, pc, readRegister(0), readRegister(1), readRegister(2), traceWord(Pi2BootParams.DTB_ADDRESS));
+		}
+		/* Progress diagnostic: shows whether the guest advances or spins. */
+		if((totalCycles % 1000000) == 0) {
+			traceRegion(pc);
+			//System.err.printf("[JCPU-PROGRESS] cycles=%d pc=0x%08X cpsr=0x%08X mode=%s ir=0x%08X r0=0x%08X r1=0x%08X r2=0x%08X lr=0x%08X%n",
+			//		totalCycles, pc, cpsr, mode, traceWord(pc), readRegister(0), readRegister(1), readRegister(2), readRegister(14));
+			/* Dump the code window around PC so the stalled loop can be decoded. */
+			StringBuilder code = new StringBuilder();
+			for(int i = -2; i < 6; i++) {
+				code.append(String.format(" %08X", traceWord((pc + i * 4) & ~3)));
+			}
+			//System.err.println("[JCPU-CODE] pc=0x" + String.format("%08X", pc) + ":" + code);
+			/* A terminal spin is a stable PC executing a self-branch (`b .`).
+			 * Requiring the self-branch avoids a false positive when a long loop
+			 * (e.g. the decompressor) happens to be sampled at the same PC twice.
+			 * Reset the one-shot flag if we moved on, so a later real halt is
+			 * still diagnosed. */
+			if(pc != lastProgressPc) haltDumpDone = false;
+			if(!haltDumpDone && pc == lastProgressPc && isSelfBranch(traceWord(pc))) {
+				haltDumpDone = true;
+				System.err.print(buildHaltDiagnosis(pc));
+			}
+			lastProgressPc = pc;
+		}
+		if(systemTimer != null) systemTimer.tickTo(totalCycles);
 		if((cpsr & (1 << CPSR_BIT_F)) == 0 && haveFIQ()) generateFIQException();
 		if((cpsr & (1 << CPSR_BIT_I)) == 0 && haveIRQ()) generateIRQException();
 		
@@ -412,16 +706,24 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		catch(BusErrorException e) {
 			// TODO: ugh
 			if(exceptionDebugMode) throw e;
-			// System.out.println("Prefetch abort! "+Long.toHexString((long)pc & 0xFFFFFFFFL));
+			int faultPc = pc;
 			generatePrefetchAbortException();
 			try { iword = vm.readInt(pc, true, false); }
-			catch(BusErrorException e2) { throw new FatalException("Prefetch abort vector is on invalid address"); }
+			catch(BusErrorException e2) {
+				throw new FatalException(String.format(
+						"Prefetch abort vector is on invalid address (faultPC=0x%08X vectorPC=0x%08X CPSR=0x%08X SCTLR=0x%08X VBAR=0x%08X)",
+						faultPc, pc, cpsr, cp15.SCTLR, cp15.VBAR));
+			}
 		}
 		// System.out.printf("\t%08X : %08X\n", pc, iword);
 		pc += 4;
+		int branchFromPc = pc;
 		try { executeARM(iword); }
 		/* if we experience an exception, restore as much state as possible to before the exception */
 		catch(BusErrorException | AlignmentException | UndefinedException e) { pc -= 4; throw e; }
+		/* A changed PC means a branch/call/exception-return was taken. Record it
+		 * for the halt diagnosis; self-branches are filtered in traceBranch. */
+		if(pc != branchFromPc) traceBranch(branchFromPc - 4, pc, iword);
 	}
         
 	/* used by executeDataProcessingOperation for operations that don't provide their own carry logic */
@@ -433,11 +735,11 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	}
         
 	private int applyOpShift(int value, int type, int amount) {
-		if(amount == 0) {
-			shifterCarryOut = conditionC();
-			return value;
-		}
-		switch(type) {
+            if(amount == 0) {
+                    shifterCarryOut = conditionC();
+                    return value;
+            }
+            switch(type) {
 		case 0: /* logical left */
 			if(amount >= 33) shifterCarryOut = false;
 			else shifterCarryOut = ((value >>> (32-amount)) & 1) != 0;
@@ -465,7 +767,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		}
 		default:
 			throw new InternalError(); /* we technically shouldn't throw these */
-		}
+            }
 	}
         
 	private int applyOpRRX(int value) {
@@ -477,8 +779,8 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	}
         
 	private int applyIRShift(int src, int type, int imm5) {
-		/* A8-291 */
-		switch(type) {
+            /* A8-291 */
+            switch(type) {
 		case 0: /* logical left */
 			/* optimize this particular case in a way the compiler probably won't
 			 * the vast majority of instructions will use this case */
@@ -493,7 +795,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			else return applyOpShift(src, type, imm5);
 		default:
 			throw new InternalError(); /* we technically shouldn't throw these */
-		}
+            }
 	}
         
 	private int applyRRShift(int src, int type, int Rs) {
@@ -501,12 +803,12 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	}
         
 	private void executeDataProcessingOperation(int opcode, int n, int m, int Rd) throws UndefinedException {
-		/* TODO: possibly speed this up by separating WriteFlags version out */
-		/* TODO: ensure that all the data processing operation variants are correct */
-		boolean writeFlags = (opcode & 1) != 0;
-		boolean Cout, Vout;
-		int result;
-		switch(opcode) {
+            /* TODO: possibly speed this up by separating WriteFlags version out */
+            /* TODO: ensure that all the data processing operation variants are correct */
+            boolean writeFlags = (opcode & 1) != 0;
+            boolean Cout, Vout;
+            int result;
+            switch(opcode) {
 		case 0: case 1:
 			/* AND (immediate at A8-324) */
 			writeRegister(Rd, result = (n&m));
@@ -607,19 +909,19 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			Vout = signedResult != result;
 			if(writeOut) writeRegister(Rd, result);
 		}
-		}
-		if(writeFlags) {
-			if(Rd == 15) {
-				/* when the destination register is the PC, the flag-setting versions are for PL1 and above only */
-				if(!isPrivileged()) throw new UndefinedException();
-			} else {
-				cpsr &= CPSR_MASK_CLEAR_CONDITIONS;
-				if(result < 0) cpsr |= 1<<CPSR_BIT_N;
-				if(result == 0) cpsr |= 1<<CPSR_BIT_Z;
-				if(Cout) cpsr |= 1<<CPSR_BIT_C;
-				if(Vout) cpsr |= 1<<CPSR_BIT_V;
-			}
-		}
+            }
+            if(writeFlags) {
+                    if(Rd == 15) {
+                            /* when the destination register is the PC, the flag-setting versions are for PL1 and above only */
+                            if(!isPrivileged()) throw new UndefinedException();
+                    } else {
+                            cpsr &= CPSR_MASK_CLEAR_CONDITIONS;
+                            if(result < 0) cpsr |= 1<<CPSR_BIT_N;
+                            if(result == 0) cpsr |= 1<<CPSR_BIT_Z;
+                            if(Cout) cpsr |= 1<<CPSR_BIT_C;
+                            if(Vout) cpsr |= 1<<CPSR_BIT_V;
+                    }
+            }
 	}
         
 	private void executeARMPage0(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
@@ -697,11 +999,13 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 							boolean writingSPSR = (op & 2) != 0;
 							if(writingSPSR || ((mask & 3) == 1) || ((mask & 2) != 0))
 								if(!isPrivileged()) throw new UndefinedException();
-							int imm32 = expandARMImmediate(iword & 4095);
+							/* bits [3:0] hold Rm; the value comes from the register,
+							 * not from expanding the register number as an immediate */
+							int value = readRegister(iword & 15);
 							if(writingSPSR)
-								instrWriteCurSPSR(imm32, mask);
+								instrWriteCurSPSR(value, mask);
 							else
-								instrWriteCurCPSR(imm32, mask, false);
+								instrWriteCurCPSR(value, mask, false);
 							return;
 						}
 					}
@@ -841,9 +1145,21 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 				writeRegister(Rd, result);
 				return;
 			}
-			case 4:
-				/* UMAAL (A8-774) */
-				throw new UnimplementedInstructionException(iword, "UMAAL");
+			case 4: {
+				/* UMAAL (A8-774): RdHi:RdLo = Rn*Rm + RdLo + RdHi (all unsigned) */
+				int Rn = iword&15;
+				int Rm = (iword>>8)&15;
+				int RdLo = (iword>>12)&15;
+				int RdHi = (iword>>16)&15;
+				long src1 = readRegister(Rn) & 0xFFFFFFFFL;
+				long src2 = readRegister(Rm) & 0xFFFFFFFFL;
+				long accLo = readRegister(RdLo) & 0xFFFFFFFFL;
+				long accHi = readRegister(RdHi) & 0xFFFFFFFFL;
+				long result = src1 * src2 + accLo + accHi;
+				writeRegister(RdLo, (int)result);
+				writeRegister(RdHi, (int)(result >>> 32));
+				return;
+			}
 			case 6: {
 				/* MLS (A8-482) */
 				int Rn = iword&15;
@@ -874,43 +1190,153 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 				}
 				return;
 			}
-			case 10: case 11:
-				/* UMLAL (A8-776) */
-				throw new UnimplementedInstructionException(iword, "UMLAL");
-			case 12: case 13:
-				/* SMULL (A8-646) */
-				throw new UnimplementedInstructionException(iword, "SMULL");
-			case 14: case 15:
-				/* SMLAL (A8-624) */
-				throw new UnimplementedInstructionException(iword, "SMLAL");
-			/* Synchronization primitives (A5-205) */
-			case 16: case 20:
+			case 10: case 11: {
+				/* UMLAL (A8-776): RdHi:RdLo = Rn*Rm + RdHi:RdLo (unsigned) */
+				int Rn = iword&15;
+				int Rm = (iword>>8)&15;
+				int RdLo = (iword>>12)&15;
+				int RdHi = (iword>>16)&15;
+				boolean setFlags = (op1&1) != 0;
+				long src1 = readRegister(Rn) & 0xFFFFFFFFL;
+				long src2 = readRegister(Rm) & 0xFFFFFFFFL;
+				long acc = ((readRegister(RdHi) & 0xFFFFFFFFL) << 32) | (readRegister(RdLo) & 0xFFFFFFFFL);
+				long result = src1 * src2 + acc;
+				writeRegister(RdLo, (int)result);
+				writeRegister(RdHi, (int)(result >>> 32));
+				if(setFlags) {
+					setConditionN(result < 0);
+					setConditionZ(result == 0);
+				}
+				return;
+			}
+			case 12: case 13: {
+				/* SMULL (A8-646): RdHi:RdLo = Rn*Rm (signed) */
+				int Rn = iword&15;
+				int Rm = (iword>>8)&15;
+				int RdLo = (iword>>12)&15;
+				int RdHi = (iword>>16)&15;
+				boolean setFlags = (op1&1) != 0;
+				long src1 = readRegister(Rn); // sign-extend to 64 bits
+				long src2 = readRegister(Rm);
+				long result = src1 * src2;
+				writeRegister(RdLo, (int)result);
+				writeRegister(RdHi, (int)(result >>> 32));
+				if(setFlags) {
+					setConditionN(result < 0);
+					setConditionZ(result == 0);
+				}
+				return;
+			}
+			case 14: case 15: {
+				/* SMLAL (A8-624): RdHi:RdLo = Rn*Rm + RdHi:RdLo (signed) */
+				int Rn = iword&15;
+				int Rm = (iword>>8)&15;
+				int RdLo = (iword>>12)&15;
+				int RdHi = (iword>>16)&15;
+				boolean setFlags = (op1&1) != 0;
+				long src1 = readRegister(Rn);
+				long src2 = readRegister(Rm);
+				long acc = ((readRegister(RdHi) & 0xFFFFFFFFL) << 32) | (readRegister(RdLo) & 0xFFFFFFFFL);
+				long result = src1 * src2 + acc;
+				writeRegister(RdLo, (int)result);
+				writeRegister(RdHi, (int)(result >>> 32));
+				if(setFlags) {
+					setConditionN(result < 0);
+					setConditionZ(result == 0);
+				}
+				return;
+			}
+			/* Synchronization primitives (A5-205).
+			 * This CPU has no other bus masters and no MMU, so the exclusive
+			 * monitor never fails: LDREX* behaves as a plain load and STREX*
+			 * always stores and returns 0 (success). SWP is an atomic swap. */
+			case 16: case 20: {
 				/* SWP/SWPB (A8-722) */
-				throw new UnimplementedInstructionException(iword, "SWP/SWPB");
-			case 24:
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				int Rt2 = iword & 15;
+				int address = readRegisterAlignPC(Rn);
+				if((op1 & 4) != 0) {
+					byte oldValue = instructionReadByte(address, isPrivileged());
+					instructionWriteByte(address, (byte)readRegister(Rt2), isPrivileged());
+					writeRegister(Rt, oldValue & 0xFF);
+				} else {
+					int oldValue = instructionReadWord(address, isPrivileged());
+					instructionWriteWord(address, readRegister(Rt2), isPrivileged());
+					writeRegister(Rt, oldValue);
+				}
+				return;
+			}
+			case 24: {
 				/* STREX (A8-690) */
-				throw new UnimplementedInstructionException(iword, "STREX");
-			case 25:
+				int Rn = (iword >> 16) & 15;
+				int Rd = (iword >> 12) & 15;
+				int Rt = iword & 15;
+				instructionWriteWord(readRegisterAlignPC(Rn), readRegister(Rt), isPrivileged());
+				writeRegister(Rd, 0);
+				return;
+			}
+			case 25: {
 				/* LDREX (A8-432) */
-				throw new UnimplementedInstructionException(iword, "LDREX");
-			case 26:
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				writeRegister(Rt, instructionReadWord(readRegisterAlignPC(Rn), isPrivileged()));
+				return;
+			}
+			case 26: {
 				/* STREXD (A8-694) */
-				throw new UnimplementedInstructionException(iword, "STREXD");
-			case 27:
+				int Rn = (iword >> 16) & 15;
+				int Rd = (iword >> 12) & 15;
+				int Rt = iword & 15;
+				if((Rt & 1) != 0 || Rt == 14) throw new UndefinedException();
+				int address = readRegisterAlignPC(Rn);
+				instructionWriteWord(address, readRegister(Rt), isPrivileged());
+				instructionWriteWord(address + 4, readRegister(Rt + 1), isPrivileged());
+				writeRegister(Rd, 0);
+				return;
+			}
+			case 27: {
 				/* LDREXD (A8-436) */
-				throw new UnimplementedInstructionException(iword, "LDREXD");
-			case 28:
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				if((Rt & 1) != 0 || Rt == 14) throw new UndefinedException();
+				int address = readRegisterAlignPC(Rn);
+				writeRegister(Rt, instructionReadWord(address, isPrivileged()));
+				writeRegister(Rt + 1, instructionReadWord(address + 4, isPrivileged()));
+				return;
+			}
+			case 28: {
 				/* STREXB (A8-692) */
-				throw new UnimplementedInstructionException(iword, "STREXB");
-			case 29:
+				int Rn = (iword >> 16) & 15;
+				int Rd = (iword >> 12) & 15;
+				int Rt = iword & 15;
+				instructionWriteByte(readRegisterAlignPC(Rn), (byte)readRegister(Rt), isPrivileged());
+				writeRegister(Rd, 0);
+				return;
+			}
+			case 29: {
 				/* LDREXB (A8-434) */
-				throw new UnimplementedInstructionException(iword, "LDREXB");
-			case 30:
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				writeRegister(Rt, instructionReadByte(readRegisterAlignPC(Rn), isPrivileged()) & 0xFF);
+				return;
+			}
+			case 30: {
 				/* STREXH (A8-696) */
-				throw new UnimplementedInstructionException(iword, "STREXH");
-			case 31:
+				int Rn = (iword >> 16) & 15;
+				int Rd = (iword >> 12) & 15;
+				int Rt = iword & 15;
+				instructionWriteHalfword(readRegisterAlignPC(Rn), (short)readRegister(Rt), isPrivileged());
+				writeRegister(Rd, 0);
+				return;
+			}
+			case 31: {
 				/* LDREXH (A8-438) */
-				throw new UnimplementedInstructionException(iword, "LDREXH");
+				int Rn = (iword >> 16) & 15;
+				int Rt = (iword >> 12) & 15;
+				writeRegister(Rt, instructionReadHalfword(readRegisterAlignPC(Rn), isPrivileged()) & 0xFFFF);
+				return;
+			}
 			default:
 				/* undefined, explicitly throw */
 				throw new UndefinedException();
@@ -1025,9 +1451,29 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 				}
 			case 15:
 				switch(op1 & 5) {
-				case 0:
+				case 0: {
 					/* STRD (register, A8-688) */
-					throw new UnimplementedInstructionException(iword, "STRD(688)");
+					boolean registerForm = ((iword >> 22) & 1) == 0;
+					boolean P = ((iword >> 24) & 1) != 0;
+					boolean U = ((iword >> 23) & 1) != 0;
+					boolean W = ((iword >> 21) & 1) != 0;
+					int Rt = (iword >> 12) & 15;
+					boolean unprivileged = (!P && W);
+					boolean writeback = (!P ^ W);
+					int offset;
+					if(registerForm) offset = readRegister(iword & 15);
+					else offset = (iword & 15) | ((iword >> 4) & 240);
+					int base_addr = readRegisterAlignPC(Rn);
+					int offset_addr;
+					if(U) offset_addr = base_addr + offset;
+					else offset_addr = base_addr - offset;
+					int address = P ? offset_addr : base_addr;
+					if((Rt&1)!=0 || Rt==14) throw new UndefinedException();
+					instructionWriteWord(address, readRegister(Rt));
+					instructionWriteWord(address+4, readRegister(Rt+1));
+					if(writeback) writeRegister(Rn, offset_addr);
+					return;
+				}
 				case 1:
 					/* LDRSH (register, A8-462) */
 					throw new UnimplementedInstructionException(iword, "LDRSH");
@@ -1714,6 +2160,12 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
         
 	private void executeARMPage67(int iword, boolean unconditional) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		/* Coprocessor instructions, and Supervisor Call (A5-215) */
+		/* BX (A8-352) */
+		if((iword & 0x0FFFFFF0) == 0x012FFF10) {
+			int Rm = iword & 15;
+			interworkingBranch(readRegister(Rm));
+			return;
+		}
 		int op1 = (iword >> 20) & 63;
 		if((op1 & 62) == 0) throw new UndefinedException();
 		else if((op1 & 48) == 48) {
@@ -1799,9 +2251,9 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 85:
 			case 89:
 			case 93:
-				/* PLD, PLDW (A8-524) */
+				/* PLD, PLDW (A8-524) -- preload hints are architecturally NOPs */
 				/* TODO: When MMU is implemented, preload the page table cache */
-				break;
+				return;
 			case 87:
 				switch(op2) {
 				case 1:
@@ -1825,8 +2277,8 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 101:
 			case 109:
 				if((op2 & 1) == 0) {
-					/* PLI (A8-532) */
-					throw new UnimplementedInstructionException(iword, "PLI");
+					/* PLI (A8-532) -- preload hint, architecturally a NOP */
+					return;
 				}
 				break;
 			case 113:
@@ -1834,8 +2286,8 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 121:
 			case 125:
 				if((op2 & 1) == 0) {
-					/* PLD (A8-528) */
-					throw new UnimplementedInstructionException(iword, "PLD/PLDW");
+					/* PLD (A8-528) -- preload hint, architecturally a NOP */
+					return;
 				}
 				break;
 			case 127:
@@ -1891,15 +2343,20 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			executeARMPage67(iword, true);
 			return;
 		}
-		throw new UndefinedException();
+		/* Surface the offending instruction so unsupported unconditional
+		 * opcodes (cond=1111) can be identified from a boot trace. */
+		throw new FatalException(String.format(
+				"Undefined unconditional instruction at pc=0x%08X: 0x%08X (op1=0x%02X op2=0x%02X)",
+				(pc - 4) & 0xFFFFFFFF, iword, (iword >> 20) & 127, (iword >> 4) & 15));
 	}
         
-	private void executeARM(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
+	// package-visible for test invocation
+	void executeARM(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		int condition = (iword >> 28) & 15;
 		if(condition != 15) {
-			/* condition codes (A5-288) */
-			boolean execute = true;
-			switch(condition >> 1) {
+                    /* condition codes (A5-288) */
+                    boolean execute = true;
+                    switch(condition >> 1) {
 			case 0: execute = conditionZ(); break;
 			case 1: execute = conditionC(); break;
 			case 2: execute = conditionN(); break;
@@ -1908,10 +2365,10 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 5: execute = conditionN() == conditionV(); break;
 			case 6: execute = conditionZ() == false && conditionN() == conditionV(); break;
 			/* case 7: execute = true; */
-			}
-			if((condition & 1) != 0) execute = !execute;
-			if(!execute) return;
-			switch((iword >> 25) & 7) {
+                    }
+                    if((condition & 1) != 0) execute = !execute;
+                    if(!execute) return;
+                    switch((iword >> 25) & 7) {
 			case 0:
 				executeARMPage0(iword);
 				break;
@@ -1927,17 +2384,17 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 			case 6:
 			case 7:
 				executeARMPage67(iword, false);
-			}
+                    }
 		}
 		else executeARMUnconditional(iword);
 	}
         
-	private void performSVC() { generateException(ProcessorMode.SUPERVISOR, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_SUPERVISOR_CALL, isThumb() ? pc - 2 : pc - 4); }
-	private void generateUndefinedException() { generateException(ProcessorMode.UNDEFINED, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_UNDEFINED, pc); }
-	private void generatePrefetchAbortException() { generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_PREFETCH_ABORT, pc); }
-	private void generateDataAbortException() { generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_DATA_ABORT, pc + 8); }
-	private void generateIRQException() { generateException(ProcessorMode.IRQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_IRQ, pc + 4); }
-	private void generateFIQException() { generateException(ProcessorMode.FIQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A) | (1 << CPSR_BIT_F), EXCEPTION_VECTOR_FIQ, pc + 4); }
+	private void performSVC() { traceException("SVC", EXCEPTION_VECTOR_SUPERVISOR_CALL, pc - 4); generateException(ProcessorMode.SUPERVISOR, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_SUPERVISOR_CALL, isThumb() ? pc - 2 : pc - 4); }
+	private void generateUndefinedException() { traceException("UNDEFINED", EXCEPTION_VECTOR_UNDEFINED, pc); generateException(ProcessorMode.UNDEFINED, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_UNDEFINED, pc); }
+	private void generatePrefetchAbortException() { traceException("PREFETCH_ABORT", EXCEPTION_VECTOR_PREFETCH_ABORT, pc); generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_PREFETCH_ABORT, pc); }
+	private void generateDataAbortException() { traceException("DATA_ABORT", EXCEPTION_VECTOR_DATA_ABORT, pc + 8); generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_DATA_ABORT, pc + 8); }
+	private void generateIRQException() { traceException("IRQ", EXCEPTION_VECTOR_IRQ, pc + 4); generateException(ProcessorMode.IRQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_IRQ, pc + 4); }
+	private void generateFIQException() { traceException("FIQ", EXCEPTION_VECTOR_FIQ, pc + 4); generateException(ProcessorMode.FIQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A) | (1 << CPSR_BIT_F), EXCEPTION_VECTOR_FIQ, pc + 4); }
 	private void generateException(ProcessorMode targetMode, int interruptMask, int vector, int preferredReturn) {
 		enterProcessorModeByException(targetMode);
 		lr[cur_lr] = preferredReturn;
