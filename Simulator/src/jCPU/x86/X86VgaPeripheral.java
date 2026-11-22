@@ -85,6 +85,10 @@ public class X86VgaPeripheral extends VgaPeripheral {
             colFG[y][x] = value & 0x0F;
             colBG[y][x] = (value >> 4) & 0x0F;
         }
+        // The cached text image is only rebuilt when it is null or resized,
+        // so drop it whenever the guest changes the text buffer; otherwise
+        // the host display keeps showing the stale (initially blank) image.
+        backImage = null;
         display.repaint();
     }
 
