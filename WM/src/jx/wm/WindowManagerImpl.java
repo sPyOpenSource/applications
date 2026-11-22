@@ -143,9 +143,9 @@ public class WindowManagerImpl implements WindowManager
     {
         while (m_cDisplay == null)
             Thread.yield();
-            Debug.out.println ("WindowManager::createWindow()");
-            WWindowImpl cWnd = new WWindowImpl (cName, cFrame, nFlags, m_cDisplay);
-            return (WWindowInterface)cWnd;
+        Debug.out.println ("WindowManager::createWindow()");
+        WWindowImpl cWnd = new WWindowImpl (cName, cFrame, nFlags, m_cDisplay);
+        return (WWindowInterface)cWnd;
     }
     @Override
     public void postInputEvent (jx.wm.message.WMessage cEvent)
@@ -164,11 +164,11 @@ public class WindowManagerImpl implements WindowManager
     @Override
     public void handleKeyUp (int nKeyCode)
     {
-            setQualifiers (nKeyCode|0x80);
-            m_eRawCode.setValue (nKeyCode);		
-            m_eKeyCode.setValue (convertKeyCode (nKeyCode, m_eQual));
+        setQualifiers (nKeyCode|0x80);
+        m_eRawCode.setValue (nKeyCode);		
+        m_eKeyCode.setValue (convertKeyCode (nKeyCode, m_eQual));
         if (m_cDisplay != null)
-                    WWindowImpl.handleKeyUp (m_eKeyCode, m_eRawCode, m_eQual);
+            WWindowImpl.handleKeyUp (m_eKeyCode, m_eRawCode, m_eQual);
     }
     @Override
     public void handleKeyDown (int nKeyCode)
@@ -185,17 +185,17 @@ public class WindowManagerImpl implements WindowManager
                     }.start();
             }
         }
-            setQualifiers (nKeyCode);
-            m_eRawCode.setValue (nKeyCode);		
-            m_eKeyCode.setValue (convertKeyCode (nKeyCode, m_eQual));
+        setQualifiers (nKeyCode);
+        m_eRawCode.setValue (nKeyCode);		
+        m_eKeyCode.setValue (convertKeyCode (nKeyCode, m_eQual));
         if (m_cDisplay != null)
-                    WWindowImpl.handleKeyDown (m_eKeyCode, m_eRawCode, m_eQual);
+            WWindowImpl.handleKeyDown (m_eKeyCode, m_eRawCode, m_eQual);
 
     }
     @Override
     public void handleMouseDown (int nButton)
     {
-            //Debug.out.println ("handleMouseDown (" + nButton + ")");
+        //Debug.out.println ("handleMouseDown (" + nButton + ")");
         if (m_cDisplay != null)
             WWindowImpl.handleMouseDown (nButton);
     }
