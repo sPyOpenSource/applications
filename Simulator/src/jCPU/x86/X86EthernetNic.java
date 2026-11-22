@@ -66,8 +66,17 @@ public class X86EthernetNic implements Peripheral
 
     private byte interruptStatus = 0;
 
+    /** Whether PCAP host I/O is available. pcap4j is not on the
+     *  classpath on this system, so host connectivity is deferred and
+     *  this is fixed to false. Real host I/O requires pcap4j. */
+    private final boolean pcapAvailable;
+
     public X86EthernetNic(String ifaceName) {
         this.ifaceName = ifaceName;
+        // pcap4j is not available on this system, so host I/O via PCAP is
+        // deferred. pcapAvailable stays false; add pcap4j to the classpath
+        // for real host connectivity.
+        this.pcapAvailable = false;
     }
 
     @Override
@@ -118,7 +127,16 @@ public class X86EthernetNic implements Peripheral
                 break;
             case PORT_TX_CMD:
                 if (value == TX_CMD_SEND) {
-                    txStatus = TX_STATUS_SENDING;
+                    if (!pcapAvailable) {
+                        // Graceful degradation: pcap4j is not on the
+                        // classpath, so we cannot inject the frame to the
+                        // host. Report a transmit error rather than
+                        // pretending the frame was sent.
+                        txStatus = TX_STATUS_ERROR;
+                    } else {
+                        // Future: inject via pcap and report SENDING.
+                        txStatus = TX_STATUS_SENDING;
+                    }
                     interruptStatus |= INT_TX_COMPLETE;
                 }
                 break;

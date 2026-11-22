@@ -53,7 +53,7 @@ public class X86EthernetNicTest
         nic.write(0x311, (byte) 0x04);
         nic.write(0x312, (byte) 0x00);
         nic.write(0x313, (byte) 0x01); // TX_CMD_SEND
-        assertEquals((byte) 0x02, nic.read(0x314)); // TX_STATUS_SENDING
+        assertEquals((byte) 0x04, nic.read(0x314)); // TX_STATUS_ERROR (pcap unavailable)
         assertEquals((byte) 0x02, nic.read(0x330) & 0x02); // INT_TX_COMPLETE
     }
 
