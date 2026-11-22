@@ -17,7 +17,10 @@ public class EmulFBFinder implements DeviceFinder {
     public Device[] find(Naming naming) {
 	FBEmulation fb = (FBEmulation)InitialNaming.getInitialNaming().lookup("FBEmulation");
 	if (fb == null) return null;
-	int mode = 0x0118;
+	// 0x117 is 1024x768x16bpp, the mode boot.rc asks for (279). The WM only
+	// implements RGB16/RGB32 bitmaps; a 24bpp mode would be misdetected as
+	// CS_RGB16 below and only 2 of every 3 bytes per scanline would be drawn.
+	int mode = 0x0117;
 	//if (args.length == 1) mode = Integer.parseInt(args[0]);
 	if (fb.open(mode) == false) return null;
 

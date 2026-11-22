@@ -6,10 +6,10 @@ import jx.devices.fb.*;
 
 class WDisplay
 {
-	FramebufferDevice 	m_cDisplayDriver;
-	WBitmap			m_cScreen;
-	WSprite			m_cMouseSprite = null;
-	PixelPoint		m_cMousePos = new PixelPoint (0, 0);
+    FramebufferDevice 	m_cDisplayDriver;
+    WBitmap		m_cScreen;
+    WSprite		m_cMouseSprite = null;
+    PixelPoint		m_cMousePos = new PixelPoint (0, 0);
 	
     int nWidth;
     int nHeight;
