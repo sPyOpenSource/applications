@@ -195,7 +195,7 @@ public class X86Amd64 implements X86Core.iExecutor
                 c = 0x6C65746E;                     // "ntel"
                 break;
             case 1:
-                a = 0x00000776;                     // family 6, model 23, stepping 6
+                a = 0x00010676;                     // family 6, model 23, stepping 6
                 d = (1 << 4) | (1 << 15);           // TSC, CMOV
                 break;
             case 0x80000000:

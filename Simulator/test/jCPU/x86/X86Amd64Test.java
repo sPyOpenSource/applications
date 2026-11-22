@@ -76,7 +76,7 @@ public class X86Amd64Test {
         core1.step();
         core1.step();
         // Stepping 6, model 23 (Penryn), family 6: Core 2 Duo class.
-        assertEquals(0x776L, core1.getReg64(X86Core.REG_RAX));
+        assertEquals(0x10676L, core1.getReg64(X86Core.REG_RAX));
     }
 
     @Test

@@ -26,7 +26,7 @@ introduced.
   - EDX = `0x49656E69` (`"ineI"`)
   - ECX = `0x6C65746E` (`"ntel"`)
   - EAX (max leaf) remains 1.
-- Leaf 1: EAX = `0x00000776` — stepping 6, model 23, family 6 (Penryn/Core 2 Duo
+- Leaf 1: EAX = `0x00010676` — stepping 6, model 23, family 6 (Penryn/Core 2 Duo
   class). EDX feature bits remain `(1 << 4) | (1 << 15)` (TSC, CMOV); no FPU,
   SSE, or MSR support is claimed.
 - Leaves `0x80000000` and `0x80000001` remain unchanged.
