@@ -61,6 +61,25 @@ public class X86Amd64Test {
     }
 
     @Test
+    public void testCpuidReportsR510MachineIdentity() throws Exception {
+        // mov eax, 0 ; cpuid
+        X86Core core = coreWith(0xB8, 0x00, 0x00, 0x00, 0x00, 0x0F, 0xA2);
+        core.step();
+        core.step();
+        assertEquals(1, core.getReg64(X86Core.REG_RAX));
+        assertEquals(0x756E6547L, core.getReg64(X86Core.REG_RBX)); // "Genu"
+        assertEquals(0x6C65746EL, core.getReg64(X86Core.REG_RCX)); // "ntel"
+        assertEquals(0x49656E69L, core.getReg64(X86Core.REG_RDX)); // "ineI"
+
+        // mov eax, 1 ; cpuid
+        X86Core core1 = coreWith(0xB8, 0x01, 0x00, 0x00, 0x00, 0x0F, 0xA2);
+        core1.step();
+        core1.step();
+        // Stepping 6, model 23 (Penryn), family 6: Core 2 Duo class.
+        assertEquals(0x776L, core1.getReg64(X86Core.REG_RAX));
+    }
+
+    @Test
     public void testRdtscCountsInstructions() throws Exception {
         // nop ; nop ; rdtsc
         X86Core core = coreWith(0x90, 0x90, 0x0F, 0x31);

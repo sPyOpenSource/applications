@@ -181,20 +181,21 @@ public class X86Amd64 implements X86Core.iExecutor
     }
 
     /**
-     * CPUID reports only features this executor implements: TSC and CMOV in
-     * leaf 1, long mode in leaf 0x80000001.  No FPU, SSE or MSRs.
+     * CPUID reports a Samsung R510-era Core 2 Duo identity.  Only features
+     * this executor implements are advertised: TSC and CMOV in leaf 1, long
+     * mode in leaf 0x80000001.  No FPU, SSE or MSRs.
      */
     private void cpuid(int leaf, int subleaf) {
         int a = 0, b = 0, c = 0, d = 0;
         switch (leaf) {
-            case 0:                                 // max leaf, vendor "JavaOSimx_64"
+            case 0:                                 // max leaf, vendor "GenuineIntel"
                 a = 1;
-                b = 0x6176614A;                     // "Java"
-                d = 0x6D69534F;                     // "OSim"
-                c = 0x34365F78;                     // "x_64"
+                b = 0x756E6547;                     // "Genu"
+                d = 0x49656E69;                     // "ineI"
+                c = 0x6C65746E;                     // "ntel"
                 break;
             case 1:
-                a = 0x00000F00;                     // family 15, model 0, stepping 0
+                a = 0x00000776;                     // family 6, model 23, stepping 6
                 d = (1 << 4) | (1 << 15);           // TSC, CMOV
                 break;
             case 0x80000000:
