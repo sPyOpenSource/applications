@@ -89,6 +89,7 @@ public class CPU extends jx.disass.x86
 	private final X86UefiFirmware uefi;
 	private final X86UhciController uhci;
 	private X86EthernetNic nic;
+	private X86PciConfigPeripheral pciConfig;
         private JFrame vgaFrame;
 	private X86VgaPeripheral vga;
 	private X86UartPeripheral uart;
@@ -143,6 +144,12 @@ public class CPU extends jx.disass.x86
 		nic = new X86EthernetNic(null);
 		for (int port = 0x300; port <= 0x31F; port++) {
 			core.registerPort(port, nic);
+		}
+
+		// PCI configuration space ports (CONFIG_ADDRESS 0xCF8, CONFIG_DATA 0xCFC)
+		pciConfig = new X86PciConfigPeripheral();
+		for (int port = 0xCF8; port <= 0xCFF; port++) {
+			core.registerPort(port, pciConfig);
 		}
 
 		// UEFI firmware
