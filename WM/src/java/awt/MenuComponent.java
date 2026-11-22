@@ -81,8 +81,11 @@ transient MenuComponentPeer peer;
 // The synchronization locking object for this component
 private transient Object tree_lock = this;
 
-// The toolkit for this object
-private static transient Toolkit toolkit = Toolkit.getDefaultToolkit();
+// The toolkit for this object.  Resolved lazily: JNode's VM initializes
+// java.awt.MenuComponent while starting the initial thread, before AWT is
+// available.  An eager static initializer here makes that boot fail with an
+// uncaught NullPointerException from Toolkit.getDefaultToolkit().
+private static transient Toolkit toolkit;
 
 /*************************************************************************/
 
@@ -221,6 +224,9 @@ removeNotify()
 final Toolkit
 getToolkit()
 {
+  if (toolkit == null) {
+    toolkit = Toolkit.getDefaultToolkit();
+  }
   return(toolkit);
 }
 
