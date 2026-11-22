@@ -54,16 +54,95 @@ public class X86EthernetNic implements Peripheral
     private final String ifaceName;
     private final byte[] mac = new byte[6];
 
+    /* TX/RX buffer state */
+    private final byte[] txBuffer = new byte[2048];
+    private int txLength = 0;
+    private byte txStatus = TX_STATUS_READY;
+
+    private final byte[] rxBuffer = new byte[2048];
+    private int rxLength = 0;
+    private byte rxStatus = 0;
+
+    private byte interruptStatus = 0;
+
     public X86EthernetNic(String ifaceName) {
         this.ifaceName = ifaceName;
     }
 
     @Override
     public byte read(int port) {
-        return 0;
+        int offset = port - PORT_MAC_BASE;
+        if (offset >= 0 && offset < 6) {
+            return mac[offset];
+        }
+        switch (port) {
+            case PORT_VENDOR_LO: return (byte) (VENDOR_ID_MARVELL & 0xFF);
+            case PORT_VENDOR_HI: return (byte) ((VENDOR_ID_MARVELL >> 8) & 0xFF);
+            case PORT_DEVICE_LO: return (byte) (DEVICE_ID_YUKON_88E8055 & 0xFF);
+            case PORT_DEVICE_HI: return (byte) ((DEVICE_ID_YUKON_88E8055 >> 8) & 0xFF);
+            case PORT_TX_LEN_LO: return (byte) (txLength & 0xFF);
+            case PORT_TX_LEN_HI: return (byte) ((txLength >> 8) & 0xFF);
+            case PORT_TX_STATUS: return txStatus;
+            case PORT_RX_LEN_LO: return (byte) (rxLength & 0xFF);
+            case PORT_RX_LEN_HI: return (byte) ((rxLength >> 8) & 0xFF);
+            case PORT_RX_STATUS: return rxStatus;
+            case PORT_INT_STATUS: return interruptStatus;
+            default: return 0;
+        }
     }
 
     @Override
     public void write(int port, byte value) {
+        int offset = port - PORT_MAC_BASE;
+        if (offset >= 0 && offset < 6) {
+            mac[offset] = value;
+            return;
+        }
+        switch (port) {
+            case PORT_TX_DATA:
+                if (txLength < txBuffer.length) {
+                    txBuffer[txLength++] = value;
+                }
+                break;
+            case PORT_TX_LEN_LO:
+                txLength = (txLength & 0xFF00) | (value & 0xFF);
+                break;
+            case PORT_TX_LEN_HI:
+                txLength = (txLength & 0x00FF) | ((value & 0xFF) << 8);
+                break;
+            case PORT_TX_CMD:
+                if (value == TX_CMD_SEND) {
+                    txStatus = TX_STATUS_SENDING;
+                    interruptStatus |= INT_TX_COMPLETE;
+                }
+                break;
+            case PORT_RX_CMD:
+                if (value == RX_CMD_ACK) {
+                    rxLength = 0;
+                    rxStatus = 0;
+                    interruptStatus &= ~INT_RX_PACKET;
+                }
+                break;
+            case PORT_INT_STATUS:
+                interruptStatus &= (byte) ~value;
+                break;
+            default:
+                break;
+        }
+    }
+
+    /** Enqueue received bytes from the PCAP thread (Task 4). */
+    public void enqueueRx(byte[] packet, int len) {
+        if (len > rxBuffer.length) len = rxBuffer.length;
+        System.arraycopy(packet, 0, rxBuffer, 0, len);
+        rxLength = len;
+        rxStatus = RX_STATUS_PACKET;
+        interruptStatus |= INT_RX_PACKET;
+    }
+
+    /** Read one byte from the current RX packet (guest reads PORT_RX_DATA). */
+    public byte readRxData(int index) {
+        if (index < 0 || index >= rxLength) return 0;
+        return rxBuffer[index];
     }
 }
