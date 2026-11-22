@@ -1,6 +1,7 @@
 package jx.wm;
 
 import jx.zero.*;
+import jx.devices.*;
 import jx.devices.fb.*;
 import jx.wm.message.*;
 
@@ -74,7 +75,24 @@ public class WindowManagerImpl implements WindowManager
 		}
 		setKeymap(cStdKeymap);
 
-		FramebufferDevice fb = (FramebufferDevice)LookupHelper.waitUntilPortalAvailable(InitialNaming.getInitialNaming(), fbName);
+		FramebufferDevice fb = (FramebufferDevice)cNaming.lookup(fbName);
+		if (fb == null) {
+		    Debug.out.println("FB portal not found; initializing emulated framebuffer.");
+		    try {
+			DeviceFinder finder = (DeviceFinder)Class.forName("jx.devices.fb.emulation.EmulFBFinder").newInstance();
+			Device[] devices = finder.find(cNaming);
+			if (devices != null && devices.length > 0 && devices[0] instanceof FramebufferDevice) {
+			    fb = (FramebufferDevice)devices[0];
+			    cNaming.registerPortal(fb, fbName);
+			}
+		    } catch (Exception e) {
+			Debug.out.println("Unable to initialize emulated framebuffer: " + e);
+		    }
+		}
+		if (fb == null) {
+		    Debug.out.println("unable to find framebuffer " + fbName);
+		    return;
+		}
 		cDisplay = new WDisplay(fb);
 		
 		WWindowImpl.setDisplay(cDisplay);

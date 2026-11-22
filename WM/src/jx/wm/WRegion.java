@@ -52,7 +52,8 @@ public class WRegion
 	{
 		PixelRect acClips[] = m_acClips;
 		m_acClips = new PixelRect[m_nNumClipRect + 1];
-            System.arraycopy(acClips, 0, m_acClips, 0, m_nNumClipRect);
+            if (acClips != null && m_nNumClipRect > 0)
+                System.arraycopy(acClips, 0, m_acClips, 0, m_nNumClipRect);
 		 m_acClips[m_nNumClipRect++] = cClip;
 	}
 	private void RemClipRect (int nPos)

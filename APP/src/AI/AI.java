@@ -42,7 +42,7 @@ public final class AI
         Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
-        NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
+        //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 
 int j = 0;
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
@@ -82,7 +82,7 @@ int j = 0;
         }, "USBMassStorageTest").start();*/
         // Start the HTTP server on port 80 (no filesystem). Blocks on the NET
         // portal until the network stack is up, then accepts connections.
-        new Thread(new Runnable() {
+        /*new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -91,7 +91,7 @@ int j = 0;
                     Debug.out.println("WebServer: failed to start: " + e.getMessage());
                 }
             }
-        }, "WebServer").start();
+        }, "WebServer").start();*/
         // Media change / eject/insert test
         /*new Thread(new Runnable() {
             @Override
@@ -116,7 +116,7 @@ int j = 0;
     public static void init(Naming naming) throws Exception {
         AI instance = new AI(naming);
         instance.start();
-        //jx.init.Main.main(new String[] {"boot.rc"});
+        jx.init.Main.main(new String[] {"boot.rc"});
     }
     
     public static void main(String[] args){

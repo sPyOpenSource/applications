@@ -65,7 +65,7 @@ public abstract class Toolkit
 
 // The default toolkit name.
 private static final String default_toolkit_name = 
-  "gnu.java.awt.peer.gtk.GtkToolkit";
+  "jx.awt.JXToolkit";
 
 // The toolkit in use.  Once we load it, we don't ever change it
 // if the awt.toolkit propert is set.

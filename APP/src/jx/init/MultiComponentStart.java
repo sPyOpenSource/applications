@@ -46,7 +46,7 @@ public class MultiComponentStart {
             StartInfo info = new StartInfo();
             info.name = startClass;
             info.args = new Object[]{argv};
-            //int componentID = componentManager.load(initLib);
+            int componentID = componentManager.load(initLib);
             try {
                 String[] cname = component.getStringArray("InheritThread");
                 for (String name : cname) {

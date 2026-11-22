@@ -245,13 +245,29 @@ DataFlavor(Class representationClass,
   * @param representationClass The representation class for this object.
   * @param humanPresentableName The display name of the object.
   */
+private static String repClassName(Class c)
+{
+    // JCore's compiler emits null for class literals (Foo.class)
+    return c == null ? "null" : c.getName();
+}
+
+private static boolean sameClass(Class a, Class b)
+{
+    return a == null ? b == null : a.equals(b);
+}
+
+private static boolean assignable(Class from, Class to)
+{
+    return from != null && to != null && from.isAssignableFrom(to);
+}
+
 public
 DataFlavor(Class representationClass, String humanPresentableName)
 {
     this(representationClass,
        "application/x-java-serialized-object"
        + "; class="
-       + representationClass.getName(),
+       + repClassName(representationClass),
        humanPresentableName);
 }
 
@@ -548,7 +564,7 @@ isMimeTypeSerializedObject()
 public boolean
 isRepresentationClassInputStream()
 {
-  return(representationClass.getName().equals("java.io.InputStream"));
+  return("java.io.InputStream".equals(repClassName(representationClass)));
 }
 
 /*************************************************************************/
@@ -563,7 +579,11 @@ isRepresentationClassInputStream()
 public boolean
 isRepresentationClassSerializable()
 {
+  if (representationClass == null)
+    return(false);
   Class[] interfaces = representationClass.getInterfaces();
+  if (interfaces == null)
+    return(false);
 
   int i = 0;
   while (i < interfaces.length)
@@ -632,7 +652,7 @@ public boolean
 isFlavorJavaFileListType()
 {
   if (this.mimeType.equals(javaFileListFlavor.mimeType) &&
-      this.representationClass.equals(javaFileListFlavor.representationClass))
+      sameClass(this.representationClass, javaFileListFlavor.representationClass))
     return(true);
 
   return(false);
@@ -679,7 +699,7 @@ equals(DataFlavor flavor)
   if (!this.mimeType.toLowerCase().equals(flavor.mimeType.toLowerCase()))
     return(false);
 
-  if (!this.representationClass.equals(flavor.representationClass))
+  if (!sameClass(this.representationClass, flavor.representationClass))
     return(false);
 
   return(true);
@@ -746,7 +766,8 @@ equals(String str)
 public int
 hashCode()
 {
-  return(mimeType.toLowerCase().hashCode()^representationClass.hashCode());
+  return(mimeType.toLowerCase().hashCode()
+         ^ (representationClass == null ? 0 : representationClass.hashCode()));
 }
 
 /*************************************************************************/
@@ -838,7 +859,7 @@ public String
 toString()
 {
   return("DataFlavor[representationClass="
-         + representationClass.getName()
+         + repClassName(representationClass)
          + ",mimeType="
          + mimeType
          + "humanPresentableName="
@@ -876,7 +897,7 @@ getDefaultRepresentationClass()
 public static final String
 getDefaultRepresentationClassAsString()
 {
-  return(getDefaultRepresentationClass().getName());
+  return(repClassName(getDefaultRepresentationClass()));
 }
 
 /*************************************************************************/
@@ -900,14 +921,14 @@ selectBestTextFlavor(DataFlavor[] availableFlavors)
       Class c = df.representationClass;
 
       // A Reader or String is good.
-      if ((Reader.class.isAssignableFrom(c))
-	  || (String.class.isAssignableFrom(c)))
+      if ((assignable(Reader.class, c))
+	  || (assignable(String.class, c)))
 	{
 	  return df;
 	}
 
       // A InputStream is good if the mime primary type is "text"
-      if ((InputStream.class.isAssignableFrom(c))
+      if ((assignable(InputStream.class, c))
 	  && ("text".equals(df.getPrimaryType())))
         {
           String encoding = availableFlavors[i].getParameter("charset");
@@ -961,13 +982,13 @@ getReaderForText(Transferable transferable) throws UnsupportedFlavorException,
     if (!transferable.isDataFlavorSupported(this))
         throw new UnsupportedFlavorException(this);
 
-    if (Reader.class.isAssignableFrom(representationClass))
+    if (assignable(Reader.class, representationClass))
         return((Reader)transferable.getTransferData(this));
 
-    if (String.class.isAssignableFrom(representationClass))
+    if (assignable(String.class, representationClass))
         return(new StringReader((String)transferable.getTransferData(this)));
 
-    if (InputStream.class.isAssignableFrom(representationClass)
+    if (assignable(InputStream.class, representationClass)
         && "text".equals(getPrimaryType()))
       {
         InputStream in = (InputStream)transferable.getTransferData(this);

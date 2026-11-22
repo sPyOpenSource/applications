@@ -41,7 +41,7 @@ public class StartFBDevice {
 
 	    componentManager.load(libName);
 	    DeviceFinder finder = (DeviceFinder)Class.forName(className).newInstance();
-	    //devices = finder.find(devargs);
+	    devices = finder.find(naming);
 	    if (devices != null && devices[0] != null) {
 		FramebufferDevice fb = (FramebufferDevice) devices[0];
 		naming.registerPortal(fb, fbName);
