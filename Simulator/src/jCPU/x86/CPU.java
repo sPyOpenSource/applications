@@ -88,6 +88,7 @@ public class CPU extends jx.disass.x86
 	private final X86Core core;
 	private final X86UefiFirmware uefi;
 	private final X86UhciController uhci;
+	private X86EthernetNic nic;
         private JFrame vgaFrame;
 	private X86VgaPeripheral vga;
 	private X86UartPeripheral uart;
@@ -136,6 +137,12 @@ public class CPU extends jx.disass.x86
 		uhci = new X86UhciController(0xE000, 2);
 		for (int port = 0xE000; port <= 0xE011; port++) {
 			core.registerPort(port, uhci);
+		}
+
+		// Marvell Yukon 88E8055 NIC at I/O ports 0x300-0x31F
+		nic = new X86EthernetNic(null);
+		for (int port = 0x300; port <= 0x31F; port++) {
+			core.registerPort(port, nic);
 		}
 
 		// UEFI firmware
