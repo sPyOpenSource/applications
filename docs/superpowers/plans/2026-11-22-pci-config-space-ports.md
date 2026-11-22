@@ -4,7 +4,7 @@
 
 **Goal:** Make the emulator's PCI configuration space ports (`0xCF8–0xCFC`) behave like a real PCI host bridge so guest software (jxcore's `PCIGod`) can probe the PCI bus without throwing `Error("no PCI Bus detected")`.
 
-**Architecture:** New `X86PciConfigPeripheral` class implementing `jCPU.Peripheral`, registered at I/O ports `0xCF8–0xCFF` in `CPU.java`. Byte-oriented read/write; 32-bit `inl`/`outl` are already decomposed into consecutive byte accesses by the executors. CONFIG_ADDRESS is read/write; CONFIG_DATA returns `0xFFFFFFFF` (no device). No new IRQ/PIC system.
+**Architecture:** New `X86PciConfigPeripheral` class implementing `jCPU.Peripheral`, registered at I/O ports `0xCF8–0xCFF` in `CPU.java`. Byte-oriented read/write; 32-bit `inl`/`outl` are already decomposed into consecutive byte accesses by the executors. CONFIG_ADDRESS is read/write with low 2 bits forced to 0. CONFIG_DATA returns a minimal fake device ID `0x435311AB` (Marvell 0x11AB / Yukon 0x4353) for bus0/dev0/func0/reg0 and `0xFFFFFFFF` elsewhere. No new IRQ/PIC system.
 
 **Tech Stack:** Java 17, JUnit 4, Ant build (`Simulator/build.xml`).
 
@@ -14,7 +14,8 @@
 - Do not modify existing peripherals (VGA, UART, IDE, UHCI, Yukon NIC, PIT, floppy, BIOS/UEFI).
 - Keep existing `Peripheral` interface unchanged (`read(int)` / `write(int, byte)`).
 - PCI config ports at `0xCF8–0xCFF` (no conflicts with existing port ranges).
-- CONFIG_DATA reads return `0xFFFFFFFF` (standard "no device" value).
+- CONFIG_ADDRESS bits 1:0 read as 0 (4-byte-aligned config cycles, as on real PCI hardware).
+- CONFIG_DATA returns `0x435311AB` only for bus0/dev0/func0/reg0 with enable bit set; all other addresses return `0xFFFFFFFF`.
 - No new IRQ/PIC system; config-space access only.
 
 ## File Structure
@@ -34,61 +35,15 @@
 - Consumes: `jCPU.Peripheral` interface (`byte read(int port)`, `void write(int port, byte value)`).
 - Produces: `public class X86PciConfigPeripheral implements Peripheral` with port constants, empty `read`/`write` stubs, and a no-arg constructor.
 
-- [ ] **Step 1: Write the skeleton class**
+- [x] **Step 1: Write the skeleton class**
 
-```java
-package jCPU.x86;
+- [x] **Step 2: Compile-check**
 
-import jCPU.Peripheral;
-
-/**
- * PCI configuration space port emulation.
- *
- * Provides the CONFIG_ADDRESS (0xCF8) and CONFIG_DATA (0xCFC) ports used by
- * guest software to enumerate the PCI bus.  Multi-byte (32-bit) port access
- * is decomposed into consecutive byte reads/writes by the executors, so this
- * peripheral only needs byte-level read/write.
- */
-public class X86PciConfigPeripheral implements Peripheral
-{
-    public static final int PORT_CONFIG_ADDRESS = 0xCF8; // 0xCF8-0xCFB
-    public static final int PORT_CONFIG_DATA    = 0xCFC; // 0xCFC-0xCFF
-
-    private final byte[] configAddress = new byte[4];
-
-    public X86PciConfigPeripheral() {
-    }
-
-    @Override
-    public byte read(int port) {
-        return 0;
-    }
-
-    @Override
-    public void write(int port, byte value) {
-    }
-}
-```
-
-- [ ] **Step 2: Compile-check**
-
-Run from `Simulator/`:
-```bash
-export PATH=/opt/homebrew/opt/openjdk/bin:$PATH
-javac -nowarn -cp build/classes -d build/classes src/jCPU/x86/X86PciConfigPeripheral.java
-```
-Expected: no errors; `build/classes/jCPU/x86/X86PciConfigPeripheral.class` created.
-
-- [ ] **Step 3: Commit**
-
-```bash
-git add Simulator/src/jCPU/x86/X86PciConfigPeripheral.java
-git commit -m "x86: add PCI config space peripheral skeleton"
-```
+- [x] **Step 3: Commit** — `7903ef78fc7386a257cd3847ec4275b264cc6913`
 
 ---
 
-### Task 2: Register read/write logic (CONFIG_ADDRESS read/write, CONFIG_DATA returns 0xFF)
+### Task 2: Register read/write logic (CONFIG_ADDRESS read/write with low bits masked, CONFIG_DATA fake device ID)
 
 **Files:**
 - Modify: `Simulator/src/jCPU/x86/X86PciConfigPeripheral.java`
@@ -96,9 +51,9 @@ git commit -m "x86: add PCI config space peripheral skeleton"
 
 **Interfaces:**
 - Consumes: `X86PciConfigPeripheral` class from Task 1, port constants, `Peripheral` interface.
-- Produces: Working `read`/`write` for CONFIG_ADDRESS (0xCF8–0xCFB) and CONFIG_DATA (0xCFC–0xCFF returns `0xFF`). Internal state field for config address bytes.
+- Produces: Working `read`/`write` for CONFIG_ADDRESS (0xCF8–0xCFB, low 2 bits read as 0) and CONFIG_DATA (0xCFC–0xCFF returns fake ID `0x435311AB` only for bus0/dev0/func0/reg0 with enable bit set, else `0xFFFFFFFF`). Internal state field for config address bytes; `getConfigAddress()` returns value with low 2 bits masked.
 
-- [ ] **Step 1: Write the failing unit test**
+- [ ] **Step 1: Write the failing unit tests**
 
 Create `Simulator/test/jCPU/x86/X86PciConfigPeripheralTest.java`:
 
@@ -125,18 +80,52 @@ public class X86PciConfigPeripheralTest
     }
 
     @Test
-    public void testConfigDataReadsAllOnes() {
+    public void testConfigAddressLowBitsMasked() {
         X86PciConfigPeripheral pci = new X86PciConfigPeripheral();
-        assertEquals((byte) 0xFF, pci.read(0xCFC));
-        assertEquals((byte) 0xFF, pci.read(0xCFD));
-        assertEquals((byte) 0xFF, pci.read(0xCFE));
-        assertEquals((byte) 0xFF, pci.read(0xCFF));
+        pci.write(0xCF8, (byte) 0x01); // low bits set in raw byte
+        pci.write(0xCF9, (byte) 0x00);
+        pci.write(0xCFA, (byte) 0x00);
+        pci.write(0xCFB, (byte) 0xFF);
+        assertEquals(0xFF000000, pci.getConfigAddress());
+        assertEquals((byte) 0x00, pci.read(0xCF8));
+    }
+
+    @Test
+    public void testConfigDataReadsFakeDevVendorAtDevice0() {
+        X86PciConfigPeripheral pci = new X86PciConfigPeripheral();
+        // enable + bus0/dev0/func0/reg0 = 0x80000000
+        pci.write(0xCF8, (byte) 0x00);
+        pci.write(0xCF9, (byte) 0x00);
+        pci.write(0xCFA, (byte) 0x00);
+        pci.write(0xCFB, (byte) 0x80);
+        assertEquals((byte) 0xAB, pci.read(0xCFC));
+        assertEquals((byte) 0x11, pci.read(0xCFD));
+        assertEquals((byte) 0x53, pci.read(0xCFE));
+        assertEquals((byte) 0x43, pci.read(0xCFF));
+    }
+
+    @Test
+    public void testConfigDataNoDeviceElsewhere() {
+        X86PciConfigPeripheral pci = new X86PciConfigPeripheral();
+        // enable bit clear
+        assertEquals(0xFFFFFFFF, readConfigDataDword(pci));
+        // enable bit set but device 1
+        pci.write(0xCF8, (byte) 0x00);
+        pci.write(0xCF9, (byte) 0x08);
+        pci.write(0xCFA, (byte) 0x00);
+        pci.write(0xCFB, (byte) 0x80);
+        assertEquals(0xFFFFFFFF, readConfigDataDword(pci));
+        // enable bit set, device 0 but register 4
+        pci.write(0xCF8, (byte) 0x04);
+        pci.write(0xCF9, (byte) 0x00);
+        assertEquals(0xFFFFFFFF, readConfigDataDword(pci));
     }
 
     @Test
     public void testConfigDataWriteIsIgnored() {
         X86PciConfigPeripheral pci = new X86PciConfigPeripheral();
         pci.write(0xCFC, (byte) 0x12);
+        // enable bit clear => all-ones regardless of write
         assertEquals((byte) 0xFF, pci.read(0xCFC));
     }
 
@@ -158,32 +147,50 @@ public class X86PciConfigPeripheralTest
         pci.write(0xCFB, (byte) 0x12);
         assertEquals(0x12345678, pci.getConfigAddress());
     }
+
+    private static int readConfigDataDword(X86PciConfigPeripheral pci) {
+        int value = 0;
+        for (int i = 0; i < 4; i++) {
+            value |= (pci.read(0xCFC + i) & 0xFF) << (i * 8);
+        }
+        return value;
+    }
 }
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [ ] **Step 2: Run tests to verify they fail**
 
 Run from `Simulator/`:
 ```bash
 export PATH=/opt/homebrew/opt/openjdk/bin:$PATH
 ant -q test-single -Dtest.includes=jCPU/x86/X86PciConfigPeripheralTest.java -Djavac.includes=jCPU/x86/X86PciConfigPeripheralTest.java
 ```
-Expected: tests FAIL (read returns 0 for everything; CONFIG_DATA doesn't return 0xFF).
+Expected: FAIL (read returns 0 for everything; CONFIG_DATA doesn't return fake ID).
 
 - [ ] **Step 3: Implement register logic**
 
-Replace `read`/`write` stubs and add `getConfigAddress()`:
+Replace `read`/`write` stubs and add `getConfigAddress()` + `readConfigData()`:
 
 ```java
+    private static final int CONFIG_ENABLE = 0x80000000;
+    private static final int NO_DEVICE     = 0xFFFFFFFF;
+    public static final int FAKE_VENDOR_ID  = 0x11AB;
+    public static final int FAKE_DEVICE_ID  = 0x4353;
+    public static final int FAKE_DEVVEND    = (FAKE_DEVICE_ID << 16) | FAKE_VENDOR_ID; // 0x435311AB
+
     @Override
     public byte read(int port) {
         int offset = port - PORT_CONFIG_ADDRESS;
         if (offset >= 0 && offset < 4) {
+            if (offset == 0) {
+                return (byte) (configAddress[0] & 0xFC); // bits 1:0 hardwired to 0
+            }
             return configAddress[offset];
         }
         offset = port - PORT_CONFIG_DATA;
         if (offset >= 0 && offset < 4) {
-            return (byte) 0xFF;
+            int value = readConfigData();
+            return (byte) (value >>> (offset * 8));
         }
         return 0;
     }
@@ -195,30 +202,42 @@ Replace `read`/`write` stubs and add `getConfigAddress()`:
             configAddress[offset] = value;
             return;
         }
-        offset = port - PORT_CONFIG_DATA;
-        if (offset >= 0 && offset < 4) {
-            return;
-        }
+        // CONFIG_DATA writes are ignored (no writable devices).
     }
 
-    /** Return the assembled 32-bit CONFIG_ADDRESS value (little-endian). */
+    /** Return the assembled 32-bit CONFIG_ADDRESS value, with bits 1:0 masked to 0. */
     public int getConfigAddress() {
-        return (configAddress[0] & 0xFF)
+        return (configAddress[0] & 0xFC)
              | ((configAddress[1] & 0xFF) << 8)
              | ((configAddress[2] & 0xFF) << 16)
              | ((configAddress[3] & 0xFF) << 24);
     }
+
+    private int readConfigData() {
+        int address = getConfigAddress();
+        if ((address & CONFIG_ENABLE) == 0) {
+            return NO_DEVICE;
+        }
+        int bus      = (address >>> 16) & 0xFF;
+        int device   = (address >>> 11) & 0x1F;
+        int function = (address >>> 8)  & 0x07;
+        int register = address & 0xFC;
+        if (bus == 0 && device == 0 && function == 0 && register == 0) {
+            return FAKE_DEVVEND;
+        }
+        return NO_DEVICE;
+    }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [ ] **Step 4: Run tests to verify they pass**
 
-Same command as Step 2. Expected: BUILD SUCCESSFUL, all 5 tests PASS.
+Same command as Step 2. Expected: BUILD SUCCESSFUL, all 7 tests PASS.
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add Simulator/src/jCPU/x86/X86PciConfigPeripheral.java Simulator/test/jCPU/x86/X86PciConfigPeripheralTest.java
-git commit -m "x86: PCI config space read/write logic"
+git commit -m "x86: PCI config space read/write logic with fake device ID"
 ```
 
 ---
@@ -273,7 +292,7 @@ git commit -m "x86: wire PCI config space peripheral into CPU port map"
 
 **Interfaces:**
 - Consumes: `X86PciConfigPeripheral` from Task 2, wired into `CPU` from Task 3.
-- Produces: Additional unit test simulating PCIGod's probe sequence; boot verification of jxcore disk image.
+- Produces: Additional unit test simulating PCIGod's real probe sequence; boot verification of jxcore disk image.
 
 - [ ] **Step 1: Add PCIGod probe simulation test**
 
@@ -283,27 +302,39 @@ Add to `X86PciConfigPeripheralTest.java`:
     @Test
     public void testPcigodProbeSequence() {
         X86PciConfigPeripheral pci = new X86PciConfigPeripheral();
-        // PCIGod probePCI():
-        //   int old = ports.inl_p(CONFIG_ADDRESS);  expect bit31 == 0
+        // PCIGod probePCI(): initial inl_p(CONFIG_ADDRESS), bit31 must be 0
         assertEquals(0, pci.getConfigAddress() & 0x80000000);
-        //   ports.outl_p(CONFIG_ADDRESS, ECD_MASK);  // 0x80000000
+        // outl_p(CONFIG_ADDRESS, ECD_MASK = 0x80000000)
         pci.write(0xCF8, (byte) 0x00);
         pci.write(0xCF9, (byte) 0x00);
         pci.write(0xCFA, (byte) 0x00);
         pci.write(0xCFB, (byte) 0x80);
         assertEquals(0x80000000, pci.getConfigAddress());
-        //   ports.outb_p(CONFIG_ADDRESS + 3, 0);  // already 0
-        assertEquals((byte) 0x00, pci.read(0xCFB));
-        //   int mode1res = ports.inl_p(CONFIG_ADDRESS);  expect == written value
-        assertEquals(0x80000000, pci.getConfigAddress());
-        // CONFIG_DATA reads return all-ones (no device)
-        assertEquals((byte) 0xFF, pci.read(0xCFC));
+        // outb_p(CONFIG_ADDRESS + 3, 0): clears enable bit
+        pci.write(0xCFB, (byte) 0x00);
+        assertEquals(0, pci.getConfigAddress() & 0x80000000);
+
+        // CONF1 check: outl_p(CONFIG_ADDRESS, 0xff000001); inl_p()
+        pci.write(0xCF8, (byte) 0x01);
+        pci.write(0xCF9, (byte) 0x00);
+        pci.write(0xCFA, (byte) 0x00);
+        pci.write(0xCFB, (byte) 0xFF);
+        int mode1res = pci.getConfigAddress();
+        assertEquals(0xFF000000, mode1res);
+        assertEquals(0x80000000, mode1res & 0x80000001);
+
+        // lookForDevices(): readDeviceConfig(bus0/dev0/func0/reg0) must be != INVALID_ID
+        pci.write(0xCF8, (byte) 0x00);
+        pci.write(0xCF9, (byte) 0x00);
+        pci.write(0xCFA, (byte) 0x00);
+        pci.write(0xCFB, (byte) 0x80);
+        assertEquals(0x435311AB, readConfigDataDword(pci));
     }
 ```
 
 - [ ] **Step 2: Run unit tests**
 
-Same command as Task 2 Step 4. Expected: BUILD SUCCESSFUL, all 6 tests PASS.
+Same command as Task 2 Step 4. Expected: BUILD SUCCESSFUL, all 8 tests PASS.
 
 - [ ] **Step 3: Commit test addition**
 
@@ -332,7 +363,7 @@ Same JUnit command as Task 3. Expected: `Tests run: N, Failures: 1` — sole fai
 git -c core.whitespace=cr-at-eol diff --check && echo CLEAN
 git status --short
 ```
-Expected: only the 3 NIC/PCI source files changed; generated artifacts untouched.
+Expected: only the 3 PCI source files changed; generated artifacts untouched.
 
 - [ ] **Step 7: Commit (if needed)**
 
