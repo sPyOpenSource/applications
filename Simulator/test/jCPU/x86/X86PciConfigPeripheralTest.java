@@ -82,6 +82,38 @@ public class X86PciConfigPeripheralTest
         assertEquals(0x12345678, pci.getConfigAddress());
     }
 
+    @Test
+    public void testPcigodProbeSequence() {
+        X86PciConfigPeripheral pci = new X86PciConfigPeripheral();
+        // PCIGod probePCI(): initial inl_p(CONFIG_ADDRESS), bit31 must be 0
+        assertEquals(0, pci.getConfigAddress() & 0x80000000);
+        // outl_p(CONFIG_ADDRESS, ECD_MASK = 0x80000000)
+        pci.write(0xCF8, (byte) 0x00);
+        pci.write(0xCF9, (byte) 0x00);
+        pci.write(0xCFA, (byte) 0x00);
+        pci.write(0xCFB, (byte) 0x80);
+        assertEquals(0x80000000, pci.getConfigAddress());
+        // outb_p(CONFIG_ADDRESS + 3, 0): clears enable bit
+        pci.write(0xCFB, (byte) 0x00);
+        assertEquals(0, pci.getConfigAddress() & 0x80000000);
+
+        // CONF1 check: outl_p(CONFIG_ADDRESS, 0xff000001); inl_p()
+        pci.write(0xCF8, (byte) 0x01);
+        pci.write(0xCF9, (byte) 0x00);
+        pci.write(0xCFA, (byte) 0x00);
+        pci.write(0xCFB, (byte) 0xFF);
+        int mode1res = pci.getConfigAddress();
+        assertEquals(0xFF000000, mode1res);
+        assertEquals(0x80000000, mode1res & 0x80000001);
+
+        // lookForDevices(): readDeviceConfig(bus0/dev0/func0/reg0) must be != INVALID_ID
+        pci.write(0xCF8, (byte) 0x00);
+        pci.write(0xCF9, (byte) 0x00);
+        pci.write(0xCFA, (byte) 0x00);
+        pci.write(0xCFB, (byte) 0x80);
+        assertEquals(0x435311AB, readConfigDataDword(pci));
+    }
+
     private static int readConfigDataDword(X86PciConfigPeripheral pci) {
         int value = 0;
         for (int i = 0; i < 4; i++) {
