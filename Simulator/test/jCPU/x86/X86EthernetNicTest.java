@@ -53,30 +53,37 @@ public class X86EthernetNicTest
         nic.write(0x311, (byte) 0x04);
         nic.write(0x312, (byte) 0x00);
         nic.write(0x313, (byte) 0x01); // TX_CMD_SEND
-        byte txStatus = nic.read(0x314);
-        assertTrue("TX should be sending or error", (txStatus & 0x02) != 0 || (txStatus & 0x04) != 0);
+        assertEquals((byte) 0x02, nic.read(0x314)); // TX_STATUS_SENDING
         assertEquals((byte) 0x02, nic.read(0x330) & 0x02); // INT_TX_COMPLETE
     }
 
     @Test
     public void testReceiveCycle() {
         X86EthernetNic nic = new X86EthernetNic(null);
-        byte[] packet = {(byte) 0xAA, (byte) 0xBB, (byte) 0xCC, (byte) 0xDD, (byte) 0xEE, (byte) 0xFF, (byte) 0x00};
+        byte[] packet = {(byte) 0xAA, (byte) 0xBB, (byte) 0xCC, (byte) 0xDD,
+                         (byte) 0xEE, (byte) 0xFF, (byte) 0x00};
         nic.enqueueRx(packet, packet.length);
         assertEquals((byte) 0x01, nic.read(0x324));           // RX_STATUS_PACKET
         assertEquals((byte) 0x07, nic.read(0x321));           // length low
         assertEquals((byte) 0x00, nic.read(0x322));           // length high
-        assertEquals((byte) 0xAA, nic.readRxData(0));
-        assertEquals((byte) 0xFF, nic.readRxData(5));
+        assertEquals((byte) 0xAA, nic.read(0x320));           // byte 0 via port, cursor advances
+        assertEquals((byte) 0xBB, nic.read(0x320));           // byte 1 via port
+        assertEquals((byte) 0xCC, nic.read(0x320));           // byte 2 via port
+        assertEquals((byte) 0xDD, nic.read(0x320));           // byte 3 via port
+        assertEquals((byte) 0xEE, nic.read(0x320));           // byte 4 via port
+        assertEquals((byte) 0xFF, nic.read(0x320));           // last real data byte via port
         nic.write(0x323, (byte) 0x01);                        // RX_CMD_ACK
         assertEquals((byte) 0x00, nic.read(0x324));           // status cleared
         assertEquals((byte) 0x00, nic.read(0x330) & 0x01);    // INT_RX_PACKET cleared
+        assertEquals((byte) 0x00, nic.read(0x320));           // cursor reset on ACK -> no data
     }
 
     @Test
     public void testInterruptClear() {
         X86EthernetNic nic = new X86EthernetNic(null);
-        nic.write(0x330, (byte) 0x00); // write mask to clear
-        assertEquals((byte) 0x00, nic.read(0x330));
+        nic.write(0x313, (byte) 0x01); // TX_CMD_SEND sets INT_TX_COMPLETE
+        assertEquals((byte) 0x02, nic.read(0x330) & 0x02);    // INT_TX_COMPLETE set
+        nic.write(0x330, (byte) 0x02);                        // write mask to clear INT_TX_COMPLETE
+        assertEquals((byte) 0x00, nic.read(0x330));           // cleared
     }
 }

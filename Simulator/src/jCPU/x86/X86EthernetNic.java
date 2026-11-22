@@ -6,8 +6,8 @@ import jCPU.Peripheral;
  * Minimal-functionality Marvell Yukon 88E8055 NIC emulation.
  *
  * Registers at I/O ports 0x300-0x31F via the existing Peripheral interface.
- * PCAP host connectivity is added in Task 2; this task only establishes the
- * register map and empty read/write stubs.
+ * RX/TX register read/write logic is implemented, including the RX data port
+ * with an auto-increment read cursor and RX enqueue input validation.
  */
 public class X86EthernetNic implements Peripheral
 {
@@ -62,6 +62,7 @@ public class X86EthernetNic implements Peripheral
     private final byte[] rxBuffer = new byte[2048];
     private int rxLength = 0;
     private byte rxStatus = 0;
+    private int rxReadIndex = 0;
 
     private byte interruptStatus = 0;
 
@@ -86,6 +87,11 @@ public class X86EthernetNic implements Peripheral
             case PORT_RX_LEN_LO: return (byte) (rxLength & 0xFF);
             case PORT_RX_LEN_HI: return (byte) ((rxLength >> 8) & 0xFF);
             case PORT_RX_STATUS: return rxStatus;
+            case PORT_RX_DATA:
+                if (rxReadIndex < rxLength) {
+                    return rxBuffer[rxReadIndex++];
+                }
+                return 0;
             case PORT_INT_STATUS: return interruptStatus;
             default: return 0;
         }
@@ -120,6 +126,7 @@ public class X86EthernetNic implements Peripheral
                 if (value == RX_CMD_ACK) {
                     rxLength = 0;
                     rxStatus = 0;
+                    rxReadIndex = 0;
                     interruptStatus &= ~INT_RX_PACKET;
                 }
                 break;
@@ -133,7 +140,10 @@ public class X86EthernetNic implements Peripheral
 
     /** Enqueue received bytes from the PCAP thread (Task 4). */
     public void enqueueRx(byte[] packet, int len) {
+        if (packet == null) return;
+        if (len < 0) len = 0;
         if (len > rxBuffer.length) len = rxBuffer.length;
+        if (len > packet.length) len = packet.length;
         System.arraycopy(packet, 0, rxBuffer, 0, len);
         rxLength = len;
         rxStatus = RX_STATUS_PACKET;
