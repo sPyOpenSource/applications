@@ -2,6 +2,7 @@ package jCPU.x86;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.lang.reflect.Field;
 import javax.swing.JComponent;
 
 import org.junit.Test;
@@ -75,6 +76,27 @@ public class X86VgaPeripheralPaintTest
         }
         assertTrue("attribute-only write did not refresh the display (was " +
                    Integer.toHexString(before) + ")", foundWhite);
+        g.dispose();
+    }
+
+    @Test
+    public void testGuestWriteDoesNotClearPaintThreadImageCache() throws Exception {
+        X86VgaPeripheral vga = new X86VgaPeripheral();
+        vga.getDisplay().setSize(640, 400);
+        BufferedImage image = new BufferedImage(640, 400, BufferedImage.TYPE_INT_RGB);
+        Graphics g = image.getGraphics();
+        vga.paint(g);
+
+        Field cache = X86VgaPeripheral.class.getDeclaredField("backImage");
+        cache.setAccessible(true);
+        assertNotNull(cache.get(vga));
+
+        // A previous fix nulled the cache from the guest's thread, which could
+        // race with paint() between creating the replacement image and calling
+        // getGraphics() on it (AWT-EventQueue-0 NullPointerException).
+        vga.writeMemory(X86VgaPeripheral.VGA_MEM_BASE, (byte) 'H');
+        assertNotNull("writeMemory must not clear the AWT thread's image cache",
+                      cache.get(vga));
         g.dispose();
     }
 }
