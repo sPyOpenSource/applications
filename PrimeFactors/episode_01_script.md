@@ -1,6 +1,6 @@
 # Episode 1 Script — "What is a Prime Number?"
 
-[00:00 - 00:45] Intro: The Building Blocks
+## [00:00 - 00:45] Intro: The Building Blocks
 
 (Visual: The camera pans across a massive, chaotic wall of numbers shifting and glowing. The Host stands in front of it, holding a single wooden building block.)
 Host:
@@ -8,7 +8,7 @@ Look at any structure around you—a skyscraper, a bridge, or even your own body
 But what about the world of math? If you take a massive number like 1,345,620, what is it actually made of?
 Believe it or not, the entire mathematical universe is built out of a very special, highly exclusive group of numbers. We call them prime numbers. Today, we are going to break past the VIP velvet rope and find out exactly what it takes to join their club.
 
-[00:45 - 02:15] Act I: The Velvet Rope (The Golden Rule)
+## [00:45 - 02:15] Act I: The Velvet Rope (The Golden Rule)
 
 (Visual: An animated bouncer stands outside a glamorous nightclub called "Club Prime". Numbers are lining up to get in.)
 Host:
@@ -26,7 +26,7 @@ The only way to cleanly divide 5 blocks without breaking them into fractions is 
 This brings us to the Golden Rule of Prime Numbers: A prime number is a whole number greater than 1 that has exactly two divisors: 1 and itself.
 The number 5 passes the test. The bouncer lets it into the club.
 
-[02:15 - 03:45] Act II: The Reject and The Oddball
+## [02:15 - 03:45] Act II: The Reject and The Oddball
 
 (Visual: The number 1 walks up to the club, looking confident. The bouncer stops it immediately. A big red "X" appears over 1.)
 Host:
@@ -42,7 +42,7 @@ But let's check the math. What are the divisors of 2? Only 1 and 2.
 That means 2 perfectly fits the rule! In fact, 2 is the most unique prime number in the universe. It is the smallest prime number, and it is the only even prime number that will ever exist.
 Why? Because every other even number after 2 (like 4, 6, 8, 10...) can always be divided by 2. That automatically gives them more than two divisors, disqualifying them instantly!
 
-[03:45 - 05:00] Outro: Ready for the Hunt
+## [03:45 - 05:00] Outro: Ready for the Hunt
 
 (Visual: The camera zooms out, showing a bright lineup of the first few members of the club: 2, 3, 5, 7, 11, 13...)
 Host:
