@@ -48,7 +48,7 @@ public class WWindow implements Runnable
 		}
 	}
         
-        @Override
+    @Override
 	public void run ()
 	{
 		boolean bRun = true;
@@ -267,23 +267,23 @@ public class WWindow implements Runnable
         
 	/**
 	 * Invalidate a certain rectangular area of the window.This call will
-         * invoke the "paint" hook function.
-         * @param cRect
+     * invoke the "paint" hook function.
+     * @param cRect
 	 */
 	public void invalidate (PixelRect cRect)
 	{
-            m_cWindow.startUpdate ();
-            paint (new PixelRect (cRect));
-            m_cWindow.endUpdate ();
+        m_cWindow.startUpdate ();
+        paint (new PixelRect (cRect));
+        m_cWindow.endUpdate ();
 	}
         
-        public  void startUpdate()
-        {
+    public  void startUpdate()
+    {
 	    m_cWindow.startUpdate();
 	}
         
-        public  void endUpdate()
-        {
+    public  void endUpdate()
+    {
 	    m_cWindow.endUpdate();
 	}
 	

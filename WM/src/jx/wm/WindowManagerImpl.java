@@ -8,11 +8,11 @@ import jx.wm.message.*;
 public class WindowManagerImpl implements WindowManager
 {
     Naming		m_cNaming;
-    WDisplay		m_cDisplay = null;
+    WDisplay	m_cDisplay = null;
     Keymap		m_cKeymap  = new Keymap();
     Keycode		m_eRawCode = new Keycode();
     Keycode		m_eKeyCode = new Keycode();
-    Qualifiers 		m_eQual    = new Qualifiers();
+    Qualifiers 	m_eQual    = new Qualifiers();
 
     int nPlugins = 0;
     int maxPlugins = 5;
@@ -113,23 +113,23 @@ public class WindowManagerImpl implements WindowManager
 		Debug.out.println("Window manager is now ready to accept requests.");
 		m_cDisplay = cDisplay;
 
-	      	cNaming.registerPortal(this, wmName);
+	    cNaming.registerPortal(this, wmName);
 	}
 	public void setKeymap(ReadOnlyMemory cKeymap)
 	{
 		m_cKeymap.m_nCapsLock 		= cKeymap.get32 (0);
 		m_cKeymap.m_nScrollLock		= cKeymap.get32 (1);
 		m_cKeymap.m_nNumLock		= cKeymap.get32 (2);
-	    	m_cKeymap.m_nLShift		= cKeymap.get32 (3);
-    		m_cKeymap.m_nRShift		= cKeymap.get32 (4);
-	    	m_cKeymap.m_nLCommand		= cKeymap.get32 (5);
-    		m_cKeymap.m_nRCommand		= cKeymap.get32 (6);
-    		m_cKeymap.m_nLControl		= cKeymap.get32 (7);
-    		m_cKeymap.m_nRControl		= cKeymap.get32 (8);
-    		m_cKeymap.m_nLOption		= cKeymap.get32 (9);
-    		m_cKeymap.m_nROption		= cKeymap.get32 (10);
-    		m_cKeymap.m_nMenu		= cKeymap.get32 (11);
-    		m_cKeymap.m_nLockSetting	= cKeymap.get32 (12);
+	    m_cKeymap.m_nLShift			= cKeymap.get32 (3);
+    	m_cKeymap.m_nRShift			= cKeymap.get32 (4);
+	    m_cKeymap.m_nLCommand		= cKeymap.get32 (5);
+    	m_cKeymap.m_nRCommand		= cKeymap.get32 (6);
+    	m_cKeymap.m_nLControl		= cKeymap.get32 (7);
+    	m_cKeymap.m_nRControl		= cKeymap.get32 (8);
+    	m_cKeymap.m_nLOption		= cKeymap.get32 (9);
+    	m_cKeymap.m_nROption		= cKeymap.get32 (10);
+    	m_cKeymap.m_nMenu			= cKeymap.get32 (11);
+    	m_cKeymap.m_nLockSetting	= cKeymap.get32 (12);
 		int nIndex = 13;
 		for (int nChar = 0; nChar < 128; nChar++)
 		{
@@ -229,10 +229,10 @@ public class WindowManagerImpl implements WindowManager
 
     @Override
     public void registerHotkeyPlugin(HotkeyPlugin plugin, int keycode) throws TooManyPluginsException {
-	if (nPlugins == maxPlugins) throw new TooManyPluginsException();
-	plugins[nPlugins] = plugin;
-	hotkeys[nPlugins] = keycode;
-	nPlugins++;
+		if (nPlugins == maxPlugins) throw new TooManyPluginsException();
+		plugins[nPlugins] = plugin;
+		hotkeys[nPlugins] = keycode;
+		nPlugins++;
     }
 
 	void setQualifiers (int nKeyCode)

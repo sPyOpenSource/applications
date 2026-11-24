@@ -65,13 +65,13 @@ public class MonolithicApplicationStarter {
 
 	    String name = "main";
 	    String signature = "([Ljava/lang/String;)V";
-            for (VMMethod method : methods) {
-                //Debug.out.println("M: "+methods[i].getName() + ", S: "+ methods[k].getSignature());
-                if (name.equals(method.getName()) && signature.equals(method.getSignature())) {
-                    info.method = method;
-                    break;
-                }
+        for (VMMethod method : methods) {
+            //Debug.out.println("M: "+methods[i].getName() + ", S: "+ methods[k].getSignature());
+            if (name.equals(method.getName()) && signature.equals(method.getSignature())) {
+                info.method = method;
+                break;
             }
+        }
 	    if (info.method==null) throw new Error("Method "+name + signature + " not found in class "+progName);
 	    
 	    start.addElement(info);

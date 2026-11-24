@@ -4,7 +4,7 @@ A complete, beginner-friendly YouTube series that teaches **Java programming fro
 
 ## Series Identity
 
-- **Title:** Java from Zero to Hero
+- **Title:** JavaOS from Zero to Hero
 - **Tagline:** Learn Java by building. No fluff, just code.
 - **Target audience:** Absolute beginners to programming, plus devs switching to Java.
 - **Prerequisites:** None. A laptop + internet.
@@ -20,7 +20,7 @@ A complete, beginner-friendly YouTube series that teaches **Java programming fro
 | 1 | 1–8 | Java Basics |
 | 2 | 9–16 | Object-Oriented Programming |
 | 3 | 17–24 | Advanced Java: VFS and Networking |
-| 4 | 25–30 | Java Projects with AI Agent |
+| 4 | 25–30 | JavaOS Project with AI Agent |
 
 ## Branding assets
 

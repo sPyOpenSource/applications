@@ -39,33 +39,33 @@ class ShellWindow extends WWindow {
     }
     void drawLine (int nLine)
     {
-	setFgColor (255, 255, 255);
-	m_cCursorRect.setTo (0, nLine*14, m_nColumns*9 - 1, nLine*14 + 13);
-	fillRect (m_cCursorRect);
-	movePenTo (0, nLine * 14);
-	setFgColor (63, 63, 63);
-	drawString (m_cScreen[nLine].toString());
-	if (m_nCursorY == nLine)
+		setFgColor (255, 255, 255);
+		m_cCursorRect.setTo (0, nLine*14, m_nColumns*9 - 1, nLine*14 + 13);
+		fillRect (m_cCursorRect);
+		movePenTo (0, nLine * 14);
+		setFgColor (63, 63, 63);
+		drawString (m_cScreen[nLine].toString());
+		if (m_nCursorY == nLine)
 	    {
-		m_cCursorRect.setTo (m_nCursorX*9, m_nCursorY*14, m_nCursorX*9 + 8, m_nCursorY*14 + 10);
-		m_eDrawingMode.setValue (DrawingMode.DM_INVERT);
-		fillRect (m_cCursorRect, m_eDrawingMode);
+			m_cCursorRect.setTo (m_nCursorX*9, m_nCursorY*14, m_nCursorX*9 + 8, m_nCursorY*14 + 10);
+			m_eDrawingMode.setValue (DrawingMode.DM_INVERT);
+			fillRect (m_cCursorRect, m_eDrawingMode);
 	    }
     }
     void scrDown ()
     {
-	for (int i = 1; i < m_nLines; i++)
+		for (int i = 1; i < m_nLines; i++)
 	    {
-		m_cScreen[i-1] = m_cScreen[i];
+			m_cScreen[i-1] = m_cScreen[i];
 	    }
-	m_cScreen[m_nLines-1] = new StringBuffer (m_nColumns);
+		m_cScreen[m_nLines-1] = new StringBuffer (m_nColumns);
     }
     @Override
     public void paint (PixelRect cUpdateRect)
     {
-	//Debug.out.println ("TestWindow::paint(" + m_cText + ")");
-	for (int i = 0; i < m_nLines; i++)
-	    drawLine (i);
+		//Debug.out.println ("TestWindow::paint(" + m_cText + ")");
+		for (int i = 0; i < m_nLines; i++)
+	    	drawLine (i);
     }
     @Override
     public void keyDown (Keycode eKeyCode, Keycode eRawCode, Qualifiers eQualifiers)

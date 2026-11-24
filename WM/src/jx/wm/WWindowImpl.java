@@ -83,26 +83,26 @@ public class WWindowImpl implements WWindowInterface
 		m_cWndBorder.show (false);
 	}
         
-        @Override
+    @Override
 	public PixelRect getBorderSize ()
 	{
 		return m_cDecorator.getBorderSize();
 	}
         
-        @Override
+    @Override
 	public void setFlags (WindowFlags eFlags)
 	{
 		m_nFlags.setValue (eFlags.getValue());
 		m_cDecorator.setFlags (m_nFlags);		
 	}
         
-        @Override
+    @Override
 	public void setTitle (String cString)
 	{
 		m_cDecorator.setTitle (cString);
 	}
         
-        @Override
+    @Override
 	public void finalize ()
 	{
 		//Debug.out.println ("WWindowImpl.finalize()");
@@ -135,13 +135,13 @@ public class WWindowImpl implements WWindowInterface
 			postMessage (new jx.wm.message.WShowMessage (bShow));
 	}
         
-        @Override
+    @Override
 	public void show (boolean bShow)
 	{
 		show (bShow, true);
 	}
         
-        @Override
+    @Override
 	public void moveToFront ()
 	{
 		//Debug.out.println (m_cTitle + ": WWindowImpl::moveToFront()");
@@ -153,7 +153,7 @@ public class WWindowImpl implements WWindowInterface
 		m_cDisplay.endUpdate ();
 	}
         
-        @Override
+    @Override
 	public void postMessage (jx.wm.message.WMessage cMsg)
 	{
 		//Debug.out.println (m_cTitle + ": WWindow::postMessage(" + cMsg + ")");
@@ -170,7 +170,7 @@ public class WWindowImpl implements WWindowInterface
 		return m_cPostedMsgs.lastMessage ();
 	}
         
-        @Override
+    @Override
 	public jx.wm.message.WMessage peekMessage ()
 	{
 		if (m_cWaitingThread != null)
@@ -214,13 +214,13 @@ public class WWindowImpl implements WWindowInterface
 		m_cDisplay.endUpdate ();			
 	}
         
-        @Override
+    @Override
 	public void setFrame (PixelRect cFrame)
 	{
 		setFrame (cFrame, false);
 	}
         
-        @Override
+    @Override
 	public PixelRect getFrame (boolean bBorderFrame)
 	{
 		PixelRect cFrame = m_cWndBorder.getFrame();
@@ -235,31 +235,31 @@ public class WWindowImpl implements WWindowInterface
 		return cFrame;
 	}
         
-        @Override
+    @Override
 	public String toString ()
 	{
 		return "WWindow(" + m_cTitle + ")";
 	}
         
-        @Override
+    @Override
 	public void movePenTo (int x, int y)
 	{
 		m_cWndBorder.getClient().movePenTo (x, y);
 	}
         
-        @Override
+    @Override
 	public void movePenTo (PixelPoint cPos)
 	{
 		m_cWndBorder.getClient().movePenTo (cPos);
 	}
         
-        @Override
+    @Override
 	public void movePenBy (PixelPoint cPos)
 	{
 		m_cWndBorder.getClient().movePenBy (cPos);
 	}
         
-        @Override
+    @Override
 	public void invertRect (int x, int y, int w, int h)
 	{
 		m_cDisplay.startUpdate ();
@@ -268,7 +268,7 @@ public class WWindowImpl implements WWindowInterface
 		m_cDisplay.endUpdate ();
 	}
         
-        @Override
+    @Override
 	public void drawLine (int x, int y)
 	{
 		m_cDisplay.startUpdate ();
@@ -276,7 +276,7 @@ public class WWindowImpl implements WWindowInterface
 		m_cDisplay.endUpdate ();			
 	}
         
-        @Override
+    @Override
 	public void invertLine (int x, int y)
 	{
 		m_cDisplay.startUpdate ();
@@ -285,7 +285,7 @@ public class WWindowImpl implements WWindowInterface
 		m_cDisplay.endUpdate ();
 	}
         
-        @Override
+    @Override
 	public void drawLine (PixelPoint cToPos)
 	{
 		m_cDisplay.startUpdate ();
@@ -293,7 +293,7 @@ public class WWindowImpl implements WWindowInterface
 		m_cDisplay.endUpdate ();			
 	}
         
-        @Override
+    @Override
 	public void setFgColor (PixelColor cColor)
 	{
 		m_cWndBorder.getClient().setFgColor (cColor);
@@ -624,7 +624,7 @@ public class WWindowImpl implements WWindowInterface
 		postMessage (new WMouseMovedMessage (cMousePos, cPos, nTransit));
 	}
         
-        @Override
+    @Override
 	public void makeFocus (boolean bFlag)
 	{
 		if ((m_nFlags.getValue() & WindowFlags.WND_NO_FOCUS) == 0)
@@ -638,12 +638,12 @@ public class WWindowImpl implements WWindowInterface
 		{
 		}
 	}
-        @Override
+    @Override
 	public void startUpdate()
 	{
 		WSprite.hide ();
 	}
-        @Override
+    @Override
 	public void endUpdate ()
 	{
 		WSprite.unhide ();
@@ -695,7 +695,7 @@ public class WWindowImpl implements WWindowInterface
 		}			
 	}
         
-        @Override
+    @Override
 	public void moveReply ()
 	{
 		if (m_cWndBorder != null)
@@ -711,7 +711,7 @@ public class WWindowImpl implements WWindowInterface
 	{
 		return m_cDisplay.getScreenResolution();
 	}
-        @Override
+    @Override
 	public void quit ()
 	{
 		//Debug.out.println (m_cTitle + ": WWindowImpl::quit()");
@@ -719,13 +719,13 @@ public class WWindowImpl implements WWindowInterface
 		postMessage (new jx.wm.message.WQuitMessage());
 	}
         
-        @Override
+    @Override
 	public void startRepaint ()
 	{
 		m_cWndBorder.getClient().beginUpdate ();
 	}
         
-        @Override
+    @Override
 	public void endRepaint ()
 	{
 		m_cWndBorder.getClient().endUpdate ();
@@ -767,7 +767,7 @@ public class WWindowImpl implements WWindowInterface
 <       }*/
 
 
-        @Override
+    @Override
 	public void enableBackBuffer(boolean enable) {
 		if (m_bBackBuffer) {
 			PixelRect r = getFrame(false);
@@ -788,7 +788,7 @@ public class WWindowImpl implements WWindowInterface
 		}
 	}
 
-        @Override
+    @Override
 	public void resetBackBuffer() {
 		if (m_bBackBuffer) {	
 			//PixelRect r = getFrame(false);
@@ -801,7 +801,7 @@ public class WWindowImpl implements WWindowInterface
 		}
 	}
 
-        @Override
+    @Override
 	public void drawBackBuffer() {
 		if (m_cBackBuffer!=null) {
 			WView client = m_cWndBorder.getClient();
@@ -823,7 +823,7 @@ public class WWindowImpl implements WWindowInterface
 
 
     private void serviceFinalizer() {
-	Debug.out.println("*****  WWindowImpl: THIS SERVICE TERMINATES NOW *** WindowTitle: "+m_cTitle);
-	quit();
+		Debug.out.println("*****  WWindowImpl: THIS SERVICE TERMINATES NOW *** WindowTitle: "+m_cTitle);
+		quit();
     }
 }
