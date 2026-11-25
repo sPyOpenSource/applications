@@ -5,7 +5,7 @@ import static jCPU.x86.X86Core.*;
 import java.math.BigInteger;
 
 /**
- * Executor for x86-64 long mode and for 32-bit protected mode.
+ * Executor for x86-64 long mode, protected mode and real mode.
  *
  * Each step decodes one whole instruction (prefixes, REX, opcode, ModR/M,
  * SIB, displacement, immediate) while advancing {@link #ip}, so the length
@@ -49,6 +49,8 @@ public class X86Amd64 implements X86Core.iExecutor
     /* 64-bit code, 32-bit code, or 16-bit code (the CS L/D bits). */
     private boolean code64;
     private boolean code16;
+    /* Linear base of CS; nonzero in real mode. */
+    private long codeBase;
     /* Segment override prefix (SEG_ES..SEG_GS), or -1. */
     private int segOverride;
 
@@ -88,21 +90,23 @@ public class X86Amd64 implements X86Core.iExecutor
     @Override
     public int step(X86Core core) throws Exception {
         this.core = core;
+        code64 = core.isLongMode() && core.isCodeLong();
+        code16 = !code64 && !core.isCodeSize32();
+        codeBase = code64 ? 0 : core.getSegBase(SEG_CS);
         long rip = core.getPC64();
         core.addTimestampCounter(1);
         if (core.firmwareTrap(rip)) {
             history[(int) (historyCount++ % HISTORY_SIZE)] = rip;
             return 1;
         }
-        insnStart = ip = core.getPC64();
+        insnStart = rip;
+        ip = rip - codeBase;
         rexPresent = false;
         rexW = rexR = rexX = rexB = 0;
         addr32 = false;
         rep = 0;
         segOverride = -1;
         boolean opSize16 = false;
-        code64 = core.isLongMode() && core.isCodeLong();
-        code16 = !code64 && !core.isCodeSize32();
         dataBreakpoint = -1;
         if (core.hasBreakpoints() && (flags() & RF) == 0) {
             // An instruction breakpoint is a fault: deliver #DB before the instruction.
@@ -242,30 +246,46 @@ public class X86Amd64 implements X86Core.iExecutor
 
     /* ---------------- instruction bytes ---------------- */
 
-    /* The next IP, masked to the width of the current code segment. */
-    private long currentPc() {
+    /* The next IP within CS, masked to the width of the code segment. */
+    private long currentIp() {
         return code64 ? ip : code16 ? ip & 0xFFFF : ip & 0xFFFFFFFFL;
     }
 
+    /* The next linear address, including the real-mode CS base. */
+    private long currentPc() {
+        return codeBase + currentIp();
+    }
+
+    /* Instruction bytes come from CS:IP, not from a flat address. */
+    private long instructionAddress(long offset) {
+        return codeBase + (code16 ? offset & 0xFFFF : offset);
+    }
+
+    private void skipInstructionBytes(int count) {
+        ip = code16 ? (ip + count) & 0xFFFF : ip + count;
+    }
+
     private int fetch8() {
-        return core.readMem8(ip++);
+        int v = core.readMem8(instructionAddress(ip));
+        skipInstructionBytes(1);
+        return v;
     }
 
     private int fetch16() {
-        int v = core.readMem16(ip);
-        ip += 2;
+        int v = core.readMem16(instructionAddress(ip));
+        skipInstructionBytes(2);
         return v;
     }
 
     private int fetch32() {
-        int v = core.readMem32(ip);
-        ip += 4;
+        int v = core.readMem32(instructionAddress(ip));
+        skipInstructionBytes(4);
         return v;
     }
 
     private long fetch64() {
-        long v = core.readMem64(ip);
-        ip += 8;
+        long v = core.readMem64(instructionAddress(ip));
+        skipInstructionBytes(8);
         return v;
     }
 
@@ -362,7 +382,8 @@ public class X86Amd64 implements X86Core.iExecutor
         }
     }
 
-    /* Linear address of an offset in a segment.  Only 32-bit code uses segment bases. */
+    /* Linear address of an offset in a segment.  Real and protected 16/32-bit
+     * code add the cached segment base; 64-bit code uses flat addresses. */
     private long linear(int seg, long off) {
         return code64 ? off : (core.getSegBase(seg) + off) & 0xFFFFFFFFL;
     }
@@ -517,7 +538,7 @@ public class X86Amd64 implements X86Core.iExecutor
 
     /* The /digit of the ModR/M byte that is about to be decoded. */
     private int peekGroup() {
-        return (core.readMem8(ip) >>> 3) & 7;
+        return (core.readMem8(instructionAddress(ip)) >>> 3) & 7;
     }
 
     private long readRm(int size) {
@@ -851,7 +872,8 @@ public class X86Amd64 implements X86Core.iExecutor
 
             case 0xA0: case 0xA1: case 0xA2: case 0xA3: {   // MOV AL/rAX <-> absolute address
                 int size = (opcode & 1) == 0 ? 1 : opSize;
-                long addr = addrSize() == 4 ? fetch32() & 0xFFFFFFFFL : fetch64();
+                long addr = addrSize() == 2 ? fetch16() & 0xFFFFL
+                          : addrSize() == 4 ? fetch32() & 0xFFFFFFFFL : fetch64();
                 addr = linear(dataSeg(SEG_DS), addr);
                 if (opcode < 0xA2) {
                     setReg(RAX, size, readMem(addr, size));
@@ -967,7 +989,7 @@ public class X86Amd64 implements X86Core.iExecutor
             case 0xE8: {                            // CALL rel16/rel32
                 int size = nearSize();
                 long rel = fetchImmZ();
-                push(currentPc(), size);
+                push(currentIp(), size);
                 ip += rel;
                 return;
             }
@@ -1025,7 +1047,7 @@ public class X86Amd64 implements X86Core.iExecutor
             case 0xFF: {                            // group 5
                 int sub = peekGroup();
                 boolean far = sub == 3 || sub == 5;
-                if (sub == 7 || far && (core.readMem8(ip) >>> 6) == 3) break;
+                if (sub == 7 || far && (core.readMem8(instructionAddress(ip)) >>> 6) == 3) break;
                 decodeModRm(0);
                 if (far) {                          // far CALL, far JMP through m16:32 / m16:64
                     int size = farSize();
@@ -1349,7 +1371,7 @@ public class X86Amd64 implements X86Core.iExecutor
         switch (op2) {
             case 0x01: {                            // group 7: SGDT, SIDT, LGDT, LIDT, INVLPG
                 int sub = peekGroup();
-                if ((core.readMem8(ip) >>> 6) == 3 || sub == 4 || sub == 5 || sub == 6) break;
+                if ((core.readMem8(instructionAddress(ip)) >>> 6) == 3 || sub == 4 || sub == 5 || sub == 6) break;
                 decodeModRm(0);
                 descriptorTable(sub);
                 return;
@@ -1539,7 +1561,7 @@ public class X86Amd64 implements X86Core.iExecutor
     /*
      * Writing CR0 and CR4 follows the rules for entering and leaving long
      * mode: setting CR0.PG with EFER.LME (and CR4.PAE) activates it, clearing
-     * CR0.PG deactivates it.
+     * CR0.PG deactivates it.  Clearing CR0.PE after that returns to real mode.
      */
     private void writeCr(int cr, long v) throws X86UnknownOpcodeException {
         long efer = core.getEfer();
@@ -1549,7 +1571,17 @@ public class X86Amd64 implements X86Core.iExecutor
                 boolean paging = (v & X86Core.CR0_PG) != 0;
                 boolean wasPaging = (core.getCr0() & X86Core.CR0_PG) != 0;
                 if ((v & X86Core.CR0_PE) == 0) {
-                    throw unknownOpcode("MOV CR0 that leaves protected mode");
+                    if (code64 || paging || (efer & X86Core.EFER_LMA) != 0) {
+                        throw unknownOpcode("MOV CR0 that leaves protected mode in long mode");
+                    }
+                    // PG and LME are already off.  Real mode always executes
+                    // 16-bit code until CS is reloaded by a far branch.
+                    core.setCr0(v);
+                    core.setEfer(efer);
+                    core.setCodeLong(false);
+                    core.setCodeSize32(false);
+                    code16 = true;
+                    return;
                 }
                 if (paging && !wasPaging) {
                     if ((efer & X86Core.EFER_LME) == 0) {
@@ -1628,8 +1660,14 @@ public class X86Amd64 implements X86Core.iExecutor
         return (int) (((d >>> 16) & 0xFFFFFF) | ((d >>> 56) << 24));
     }
 
-    /* Load a data segment register (not CS) from the GDT. */
+    /* Load a data segment register (not CS). */
     private void loadSegment(int seg, int selector) throws X86UnknownOpcodeException {
+        if (!core.isProtectedMode()) {
+            // Real mode has no descriptors: the selector is the paragraph base.
+            core.setSegSelector(seg, selector);
+            core.setSegBase(seg, selector << 4);
+            return;
+        }
         String what = "load " + "ECSDFG".charAt(seg) + "S";
         int base = 0;
         if ((selector & ~3) == 0) {
@@ -1675,7 +1713,7 @@ public class X86Amd64 implements X86Core.iExecutor
 
     private void farCall(int selector, long target) throws X86UnknownOpcodeException {
         int size = farSize();
-        long returnTo = ip;
+        long returnTo = currentIp();
         int cs = core.getSegSelector(SEG_CS);
         // The target is checked before anything is pushed.
         long d = codeDescriptor(selector);
@@ -1689,6 +1727,9 @@ public class X86Amd64 implements X86Core.iExecutor
     }
 
     private long codeDescriptor(int selector) throws X86UnknownOpcodeException {
+        if (!core.isProtectedMode()) {
+            return 0;                               // real mode: CS = selector
+        }
         String what = "far branch";
         if ((selector & 3) != 0) {
             throw unknownOpcode(String.format("%s: selector 0x%X has privilege level %d",
@@ -1708,20 +1749,23 @@ public class X86Amd64 implements X86Core.iExecutor
     }
 
     /*
-     * Continue at target in the code segment.  Its L and D bits decide
-     * whether the next instruction is 64-bit, 32-bit or (not supported)
-     * 16-bit code.
+     * Continue at target in the code segment.  In protected mode its L and D
+     * bits decide between 64-, 32- and 16-bit code; in real mode the selector
+     * itself supplies a paragraph base and code is always 16-bit.
      */
     private void enterCode(int selector, long d, long target) {
+        boolean realMode = !core.isProtectedMode();
         boolean longSegment = core.isLongMode() && (d & (1L << 53)) != 0;
-        boolean code32Segment = !longSegment && (d & (1L << 54)) != 0;
+        boolean code32Segment = !longSegment && !realMode && (d & (1L << 54)) != 0;
+        long base = realMode ? (selector << 4) & 0xFFFFFFFFL : 0;
         core.setSegSelector(SEG_CS, selector);
-        core.setSegBase(SEG_CS, 0);
+        core.setSegBase(SEG_CS, (int) base);
         core.setCodeLong(longSegment);
         core.setCodeSize32(code32Segment);
-        ip = longSegment ? target : code32Segment ? target & 0xFFFFFFFFL : target & 0xFFFFL;
+        ip = longSegment || code32Segment ? target & 0xFFFFFFFFL : target & 0xFFFFL;
         code64 = longSegment;
         code16 = !longSegment && !code32Segment;
+        codeBase = base;
     }
 
     /**

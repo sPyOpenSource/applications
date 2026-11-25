@@ -248,6 +248,90 @@ public class X86SystemTest
         assertEquals(0x8006, core.getPC64());
     }
 
+    /**
+     * GRUB's 16-bit relocator clears CR0.PE and reloads CS with a real-mode far
+     * jump.  The executor must leave protected mode and keep executing the
+     * 16-bit code after the jump.
+     */
+    @Test
+    public void testLeaveProtectedModeForRealMode() throws Exception
+    {
+        X86Core core = new X86Core(1024 * 1024);
+        core.enterProtectedMode32();
+        core.setActiveExecutor(new X86Amd64());
+        long[] gdt = {
+            0,
+            0x00CF9A000000FFFFL,                       // 0x08: flat 32-bit code
+            0x00009E000000FFFFL,                       // 0x10: 16-bit conforming code
+        };
+        for (int i = 0; i < gdt.length; i++) {
+            core.writeMem64(GDT + 8L * i, gdt[i]);
+        }
+        core.setGdt(GDT, 8 * gdt.length - 1);
+        core.setSegSelector(X86Core.SEG_CS, 0x08);
+        load(core, CODE,
+              0xEA, 0x00, 0x80, 0x00, 0x00, 0x10, 0x00); // jmp far 0x10:0x8000
+        load(core, 0x8000,
+              0x0F, 0x20, 0xC0,                          // mov eax, cr0
+              0x66, 0x83, 0xE0, 0xFE,                    // and eax, ~1
+              0x0F, 0x22, 0xC0,                          // mov cr0, eax
+              0x66, 0xEA, 0x7C, 0x80, 0x00, 0x00, 0x00, 0x00, // jmp far 0:0x807C
+              0xEB, 0xFE);                               // padding
+        load(core, 0x807C,
+              0xB8, 0x34, 0x12,                          // mov ax, 0x1234
+              0xEB, 0xFE);                               // jmp $
+        core.setPC64(CODE);
+
+        steps(core, 7);
+
+        assertFalse(core.isProtectedMode());
+        assertFalse(core.isCodeSize32());
+        assertEquals(0, core.getSegSelector(X86Core.SEG_CS));
+        assertEquals(0x1234, core.getReg64(X86Core.REG_RAX) & 0xFFFF);
+        assertEquals(0x807F, core.getPC64());
+    }
+
+    /** In real mode both CS:IP and data segment registers use selector * 16. */
+    @Test
+    public void testRealModeUsesSegmentBases() throws Exception
+    {
+        X86Core core = new X86Core(1024 * 1024);
+        core.enterProtectedMode32();
+        core.setActiveExecutor(new X86Amd64());
+        long[] gdt = {
+            0,
+            0x00CF9A000000FFFFL,                       // 0x08: flat 32-bit code
+            0x00009E000000FFFFL,                       // 0x10: 16-bit conforming code
+        };
+        for (int i = 0; i < gdt.length; i++) {
+            core.writeMem64(GDT + 8L * i, gdt[i]);
+        }
+        core.setGdt(GDT, 8 * gdt.length - 1);
+        core.setSegSelector(X86Core.SEG_CS, 0x08);
+        load(core, CODE,
+              0xEA, 0x00, 0x80, 0x00, 0x00, 0x10, 0x00); // jmp far 0x10:0x8000
+        load(core, 0x8000,
+              0x0F, 0x20, 0xC0,                          // mov eax, cr0
+              0x66, 0x83, 0xE0, 0xFE,                    // and eax, ~1
+              0x0F, 0x22, 0xC0,                          // mov cr0, eax
+              0x66, 0xEA, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20); // jmp 0x2000:0
+        load(core, 0x20000,
+              0xB8, 0x00, 0x20,                          // mov ax, 0x2000
+              0x8E, 0xD8,                                // mov ds, ax
+              0xA1, 0x10, 0x00,                          // mov ax, ds:[0x10]
+              0xEB, 0xFE);                               // jmp $
+        core.writeMem16(0x20010, 0xABCD);
+        core.setPC64(CODE);
+
+        steps(core, 9);
+
+        assertEquals(0x2000, core.getSegSelector(X86Core.SEG_CS));
+        assertEquals(0x20000, core.getSegBase(X86Core.SEG_CS));
+        assertEquals(0x20000, core.getSegBase(X86Core.SEG_DS));
+        assertEquals(0xABCD, core.getReg64(X86Core.REG_RAX) & 0xFFFF);
+        assertEquals(0x20008, core.getPC64());
+    }
+
     @Test
     public void testSegmentBaseComesFromTheDescriptor() throws Exception
     {
