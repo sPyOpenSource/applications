@@ -210,6 +210,44 @@ public class X86SystemTest
         assertEquals(0, core.getSegBase(X86Core.SEG_SS));
     }
 
+    /**
+     * GRUB's 16-bit relocator far-jumps from 32-bit compatibility mode to a
+     * 16-bit code descriptor before clearing CR0.PE.  Execution must continue
+     * there: the default operand size is 16 bits, and 0x66 selects 32 bits.
+     */
+    @Test
+    public void testFarJumpTo16BitCodeSegment() throws Exception
+    {
+        X86Core core = new X86Core(1024 * 1024);
+        core.enterProtectedMode32();
+        core.setActiveExecutor(new X86Amd64());
+        long[] gdt = {
+            0,
+            0x00CF9A000000FFFFL,                       // 0x08: flat 32-bit code
+            0x00CF92000000FFFFL,                       // 0x10: flat 32-bit data
+            0x00009E000000FFFFL,                       // 0x18: 16-bit conforming code
+            0x000092000000FFFFL,                       // 0x20: 16-bit data
+        };
+        for (int i = 0; i < gdt.length; i++) {
+            core.writeMem64(GDT + 8L * i, gdt[i]);
+        }
+        core.setGdt(GDT, 8 * gdt.length - 1);
+        core.setSegSelector(X86Core.SEG_CS, 0x08);
+        load(core, CODE,
+              0xEA, 0x00, 0x80, 0x00, 0x00, 0x18, 0x00); // jmp far 0x18:0x8000
+        load(core, 0x8000,
+              0x66, 0xB8, 0x01, 0x00, 0x01, 0x00,       // mov eax, 0x00010001
+              0xEB, 0xFE);                              // jmp $
+        core.setPC64(CODE);
+
+        steps(core, 3);
+
+        assertEquals(0x18, core.getSegSelector(X86Core.SEG_CS));
+        assertFalse(core.isCodeSize32());
+        assertEquals(0x00010001L, core.getReg64(X86Core.REG_RAX));
+        assertEquals(0x8006, core.getPC64());
+    }
+
     @Test
     public void testSegmentBaseComesFromTheDescriptor() throws Exception
     {

@@ -16,10 +16,11 @@ import java.math.BigInteger;
  * R8..R15) and operand sizes are given in bytes (1, 2, 4 or 8).
  *
  * The code segment decides how instructions are decoded: 64-bit code while
- * long mode is active and CS has the L bit, otherwise 32-bit code (CS has
- * the D bit).  In 32-bit code there is no REX prefix, addresses and the
- * stack are 32 bits wide, and segment bases are added to every memory
- * address.  16-bit code is not supported.
+ * long mode is active and CS has the L bit, otherwise 32- or 16-bit code
+ * according to CS's D bit.  In non-64-bit code there is no REX prefix and
+ * segment bases are added to every memory address; 16-bit code defaults to
+ * 16-bit operands, addresses and stack pointer, with 0x66 and 0x67 selecting
+ * the 32-bit forms.
  */
 public class X86Amd64 implements X86Core.iExecutor
 {
@@ -45,8 +46,9 @@ public class X86Amd64 implements X86Core.iExecutor
 
     private X86Core core;
 
-    /* 64-bit code, or 32-bit code (protected or compatibility mode). */
+    /* 64-bit code, 32-bit code, or 16-bit code (the CS L/D bits). */
     private boolean code64;
+    private boolean code16;
     /* Segment override prefix (SEG_ES..SEG_GS), or -1. */
     private int segOverride;
 
@@ -100,16 +102,14 @@ public class X86Amd64 implements X86Core.iExecutor
         segOverride = -1;
         boolean opSize16 = false;
         code64 = core.isLongMode() && core.isCodeLong();
-        if (!code64 && !core.isCodeSize32()) {
-            throw unknownOpcode("16-bit code; this executor runs 64-bit and 32-bit code");
-        }
+        code16 = !code64 && !core.isCodeSize32();
         dataBreakpoint = -1;
         if (core.hasBreakpoints() && (flags() & RF) == 0) {
             // An instruction breakpoint is a fault: deliver #DB before the instruction.
             int bp = core.breakpointHit(rip, 1, ACCESS_EXECUTE);
             if (bp >= 0) {
                 deliverDebugException(bp, rip);
-                core.setPC64(code64 ? ip : ip & 0xFFFFFFFFL);
+                core.setPC64(currentPc());
                 return 1;
             }
         }
@@ -120,7 +120,7 @@ public class X86Amd64 implements X86Core.iExecutor
             if (opcode == 0x66) {
                 opSize16 = true;
             } else if (opcode == 0x67) {
-                if (!code64) {
+                if (!code64 && !code16) {
                     throw unknownOpcode("prefix 0x67 (16-bit addressing)");
                 }
                 addr32 = true;
@@ -154,7 +154,9 @@ public class X86Amd64 implements X86Core.iExecutor
             rexB = opcode & 1;
             opcode = fetch8();
         }
-        opSize = rexW != 0 ? 8 : opSize16 ? 2 : 4;
+        // 0x66 toggles the code's default operand size: 64 -> 16, 32 -> 16,
+        // 16 -> 32.
+        opSize = rexW != 0 ? 8 : code16 ? (opSize16 ? 4 : 2) : opSize16 ? 2 : 4;
 
         // Throws X86UnknownOpcodeException for anything that is not implemented,
         // leaving RIP on the offending instruction.
@@ -163,12 +165,12 @@ public class X86Amd64 implements X86Core.iExecutor
         } else {
             executeOneByte(opcode);
         }
-        core.setPC64(code64 ? ip : ip & 0xFFFFFFFFL);
+        core.setPC64(currentPc());
         history[(int) (historyCount++ % HISTORY_SIZE)] = insnStart;
         if (dataBreakpoint >= 0) {
             // A data breakpoint is a trap: the instruction has run.
             deliverDebugException(dataBreakpoint, ip);
-            core.setPC64(code64 ? ip : ip & 0xFFFFFFFFL);
+            core.setPC64(currentPc());
             return 1;
         }
         // RF suppresses an instruction breakpoint for one instruction only.
@@ -229,8 +231,8 @@ public class X86Amd64 implements X86Core.iExecutor
      * machine state, so the caller gets an exception instead.
      */
     private X86UnknownOpcodeException unknownOpcode(String what) {
-        return new X86UnknownOpcodeException(core, insnStart,
-                code64 ? what : what + " in 32-bit code", recentInstructions());
+        String mode = code64 ? what : what + (code16 ? " in 16-bit code" : " in 32-bit code");
+        return new X86UnknownOpcodeException(core, insnStart, mode, recentInstructions());
     }
 
     @Override
@@ -239,6 +241,11 @@ public class X86Amd64 implements X86Core.iExecutor
     }
 
     /* ---------------- instruction bytes ---------------- */
+
+    /* The next IP, masked to the width of the current code segment. */
+    private long currentPc() {
+        return code64 ? ip : code16 ? ip & 0xFFFF : ip & 0xFFFFFFFFL;
+    }
 
     private int fetch8() {
         return core.readMem8(ip++);
@@ -365,9 +372,13 @@ public class X86Amd64 implements X86Core.iExecutor
         return segOverride >= 0 ? segOverride : defaultSeg;
     }
 
-    /* Address size in bytes: 8, or 4 with prefix 67, in 64-bit code; 4 in 32-bit code. */
+    /* Address size in bytes: 64-bit code uses 8 or 4 with 0x67; 16-bit code
+     * uses 2 or 4 with 0x67; 32-bit code uses 4. */
     private int addrSize() {
-        return code64 && !addr32 ? 8 : 4;
+        if (code64) {
+            return addr32 ? 4 : 8;
+        }
+        return code16 && !addr32 ? 2 : 4;
     }
 
     /* The stack is 64 bits wide in 64-bit code; in 32-bit code SS is a 32-bit segment. */
@@ -377,31 +388,34 @@ public class X86Amd64 implements X86Core.iExecutor
             writeMem(sp, size, v);
             setReg64(RSP, sp);
         } else {
-            long sp = (reg64(RSP) - size) & 0xFFFFFFFFL;
+            int spSize = code16 ? 2 : 4;
+            long sp = (reg64(RSP) - size) & mask(spSize);
             writeMem(linear(SEG_SS, sp), size, v);
-            setReg(RSP, 4, sp);
+            setReg(RSP, spSize, sp);
         }
     }
 
     private long pop(int size) {
-        long sp = code64 ? reg64(RSP) : reg64(RSP) & 0xFFFFFFFFL;
+        long sp = code64 ? reg64(RSP) : reg64(RSP) & mask(code16 ? 2 : 4);
         long v = readMem(linear(SEG_SS, sp), size);
         addStack(size);
         return v;
     }
 
-    /* RSP += delta, or ESP in 32-bit code. */
+    /* RSP += delta, or ESP/SP in non-64-bit code. */
     private void addStack(long delta) {
         if (code64) {
             setReg64(RSP, reg64(RSP) + delta);
         } else {
-            setReg(RSP, 4, reg64(RSP) + delta);
+            int spSize = code16 ? 2 : 4;
+            setReg(RSP, spSize, reg64(RSP) + delta);
         }
     }
 
-    /* PUSH and POP use 8 bytes (4 in 32-bit code) unless prefix 66 selects 2. */
+    /* PUSH and POP use the SS width: 8, 4 or 2 bytes.  In 16-bit code 0x66
+     * selects a 32-bit operand but leaves the stack pointer 16 bits wide. */
     private int stackSize() {
-        return opSize == 2 ? 2 : code64 ? 8 : 4;
+        return code16 ? 2 : opSize == 2 ? 2 : code64 ? 8 : 4;
     }
 
     /*
@@ -410,10 +424,10 @@ public class X86Amd64 implements X86Core.iExecutor
      * IP, which is not implemented.
      */
     private int nearSize() throws X86UnknownOpcodeException {
-        if (!code64 && opSize == 2) {
+        if (!code64 && !code16 && opSize == 2) {
             throw unknownOpcode("near branch with prefix 0x66 (16-bit IP)");
         }
-        return code64 ? 8 : 4;
+        return code64 ? 8 : opSize == 2 ? 2 : 4;
     }
 
     /* ---------------- ModR/M ---------------- */
@@ -431,6 +445,32 @@ public class X86Amd64 implements X86Core.iExecutor
         rm = modrm & 7;
         if (mod == 3) {
             rm |= rexB << 3;
+            return;
+        }
+
+        if (addrSize() == 2) {
+            // 16-bit addressing: BX/BP plus SI/DI, or a 16-bit displacement.
+            long addr;
+            int defaultSeg = SEG_DS;
+            switch (rm) {
+                case 0: addr = reg64(RBX) + reg64(RSI); break;
+                case 1: addr = reg64(RBX) + reg64(RDI); break;
+                case 2: addr = reg64(RBP) + reg64(RSI); defaultSeg = SEG_SS; break;
+                case 3: addr = reg64(RBP) + reg64(RDI); defaultSeg = SEG_SS; break;
+                case 4: addr = reg64(RSI); break;
+                case 5: addr = reg64(RDI); break;
+                case 6: addr = mod == 0 ? fetch16() : reg64(RBP);
+                        if (mod != 0) defaultSeg = SEG_SS;
+                        break;
+                default: addr = reg64(RBX); break;
+            }
+            if (mod == 1) {
+                addr += (byte) fetch8();
+            } else if (mod == 2) {
+                addr += (short) fetch16();
+            }
+            offset = addr & 0xFFFF;
+            ea = linear(dataSeg(defaultSeg), offset);
             return;
         }
 
@@ -924,16 +964,16 @@ public class X86Amd64 implements X86Core.iExecutor
                 portOut((int) getReg(RDX, 2), size, getReg(RAX, size));
                 return;
             }
-            case 0xE8: {                            // CALL rel32
+            case 0xE8: {                            // CALL rel16/rel32
                 int size = nearSize();
-                long rel = fetch32();
-                push(ip, size);
+                long rel = fetchImmZ();
+                push(currentPc(), size);
                 ip += rel;
                 return;
             }
-            case 0xE9: {                            // JMP rel32
+            case 0xE9: {                            // JMP rel16/rel32
                 nearSize();
-                long rel = fetch32();
+                long rel = fetchImmZ();
                 ip += rel;
                 return;
             }
@@ -1280,7 +1320,7 @@ public class X86Amd64 implements X86Core.iExecutor
         // Jcc rel32: 0F 80..8F
         if ((op2 & 0xF0) == 0x80) {
             nearSize();
-            long rel = fetch32();
+            long rel = fetchImmZ();                 // rel16 in 16-bit code, rel32 otherwise
             if (condition(op2 & 0xF)) ip += rel;
             return;
         }
@@ -1618,18 +1658,19 @@ public class X86Amd64 implements X86Core.iExecutor
         core.setSegBase(seg, base);
     }
 
-    /* Size of a far pointer's offset: 4, or 8 with REX.W.  16-bit offsets are not implemented. */
+    /* Size of a far pointer's offset: 2 in 16-bit code, 4 in 32-bit code,
+     * 8 in 64-bit code. */
     private int farSize() throws X86UnknownOpcodeException {
-        if (opSize == 2) {
+        if (opSize == 2 && !code16) {
             throw unknownOpcode("far branch with a 16-bit offset");
         }
-        return opSize;
+        return code64 && opSize == 2 ? 8 : opSize;
     }
 
-    /* The offset of an immediate far pointer (ptr16:32). */
+    /* The offset of an immediate far pointer (ptr16:16 or ptr16:32). */
     private long farOffsetImm() throws X86UnknownOpcodeException {
-        farSize();
-        return fetch32() & 0xFFFFFFFFL;
+        int size = farSize();
+        return size == 2 ? fetch16() & 0xFFFFL : fetch32() & 0xFFFFFFFFL;
     }
 
     private void farCall(int selector, long target) throws X86UnknownOpcodeException {
@@ -1673,12 +1714,14 @@ public class X86Amd64 implements X86Core.iExecutor
      */
     private void enterCode(int selector, long d, long target) {
         boolean longSegment = core.isLongMode() && (d & (1L << 53)) != 0;
+        boolean code32Segment = !longSegment && (d & (1L << 54)) != 0;
         core.setSegSelector(SEG_CS, selector);
         core.setSegBase(SEG_CS, 0);
         core.setCodeLong(longSegment);
-        core.setCodeSize32(!longSegment && (d & (1L << 54)) != 0);
-        ip = longSegment ? target : target & 0xFFFFFFFFL;
+        core.setCodeSize32(code32Segment);
+        ip = longSegment ? target : code32Segment ? target & 0xFFFFFFFFL : target & 0xFFFFL;
         code64 = longSegment;
+        code16 = !longSegment && !code32Segment;
     }
 
     /**
