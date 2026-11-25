@@ -108,7 +108,10 @@ public class X86Amd64 implements X86Core.iExecutor
         segOverride = -1;
         boolean opSize16 = false;
         dataBreakpoint = -1;
-        if (core.hasBreakpoints() && (flags() & RF) == 0) {
+        // A breakpoint that cannot be delivered (for example before the guest
+        // has loaded an IDT) is ignored rather than stopping the simulation.
+        boolean deliverDebug = core.hasBreakpoints() && canDeliverDebugException();
+        if (deliverDebug && (flags() & RF) == 0) {
             // An instruction breakpoint is a fault: deliver #DB before the instruction.
             int bp = core.breakpointHit(rip, 1, ACCESS_EXECUTE);
             if (bp >= 0) {
@@ -171,7 +174,7 @@ public class X86Amd64 implements X86Core.iExecutor
         }
         core.setPC64(currentPc());
         history[(int) (historyCount++ % HISTORY_SIZE)] = insnStart;
-        if (dataBreakpoint >= 0) {
+        if (deliverDebug && dataBreakpoint >= 0) {
             // A data breakpoint is a trap: the instruction has run.
             deliverDebugException(dataBreakpoint, ip);
             core.setPC64(currentPc());
@@ -1766,6 +1769,36 @@ public class X86Amd64 implements X86Core.iExecutor
         code64 = longSegment;
         code16 = !longSegment && !code32Segment;
         codeBase = base;
+    }
+
+    /**
+     * Whether vector 1 has a usable 32-bit interrupt gate.  Early boot code can
+     * enable debug registers before it installs an IDT; such breakpoints are
+     * ignored instead of stopping the simulation with an undeliverable fault.
+     */
+    private boolean canDeliverDebugException() {
+        if (!core.isProtectedMode() || code64) {
+            return false;
+        }
+        long idtBase = core.getIdtBase();
+        if (idtBase == 0 || 1 * 8 + 7 > core.getIdtLimit()) {
+            return false;
+        }
+        long gate = core.readMem64(idtBase + 1 * 8L);
+        if ((gate & (1L << 47)) == 0) {
+            return false;
+        }
+        int type = (int) ((gate >>> 40) & 0xFF);
+        if ((type & 0x1F) != 0x0E) {
+            return false;
+        }
+        int selector = (int) ((gate >>> 16) & 0xFFFF);
+        try {
+            codeDescriptor(selector);
+        } catch (X86UnknownOpcodeException e) {
+            return false;
+        }
+        return true;
     }
 
     /**

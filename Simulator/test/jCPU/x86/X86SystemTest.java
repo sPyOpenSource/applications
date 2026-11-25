@@ -483,6 +483,28 @@ public class X86SystemTest
         assertEquals(0x8000, core.getReg64(X86Core.REG_RSP));
     }
 
+    /**
+     * jxcore enables a write breakpoint on address 0 very early, before the
+     * guest has loaded an IDT.  The write must still happen and execution must
+     * continue instead of stopping on an undeliverable #DB.
+     */
+    @Test
+    public void testBreakpointWithoutIdtIsIgnored() throws Exception
+    {
+        X86Core core = core32(
+                0x31, 0xC0,                             // xor eax, eax
+                0x0F, 0x23, 0xC8,                       // mov dr1, eax
+                0xB8, 0x08, 0x02, 0xD0, 0x00,           // mov eax, 0xD00208 (G1, write, 4 bytes)
+                0x0F, 0x23, 0xF8,                       // mov dr7, eax
+                0xB8, 0x5A, 0x00, 0x00, 0x00,           // mov eax, 0x5A
+                0x89, 0x05, 0x00, 0x00, 0x00, 0x00);    // mov [0], eax
+        steps(core, 6);
+
+        assertTrue(core.hasBreakpoints());
+        assertEquals(0x5A, core.readMem32(0));
+        assertEquals(CODE + 0x18, core.getPC64());
+    }
+
     @Test
     public void testInstructionBreakpointDeliversDebugException() throws Exception
     {
