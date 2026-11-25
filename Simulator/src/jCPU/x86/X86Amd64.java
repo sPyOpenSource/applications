@@ -1608,9 +1608,10 @@ public class X86Amd64 implements X86Core.iExecutor
             if (seg == SEG_SS ? code || !writableOrReadable : code && !writableOrReadable) {
                 throw unknownOpcode(String.format("%s: segment 0x%X cannot be used here", what, selector));
             }
-            if (seg == SEG_SS && !code64 && (d & (1L << 54)) == 0) {
-                throw unknownOpcode(String.format("%s: segment 0x%X is a 16-bit stack", what, selector));
-            }
+            // The D/B bit of an SS descriptor selects a 16- or 32-bit stack
+            // pointer on real hardware, but Intel's MOV-to-SS checks do not
+            // require it to be set in 32-bit code.  GRUB's relocator loads a
+            // 16-bit data segment into SS just before leaving long mode.
             base = descriptorBase(d);
         }
         core.setSegSelector(seg, selector);

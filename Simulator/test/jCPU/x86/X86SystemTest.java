@@ -174,6 +174,42 @@ public class X86SystemTest
         assertEquals(0x7000, core.getReg64(X86Core.REG_RSP));
     }
 
+    /**
+     * A 16-bit writable data segment is a legal SS in 32-bit protected mode:
+     * Intel's MOV-to-SS checks require a present writable data segment with
+     * matching privilege, but place no requirement on the descriptor's D/B
+     * bit.  GRUB's 32-bit relocator loads exactly such a descriptor before
+     * leaving long mode.
+     */
+    @Test
+    public void testLoad16BitWritableDataSegmentIntoSS() throws Exception
+    {
+        X86Core core = new X86Core(1024 * 1024);
+        core.enterProtectedMode32();
+        core.setActiveExecutor(new X86Amd64());
+        long[] gdt = {
+            0,
+            0x00CF9A000000FFFFL,                       // 0x08: flat 32-bit code
+            0x008F92000000FFFFL,                       // 0x10: flat 16-bit writable data
+        };
+        for (int i = 0; i < gdt.length; i++) {
+            core.writeMem64(GDT + 8L * i, gdt[i]);
+        }
+        core.setGdt(GDT, 8 * gdt.length - 1);
+        core.setSegSelector(X86Core.SEG_CS, 0x08);
+        load(core, CODE,
+             0x66, 0xB8, 0x10, 0x00,                  // mov ax, 0x10
+             0x8E, 0xD0,                              // mov ss, eax
+             0xEB, 0xFE);                             // jmp $
+        core.setPC64(CODE);
+        core.setReg64(X86Core.REG_RSP, 0x8000);
+
+        steps(core, 3);
+
+        assertEquals(0x10, core.getSegSelector(X86Core.SEG_SS));
+        assertEquals(0, core.getSegBase(X86Core.SEG_SS));
+    }
+
     @Test
     public void testSegmentBaseComesFromTheDescriptor() throws Exception
     {
