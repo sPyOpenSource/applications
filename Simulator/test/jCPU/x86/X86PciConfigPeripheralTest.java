@@ -43,6 +43,20 @@ public class X86PciConfigPeripheralTest
     }
 
     @Test
+    public void testFakeDeviceHeaderIsDiscoverableByScanBus() {
+        X86PciConfigPeripheral pci = new X86PciConfigPeripheral();
+        // PCIGod.scanBus() rejects class codes 0x000000 and 0xffffff.
+        select(pci, 0x08);
+        assertEquals(0x02000000, readConfigDataDword(pci)); // Ethernet, no sub-class
+        // Header type 0 tells PCIGod this function has no siblings.
+        select(pci, 0x0C);
+        assertEquals(0, readConfigDataDword(pci));
+        // The fake device deliberately has no usable BARs.
+        select(pci, 0x10);
+        assertEquals(0xFFFFFFFF, readConfigDataDword(pci));
+    }
+
+    @Test
     public void testConfigDataNoDeviceElsewhere() {
         X86PciConfigPeripheral pci = new X86PciConfigPeripheral();
         assertEquals(0xFFFFFFFF, readConfigDataDword(pci));
@@ -112,6 +126,13 @@ public class X86PciConfigPeripheralTest
         pci.write(0xCFA, (byte) 0x00);
         pci.write(0xCFB, (byte) 0x80);
         assertEquals(0x435311AB, readConfigDataDword(pci));
+    }
+
+    private static void select(X86PciConfigPeripheral pci, int register) {
+        pci.write(0xCF8, (byte) register);
+        pci.write(0xCF9, (byte) 0x00);
+        pci.write(0xCFA, (byte) 0x00);
+        pci.write(0xCFB, (byte) 0x80);
     }
 
     private static int readConfigDataDword(X86PciConfigPeripheral pci) {

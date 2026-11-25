@@ -15,11 +15,12 @@ import jCPU.Peripheral;
  * requires 4-byte-aligned config cycles).
  *
  * CONFIG_DATA reads are decoded from CONFIG_ADDRESS.  When bit 31 (enable)
- * is set and the address selects bus 0 / device 0 / function 0 / register 0,
- * a minimal fake device ID (Marvell 0x11AB / Yukon 88E8055 0x4353) is
- * returned so guest PCI enumeration finds a device.  All other addresses
- * return 0xFFFFFFFF ("no device").  The fake device's other registers are
- * also 0xFFFFFFFF so no guest driver claims it.
+ * is set and the address selects bus 0 / device 0 / function 0, a minimal
+ * header is returned so guest enumeration can discover the device: vendor
+ * 0x11AB / device 0x4353, class 0x020000 (Ethernet), header type 0, and no
+ * capability list.  All other addresses return 0xFFFFFFFF ("no device").
+ * Unimplemented registers (including the BARs) stay 0xFFFFFFFF so no guest
+ * driver tries to claim the fake device.
  */
 public class X86PciConfigPeripheral implements Peripheral
 {
@@ -31,6 +32,7 @@ public class X86PciConfigPeripheral implements Peripheral
     public static final int FAKE_VENDOR_ID  = 0x11AB;
     public static final int FAKE_DEVICE_ID  = 0x4353;
     public static final int FAKE_DEVVEND    = (FAKE_DEVICE_ID << 16) | FAKE_VENDOR_ID; // 0x435311AB
+    private static final int FAKE_CLASS_CODE = 0x02000000; // class 0x02, subclass 0, prog-if 0
 
     private final byte[] configAddress = new byte[4];
 
@@ -81,8 +83,13 @@ public class X86PciConfigPeripheral implements Peripheral
         int device   = (address >>> 11) & 0x1F;
         int function = (address >>> 8)  & 0x07;
         int register = address & 0xFC;
-        if (bus == 0 && device == 0 && function == 0 && register == 0) {
-            return FAKE_DEVVEND;
+        if (bus == 0 && device == 0 && function == 0) {
+            switch (register) {
+                case 0x00: return FAKE_DEVVEND;
+                case 0x08: return FAKE_CLASS_CODE; // BARs remain 0xFFFFFFFF
+                case 0x0C: return 0;                // header type 0, no capabilities
+                default:   return NO_DEVICE;
+            }
         }
         return NO_DEVICE;
     }
