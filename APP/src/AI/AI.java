@@ -58,7 +58,7 @@ int j = 0;
         }
 
         logThread = new Thread(log, "logic");
-        /*while(true){
+        while(true){
             for (USBHubMonitor monitor : monitors) {
                 if (monitor == null) {
                     continue;
@@ -66,7 +66,7 @@ int j = 0;
                 monitor.startMonitor();
             }
             break;
-        }*/
+        }
     }
     
     public void start()
