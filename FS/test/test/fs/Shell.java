@@ -16,8 +16,6 @@ import jx.fs.FS;
 import jx.fs.FileSystem;
 import jx.fs.InodeImpl;
 import jx.fs.FSException;
-import jx.fs.InodeIOException;
-import jx.fs.NotExistException;
 
 
 class Parser {

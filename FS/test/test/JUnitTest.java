@@ -14,7 +14,7 @@ import org.junit.Test;
  * @author X. Wang
  */
 public class JUnitTest extends TestCase{
-    private final static AIMemory MEMORY = new AIMemory();
+    private final static AIMemory MEMORY = new AIMemory(null);
     
     @Test
     public void testLogpath(){

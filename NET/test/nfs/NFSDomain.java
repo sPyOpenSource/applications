@@ -1,4 +1,4 @@
-package test.nfs;
+package nfs;
 
 import jx.zero.*;
 import jx.zero.debug.*;

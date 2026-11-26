@@ -32,7 +32,7 @@ public class WebServer {
 	boolean opt_threads = true;
 	String fsname = "USBFS";
 	boolean opt_use_fs = true;
-	boolean opt_dummyfiles = false;
+	boolean opt_dummyfiles = true;
 
 	int argc;
         OUTER:

@@ -1,4 +1,4 @@
-package test.nfs;
+package nfs;
 
 public class Main {
     static final int RPC_LOCALPORT = 1000;
