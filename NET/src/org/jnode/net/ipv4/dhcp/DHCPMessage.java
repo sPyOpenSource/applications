@@ -25,12 +25,8 @@ import java.net.DatagramPacket;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+
 import jx.net.protocol.bootp.BOOTPFormat;
-import jx.zero.Debug;
 import jx.zero.Memory;
 
 /**
@@ -183,13 +179,13 @@ public class DHCPMessage {
     public DHCPMessage(Memory skbuf) {
         this(new BOOTPFormat(skbuf));
         int i = BOOTPFormat.SIZE + 4 + 14 + 20 + 8;
-        int optionCode = skbuf.get8(i);
+        int optionCode = skbuf.get8(i) & 0xFF;
         while (optionCode != END_OPTION) {
-            Debug.out.println("opt: " + optionCode);
+            //Debug.out.println("opt: " + optionCode);
             if (optionCode == PAD_OPTION) {
                 i++;
             } else {
-                int optionLength = skbuf.get8(i + 1);
+                int optionLength = skbuf.get8(i + 1) & 0xFF;
                 byte[] optionValue = new byte[optionLength];
                 //skbuf.get(optionValue, 0, i + 2, optionLength);
                 for(int j = 0; j < optionLength; j++){
@@ -198,7 +194,7 @@ public class DHCPMessage {
                 setOption(optionCode, optionValue);
                 i += optionLength + 2;
             }
-            optionCode = skbuf.get8(i);
+            optionCode = skbuf.get8(i) & 0xFF;
         }
     }
 
@@ -227,7 +223,6 @@ public class DHCPMessage {
         if (code == MESSAGE_TYPE_OPTION) {
             messageType = value[0];
         } else {
-            Debug.out.println("put");
             options[code] = value;
         }
     }
@@ -281,7 +276,6 @@ public class DHCPMessage {
      * @return 
      */
     public DatagramPacket toDatagramPacket() {
-        Debug.out.println("todata");
         final Memory skbuf = header.getMemory();//new SocketBuffer();
         //skbuf.insert(OPTIONS_SIZE);
         int offset = 0x116 - 34 - 8;
@@ -300,7 +294,7 @@ public class DHCPMessage {
             final int optionCode = i;
             final byte optionValue[] = (byte[])options[i];
             if(optionValue != null){
-                Debug.out.println(i);
+                //Debug.out.println(i);
                 skbuf.set8(n + offset, (byte)optionCode);
                 skbuf.set8(n + 1 + offset, (byte)optionValue.length);
                 skbuf.copyFromByteArray(optionValue, 0, n + 2 + offset, optionValue.length);

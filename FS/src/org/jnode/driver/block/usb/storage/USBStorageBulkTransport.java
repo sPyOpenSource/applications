@@ -20,6 +20,7 @@
  
 package org.jnode.driver.block.usb.storage;
 
+import jx.zero.Debug;
 import jx.zero.Memory;
 import org.jnode.driver.bus.scsi.CDB;
 import org.jnode.driver.bus.usb.SetupPacket;
@@ -90,7 +91,7 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
                 : (USBDataPipe) storageDeviceData.getBulkOutEndPoint().getPipe();
             for (int offset = 0; offset < dataLen; offset += MAX_BOT_TRANSFER) {
                 int chunk = Math.min(MAX_BOT_TRANSFER, dataLen - offset);
-                USBPacket packet = new USBPacket(data.getSubRange(dataOffset + offset, chunk));
+                USBPacket packet = new USBPacket(data, dataOffset + offset, chunk);
                 USBRequest dataReq = dataPipe.createRequest(packet);
                 dataPipe.syncSubmit(dataReq, timeout);
                 if (dataReq.getStatus() != USBREQ_ST_COMPLETED) {
@@ -122,7 +123,7 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
         }
         int residue = csw.getResidue();
         if (residue != 0) {
-            System.err.println("WARNING: CSW residue = " + residue + " on opcode 0x"
+            Debug.out.println("WARNING: CSW residue = " + residue + " on opcode 0x"
                 + NumberUtils.hex(cdb.getOpcode(), 2));
         }
     }

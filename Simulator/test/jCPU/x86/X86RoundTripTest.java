@@ -19,8 +19,8 @@ public class X86RoundTripTest {
         core.setPC(0);
         core.setActiveExecutor(new X86BinaryExecutor());
 
-        int[] regsBefore = new int[X86Core.REG_COUNT];
-        for (int i = 0; i < X86Core.REG_COUNT; i++) regsBefore[i] = core.getReg(i);
+        int[] regsBefore = new int[X86Core.REG_COUNT_32];
+        for (int i = 0; i < X86Core.REG_COUNT_32; i++) regsBefore[i] = core.getReg(i);
 
         for (int i = 0; i < 4; i++) core.step();
 

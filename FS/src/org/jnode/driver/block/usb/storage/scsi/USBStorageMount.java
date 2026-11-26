@@ -24,7 +24,10 @@ import jx.devices.bio.BlockIO;
 import jx.fs.FileSystem;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
+import jx.zero.Memory;
+import jx.zero.MemoryManager;
 import jx.zero.Naming;
+
 import org.jnode.driver.block.usb.storage.USBStorageConstants;
 import org.jnode.driver.block.usb.storage.USBStorageSCSIHostDriver;
 import org.jnode.driver.bus.usb.InterfaceDescriptor;
@@ -78,7 +81,9 @@ public class USBStorageMount implements USBHubMonitor.USBDeviceAttachListener {
             final USBStorageSCSIDriver scsiDriver = new USBStorageSCSIDriver();
             scsiDriver.startDevice(hostDriver.getScsiDevice());
 
-            final BlockIO bio = new USBStorageBlockIO(scsiDriver);
+            final BlockIO wholeDisk = new USBStorageBlockIO(scsiDriver);
+            final int[] partition = findFatPartition(wholeDisk);
+            final BlockIO bio = new USBPartitionBlockIO(wholeDisk, partition[0], partition[1]);
             Debug.out.println("USBStorageMount: capacity " + bio.getCapacity()
                 + " sectors x " + bio.getSectorSize() + " bytes");
 
@@ -93,6 +98,44 @@ public class USBStorageMount implements USBHubMonitor.USBDeviceAttachListener {
         } catch (Exception t) {
             Debug.out.println("USBStorageMount: mount failed: " + t);
         }
+    }
+
+    /**
+     * Locate the first FAT primary partition in an MBR.  Returns a pair of
+     * {startSector, sectorCount}; {0, wholeDiskCapacity} means either there is
+     * no MBR or the whole device is a filesystem.
+     */
+    private static int[] findFatPartition(BlockIO wholeDisk) {
+        final int wholeCapacity = wholeDisk.getCapacity();
+        final MemoryManager mm = (MemoryManager) InitialNaming.getInitialNaming().lookup("MemoryManager");
+        final Memory mbr = mm.allocAligned(512, 8);
+        wholeDisk.readSectors(0, 1, mbr, true);
+        if ((mbr.get8(510) & 0xFF) != 0x55 || (mbr.get8(511) & 0xFF) != 0xAA) {
+            return new int[]{0, wholeCapacity};
+        }
+        for (int i = 0; i < 4; i++) {
+            final int off = 446 + i * 16;
+            final int type = mbr.get8(off + 4) & 0xFF;
+            final int start = getLe32(mbr, off + 8);
+            final int count = getLe32(mbr, off + 12);
+            if (isFatPartitionType(type) && start > 0 && count > 0
+                && start < wholeCapacity && count <= wholeCapacity - start) {
+                return new int[]{start, count};
+            }
+        }
+        return new int[]{0, wholeCapacity};
+    }
+
+    private static int getLe32(Memory mem, int off) {
+        return (mem.get8(off) & 0xFF)
+            | ((mem.get8(off + 1) & 0xFF) << 8)
+            | ((mem.get8(off + 2) & 0xFF) << 16)
+            | ((mem.get8(off + 3) & 0xFF) << 24);
+    }
+
+    private static boolean isFatPartitionType(int type) {
+        return type == 0x01 || type == 0x04 || type == 0x06
+            || type == 0x0B || type == 0x0C || type == 0x0E;
     }
 
     /**

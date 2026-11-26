@@ -6,14 +6,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-public class WasmSim implements iCPU {
+public class CPU implements iCPU {
     private WasmModule module;
     private WasmRuntime runtime;
     private boolean running = false;
     private WasmStack operandStack;
     private long[] locals = new long[256];
 
-    public WasmSim() {
+    public CPU() {
         System.out.println("WebAssembly Simulator");
     }
 

@@ -1,11 +1,8 @@
 package jx.netmanager;
 
-import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketTimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import jx.net.protocol.ether.*;
 import jx.net.protocol.ip.*;
@@ -105,7 +102,6 @@ public class NetInit implements jx.net.NetInit, Service {
             DatagramSocket clientSocket = new DatagramSocket(68);
             for(int i = 0; i < 5; i++){
                 clientSocket.send(sendPacket);
-                Debug.out.println("sended");
                 byte[] receiveData = new byte[1024];
                 DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
                 clientSocket.setSoTimeout(200);
@@ -115,10 +111,8 @@ public class NetInit implements jx.net.NetInit, Service {
                     localAddress = new IPv4Address(new byte[]{(byte)192,(byte)168,(byte)1,(byte)90});
                     continue;
                 }
-                Debug.out.println("received");
                 Memory buf = getUDPBuffer(380);
                 buf.copyFromByteArray(receivePacket.getData(), 0, 34 + 8, buf.size() - 34 - 8);
-                Debug.out.println("finished");
                 localAddress = dhcp.processResponse(id, buf, clientSocket);
                 break;
             }

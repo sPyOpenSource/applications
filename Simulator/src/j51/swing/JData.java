@@ -115,7 +115,7 @@ public abstract class JData extends J51Panel
 			add.setEditable(!mode);
 	}
 
-	void setAddress(int base)
+	public void setAddress(int base)
 	{
 		this.base = base;
 		for (int i = 0; i < row; i++){

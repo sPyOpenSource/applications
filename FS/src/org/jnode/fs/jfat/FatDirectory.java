@@ -36,6 +36,9 @@ import jx.fs.Node;
 import jx.fs.NotExistException;
 import jx.fs.Permission;
 import jx.fs.PermissionException;
+import jx.zero.InitialNaming;
+import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 public class FatDirectory extends FatEntry
 {
@@ -47,6 +50,13 @@ public class FatDirectory extends FatEntry
      * The map of ID -> entry.
      */
     private final Map<String, FatEntry> idMap = new HashMap<>();
+    private static final int MAX_INDEX_CACHE = 256;
+    private final String[] indexCacheNames = new String[MAX_INDEX_CACHE];
+    private final int[] indexCacheValues = new int[MAX_INDEX_CACHE];
+    private int indexCacheCount;
+    private Memory entryBuffer;
+    private Memory clusterBuffer;
+    private int cachedCluster = -1;
 
     /*
      * for root directory
@@ -87,9 +97,27 @@ public class FatDirectory extends FatEntry
      * this is actually a FatDirEntry factory and not a standard read method ...
      * but how would you call it?
      */
-    public FatDirEntry getFatDirEntry(int index, boolean allowDeleted) throws IOException {
-        FatMarshal entry = new FatMarshal(FatDirEntry.LENGTH);
-        getChain().read(index * entry.length(), entry.getByteBuffer(), 0);
+    public synchronized FatDirEntry getFatDirEntry(int index, boolean allowDeleted) throws IOException {
+        final int clusterSize = getFatFileSystem().getFat().getClusterSize();
+        final int byteOffset = index * FatDirEntry.LENGTH;
+        final int clusterIndex = byteOffset / clusterSize;
+
+        if (clusterBuffer == null || clusterBuffer.size() < clusterSize) {
+            MemoryManager mm = (MemoryManager) InitialNaming.getInitialNaming().lookup("MemoryManager");
+            clusterBuffer = mm.alloc(clusterSize);
+            cachedCluster = -1;
+        }
+        if (entryBuffer == null) {
+            MemoryManager mm = (MemoryManager) InitialNaming.getInitialNaming().lookup("MemoryManager");
+            entryBuffer = mm.alloc(FatDirEntry.LENGTH);
+        }
+        if (cachedCluster != clusterIndex) {
+            getChain().read(clusterIndex * clusterSize, clusterBuffer, clusterSize);
+            cachedCluster = clusterIndex;
+        }
+        entryBuffer.copyFromMemory(clusterBuffer, byteOffset % clusterSize, 0, FatDirEntry.LENGTH);
+
+        FatMarshal entry = new FatMarshal(entryBuffer);
         return createDirEntry(entry, index, allowDeleted);
     }
 
@@ -248,8 +276,49 @@ public class FatDirectory extends FatEntry
         }
     }
 
+    private int findCachedIndex(String name) {
+        if (name == null)
+            return -1;
+        for (int i = 0; i < indexCacheCount; i++) {
+            if (FatUtils.compareIgnoreCase(indexCacheNames[i], name))
+                return indexCacheValues[i];
+        }
+        return -1;
+    }
+
+    void cacheEntry(String name, int startIndex) {
+        if (name == null || name.length() == 0)
+            return;
+        for (int i = 0; i < indexCacheCount; i++) {
+            if (FatUtils.compareIgnoreCase(indexCacheNames[i], name)) {
+                indexCacheValues[i] = startIndex;
+                return;
+            }
+        }
+        if (indexCacheCount < MAX_INDEX_CACHE) {
+            indexCacheNames[indexCacheCount] = name;
+            indexCacheValues[indexCacheCount] = startIndex;
+            indexCacheCount++;
+        }
+    }
+
     public synchronized Node getEntry(String name) {
         FatEntry child = children.get(name);
+
+        if (child == null) {
+            int startIndex = findCachedIndex(name);
+            if (startIndex >= 0) {
+                FatEntriesFactory cached = new FatEntriesFactory(this, false, startIndex);
+                if (cached.hasNextEntry()) {
+                    child = cached.createNextEntry();
+                    if (FatUtils.compareIgnoreCase(child.getName(), name)) {
+                        children.put(child);
+                        return child;
+                    }
+                    child = null;
+                }
+            }
+        }
 
         if (child == null) {
             FatEntriesFactory f = new FatEntriesFactory(this, false);
@@ -300,6 +369,16 @@ public class FatDirectory extends FatEntry
 
     public FatEntry getEntryByName(String name) {
         FatEntry child = null;
+        int startIndex = findCachedIndex(name);
+        if (startIndex >= 0) {
+            FatEntriesFactory cached = new FatEntriesFactory(this, false, startIndex);
+            if (cached.hasNextEntry()) {
+                child = cached.createNextEntry();
+                if (FatUtils.compareIgnoreCase(child.getName(), name))
+                    return child;
+            }
+        }
+
         FatEntriesFactory f = new FatEntriesFactory(this, false);
 
         while (f.hasNextEntry()) {

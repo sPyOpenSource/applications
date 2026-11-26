@@ -16,7 +16,6 @@ import jx.classfile.constantpool.MethodRefCPEntry;
 import jx.classfile.constantpool.NameAndTypeCPEntry;
 import jx.classfile.constantpool.StringCPEntry;
 import jx.disass.Disassembler;
-//import jx.verifier.Verifier;
 
 /**
  *
@@ -36,7 +35,7 @@ public class CPU implements iCPU {
     private SimpleMethodPool simpleMethodPool;
     private VmStackFrame stack;
     private LocalVariables localVariables;
-    private FExec vm = new FExec(new Thread(), 1000);
+    private FExec vm = new FExec(1000);
 
     protected int pc;
 

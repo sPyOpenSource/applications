@@ -24,7 +24,7 @@ public class CpuUartIntegrationTest {
         CPU cpu = new CPU();
         VirtualMemorySpace vm = cpu.getVirtualMemorySpace();
 
-        vm.write(0x10000000, (int) 'H');
+        vm.write(Pi2MemoryMap.UART_BASE, (int) 'H');
 
         assertEquals("H", testOut.toString());
     }

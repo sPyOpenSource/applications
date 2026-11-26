@@ -53,7 +53,7 @@ public class USBStorageBlockIO implements BlockIO {
     @Override
     public int getCapacity() {
         try {
-            return (int) (driver.getLength() / sectorSize);
+            return driver.getCapacityInSectors();
         } catch (IOException e) {
             throw new Error("Failed to read capacity", e);
         }
@@ -68,10 +68,8 @@ public class USBStorageBlockIO implements BlockIO {
     public void readSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous) {
         final int length = numberOfSectors * sectorSize;
         checkBufferSize(buf, length);
-        final byte[] data = new byte[length];
         try {
-            driver.read((long) startSector * sectorSize, data);
-            buf.copyFromByteArray(data, 0, 0, length);
+            driver.readBlocks(startSector, numberOfSectors, buf, 0);
         } catch (IOException e) {
             throw new Error("Read failed", e);
         }
@@ -81,12 +79,8 @@ public class USBStorageBlockIO implements BlockIO {
     public void writeSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous) {
         final int length = numberOfSectors * sectorSize;
         checkBufferSize(buf, length);
-        final byte[] data = new byte[length];
-        for (int i = 0; i < length; i++) {
-            data[i] = buf.get8(i);
-        }
         try {
-            driver.write((long) startSector * sectorSize, data);
+            driver.writeBlocks(startSector, numberOfSectors, buf, 0);
         } catch (IOException e) {
             throw new Error("Write failed", e);
         }

@@ -57,7 +57,7 @@ public abstract class Fat {
     public static Fat create(BlockIO api) throws IOException 
     {
         MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
-        Memory buffer = memoryManager.allocAligned(512, 8);
+        Memory buffer = memoryManager.allocAligned(512 * 4, 8);
         api.readSectors(0, 1, buffer, true);
         //for(int i = 0; i < 512; i++) System.out.print(buffer.get8(i) + " ");
         BootSector bs = new BootSector(buffer);
@@ -65,7 +65,7 @@ bs.toString();
         if (bs.isFat32()) {
             return new Fat32(bs, api);
         } else if (bs.isFat16()) {
-            return null;//new Fat16(bs, api);
+            return new Fat16(bs, api);
         } else if (bs.isFat12()) {
             return new Fat12(bs, api);
         }
@@ -128,8 +128,24 @@ bs.toString();
             throw new IllegalArgumentException("length[" + (offset + dst.remaining()) + "] " +
                 "exceed clusterSize[" + getClusterSize() + "]");
         }*/
-        Debug.out.println(" cpos: " + getClusterPosition(cluster) + " spc: " + getBootSector().getSectorsPerCluster());
-        getApi().readSectors(getClusterPosition(cluster) / 512, getBootSector().getSectorsPerCluster(), dst, true);
+        final int bytesPerSector = getBootSector().getBytesPerSector();
+        if (bytesPerSector <= 0) {
+            throw new IOException("Invalid bytes per sector: " + bytesPerSector);
+        }
+
+        // callers may supply a buffer smaller than a whole cluster (for
+        // example a single sector); only read as many sectors as will fit.
+        int sectors = (getClusterSize() - offset + bytesPerSector - 1) / bytesPerSector;
+        final int maxSectors = dst.size() / bytesPerSector;
+        if (sectors > maxSectors) {
+            sectors = maxSectors;
+        }
+        if (sectors <= 0) {
+            return;
+        }
+
+        final int startSector = getClusterPosition(cluster) / bytesPerSector + offset / bytesPerSector;
+        getApi().readSectors(startSector, sectors, dst, true);
     }
 
     /*public void writeCluster(int cluster, int offset, ByteBuffer src) throws IOException {
@@ -217,6 +233,9 @@ bs.toString();
     }
 
     public int getUInt32(int index) throws IOException {
+        if (index < 0 || index >= size()) {
+            return eofChain();
+        }
         return cache.getUInt32(index);
     }
 

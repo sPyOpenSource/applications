@@ -1,13 +1,6 @@
 package test.fs;
 
-import AI.AIMemory;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jx.devices.bio.BlockIO;
-import vfs.FSImpl;
-
-import jx.fs.InodeImpl;
 import jx.zero.CPUManager;
 import jx.zero.Clock;
 import jx.zero.Debug;
@@ -17,8 +10,10 @@ import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
+
 import org.jnode.fs.jfat.FatFileSystem;
 import org.jnode.fs.jfat.FatRootDirectory;
+import vfs.FSImpl;
 
 public class FSDomain {
     Naming naming;

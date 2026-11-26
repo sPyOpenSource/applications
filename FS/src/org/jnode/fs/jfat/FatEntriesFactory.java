@@ -16,9 +16,13 @@ public class FatEntriesFactory {
     private final FatDirectory directory;
     
     public FatEntriesFactory(FatDirectory directory, boolean includeDeleted) {
+        this(directory, includeDeleted, 0);
+    }
+
+    public FatEntriesFactory(FatDirectory directory, boolean includeDeleted, int startIndex) {
         label = false;
-        index = 0;
-        next = 0;
+        index = startIndex;
+        next = startIndex;
         entry = null;
         this.includeDeleted = includeDeleted;
         this.directory = directory;
@@ -28,15 +32,15 @@ public class FatEntriesFactory {
         int i;
         FatDirEntry e;
         FatRecord v = new FatRecord();
+        final int recordStart = index;
 
         if (index > FatDirectory.MAXENTRIES)
             Debug.out.println("Full Directory: invalid index " + index);
 
         for (i = index;; ) {
-            //Debug.out.println("index: " + i);
-                /*
-                 * create a new entry from the chain
-                 */
+            /*
+             * create a new entry from the chain
+             */
             try {
                 e = directory.getFatDirEntry(i, includeDeleted);
                 i++;
@@ -44,7 +48,7 @@ public class FatEntriesFactory {
                 entry = null;
                 return false;
             } catch (IOException ex) {
-                Debug.out.println("cannot read entry " + i);
+                Debug.out.println("cannot read entry " + i + ": " + ex);
                 i++;
                 continue;
             }
@@ -103,6 +107,7 @@ public class FatEntriesFactory {
         else
             this.entry = new FatFile(directory.getFatFileSystem(), directory, v);
 
+        directory.cacheEntry(this.entry.getName(), recordStart);
         this.next = i;
         return true;
     }

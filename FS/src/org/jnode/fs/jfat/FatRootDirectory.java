@@ -46,20 +46,22 @@ public class FatRootDirectory extends FatDirectory {
             throw new UnsupportedOperationException("Unknown Fat Type");
         }
         bootSector = getFatFileSystem().getBootSector();
-        int rootDirectoryOffset = bootSector.getFirstDataSector();      
+        int rootDirectoryOffset = bootSector.getFirstDataSector();     
         mem = rm.alloc(512);
-        System.out.println(rootDirectoryOffset);
         getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
         //for(int i = 0; i < 512; i++) System.out.print(mem.get8(i) + " ");
         //Dump.xdump(mem);
-        scanDirectory();
+        // Directory entries are resolved lazily by getEntry(). Eagerly
+        // scanning a large root directory at mount time creates too many
+        // objects and exhausts the small kernel heap.
     }
 
     @Override
     public FatDirEntry getFatDirEntry(int index, boolean allowDeleted) throws IOException {
         if (getFatFileSystem().getFat().isFat32()) {
-            // FAT32 uses the FAT to allocate space to the root directory too, so no special handling is required
-            //return super.getFatDirEntry(index, allowDeleted);
+            // FAT32 uses the FAT to allocate space to the root directory too;
+            // delegate to the chain-based implementation in FatDirectory.
+            return super.getFatDirEntry(index, allowDeleted);
         }
 
         // Check if this is the end of the root entires
@@ -81,17 +83,6 @@ public class FatRootDirectory extends FatDirectory {
             }*/
         Memory subs = rm.alloc(32);
         subs.copyFromMemory(mem, index * 32, 0, 32);
-        Debug.out.print((char)subs.get8(0));
-        Debug.out.print((char)subs.get8(1));
-        Debug.out.print((char)subs.get8(2));
-        Debug.out.print((char)subs.get8(3));
-        Debug.out.print((char)subs.get8(4));
-        Debug.out.print((char)subs.get8(5));
-        Debug.out.print((char)subs.get8(6));
-        Debug.out.print((char)subs.get8(7));
-        Debug.out.print((char)subs.get8(8));
-        Debug.out.print((char)subs.get8(9));
-        Debug.out.println((char)subs.get8(10));
         FatMarshal entry = new FatMarshal(subs);
         return createDirEntry(entry, index, allowDeleted);
     }

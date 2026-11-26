@@ -56,6 +56,7 @@ public abstract class FatEntry extends FatObject implements Node
      */
     protected FatEntry(FatFileSystem fs) {
         super(fs);
+        this.chain = new FatChain(fs, 0);
     }
 
     public FatEntry(FatFileSystem fs, FatDirectory parent, FatRecord record) {
@@ -75,6 +76,8 @@ public abstract class FatEntry extends FatObject implements Node
         this.record = null;
         this.entry = null;
         this.parent = null;
+        if (overlayNames == null) overlayNames = new Vector();
+        if (overlayInodes == null) overlayInodes = new Vector();
     }
 
     protected final void setRoot32(int startCluster) {
@@ -383,7 +386,7 @@ public abstract class FatEntry extends FatObject implements Node
 
     @Override
     public boolean isSymlink() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
     @Override
@@ -524,7 +527,7 @@ public abstract class FatEntry extends FatObject implements Node
     @Override
     public int getLength()// throws NotExistException 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return entry == null ? 0 : entry.getLength();
     }
 
     @Override

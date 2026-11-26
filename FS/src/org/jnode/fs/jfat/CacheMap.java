@@ -16,17 +16,11 @@ public class CacheMap extends LinkedHashMap<CacheKey, CacheElement>
     public CacheMap(int cacheSize) {
         super(/*(int) Math.ceil(cacheSize / org.jnode.fs.jfat.FatCache.loadFactor) + 1*/11/*, org.jnode.fs.jfat.FatCache.loadFactor, true*/);
         this.cacheSize = cacheSize;
-
-        for (int i = 0; i < cacheSize + 1; i++)
-            free.push(new CacheElement());
     }
 
     public CacheMap(int cacheSize, BlockIO api) {
        super(/*(int) Math.ceil(cacheSize / org.jnode.fs.jfat.FatCache.loadFactor) + 1*/11/*, org.jnode.fs.jfat.FatCache.loadFactor, true*/);
             this.cacheSize = cacheSize;
-
-            for (int i = 0; i < cacheSize + 1; i++)
-                free.push(new CacheElement());
     }
 
     public int getCacheSize() {
@@ -68,16 +62,7 @@ public class CacheMap extends LinkedHashMap<CacheKey, CacheElement>
      */
     @Override
     protected boolean removeEldestEntry(Map.Entry<CacheKey, CacheElement> eldest) {
-        boolean remove = (size() > cacheSize);
-
-        /**
-         * before going to discard the eldest push it back on the stacked
-         * object pool
-         */
-        if (remove)
-            push(eldest.getValue());
-
-        return remove;
+        return size() > cacheSize;
     }
 
     /*public String flushOrder() {

@@ -153,4 +153,10 @@ public interface iCPU {
     default void addResetListener(ResetListener aThis) {}
 
     default void sfr(int P0M1, int i) {}
+
+    default int csrSize() { return 0; }
+
+    default String getCsrName(int index) { return ""; }
+
+    default int csr(int index) { return 0; }
 }

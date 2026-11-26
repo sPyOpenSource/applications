@@ -37,7 +37,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     public AIMemory(Naming naming)
     {
         this.naming = new jx.InitialNaming(naming);
-        try{
+        try {
             bioide.Main.main(new String[]{"TimerManager", "BioRAM", "0", "1"});
 
             FSDomain.main(new String[]{"BioRAM", "FS"});

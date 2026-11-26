@@ -70,9 +70,7 @@ import jx.zero.MemoryManager;
             throw new IllegalArgumentException("cannot read a busy element");*/
 
         this.address.set(address);
-        Debug.out.println(address);
         api.readSectors(address, 1, elem, true);
-        Debug.out.println("ok");
     }
 
     private void write() throws IOException {

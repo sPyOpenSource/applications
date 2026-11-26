@@ -99,13 +99,16 @@ public class LanceDriver implements NetworkDevice {
     public Memory transmit1(Memory buf1, int offset, int size) {
         cpuManager.recordEvent(event_snd);
         Buffer2 h = (Buffer2)usableBufs.nonblockingUndockFirstElement();
+        Memory ret;
 	if (h == null) {
-	    if (debugSend) Debug.out.println("no usable buffers");
-	    return buf1;
-	}
-	Memory buf2 = h.getRawData();
-	if (! buf2.isValid()) {
-	    throw new Error();
+	    // No spare buffer to hand back to the caller: keep using the
+	    // original packet memory, but still transmit a private copy.
+	    ret = buf1;
+	} else {
+	    ret = h.getRawData();
+	    if (! ret.isValid()) {
+		throw new Error();
+	    }
 	}
         Memory buf = rm.alloc(size + offset);
         buf.copyFromMemory(buf1, 0, offset, size);
@@ -114,7 +117,7 @@ public class LanceDriver implements NetworkDevice {
         } catch (InterruptedException ex) {
             //Logger.getLogger(LanceDriver.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return buf2;
+        return ret;
     }
 
     @Override

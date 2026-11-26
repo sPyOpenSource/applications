@@ -81,7 +81,7 @@ public class TCPWebWorker {
                     String index = "<html><head><title>JX index.html Testseite (FILEXX)</title><body bgcolor=ffffff>\n\n" +
 			   "<center><h2>Herzlich willkommen auf der JX-FILE-Testseite</h2></center><br><br>\n" +
 			   "Link zur <a href=page2.html>zweiten</a> Seite</body></html>\n";
-                    byte[] data = index.getBytes();//readFile("/" + file);
+                    byte[] data = readFile("/" + file);
                     ostream.write(constructHeader(file, data.length).getBytes());
                     ostream.write(data);
                     if (debug) Debug.out.println("HTTPServer: reply sent.");
@@ -94,20 +94,21 @@ public class TCPWebWorker {
     
     byte[] readFile(String name)  {
 	try {
-	    Node inode = fs.lookup(name);
+	    String lookupName = name;
+	    while (lookupName.startsWith("/")) {
+	        lookupName = lookupName.substring(1);
+	    }
+	    Node inode = fs.lookup(lookupName);
 	    int l = inode.getLength();
-            Debug.out.println("l: " + l);
-	    inode.read(buffer1, 0,  l);
-            inode.read(buffer2, 1, l);
+	    inode.read(buffer1, 0, l);
 	    byte data[] = new byte[l];
-	    buffer1.copyToByteArray(data, 0, 0, 512 * 8);
-            buffer2.copyToByteArray(data, 512 * 8, 0, l - 512 * 8);
-            for(int i = 0; i < l; i++){
-                Debug.out.print((char)data[i]);
-            }
+	    int n1 = Math.min(l, 4096);
+	    buffer1.copyToByteArray(data, 0, 0, n1);
+	    if (l > n1) {
+	        buffer2.copyToByteArray(data, n1, 1 + n1, l - n1);
+	    }
 	    return data;
 	} catch (Exception ex) {
-	    Debug.out.println(ex.getMessage());
 	    return constructErrorHeader().getBytes();
 	}
     }

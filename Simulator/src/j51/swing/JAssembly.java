@@ -165,7 +165,7 @@ public class JAssembly extends J51Panel
 		}
 	
 		int from = pcs.size();
-		while (true){
+		for (int i = 0; i < 1000; i++){
 			if (pc >= cpu.getCodeSize()){
 				completed = true;
 				break;
@@ -231,7 +231,7 @@ public class JAssembly extends J51Panel
 			createTable();
                 }
 		int row = 0;
-		decode(cpu.pc(), -1);
+		decode(cpu.pc(), 1000);
 		
 		for (int i = 0 ; i < pcs.size() ; i++){
 			//System.out.println("Row "+i+" = "+Hex.bin2word(pc(i))+" Search "+Hex.bin2word(cpu.pc()));

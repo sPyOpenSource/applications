@@ -26,6 +26,7 @@ import java.io.IOException;
 //import java.nio.file.FileSystemException;
 import java.util.NoSuchElementException;
 import jx.zero.Debug;
+import jx.zero.InitialNaming;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 
@@ -45,6 +46,7 @@ MemoryManager MemManager;
 
     private ChainPosition position;
     private ChainIterator iterator;
+    private Memory readBuffer;
 
     public FatChain(FatFileSystem fs, int startEntry) {
         this.fs = fs;
@@ -73,7 +75,6 @@ MemoryManager MemManager;
     private void setStartCluster(int value) {
         /*if ((value < 0) || (value > fat.size()))
             throw new IllegalArgumentException("illegal head: " + value);*/
-        Debug.out.println("startcluster: " + value);
         head = value;
 
         iterator.reset();
@@ -328,38 +329,78 @@ MemoryManager MemManager;
     }
     
     public void read(int offset, Memory dst, int length) throws IOException {
+        synchronized (fat) {
+            readInternal(offset, dst, length);
+        }
+    }
+
+    private void readInternal(int offset, Memory dst, int length) throws IOException {
         if (offset < 0)
             throw new IllegalArgumentException("offset<0");
-
-        /*if (dst.remaining() == 0)
-            return;*/
+        if (length <= 0)
+            return;
 
         ChainPosition p = position;
         ChainIterator i = iterator;
 
-        p.setPosition(0);
+        // Position at the correct byte offset within the chain
+        p.setPosition(offset);
         try {
             i.setPosition(p.getIndex());
         } catch (NoSuchElementException ex) {
             throw new IOException("attempt to seek after End Of Chain " + offset, ex);
         }
 
-        for (int sz = p.getPartial(), ofs = p.getOffset(); length < 0; length -= 512, sz = p.getSize(), ofs = 0) {
-            int cluster = i.next();
-            if(offset==1){
-                cluster = i.next();
-            }
-            if (dolog)
-               Debug.out.println("cluster: " + cluster);
+        int clusterOffset = p.getOffset();      // offset within the first cluster
+        int bytesRemaining = length;
+        int dstPos = 0;
+        final int clusterSize = p.getSize();
+        final int bytesPerSector = fat.getBootSector().getBytesPerSector();
 
-            //int limit = dst.limit();
+        // Reuse a cluster-sized buffer for sector reads. Allocating one per
+        // read causes heavy GC pressure when scanning directory chains.
+        if (readBuffer == null || readBuffer.size() < clusterSize) {
+            MemoryManager mm = (MemoryManager) InitialNaming.getInitialNaming().lookup("MemoryManager");
+            readBuffer = mm.allocAligned(clusterSize, 8);
+        }
+        Memory sectorBuf = readBuffer;
 
-            try {
-                //dst.limit(dst.position() + size);
-                fat.readCluster(cluster, 0, dst);
-            } finally {
-                //dst.limit(limit);
+        try {
+            while (bytesRemaining > 0) {
+                int cluster;
+                try {
+                    cluster = i.next();
+                } catch (NoSuchElementException ex) {
+                    // End of chain: peekCluster() returns the last valid cluster
+                    cluster = i.peekCluster();
+                    if (cluster <= 1)
+                        break;
+                }
+
+                if (cluster <= 1)
+                    break;
+
+                int bytesInCluster = clusterSize - clusterOffset;
+                int toRead = Math.min(bytesRemaining, bytesInCluster);
+
+                // Determine which sectors of this cluster contain the data
+                int startSec = clusterOffset / bytesPerSector;
+                int endSec = (clusterOffset + toRead - 1) / bytesPerSector;
+                int numSecs = endSec - startSec + 1;
+
+                int absSector = fat.getClusterPosition(cluster) / bytesPerSector + startSec;
+                fat.getApi().readSectors(absSector, numSecs, sectorBuf, true);
+
+                int srcOff = clusterOffset % bytesPerSector;
+                int copyLen = Math.min(toRead, numSecs * bytesPerSector - srcOff);
+                dst.copyFromMemory(sectorBuf, srcOff, dstPos, copyLen);
+
+                bytesRemaining -= copyLen;
+                dstPos += copyLen;
+                clusterOffset = 0;
             }
+        } finally {
+            // sectorBuf is eligible for GC
         }
     }
 
@@ -505,6 +546,7 @@ MemoryManager MemManager;
         private int address;
         private int cursor;
         private int index;
+        private int lastCluster;
 
         private ChainIterator() {
             reset();
@@ -519,10 +561,10 @@ MemoryManager MemManager;
             address = head;
             cursor = head;
             index = 0;
+            lastCluster = head;
         }
 
         private void setPosition(int position) throws IOException {
-            Debug.out.println("ps: " + position);
             if (position < 0)
                 throw new IllegalArgumentException("negative index: " + position);
 
@@ -578,15 +620,23 @@ MemoryManager MemManager;
             return (fat.hasNext(cursor));
         }
 
+        /**
+         * Returns the last valid cluster returned by next(). Used to read the
+         * final cluster of a chain when hasNext() returns false because the FAT
+         * entry is an End-Of-Chain marker.
+         */
+        public int peekCluster() {
+            return lastCluster;
+        }
+
         public int next() throws IOException {
             if (!hasNext()){
                 throw new NoSuchElementException();
             }
 
             address = cursor;
-            Debug.out.println(address);
+            lastCluster = address;
             cursor = fat.get(address);
-Debug.out.println("cursor: " + cursor);
             if (cursor == address)
                 throw new IOException("circular chain at: " + cursor);
 
@@ -594,7 +644,6 @@ Debug.out.println("cursor: " + cursor);
                 throw new IOException("free entry in chain at: " + address);
 
             index++;
-Debug.out.println("address ok");
             return address;
         }
 

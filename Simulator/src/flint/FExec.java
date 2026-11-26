@@ -20,7 +20,6 @@ public class FExec extends ListNode {
     private int sp;
     private int startSp;
     private int peakSp;
-    private Thread ownerThread;
     public Object excp;
     private int pc;
     private MethodData method;
@@ -263,7 +262,7 @@ public class FExec extends ListNode {
     private static final int[] opcodeLabels = new int[256];
 
     // --- Constructor ---
-    public FExec(Thread owner, int stackSize) {
+    public FExec(int stackSize) {
         super();
         this.stackLength = stackSize / Integer.BYTES;
         this.stack = new ArrayList<>(stackLength);
@@ -277,7 +276,6 @@ public class FExec extends ListNode {
         this.sp = -1;
         this.startSp = -1;
         this.peakSp = -1;
-        this.ownerThread = owner;
         this.excp = null;
         this.terminated = false;
         this.loader = null;

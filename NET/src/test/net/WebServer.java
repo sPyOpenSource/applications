@@ -1,6 +1,5 @@
 package test.net;
 
-import java.io.IOException;
 import jx.zero.*;
 import jx.net.NetInit;
 import java.net.Socket;
@@ -31,8 +30,8 @@ public class WebServer {
     public WebServer(String[] args) throws Exception {
 	int port = 80;
 	boolean opt_threads = true;
-	String fsname = null;
-	boolean opt_use_fs = false;
+	String fsname = "USBFS";
+	boolean opt_use_fs = true;
 	boolean opt_dummyfiles = false;
 
 	int argc;

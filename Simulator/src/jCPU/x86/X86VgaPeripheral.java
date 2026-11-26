@@ -22,6 +22,10 @@ public class X86VgaPeripheral extends VgaPeripheral {
     private final int[] palette = new int[256];
 
     private BufferedImage backImage;
+    /** Incremented by the guest's write thread; read by the AWT thread when painting. */
+    private volatile int textVersion;
+    /** Last textVersion rendered into backImage; accessed only on the AWT thread. */
+    private int paintedVersion = -1;
     private BufferedImage gfxImg;
     private final int[] rowBuf = new int[GFX_W];
 
@@ -85,7 +89,38 @@ public class X86VgaPeripheral extends VgaPeripheral {
             colFG[y][x] = value & 0x0F;
             colBG[y][x] = (value >> 4) & 0x0F;
         }
+        // Signal a new text-buffer version instead of clearing backImage
+        // directly: paint() runs on the AWT thread and must remain the sole
+        // owner of the image cache (clearing it here races with getGraphics()).
+        textVersion++;
         display.repaint();
+    }
+
+    /**
+     * Dump the current VGA text buffer to the console, showing only lines
+     * that contain non-space characters.  Useful when no GUI window is
+     * available (e.g. headless environments).
+     */
+    public void dumpText() {
+        StringBuilder sb = new StringBuilder();
+        for (int y = 0; y < HEIGHT; y++) {
+            StringBuilder line = new StringBuilder();
+            boolean nonEmpty = false;
+            for (int x = 0; x < WIDTH; x++) {
+                char ch = txt[y][x];
+                if (ch == 0) ch = ' ';
+                line.append(ch);
+                if (ch != ' ') nonEmpty = true;
+            }
+            if (nonEmpty) {
+                sb.append(line).append('\n');
+            }
+        }
+        String out = sb.toString();
+        if (!out.isEmpty()) {
+            System.out.print(out);
+            System.out.flush();
+        }
     }
 
     public int readMemory(int addr) {
@@ -125,13 +160,20 @@ public class X86VgaPeripheral extends VgaPeripheral {
     public void paint(Graphics g) {
         if (mode == 0) {
             Dimension size = display.getSize();
-            if (backImage == null || backImage.getWidth() != size.width || backImage.getHeight() != size.height) {
+            int version = textVersion;
+            BufferedImage image = backImage;
+            if (image == null || image.getWidth() != size.width || image.getHeight() != size.height
+                || paintedVersion != version) {
                 int w = Math.max(size.width, 1);
                 int h = Math.max(size.height, 1);
-                backImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-                redrawAll(backImage.getGraphics());
+                image = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+                Graphics bg = image.getGraphics();
+                redrawAll(bg);
+                bg.dispose();
+                backImage = image;
+                paintedVersion = version;
             }
-            g.drawImage(backImage, 0, 0, display);
+            g.drawImage(image, 0, 0, display);
         } else {
             if (gfxImg == null)
                 gfxImg = new BufferedImage(GFX_W, GFX_H, BufferedImage.TYPE_INT_RGB);

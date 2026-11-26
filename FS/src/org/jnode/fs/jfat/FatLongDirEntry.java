@@ -138,30 +138,31 @@ public class FatLongDirEntry extends FatDirEntry {
          * game is over ...
          */
 
-        component = new String(lName, 0, 2 * l, charsetName);
+        // The JCore runtime does not implement String(byte[], off, len, charset);
+        // it is hardcoded to return "index.html".  Decode UTF-16LE explicitly.
+        char[] chars = new char[l];
+        for (int j = 0; j < l; j++) {
+            chars[j] = (char) ((lName[2 * j] & 0xFF) | ((lName[2 * j + 1] & 0xFF) << 8));
+        }
+        component = new String(chars, 0, l);
     }
 
     private void encodeComponent() throws IOException {
         lName = new byte[UNAMELENGTH];
-        int l;
+        char[] componentChars = component.toCharArray();
+        int l = componentChars.length;
         int m = lName.length / 2;
 
-        byte[] componentArray = component.getBytes(charsetName);
-
-        l = componentArray.length;
-
-        if (l > lName.length)
+        if (l > m)
             throw new IllegalArgumentException("component length exceed limit: " + l);
 
         if (l == 0)
             throw new IllegalArgumentException("component has zero length");
 
-        if ((l % 2) == 1)
-            throw new IllegalArgumentException("component has an odd byte length: " + l);
-
-        System.arraycopy(componentArray, 0, lName, 0, l);
-
-        l = l / 2;
+        for (int i = 0; i < l; i++) {
+            lName[2 * i] = (byte) componentChars[i];
+            lName[2 * i + 1] = (byte) (componentChars[i] >>> 8);
+        }
 
         /*
          * NUL terminate the component and PAD with 0xFFFF if needed

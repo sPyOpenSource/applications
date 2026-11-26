@@ -1,5 +1,6 @@
 package AI;
 
+import java.util.ArrayList;
 import jx.devices.pci.PCIAccess;
 import jx.devices.pci.PCICodes;
 import jx.devices.pci.PCIDevice;
@@ -15,7 +16,6 @@ import jx.zero.debug.DebugPrintStream;
 import org.jnode.driver.block.usb.storage.scsi.USBStorageMount;
 import org.jnode.driver.bus.usb.USBHubMonitor;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
-import test.fs.USBMassStorageTest;
 
 import test.net.WebServer;
 
@@ -31,7 +31,7 @@ public final class AI
     private final AIIO IO;
     private final AILogic log;
     private final Thread logThread;
-    private final USBHubMonitor[] monitors = new USBHubMonitor[8];
+    private final ArrayList<USBHubMonitor> monitors = new ArrayList();
     
     /**
      * Constructor for objects of class AI
@@ -42,9 +42,8 @@ public final class AI
         Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
-        //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
+        NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 
-int j = 0;
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){
             PCIDevice dev = pci.getDeviceAt(i);
@@ -53,7 +52,7 @@ int j = 0;
                 USBHubMonitor monitor = new USBHubMonitor(dev, driver.getAPI(), log.getSM());
                 // Wire USB mass storage devices: on attach, mount a FatFileSystem
                 monitor.addAttachListener(new USBStorageMount());
-                monitors[j++] = monitor;
+                monitors.add(monitor);
             }
         }
 
@@ -82,7 +81,7 @@ int j = 0;
         }, "USBMassStorageTest").start();*/
         // Start the HTTP server on port 80 (no filesystem). Blocks on the NET
         // portal until the network stack is up, then accepts connections.
-        /*new Thread(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -91,7 +90,7 @@ int j = 0;
                     Debug.out.println("WebServer: failed to start: " + e.getMessage());
                 }
             }
-        }, "WebServer").start();*/
+        }, "WebServer").start();
         // Media change / eject/insert test
         /*new Thread(new Runnable() {
             @Override
@@ -121,7 +120,6 @@ int j = 0;
     
     public static void main(String[] args){
         try {
-            //jx.init.Main.main(new String[] {"boot.rc"});
             //POST post = new POST(Init.naming);
             //post.test();
             //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});

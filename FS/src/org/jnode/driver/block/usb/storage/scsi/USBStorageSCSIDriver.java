@@ -120,6 +120,49 @@ public class USBStorageSCSIDriver
         return (long) sectorSize * ((long) capacity.getLogicalBlockAddress() + 1);
     }
 
+    /**
+     * Return the usable sector count using only 32-bit arithmetic.  The JCore
+     * compiler does not support long arithmetic in domain code, so BlockIO must
+     * avoid {@link #getLength()}.
+     */
+    public int getCapacityInSectors() throws IOException {
+        processChanged();
+        if (capacity == null) {
+            throw new IOException("No medium");
+        }
+        return capacity.getLogicalBlockAddress() + 1;
+    }
+
+    /**
+     * Read whole sectors using sector addresses instead of byte offsets.
+     */
+    public void readBlocks(int lba, int blocks, Memory data, int dataOffset) throws IOException {
+        processChanged();
+        if (capacity == null) {
+            throw new IOException("No medium");
+        }
+        try {
+            MMCUtils.readData(device, lba, blocks, sectorSize, data, dataOffset);
+        } catch (Exception e) {
+            throw new IOException("Read failed: " + e, e);
+        }
+    }
+
+    /**
+     * Write whole sectors using sector addresses instead of byte offsets.
+     */
+    public void writeBlocks(int lba, int blocks, Memory data, int dataOffset) throws IOException {
+        processChanged();
+        if (capacity == null) {
+            throw new IOException("No medium");
+        }
+        try {
+            MMCUtils.writeData(device, lba, blocks, sectorSize, data, dataOffset);
+        } catch (Exception e) {
+            throw new IOException("Write failed", e);
+        }
+    }
+
     public void read(long devOffset, byte[] dest) throws IOException {
         processChanged();
         if (capacity == null) {

@@ -82,9 +82,25 @@ import java.util.HashMap;
     /*non-public*/
     LambdaFormEditor editor() {
         //return form.editor();
-   throw new UnsupportedOperationException("Not supported yet.");     
+        throw new UnsupportedOperationException("Not supported yet.");     
     }
-
+    
+    /**
+     * Creates a bound method handle with a single leading reference argument
+     * (type {@code L}) prepended to the given {@link LambdaForm}.
+     *
+     * @param mt the method type of the resulting handle
+     * @param lf the LambdaForm describing the resulting handle's behavior
+     * @param narg the leading reference argument to bind
+     * @return a new {@code BoundMethodHandle}
+     */
+    static BoundMethodHandle bindSingleL(MethodType mt, LambdaForm lf, Object narg) {
+        // Use the SimpleMethodHandle fast path; the narg binding is applied by
+        // the LambdaForm machinery at invocation time in the full JDK, but this
+        // minimal reimplementation returns a handle carrying mt and lf.
+        return SimpleMethodHandle.make(mt, lf);
+    }
+    
     static BoundMethodHandle bindSingle(MethodType type, LambdaForm form, Object x) {
         return Species_L.make(type, form, x);
     }

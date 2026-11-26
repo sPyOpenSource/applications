@@ -45,6 +45,9 @@ public class Fat32 extends Fat {
 
     @Override
     public int get(int index) throws IOException {
+        if (index < 0 || index >= size()) {
+            return eofChain();
+        }
         return (int) (getUInt32(index) & 0x0FFFFFFF);
     }
 

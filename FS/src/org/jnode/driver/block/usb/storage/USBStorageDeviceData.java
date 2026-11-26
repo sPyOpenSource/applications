@@ -90,9 +90,11 @@ final class USBStorageDeviceData implements USBStorageConstants {
         for (int i = 0; i < intf.getNumEndPoints(); i++) {
             ep = this.usbInterface.getEndPoint(i);
             // Is it a bulk endpoint ?
-            if ((ep.getDescriptor().getAttributes() & USB_ENDPOINT_XFERTYPE_MASK) == USB_ENDPOINT_XFER_BULK) {
-                // In or Out ?
-                if ((ep.getDescriptor().getEndPointAddress() & USB_DIR_IN) == 0) {
+            if (ep.getDescriptor().isBulkTransfer()) {
+                // USB_DIR_IN (0x80) means device-to-host.  The old test was
+                // inverted, so CBW/DATA-OUT were sent down the IN pipe and the
+                // device stalled with status 0x01.
+                if (ep.getDescriptor().isDirIn()) {
                     this.bulkInEndPoint = ep;
                     //log.info("*** Set bulk in endpoint");
                 } else {
