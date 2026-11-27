@@ -90,12 +90,12 @@ public final class AI
             }
         }, "MediaChangeTest").start();*/
         // Large file / multi-sector transfer test
-        new Thread(new Runnable() {
+        /*new Thread(new Runnable() {
             @Override
             public void run() {
                 LargeFileTest.main(null);
             }
-        }, "LargeFileTest").start();
+        }, "LargeFileTest").start();*/
         System.out.println("AI running...");
     }
     
