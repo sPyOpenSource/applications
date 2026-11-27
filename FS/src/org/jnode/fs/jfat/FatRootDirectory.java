@@ -46,9 +46,12 @@ public class FatRootDirectory extends FatDirectory {
             throw new UnsupportedOperationException("Unknown Fat Type");
         }
         bootSector = getFatFileSystem().getBootSector();
-        int rootDirectoryOffset = bootSector.getFirstDataSector();     
-        mem = rm.alloc(512);
-        getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
+        int rootDirectoryOffset = bootSector.getFirstDataSector();
+        final int bytesPerSector = bootSector.getBytesPerSector();
+        final int rootDirBytes = bootSector.getNrRootDirEntries() * FatDirEntry.LENGTH;
+        final int rootDirSectors = (rootDirBytes + bytesPerSector - 1) / bytesPerSector;
+        mem = rm.alloc(rootDirBytes);
+        getFatFileSystem().getApi().readSectors(rootDirectoryOffset, rootDirSectors, mem, true);
         //for(int i = 0; i < 512; i++) System.out.print(mem.get8(i) + " ");
         //Dump.xdump(mem);
         // Directory entries are resolved lazily by getEntry(). Eagerly
@@ -64,8 +67,8 @@ public class FatRootDirectory extends FatDirectory {
             return super.getFatDirEntry(index, allowDeleted);
         }
 
-        // Check if this is the end of the root entires
-        if (index > bootSector.getNrRootDirEntries()) {
+        // Check if this is the end of the root entries
+        if (index >= bootSector.getNrRootDirEntries()) {
             throw new NoSuchElementException();
         }
 /*for(int i = 0; i < 40; i++){
@@ -85,6 +88,16 @@ public class FatRootDirectory extends FatDirectory {
         subs.copyFromMemory(mem, index * 32, 0, 32);
         FatMarshal entry = new FatMarshal(subs);
         return createDirEntry(entry, index, allowDeleted);
+    }
+
+    @Override
+    public void setFatDirEntry(FatDirEntry entry) throws IOException {
+        super.setFatDirEntry(entry);
+        final byte[] bytes = new byte[FatDirEntry.LENGTH];
+        entry.entry.getBytes(0, FatDirEntry.LENGTH, 0, bytes);
+        final int byteOffset = entry.getIndex() * FatDirEntry.LENGTH;
+        if (byteOffset >= 0 && byteOffset + bytes.length <= mem.size())
+            mem.copyFromByteArray(bytes, 0, byteOffset, bytes.length);
     }
 
     @Override

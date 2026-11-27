@@ -9,18 +9,23 @@
  * (at your option) any later version.
  *
  * This library is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public 
- * License for more details.
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library; If not, write to the Free Software Foundation, Inc., 
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; If not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
  */
  
 package org.jnode.driver.block.usb.storage;
 
+import jx.zero.AtomicVariable;
+import jx.zero.CAS;
+import jx.zero.CPUManager;
 import jx.zero.Debug;
+import jx.zero.InitialNaming;
 import jx.zero.Memory;
 import org.jnode.driver.bus.scsi.CDB;
 import org.jnode.driver.bus.usb.SetupPacket;
@@ -42,6 +47,12 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
     private final USBStorageDeviceData storageDeviceData;
     /** */
     private int nextTag = 1;
+    /** Blocking transport lock; JCore ignores synchronized modifiers. */
+    private final CAS casLock;
+    private final AtomicVariable lockChanged;
+    private static final Object SIGNAL_A = new Object();
+    private static final Object SIGNAL_B = new Object();
+    private int lock;
     /** */
     private static final int MAX_BOT_TRANSFER = 65536; // 64KB
 
@@ -50,6 +61,11 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
      */
     public USBStorageBulkTransport(USBStorageDeviceData storageDeviceData) {
         this.storageDeviceData = storageDeviceData;
+        CPUManager cpuManager = (CPUManager) InitialNaming.getInitialNaming().lookup("CPUManager");
+        this.casLock = cpuManager.getCAS("org.jnode.driver.block.usb.storage.USBStorageBulkTransport", "lock");
+        this.lockChanged = cpuManager.getAtomicVariable();
+        this.lockChanged.set(SIGNAL_A);
+        this.lockChanged.activateListMode();
     }
 
     /*
@@ -57,6 +73,11 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
      * @see org.jnode.driver.block.usb.storage.ITransport#transport(org.jnode.driver.bus.scsi.CDB, int)
      */
     public void transport(CDB cdb, Memory data, int dataOffset, long timeout) throws USBException {
+        while (!casLock.casInt(this, 0, 1)) {
+            Object seen = lockChanged.get();
+            lockChanged.blockIfEqual(seen);
+        }
+        try {
         Memory cdbMem = cdb.toByteArray();
         int dataLen = cdb.getDataTransfertCount();
         if (dataLen > 0 && data == null) {
@@ -125,6 +146,11 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
         if (residue != 0) {
             Debug.out.println("WARNING: CSW residue = " + residue + " on opcode 0x"
                 + NumberUtils.hex(cdb.getOpcode(), 2));
+        }
+        } finally {
+            casLock.casInt(this, 1, 0);
+            Object seen = lockChanged.get();
+            lockChanged.atomicUpdateUnblock(seen == SIGNAL_A ? SIGNAL_B : SIGNAL_A, null);
         }
     }
 

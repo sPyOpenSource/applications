@@ -40,8 +40,9 @@ public class FatCache implements BufferCache {
     private final int[] keys;
     private int nextVictim;
 
-    private long access = 0;
-    private long hit = 0;
+    // JCore cannot execute long arithmetic in domain code.
+    private int access = 0;
+    private int hit = 0;
 
     public FatCache(Fat fat, int cacheSize, int elementSize) {
         this.fat = fat;
@@ -62,7 +63,8 @@ public class FatCache implements BufferCache {
         this.keys = new int[size];
         for (int i = 0; i < size; i++) {
             this.keys[i] = -1;
-            this.elements[i] = new CacheElement(fat.getApi());
+            this.elements[i] = new CacheElement(fat.getApi(),
+                fat.getBootSector().getSectorsPerFat(), fat.getBootSector().getNrFats());
         }
         this.nextVictim = 0;
     }
@@ -95,6 +97,8 @@ public class FatCache implements BufferCache {
 
         int victim = nextVictim;
         CacheElement c = elements[victim];
+        if (keys[victim] != -1)
+            c.flush();
         c.read(address);
         keys[victim] = address;
         nextVictim++;
@@ -167,7 +171,7 @@ public class FatCache implements BufferCache {
         CacheElement c = get(addr);
         Memory data = c.getData();
 
-        //LittleEndian.setInt32(data, ofs, value);
+        data.setLittleEndian32(ofs, value);
 
         c.setDirty();
     }
@@ -199,11 +203,11 @@ public class FatCache implements BufferCache {
         }
     }
 
-    public long getHit() {
+    public int getHit() {
         return hit;
     }
 
-    public long getAccess() {
+    public int getAccess() {
         return access;
     }
 

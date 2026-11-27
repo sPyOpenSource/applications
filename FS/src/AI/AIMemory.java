@@ -50,7 +50,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             }*/
             drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(naming, "BioRAM");
             memoryManager = (MemoryManager)naming.lookup("MemoryManager");
-            buffer = memoryManager.alloc(512);
+            buffer = memoryManager.alloc(512 * 4);
             /*for(int i = 0; i < buffer.size(); i++){
                 buffer.set8(i, (byte)0xff);
             }*/

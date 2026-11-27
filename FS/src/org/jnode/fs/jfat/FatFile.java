@@ -54,58 +54,69 @@ public class FatFile extends FatEntry
         return getEntry().getLength();
     }
 
-    private void freeClusters(long oldLength, long newLength) throws IOException {
+    private void freeClusters(int oldLength, int newLength) throws IOException {
         if (newLength >= oldLength) throw new UnsupportedOperationException("new[" + newLength + "] >= old["
             + oldLength + "]");
 
-        long clusterSize = getFatFileSystem().getFat().getClusterSize();
-
-        int oldClusters = (int) (oldLength / clusterSize);
-        if ((oldLength % clusterSize) != 0) oldClusters++;
-
-        int newClusters = (int) (newLength / clusterSize);
-        if ((newLength % clusterSize) != 0) newClusters++;
+        final int clusterSize = getFatFileSystem().getFat().getClusterSize();
+        final int oldClusters = (oldLength + clusterSize - 1) / clusterSize;
+        final int newClusters = (newLength + clusterSize - 1) / clusterSize;
 
         getChain().free(oldClusters - newClusters);
     }
 
-    public void setLength(long length) throws IOException {
-        /*long l = getLength();
+    public void setLength(int length) throws IOException {
+        int oldLength = getLength();
+        if (length == oldLength)
+            return;
 
-        if (length == l) return;
+        if (length < oldLength)
+            freeClusters(oldLength, length);
 
-        if (length > l) {
-            seek(length);
-        } else {
-            freeClusters(l, length);
-            getEntry().setLength(length);
-            flush();
-        }*/
+        getEntry().setLength(length);
+        getEntry().setStartCluster(getChain().getStartCluster());
+        flush();
+    }
+
+    /**
+     * Discards all file data and resets the length to zero.
+     */
+    void truncate() throws IOException {
+        setLength(0);
     }
 
     @Override
     public int read(Memory dst, int offset, int length)// throws InodeIOException, NoFileInodeException, NotExistException, PermissionException 
     {
-        //int limit = dst.limit();
-        //int length = 32;//getLength();
-        int rem = length - offset;
+        if (length <= 0 || offset < 0)
+            return 0;
 
-        if (rem <= 0) return 0;
+        int available = getLength() - offset;
+        if (available <= 0)
+            return 0;
+        int toRead = Math.min(length, available);
         try {
-            getChain().read(offset, dst, length);
+            getChain().read(offset, dst, toRead);
         } catch (IOException ex) {
-            //Logger.getLogger(FatFile.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
         }
-return 0;
-        /*try {
-            if (rem < dst.remaining()) dst.limit(dst.position() + (int) rem);
+        return toRead;
+    }
 
-            getChain().read(offset, dst);
-        } catch (NoSuchElementException ex) {
-            //log.debug("End Of Chain reached: shouldn't happen");
-        } finally {
-            dst.limit(limit);
-        }*/
+    @Override
+    public int write(Memory src, int offset, int length)// throws InodeIOException, NoFileInodeException, NotExistException, PermissionException 
+    {
+        if (length <= 0 || offset < 0)
+            return 0;
+        try {
+            getChain().write(offset, src, length);
+            int newLength = offset + length;
+            if (newLength > getLength())
+                setLength(newLength);
+            return length;
+        } catch (IOException ex) {
+            throw new Error("FatFile.write failed: " + ex);
+        }
     }
 
     /*public void seek(long offset) throws IOException {

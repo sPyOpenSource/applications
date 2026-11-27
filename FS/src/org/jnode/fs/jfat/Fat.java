@@ -244,7 +244,7 @@ bs.toString();
     }
 
     public void setInt32(int index, int element) throws IOException {
-        cache.setInt32(index, element);
+        cache.setInt32(position(0, index), element);
     }
 
     public abstract int get(int index) throws IOException;

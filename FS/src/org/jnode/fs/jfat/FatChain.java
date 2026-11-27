@@ -47,6 +47,7 @@ MemoryManager MemManager;
     private ChainPosition position;
     private ChainIterator iterator;
     private Memory readBuffer;
+    private Memory writeBuffer;
 
     public FatChain(FatFileSystem fs, int startEntry) {
         this.fs = fs;
@@ -87,8 +88,9 @@ MemoryManager MemManager;
         return dirty;
     }
 
-    public void flush() {
+    public void flush() throws IOException {
         dirty = false;
+        fat.flush();
     }
 
     public ChainIterator listIterator() {
@@ -404,11 +406,83 @@ MemoryManager MemManager;
         }
     }
 
-    /*
-     * used when we don't need to zero the data inside the last cluster tail
-     */
     public void write(int offset, Memory src) throws IOException {
-        //write(0, offset, src);
+        write(offset, src, src.size());
+    }
+
+    /**
+     * Writes {@code length} bytes from the start of {@code src} at byte
+     * {@code offset} in this chain, allocating additional clusters as needed.
+     */
+    public void write(int offset, Memory src, int length) throws IOException {
+        synchronized (fat) {
+            writeInternal(offset, src, length);
+        }
+    }
+
+    private void writeInternal(int offset, Memory src, int length) throws IOException {
+        if (offset < 0)
+            throw new IllegalArgumentException("offset<0");
+        if (length < 0)
+            throw new IllegalArgumentException("length<0");
+        if (length == 0)
+            return;
+
+        final int clusterSize = fat.getClusterSize();
+        if (clusterSize <= 0)
+            throw new IOException("Invalid cluster size: " + clusterSize);
+
+        final int end = offset + length;
+        final int requiredClusters = (end + clusterSize - 1) / clusterSize;
+        final int currentClusters = size();
+        if (requiredClusters > currentClusters)
+            allocateAndClear(requiredClusters - currentClusters);
+
+        final int bytesPerSector = fat.getBootSector().getBytesPerSector();
+        if (bytesPerSector <= 0)
+            throw new IOException("Invalid bytes per sector: " + bytesPerSector);
+
+        if (writeBuffer == null || writeBuffer.size() < bytesPerSector) {
+            MemoryManager mm = (MemoryManager) InitialNaming.getInitialNaming().lookup("MemoryManager");
+            writeBuffer = mm.allocAligned(bytesPerSector, 8);
+        }
+
+        ChainIterator i = listIterator(0);
+        int clusterIndex = 0;
+        int remaining = length;
+        int srcPos = 0;
+
+        while (remaining > 0) {
+            final int cluster = i.next();
+            final int clusterStart = clusterIndex * clusterSize;
+            final int clusterEnd = clusterStart + clusterSize;
+            final int rangeStart = offset > clusterStart ? offset : clusterStart;
+            final int rangeEnd = end < clusterEnd ? end : clusterEnd;
+
+            if (rangeStart < rangeEnd) {
+                int posInCluster = rangeStart - clusterStart;
+                int count = rangeEnd - rangeStart;
+
+                while (count > 0) {
+                    final int sectorInCluster = posInCluster / bytesPerSector;
+                    final int sectorOffset = posInCluster % bytesPerSector;
+                    final int chunk = Math.min(count, bytesPerSector - sectorOffset);
+                    final int absSector = fat.getClusterPosition(cluster) / bytesPerSector + sectorInCluster;
+
+                    // Preserve bytes outside the written range in partial sectors.
+                    fat.getApi().readSectors(absSector, 1, writeBuffer, true);
+                    writeBuffer.copyFromMemory(src, srcPos, sectorOffset, chunk);
+                    fat.getApi().writeSectors(absSector, 1, writeBuffer, true);
+
+                    srcPos += chunk;
+                    posInCluster += chunk;
+                    count -= chunk;
+                    remaining -= chunk;
+                }
+            }
+
+            clusterIndex++;
+        }
     }
 
     public long getLength() throws IOException {

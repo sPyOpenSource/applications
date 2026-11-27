@@ -53,11 +53,11 @@ public class Fat32 extends Fat {
 
     @Override
     public int set(int index, int element) throws IOException {
-        long old = getUInt32(index);
+        final int old = getUInt32(index);
 
-        setInt32(index, (int) ((element & 0x0FFFFFFF) | (old & 0xF0000000)));
+        setInt32(index, (element & 0x0FFFFFFF) | (old & 0xF0000000));
 
-        return (int) (old & 0x0FFFFFFF);
+        return old & 0x0FFFFFFF;
     }
 
     @Override

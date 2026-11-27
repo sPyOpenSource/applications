@@ -56,7 +56,7 @@ public class Descriptor {
         // Address.as32bit(Address.addressOfArrayData(data));
         // Set the address
         final int buffAddress = mem.getStartAddress() + dataBufferOffset;
-        Debug.out.println(buffAddress);
+        //Debug.out.println(buffAddress);
         mem.set32((offset + 0x00) >> 2, buffAddress);
         mem.set16((offset + 0x04) >> 1, (short) (-BufferManager.DATA_BUFFER_SIZE));
         mem.set16((offset + STATUS) >> 1, (short) 0);

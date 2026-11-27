@@ -74,6 +74,14 @@ public class FatDirEntry implements Node {
         return index;
     }
 
+    /**
+     * Returns the flag byte (first byte) of this directory entry.
+     * 0x00 = end of directory, 0xE5 = deleted/free, 0x20 = never used, other = live entry.
+     */
+    public int getFlag() {
+        return entry.getUInt8(0);
+    }
+
     protected void setIndex(int value) {
         if (value < 0)
             throw new IllegalArgumentException("value<0");

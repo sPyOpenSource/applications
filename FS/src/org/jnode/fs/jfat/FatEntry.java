@@ -459,13 +459,13 @@ public abstract class FatEntry extends FatObject implements Node
     }
 
     @Override
-    public Node create(String name, int mode)// throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException 
+    public Node create(String name, int mode) throws Exception
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void unlink(String name)// throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NoFileInodeException, NotExistException, PermissionException 
+    public void unlink(String name) throws Exception
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

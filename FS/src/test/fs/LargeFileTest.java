@@ -76,12 +76,20 @@ public class LargeFileTest {
 
         // Generate deterministic payload
         byte[] payload = new byte[size];
+        if (payload == null) {
+            Debug.out.println("LargeFileTest: FAIL size=" + size + " payload alloc returned null");
+            return false;
+        }
         for (int i = 0; i < size; i++) {
             payload[i] = (byte) (i & 0xFF);
         }
 
         // Write
         Memory mem = rm.alloc(size);
+        if (mem == null) {
+            Debug.out.println("LargeFileTest: FAIL size=" + size + " alloc returned null");
+            return false;
+        }
         mem.copyFromByteArray(payload, 0, 0, size);
 
         try {
@@ -95,6 +103,10 @@ public class LargeFileTest {
 
             // Read back
             Memory rbuf = rm.alloc(size);
+            if (rbuf == null) {
+                Debug.out.println("LargeFileTest: FAIL size=" + size + " rbuf alloc returned null");
+                return false;
+            }
             int read = file.read(rbuf, 0, size);
             if (read != size) {
                 Debug.out.println("LargeFileTest: FAIL size=" + size + " read=" + read + " expected=" + size);

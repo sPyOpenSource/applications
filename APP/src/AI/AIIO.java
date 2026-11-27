@@ -29,6 +29,7 @@ public class AIIO {
         // register as DEP
         mem.getInitialNaming().registerPortal(depHandle, "PCIAccess");
         mem.setLogPath("/AI/");
+        
         inp = new AIInput(mem);
         out = new AIOutput(mem);
         Debug.out.println("PCIAccess registered");

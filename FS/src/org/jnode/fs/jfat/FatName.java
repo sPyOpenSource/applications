@@ -152,28 +152,29 @@ public class FatName {
      */
     private byte[] stripChar(byte[] name, byte ch, boolean strip) {
         boolean flag = !strip;
-        /*ByteBuffer b = ByteBuffer.allocate(name.length);
+        boolean skipping = strip;
+        byte[] reversed = new byte[name.length];
+        int count = 0;
 
-        for (int i = (name.length - 1); i >= 0; i--) {
+        for (int i = name.length - 1; i >= 0; i--) {
             if (name[i] != ch)
-                strip = flag;
+                skipping = flag;
 
-            if (strip) {
+            if (skipping) {
                 if (name[i] != ch)
-                    b.put(name[i]);
+                    reversed[count++] = name[i];
                 else
                     stripped = true;
-            } else
-                b.put(name[i]);
+            } else {
+                reversed[count++] = name[i];
+            }
         }
 
-        b.flip();
+        byte[] result = new byte[count];
+        for (int i = 0; i < count; i++)
+            result[i] = reversed[count - 1 - i];
 
-        byte[] n = new byte[b.remaining()];
-
-        b.get(n);*/
-
-        return null;
+        return result;
     }
 
     /*
@@ -187,9 +188,17 @@ public class FatName {
      * Basis-Name Phase1: Step1 and Step2
      */
     private byte[] encode() throws Exception {
-        byte[] n = null;//encoder.encode(FatUtils.toUpperCase(longName), underscore);
+        byte[] n = new byte[longName.length()];
 
-        //slossy = encoder.isLossy();
+        for (int i = 0; i < longName.length(); i++) {
+            char c = Character.toUpperCase(longName.charAt(i));
+            if (c > 127) {
+                n[i] = underscore;
+                lossy = true;
+                continue;
+            }
+            n[i] = (byte) c;
+        }
 
         for (int i = 0; i < n.length; i++) {
             if (n[i] < 0x20) {
@@ -275,7 +284,7 @@ public class FatName {
             btail.setLength(0);
             btail.append(i);
 
-            byte[] tail = null;//encoder.encode(btail.toString());
+            byte[] tail = btail.toString().getBytes();
 
             if (tail.length > 6)
                 throw new IOException("tail too long: " + tail.length);

@@ -22,10 +22,9 @@ package org.jnode.fs.jfat;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Vector;
 
 import jx.fs.Directory;
 import jx.fs.FSAttribute;
@@ -47,9 +46,10 @@ public class FatDirectory extends FatEntry
     private final FatTable children = new FatTable();
 
     /**
-     * The map of ID -> entry.
+     * The map of ID -> entry.  A linear list is used because the runtime's
+     * HashMap cannot reliably insert String keys in this domain.
      */
-    private final Map<String, FatEntry> idMap = new HashMap<>();
+    private final Vector<FatEntry> idEntries = new Vector<>();
     private static final int MAX_INDEX_CACHE = 256;
     private final String[] indexCacheNames = new String[MAX_INDEX_CACHE];
     private final int[] indexCacheValues = new int[MAX_INDEX_CACHE];
@@ -197,7 +197,32 @@ public class FatDirectory extends FatEntry
      * this instead is a "write" method: it needs a "created" entry
      */
     public void setFatDirEntry(FatDirEntry entry) throws IOException {
-        //getChain().write(entry.getIndex() * entry.length(), entry.getByteBuffer());
+        final byte[] bytes = new byte[FatDirEntry.LENGTH];
+        entry.entry.getBytes(0, FatDirEntry.LENGTH, 0, bytes);
+
+        MemoryManager mm = (MemoryManager) InitialNaming.getInitialNaming().lookup("MemoryManager");
+        Memory mem = mm.alloc(FatDirEntry.LENGTH);
+        mem.copyFromByteArray(bytes, 0, 0, bytes.length);
+
+        final FatFileSystem fs = getFatFileSystem();
+        cachedCluster = -1;
+        if (isRoot() && !fs.getFat().isFat32()) {
+            BootSector bs = fs.getBootSector();
+            final int bytesPerSector = bs.getBytesPerSector();
+            // For FAT12/16 getFirstDataSector() is the start of the fixed root
+            // directory, not the first data cluster.
+            final int rootStartSector = bs.getFirstDataSector();
+            final int byteOffset = entry.getIndex() * FatDirEntry.LENGTH;
+            final int sector = rootStartSector + byteOffset / bytesPerSector;
+            final int sectorOffset = byteOffset % bytesPerSector;
+
+            Memory sectorBuf = mm.alloc(bytesPerSector);
+            fs.getApi().readSectors(sector, 1, sectorBuf, true);
+            sectorBuf.copyFromByteArray(bytes, 0, sectorOffset, bytes.length);
+            fs.getApi().writeSectors(sector, 1, sectorBuf, true);
+        } else {
+            getChain().write(entry.getIndex() * FatDirEntry.LENGTH, mem, FatDirEntry.LENGTH);
+        }
     }
 
     public FatDirEntry[] getFatFreeEntries(int n) throws IOException {
@@ -215,7 +240,13 @@ public class FatDirectory extends FatEntry
                     throw new IOException("Directory is full");
                 getChain().allocateAndClear(1);
                 // restart the search, fixes infinite loop
-                // TODO review it for a better solution
+                i = 0;
+                index = 0;
+                continue;
+            } catch (IOException ex) {
+                // Reading past the end of the directory chain: allocate another
+                // cluster and restart the scan from the beginning of the new chain.
+                getChain().allocateAndClear(1);
                 i = 0;
                 index = 0;
                 continue;
@@ -280,7 +311,7 @@ public class FatDirectory extends FatEntry
         if (name == null)
             return -1;
         for (int i = 0; i < indexCacheCount; i++) {
-            if (FatUtils.compareIgnoreCase(indexCacheNames[i], name))
+            if (indexCacheNames[i] != null && FatUtils.compareIgnoreCase(indexCacheNames[i], name))
                 return indexCacheValues[i];
         }
         return -1;
@@ -290,7 +321,7 @@ public class FatDirectory extends FatEntry
         if (name == null || name.length() == 0)
             return;
         for (int i = 0; i < indexCacheCount; i++) {
-            if (FatUtils.compareIgnoreCase(indexCacheNames[i], name)) {
+            if (indexCacheNames[i] != null && FatUtils.compareIgnoreCase(indexCacheNames[i], name)) {
                 indexCacheValues[i] = startIndex;
                 return;
             }
@@ -299,6 +330,29 @@ public class FatDirectory extends FatEntry
             indexCacheNames[indexCacheCount] = name;
             indexCacheValues[indexCacheCount] = startIndex;
             indexCacheCount++;
+        }
+    }
+
+    private FatEntry getIdEntry(String id) {
+        for (int i = 0; i < idEntries.size(); i++) {
+            FatEntry entry = idEntries.elementAt(i);
+            if (entry.getId().equals(id))
+                return entry;
+        }
+        return null;
+    }
+
+    private void putIdEntry(String id, FatEntry entry) {
+        if (getIdEntry(id) == null)
+            idEntries.addElement(entry);
+    }
+
+    private void removeIdEntry(String id) {
+        for (int i = 0; i < idEntries.size(); i++) {
+            if (idEntries.elementAt(i).getId().equals(id)) {
+                idEntries.removeElementAt(i);
+                return;
+            }
         }
     }
 
@@ -336,17 +390,17 @@ public class FatDirectory extends FatEntry
     }
 
     public Node getEntryById(String id) throws IOException {
-        FatEntry child = idMap.get(id);
+        FatEntry child = getIdEntry(id);
 
         if (child == null) {
             FatEntriesFactory f = new FatEntriesFactory(this, true);
 
             while (f.hasNextEntry()) {
                 FatEntry entry = f.createNextEntry();
-                idMap.put(entry.getId(), entry);
+                putIdEntry(entry.getId(), entry);
             }
 
-            return idMap.get(id);
+            return getIdEntry(id);
         }
 
         return child;
@@ -422,8 +476,51 @@ public class FatDirectory extends FatEntry
         file.flush();
 
         FatEntry entry = children.put(file);
-        idMap.put(entry.getId(), entry);
+        putIdEntry(entry.getId(), entry);
+        int startIndex = entry.getIndex();
+        java.util.Vector<FatLongDirEntry> longEntries = file.getRecord().getLongEntries();
+        if (longEntries.size() > 0)
+            startIndex = ((FatLongDirEntry) longEntries.elementAt(0)).getIndex();
+        cacheEntry(name, startIndex);
         return entry;
+    }
+
+    @Override
+    public Node create(String name, int mode) throws IOException {
+        FatEntry existing = (FatEntry) getEntryByName(name);
+        if (existing != null) {
+            if (!existing.isFile())
+                throw new IOException("Entry [" + name + "] is a directory");
+            ((FatFile) existing).truncate();
+            return existing;
+        }
+        return addFile(name);
+    }
+
+    @Override
+    public void unlink(String name) throws IOException {
+        FatEntry entry = (FatEntry) getEntryByName(name);
+        if (entry == null)
+            throw new FileNotFoundException(name);
+
+        if (entry.isFile())
+            ((FatFile) entry).truncate();
+        else
+            entry.freeAllClusters();
+        entry.delete();
+        entry.flush();
+
+        try {
+            children.remove(entry);
+        } catch (IllegalArgumentException ignored) {
+        }
+        removeIdEntry(entry.getId());
+        for (int i = 0; i < indexCacheCount; i++) {
+            if (indexCacheNames[i] != null && FatUtils.compareIgnoreCase(indexCacheNames[i], name)) {
+                indexCacheNames[i] = null;
+                indexCacheValues[i] = -1;
+            }
+        }
     }
 
     public synchronized Node addDirectory(String name) throws IOException {
@@ -438,7 +535,7 @@ public class FatDirectory extends FatEntry
         dir.flush();
 
         FatEntry entry = children.put(dir);
-        idMap.put(entry.getId(), entry);
+        putIdEntry(entry.getId(), entry);
         return entry;
     }
 
@@ -462,7 +559,7 @@ public class FatDirectory extends FatEntry
             dir.flush();
         }
 
-        idMap.remove(entry.getId());
+        removeIdEntry(entry.getId());
     }
 
     @Override

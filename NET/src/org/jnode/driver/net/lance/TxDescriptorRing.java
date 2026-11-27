@@ -40,7 +40,7 @@ public class TxDescriptorRing extends DescriptorRing {
         super(mem, offset, length);
 
         txDescriptors = new TxDescriptor[length];
-        Debug.out.println(BufferManager.DATA_BUFFER_SIZE);
+        //Debug.out.println(BufferManager.DATA_BUFFER_SIZE);
         for (int i = 0; i < length; i++) {
             txDescriptors[i] =
                 new TxDescriptor(

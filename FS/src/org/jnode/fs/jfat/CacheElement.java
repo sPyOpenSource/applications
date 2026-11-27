@@ -20,8 +20,18 @@ import jx.zero.MemoryManager;
     private Memory elem;
     private final int elementSize = 512;
     private BlockIO api;
+    private int sectorsPerFat;
+    private int nrFats;
 
     public CacheElement() {
+        this(null, 0, 1);
+    }
+
+    public CacheElement(BlockIO api) {
+        this(api, 0, 1);
+    }
+
+    public CacheElement(BlockIO api, int sectorsPerFat, int nrFats) {
         this.dirty = false;
         this.address = new CacheKey();
         try {
@@ -31,19 +41,9 @@ import jx.zero.MemoryManager;
             elem = memMgr.alloc(elementSize);
         } catch (NullPointerException e) {
         }
-    }
-
-    public CacheElement(BlockIO api) {
-        this.dirty = false;
-            this.address = new CacheKey();
-            try {
-                MemoryManager memMgr = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
-                // FAT-12 reads in two byte chunks so add an extra element to prevent an array index out of bounds exception
-                // when reading in the last element
-                elem = memMgr.alloc(elementSize);
-            } catch (NullPointerException e) {
-            }
         this.api = api;
+        this.sectorsPerFat = sectorsPerFat;
+        this.nrFats = nrFats > 0 ? nrFats : 1;
     }
 
     public boolean isFree() {
@@ -77,12 +77,10 @@ import jx.zero.MemoryManager;
         if (isFree())
             throw new IllegalArgumentException("cannot write a free element");
 
-        int addr = address.get() * elementSize;
-
-        /*for (int i = 0; i < nrfats; i++) {
-            api.writeSectors(address.get(), 1, elem, true);
-            addr += fatsize;
-        }*/
+        int sector = address.get();
+        for (int i = 0; i < nrFats; i++) {
+            api.writeSectors(sector + i * sectorsPerFat, 1, elem, true);
+        }
     }
 
     private boolean isDirty() {

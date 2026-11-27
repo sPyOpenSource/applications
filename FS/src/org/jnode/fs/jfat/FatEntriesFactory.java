@@ -49,8 +49,8 @@ public class FatEntriesFactory {
                 return false;
             } catch (IOException ex) {
                 Debug.out.println("cannot read entry " + i + ": " + ex);
-                i++;
-                continue;
+                entry = null;
+                return false;
             }
             if (e.isFreeDirEntry() && e.isLongDirEntry() && includeDeleted) {
                 //Ignore damage on deleted long directory entries

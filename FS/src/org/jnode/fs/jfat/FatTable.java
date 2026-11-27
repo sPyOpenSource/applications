@@ -9,57 +9,62 @@
  * (at your option) any later version.
  *
  * This library is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public 
- * License for more details.
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library; If not, write to the Free Software Foundation, Inc., 
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; If not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301 USA.
  */
  
 package org.jnode.fs.jfat;
 
 import java.util.Iterator;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Vector;
 
 public class FatTable {
-    private final Map<FatKey, FatEntry> table = new HashMap<>();
+    // Use a linear Vector instead of HashMap: the JCore runtime's HashMap
+    // is not thread-safe and synchronized modifiers are ignored by the
+    // compiler, so concurrent put() calls from multiple threads corrupt
+    // its internal state.  Directory entry counts are small, so linear
+    // search is acceptable.
+    private final Vector<FatEntry> entries = new Vector<>();
 
     public FatTable() {
     }
 
     public FatEntry get(String name) {
-        return table.get(new FatKey(name));
+        for (int i = 0; i < entries.size(); i++) {
+            FatEntry e = entries.elementAt(i);
+            if (FatUtils.compareIgnoreCase(e.getName(), name))
+                return e;
+        }
+        return null;
     }
 
     public FatEntry put(FatEntry entry) {
-        FatKey key = new FatKey(entry.getName());
-        if (table.containsKey(key)) {
+        if (get(entry.getName()) != null)
             throw new IllegalArgumentException("shouldn't happen");
-        }
-        table.put(key, entry);
+        entries.addElement(entry);
         return entry;
     }
 
     public FatEntry remove(FatEntry entry) {
-        FatKey key = new FatKey(entry.getName());
-
-        if (!table.containsKey(key))
-            throw new IllegalArgumentException("shouldn't happen");
-
-        return table.remove(key);
+        for (int i = 0; i < entries.size(); i++) {
+            if (entries.elementAt(i) == entry) {
+                entries.removeElementAt(i);
+                return entry;
+            }
+        }
+        throw new IllegalArgumentException("shouldn't happen");
     }
 
     public FatEntry put(String name, FatEntry entry) {
-        FatKey key = new FatKey(name);
-
-        if (table.containsKey(key))
+        if (get(name) != null)
             throw new IllegalArgumentException("shouldn't happen");
-
-        table.put(key, entry);
-
+        entries.addElement(entry);
         return entry;
     }
 
@@ -73,61 +78,6 @@ public class FatTable {
     }
 
     public int size() {
-        return table.size();
-    }
-
-    /**
-     * Print FAT table content.
-     */
-    /*public String toString() {
-        StrWriter out = null;
-        try {
-            out = new StrWriter();
-
-            Iterator<FatKey> i = table.keySet().iterator();
-
-            out.println("Entries [");
-            while (i.hasNext())
-                out.println("\t\t  " + i.next());
-            out.print("\t\t]");
-
-            return out.toString();
-        } finally {
-            out.close();
-        }
-    }*/
-
-    private class FatKey {
-        private final String key;
-
-        private FatKey(String value) {
-            this.key = value;
-        }
-
-        private String getKey() {
-            return key;
-        }
-
-        public int hashCode() {
-            return FatUtils.toIgnoreCase(key).hashCode();
-        }
-
-        public boolean equals(Object anObject) {
-            if (anObject instanceof FatKey) {
-                FatKey anotherKey = (FatKey) anObject;
-                return FatUtils.compareIgnoreCase(key, anotherKey.getKey());
-            }
-
-            if (anObject instanceof String) {
-                String anotherString = (String) anObject;
-                return FatUtils.compareIgnoreCase(key, anotherString);
-            }
-
-            return false;
-        }
-
-        public String toString() {
-            return key;
-        }
+        return entries.size();
     }
 }

@@ -60,7 +60,6 @@ public class AbstractDHCPClient extends BOOTP {
     public IPAddress processResponse(int transactionID, Memory packet, DatagramSocket socket) throws IOException {
         DHCPMessage msg = new DHCPMessage(packet);
         BOOTPFormat hdr = msg.getHeader();
-        Debug.out.println("opcode");
         if (hdr.getOpcode() != BOOTPFormat.REPLY) {
             // Not a response
             return null;//false;
@@ -100,21 +99,17 @@ public class AbstractDHCPClient extends BOOTP {
 
         switch (msg.getMessageType()) {
             case DHCPMessage.DHCPOFFER:
-                Debug.out.println("serverid");
                 byte[] serverID = msg.getOption(DHCPMessage.SERVER_IDENTIFIER_OPTION);
                 byte[] requestedIP = hdr.getYiaddr().getBytes();
-                Debug.out.println("hdr");
                 IPAddress address = hdr.getYiaddr();
                 hdr = new BOOTPFormat(
                         BOOTPFormat.REQUEST, transactionID, 0, 
                         hdr.getClientIPAddress(), hdr.getClientHwAddress(),
                         net.getUDPBuffer(500)
                 );
-                Debug.out.println("msg");
                 msg = new DHCPMessage(hdr, DHCPMessage.DHCPREQUEST);
                 msg.setOption(DHCPMessage.REQUESTED_IP_ADDRESS_OPTION, requestedIP);
                 msg.setOption(DHCPMessage.SERVER_IDENTIFIER_OPTION, serverID);
-                Debug.out.println("offer");
                 DatagramPacket packet1 = msg.toDatagramPacket();
                 packet1.setAddress(IPv4Address.BROADCAST_ADDRESS);
                 packet1.setPort(SERVER_PORT);

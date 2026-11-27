@@ -71,17 +71,36 @@ public class FatShortDirEntry extends FatDirEntry {
 
     public FatShortDirEntry(FatFileSystem fs, FatName name, int index) throws IOException {
         this(fs, new FatMarshal(LENGTH), index);
-
-        long now = System.currentTimeMillis();
-
         setNameCase(name.getShortCase());
         setAttr(new FatAttr());
         setName(name.getName());
-        setCreated(now);
-        setLastAccessed(now);
-        setLastModified(now);
+        setInitialTimestamps();
         setStartCluster(0);
         setLength(0);
+    }
+
+    /**
+     * Writes fixed FAT timestamps without using {@link System#currentTimeMillis()}.
+     * The JCore compiler cannot execute long arithmetic in domain code.
+     */
+    private void setInitialTimestamps() {
+        created = 0;
+        accessed = 0;
+        modified = 0;
+
+        lCrtTimeTenth = 0;
+        lCrtTime = 0;
+        lCrtDate = 0x0021;       // 1980-01-01
+        lLstAccDate = 0x0021;
+        lWrtTime = 0;
+        lWrtDate = 0x0021;
+
+        entry.setUInt8(13, lCrtTimeTenth);
+        entry.setUInt16(14, lCrtTime);
+        entry.setUInt16(16, lCrtDate);
+        entry.setUInt16(18, lLstAccDate);
+        entry.setUInt16(22, lWrtTime);
+        entry.setUInt16(24, lWrtDate);
     }
 
     protected void decodeName() {
@@ -271,7 +290,10 @@ ext = extName.trim();
     }
 
     private void encodeLength() {
-        if (length < 0L || length > 0xFFFFFFFFL)
+        // The JCore compiler does not support long constants/arithmetic in
+        // domain code.  length is an int, so only the negative bound is
+        // representable here; FAT's 32-bit upper bound cannot be exceeded.
+        if (length < 0)
             throw new IllegalArgumentException("length is invalid: " + length);
 
         lFileSize = length;

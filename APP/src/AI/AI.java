@@ -5,9 +5,9 @@ import jx.devices.pci.PCIAccess;
 import jx.devices.pci.PCICodes;
 import jx.devices.pci.PCIDevice;
 import jx.netmanager.NetInit;
+
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
-
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
 import jx.zero.debug.DebugOutputStream;
@@ -16,6 +16,7 @@ import jx.zero.debug.DebugPrintStream;
 import org.jnode.driver.block.usb.storage.scsi.USBStorageMount;
 import org.jnode.driver.bus.usb.USBHubMonitor;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
+import test.fs.LargeFileTest;
 
 import test.net.WebServer;
 
@@ -31,8 +32,7 @@ public final class AI
     private final AIIO IO;
     private final AILogic log;
     private final Thread logThread;
-    private final ArrayList<USBHubMonitor> monitors = new ArrayList();
-    
+
     /**
      * Constructor for objects of class AI
      * @param naming
@@ -42,6 +42,8 @@ public final class AI
         Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
+        logThread = new Thread(log, "logic");
+        
         NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
@@ -52,19 +54,8 @@ public final class AI
                 USBHubMonitor monitor = new USBHubMonitor(dev, driver.getAPI(), log.getSM());
                 // Wire USB mass storage devices: on attach, mount a FatFileSystem
                 monitor.addAttachListener(new USBStorageMount());
-                monitors.add(monitor);
-            }
-        }
-
-        logThread = new Thread(log, "logic");
-        while(true){
-            for (USBHubMonitor monitor : monitors) {
-                if (monitor == null) {
-                    continue;
-                }
                 monitor.startMonitor();
             }
-            break;
         }
     }
     
@@ -97,14 +88,14 @@ public final class AI
             public void run() {
                 MediaChangeTest.main(null);
             }
-        }, "MediaChangeTest").start();
+        }, "MediaChangeTest").start();*/
         // Large file / multi-sector transfer test
         new Thread(new Runnable() {
             @Override
             public void run() {
                 LargeFileTest.main(null);
             }
-        }, "LargeFileTest").start();*/
+        }, "LargeFileTest").start();
         System.out.println("AI running...");
     }
     
