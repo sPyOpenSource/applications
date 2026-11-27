@@ -19,7 +19,7 @@ import jx.zero.debug.DebugPrintStream;
 public final class AI
 {
     // instance variables
-    private final AIMemory hci  = new AIMemory();
+    private final AIMemory hci  = new AIMemory(null);
     private final AILogic logic = new AILogic(hci);
     
     public void start()
@@ -41,7 +41,7 @@ public final class AI
     
     public static void main(String[] args){
         try {
-            jx.init.Main.main(new String[] {"boot.rc"});
+            //jx.init.Main.main(new String[] {"boot.rc"});
             POST post = new POST(Init.naming);
             post.test();
             //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});

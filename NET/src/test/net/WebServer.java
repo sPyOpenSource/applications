@@ -32,7 +32,7 @@ public class WebServer {
 	boolean opt_threads = true;
 	String fsname = "USBFS";
 	boolean opt_use_fs = true;
-	boolean opt_dummyfiles = true;
+	boolean opt_dummyfiles = false;
 
 	int argc;
         OUTER:
@@ -120,6 +120,7 @@ public class WebServer {
                     TCPWebWorker.processRequest(sock, fs);
                 } catch(Exception e) {
                     Debug.out.println("WebServer: worker thread failed: " + e.getMessage());
+                    e.printStackTrace();
                 }
             }
         }.start();
