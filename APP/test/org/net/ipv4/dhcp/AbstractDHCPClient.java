@@ -115,7 +115,7 @@ public class AbstractDHCPClient extends BOOTP {
                 msg.setOption(DHCPMessage.SERVER_IDENTIFIER_OPTION, serverID);
                 Debug.out.println("offer");
                 DatagramPacket packet1 = msg.toDatagramPacket();
-                packet1.setAddress(IPv4Address.BROADCAST_ADDRESS);
+                packet1.setAddress(IPv4Address.getBroadcastAddress());
                 packet1.setPort(SERVER_PORT);
                 socket.send(packet1);
                 return address;
